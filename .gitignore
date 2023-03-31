@@ -1,0 +1,8 @@
+node_modules
+.DS_Store
+*.local
+/.idea/
+/.vscode/
+/stats.html
+*.iml
+/package-lock.json
