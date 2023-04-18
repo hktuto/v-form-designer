@@ -35,7 +35,8 @@ const langResources = {
 
 const i18n = createI18n({
   locale: localStorage.getItem('v_form_locale') || 'en-US',
-  messages: langResources
+  messages: langResources,
+  legacy: false,
 })
 
 export const changeLocale = function(langName) {

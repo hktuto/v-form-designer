@@ -287,6 +287,7 @@
       addFieldValidateEventHandler() {
         this.off$('fieldValidation')  //移除原有事件监听
         this.on$('fieldValidation', (fieldName) => {
+          console.log(this.$refs.renderForm)
           this.$refs.renderForm.validateField(fieldName)
         })
       },
