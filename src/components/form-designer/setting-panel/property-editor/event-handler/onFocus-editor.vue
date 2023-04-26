@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onFocus" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onFocus</div>
+      <div :class="{'redPoint': optionModel.onFocus}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onFocus', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

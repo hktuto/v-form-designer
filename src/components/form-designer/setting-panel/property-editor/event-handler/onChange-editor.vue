@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onChange" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onChange</div>
+      <div :class="{'redPoint': optionModel.onChange}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onChange', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onBeforeUpload" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onBeforeUpload</div>
+      <div :class="{'redPoint': optionModel.onBeforeUpload}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onBeforeUpload', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

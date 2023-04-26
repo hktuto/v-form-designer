@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onUploadSuccess" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onUploadSuccess</div>
+      <div :class="{'redPoint': optionModel.onUploadSuccess}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onUploadSuccess', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

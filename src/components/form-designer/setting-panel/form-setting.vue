@@ -56,16 +56,28 @@
         </el-collapse-item>
 
         <el-collapse-item v-if="showEventCollapse()" name="2" :title="$t('designer.setting.eventSetting')">
-          <el-form-item label="onFormCreated" label-width="150px">
+          <el-form-item label-width="150px">
+            <template #label>
+              <div>onFormCreated</div>
+              <div :class="{'redPoint': formConfig.onFormCreated}"></div>
+            </template>
             <el-button type="info" icon="el-icon-edit" plain round @click="editFormEventHandler('onFormCreated')">
               {{$t('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>
           <el-form-item label="onFormMounted" label-width="150px">
+            <template #label>
+              <div>onFormMounted</div>
+              <div :class="{'redPoint': formConfig.onFormMounted}"></div>
+            </template>
             <el-button type="info" icon="el-icon-edit" plain round @click="editFormEventHandler('onFormMounted')">
               {{$t('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>
           <!-- -->
-          <el-form-item label="onFormDataChange" label-width="150px">
+          <el-form-item label-width="150px">
+            <template #label>
+              <div>onFormDataChange</div>
+              <div :class="{'redPoint': formConfig.onFormDataChange}"></div>
+            </template>
             <el-button type="info" icon="el-icon-edit" plain round @click="editFormEventHandler('onFormDataChange')">
               {{$t('designer.setting.addEventHandler')}}</el-button>
           </el-form-item>

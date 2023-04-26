@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onInput" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onInput</div>
+      <div :class="{'redPoint': optionModel.onInput}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onInput', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>
