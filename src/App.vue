@@ -2,6 +2,15 @@
   <el-config-provider :locale="elLocale">
   <div id="app">
     <VFormDesigner ref="vfDesignerRef" :global-dsv="globalDsv"
+    :fieldListApi="{
+      data: [
+        {label: 'aaa', name: 'sss44'},
+        {label: 'aaa1', name: 'ss44s'},
+        {label: 'aaa2', name: 'ss55s'},
+        {label: 'aa3', name: 'sss'},
+        {label: 'aa44', name: 's444ss'}
+      ]
+    }"
     @file-preview="filePreview">
       <!--
       <template #customToolButtons>

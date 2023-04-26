@@ -253,22 +253,20 @@
         if (!this.fieldListApi) {
           return
         }
-
-        let headers = this.fieldListApi.headers || {}
-        axios.get(this.fieldListApi.URL, {'headers': headers}).then(res => {
+        try {
           let labelKey = this.fieldListApi.labelKey || 'label'
           let nameKey = this.fieldListApi.nameKey || 'name'
 
           this.fieldList.splice(0, this.fieldList.length)  //清空已有
-          res.data.forEach(fieldItem => {
+          this.fieldListApi.data.forEach(fieldItem => {
             this.fieldList.push({
               label: fieldItem[labelKey],
               name: fieldItem[nameKey]
             })
           })
-        }).catch(error => {
+        } catch (error) {
           this.$message.error(error)
-        })
+        }
       },
 
       handleLanguageChanged(command) {
