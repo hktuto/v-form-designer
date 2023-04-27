@@ -1,10 +1,10 @@
 <template>
   <el-form-item label-width="150px">
     <template #label>
-      <div>onInput</div>
-      <div :class="{'redPoint': optionModel.onInput}"></div>
+      <div>onQuerySearchAsync</div>
+      <div :class="{'redPoint': optionModel.onQuerySearchAsync}"></div>
     </template>
-    <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onInput', eventParams)">
+    <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onQuerySearchAsync', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>
 </template>
@@ -14,7 +14,7 @@
   import eventMixin from "@/components/form-designer/setting-panel/property-editor/event-handler/eventMixin"
 
   export default {
-    name: "onInput-editor",
+    name: "onQuerySearchAsync-editor",
     mixins: [i18n, eventMixin],
     props: {
       designer: Object,
@@ -23,7 +23,7 @@
     },
     data() {
       return {
-        eventParams: ['value'],
+        eventParams: ['queryString', 'cb'],
       }
     }
   }

@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onAppendButtonClick" label-width="150px">
+  <el-form-item  label-width="150px">
+    <template #label>
+      <div>onAppendButtonClick</div>
+      <div :class="{'redPoint': optionModel.onAppendButtonClick}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onAppendButtonClick', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

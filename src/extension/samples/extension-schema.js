@@ -80,3 +80,50 @@ export const selectGroupSchema = {
     onValidate: '',
   }
 }
+
+export const autoCompleteSchema = {
+  type: 'auto-complete',
+  icon: 'autocomplete',
+  formItemFlag: true,
+  options: {
+    name: '',
+    label: '',
+    labelZh: '',
+    labelAlign: '',
+    type: 'text',
+    defaultValue: '',
+    placeholder: '',
+    columnWidth: '200px',
+    size: '',
+    labelWidth: null,
+    labelHidden: false,
+    readonly: false,
+    disabled: false,
+    hidden: false,
+    clearable: true,
+    showPassword: false,
+    required: false,
+    requiredHint: '',
+    validation: '',
+    validationHint: '',
+    optionItems: [],
+    //-------------------
+    customClass: '',  //自定义css类名
+    labelIconClass: null,
+    labelIconPosition: 'rear',
+    labelTooltip: null,
+    minLength: null,
+    maxLength: null,
+    showWordLimit: false,
+    prefixIcon: '',
+    suffixIcon: '',
+    appendButton: false,
+    appendButtonDisabled: false,
+    buttonIcon: 'el-icon-search',
+    //-------------------
+    onMounted: '',
+    onChange: '',
+    onQuerySearchAsync: '',
+    onInput: ''
+  },
+}

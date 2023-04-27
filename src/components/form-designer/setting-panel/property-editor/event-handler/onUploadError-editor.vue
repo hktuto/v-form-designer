@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onUploadError" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onUploadError</div>
+      <div :class="{'redPoint': optionModel.onUploadError}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onUploadError', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

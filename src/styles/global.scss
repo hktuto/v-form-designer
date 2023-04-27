@@ -8,7 +8,18 @@ $--color-primary: #409EFF;
 .background-opacity {
   background: rgba(64, 158, 255, 0.6);
 }
-
+.redPoint {
+  width: 0.5rem;
+  height: 0.5rem;
+  background-color: red;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 0px;
+}
+.el-form-item__label {
+  position: relative;
+}
 .form-widget-list {
 
   .ghost{

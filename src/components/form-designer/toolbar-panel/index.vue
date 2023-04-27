@@ -751,6 +751,7 @@
       width: 600px;
       display: flex;
       align-items: center;
+      justify-content: flex-end;
       overflow-x: auto;
       line-height: 42px;
       height: 42px;

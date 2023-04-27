@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onBlur" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onBlur</div>
+      <div :class="{'redPoint': optionModel.onBlur}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onBlur', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

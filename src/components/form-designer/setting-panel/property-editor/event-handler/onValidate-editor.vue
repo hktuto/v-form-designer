@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onValidate" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onValidate</div>
+      <div :class="{'redPoint': optionModel.onValidate}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onValidate', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

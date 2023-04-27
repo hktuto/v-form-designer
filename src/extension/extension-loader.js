@@ -22,10 +22,27 @@ import AlertWidget from '@/extension/samples/alert/alert-widget'
 import {registerFWGenerator} from '@/utils/sfc-generator'
 import {alertTemplateGenerator} from '@/extension/samples/extension-sfc-generator'
 
+import {autoCompleteSchema} from "@/extension/samples/extension-schema"
+import AutoCompleteWidget from '@/extension/samples/autoComplete/auto-complete-widget'
+import {autoCompleteTemplateGenerator} from '@/extension/samples/extension-sfc-generator'
 export const loadExtension = function (app) {
     loadCard(app)
     loadAlertWidget(app)
     loadSelectGroupWidget(app)
+    loadAutoCompleteWidget(app)
+}
+const loadAutoCompleteWidget = (app) => {
+    /**
+   * 加载字段组件步骤：
+   * 1. 加载组件Json Schema;
+   * 2. 全局注册字段组件，字段组件设计期和运行期共用，故需要仅需注册一个组件；
+   * 3. 全局注册属性编辑器组件（基本属性、高级属性、事件属性）；
+   * 4. 注册字段组件的代码生成器；
+   * 5. 加载完毕。
+   */
+    addCustomWidgetSchema(autoCompleteSchema)  //加载组件Json Schema
+    app.component(AutoCompleteWidget.name, AutoCompleteWidget)  //注册组件
+    registerFWGenerator('autoComplete', autoCompleteTemplateGenerator)  //注册字段组件的代码生成器
 }
 const loadSelectGroupWidget = (app) => {
     /**

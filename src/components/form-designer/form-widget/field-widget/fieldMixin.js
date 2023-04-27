@@ -410,6 +410,12 @@ export default {
         remoteFn.call(this, keyword)
       }
     },
+    querySearchAsync(queryString, cb) {
+      if (!!this.field.options.onQuerySearchAsync) {
+        let remoteFn = new Function('queryString','cb', this.field.options.onQuerySearchAsync)
+        remoteFn.call(this, queryString, cb)
+      }
+    },
 
     //--------------------- 事件处理 end ------------------//
 

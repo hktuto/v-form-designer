@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onCreated" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onCreated</div>
+      <div :class="{'redPoint': optionModel.onCreated}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onCreated', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

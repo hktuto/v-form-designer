@@ -1,8 +1,6 @@
 <template>
-  <el-container class="panel-container">
-    <el-tabs v-model="activeTab" style="height: 100%; overflow: hidden">
+    <el-tabs v-model="activeTab">
       <el-tab-pane :label="$t('designer.hint.widgetSetting')" name="1">
-        <el-scrollbar class="setting-scrollbar" :style="{height: scrollerHeight}">
 
           <template v-if="!!designer.selectedWidget && !designer.selectedWidget.category">
             <el-form :model="optionModel" size="small" label-position="left" label-width="120px" class="setting-form"
@@ -61,35 +59,29 @@
             </el-form>
           </template>
 
-        </el-scrollbar>
       </el-tab-pane>
 
       <el-tab-pane v-if="!!designer" :label="$t('designer.hint.formSetting')" name="2">
-        <el-scrollbar class="setting-scrollbar" :style="{height: scrollerHeight}">
           <form-setting :designer="designer" :form-config="formConfig"></form-setting>
-        </el-scrollbar>
       </el-tab-pane>
-    </el-tabs>
-
-    <div v-if="showWidgetEventDialogFlag" class="" v-drag="['.drag-dialog.el-dialog', '.drag-dialog .el-dialog__header']">
-      <el-dialog :title="$t('designer.setting.editWidgetEventHandler')" v-model="showWidgetEventDialogFlag"
-                 :show-close="true" class="drag-dialog small-padding-dialog" append-to-body
-                 :close-on-click-modal="false" :close-on-press-escape="false" :destroy-on-close="true">
-        <el-alert type="info" :closable="false" :title="eventHeader"></el-alert>
-        <code-editor :mode="'javascript'" :readonly="false" v-model="eventHandlerCode" ref="ecEditor"></code-editor>
-        <el-alert type="info" :closable="false" title="}"></el-alert>
-        <template #footer>
-          <div class="dialog-footer">
-            <el-button @click="showWidgetEventDialogFlag = false">
-              {{$t('designer.hint.cancel')}}</el-button>
-            <el-button type="primary" @click="saveEventHandler">
-              {{$t('designer.hint.confirm')}}</el-button>
+          <div v-if="showWidgetEventDialogFlag" class="" v-drag="['.drag-dialog.el-dialog', '.drag-dialog .el-dialog__header']">
+            <el-dialog :title="$t('designer.setting.editWidgetEventHandler')" v-model="showWidgetEventDialogFlag"
+                      :show-close="true" class="drag-dialog small-padding-dialog" append-to-body
+                      :close-on-click-modal="false" :close-on-press-escape="false" :destroy-on-close="true">
+              <el-alert type="info" :closable="false" :title="eventHeader"></el-alert>
+              <code-editor :mode="'javascript'" :readonly="false" v-model="eventHandlerCode" ref="ecEditor"></code-editor>
+              <el-alert type="info" :closable="false" title="}"></el-alert>
+              <template #footer>
+                <div class="dialog-footer">
+                  <el-button @click="showWidgetEventDialogFlag = false">
+                    {{$t('designer.hint.cancel')}}</el-button>
+                  <el-button type="primary" @click="saveEventHandler">
+                    {{$t('designer.hint.confirm')}}</el-button>
+                </div>
+              </template>
+            </el-dialog>
           </div>
-        </template>
-      </el-dialog>
-    </div>
-
-  </el-container>
+    </el-tabs>
 </template>
 
 <script>

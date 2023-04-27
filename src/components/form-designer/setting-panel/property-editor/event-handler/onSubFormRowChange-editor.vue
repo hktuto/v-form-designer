@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onSubFormRowChange" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onSubFormRowChange</div>
+      <div :class="{'redPoint': optionModel.onSubFormRowChange}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onSubFormRowChange', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>

@@ -124,6 +124,7 @@ const EVENT_PROPERTIES = {
   'onFileRemove'      :            'onFileRemove-editor',
   'onValidate'        :            'onValidate-editor',
   'onAppendButtonClick':           'onAppendButtonClick-editor',
+  'onQuerySearchAsync':            'onQuerySearchAsync-editor',
 
   //容器
   'onSubFormRowAdd'   :            'onSubFormRowAdd-editor',

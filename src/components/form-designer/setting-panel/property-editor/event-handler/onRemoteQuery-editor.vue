@@ -1,5 +1,9 @@
 <template>
-  <el-form-item label="onRemoteQuery" label-width="150px">
+  <el-form-item label-width="150px">
+    <template #label>
+      <div>onRemoteQuery</div>
+      <div :class="{'redPoint': optionModel.onRemoteQuery}"></div>
+    </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="editEventHandler('onRemoteQuery', eventParams)">
       {{$t('designer.setting.addEventHandler')}}</el-button>
   </el-form-item>
