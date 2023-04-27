@@ -9,8 +9,8 @@
 -->
 
 <template>
-  <el-container class="main-container full-height">
-    <el-header class="main-header">
+  <div class="main-container">
+    <div class="main-header">
       <div class="float-left main-title">
         <img src="../../assets/vform-logo.png" @click="openHome">
         <span class="bold">VForm 3</span> {{$t('application.productTitle')}} <span class="version-span">Ver {{vFormVersion}}</span></div>
@@ -30,14 +30,12 @@
         <a v-if="showLink('externalLink')" href="javascript:void(0)" @click="(ev) => openUrl(ev, subScribeUrl)" target="_blank">
           {{$t('application.subscription')}}<i class="el-icon-top-right"></i></a>
       </div>
-    </el-header>
+    </div>
 
-    <el-container>
-      <el-aside class="side-panel">
-        <widget-panel :designer="designer" />
-      </el-aside>
+    <div class="v-form-container">
+      <widget-panel class="v-form-panel" :designer="designer" />
 
-      <el-container class="center-layout-container">
+      <div class="center-layout-container">
         <el-header class="toolbar-header">
           <toolbar-panel :designer="designer" :global-dsv="globalDsv" ref="toolbarRef">
             <template v-for="(idx, slotName) in $slots" #[slotName]>
@@ -45,21 +43,17 @@
             </template>
           </toolbar-panel>
         </el-header>
-        <el-main class="form-widget-main">
-          <el-scrollbar class="container-scroll-bar" :style="{height: scrollerHeight}">
-            <v-form-widget :designer="designer" :form-config="designer.formConfig" :global-dsv="globalDsv" ref="formRef">
-            </v-form-widget>
-          </el-scrollbar>
-        </el-main>
-      </el-container>
+        <v-form-widget :designer="designer" :form-config="designer.formConfig" :global-dsv="globalDsv" ref="formRef">
+        </v-form-widget>
+      </div>
 
       <el-aside>
         <setting-panel :designer="designer" :selected-widget="designer.selectedWidget"
                        :form-config="designer.formConfig" :global-dsv="globalDsv" @edit-event-handler="testEEH" />
       </el-aside>
-    </el-container>
+    </div>
 
-  </el-container>
+  </div>
 </template>
 
 <script>
@@ -400,27 +394,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .el-container.main-container {
-    background: #fff;
-
-    :deep(aside) {  /* 防止aside样式被外部样式覆盖！！ */
-      margin: 0;
-      padding: 0;
-      background: inherit;
-    }
-  }
-
-  .el-container.full-height {
-    height: 100%;
-    overflow-y: hidden;
-  }
-
-  .el-container.center-layout-container {
-    min-width: 680px;
-    border-left: 2px dotted #EBEEF5;
-    border-right: 2px dotted #EBEEF5;
-  }
-
   .el-header.main-header {
     border-bottom: 2px dotted #EBEEF5;
     height: 48px !important;
@@ -486,21 +459,51 @@
     //line-height: 42px !important;
   }
 
-  .el-aside.side-panel {
-    width: 260px !important;
-    overflow-y: hidden;
-  }
-
-  .el-main.form-widget-main {
-    padding: 0;
-
-    position: relative;
-    overflow-x: hidden;
-  }
-
-  .container-scroll-bar {
-    :deep(.el-scrollbar__wrap), :deep(.el-scrollbar__view) {
-      overflow-x: hidden;
+  .main-container {
+    height: 100%;
+    overflow: hidden;
+    display: grid;
+    grid-template-rows: min-content 1fr;
+    .main-header {
+      height: 0;
+      overflow: hidden;
+    }
+    .v-form-container {
+      display: grid;
+      grid-template-columns: min-content 1fr min-content;
+      overflow: hidden;
+      .v-form-panel {
+        height: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
+        width: var(--el-aside-width, 260px);
+        display: grid;
+        flex-shrink: 0;
+        grid-template-rows: min-content 1fr;
+        :deep(.el-tabs__header) {
+          overflow: hidden;
+        }
+        :deep(.el-tabs__content) {
+          overflow: auto;
+        }
+      }
+      .center-layout-container {
+        display: grid;
+        grid-template-rows: min-content 1fr;
+        min-width: 680px;
+        border-left: 2px dotted #EBEEF5;
+        border-right: 2px dotted #EBEEF5;
+        height: 100%;
+        overflow: hidden;
+        .form-widget-container {
+          height: unset;
+          overflow: hidden;
+          overflow-y: hidden;
+          :deep(.el-form) {
+            overflow: auto;
+          }
+        }
+      }
     }
   }
 </style>

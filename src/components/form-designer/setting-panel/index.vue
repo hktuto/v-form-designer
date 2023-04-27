@@ -1,8 +1,7 @@
 <template>
-  <el-container class="panel-container">
+  <div class="panel-container">
     <el-tabs v-model="activeTab" style="height: 100%; overflow: hidden">
       <el-tab-pane :label="$t('designer.hint.widgetSetting')" name="1">
-        <el-scrollbar class="setting-scrollbar" :style="{height: scrollerHeight}">
 
           <template v-if="!!designer.selectedWidget && !designer.selectedWidget.category">
             <el-form :model="optionModel" size="small" label-position="left" label-width="120px" class="setting-form"
@@ -61,13 +60,10 @@
             </el-form>
           </template>
 
-        </el-scrollbar>
       </el-tab-pane>
 
       <el-tab-pane v-if="!!designer" :label="$t('designer.hint.formSetting')" name="2">
-        <el-scrollbar class="setting-scrollbar" :style="{height: scrollerHeight}">
           <form-setting :designer="designer" :form-config="formConfig"></form-setting>
-        </el-scrollbar>
       </el-tab-pane>
     </el-tabs>
 
@@ -89,7 +85,7 @@
       </el-dialog>
     </div>
 
-  </el-container>
+  </div>
 </template>
 
 <script>
