@@ -1,5 +1,5 @@
 <template>
-  <el-tabs v-model="firstTab" class="no-bottom-margin indent-left-margin">
+  <el-tabs v-model="firstTab">
     <el-tab-pane name="componentLib">
       <template #label>
         <span><svg-icon icon-class="el-set-up" /> {{$t('designer.componentLib')}}</span>

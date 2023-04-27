@@ -4,6 +4,7 @@ export default {
       card: 'Card',
       alert: 'Alert',
       'select-group': 'Select Group',
+      'auto-complete': 'Auto Complete',
     },
 
     setting: {

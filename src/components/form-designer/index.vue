@@ -33,7 +33,7 @@
     </div>
 
     <div class="v-form-container">
-      <widget-panel class="v-form-panel" :designer="designer" />
+      <widget-panel class="v-form-panel" :designer="designer" style="--el-aside-width: 275px"/>
 
       <div class="center-layout-container">
         <el-header class="toolbar-header">
@@ -47,10 +47,8 @@
         </v-form-widget>
       </div>
 
-      <el-aside>
-        <setting-panel :designer="designer" :selected-widget="designer.selectedWidget"
+      <setting-panel class="v-form-panel" :designer="designer" :selected-widget="designer.selectedWidget"
                        :form-config="designer.formConfig" :global-dsv="globalDsv" @edit-event-handler="testEEH" />
-      </el-aside>
     </div>
 
   </div>
@@ -473,10 +471,11 @@
       grid-template-columns: min-content 1fr min-content;
       overflow: hidden;
       .v-form-panel {
+        padding: 10px;
         height: 100%;
         overflow: hidden;
         box-sizing: border-box;
-        width: var(--el-aside-width, 260px);
+        width: var(--el-aside-width, 300px);
         display: grid;
         flex-shrink: 0;
         grid-template-rows: min-content 1fr;

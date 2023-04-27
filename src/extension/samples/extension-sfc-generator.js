@@ -53,4 +53,7 @@ export const alertTemplateGenerator = function(fw, formConfig) {
 export const selectGroupGenerator= function(fw, formConfig) {
   return ''
 }
+export const autoCompleteTemplateGenerator= function(fw, formConfig) {
+  return ''
+}
 

@@ -4,6 +4,7 @@ export default {
       card: '卡片',
       alert: '提示',
       'select-group': '分组选项',
+      'auto-complete': '自动填充',
     },
 
     setting: {
