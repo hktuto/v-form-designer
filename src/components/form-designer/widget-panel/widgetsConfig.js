@@ -678,7 +678,16 @@ export const basicFields = [
       onMounted: '',
     },
   },
-
+  {
+    type: 'slot',
+    icon: 'slot-field',
+    formItemFlag: false,
+    options: {
+      name: '',
+      label: '',
+      hidden: false,
+    },
+  },
   {
     type: 'html-text',
     icon: 'html-text',
