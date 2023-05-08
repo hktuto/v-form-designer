@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="height: 100%">
     <el-form :model="formConfig" size="small" label-position="left" label-width="120px"
              class="setting-form" @submit.prevent>
       <el-collapse v-model="formActiveCollapseNames" class="setting-collapse">
@@ -335,6 +335,8 @@
 
 <style lang="scss" scoped>
   .setting-form {
+    overflow: hidden;
+    height: 100%;
     :deep(.el-form-item__label) {
       font-size: 13px;
       //text-overflow: ellipsis;
@@ -359,6 +361,8 @@
   }
 
   .setting-collapse {
+    height: 100%;
+    overflow: auto;
     :deep(.el-collapse-item__content) {
       padding-bottom: 6px;
     }
