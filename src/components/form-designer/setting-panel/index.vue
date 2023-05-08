@@ -307,6 +307,8 @@
   }
 
   .setting-collapse {
+    height: 100%;
+    overflow: auto;
     :deep(.el-collapse-item__content) {
       padding-bottom: 6px;
     }
@@ -318,6 +320,8 @@
   }
 
   .setting-form {
+    height: 100%;
+    overflow: hidden;
     :deep(.el-form-item__label) {
       font-size: 13px;
       //text-overflow: ellipsis;
