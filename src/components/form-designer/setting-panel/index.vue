@@ -263,11 +263,14 @@
         this.eventHeader = `${this.optionModel.name}.${eventName}(${eventParams.join(', ')}) {`
         this.eventHandlerCode = this.selectedWidget.options[eventName] || ''
 
+        const onValidateDefault = "  /* sample code */\n  /*\n  if ((value > 100) || (value < 0)) {\n    callback(new Error('error message'))  //fail\n  } else {\n    callback();  //pass\n  }\n  */"
+        const lazyLoadDefault = "const { level } = node\nlet id = 0\n    setTimeout(() => {\n      console.log(level, 'level')\n      console.log(node, 'node')\n      const nodes = Array.from({ length: level + 1 }).map((item) => ({\n        value: ++id,\n        label: `Option - ${id}`,\n        leaf: level >= 2,\n      }))\n       console.log(nodes, 'nodes')\n      // Invoke `resolve` callback to return the child nodes data and indicate the loading is finished.\n      resolve(nodes)\n    }, 500)"
         // 设置字段校验函数示例代码
         if ((eventName === 'onValidate') && (!this.optionModel['onValidate'])) {
-          this.eventHandlerCode = "  /* sample code */\n  /*\n  if ((value > 100) || (value < 0)) {\n    callback(new Error('error message'))  //fail\n  } else {\n    callback();  //pass\n  }\n  */"
+          this.eventHandlerCode = onValidateDefault
+        } else if((eventName === 'onLazyLoad') && (!this.optionModel['onLazyLoad'])) {
+          this.eventHandlerCode = lazyLoadDefault
         }
-
         this.showWidgetEventDialogFlag = true
       },
 
@@ -312,11 +315,16 @@
     :deep(.el-collapse-item__content) {
       padding-bottom: 6px;
     }
-
     :deep(.el-collapse-item__header) {
       font-style: italic;
       font-weight: bold;
     }
+    // :deep(.el-form-item__label span), :deep(.el-form-item__label) {
+    //   display: block;
+    //   text-overflow: ellipsis;
+    //   white-space: nowrap;
+    //   overflow: hidden;
+    // }
   }
 
   .setting-form {

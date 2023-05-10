@@ -10,7 +10,9 @@
                    :filterable="field.options.filterable"
                    :placeholder="field.options.placeholder || $t('render.hint.selectPlaceholder')"
                    :show-all-levels="showFullPath"
-                   :props="{ checkStrictly: field.options.checkStrictly, multiple: field.options.multiple, expandTrigger: 'hover' }"
+                   :props="{ checkStrictly: field.options.checkStrictly, multiple: field.options.multiple, expandTrigger: 'hover',
+                      lazy: field.options.lazy,
+                      lazyLoad }"
                    @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                    @change="handleChangeEvent">
       </el-cascader>

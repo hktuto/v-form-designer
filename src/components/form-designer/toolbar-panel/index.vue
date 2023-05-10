@@ -748,13 +748,12 @@
 
     .right-toolbar-con {
       text-align: left;
-      width: 600px;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      overflow-x: auto;
+      width: 100%;
       line-height: 42px;
       height: 42px;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
     }
 
     :deep(.el-button) {
