@@ -495,6 +495,7 @@
         height: 100%;
         overflow: hidden;
         .form-widget-container {
+          position: relative;
           height: unset;
           overflow: hidden;
           overflow-y: hidden;
