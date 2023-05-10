@@ -1,0 +1,77 @@
+Arguments: 
+  /home/oy_ou/work/nvm-0.38.0/versions/node/v16.18.0/bin/node /usr/local/bin/yarn install
+
+PATH: 
+  /home/oy_ou/work/nvm-0.38.0/versions/node/v16.18.0/bin:/home/oy_ou/.cargo/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin
+
+Yarn version: 
+  1.22.17
+
+Node version: 
+  16.18.0
+
+Platform: 
+  linux x64
+
+Trace: 
+  SyntaxError: /home/oy_ou/work/v-form-designer/package.json: Unexpected token } in JSON at position 1151
+      at JSON.parse (<anonymous>)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:1625:59
+      at Generator.next (<anonymous>)
+      at step (/usr/local/lib/node_modules/yarn/lib/cli.js:310:30)
+      at /usr/local/lib/node_modules/yarn/lib/cli.js:321:13
+
+npm manifest: 
+  {
+    "name": "v-form",
+    "version": "3.0.10",
+    "private": false,
+    "main": "dist/designer.umd.js",
+    "files": [
+      "dist"
+    ],
+    "scripts": {
+      "dev": "vite",
+      "build": "vite build --config vite-lib.config.js && vite build --config vite-lib-render.config.js",
+      "lib": "vite build --config vite-lib.config.js",
+      "lib-render": "vite build --config vite-lib-render.config.js",
+      "preview": "vite preview"
+    },
+    "dependencies": {
+      "@element-plus/icons-vue": "^0.2.4",
+      "axios": "^0.24.0",
+      "clipboard": "^2.0.8",
+      "core-js": "^3.6.5",
+      "element-plus": "^2.2.22",
+      "file-saver": "^2.0.5",
+      "mitt": "^3.0.0",
+      "sortablejs": "1.14.0",
+      "vue": "^3.2.32",
+      "vue3-quill": "^0.2.6"
+    },
+    "devDependencies": {
+      "@rollup/plugin-commonjs": "^21.0.1",
+      "@types/node": "^17.0.0",
+      "@vitejs/plugin-vue": "^2.0.0",
+      "@vitejs/plugin-vue-jsx": "^1.3.3",
+      "ace-builds": "^1.4.12",
+      "babel-eslint": "^10.1.0",
+      "mvdir": "^1.0.21",
+      "rollup-plugin-external-globals": "^0.6.1",
+      "rollup-plugin-visualizer": "^5.5.2",
+      "sass": "^1.45.0",
+      "vite": "2.7.3",
+      "vite-plugin-svg-icons": "^1.0.5",
+    },
+    "browserslist": [
+      "> 1%",
+      "last 2 versions",
+      "not dead"
+    ]
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

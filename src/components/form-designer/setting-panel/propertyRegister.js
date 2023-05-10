@@ -44,6 +44,7 @@ const COMMON_PROPERTIES = {
   'checkStrictly'     :            'checkStrictly-editor',
   'showAllLevels'     :            'showAllLevels-editor',
   'multiple'          :            'multiple-editor',
+  'lazy'              :            'lazy-editor',
   'multipleLimit'     :            'multipleLimit-editor',
   'contentPosition'   :            'contentPosition-editor',
   'optionItems'       :            'optionItems-editor',
@@ -125,6 +126,7 @@ const EVENT_PROPERTIES = {
   'onValidate'        :            'onValidate-editor',
   'onAppendButtonClick':           'onAppendButtonClick-editor',
   'onQuerySearchAsync':            'onQuerySearchAsync-editor',
+  'onLazyLoad'        :            'onLazyLoad-editor',
 
   //容器
   'onSubFormRowAdd'   :            'onSubFormRowAdd-editor',

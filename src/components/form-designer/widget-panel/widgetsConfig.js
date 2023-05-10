@@ -1,4 +1,3 @@
-
 export const containers = [
   {
     type: 'grid',
@@ -889,6 +888,7 @@ export const advancedFields = [
       defaultValue: '',
       placeholder: '',
       size: '',
+      lazy: false,
       labelWidth: null,
       labelHidden: false,
       columnWidth: '200px',
@@ -899,11 +899,7 @@ export const advancedFields = [
       multiple: false,
       checkStrictly: false,  //可选择任意一级选项，默认不开启
       showAllLevels: true,  //显示完整路径
-      optionItems: [
-        {label: 'select 1', value: 1, children: [{label: 'child 1', value: 11}]},
-        {label: 'select 2', value: 2},
-        {label: 'select 3', value: 3},
-      ],
+      optionItems: [],
       required: false,
       requiredHint: '',
       customRule: '',
@@ -920,6 +916,7 @@ export const advancedFields = [
       onFocus: '',
       onBlur: '',
       onValidate: '',
+      onLazyLoad: ''
     },
   },
 

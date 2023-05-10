@@ -21,7 +21,7 @@ if (typeof window !== 'undefined') {
 }
 const vfApp = createApp(App)
 
-// vfApp.config.globalProperties.$t = (key) => (key)
+vfApp.config.globalProperties.$t = (key) => (key)
 
 vfApp.use(ElementPlus)
 registerIcon(vfApp)
