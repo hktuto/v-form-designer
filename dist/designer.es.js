@@ -17,7 +17,7 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-import require$$0$1, { reactive, openBlock, createElementBlock, normalizeClass, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, createBlock, normalizeStyle, withCtx, createVNode, createTextVNode, Fragment, renderList, renderSlot, withModifiers, pushScopeId, popScopeId, createSlots, watch, ref, onBeforeUnmount, onMounted, onUnmounted, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, resolveDirective, defineComponent, isVNode } from "vue";
+import require$$0$1, { reactive, openBlock, createElementBlock, normalizeClass, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, createBlock, withCtx, createVNode, createTextVNode, Fragment, renderList, renderSlot, normalizeStyle, withModifiers, pushScopeId, popScopeId, createSlots, watch, ref, onBeforeUnmount, onMounted, onUnmounted, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, resolveDirective, defineComponent, isVNode } from "vue";
 const containers = [
   {
     type: "grid",
@@ -642,6 +642,16 @@ const basicFields = [
       customClass: "",
       onCreated: "",
       onMounted: ""
+    }
+  },
+  {
+    type: "slot",
+    icon: "slot-field",
+    formItemFlag: false,
+    options: {
+      name: "",
+      label: "",
+      hidden: false
     }
   },
   {
@@ -1898,6 +1908,12 @@ var en = {};
         pagesize: "/page",
         total: "Total {total}",
         pageClassifier: "",
+        page: "Page",
+        prev: "Go to previous page",
+        next: "Go to next page",
+        currentPage: "page {pager}",
+        prevPages: "Previous {pager} pages",
+        nextPages: "Next {pager} pages",
         deprecationWarning: "Deprecated usages detected, please refer to the el-pagination documentation for more details"
       },
       dialog: {
@@ -2037,6 +2053,12 @@ var zhCn = {};
         pagesize: "\u6761/\u9875",
         total: "\u5171 {total} \u6761",
         pageClassifier: "\u9875",
+        page: "\u9875",
+        prev: "\u4E0A\u4E00\u9875",
+        next: "\u4E0B\u4E00\u9875",
+        currentPage: "\u7B2C {pager} \u9875",
+        prevPages: "\u5411\u524D {pager} \u9875",
+        nextPages: "\u5411\u540E {pager} \u9875",
         deprecationWarning: "\u4F60\u4F7F\u7528\u4E86\u4E00\u4E9B\u5DF2\u88AB\u5E9F\u5F03\u7684\u7528\u6CD5\uFF0C\u8BF7\u53C2\u8003 el-pagination \u7684\u5B98\u65B9\u6587\u6863"
       },
       messagebox: {
@@ -2773,7 +2795,8 @@ var enLocale_extension = {
     widgetLabel: {
       card: "Card",
       alert: "Alert",
-      "select-group": "Select Group"
+      "select-group": "Select Group",
+      "auto-complete": "Auto Complete"
     },
     setting: {
       cardFolded: "Folded",
@@ -2796,7 +2819,8 @@ var zhLocale_extension = {
     widgetLabel: {
       card: "\u5361\u7247",
       alert: "\u63D0\u793A",
-      "select-group": "\u5206\u7EC4\u9009\u9879"
+      "select-group": "\u5206\u7EC4\u9009\u9879",
+      "auto-complete": "\u81EA\u52A8\u586B\u5145"
     },
     setting: {
       cardFolded: "\u662F\u5426\u6536\u8D77",
@@ -3895,7 +3919,7 @@ var _export_sfc$1 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$36 = {
+const _sfc_main$38 = {
   name: "SvgIcon",
   props: {
     iconClass: {
@@ -3923,20 +3947,20 @@ const _sfc_main$36 = {
     }
   }
 };
-const _hoisted_1$F = ["xlink:href"];
+const _hoisted_1$Y = ["xlink:href"];
 const _hoisted_2$s = { key: 0 };
-function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
   }, [
-    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$F),
+    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$Y),
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$s, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$1(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-47daada2"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$1(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-47daada2"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$6 = "";
-const _sfc_main$35 = {
+const _sfc_main$37 = {
   name: "FieldPanel",
   mixins: [i18n$1],
   components: {
@@ -4064,16 +4088,15 @@ const _sfc_main$35 = {
     }
   }
 };
-const _hoisted_1$E = { class: "panel-container" };
+const _hoisted_1$X = ["title", "onDblclick"];
 const _hoisted_2$r = ["title", "onDblclick"];
 const _hoisted_3$m = ["title", "onDblclick"];
 const _hoisted_4$f = ["title", "onDblclick"];
-const _hoisted_5$d = ["title", "onDblclick"];
+const _hoisted_5$d = ["src"];
 const _hoisted_6$b = ["src"];
-const _hoisted_7$8 = ["src"];
-const _hoisted_8$6 = { class: "bottom clear-fix" };
-const _hoisted_9$4 = { class: "ft-title" };
-function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_7$a = { class: "bottom clear-fix" };
+const _hoisted_8$8 = { class: "ft-title" };
+function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_draggable = resolveComponent("draggable");
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
@@ -4083,247 +4106,235 @@ function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_card = resolveComponent("el-card");
   const _component_el_tabs = resolveComponent("el-tabs");
-  const _component_el_scrollbar = resolveComponent("el-scrollbar");
-  return openBlock(), createBlock(_component_el_scrollbar, {
-    class: "side-scroll-bar",
-    style: normalizeStyle({ height: $data.scrollerHeight })
+  return openBlock(), createBlock(_component_el_tabs, {
+    modelValue: $data.firstTab,
+    "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.firstTab = $event)
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$E, [
-        createVNode(_component_el_tabs, {
-          modelValue: $data.firstTab,
-          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.firstTab = $event),
-          class: "no-bottom-margin indent-left-margin"
-        }, {
-          default: withCtx(() => [
-            createVNode(_component_el_tab_pane, { name: "componentLib" }, {
-              label: withCtx(() => [
-                createElementVNode("span", null, [
-                  createVNode(_component_svg_icon, { "icon-class": "el-set-up" }),
-                  createTextVNode(" " + toDisplayString(_ctx.$t("designer.componentLib")), 1)
-                ])
-              ]),
-              default: withCtx(() => [
-                createVNode(_component_el_collapse, {
-                  modelValue: $data.activeNames,
-                  "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.activeNames = $event),
-                  class: "widget-collapse"
-                }, {
-                  default: withCtx(() => [
-                    createVNode(_component_el_collapse_item, {
-                      name: "1",
-                      title: _ctx.$t("designer.containerTitle")
-                    }, {
-                      default: withCtx(() => [
-                        createVNode(_component_draggable, {
-                          tag: "ul",
-                          list: $data.containers,
-                          "item-key": "key",
-                          group: { name: "dragGroup", pull: "clone", put: false },
-                          clone: $options.handleContainerWidgetClone,
-                          "ghost-class": "ghost",
-                          sort: false,
-                          move: $options.checkContainerMove,
-                          onEnd: $options.onContainerDragEnd
-                        }, {
-                          item: withCtx(({ element: ctn }) => [
-                            createElementVNode("li", {
-                              class: "container-widget-item",
-                              title: ctn.displayName,
-                              onDblclick: ($event) => $options.addContainerByDbClick(ctn)
-                            }, [
-                              createElementVNode("span", null, [
-                                createVNode(_component_svg_icon, {
-                                  "icon-class": ctn.icon,
-                                  "class-name": "color-svg-icon"
-                                }, null, 8, ["icon-class"]),
-                                createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${ctn.type}`, `extension.widgetLabel.${ctn.type}`)), 1)
-                              ])
-                            ], 40, _hoisted_2$r)
-                          ]),
-                          _: 1
-                        }, 8, ["list", "clone", "move", "onEnd"])
-                      ]),
-                      _: 1
-                    }, 8, ["title"]),
-                    createVNode(_component_el_collapse_item, {
-                      name: "2",
-                      title: _ctx.$t("designer.basicFieldTitle")
-                    }, {
-                      default: withCtx(() => [
-                        createVNode(_component_draggable, {
-                          tag: "ul",
-                          list: $data.basicFields,
-                          "item-key": "key",
-                          group: { name: "dragGroup", pull: "clone", put: false },
-                          move: $options.checkFieldMove,
-                          clone: $options.handleFieldWidgetClone,
-                          "ghost-class": "ghost",
-                          sort: false
-                        }, {
-                          item: withCtx(({ element: fld }) => [
-                            createElementVNode("li", {
-                              class: "field-widget-item",
-                              title: fld.displayName,
-                              onDblclick: ($event) => $options.addFieldByDbClick(fld)
-                            }, [
-                              createElementVNode("span", null, [
-                                createVNode(_component_svg_icon, {
-                                  "icon-class": fld.icon,
-                                  "class-name": "color-svg-icon"
-                                }, null, 8, ["icon-class"]),
-                                createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
-                              ])
-                            ], 40, _hoisted_3$m)
-                          ]),
-                          _: 1
-                        }, 8, ["list", "move", "clone"])
-                      ]),
-                      _: 1
-                    }, 8, ["title"]),
-                    createVNode(_component_el_collapse_item, {
-                      name: "3",
-                      title: _ctx.$t("designer.advancedFieldTitle")
-                    }, {
-                      default: withCtx(() => [
-                        createVNode(_component_draggable, {
-                          tag: "ul",
-                          list: $data.advancedFields,
-                          "item-key": "key",
-                          group: { name: "dragGroup", pull: "clone", put: false },
-                          move: $options.checkFieldMove,
-                          clone: $options.handleFieldWidgetClone,
-                          "ghost-class": "ghost",
-                          sort: false
-                        }, {
-                          item: withCtx(({ element: fld }) => [
-                            createElementVNode("li", {
-                              class: "field-widget-item",
-                              title: fld.displayName,
-                              onDblclick: ($event) => $options.addFieldByDbClick(fld)
-                            }, [
-                              createElementVNode("span", null, [
-                                createVNode(_component_svg_icon, {
-                                  "icon-class": fld.icon,
-                                  "class-name": "color-svg-icon"
-                                }, null, 8, ["icon-class"]),
-                                createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
-                              ])
-                            ], 40, _hoisted_4$f)
-                          ]),
-                          _: 1
-                        }, 8, ["list", "move", "clone"])
-                      ]),
-                      _: 1
-                    }, 8, ["title"]),
-                    createVNode(_component_el_collapse_item, {
-                      name: "4",
-                      title: _ctx.$t("designer.customFieldTitle")
-                    }, {
-                      default: withCtx(() => [
-                        createVNode(_component_draggable, {
-                          tag: "ul",
-                          list: $data.customFields,
-                          "item-key": "key",
-                          group: { name: "dragGroup", pull: "clone", put: false },
-                          move: $options.checkFieldMove,
-                          clone: $options.handleFieldWidgetClone,
-                          "ghost-class": "ghost",
-                          sort: false
-                        }, {
-                          item: withCtx(({ element: fld }) => [
-                            createElementVNode("li", {
-                              class: "field-widget-item",
-                              title: fld.displayName,
-                              onDblclick: ($event) => $options.addFieldByDbClick(fld)
-                            }, [
-                              createElementVNode("span", null, [
-                                createVNode(_component_svg_icon, {
-                                  "icon-class": fld.icon,
-                                  "class-name": "color-svg-icon"
-                                }, null, 8, ["icon-class"]),
-                                createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
-                              ])
-                            ], 40, _hoisted_5$d)
-                          ]),
-                          _: 1
-                        }, 8, ["list", "move", "clone"])
-                      ]),
-                      _: 1
-                    }, 8, ["title"])
-                  ]),
-                  _: 1
-                }, 8, ["modelValue"])
-              ]),
-              _: 1
-            }),
-            $options.showFormTemplates() ? (openBlock(), createBlock(_component_el_tab_pane, {
-              key: 0,
-              name: "formLib",
-              style: { "padding": "8px" }
+      createVNode(_component_el_tab_pane, { name: "componentLib" }, {
+        label: withCtx(() => [
+          createElementVNode("span", null, [
+            createVNode(_component_svg_icon, { "icon-class": "el-set-up" }),
+            createTextVNode(" " + toDisplayString(_ctx.$t("designer.componentLib")), 1)
+          ])
+        ]),
+        default: withCtx(() => [
+          createVNode(_component_el_collapse, {
+            modelValue: $data.activeNames,
+            "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.activeNames = $event),
+            class: "widget-collapse"
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_el_collapse_item, {
+                name: "1",
+                title: _ctx.$t("designer.containerTitle")
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_draggable, {
+                    tag: "ul",
+                    list: $data.containers,
+                    "item-key": "key",
+                    group: { name: "dragGroup", pull: "clone", put: false },
+                    clone: $options.handleContainerWidgetClone,
+                    "ghost-class": "ghost",
+                    sort: false,
+                    move: $options.checkContainerMove,
+                    onEnd: $options.onContainerDragEnd
+                  }, {
+                    item: withCtx(({ element: ctn }) => [
+                      createElementVNode("li", {
+                        class: "container-widget-item",
+                        title: ctn.displayName,
+                        onDblclick: ($event) => $options.addContainerByDbClick(ctn)
+                      }, [
+                        createElementVNode("span", null, [
+                          createVNode(_component_svg_icon, {
+                            "icon-class": ctn.icon,
+                            "class-name": "color-svg-icon"
+                          }, null, 8, ["icon-class"]),
+                          createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${ctn.type}`, `extension.widgetLabel.${ctn.type}`)), 1)
+                        ])
+                      ], 40, _hoisted_1$X)
+                    ]),
+                    _: 1
+                  }, 8, ["list", "clone", "move", "onEnd"])
+                ]),
+                _: 1
+              }, 8, ["title"]),
+              createVNode(_component_el_collapse_item, {
+                name: "2",
+                title: _ctx.$t("designer.basicFieldTitle")
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_draggable, {
+                    tag: "ul",
+                    list: $data.basicFields,
+                    "item-key": "key",
+                    group: { name: "dragGroup", pull: "clone", put: false },
+                    move: $options.checkFieldMove,
+                    clone: $options.handleFieldWidgetClone,
+                    "ghost-class": "ghost",
+                    sort: false
+                  }, {
+                    item: withCtx(({ element: fld }) => [
+                      createElementVNode("li", {
+                        class: "field-widget-item",
+                        title: fld.displayName,
+                        onDblclick: ($event) => $options.addFieldByDbClick(fld)
+                      }, [
+                        createElementVNode("span", null, [
+                          createVNode(_component_svg_icon, {
+                            "icon-class": fld.icon,
+                            "class-name": "color-svg-icon"
+                          }, null, 8, ["icon-class"]),
+                          createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
+                        ])
+                      ], 40, _hoisted_2$r)
+                    ]),
+                    _: 1
+                  }, 8, ["list", "move", "clone"])
+                ]),
+                _: 1
+              }, 8, ["title"]),
+              createVNode(_component_el_collapse_item, {
+                name: "3",
+                title: _ctx.$t("designer.advancedFieldTitle")
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_draggable, {
+                    tag: "ul",
+                    list: $data.advancedFields,
+                    "item-key": "key",
+                    group: { name: "dragGroup", pull: "clone", put: false },
+                    move: $options.checkFieldMove,
+                    clone: $options.handleFieldWidgetClone,
+                    "ghost-class": "ghost",
+                    sort: false
+                  }, {
+                    item: withCtx(({ element: fld }) => [
+                      createElementVNode("li", {
+                        class: "field-widget-item",
+                        title: fld.displayName,
+                        onDblclick: ($event) => $options.addFieldByDbClick(fld)
+                      }, [
+                        createElementVNode("span", null, [
+                          createVNode(_component_svg_icon, {
+                            "icon-class": fld.icon,
+                            "class-name": "color-svg-icon"
+                          }, null, 8, ["icon-class"]),
+                          createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
+                        ])
+                      ], 40, _hoisted_3$m)
+                    ]),
+                    _: 1
+                  }, 8, ["list", "move", "clone"])
+                ]),
+                _: 1
+              }, 8, ["title"]),
+              createVNode(_component_el_collapse_item, {
+                name: "4",
+                title: _ctx.$t("designer.customFieldTitle")
+              }, {
+                default: withCtx(() => [
+                  createVNode(_component_draggable, {
+                    tag: "ul",
+                    list: $data.customFields,
+                    "item-key": "key",
+                    group: { name: "dragGroup", pull: "clone", put: false },
+                    move: $options.checkFieldMove,
+                    clone: $options.handleFieldWidgetClone,
+                    "ghost-class": "ghost",
+                    sort: false
+                  }, {
+                    item: withCtx(({ element: fld }) => [
+                      createElementVNode("li", {
+                        class: "field-widget-item",
+                        title: fld.displayName,
+                        onDblclick: ($event) => $options.addFieldByDbClick(fld)
+                      }, [
+                        createElementVNode("span", null, [
+                          createVNode(_component_svg_icon, {
+                            "icon-class": fld.icon,
+                            "class-name": "color-svg-icon"
+                          }, null, 8, ["icon-class"]),
+                          createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
+                        ])
+                      ], 40, _hoisted_4$f)
+                    ]),
+                    _: 1
+                  }, 8, ["list", "move", "clone"])
+                ]),
+                _: 1
+              }, 8, ["title"])
+            ]),
+            _: 1
+          }, 8, ["modelValue"])
+        ]),
+        _: 1
+      }),
+      $options.showFormTemplates() ? (openBlock(), createBlock(_component_el_tab_pane, {
+        key: 0,
+        name: "formLib",
+        style: { "padding": "8px" }
+      }, {
+        label: withCtx(() => [
+          createElementVNode("span", null, [
+            createVNode(_component_svg_icon, { "icon-class": "el-form-template" }),
+            createTextVNode(" " + toDisplayString(_ctx.$t("designer.formLib")), 1)
+          ])
+        ]),
+        default: withCtx(() => [
+          (openBlock(true), createElementBlock(Fragment, null, renderList($data.formTemplates, (ft, idx) => {
+            return openBlock(), createBlock(_component_el_card, {
+              "bord-style": { padding: "0" },
+              shadow: "hover",
+              class: "ft-card"
             }, {
-              label: withCtx(() => [
-                createElementVNode("span", null, [
-                  createVNode(_component_svg_icon, { "icon-class": "el-form-template" }),
-                  createTextVNode(" " + toDisplayString(_ctx.$t("designer.formLib")), 1)
-                ])
-              ]),
               default: withCtx(() => [
-                (openBlock(true), createElementBlock(Fragment, null, renderList($data.formTemplates, (ft, idx) => {
-                  return openBlock(), createBlock(_component_el_card, {
-                    "bord-style": { padding: "0" },
-                    shadow: "hover",
-                    class: "ft-card"
+                createVNode(_component_el_popover, {
+                  placement: "right",
+                  trigger: "hover"
+                }, {
+                  reference: withCtx(() => [
+                    createElementVNode("img", {
+                      src: ft.imgUrl,
+                      style: { "width": "200px" }
+                    }, null, 8, _hoisted_5$d)
+                  ]),
+                  default: withCtx(() => [
+                    createElementVNode("img", {
+                      src: ft.imgUrl,
+                      style: { "height": "600px", "width": "720px" }
+                    }, null, 8, _hoisted_6$b)
+                  ]),
+                  _: 2
+                }, 1024),
+                createElementVNode("div", _hoisted_7$a, [
+                  createElementVNode("span", _hoisted_8$8, "#" + toDisplayString(idx + 1) + " " + toDisplayString(ft.title), 1),
+                  createVNode(_component_el_button, {
+                    link: "",
+                    type: "primary",
+                    class: "right-button",
+                    onClick: ($event) => $options.loadFormTemplate(ft.jsonUrl)
                   }, {
                     default: withCtx(() => [
-                      createVNode(_component_el_popover, {
-                        placement: "right",
-                        trigger: "hover"
-                      }, {
-                        reference: withCtx(() => [
-                          createElementVNode("img", {
-                            src: ft.imgUrl,
-                            style: { "width": "200px" }
-                          }, null, 8, _hoisted_6$b)
-                        ]),
-                        default: withCtx(() => [
-                          createElementVNode("img", {
-                            src: ft.imgUrl,
-                            style: { "height": "600px", "width": "720px" }
-                          }, null, 8, _hoisted_7$8)
-                        ]),
-                        _: 2
-                      }, 1024),
-                      createElementVNode("div", _hoisted_8$6, [
-                        createElementVNode("span", _hoisted_9$4, "#" + toDisplayString(idx + 1) + " " + toDisplayString(ft.title), 1),
-                        createVNode(_component_el_button, {
-                          link: "",
-                          type: "primary",
-                          class: "right-button",
-                          onClick: ($event) => $options.loadFormTemplate(ft.jsonUrl)
-                        }, {
-                          default: withCtx(() => [
-                            createTextVNode(toDisplayString(_ctx.$t("designer.hint.loadFormTemplate")), 1)
-                          ]),
-                          _: 2
-                        }, 1032, ["onClick"])
-                      ])
+                      createTextVNode(toDisplayString(_ctx.$t("designer.hint.loadFormTemplate")), 1)
                     ]),
                     _: 2
-                  }, 1024);
-                }), 256))
+                  }, 1032, ["onClick"])
+                ])
               ]),
-              _: 1
-            })) : createCommentVNode("", true)
-          ]),
-          _: 1
-        }, 8, ["modelValue"])
-      ])
+              _: 2
+            }, 1024);
+          }), 256))
+        ]),
+        _: 1
+      })) : createCommentVNode("", true)
     ]),
     _: 1
-  }, 8, ["style"]);
+  }, 8, ["modelValue"]);
 }
-var WidgetPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$35, [["render", _sfc_render$35], ["__scopeId", "data-v-15de6b57"]]);
+var WidgetPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-6d9061b8"]]);
 var emitter = {
   data() {
     return {
@@ -4396,7 +4407,7 @@ var emitter = {
     }
   }
 };
-const _sfc_main$34 = {
+const _sfc_main$36 = {
   name: "container-item-wrapper",
   props: {
     widget: Object
@@ -4407,14 +4418,14 @@ const _sfc_main$34 = {
     }
   }
 };
-function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$34, [["render", _sfc_render$34]]);
+var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$36, [["render", _sfc_render$36]]);
 var __glob_0_0$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerItemWrapper
@@ -4445,7 +4456,7 @@ var refMixin = {
   }
 };
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$33 = {
+const _sfc_main$35 = {
   name: "static-content-wrapper",
   mixins: [i18n$1],
   components: {
@@ -4531,7 +4542,7 @@ const _sfc_main$33 = {
     }
   }
 };
-const _hoisted_1$D = {
+const _hoisted_1$W = {
   key: 0,
   class: "field-action"
 };
@@ -4543,9 +4554,9 @@ const _hoisted_6$a = {
   key: 1,
   class: "drag-handler background-opacity"
 };
-const _hoisted_7$7 = ["title"];
-const _hoisted_8$5 = { key: 0 };
-function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_7$9 = ["title"];
+const _hoisted_8$7 = { key: 0 };
+function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["field-wrapper", { "design-time-bottom-margin": !!this.designer }]),
@@ -4560,7 +4571,7 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
       renderSlot(_ctx.$slots, "default", {}, void 0, true)
     ], 6)) : createCommentVNode("", true),
     !!this.designer ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$D, [
+      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$W, [
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.selectParentWidget"),
           onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $options.selectParentWidget($props.field), ["stop"]))
@@ -4593,16 +4604,16 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
           title: _ctx.$t("designer.hint.dragHandler")
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-drag-move" })
-        ], 8, _hoisted_7$7),
+        ], 8, _hoisted_7$9),
         createElementVNode("i", null, toDisplayString(_ctx.$t(`designer.widgetLabel.${$props.field.type}`, `extension.widgetLabel.${$props.field.type}`)), 1),
-        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_8$5, [
+        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_8$7, [
           createVNode(_component_svg_icon, { "icon-class": "el-hide" })
         ])) : createCommentVNode("", true)
       ])) : createCommentVNode("", true)
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-2c3a4c20"]]);
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$35, [["render", _sfc_render$35], ["__scopeId", "data-v-2c3a4c20"]]);
 var __glob_0_19$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
@@ -5026,6 +5037,12 @@ var fieldMixin = {
         remoteFn.call(this, keyword);
       }
     },
+    querySearchAsync(queryString, cb) {
+      if (!!this.field.options.onQuerySearchAsync) {
+        let remoteFn = new Function("queryString", "cb", this.field.options.onQuerySearchAsync);
+        remoteFn.call(this, queryString, cb);
+      }
+    },
     getFormRef() {
       return this.refList["v_form_ref"];
     },
@@ -5165,7 +5182,7 @@ var fieldMixin = {
   }
 };
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$32 = {
+const _sfc_main$34 = {
   name: "button-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5211,7 +5228,7 @@ const _sfc_main$32 = {
   },
   methods: {}
 };
-function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -5247,13 +5264,13 @@ function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-6f92d10c"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-6f92d10c"]]);
 var __glob_0_0$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var formItemWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$31 = {
+const _sfc_main$33 = {
   name: "form-item-wrapper",
   mixins: [i18n$1],
   components: {
@@ -5384,7 +5401,7 @@ const _sfc_main$31 = {
     }
   }
 };
-const _hoisted_1$C = {
+const _hoisted_1$V = {
   key: 0,
   class: "custom-label"
 };
@@ -5396,13 +5413,13 @@ const _hoisted_3$k = ["title"];
 const _hoisted_4$d = ["title"];
 const _hoisted_5$b = ["title"];
 const _hoisted_6$9 = ["title"];
-const _hoisted_7$6 = {
+const _hoisted_7$8 = {
   key: 1,
   class: "drag-handler background-opacity"
 };
-const _hoisted_8$4 = ["title"];
-const _hoisted_9$3 = { key: 0 };
-function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_8$6 = ["title"];
+const _hoisted_9$5 = { key: 0 };
+function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -5420,7 +5437,7 @@ function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $options.selectField($props.field), ["stop"]))
     }, {
       label: withCtx(() => [
-        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$C, [
+        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$V, [
           $props.field.options.labelIconPosition === "front" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
             !!$props.field.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
               createVNode(_component_el_tooltip, {
@@ -5498,27 +5515,27 @@ function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
           createVNode(_component_svg_icon, { "icon-class": "el-delete" })
         ], 8, _hoisted_6$9)
       ])) : createCommentVNode("", true),
-      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_7$6, [
+      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_7$8, [
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.dragHandler")
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-drag-move" })
-        ], 8, _hoisted_8$4),
+        ], 8, _hoisted_8$6),
         createElementVNode("i", null, toDisplayString(_ctx.$t(`designer.widgetLabel.${$props.field.type}`, `extension.widgetLabel.${$props.field.type}`)), 1),
-        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_9$3, [
+        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_9$5, [
           createVNode(_component_svg_icon, { "icon-class": "el-hide" })
         ])) : createCommentVNode("", true)
       ])) : createCommentVNode("", true)
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-6e1ed8ce"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-6e1ed8ce"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
 }, Symbol.toStringTag, { value: "Module" }));
 var cascaderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$30 = {
+const _sfc_main$32 = {
   name: "cascader-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5578,8 +5595,8 @@ const _sfc_main$30 = {
   },
   methods: {}
 };
-const _hoisted_1$B = { class: "full-width-input" };
-function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$U = { class: "full-width-input" };
+function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5595,7 +5612,7 @@ function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$B, [
+      createElementVNode("div", _hoisted_1$U, [
         createVNode(_component_el_cascader, {
           ref: "fieldEditor",
           options: $props.field.options.optionItems,
@@ -5617,13 +5634,13 @@ function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-7de3ff42"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-7de3ff42"]]);
 var __glob_0_1$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var checkboxWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2$ = {
+const _sfc_main$31 = {
   name: "checkbox-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5679,7 +5696,7 @@ const _sfc_main$2$ = {
   },
   methods: {}
 };
-function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox_button = resolveComponent("el-checkbox-button");
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
@@ -5740,13 +5757,13 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-501920b3"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-501920b3"]]);
 var __glob_0_2$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var colorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2_ = {
+const _sfc_main$30 = {
   name: "color-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5801,7 +5818,7 @@ const _sfc_main$2_ = {
   },
   methods: {}
 };
-function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5829,13 +5846,13 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-1aa76420"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-1aa76420"]]);
 var __glob_0_3$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Z = {
+const _sfc_main$2$ = {
   name: "date-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5890,7 +5907,7 @@ const _sfc_main$2Z = {
   },
   methods: {}
 };
-function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5933,13 +5950,13 @@ function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-3a8016d4"]]);
+var dateRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-3a8016d4"]]);
 var __glob_0_4$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Y = {
+const _sfc_main$2_ = {
   name: "date-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5994,7 +6011,7 @@ const _sfc_main$2Y = {
   },
   methods: {}
 };
-function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6033,13 +6050,13 @@ function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-875ea7ee"]]);
+var dateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-875ea7ee"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dividerWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2X = {
+const _sfc_main$2Z = {
   name: "divider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6085,7 +6102,7 @@ const _sfc_main$2X = {
   },
   methods: {}
 };
-function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -6114,14 +6131,14 @@ function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2X, [["render", _sfc_render$2X], ["__scopeId", "data-v-a326e5e0"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-a326e5e0"]]);
 var __glob_0_6$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var fileUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 let selectFileText = "'" + translate("render.hint.selectFile") + "'";
-const _sfc_main$2W = {
+const _sfc_main$2Y = {
   name: "file-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6312,9 +6329,7 @@ const _sfc_main$2W = {
       this.dispatch("VFormRender", "filePreview", file);
     },
     handleUploadHeaders() {
-      console.log({ sessionStorage });
       const cookieToken = sessionStorage.getItem("token");
-      console.log({ cookieToken });
       if (cookieToken)
         this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
@@ -6331,16 +6346,16 @@ const _sfc_main$2W = {
     }
   }
 };
-const _withScopeId$3 = (n) => (pushScopeId("data-v-634475b0"), n = n(), popScopeId(), n);
-const _hoisted_1$A = {
+const _withScopeId$4 = (n) => (pushScopeId("data-v-297d1816"), n = n(), popScopeId(), n);
+const _hoisted_1$T = {
   key: 0,
   class: "el-upload__tip"
 };
-const _hoisted_2$o = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1));
+const _hoisted_2$o = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1));
 const _hoisted_3$j = { class: "upload-file-list" };
 const _hoisted_4$c = ["title", "onClick"];
 const _hoisted_5$a = ["title", "onClick"];
-function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -6377,7 +6392,7 @@ function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
-          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$A, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
+          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$T, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
@@ -6406,13 +6421,13 @@ function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2W, [["render", _sfc_render$2W], ["__scopeId", "data-v-634475b0"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-297d1816"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2V = {
+const _sfc_main$2X = {
   name: "html-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6458,8 +6473,8 @@ const _sfc_main$2V = {
   },
   methods: {}
 };
-const _hoisted_1$z = ["innerHTML"];
-function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$S = ["innerHTML"];
+function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -6476,18 +6491,18 @@ function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         ref: "fieldEditor",
         innerHTML: $props.field.options.htmlContent
-      }, null, 8, _hoisted_1$z)
+      }, null, 8, _hoisted_1$S)
     ]),
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2V, [["render", _sfc_render$2V], ["__scopeId", "data-v-a0d236d6"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2X, [["render", _sfc_render$2X], ["__scopeId", "data-v-a0d236d6"]]);
 var __glob_0_9$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var inputWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2U = {
+const _sfc_main$2W = {
   name: "input-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6550,7 +6565,7 @@ const _sfc_main$2U = {
   },
   methods: {}
 };
-function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_input = resolveComponent("el-input");
@@ -6612,13 +6627,13 @@ function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2U, [["render", _sfc_render$2U], ["__scopeId", "data-v-b6d96cc0"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2W, [["render", _sfc_render$2W], ["__scopeId", "data-v-b6d96cc0"]]);
 var __glob_0_10$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var numberWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2T = {
+const _sfc_main$2V = {
   name: "number-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6673,7 +6688,7 @@ const _sfc_main$2T = {
   },
   methods: {}
 };
-function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6710,13 +6725,13 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-78aba4ad"]]);
+var numberWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2V, [["render", _sfc_render$2V], ["__scopeId", "data-v-78aba4ad"]]);
 var __glob_0_11$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var pictureUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2S = {
+const _sfc_main$2U = {
   name: "picture-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6905,7 +6920,6 @@ const _sfc_main$2S = {
     },
     handleUploadHeaders() {
       const cookieToken = sessionStorage.getItem("token");
-      console.log({ cookieToken });
       if (cookieToken)
         this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
@@ -6922,7 +6936,7 @@ const _sfc_main$2S = {
     }
   }
 };
-const _hoisted_1$y = { class: "el-upload-list__item-status-label" };
+const _hoisted_1$R = { class: "el-upload-list__item-status-label" };
 const _hoisted_2$n = {
   class: "el-icon--upload-success",
   style: { "color": "#FFF" }
@@ -6934,8 +6948,8 @@ const _hoisted_6$8 = {
   key: 0,
   class: "el-upload__tip"
 };
-const _hoisted_7$5 = { class: "uploader-icon" };
-function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_7$7 = { class: "uploader-icon" };
+function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_image = resolveComponent("el-image");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -6983,7 +6997,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
             fit: "cover",
             "preview-teleported": ""
           }, null, 8, ["src", "preview-src-list", "initial-index"]),
-          createElementVNode("label", _hoisted_1$y, [
+          createElementVNode("label", _hoisted_1$R, [
             createElementVNode("i", _hoisted_2$n, [
               createVNode(_component_svg_icon, {
                 class: "",
@@ -7010,7 +7024,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
           !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_6$8, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
-          createElementVNode("div", _hoisted_7$5, [
+          createElementVNode("div", _hoisted_7$7, [
             createVNode(_component_svg_icon, { "icon-class": "el-plus" })
           ])
         ]),
@@ -7020,13 +7034,13 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2S, [["render", _sfc_render$2S], ["__scopeId", "data-v-3197ffde"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2U, [["render", _sfc_render$2U], ["__scopeId", "data-v-43e460a4"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var radioWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2R = {
+const _sfc_main$2T = {
   name: "radio-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7082,7 +7096,7 @@ const _sfc_main$2R = {
   },
   methods: {}
 };
-function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -7144,13 +7158,13 @@ function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-5becdb92"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-5becdb92"]]);
 var __glob_0_13$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var rateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Q = {
+const _sfc_main$2S = {
   name: "rate-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7205,7 +7219,7 @@ const _sfc_main$2Q = {
   },
   methods: {}
 };
-function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -7238,7 +7252,7 @@ function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2Q, [["render", _sfc_render$2Q], ["__scopeId", "data-v-e8d5267c"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2S, [["render", _sfc_render$2S], ["__scopeId", "data-v-e8d5267c"]]);
 var __glob_0_14$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -18574,7 +18588,7 @@ const defaultOptions = {
   placeholder: "Insert content here ...",
   readOnly: false
 };
-const _sfc_main$2P = {
+const _sfc_main$2R = {
   name: "quill-editor",
   props: {
     content: String,
@@ -18678,16 +18692,16 @@ const _sfc_main$2P = {
     return { editor };
   }
 };
-const _hoisted_1$x = { ref: "editor" };
-function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("section", _hoisted_1$x, null, 512);
+const _hoisted_1$Q = { ref: "editor" };
+function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("section", _hoisted_1$Q, null, 512);
 }
-var quillEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2P, [["render", _sfc_render$2P]]);
+var quillEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2R, [["render", _sfc_render$2R]]);
 quillEditor.install = function(app) {
   app.component(quillEditor.name, quillEditor);
 };
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2O = {
+const _sfc_main$2Q = {
   name: "rich-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -18766,7 +18780,7 @@ const _sfc_main$2O = {
     }
   }
 };
-function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_quill_editor = resolveComponent("quill-editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -18798,13 +18812,13 @@ function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2O, [["render", _sfc_render$2O], ["__scopeId", "data-v-736d97e5"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2Q, [["render", _sfc_render$2Q], ["__scopeId", "data-v-736d97e5"]]);
 var __glob_0_15$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2N = {
+const _sfc_main$2P = {
   name: "select-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -18864,7 +18878,7 @@ const _sfc_main$2N = {
   },
   methods: {}
 };
-function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -18918,13 +18932,13 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2N, [["render", _sfc_render$2N], ["__scopeId", "data-v-4206ba6a"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2P, [["render", _sfc_render$2P], ["__scopeId", "data-v-4206ba6a"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var sliderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2M = {
+const _sfc_main$2O = {
   name: "slider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -18979,7 +18993,7 @@ const _sfc_main$2M = {
   },
   methods: {}
 };
-function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -19012,13 +19026,13 @@ function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var sliderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2M, [["render", _sfc_render$2M], ["__scopeId", "data-v-e54b3390"]]);
+var sliderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2O, [["render", _sfc_render$2O], ["__scopeId", "data-v-e54b3390"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var slotWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2L = {
+const _sfc_main$2N = {
   name: "slot-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -19064,11 +19078,11 @@ const _sfc_main$2L = {
   },
   methods: {}
 };
-const _hoisted_1$w = {
+const _hoisted_1$P = {
   key: 0,
   class: "slot-title"
 };
-function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -19086,19 +19100,19 @@ function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
         class: normalizeClass([!!$props.designState ? "slot-wrapper-design" : "slot-wrapper-render"])
       }, [
         renderSlot(_ctx.$slots, $props.field.options.name, { formModel: _ctx.formModel }, void 0, true),
-        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1$w, toDisplayString($props.field.options.label), 1)) : createCommentVNode("", true)
+        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1$P, toDisplayString($props.field.options.label), 1)) : createCommentVNode("", true)
       ], 2)
     ]),
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var slotWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2L, [["render", _sfc_render$2L], ["__scopeId", "data-v-1b458525"]]);
+var slotWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2N, [["render", _sfc_render$2N], ["__scopeId", "data-v-1b458525"]]);
 var __glob_0_18$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var staticTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2K = {
+const _sfc_main$2M = {
   name: "static-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -19144,7 +19158,7 @@ const _sfc_main$2K = {
   },
   methods: {}
 };
-function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -19163,13 +19177,13 @@ function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2K, [["render", _sfc_render$2K], ["__scopeId", "data-v-86aee66c"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2M, [["render", _sfc_render$2M], ["__scopeId", "data-v-86aee66c"]]);
 var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var switchWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2J = {
+const _sfc_main$2L = {
   name: "switch-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -19224,7 +19238,7 @@ const _sfc_main$2J = {
   },
   methods: {}
 };
-function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -19256,13 +19270,13 @@ function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2J, [["render", _sfc_render$2J], ["__scopeId", "data-v-51a90f56"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2L, [["render", _sfc_render$2L], ["__scopeId", "data-v-51a90f56"]]);
 var __glob_0_21$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var textareaWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2I = {
+const _sfc_main$2K = {
   name: "textarea-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -19317,7 +19331,7 @@ const _sfc_main$2I = {
   },
   methods: {}
 };
-function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -19355,13 +19369,13 @@ function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2I, [["render", _sfc_render$2I], ["__scopeId", "data-v-07ccea24"]]);
+var textareaWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2K, [["render", _sfc_render$2K], ["__scopeId", "data-v-07ccea24"]]);
 var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textareaWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2H = {
+const _sfc_main$2J = {
   name: "time-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -19416,7 +19430,7 @@ const _sfc_main$2H = {
   },
   methods: {}
 };
-function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -19459,13 +19473,13 @@ function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2H, [["render", _sfc_render$2H], ["__scopeId", "data-v-2b70e154"]]);
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2J, [["render", _sfc_render$2J], ["__scopeId", "data-v-2b70e154"]]);
 var __glob_0_23$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2G = {
+const _sfc_main$2I = {
   name: "time-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -19520,7 +19534,7 @@ const _sfc_main$2G = {
   },
   methods: {}
 };
-function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -19557,7 +19571,7 @@ function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2G, [["render", _sfc_render$2G], ["__scopeId", "data-v-4f8b3e9b"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2I, [["render", _sfc_render$2I], ["__scopeId", "data-v-4f8b3e9b"]]);
 var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -19569,7 +19583,7 @@ for (const path in modules$3) {
   comps$1[cname] = modules$3[path].default;
 }
 var gridColItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2F = {
+const _sfc_main$2H = {
   name: "GridColItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -19639,9 +19653,9 @@ const _sfc_main$2F = {
     }
   }
 };
-const _hoisted_1$v = { class: "blank-cell" };
+const _hoisted_1$O = { class: "blank-cell" };
 const _hoisted_2$m = { class: "invisible-content" };
-function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
   return withDirectives((openBlock(), createBlock(_component_el_col, mergeProps({
     class: ["grid-cell", [$options.customClass]]
@@ -19687,7 +19701,7 @@ function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
         ], 64);
       }), 256)) : (openBlock(), createBlock(_component_el_col, { key: 1 }, {
         default: withCtx(() => [
-          createElementVNode("div", _hoisted_1$v, [
+          createElementVNode("div", _hoisted_1$O, [
             createElementVNode("span", _hoisted_2$m, toDisplayString(_ctx.$t("render.hint.blankCellContent")), 1)
           ])
         ]),
@@ -19699,7 +19713,7 @@ function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, !$props.widget.options.hidden]
   ]);
 }
-var GridColItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2F, [["render", _sfc_render$2F], ["__scopeId", "data-v-8cecd14e"]]);
+var GridColItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2H, [["render", _sfc_render$2H], ["__scopeId", "data-v-8cecd14e"]]);
 var __glob_0_1$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColItem
@@ -19860,7 +19874,7 @@ var containerItemMixin = {
     }
   }
 };
-const _sfc_main$2E = {
+const _sfc_main$2G = {
   name: "vf-grid-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -19882,7 +19896,7 @@ const _sfc_main$2E = {
   },
   methods: {}
 };
-function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_grid_col_item = resolveComponent("grid-col-item");
   const _component_el_row = resolveComponent("el-row");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -19923,13 +19937,13 @@ function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var gridItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2E, [["render", _sfc_render$2E]]);
+var gridItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2G, [["render", _sfc_render$2G]]);
 var __glob_0_2$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridItem
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2D = {
+const _sfc_main$2F = {
   name: "sub-form-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -20130,7 +20144,7 @@ const _sfc_main$2D = {
     }
   }
 };
-const _hoisted_1$u = { class: "action-header-column" };
+const _hoisted_1$N = { class: "action-header-column" };
 const _hoisted_2$l = { class: "action-label" };
 const _hoisted_3$h = {
   key: 0,
@@ -20139,11 +20153,11 @@ const _hoisted_3$h = {
 const _hoisted_4$a = ["title"];
 const _hoisted_5$8 = { class: "sub-form-action-column hide-label" };
 const _hoisted_6$7 = { class: "action-button-column" };
-const _hoisted_7$4 = {
+const _hoisted_7$6 = {
   key: 0,
   class: "row-number-span"
 };
-function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -20157,7 +20171,7 @@ function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createVNode(_component_el_row, { class: "header-row" }, {
           default: withCtx(() => [
-            createElementVNode("div", _hoisted_1$u, [
+            createElementVNode("div", _hoisted_1$N, [
               createElementVNode("span", _hoisted_2$l, toDisplayString(_ctx.$t("render.hint.subFormAction")), 1),
               createVNode(_component_el_button, {
                 disabled: $data.actionDisabled,
@@ -20262,7 +20276,7 @@ function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
                     ]),
                     _: 2
                   }, 1032, ["disabled", "onClick", "title"]),
-                  $props.widget.options.showRowNumber ? (openBlock(), createElementBlock("span", _hoisted_7$4, "#" + toDisplayString(sfrIdx + 1), 1)) : createCommentVNode("", true)
+                  $props.widget.options.showRowNumber ? (openBlock(), createElementBlock("span", _hoisted_7$6, "#" + toDisplayString(sfrIdx + 1), 1)) : createCommentVNode("", true)
                 ])
               ]),
               (openBlock(true), createElementBlock(Fragment, null, renderList($props.widget.widgetList, (subWidget, swIdx) => {
@@ -20294,12 +20308,12 @@ function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2D, [["render", _sfc_render$2D], ["__scopeId", "data-v-0391bfba"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2F, [["render", _sfc_render$2F], ["__scopeId", "data-v-0391bfba"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2C = {
+const _sfc_main$2E = {
   name: "tab-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -20346,7 +20360,7 @@ const _sfc_main$2C = {
     }
   }
 };
-function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -20421,13 +20435,13 @@ function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tabItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2C, [["render", _sfc_render$2C]]);
+var tabItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2E, [["render", _sfc_render$2E]]);
 var __glob_0_4$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableCellItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2B = {
+const _sfc_main$2D = {
   name: "TableCellItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -20447,8 +20461,8 @@ const _sfc_main$2B = {
   },
   methods: {}
 };
-const _hoisted_1$t = ["colspan", "rowspan"];
-function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$M = ["colspan", "rowspan"];
+function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
     colspan: $props.widget.options.colspan || 1,
@@ -20490,15 +20504,15 @@ function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
         ]), 1032, ["field", "parent-list", "index-of-parent-list", "parent-widget"]))
       ], 64);
     }), 256))
-  ], 14, _hoisted_1$t);
+  ], 14, _hoisted_1$M);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2B, [["render", _sfc_render$2B], ["__scopeId", "data-v-ecf77248"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2D, [["render", _sfc_render$2D], ["__scopeId", "data-v-ecf77248"]]);
 var __glob_0_5$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2A = {
+const _sfc_main$2C = {
   name: "table-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -20520,7 +20534,7 @@ const _sfc_main$2A = {
   },
   methods: {}
 };
-function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_table_cell_item = resolveComponent("table-cell-item");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
   return openBlock(), createBlock(_component_container_item_wrapper, { widget: $props.widget }, {
@@ -20570,7 +20584,7 @@ function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tableItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2A, [["render", _sfc_render$2A], ["__scopeId", "data-v-656b4452"]]);
+var tableItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2C, [["render", _sfc_render$2C], ["__scopeId", "data-v-656b4452"]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableItem
@@ -20585,7 +20599,7 @@ var ContainerItems = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$5 = "";
-const _sfc_main$2z = {
+const _sfc_main$2B = {
   name: "VFormRender",
   componentName: "VFormRender",
   mixins: [emitter, i18n$1],
@@ -21120,7 +21134,7 @@ const _sfc_main$2z = {
     }
   }
 };
-function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createBlock(_component_el_form, {
     "label-position": $options.labelPosition,
@@ -21175,7 +21189,7 @@ function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$1(_sfc_main$2z, [["render", _sfc_render$2z], ["__scopeId", "data-v-cf2815f6"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$1(_sfc_main$2B, [["render", _sfc_render$2B], ["__scopeId", "data-v-cf2815f6"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -21564,28 +21578,6 @@ var ace$2 = { exports: {} };
       return _self;
     };
   });
-  ace.define("ace/lib/oop", ["require", "exports", "module"], function(require2, exports2, module2) {
-    exports2.inherits = function(ctor, superCtor) {
-      ctor.super_ = superCtor;
-      ctor.prototype = Object.create(superCtor.prototype, {
-        constructor: {
-          value: ctor,
-          enumerable: false,
-          writable: true,
-          configurable: true
-        }
-      });
-    };
-    exports2.mixin = function(obj, mixin) {
-      for (var key in mixin) {
-        obj[key] = mixin[key];
-      }
-      return obj;
-    };
-    exports2.implement = function(proto, mixin) {
-      exports2.mixin(proto, mixin);
-    };
-  });
   ace.define("ace/lib/useragent", ["require", "exports", "module"], function(require2, exports2, module2) {
     exports2.OS = {
       LINUX: "LINUX",
@@ -21905,6 +21897,28 @@ var ace$2 = { exports: {} };
       return a.href;
     };
   });
+  ace.define("ace/lib/oop", ["require", "exports", "module"], function(require2, exports2, module2) {
+    exports2.inherits = function(ctor, superCtor) {
+      ctor.super_ = superCtor;
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      });
+    };
+    exports2.mixin = function(obj, mixin) {
+      for (var key in mixin) {
+        obj[key] = mixin[key];
+      }
+      return obj;
+    };
+    exports2.implement = function(proto, mixin) {
+      exports2.mixin(proto, mixin);
+    };
+  });
   ace.define("ace/lib/event_emitter", ["require", "exports", "module"], function(require2, exports2, module2) {
     var EventEmitter = {};
     var stopPropagation = function() {
@@ -22079,11 +22093,10 @@ var ace$2 = { exports: {} };
       });
     }
     var AppConfig = function() {
-      this.$defaultOptions = {};
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.defineOptions = function(obj, path, options) {
+      function AppConfig2() {
+        this.$defaultOptions = {};
+      }
+      AppConfig2.prototype.defineOptions = function(obj, path, options) {
         if (!obj.$options)
           this.$defaultOptions[path] = obj.$options = {};
         Object.keys(options).forEach(function(key) {
@@ -22098,14 +22111,14 @@ var ace$2 = { exports: {} };
         oop.implement(obj, optionsProvider);
         return this;
       };
-      this.resetOptions = function(obj) {
+      AppConfig2.prototype.resetOptions = function(obj) {
         Object.keys(obj.$options).forEach(function(key) {
           var opt = obj.$options[key];
           if ("value" in opt)
             obj.setOption(key, opt.value);
         });
       };
-      this.setDefaultValue = function(path, name, value2) {
+      AppConfig2.prototype.setDefaultValue = function(path, name, value2) {
         if (!path) {
           for (path in this.$defaultOptions)
             if (this.$defaultOptions[path][name])
@@ -22121,14 +22134,16 @@ var ace$2 = { exports: {} };
             opts[name].value = value2;
         }
       };
-      this.setDefaultValues = function(path, optionHash) {
+      AppConfig2.prototype.setDefaultValues = function(path, optionHash) {
         Object.keys(optionHash).forEach(function(key) {
           this.setDefaultValue(path, key, optionHash[key]);
         }, this);
       };
-      this.warn = warn;
-      this.reportError = reportError;
-    }).call(AppConfig.prototype);
+      return AppConfig2;
+    }();
+    AppConfig.prototype.warn = warn;
+    AppConfig.prototype.reportError = reportError;
+    oop.implement(AppConfig.prototype, EventEmitter);
     exports2.AppConfig = AppConfig;
   });
   ace.define("ace/theme/textmate.css", ["require", "exports", "module"], function(require2, exports2, module2) {
@@ -22142,10 +22157,9 @@ var ace$2 = { exports: {} };
     var dom = require2("../lib/dom");
     dom.importCssString(exports2.cssText, exports2.cssClass, false);
   });
-  ace.define("ace/config", ["require", "exports", "module", "ace/lib/lang", "ace/lib/oop", "ace/lib/net", "ace/lib/dom", "ace/lib/app_config", "ace/theme/textmate"], function(require2, exports2, module2) {
+  ace.define("ace/config", ["require", "exports", "module", "ace/lib/lang", "ace/lib/net", "ace/lib/dom", "ace/lib/app_config", "ace/theme/textmate"], function(require2, exports2, module2) {
     "no use strict";
     var lang = require2("./lib/lang");
-    require2("./lib/oop");
     var net = require2("./lib/net");
     var dom = require2("./lib/dom");
     var AppConfig = require2("./lib/app_config").AppConfig;
@@ -22206,13 +22220,14 @@ var ace$2 = { exports: {} };
       return options.$moduleUrls[name] = subst;
     };
     var loader = function(moduleName, cb) {
-      if (moduleName == "ace/theme/textmate")
+      if (moduleName === "ace/theme/textmate" || moduleName === "./theme/textmate")
         return cb(null, require2("./theme/textmate"));
       return console.error("loader is not configured");
     };
     exports2.setLoader = function(cb) {
       loader = cb;
     };
+    exports2.dynamicModules = Object.create(null);
     exports2.$loading = {};
     exports2.loadModule = function(moduleName, onLoad) {
       var module3, moduleType;
@@ -22220,31 +22235,47 @@ var ace$2 = { exports: {} };
         moduleType = moduleName[0];
         moduleName = moduleName[1];
       }
-      try {
-        module3 = require2(moduleName);
-      } catch (e) {
-      }
-      if (module3 && !exports2.$loading[moduleName])
-        return onLoad && onLoad(module3);
-      if (!exports2.$loading[moduleName])
-        exports2.$loading[moduleName] = [];
-      exports2.$loading[moduleName].push(onLoad);
-      if (exports2.$loading[moduleName].length > 1)
-        return;
-      var afterLoad = function() {
-        loader(moduleName, function(err, module4) {
-          exports2._emit("load.module", { name: moduleName, module: module4 });
-          var listeners = exports2.$loading[moduleName];
-          exports2.$loading[moduleName] = null;
-          listeners.forEach(function(onLoad2) {
-            onLoad2 && onLoad2(module4);
+      var load = function(module4) {
+        if (module4 && !exports2.$loading[moduleName])
+          return onLoad && onLoad(module4);
+        if (!exports2.$loading[moduleName])
+          exports2.$loading[moduleName] = [];
+        exports2.$loading[moduleName].push(onLoad);
+        if (exports2.$loading[moduleName].length > 1)
+          return;
+        var afterLoad = function() {
+          loader(moduleName, function(err, module5) {
+            exports2._emit("load.module", { name: moduleName, module: module5 });
+            var listeners = exports2.$loading[moduleName];
+            exports2.$loading[moduleName] = null;
+            listeners.forEach(function(onLoad2) {
+              onLoad2 && onLoad2(module5);
+            });
           });
-        });
+        };
+        if (!exports2.get("packaged"))
+          return afterLoad();
+        net.loadScript(exports2.moduleUrl(moduleName, moduleType), afterLoad);
+        reportErrorIfPathIsNotConfigured();
       };
-      if (!exports2.get("packaged"))
-        return afterLoad();
-      net.loadScript(exports2.moduleUrl(moduleName, moduleType), afterLoad);
-      reportErrorIfPathIsNotConfigured();
+      if (exports2.dynamicModules[moduleName]) {
+        exports2.dynamicModules[moduleName]().then(function(module4) {
+          if (module4.default) {
+            load(module4.default);
+          } else {
+            load(module4);
+          }
+        });
+      } else {
+        try {
+          module3 = require2(moduleName);
+        } catch (e) {
+        }
+        load(module3);
+      }
+    };
+    exports2.setModuleLoader = function(moduleName, onLoad) {
+      exports2.dynamicModules[moduleName] = onLoad;
     };
     var reportErrorIfPathIsNotConfigured = function() {
       if (!options.basePath && !options.workerPath && !options.modePath && !options.themePath && !Object.keys(options.$moduleUrls).length) {
@@ -22253,7 +22284,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.15.2";
+    exports2.version = "1.19.0";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -22279,6 +22310,9 @@ var ace$2 = { exports: {} };
       var scriptUrl = "";
       var currentScript = document.currentScript || document._currentScript;
       var currentDocument = currentScript && currentScript.ownerDocument || document;
+      if (currentScript && currentScript.src) {
+        scriptUrl = currentScript.src.split(/[?#]/)[0].split("/").slice(0, -1).join("/") || "";
+      }
       var scripts = currentDocument.getElementsByTagName("script");
       for (var i = 0; i < scripts.length; i++) {
         var script = scripts[i];
@@ -22292,7 +22326,7 @@ var ace$2 = { exports: {} };
             scriptOptions[deHyphenate(attr.name.replace(/^data-ace-/, ""))] = attr.value;
           }
         }
-        var m = src.match(/^(.*)\/ace(\-\w+)?\.js(\?|$)/);
+        var m = src.match(/^(.*)\/ace([\-.]\w+)?\.js(\?|$)/);
         if (m)
           scriptUrl = m[1];
       }
@@ -22314,6 +22348,216 @@ var ace$2 = { exports: {} };
         return m1.toUpperCase();
       });
     }
+  });
+  ace.define("ace/range", ["require", "exports", "module"], function(require2, exports2, module2) {
+    var comparePoints = function(p1, p2) {
+      return p1.row - p2.row || p1.column - p2.column;
+    };
+    var Range = function() {
+      function Range2(startRow, startColumn, endRow, endColumn) {
+        this.start = {
+          row: startRow,
+          column: startColumn
+        };
+        this.end = {
+          row: endRow,
+          column: endColumn
+        };
+      }
+      Range2.prototype.isEqual = function(range) {
+        return this.start.row === range.start.row && this.end.row === range.end.row && this.start.column === range.start.column && this.end.column === range.end.column;
+      };
+      Range2.prototype.toString = function() {
+        return "Range: [" + this.start.row + "/" + this.start.column + "] -> [" + this.end.row + "/" + this.end.column + "]";
+      };
+      Range2.prototype.contains = function(row, column) {
+        return this.compare(row, column) == 0;
+      };
+      Range2.prototype.compareRange = function(range) {
+        var cmp, end = range.end, start = range.start;
+        cmp = this.compare(end.row, end.column);
+        if (cmp == 1) {
+          cmp = this.compare(start.row, start.column);
+          if (cmp == 1) {
+            return 2;
+          } else if (cmp == 0) {
+            return 1;
+          } else {
+            return 0;
+          }
+        } else if (cmp == -1) {
+          return -2;
+        } else {
+          cmp = this.compare(start.row, start.column);
+          if (cmp == -1) {
+            return -1;
+          } else if (cmp == 1) {
+            return 42;
+          } else {
+            return 0;
+          }
+        }
+      };
+      Range2.prototype.comparePoint = function(p) {
+        return this.compare(p.row, p.column);
+      };
+      Range2.prototype.containsRange = function(range) {
+        return this.comparePoint(range.start) == 0 && this.comparePoint(range.end) == 0;
+      };
+      Range2.prototype.intersects = function(range) {
+        var cmp = this.compareRange(range);
+        return cmp == -1 || cmp == 0 || cmp == 1;
+      };
+      Range2.prototype.isEnd = function(row, column) {
+        return this.end.row == row && this.end.column == column;
+      };
+      Range2.prototype.isStart = function(row, column) {
+        return this.start.row == row && this.start.column == column;
+      };
+      Range2.prototype.setStart = function(row, column) {
+        if (typeof row == "object") {
+          this.start.column = row.column;
+          this.start.row = row.row;
+        } else {
+          this.start.row = row;
+          this.start.column = column;
+        }
+      };
+      Range2.prototype.setEnd = function(row, column) {
+        if (typeof row == "object") {
+          this.end.column = row.column;
+          this.end.row = row.row;
+        } else {
+          this.end.row = row;
+          this.end.column = column;
+        }
+      };
+      Range2.prototype.inside = function(row, column) {
+        if (this.compare(row, column) == 0) {
+          if (this.isEnd(row, column) || this.isStart(row, column)) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+        return false;
+      };
+      Range2.prototype.insideStart = function(row, column) {
+        if (this.compare(row, column) == 0) {
+          if (this.isEnd(row, column)) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+        return false;
+      };
+      Range2.prototype.insideEnd = function(row, column) {
+        if (this.compare(row, column) == 0) {
+          if (this.isStart(row, column)) {
+            return false;
+          } else {
+            return true;
+          }
+        }
+        return false;
+      };
+      Range2.prototype.compare = function(row, column) {
+        if (!this.isMultiLine()) {
+          if (row === this.start.row) {
+            return column < this.start.column ? -1 : column > this.end.column ? 1 : 0;
+          }
+        }
+        if (row < this.start.row)
+          return -1;
+        if (row > this.end.row)
+          return 1;
+        if (this.start.row === row)
+          return column >= this.start.column ? 0 : -1;
+        if (this.end.row === row)
+          return column <= this.end.column ? 0 : 1;
+        return 0;
+      };
+      Range2.prototype.compareStart = function(row, column) {
+        if (this.start.row == row && this.start.column == column) {
+          return -1;
+        } else {
+          return this.compare(row, column);
+        }
+      };
+      Range2.prototype.compareEnd = function(row, column) {
+        if (this.end.row == row && this.end.column == column) {
+          return 1;
+        } else {
+          return this.compare(row, column);
+        }
+      };
+      Range2.prototype.compareInside = function(row, column) {
+        if (this.end.row == row && this.end.column == column) {
+          return 1;
+        } else if (this.start.row == row && this.start.column == column) {
+          return -1;
+        } else {
+          return this.compare(row, column);
+        }
+      };
+      Range2.prototype.clipRows = function(firstRow, lastRow) {
+        if (this.end.row > lastRow)
+          var end = { row: lastRow + 1, column: 0 };
+        else if (this.end.row < firstRow)
+          var end = { row: firstRow, column: 0 };
+        if (this.start.row > lastRow)
+          var start = { row: lastRow + 1, column: 0 };
+        else if (this.start.row < firstRow)
+          var start = { row: firstRow, column: 0 };
+        return Range2.fromPoints(start || this.start, end || this.end);
+      };
+      Range2.prototype.extend = function(row, column) {
+        var cmp = this.compare(row, column);
+        if (cmp == 0)
+          return this;
+        else if (cmp == -1)
+          var start = { row, column };
+        else
+          var end = { row, column };
+        return Range2.fromPoints(start || this.start, end || this.end);
+      };
+      Range2.prototype.isEmpty = function() {
+        return this.start.row === this.end.row && this.start.column === this.end.column;
+      };
+      Range2.prototype.isMultiLine = function() {
+        return this.start.row !== this.end.row;
+      };
+      Range2.prototype.clone = function() {
+        return Range2.fromPoints(this.start, this.end);
+      };
+      Range2.prototype.collapseRows = function() {
+        if (this.end.column == 0)
+          return new Range2(this.start.row, 0, Math.max(this.start.row, this.end.row - 1), 0);
+        else
+          return new Range2(this.start.row, 0, this.end.row, 0);
+      };
+      Range2.prototype.toScreenRange = function(session) {
+        var screenPosStart = session.documentToScreenPosition(this.start);
+        var screenPosEnd = session.documentToScreenPosition(this.end);
+        return new Range2(screenPosStart.row, screenPosStart.column, screenPosEnd.row, screenPosEnd.column);
+      };
+      Range2.prototype.moveBy = function(row, column) {
+        this.start.row += row;
+        this.start.column += column;
+        this.end.row += row;
+        this.end.column += column;
+      };
+      return Range2;
+    }();
+    Range.fromPoints = function(start, end) {
+      return new Range(start.row, start.column, end.row, end.column);
+    };
+    Range.comparePoints = comparePoints;
+    Range.comparePoints = function(p1, p2) {
+      return p1.row - p2.row || p1.column - p2.column;
+    };
+    exports2.Range = Range;
   });
   ace.define("ace/lib/keys", ["require", "exports", "module", "ace/lib/oop"], function(require2, exports2, module2) {
     /*! @license
@@ -22780,215 +23024,6 @@ var ace$2 = { exports: {} };
         setTimeout(callback2, 17);
       };
   });
-  ace.define("ace/range", ["require", "exports", "module"], function(require2, exports2, module2) {
-    var comparePoints = function(p1, p2) {
-      return p1.row - p2.row || p1.column - p2.column;
-    };
-    var Range = function(startRow, startColumn, endRow, endColumn) {
-      this.start = {
-        row: startRow,
-        column: startColumn
-      };
-      this.end = {
-        row: endRow,
-        column: endColumn
-      };
-    };
-    (function() {
-      this.isEqual = function(range) {
-        return this.start.row === range.start.row && this.end.row === range.end.row && this.start.column === range.start.column && this.end.column === range.end.column;
-      };
-      this.toString = function() {
-        return "Range: [" + this.start.row + "/" + this.start.column + "] -> [" + this.end.row + "/" + this.end.column + "]";
-      };
-      this.contains = function(row, column) {
-        return this.compare(row, column) == 0;
-      };
-      this.compareRange = function(range) {
-        var cmp, end = range.end, start = range.start;
-        cmp = this.compare(end.row, end.column);
-        if (cmp == 1) {
-          cmp = this.compare(start.row, start.column);
-          if (cmp == 1) {
-            return 2;
-          } else if (cmp == 0) {
-            return 1;
-          } else {
-            return 0;
-          }
-        } else if (cmp == -1) {
-          return -2;
-        } else {
-          cmp = this.compare(start.row, start.column);
-          if (cmp == -1) {
-            return -1;
-          } else if (cmp == 1) {
-            return 42;
-          } else {
-            return 0;
-          }
-        }
-      };
-      this.comparePoint = function(p) {
-        return this.compare(p.row, p.column);
-      };
-      this.containsRange = function(range) {
-        return this.comparePoint(range.start) == 0 && this.comparePoint(range.end) == 0;
-      };
-      this.intersects = function(range) {
-        var cmp = this.compareRange(range);
-        return cmp == -1 || cmp == 0 || cmp == 1;
-      };
-      this.isEnd = function(row, column) {
-        return this.end.row == row && this.end.column == column;
-      };
-      this.isStart = function(row, column) {
-        return this.start.row == row && this.start.column == column;
-      };
-      this.setStart = function(row, column) {
-        if (typeof row == "object") {
-          this.start.column = row.column;
-          this.start.row = row.row;
-        } else {
-          this.start.row = row;
-          this.start.column = column;
-        }
-      };
-      this.setEnd = function(row, column) {
-        if (typeof row == "object") {
-          this.end.column = row.column;
-          this.end.row = row.row;
-        } else {
-          this.end.row = row;
-          this.end.column = column;
-        }
-      };
-      this.inside = function(row, column) {
-        if (this.compare(row, column) == 0) {
-          if (this.isEnd(row, column) || this.isStart(row, column)) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-        return false;
-      };
-      this.insideStart = function(row, column) {
-        if (this.compare(row, column) == 0) {
-          if (this.isEnd(row, column)) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-        return false;
-      };
-      this.insideEnd = function(row, column) {
-        if (this.compare(row, column) == 0) {
-          if (this.isStart(row, column)) {
-            return false;
-          } else {
-            return true;
-          }
-        }
-        return false;
-      };
-      this.compare = function(row, column) {
-        if (!this.isMultiLine()) {
-          if (row === this.start.row) {
-            return column < this.start.column ? -1 : column > this.end.column ? 1 : 0;
-          }
-        }
-        if (row < this.start.row)
-          return -1;
-        if (row > this.end.row)
-          return 1;
-        if (this.start.row === row)
-          return column >= this.start.column ? 0 : -1;
-        if (this.end.row === row)
-          return column <= this.end.column ? 0 : 1;
-        return 0;
-      };
-      this.compareStart = function(row, column) {
-        if (this.start.row == row && this.start.column == column) {
-          return -1;
-        } else {
-          return this.compare(row, column);
-        }
-      };
-      this.compareEnd = function(row, column) {
-        if (this.end.row == row && this.end.column == column) {
-          return 1;
-        } else {
-          return this.compare(row, column);
-        }
-      };
-      this.compareInside = function(row, column) {
-        if (this.end.row == row && this.end.column == column) {
-          return 1;
-        } else if (this.start.row == row && this.start.column == column) {
-          return -1;
-        } else {
-          return this.compare(row, column);
-        }
-      };
-      this.clipRows = function(firstRow, lastRow) {
-        if (this.end.row > lastRow)
-          var end = { row: lastRow + 1, column: 0 };
-        else if (this.end.row < firstRow)
-          var end = { row: firstRow, column: 0 };
-        if (this.start.row > lastRow)
-          var start = { row: lastRow + 1, column: 0 };
-        else if (this.start.row < firstRow)
-          var start = { row: firstRow, column: 0 };
-        return Range.fromPoints(start || this.start, end || this.end);
-      };
-      this.extend = function(row, column) {
-        var cmp = this.compare(row, column);
-        if (cmp == 0)
-          return this;
-        else if (cmp == -1)
-          var start = { row, column };
-        else
-          var end = { row, column };
-        return Range.fromPoints(start || this.start, end || this.end);
-      };
-      this.isEmpty = function() {
-        return this.start.row === this.end.row && this.start.column === this.end.column;
-      };
-      this.isMultiLine = function() {
-        return this.start.row !== this.end.row;
-      };
-      this.clone = function() {
-        return Range.fromPoints(this.start, this.end);
-      };
-      this.collapseRows = function() {
-        if (this.end.column == 0)
-          return new Range(this.start.row, 0, Math.max(this.start.row, this.end.row - 1), 0);
-        else
-          return new Range(this.start.row, 0, this.end.row, 0);
-      };
-      this.toScreenRange = function(session) {
-        var screenPosStart = session.documentToScreenPosition(this.start);
-        var screenPosEnd = session.documentToScreenPosition(this.end);
-        return new Range(screenPosStart.row, screenPosStart.column, screenPosEnd.row, screenPosEnd.column);
-      };
-      this.moveBy = function(row, column) {
-        this.start.row += row;
-        this.start.column += column;
-        this.end.row += row;
-        this.end.column += column;
-      };
-    }).call(Range.prototype);
-    Range.fromPoints = function(start, end) {
-      return new Range(start.row, start.column, end.row, end.column);
-    };
-    Range.comparePoints = comparePoints;
-    Range.comparePoints = function(p1, p2) {
-      return p1.row - p2.row || p1.column - p2.column;
-    };
-    exports2.Range = Range;
-  });
   ace.define("ace/clipboard", ["require", "exports", "module"], function(require2, exports2, module2) {
     var $cancelT;
     module2.exports = {
@@ -23047,7 +23082,7 @@ var ace$2 = { exports: {} };
       this.setAriaOptions = function(options) {
         if (options.activeDescendant) {
           text.setAttribute("aria-haspopup", "true");
-          text.setAttribute("aria-autocomplete", "list");
+          text.setAttribute("aria-autocomplete", options.inline ? "both" : "list");
           text.setAttribute("aria-activedescendant", options.activeDescendant);
         } else {
           text.setAttribute("aria-haspopup", "false");
@@ -23064,6 +23099,8 @@ var ace$2 = { exports: {} };
           return;
         host.onBlur(e);
         isFocused = false;
+        if (isMobile && !isIOS)
+          document.removeEventListener("selectionchange", detectSelectionChange);
       }, host);
       event.addListener(text, "focus", function(e) {
         if (ignoreFocusEvents)
@@ -23081,6 +23118,8 @@ var ace$2 = { exports: {} };
           setTimeout(resetSelection);
         else
           resetSelection();
+        if (isMobile && !isIOS)
+          document.addEventListener("selectionchange", detectSelectionChange);
       }, host);
       this.$focusScroll = false;
       this.focus = function() {
@@ -23233,6 +23272,26 @@ var ace$2 = { exports: {} };
           resetSelection();
         }
       };
+      function detectSelectionChange(e) {
+        if (!text || !text.parentNode)
+          document.removeEventListener("selectionchange", detectSelectionChange);
+        if (inComposition)
+          return;
+        if (text.selectionStart !== text.selectionEnd)
+          return;
+        var startDiff = text.selectionStart - lastSelectionStart;
+        var oldLenght = lastSelectionEnd - lastSelectionStart;
+        if (startDiff > 0) {
+          startDiff = Math.max(startDiff - oldLenght, 1);
+        } else if (startDiff === 0 && oldLenght) {
+          startDiff = -1;
+        }
+        var repeat = Math.abs(startDiff);
+        var key = startDiff > 0 ? KEYS.right : KEYS.left;
+        for (var i = 0; i < repeat; i++) {
+          host.onCommandKey({}, 0, key);
+        }
+      }
       var inputHandler = null;
       this.setInputHandler = function(cb) {
         inputHandler = cb;
@@ -23624,33 +23683,33 @@ var ace$2 = { exports: {} };
     var useragent = require2("../lib/useragent");
     var DRAG_OFFSET = 0;
     var SCROLL_COOLDOWN_T = 550;
-    function DefaultHandlers(mouseHandler) {
-      mouseHandler.$clickSelection = null;
-      var editor = mouseHandler.editor;
-      editor.setDefaultHandler("mousedown", this.onMouseDown.bind(mouseHandler));
-      editor.setDefaultHandler("dblclick", this.onDoubleClick.bind(mouseHandler));
-      editor.setDefaultHandler("tripleclick", this.onTripleClick.bind(mouseHandler));
-      editor.setDefaultHandler("quadclick", this.onQuadClick.bind(mouseHandler));
-      editor.setDefaultHandler("mousewheel", this.onMouseWheel.bind(mouseHandler));
-      var exports3 = [
-        "select",
-        "startSelect",
-        "selectEnd",
-        "selectAllEnd",
-        "selectByWordsEnd",
-        "selectByLinesEnd",
-        "dragWait",
-        "dragWaitEnd",
-        "focusWait"
-      ];
-      exports3.forEach(function(x) {
-        mouseHandler[x] = this[x];
-      }, this);
-      mouseHandler.selectByLines = this.extendSelectionBy.bind(mouseHandler, "getLineRange");
-      mouseHandler.selectByWords = this.extendSelectionBy.bind(mouseHandler, "getWordRange");
-    }
-    (function() {
-      this.onMouseDown = function(ev) {
+    var DefaultHandlers = function() {
+      function DefaultHandlers2(mouseHandler) {
+        mouseHandler.$clickSelection = null;
+        var editor = mouseHandler.editor;
+        editor.setDefaultHandler("mousedown", this.onMouseDown.bind(mouseHandler));
+        editor.setDefaultHandler("dblclick", this.onDoubleClick.bind(mouseHandler));
+        editor.setDefaultHandler("tripleclick", this.onTripleClick.bind(mouseHandler));
+        editor.setDefaultHandler("quadclick", this.onQuadClick.bind(mouseHandler));
+        editor.setDefaultHandler("mousewheel", this.onMouseWheel.bind(mouseHandler));
+        var exports3 = [
+          "select",
+          "startSelect",
+          "selectEnd",
+          "selectAllEnd",
+          "selectByWordsEnd",
+          "selectByLinesEnd",
+          "dragWait",
+          "dragWaitEnd",
+          "focusWait"
+        ];
+        exports3.forEach(function(x) {
+          mouseHandler[x] = this[x];
+        }, this);
+        mouseHandler.selectByLines = this.extendSelectionBy.bind(mouseHandler, "getLineRange");
+        mouseHandler.selectByWords = this.extendSelectionBy.bind(mouseHandler, "getWordRange");
+      }
+      DefaultHandlers2.prototype.onMouseDown = function(ev) {
         var inSelection = ev.inSelection();
         var pos = ev.getDocumentPosition();
         this.mousedownEvent = ev;
@@ -23681,7 +23740,7 @@ var ace$2 = { exports: {} };
         this.startSelect(pos, ev.domEvent._clicks > 1);
         return ev.preventDefault();
       };
-      this.startSelect = function(pos, waitForClickSelection) {
+      DefaultHandlers2.prototype.startSelect = function(pos, waitForClickSelection) {
         pos = pos || this.editor.renderer.screenToTextCoordinates(this.x, this.y);
         var editor = this.editor;
         if (!this.mousedownEvent)
@@ -23695,7 +23754,7 @@ var ace$2 = { exports: {} };
         editor.setStyle("ace_selecting");
         this.setState("select");
       };
-      this.select = function() {
+      DefaultHandlers2.prototype.select = function() {
         var anchor, editor = this.editor;
         var cursor = editor.renderer.screenToTextCoordinates(this.x, this.y);
         if (this.$clickSelection) {
@@ -23714,7 +23773,7 @@ var ace$2 = { exports: {} };
         editor.selection.selectToPosition(cursor);
         editor.renderer.scrollCursorIntoView();
       };
-      this.extendSelectionBy = function(unitName) {
+      DefaultHandlers2.prototype.extendSelectionBy = function(unitName) {
         var anchor, editor = this.editor;
         var cursor = editor.renderer.screenToTextCoordinates(this.x, this.y);
         var range = editor.selection[unitName](cursor.row, cursor.column);
@@ -23742,17 +23801,17 @@ var ace$2 = { exports: {} };
         editor.selection.selectToPosition(cursor);
         editor.renderer.scrollCursorIntoView();
       };
-      this.selectEnd = this.selectAllEnd = this.selectByWordsEnd = this.selectByLinesEnd = function() {
+      DefaultHandlers2.prototype.selectByLinesEnd = function() {
         this.$clickSelection = null;
         this.editor.unsetStyle("ace_selecting");
       };
-      this.focusWait = function() {
+      DefaultHandlers2.prototype.focusWait = function() {
         var distance = calcDistance(this.mousedownEvent.x, this.mousedownEvent.y, this.x, this.y);
         var time = Date.now();
         if (distance > DRAG_OFFSET || time - this.mousedownEvent.time > this.$focusTimeout)
           this.startSelect(this.mousedownEvent.getDocumentPosition());
       };
-      this.onDoubleClick = function(ev) {
+      DefaultHandlers2.prototype.onDoubleClick = function(ev) {
         var pos = ev.getDocumentPosition();
         var editor = this.editor;
         var session = editor.session;
@@ -23770,7 +23829,7 @@ var ace$2 = { exports: {} };
         this.$clickSelection = range;
         this.select();
       };
-      this.onTripleClick = function(ev) {
+      DefaultHandlers2.prototype.onTripleClick = function(ev) {
         var pos = ev.getDocumentPosition();
         var editor = this.editor;
         this.setState("selectByLines");
@@ -23783,13 +23842,13 @@ var ace$2 = { exports: {} };
         }
         this.select();
       };
-      this.onQuadClick = function(ev) {
+      DefaultHandlers2.prototype.onQuadClick = function(ev) {
         var editor = this.editor;
         editor.selectAll();
         this.$clickSelection = editor.getSelectionRange();
         this.setState("selectAll");
       };
-      this.onMouseWheel = function(ev) {
+      DefaultHandlers2.prototype.onMouseWheel = function(ev) {
         if (ev.getAccelKey())
           return;
         if (ev.getShiftKey() && ev.wheelY && !ev.wheelX) {
@@ -23833,7 +23892,11 @@ var ace$2 = { exports: {} };
           return ev.stop();
         }
       };
-    }).call(DefaultHandlers.prototype);
+      return DefaultHandlers2;
+    }();
+    DefaultHandlers.prototype.selectEnd = DefaultHandlers.prototype.selectByLinesEnd;
+    DefaultHandlers.prototype.selectAllEnd = DefaultHandlers.prototype.selectByLinesEnd;
+    DefaultHandlers.prototype.selectByWordsEnd = DefaultHandlers.prototype.selectByLinesEnd;
     exports2.DefaultHandlers = DefaultHandlers;
     function calcDistance(ax, ay, bx, by) {
       return Math.sqrt(Math.pow(bx - ax, 2) + Math.pow(by - ay, 2));
@@ -23851,40 +23914,78 @@ var ace$2 = { exports: {} };
         return { cursor: range.end, anchor: range.start };
     }
   });
-  ace.define("ace/tooltip", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom"], function(require2, exports2, module2) {
-    require2("./lib/oop");
+  ace.define("ace/tooltip", ["require", "exports", "module", "ace/lib/dom", "ace/range"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+          d2.__proto__ = b2;
+        } || function(d2, b2) {
+          for (var p in b2)
+            if (Object.prototype.hasOwnProperty.call(b2, p))
+              d2[p] = b2[p];
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        if (typeof b !== "function" && b !== null)
+          throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
+    var __values = this && this.__values || function(o) {
+      var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+      if (m)
+        return m.call(o);
+      if (o && typeof o.length === "number")
+        return {
+          next: function() {
+            if (o && i >= o.length)
+              o = void 0;
+            return { value: o && o[i++], done: !o };
+          }
+        };
+      throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+    };
     var dom = require2("./lib/dom");
+    var Range = require2("./range").Range;
     var CLASSNAME = "ace_tooltip";
-    function Tooltip(parentNode) {
-      this.isOpen = false;
-      this.$element = null;
-      this.$parentNode = parentNode;
-    }
-    (function() {
-      this.$init = function() {
+    var Tooltip = function() {
+      function Tooltip2(parentNode) {
+        this.isOpen = false;
+        this.$element = null;
+        this.$parentNode = parentNode;
+      }
+      Tooltip2.prototype.$init = function() {
         this.$element = dom.createElement("div");
         this.$element.className = CLASSNAME;
         this.$element.style.display = "none";
         this.$parentNode.appendChild(this.$element);
         return this.$element;
       };
-      this.getElement = function() {
+      Tooltip2.prototype.getElement = function() {
         return this.$element || this.$init();
       };
-      this.setText = function(text) {
+      Tooltip2.prototype.setText = function(text) {
         this.getElement().textContent = text;
       };
-      this.setHtml = function(html) {
+      Tooltip2.prototype.setHtml = function(html) {
         this.getElement().innerHTML = html;
       };
-      this.setPosition = function(x, y) {
+      Tooltip2.prototype.setPosition = function(x, y) {
         this.getElement().style.left = x + "px";
         this.getElement().style.top = y + "px";
       };
-      this.setClassName = function(className) {
+      Tooltip2.prototype.setClassName = function(className) {
         dom.addCssClass(this.getElement(), className);
       };
-      this.show = function(text, x, y) {
+      Tooltip2.prototype.setTheme = function(theme) {
+        this.$element.className = CLASSNAME + " " + (theme.isDark ? "ace_dark " : "") + (theme.cssClass || "");
+      };
+      Tooltip2.prototype.show = function(text, x, y) {
         if (text != null)
           this.setText(text);
         if (x != null && y != null)
@@ -23894,31 +23995,311 @@ var ace$2 = { exports: {} };
           this.isOpen = true;
         }
       };
-      this.hide = function() {
+      Tooltip2.prototype.hide = function() {
         if (this.isOpen) {
           this.getElement().style.display = "none";
           this.getElement().className = CLASSNAME;
           this.isOpen = false;
         }
       };
-      this.getHeight = function() {
+      Tooltip2.prototype.getHeight = function() {
         return this.getElement().offsetHeight;
       };
-      this.getWidth = function() {
+      Tooltip2.prototype.getWidth = function() {
         return this.getElement().offsetWidth;
       };
-      this.destroy = function() {
+      Tooltip2.prototype.destroy = function() {
         this.isOpen = false;
         if (this.$element && this.$element.parentNode) {
           this.$element.parentNode.removeChild(this.$element);
         }
       };
-    }).call(Tooltip.prototype);
+      return Tooltip2;
+    }();
+    var PopupManager = function() {
+      function PopupManager2() {
+        this.popups = [];
+      }
+      PopupManager2.prototype.addPopup = function(popup) {
+        this.popups.push(popup);
+        this.updatePopups();
+      };
+      PopupManager2.prototype.removePopup = function(popup) {
+        var index2 = this.popups.indexOf(popup);
+        if (index2 !== -1) {
+          this.popups.splice(index2, 1);
+          this.updatePopups();
+        }
+      };
+      PopupManager2.prototype.updatePopups = function() {
+        var e_1, _a, e_2, _b;
+        this.popups.sort(function(a, b) {
+          return b.priority - a.priority;
+        });
+        var visiblepopups = [];
+        try {
+          for (var _c = __values(this.popups), _d = _c.next(); !_d.done; _d = _c.next()) {
+            var popup = _d.value;
+            var shouldDisplay = true;
+            try {
+              for (var visiblepopups_1 = (e_2 = void 0, __values(visiblepopups)), visiblepopups_1_1 = visiblepopups_1.next(); !visiblepopups_1_1.done; visiblepopups_1_1 = visiblepopups_1.next()) {
+                var visiblePopup = visiblepopups_1_1.value;
+                if (this.doPopupsOverlap(visiblePopup, popup)) {
+                  shouldDisplay = false;
+                  break;
+                }
+              }
+            } catch (e_2_1) {
+              e_2 = { error: e_2_1 };
+            } finally {
+              try {
+                if (visiblepopups_1_1 && !visiblepopups_1_1.done && (_b = visiblepopups_1.return))
+                  _b.call(visiblepopups_1);
+              } finally {
+                if (e_2)
+                  throw e_2.error;
+              }
+            }
+            if (shouldDisplay) {
+              visiblepopups.push(popup);
+            } else {
+              popup.hide();
+            }
+          }
+        } catch (e_1_1) {
+          e_1 = { error: e_1_1 };
+        } finally {
+          try {
+            if (_d && !_d.done && (_a = _c.return))
+              _a.call(_c);
+          } finally {
+            if (e_1)
+              throw e_1.error;
+          }
+        }
+      };
+      PopupManager2.prototype.doPopupsOverlap = function(popupA, popupB) {
+        var rectA = popupA.getElement().getBoundingClientRect();
+        var rectB = popupB.getElement().getBoundingClientRect();
+        return rectA.left < rectB.right && rectA.right > rectB.left && rectA.top < rectB.bottom && rectA.bottom > rectB.top;
+      };
+      return PopupManager2;
+    }();
+    var popupManager = new PopupManager();
+    exports2.popupManager = popupManager;
     exports2.Tooltip = Tooltip;
+    var HoverTooltip = function(_super) {
+      __extends(HoverTooltip2, _super);
+      function HoverTooltip2() {
+        var _this = _super.call(this, document.body) || this;
+        _this.timeout = void 0;
+        _this.lastT = 0;
+        _this.idleTime = 350;
+        _this.lastEvent = void 0;
+        _this.onMouseOut = _this.onMouseOut.bind(_this);
+        _this.onMouseMove = _this.onMouseMove.bind(_this);
+        _this.waitForHover = _this.waitForHover.bind(_this);
+        _this.hide = _this.hide.bind(_this);
+        var el = _this.getElement();
+        el.style.whiteSpace = "pre-wrap";
+        el.style.pointerEvents = "auto";
+        el.addEventListener("mouseout", _this.onMouseOut);
+        el.tabIndex = -1;
+        el.addEventListener("blur", function() {
+          if (document.activeElement != el)
+            this.hide();
+        }.bind(_this));
+        return _this;
+      }
+      HoverTooltip2.prototype.addToEditor = function(editor) {
+        editor.on("mousemove", this.onMouseMove);
+        editor.on("mousedown", this.hide);
+        editor.renderer.getMouseEventTarget().addEventListener("mouseout", this.onMouseOut, true);
+      };
+      HoverTooltip2.prototype.removeFromEditor = function(editor) {
+        editor.off("mousemove", this.onMouseMove);
+        editor.off("mousedown", this.hide);
+        editor.renderer.getMouseEventTarget().removeEventListener("mouseout", this.onMouseOut, true);
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+          this.timeout = null;
+        }
+      };
+      HoverTooltip2.prototype.onMouseMove = function(e, editor) {
+        this.lastEvent = e;
+        this.lastT = Date.now();
+        var isMousePressed = editor.$mouseHandler.isMousePressed;
+        if (this.isOpen) {
+          var pos = this.lastEvent && this.lastEvent.getDocumentPosition();
+          if (!this.range || !this.range.contains(pos.row, pos.column) || isMousePressed || this.isOutsideOfText(this.lastEvent)) {
+            this.hide();
+          }
+        }
+        if (this.timeout || isMousePressed)
+          return;
+        this.lastEvent = e;
+        this.timeout = setTimeout(this.waitForHover, this.idleTime);
+      };
+      HoverTooltip2.prototype.waitForHover = function() {
+        if (this.timeout)
+          clearTimeout(this.timeout);
+        var dt = Date.now() - this.lastT;
+        if (this.idleTime - dt > 10) {
+          this.timeout = setTimeout(this.waitForHover, this.idleTime - dt);
+          return;
+        }
+        this.timeout = null;
+        if (this.lastEvent && !this.isOutsideOfText(this.lastEvent)) {
+          this.$gatherData(this.lastEvent, this.lastEvent.editor);
+        }
+      };
+      HoverTooltip2.prototype.isOutsideOfText = function(e) {
+        var editor = e.editor;
+        var docPos = e.getDocumentPosition();
+        var line = editor.session.getLine(docPos.row);
+        if (docPos.column == line.length) {
+          var screenPos = editor.renderer.pixelToScreenCoordinates(e.clientX, e.clientY);
+          var clippedPos = editor.session.documentToScreenPosition(docPos.row, docPos.column);
+          if (clippedPos.column != screenPos.column || clippedPos.row != screenPos.row) {
+            return true;
+          }
+        }
+        return false;
+      };
+      HoverTooltip2.prototype.setDataProvider = function(value2) {
+        this.$gatherData = value2;
+      };
+      HoverTooltip2.prototype.showForRange = function(editor, range, domNode, startingEvent) {
+        if (startingEvent && startingEvent != this.lastEvent)
+          return;
+        if (this.isOpen && document.activeElement == this.getElement())
+          return;
+        var renderer = editor.renderer;
+        if (!this.isOpen) {
+          popupManager.addPopup(this);
+          this.$registerCloseEvents();
+          this.setTheme(renderer.theme);
+        }
+        this.isOpen = true;
+        this.addMarker(range, editor.session);
+        this.range = Range.fromPoints(range.start, range.end);
+        var element = this.getElement();
+        element.innerHTML = "";
+        element.appendChild(domNode);
+        element.style.display = "block";
+        var position = renderer.textToScreenCoordinates(range.start.row, range.start.column);
+        var cursorPos = editor.getCursorPosition();
+        var labelHeight = element.clientHeight;
+        var rect = renderer.scroller.getBoundingClientRect();
+        var isTopdown = true;
+        if (this.row > cursorPos.row) {
+          isTopdown = true;
+        } else if (this.row < cursorPos.row) {
+          isTopdown = false;
+        }
+        if (position.pageY - labelHeight + renderer.lineHeight < rect.top) {
+          isTopdown = true;
+        } else if (position.pageY + labelHeight > rect.bottom) {
+          isTopdown = false;
+        }
+        if (!isTopdown) {
+          position.pageY -= labelHeight;
+        } else {
+          position.pageY += renderer.lineHeight;
+        }
+        element.style.maxWidth = rect.width - (position.pageX - rect.left) + "px";
+        this.setPosition(position.pageX, position.pageY);
+      };
+      HoverTooltip2.prototype.addMarker = function(range, session) {
+        if (this.marker) {
+          this.$markerSession.removeMarker(this.marker);
+        }
+        this.$markerSession = session;
+        this.marker = session && session.addMarker(range, "ace_highlight-marker", "text");
+      };
+      HoverTooltip2.prototype.hide = function(e) {
+        if (!e && document.activeElement == this.getElement())
+          return;
+        if (e && e.target && (e.type != "keydown" || e.ctrlKey || e.metaKey) && this.$element.contains(e.target))
+          return;
+        this.lastEvent = null;
+        if (this.timeout)
+          clearTimeout(this.timeout);
+        this.timeout = null;
+        this.addMarker(null);
+        if (this.isOpen) {
+          this.$removeCloseEvents();
+          this.getElement().style.display = "none";
+          this.isOpen = false;
+          popupManager.removePopup(this);
+        }
+      };
+      HoverTooltip2.prototype.$registerCloseEvents = function() {
+        window.addEventListener("keydown", this.hide, true);
+        window.addEventListener("mousewheel", this.hide, true);
+        window.addEventListener("mousedown", this.hide, true);
+      };
+      HoverTooltip2.prototype.$removeCloseEvents = function() {
+        window.removeEventListener("keydown", this.hide, true);
+        window.removeEventListener("mousewheel", this.hide, true);
+        window.removeEventListener("mousedown", this.hide, true);
+      };
+      HoverTooltip2.prototype.onMouseOut = function(e) {
+        if (this.timeout) {
+          clearTimeout(this.timeout);
+          this.timeout = null;
+        }
+        this.lastEvent = null;
+        if (!this.isOpen)
+          return;
+        if (!e.relatedTarget || e.relatedTarget == this.getElement())
+          return;
+        if (e && e.currentTarget.contains(e.relatedTarget))
+          return;
+        if (!e.relatedTarget.classList.contains("ace_content"))
+          this.hide();
+      };
+      return HoverTooltip2;
+    }(Tooltip);
+    exports2.HoverTooltip = HoverTooltip;
   });
-  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/event", "ace/tooltip"], function(require2, exports2, module2) {
+  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+          d2.__proto__ = b2;
+        } || function(d2, b2) {
+          for (var p in b2)
+            if (Object.prototype.hasOwnProperty.call(b2, p))
+              d2[p] = b2[p];
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        if (typeof b !== "function" && b !== null)
+          throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
+    var __values = this && this.__values || function(o) {
+      var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
+      if (m)
+        return m.call(o);
+      if (o && typeof o.length === "number")
+        return {
+          next: function() {
+            if (o && i >= o.length)
+              o = void 0;
+            return { value: o && o[i++], done: !o };
+          }
+        };
+      throw new TypeError(s ? "Object is not iterable." : "Symbol.iterator is not defined.");
+    };
     var dom = require2("../lib/dom");
-    var oop = require2("../lib/oop");
     var event = require2("../lib/event");
     var Tooltip = require2("../tooltip").Tooltip;
     function GutterHandler(mouseHandler) {
@@ -23946,11 +24327,47 @@ var ace$2 = { exports: {} };
         mouseHandler.captureMouse(e);
         return e.preventDefault();
       });
-      var tooltipTimeout, mouseEvent, tooltipAnnotation;
+      var tooltipTimeout, mouseEvent, tooltipContent;
+      var annotationLabels = {
+        error: { singular: "error", plural: "errors" },
+        warning: { singular: "warning", plural: "warnings" },
+        info: { singular: "information message", plural: "information messages" }
+      };
       function showTooltip() {
         var row = mouseEvent.getDocumentPosition().row;
-        var annotation = gutter.$annotations[row];
-        if (!annotation)
+        var annotationsInRow = gutter.$annotations[row];
+        var annotation;
+        if (annotationsInRow)
+          annotation = { text: Array.from(annotationsInRow.text), type: Array.from(annotationsInRow.type) };
+        else
+          annotation = { text: [], type: [] };
+        var fold = gutter.session.getFoldLine(row);
+        if (fold && gutter.$showFoldedAnnotations) {
+          var annotationsInFold = { error: [], warning: [], info: [] };
+          var mostSevereAnnotationInFoldType;
+          for (var i = row + 1; i <= fold.end.row; i++) {
+            if (!gutter.$annotations[i])
+              continue;
+            for (var j = 0; j < gutter.$annotations[i].text.length; j++) {
+              var annotationType = gutter.$annotations[i].type[j];
+              annotationsInFold[annotationType].push(gutter.$annotations[i].text[j]);
+              if (annotationType === "error") {
+                mostSevereAnnotationInFoldType = "error_fold";
+                continue;
+              }
+              if (annotationType === "warning") {
+                mostSevereAnnotationInFoldType = "warning_fold";
+                continue;
+              }
+            }
+          }
+          if (mostSevereAnnotationInFoldType === "error_fold" || mostSevereAnnotationInFoldType === "warning_fold") {
+            var summaryFoldedAnnotations = "".concat(annotationsToSummaryString(annotationsInFold), " in folded code.");
+            annotation.text.push(summaryFoldedAnnotations);
+            annotation.type.push(mostSevereAnnotationInFoldType);
+          }
+        }
+        if (annotation.text.length === 0)
           return hideTooltip();
         var maxRow = editor.session.getLength();
         if (row == maxRow) {
@@ -23959,13 +24376,18 @@ var ace$2 = { exports: {} };
           if (screenRow > editor.session.documentToScreenRow(pos.row, pos.column))
             return hideTooltip();
         }
-        if (tooltipAnnotation == annotation)
-          return;
-        tooltipAnnotation = annotation.text.join("<br/>");
-        tooltip.setHtml(tooltipAnnotation);
-        var annotationClassName = annotation.className;
-        if (annotationClassName) {
-          tooltip.setClassName(annotationClassName.trim());
+        var annotationMessages = { error: [], warning: [], info: [] };
+        var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
+        for (var i = 0; i < annotation.text.length; i++) {
+          var line = "<span class='ace_".concat(annotation.type[i], " ").concat(iconClassName, "' aria-label='").concat(annotationLabels[annotation.type[i].replace("_fold", "")].singular, "' role=img> </span> ").concat(annotation.text[i]);
+          annotationMessages[annotation.type[i].replace("_fold", "")].push(line);
+        }
+        tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
+        tooltip.setHtml(tooltipContent);
+        tooltip.setClassName("ace_gutter-tooltip");
+        tooltip.$element.setAttribute("aria-live", "polite");
+        if (!tooltip.isOpen) {
+          tooltip.setTheme(editor.renderer.theme);
         }
         tooltip.show();
         editor._signal("showGutterTooltip", tooltip);
@@ -23973,7 +24395,7 @@ var ace$2 = { exports: {} };
         if (mouseHandler.$tooltipFollowsMouse) {
           moveTooltip(mouseEvent);
         } else {
-          var gutterElement = mouseEvent.domEvent.target;
+          var gutterElement = gutter.$lines.cells[row].element.querySelector("[class*=ace_icon]");
           var rect = gutterElement.getBoundingClientRect();
           var style = tooltip.getElement().style;
           style.left = rect.right + "px";
@@ -23983,12 +24405,37 @@ var ace$2 = { exports: {} };
       function hideTooltip() {
         if (tooltipTimeout)
           tooltipTimeout = clearTimeout(tooltipTimeout);
-        if (tooltipAnnotation) {
+        if (tooltipContent) {
           tooltip.hide();
-          tooltipAnnotation = null;
+          tooltipContent = null;
           editor._signal("hideGutterTooltip", tooltip);
           editor.off("mousewheel", hideTooltip);
         }
+      }
+      function annotationsToSummaryString(annotations) {
+        var e_1, _a;
+        var summary = [];
+        var annotationTypes = ["error", "warning", "info"];
+        try {
+          for (var annotationTypes_1 = __values(annotationTypes), annotationTypes_1_1 = annotationTypes_1.next(); !annotationTypes_1_1.done; annotationTypes_1_1 = annotationTypes_1.next()) {
+            var annotationType = annotationTypes_1_1.value;
+            if (!annotations[annotationType].length)
+              continue;
+            var label = annotations[annotationType].length === 1 ? annotationLabels[annotationType].singular : annotationLabels[annotationType].plural;
+            summary.push("".concat(annotations[annotationType].length, " ").concat(label));
+          }
+        } catch (e_1_1) {
+          e_1 = { error: e_1_1 };
+        } finally {
+          try {
+            if (annotationTypes_1_1 && !annotationTypes_1_1.done && (_a = annotationTypes_1.return))
+              _a.call(annotationTypes_1);
+          } finally {
+            if (e_1)
+              throw e_1.error;
+          }
+        }
+        return summary.join(", ");
       }
       function moveTooltip(e) {
         tooltip.setPosition(e.x, e.y);
@@ -23997,7 +24444,7 @@ var ace$2 = { exports: {} };
         var target = e.domEvent.target || e.domEvent.srcElement;
         if (dom.hasCssClass(target, "ace_fold-widget"))
           return hideTooltip();
-        if (tooltipAnnotation && mouseHandler.$tooltipFollowsMouse)
+        if (tooltipContent && mouseHandler.$tooltipFollowsMouse)
           moveTooltip(e);
         mouseEvent = e;
         if (tooltipTimeout)
@@ -24012,7 +24459,7 @@ var ace$2 = { exports: {} };
       });
       event.addListener(editor.renderer.$gutter, "mouseout", function(e) {
         mouseEvent = null;
-        if (!tooltipAnnotation || tooltipTimeout)
+        if (!tooltipContent || tooltipTimeout)
           return;
         tooltipTimeout = setTimeout(function() {
           tooltipTimeout = null;
@@ -24021,12 +24468,12 @@ var ace$2 = { exports: {} };
       }, editor);
       editor.on("changeSession", hideTooltip);
     }
-    function GutterTooltip(parentNode) {
-      Tooltip.call(this, parentNode);
-    }
-    oop.inherits(GutterTooltip, Tooltip);
-    (function() {
-      this.setPosition = function(x, y) {
+    var GutterTooltip = function(_super) {
+      __extends(GutterTooltip2, _super);
+      function GutterTooltip2() {
+        return _super !== null && _super.apply(this, arguments) || this;
+      }
+      GutterTooltip2.prototype.setPosition = function(x, y) {
         var windowWidth = window.innerWidth || document.documentElement.clientWidth;
         var windowHeight = window.innerHeight || document.documentElement.clientHeight;
         var width = this.getWidth();
@@ -24041,42 +24488,43 @@ var ace$2 = { exports: {} };
         }
         Tooltip.prototype.setPosition.call(this, x, y);
       };
-    }).call(GutterTooltip.prototype);
+      return GutterTooltip2;
+    }(Tooltip);
     exports2.GutterHandler = GutterHandler;
   });
   ace.define("ace/mouse/mouse_event", ["require", "exports", "module", "ace/lib/event", "ace/lib/useragent"], function(require2, exports2, module2) {
     var event = require2("../lib/event");
     var useragent = require2("../lib/useragent");
-    var MouseEvent2 = exports2.MouseEvent = function(domEvent, editor) {
-      this.domEvent = domEvent;
-      this.editor = editor;
-      this.x = this.clientX = domEvent.clientX;
-      this.y = this.clientY = domEvent.clientY;
-      this.$pos = null;
-      this.$inSelection = null;
-      this.propagationStopped = false;
-      this.defaultPrevented = false;
-    };
-    (function() {
-      this.stopPropagation = function() {
+    var MouseEvent2 = function() {
+      function MouseEvent3(domEvent, editor) {
+        this.domEvent = domEvent;
+        this.editor = editor;
+        this.x = this.clientX = domEvent.clientX;
+        this.y = this.clientY = domEvent.clientY;
+        this.$pos = null;
+        this.$inSelection = null;
+        this.propagationStopped = false;
+        this.defaultPrevented = false;
+      }
+      MouseEvent3.prototype.stopPropagation = function() {
         event.stopPropagation(this.domEvent);
         this.propagationStopped = true;
       };
-      this.preventDefault = function() {
+      MouseEvent3.prototype.preventDefault = function() {
         event.preventDefault(this.domEvent);
         this.defaultPrevented = true;
       };
-      this.stop = function() {
+      MouseEvent3.prototype.stop = function() {
         this.stopPropagation();
         this.preventDefault();
       };
-      this.getDocumentPosition = function() {
+      MouseEvent3.prototype.getDocumentPosition = function() {
         if (this.$pos)
           return this.$pos;
         this.$pos = this.editor.renderer.screenToTextCoordinates(this.clientX, this.clientY);
         return this.$pos;
       };
-      this.inSelection = function() {
+      MouseEvent3.prototype.inSelection = function() {
         if (this.$inSelection !== null)
           return this.$inSelection;
         var editor = this.editor;
@@ -24089,18 +24537,18 @@ var ace$2 = { exports: {} };
         }
         return this.$inSelection;
       };
-      this.getButton = function() {
+      MouseEvent3.prototype.getButton = function() {
         return event.getButton(this.domEvent);
       };
-      this.getShiftKey = function() {
+      MouseEvent3.prototype.getShiftKey = function() {
         return this.domEvent.shiftKey;
       };
-      this.getAccelKey = useragent.isMac ? function() {
-        return this.domEvent.metaKey;
-      } : function() {
-        return this.domEvent.ctrlKey;
+      MouseEvent3.prototype.getAccelKey = function() {
+        return useragent.isMac ? this.domEvent.metaKey : this.domEvent.ctrlKey;
       };
-    }).call(MouseEvent2.prototype);
+      return MouseEvent3;
+    }();
+    exports2.MouseEvent = MouseEvent2;
   });
   ace.define("ace/mouse/dragdrop_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/lib/useragent"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
@@ -24734,80 +25182,80 @@ var ace$2 = { exports: {} };
     var DragdropHandler = require2("./dragdrop_handler").DragdropHandler;
     var addTouchListeners = require2("./touch_handler").addTouchListeners;
     var config = require2("../config");
-    var MouseHandler = function(editor) {
-      var _self = this;
-      this.editor = editor;
-      new DefaultHandlers(this);
-      new DefaultGutterHandler(this);
-      new DragdropHandler(this);
-      var focusEditor = function(e) {
-        var windowBlurred = !document.hasFocus || !document.hasFocus() || !editor.isFocused() && document.activeElement == (editor.textInput && editor.textInput.getElement());
-        if (windowBlurred)
-          window.focus();
-        editor.focus();
-        setTimeout(function() {
-          if (!editor.isFocused())
-            editor.focus();
-        });
-      };
-      var mouseTarget = editor.renderer.getMouseEventTarget();
-      event.addListener(mouseTarget, "click", this.onMouseEvent.bind(this, "click"), editor);
-      event.addListener(mouseTarget, "mousemove", this.onMouseMove.bind(this, "mousemove"), editor);
-      event.addMultiMouseDownListener([
-        mouseTarget,
-        editor.renderer.scrollBarV && editor.renderer.scrollBarV.inner,
-        editor.renderer.scrollBarH && editor.renderer.scrollBarH.inner,
-        editor.textInput && editor.textInput.getElement()
-      ].filter(Boolean), [400, 300, 250], this, "onMouseEvent", editor);
-      event.addMouseWheelListener(editor.container, this.onMouseWheel.bind(this, "mousewheel"), editor);
-      addTouchListeners(editor.container, editor);
-      var gutterEl = editor.renderer.$gutter;
-      event.addListener(gutterEl, "mousedown", this.onMouseEvent.bind(this, "guttermousedown"), editor);
-      event.addListener(gutterEl, "click", this.onMouseEvent.bind(this, "gutterclick"), editor);
-      event.addListener(gutterEl, "dblclick", this.onMouseEvent.bind(this, "gutterdblclick"), editor);
-      event.addListener(gutterEl, "mousemove", this.onMouseEvent.bind(this, "guttermousemove"), editor);
-      event.addListener(mouseTarget, "mousedown", focusEditor, editor);
-      event.addListener(gutterEl, "mousedown", focusEditor, editor);
-      if (useragent.isIE && editor.renderer.scrollBarV) {
-        event.addListener(editor.renderer.scrollBarV.element, "mousedown", focusEditor, editor);
-        event.addListener(editor.renderer.scrollBarH.element, "mousedown", focusEditor, editor);
-      }
-      editor.on("mousemove", function(e) {
-        if (_self.state || _self.$dragDelay || !_self.$dragEnabled)
-          return;
-        var character = editor.renderer.screenToTextCoordinates(e.x, e.y);
-        var range = editor.session.selection.getRange();
-        var renderer = editor.renderer;
-        if (!range.isEmpty() && range.insideStart(character.row, character.column)) {
-          renderer.setCursorStyle("default");
-        } else {
-          renderer.setCursorStyle("");
+    var MouseHandler = function() {
+      function MouseHandler2(editor) {
+        var _self = this;
+        this.editor = editor;
+        new DefaultHandlers(this);
+        new DefaultGutterHandler(this);
+        new DragdropHandler(this);
+        var focusEditor = function(e) {
+          var windowBlurred = !document.hasFocus || !document.hasFocus() || !editor.isFocused() && document.activeElement == (editor.textInput && editor.textInput.getElement());
+          if (windowBlurred)
+            window.focus();
+          editor.focus();
+          setTimeout(function() {
+            if (!editor.isFocused())
+              editor.focus();
+          });
+        };
+        var mouseTarget = editor.renderer.getMouseEventTarget();
+        event.addListener(mouseTarget, "click", this.onMouseEvent.bind(this, "click"), editor);
+        event.addListener(mouseTarget, "mousemove", this.onMouseMove.bind(this, "mousemove"), editor);
+        event.addMultiMouseDownListener([
+          mouseTarget,
+          editor.renderer.scrollBarV && editor.renderer.scrollBarV.inner,
+          editor.renderer.scrollBarH && editor.renderer.scrollBarH.inner,
+          editor.textInput && editor.textInput.getElement()
+        ].filter(Boolean), [400, 300, 250], this, "onMouseEvent", editor);
+        event.addMouseWheelListener(editor.container, this.onMouseWheel.bind(this, "mousewheel"), editor);
+        addTouchListeners(editor.container, editor);
+        var gutterEl = editor.renderer.$gutter;
+        event.addListener(gutterEl, "mousedown", this.onMouseEvent.bind(this, "guttermousedown"), editor);
+        event.addListener(gutterEl, "click", this.onMouseEvent.bind(this, "gutterclick"), editor);
+        event.addListener(gutterEl, "dblclick", this.onMouseEvent.bind(this, "gutterdblclick"), editor);
+        event.addListener(gutterEl, "mousemove", this.onMouseEvent.bind(this, "guttermousemove"), editor);
+        event.addListener(mouseTarget, "mousedown", focusEditor, editor);
+        event.addListener(gutterEl, "mousedown", focusEditor, editor);
+        if (useragent.isIE && editor.renderer.scrollBarV) {
+          event.addListener(editor.renderer.scrollBarV.element, "mousedown", focusEditor, editor);
+          event.addListener(editor.renderer.scrollBarH.element, "mousedown", focusEditor, editor);
         }
-      }, editor);
-    };
-    (function() {
-      this.onMouseEvent = function(name, e) {
+        editor.on("mousemove", function(e) {
+          if (_self.state || _self.$dragDelay || !_self.$dragEnabled)
+            return;
+          var character = editor.renderer.screenToTextCoordinates(e.x, e.y);
+          var range = editor.session.selection.getRange();
+          var renderer = editor.renderer;
+          if (!range.isEmpty() && range.insideStart(character.row, character.column)) {
+            renderer.setCursorStyle("default");
+          } else {
+            renderer.setCursorStyle("");
+          }
+        }, editor);
+      }
+      MouseHandler2.prototype.onMouseEvent = function(name, e) {
         if (!this.editor.session)
           return;
         this.editor._emit(name, new MouseEvent2(e, this.editor));
       };
-      this.onMouseMove = function(name, e) {
+      MouseHandler2.prototype.onMouseMove = function(name, e) {
         var listeners = this.editor._eventRegistry && this.editor._eventRegistry.mousemove;
         if (!listeners || !listeners.length)
           return;
         this.editor._emit(name, new MouseEvent2(e, this.editor));
       };
-      this.onMouseWheel = function(name, e) {
+      MouseHandler2.prototype.onMouseWheel = function(name, e) {
         var mouseEvent = new MouseEvent2(e, this.editor);
         mouseEvent.speed = this.$scrollSpeed * 2;
         mouseEvent.wheelX = e.wheelX;
         mouseEvent.wheelY = e.wheelY;
         this.editor._emit(name, mouseEvent);
       };
-      this.setState = function(state) {
+      MouseHandler2.prototype.setState = function(state) {
         this.state = state;
       };
-      this.captureMouse = function(ev, mouseMoveHandler) {
+      MouseHandler2.prototype.captureMouse = function(ev, mouseMoveHandler) {
         this.x = ev.x;
         this.y = ev.y;
         this.isMousePressed = true;
@@ -24864,8 +25312,7 @@ var ace$2 = { exports: {} };
         self2.releaseMouse = event.capture(this.editor.container, onMouseMove, onCaptureEnd);
         var timerId = setInterval(onCaptureInterval, 20);
       };
-      this.releaseMouse = null;
-      this.cancelContextMenu = function() {
+      MouseHandler2.prototype.cancelContextMenu = function() {
         var stop = function(e) {
           if (e && e.domEvent && e.domEvent.type != "contextmenu")
             return;
@@ -24876,11 +25323,13 @@ var ace$2 = { exports: {} };
         setTimeout(stop, 10);
         this.editor.on("nativecontextmenu", stop);
       };
-      this.destroy = function() {
+      MouseHandler2.prototype.destroy = function() {
         if (this.releaseMouse)
           this.releaseMouse();
       };
-    }).call(MouseHandler.prototype);
+      return MouseHandler2;
+    }();
+    MouseHandler.prototype.releaseMouse = null;
     config.defineOptions(MouseHandler.prototype, "mouseHandler", {
       scrollSpeed: { initialValue: 2 },
       dragDelay: { initialValue: useragent.isMac ? 150 : 0 },
@@ -24892,77 +25341,80 @@ var ace$2 = { exports: {} };
   });
   ace.define("ace/mouse/fold_handler", ["require", "exports", "module", "ace/lib/dom"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
-    function FoldHandler(editor) {
-      editor.on("click", function(e) {
-        var position = e.getDocumentPosition();
-        var session = editor.session;
-        var fold = session.getFoldAt(position.row, position.column, 1);
-        if (fold) {
-          if (e.getAccelKey())
-            session.removeFold(fold);
-          else
-            session.expandFold(fold);
-          e.stop();
-        }
-        var target = e.domEvent && e.domEvent.target;
-        if (target && dom.hasCssClass(target, "ace_inline_button")) {
-          if (dom.hasCssClass(target, "ace_toggle_wrap")) {
-            session.setOption("wrap", !session.getUseWrapMode());
-            editor.renderer.scrollCursorIntoView();
-          }
-        }
-      });
-      editor.on("gutterclick", function(e) {
-        var gutterRegion = editor.renderer.$gutterLayer.getRegion(e);
-        if (gutterRegion == "foldWidgets") {
-          var row = e.getDocumentPosition().row;
+    var FoldHandler = function() {
+      function FoldHandler2(editor) {
+        editor.on("click", function(e) {
+          var position = e.getDocumentPosition();
           var session = editor.session;
-          if (session.foldWidgets && session.foldWidgets[row])
-            editor.session.onFoldWidgetClick(row, e);
-          if (!editor.isFocused())
-            editor.focus();
-          e.stop();
-        }
-      });
-      editor.on("gutterdblclick", function(e) {
-        var gutterRegion = editor.renderer.$gutterLayer.getRegion(e);
-        if (gutterRegion == "foldWidgets") {
-          var row = e.getDocumentPosition().row;
-          var session = editor.session;
-          var data2 = session.getParentFoldRangeData(row, true);
-          var range = data2.range || data2.firstRange;
-          if (range) {
-            row = range.start.row;
-            var fold = session.getFoldAt(row, session.getLine(row).length, 1);
-            if (fold) {
+          var fold = session.getFoldAt(position.row, position.column, 1);
+          if (fold) {
+            if (e.getAccelKey())
               session.removeFold(fold);
-            } else {
-              session.addFold("...", range);
-              editor.renderer.scrollCursorIntoView({ row: range.start.row, column: 0 });
+            else
+              session.expandFold(fold);
+            e.stop();
+          }
+          var target = e.domEvent && e.domEvent.target;
+          if (target && dom.hasCssClass(target, "ace_inline_button")) {
+            if (dom.hasCssClass(target, "ace_toggle_wrap")) {
+              session.setOption("wrap", !session.getUseWrapMode());
+              editor.renderer.scrollCursorIntoView();
             }
           }
-          e.stop();
-        }
-      });
-    }
+        });
+        editor.on("gutterclick", function(e) {
+          var gutterRegion = editor.renderer.$gutterLayer.getRegion(e);
+          if (gutterRegion == "foldWidgets") {
+            var row = e.getDocumentPosition().row;
+            var session = editor.session;
+            if (session.foldWidgets && session.foldWidgets[row])
+              editor.session.onFoldWidgetClick(row, e);
+            if (!editor.isFocused())
+              editor.focus();
+            e.stop();
+          }
+        });
+        editor.on("gutterdblclick", function(e) {
+          var gutterRegion = editor.renderer.$gutterLayer.getRegion(e);
+          if (gutterRegion == "foldWidgets") {
+            var row = e.getDocumentPosition().row;
+            var session = editor.session;
+            var data2 = session.getParentFoldRangeData(row, true);
+            var range = data2.range || data2.firstRange;
+            if (range) {
+              row = range.start.row;
+              var fold = session.getFoldAt(row, session.getLine(row).length, 1);
+              if (fold) {
+                session.removeFold(fold);
+              } else {
+                session.addFold("...", range);
+                editor.renderer.scrollCursorIntoView({ row: range.start.row, column: 0 });
+              }
+            }
+            e.stop();
+          }
+        });
+      }
+      return FoldHandler2;
+    }();
     exports2.FoldHandler = FoldHandler;
   });
   ace.define("ace/keyboard/keybinding", ["require", "exports", "module", "ace/lib/keys", "ace/lib/event"], function(require2, exports2, module2) {
     var keyUtil = require2("../lib/keys");
     var event = require2("../lib/event");
-    var KeyBinding = function(editor) {
-      this.$editor = editor;
-      this.$data = { editor };
-      this.$handlers = [];
-      this.setDefaultHandler(editor.commands);
-    };
-    (function() {
-      this.setDefaultHandler = function(kb) {
+    var KeyBinding = function() {
+      function KeyBinding2(editor) {
+        this.$editor = editor;
+        this.$data = { editor };
+        this.$handlers = [];
+        this.setDefaultHandler(editor.commands);
+      }
+      KeyBinding2.prototype.setDefaultHandler = function(kb) {
         this.removeKeyboardHandler(this.$defaultHandler);
         this.$defaultHandler = kb;
         this.addKeyboardHandler(kb, 0);
       };
-      this.setKeyboardHandler = function(kb) {
+      KeyBinding2.prototype.setKeyboardHandler = function(kb) {
         var h = this.$handlers;
         if (h[h.length - 1] == kb)
           return;
@@ -24970,7 +25422,7 @@ var ace$2 = { exports: {} };
           this.removeKeyboardHandler(h[h.length - 1]);
         this.addKeyboardHandler(kb, 1);
       };
-      this.addKeyboardHandler = function(kb, pos) {
+      KeyBinding2.prototype.addKeyboardHandler = function(kb, pos) {
         if (!kb)
           return;
         if (typeof kb == "function" && !kb.handleKeyboard)
@@ -24985,7 +25437,7 @@ var ace$2 = { exports: {} };
         if (i == -1 && kb.attach)
           kb.attach(this.$editor);
       };
-      this.removeKeyboardHandler = function(kb) {
+      KeyBinding2.prototype.removeKeyboardHandler = function(kb) {
         var i = this.$handlers.indexOf(kb);
         if (i == -1)
           return false;
@@ -24993,17 +25445,17 @@ var ace$2 = { exports: {} };
         kb.detach && kb.detach(this.$editor);
         return true;
       };
-      this.getKeyboardHandler = function() {
+      KeyBinding2.prototype.getKeyboardHandler = function() {
         return this.$handlers[this.$handlers.length - 1];
       };
-      this.getStatusText = function() {
+      KeyBinding2.prototype.getStatusText = function() {
         var data2 = this.$data;
         var editor = data2.editor;
         return this.$handlers.map(function(h) {
           return h.getStatusText && h.getStatusText(editor, data2) || "";
         }).filter(Boolean).join(" ");
       };
-      this.$callKeyboardHandlers = function(hashId, keyString, keyCode, e) {
+      KeyBinding2.prototype.$callKeyboardHandlers = function(hashId, keyString, keyCode, e) {
         var toExecute;
         var success = false;
         var commands = this.$editor.commands;
@@ -25030,14 +25482,15 @@ var ace$2 = { exports: {} };
           this.$editor._signal("keyboardActivity", toExecute);
         return success;
       };
-      this.onCommandKey = function(e, hashId, keyCode) {
+      KeyBinding2.prototype.onCommandKey = function(e, hashId, keyCode) {
         var keyString = keyUtil.keyCodeToString(keyCode);
         return this.$callKeyboardHandlers(hashId, keyString, keyCode, e);
       };
-      this.onTextInput = function(text) {
+      KeyBinding2.prototype.onTextInput = function(text) {
         return this.$callKeyboardHandlers(-1, text);
       };
-    }).call(KeyBinding.prototype);
+      return KeyBinding2;
+    }();
     exports2.KeyBinding = KeyBinding;
   });
   ace.define("ace/lib/bidiutil", ["require", "exports", "module"], function(require2, exports2, module2) {
@@ -25618,29 +26071,29 @@ var ace$2 = { exports: {} };
     var bidiUtil = require2("./lib/bidiutil");
     var lang = require2("./lib/lang");
     var bidiRE = /[\u0590-\u05f4\u0600-\u06ff\u0700-\u08ac\u202B]/;
-    var BidiHandler = function(session) {
-      this.session = session;
-      this.bidiMap = {};
-      this.currentRow = null;
-      this.bidiUtil = bidiUtil;
-      this.charWidths = [];
-      this.EOL = "\xAC";
-      this.showInvisibles = true;
-      this.isRtlDir = false;
-      this.$isRtl = false;
-      this.line = "";
-      this.wrapIndent = 0;
-      this.EOF = "\xB6";
-      this.RLE = "\u202B";
-      this.contentWidth = 0;
-      this.fontMetrics = null;
-      this.rtlLineOffset = 0;
-      this.wrapOffset = 0;
-      this.isMoveLeftOperation = false;
-      this.seenBidi = bidiRE.test(session.getValue());
-    };
-    (function() {
-      this.isBidiRow = function(screenRow, docRow, splitIndex) {
+    var BidiHandler = function() {
+      function BidiHandler2(session) {
+        this.session = session;
+        this.bidiMap = {};
+        this.currentRow = null;
+        this.bidiUtil = bidiUtil;
+        this.charWidths = [];
+        this.EOL = "\xAC";
+        this.showInvisibles = true;
+        this.isRtlDir = false;
+        this.$isRtl = false;
+        this.line = "";
+        this.wrapIndent = 0;
+        this.EOF = "\xB6";
+        this.RLE = "\u202B";
+        this.contentWidth = 0;
+        this.fontMetrics = null;
+        this.rtlLineOffset = 0;
+        this.wrapOffset = 0;
+        this.isMoveLeftOperation = false;
+        this.seenBidi = bidiRE.test(session.getValue());
+      }
+      BidiHandler2.prototype.isBidiRow = function(screenRow, docRow, splitIndex) {
         if (!this.seenBidi)
           return false;
         if (screenRow !== this.currentRow) {
@@ -25650,7 +26103,7 @@ var ace$2 = { exports: {} };
         }
         return this.bidiMap.bidiLevels;
       };
-      this.onChange = function(delta) {
+      BidiHandler2.prototype.onChange = function(delta) {
         if (!this.seenBidi) {
           if (delta.action == "insert" && bidiRE.test(delta.lines.join("\n"))) {
             this.seenBidi = true;
@@ -25660,7 +26113,7 @@ var ace$2 = { exports: {} };
           this.currentRow = null;
         }
       };
-      this.getDocumentRow = function() {
+      BidiHandler2.prototype.getDocumentRow = function() {
         var docRow = 0;
         var rowCache = this.session.$screenRowCache;
         if (rowCache.length) {
@@ -25670,7 +26123,7 @@ var ace$2 = { exports: {} };
         }
         return docRow;
       };
-      this.getSplitIndex = function() {
+      BidiHandler2.prototype.getSplitIndex = function() {
         var splitIndex = 0;
         var rowCache = this.session.$screenRowCache;
         if (rowCache.length) {
@@ -25687,7 +26140,7 @@ var ace$2 = { exports: {} };
         }
         return splitIndex;
       };
-      this.updateRowLine = function(docRow, splitIndex) {
+      BidiHandler2.prototype.updateRowLine = function(docRow, splitIndex) {
         if (docRow === void 0)
           docRow = this.getDocumentRow();
         var isLastRow = docRow === this.session.getLength() - 1, endOfLine = isLastRow ? this.EOF : this.EOL;
@@ -25727,7 +26180,7 @@ var ace$2 = { exports: {} };
           this.rtlLineOffset = this.contentWidth - this.fontMetrics.$main.getBoundingClientRect().width;
         }
       };
-      this.updateBidiMap = function() {
+      BidiHandler2.prototype.updateBidiMap = function() {
         var textCharTypes = [];
         if (bidiUtil.hasBidiCharacters(this.line, textCharTypes) || this.isRtlDir) {
           this.bidiMap = bidiUtil.doBidiReorder(this.line, textCharTypes, this.isRtlDir);
@@ -25735,10 +26188,10 @@ var ace$2 = { exports: {} };
           this.bidiMap = {};
         }
       };
-      this.markAsDirty = function() {
+      BidiHandler2.prototype.markAsDirty = function() {
         this.currentRow = null;
       };
-      this.updateCharacterWidths = function(fontMetrics) {
+      BidiHandler2.prototype.updateCharacterWidths = function(fontMetrics) {
         if (this.characterWidth === fontMetrics.$characterSize.width)
           return;
         this.fontMetrics = fontMetrics;
@@ -25750,17 +26203,17 @@ var ace$2 = { exports: {} };
         this.charWidths[bidiUtil.B] = this.charWidths[bidiUtil.RLE] = 0;
         this.currentRow = null;
       };
-      this.setShowInvisibles = function(showInvisibles) {
+      BidiHandler2.prototype.setShowInvisibles = function(showInvisibles) {
         this.showInvisibles = showInvisibles;
         this.currentRow = null;
       };
-      this.setEolChar = function(eolChar) {
+      BidiHandler2.prototype.setEolChar = function(eolChar) {
         this.EOL = eolChar;
       };
-      this.setContentWidth = function(width) {
+      BidiHandler2.prototype.setContentWidth = function(width) {
         this.contentWidth = width;
       };
-      this.isRtlLine = function(row) {
+      BidiHandler2.prototype.isRtlLine = function(row) {
         if (this.$isRtl)
           return true;
         if (row != void 0)
@@ -25768,7 +26221,7 @@ var ace$2 = { exports: {} };
         else
           return this.isRtlDir;
       };
-      this.setRtlDirection = function(editor, isRtlDir) {
+      BidiHandler2.prototype.setRtlDirection = function(editor, isRtlDir) {
         var cursor = editor.getCursorPosition();
         for (var row = editor.selection.getSelectionAnchor().row; row <= cursor.row; row++) {
           if (!isRtlDir && editor.session.getLine(row).charAt(0) === editor.session.$bidiHandler.RLE)
@@ -25777,7 +26230,7 @@ var ace$2 = { exports: {} };
             editor.session.doc.insert({ column: 0, row }, editor.session.$bidiHandler.RLE);
         }
       };
-      this.getPosLeft = function(col) {
+      BidiHandler2.prototype.getPosLeft = function(col) {
         col -= this.wrapIndent;
         var leftBoundary = this.line.charAt(0) === this.RLE ? 1 : 0;
         var logicalIdx = col > leftBoundary ? this.session.getOverwrite() ? col : col - 1 : leftBoundary;
@@ -25795,7 +26248,7 @@ var ace$2 = { exports: {} };
           left += this.rtlLineOffset;
         return left;
       };
-      this.getSelections = function(startCol, endCol) {
+      BidiHandler2.prototype.getSelections = function(startCol, endCol) {
         var map = this.bidiMap, levels = map.bidiLevels, level, selections = [], offset = 0, selColMin = Math.min(startCol, endCol) - this.wrapIndent, selColMax = Math.max(startCol, endCol) - this.wrapIndent, isSelected = false, isSelectedPrev = false, selectionStart = 0;
         if (this.wrapIndent)
           offset += this.isRtlDir ? -1 * this.wrapOffset : this.wrapOffset;
@@ -25821,7 +26274,7 @@ var ace$2 = { exports: {} };
         }
         return selections;
       };
-      this.offsetToCol = function(posX) {
+      BidiHandler2.prototype.offsetToCol = function(posX) {
         if (this.isRtlDir)
           posX -= this.rtlLineOffset;
         var logicalIdx = 0, posX = Math.max(posX, 0), offset = 0, visualIdx = 0, levels = this.bidiMap.bidiLevels, charWidth = this.charWidths[levels[visualIdx]];
@@ -25852,7 +26305,8 @@ var ace$2 = { exports: {} };
           logicalIdx++;
         return logicalIdx + this.wrapIndent;
       };
-    }).call(BidiHandler.prototype);
+      return BidiHandler2;
+    }();
     exports2.BidiHandler = BidiHandler;
   });
   ace.define("ace/selection", ["require", "exports", "module", "ace/lib/oop", "ace/lib/lang", "ace/lib/event_emitter", "ace/range"], function(require2, exports2, module2) {
@@ -26406,84 +26860,84 @@ var ace$2 = { exports: {} };
   ace.define("ace/tokenizer", ["require", "exports", "module", "ace/config"], function(require2, exports2, module2) {
     var config = require2("./config");
     var MAX_TOKEN_COUNT = 2e3;
-    var Tokenizer = function(rules) {
-      this.states = rules;
-      this.regExps = {};
-      this.matchMappings = {};
-      for (var key in this.states) {
-        var state = this.states[key];
-        var ruleRegExps = [];
-        var matchTotal = 0;
-        var mapping = this.matchMappings[key] = { defaultToken: "text" };
-        var flag = "g";
-        var splitterRurles = [];
-        for (var i = 0; i < state.length; i++) {
-          var rule2 = state[i];
-          if (rule2.defaultToken)
-            mapping.defaultToken = rule2.defaultToken;
-          if (rule2.caseInsensitive && flag.indexOf("i") === -1)
-            flag += "i";
-          if (rule2.unicode && flag.indexOf("u") === -1)
-            flag += "u";
-          if (rule2.regex == null)
-            continue;
-          if (rule2.regex instanceof RegExp)
-            rule2.regex = rule2.regex.toString().slice(1, -1);
-          var adjustedregex = rule2.regex;
-          var matchcount = new RegExp("(?:(" + adjustedregex + ")|(.))").exec("a").length - 2;
-          if (Array.isArray(rule2.token)) {
-            if (rule2.token.length == 1 || matchcount == 1) {
-              rule2.token = rule2.token[0];
-            } else if (matchcount - 1 != rule2.token.length) {
-              this.reportError("number of classes and regexp groups doesn't match", {
-                rule: rule2,
-                groupCount: matchcount - 1
-              });
-              rule2.token = rule2.token[0];
-            } else {
-              rule2.tokenArray = rule2.token;
-              rule2.token = null;
-              rule2.onMatch = this.$arrayTokens;
+    var Tokenizer = function() {
+      function Tokenizer2(rules) {
+        this.states = rules;
+        this.regExps = {};
+        this.matchMappings = {};
+        for (var key in this.states) {
+          var state = this.states[key];
+          var ruleRegExps = [];
+          var matchTotal = 0;
+          var mapping = this.matchMappings[key] = { defaultToken: "text" };
+          var flag = "g";
+          var splitterRurles = [];
+          for (var i = 0; i < state.length; i++) {
+            var rule2 = state[i];
+            if (rule2.defaultToken)
+              mapping.defaultToken = rule2.defaultToken;
+            if (rule2.caseInsensitive && flag.indexOf("i") === -1)
+              flag += "i";
+            if (rule2.unicode && flag.indexOf("u") === -1)
+              flag += "u";
+            if (rule2.regex == null)
+              continue;
+            if (rule2.regex instanceof RegExp)
+              rule2.regex = rule2.regex.toString().slice(1, -1);
+            var adjustedregex = rule2.regex;
+            var matchcount = new RegExp("(?:(" + adjustedregex + ")|(.))").exec("a").length - 2;
+            if (Array.isArray(rule2.token)) {
+              if (rule2.token.length == 1 || matchcount == 1) {
+                rule2.token = rule2.token[0];
+              } else if (matchcount - 1 != rule2.token.length) {
+                this.reportError("number of classes and regexp groups doesn't match", {
+                  rule: rule2,
+                  groupCount: matchcount - 1
+                });
+                rule2.token = rule2.token[0];
+              } else {
+                rule2.tokenArray = rule2.token;
+                rule2.token = null;
+                rule2.onMatch = this.$arrayTokens;
+              }
+            } else if (typeof rule2.token == "function" && !rule2.onMatch) {
+              if (matchcount > 1)
+                rule2.onMatch = this.$applyToken;
+              else
+                rule2.onMatch = rule2.token;
             }
-          } else if (typeof rule2.token == "function" && !rule2.onMatch) {
-            if (matchcount > 1)
-              rule2.onMatch = this.$applyToken;
-            else
-              rule2.onMatch = rule2.token;
-          }
-          if (matchcount > 1) {
-            if (/\\\d/.test(rule2.regex)) {
-              adjustedregex = rule2.regex.replace(/\\([0-9]+)/g, function(match, digit) {
-                return "\\" + (parseInt(digit, 10) + matchTotal + 1);
-              });
-            } else {
-              matchcount = 1;
-              adjustedregex = this.removeCapturingGroups(rule2.regex);
+            if (matchcount > 1) {
+              if (/\\\d/.test(rule2.regex)) {
+                adjustedregex = rule2.regex.replace(/\\([0-9]+)/g, function(match, digit) {
+                  return "\\" + (parseInt(digit, 10) + matchTotal + 1);
+                });
+              } else {
+                matchcount = 1;
+                adjustedregex = this.removeCapturingGroups(rule2.regex);
+              }
+              if (!rule2.splitRegex && typeof rule2.token != "string")
+                splitterRurles.push(rule2);
             }
-            if (!rule2.splitRegex && typeof rule2.token != "string")
-              splitterRurles.push(rule2);
+            mapping[matchTotal] = i;
+            matchTotal += matchcount;
+            ruleRegExps.push(adjustedregex);
+            if (!rule2.onMatch)
+              rule2.onMatch = null;
           }
-          mapping[matchTotal] = i;
-          matchTotal += matchcount;
-          ruleRegExps.push(adjustedregex);
-          if (!rule2.onMatch)
-            rule2.onMatch = null;
+          if (!ruleRegExps.length) {
+            mapping[0] = 0;
+            ruleRegExps.push("$");
+          }
+          splitterRurles.forEach(function(rule3) {
+            rule3.splitRegex = this.createSplitterRegexp(rule3.regex, flag);
+          }, this);
+          this.regExps[key] = new RegExp("(" + ruleRegExps.join(")|(") + ")|($)", flag);
         }
-        if (!ruleRegExps.length) {
-          mapping[0] = 0;
-          ruleRegExps.push("$");
-        }
-        splitterRurles.forEach(function(rule3) {
-          rule3.splitRegex = this.createSplitterRegexp(rule3.regex, flag);
-        }, this);
-        this.regExps[key] = new RegExp("(" + ruleRegExps.join(")|(") + ")|($)", flag);
       }
-    };
-    (function() {
-      this.$setMaxTokenCount = function(m) {
+      Tokenizer2.prototype.$setMaxTokenCount = function(m) {
         MAX_TOKEN_COUNT = m | 0;
       };
-      this.$applyToken = function(str) {
+      Tokenizer2.prototype.$applyToken = function(str) {
         var values = this.splitRegex.exec(str).slice(1);
         var types = this.token.apply(this, values);
         if (typeof types === "string")
@@ -26498,7 +26952,7 @@ var ace$2 = { exports: {} };
         }
         return tokens;
       };
-      this.$arrayTokens = function(str) {
+      Tokenizer2.prototype.$arrayTokens = function(str) {
         if (!str)
           return [];
         var values = this.splitRegex.exec(str);
@@ -26515,13 +26969,13 @@ var ace$2 = { exports: {} };
         }
         return tokens;
       };
-      this.removeCapturingGroups = function(src) {
+      Tokenizer2.prototype.removeCapturingGroups = function(src) {
         var r = src.replace(/\\.|\[(?:\\.|[^\\\]])*|\(\?[:=!<]|(\()/g, function(x, y) {
           return y ? "(?:" : x;
         });
         return r;
       };
-      this.createSplitterRegexp = function(src, flag) {
+      Tokenizer2.prototype.createSplitterRegexp = function(src, flag) {
         if (src.indexOf("(?=") != -1) {
           var stack = 0;
           var inChClass = false;
@@ -26555,7 +27009,7 @@ var ace$2 = { exports: {} };
           src += "$";
         return new RegExp(src, (flag || "").replace("g", ""));
       };
-      this.getLineTokens = function(line, startState) {
+      Tokenizer2.prototype.getLineTokens = function(line, startState) {
         if (startState && typeof startState != "string") {
           var stack = startState.slice(0);
           startState = stack[0];
@@ -26673,8 +27127,9 @@ var ace$2 = { exports: {} };
           state: stack.length ? stack : currentState
         };
       };
-      this.reportError = config.reportError;
-    }).call(Tokenizer.prototype);
+      return Tokenizer2;
+    }();
+    Tokenizer.prototype.reportError = config.reportError;
     exports2.Tokenizer = Tokenizer;
   });
   ace.define("ace/mode/text_highlight_rules", ["require", "exports", "module", "ace/lib/lang"], function(require2, exports2, module2) {
@@ -26807,6 +27262,8 @@ var ace$2 = { exports: {} };
             }
             var includeName = typeof rule2 == "string" ? rule2 : rule2.include;
             if (includeName) {
+              if (includeName === "$self")
+                includeName = "start";
               if (Array.isArray(includeName))
                 toInsert = includeName.map(function(x) {
                   return rules[x];
@@ -26910,15 +27367,15 @@ var ace$2 = { exports: {} };
   });
   ace.define("ace/token_iterator", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
     var Range = require2("./range").Range;
-    var TokenIterator = function(session, initialRow, initialColumn) {
-      this.$session = session;
-      this.$row = initialRow;
-      this.$rowTokens = session.getTokens(initialRow);
-      var token = session.getTokenAt(initialRow, initialColumn);
-      this.$tokenIndex = token ? token.index : -1;
-    };
-    (function() {
-      this.stepBackward = function() {
+    var TokenIterator = function() {
+      function TokenIterator2(session, initialRow, initialColumn) {
+        this.$session = session;
+        this.$row = initialRow;
+        this.$rowTokens = session.getTokens(initialRow);
+        var token = session.getTokenAt(initialRow, initialColumn);
+        this.$tokenIndex = token ? token.index : -1;
+      }
+      TokenIterator2.prototype.stepBackward = function() {
         this.$tokenIndex -= 1;
         while (this.$tokenIndex < 0) {
           this.$row -= 1;
@@ -26931,7 +27388,7 @@ var ace$2 = { exports: {} };
         }
         return this.$rowTokens[this.$tokenIndex];
       };
-      this.stepForward = function() {
+      TokenIterator2.prototype.stepForward = function() {
         this.$tokenIndex += 1;
         var rowCount;
         while (this.$tokenIndex >= this.$rowTokens.length) {
@@ -26947,13 +27404,13 @@ var ace$2 = { exports: {} };
         }
         return this.$rowTokens[this.$tokenIndex];
       };
-      this.getCurrentToken = function() {
+      TokenIterator2.prototype.getCurrentToken = function() {
         return this.$rowTokens[this.$tokenIndex];
       };
-      this.getCurrentTokenRow = function() {
+      TokenIterator2.prototype.getCurrentTokenRow = function() {
         return this.$row;
       };
-      this.getCurrentTokenColumn = function() {
+      TokenIterator2.prototype.getCurrentTokenColumn = function() {
         var rowTokens = this.$rowTokens;
         var tokenIndex = this.$tokenIndex;
         var column = rowTokens[tokenIndex].start;
@@ -26966,15 +27423,16 @@ var ace$2 = { exports: {} };
         }
         return column;
       };
-      this.getCurrentTokenPosition = function() {
+      TokenIterator2.prototype.getCurrentTokenPosition = function() {
         return { row: this.$row, column: this.getCurrentTokenColumn() };
       };
-      this.getCurrentTokenRange = function() {
+      TokenIterator2.prototype.getCurrentTokenRange = function() {
         var token = this.$rowTokens[this.$tokenIndex];
         var column = this.getCurrentTokenColumn();
         return new Range(this.$row, column, this.$row, column + token.value.length);
       };
-    }).call(TokenIterator.prototype);
+      return TokenIterator2;
+    }();
     exports2.TokenIterator = TokenIterator;
   });
   ace.define("ace/mode/behaviour/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/mode/behaviour", "ace/token_iterator", "ace/lib/lang"], function(require2, exports2, module2) {
@@ -27220,8 +27678,10 @@ var ace$2 = { exports: {} };
               wordRe.lastIndex = 0;
               var isWordBefore = wordRe.test(leftChar);
               wordRe.lastIndex = 0;
-              var isWordAfter = wordRe.test(leftChar);
-              if (isWordBefore || isWordAfter)
+              var isWordAfter = wordRe.test(rightChar);
+              var pairQuotesAfter = session.$mode.$pairQuotesAfter;
+              var shouldPairQuotes = pairQuotesAfter && pairQuotesAfter[quote] && pairQuotesAfter[quote].test(leftChar);
+              if (!shouldPairQuotes && isWordBefore || isWordAfter)
                 return null;
               if (rightChar && !/[\s;,.})\]\\]/.test(rightChar))
                 return null;
@@ -27668,24 +28128,22 @@ var ace$2 = { exports: {} };
   ace.define("ace/anchor", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
-    var Anchor = exports2.Anchor = function(doc, row, column) {
-      this.$onChange = this.onChange.bind(this);
-      this.attach(doc);
-      if (typeof column == "undefined")
-        this.setPosition(row.row, row.column);
-      else
-        this.setPosition(row, column);
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.getPosition = function() {
+    var Anchor = function() {
+      function Anchor2(doc, row, column) {
+        this.$onChange = this.onChange.bind(this);
+        this.attach(doc);
+        if (typeof column == "undefined")
+          this.setPosition(row.row, row.column);
+        else
+          this.setPosition(row, column);
+      }
+      Anchor2.prototype.getPosition = function() {
         return this.$clipPositionToDocument(this.row, this.column);
       };
-      this.getDocument = function() {
+      Anchor2.prototype.getDocument = function() {
         return this.document;
       };
-      this.$insertRight = false;
-      this.onChange = function(delta) {
+      Anchor2.prototype.onChange = function(delta) {
         if (delta.start.row == delta.end.row && delta.start.row != this.row)
           return;
         if (delta.start.row > this.row)
@@ -27693,34 +28151,7 @@ var ace$2 = { exports: {} };
         var point = $getTransformedPoint(delta, { row: this.row, column: this.column }, this.$insertRight);
         this.setPosition(point.row, point.column, true);
       };
-      function $pointsInOrder(point1, point2, equalPointsInOrder) {
-        var bColIsAfter = equalPointsInOrder ? point1.column <= point2.column : point1.column < point2.column;
-        return point1.row < point2.row || point1.row == point2.row && bColIsAfter;
-      }
-      function $getTransformedPoint(delta, point, moveIfEqual) {
-        var deltaIsInsert = delta.action == "insert";
-        var deltaRowShift = (deltaIsInsert ? 1 : -1) * (delta.end.row - delta.start.row);
-        var deltaColShift = (deltaIsInsert ? 1 : -1) * (delta.end.column - delta.start.column);
-        var deltaStart = delta.start;
-        var deltaEnd = deltaIsInsert ? deltaStart : delta.end;
-        if ($pointsInOrder(point, deltaStart, moveIfEqual)) {
-          return {
-            row: point.row,
-            column: point.column
-          };
-        }
-        if ($pointsInOrder(deltaEnd, point, !moveIfEqual)) {
-          return {
-            row: point.row + deltaRowShift,
-            column: point.column + (point.row == deltaEnd.row ? deltaColShift : 0)
-          };
-        }
-        return {
-          row: deltaStart.row,
-          column: deltaStart.column
-        };
-      }
-      this.setPosition = function(row, column, noClip) {
+      Anchor2.prototype.setPosition = function(row, column, noClip) {
         var pos;
         if (noClip) {
           pos = {
@@ -27743,14 +28174,14 @@ var ace$2 = { exports: {} };
           value: pos
         });
       };
-      this.detach = function() {
+      Anchor2.prototype.detach = function() {
         this.document.off("change", this.$onChange);
       };
-      this.attach = function(doc) {
+      Anchor2.prototype.attach = function(doc) {
         this.document = doc || this.document;
         this.document.on("change", this.$onChange);
       };
-      this.$clipPositionToDocument = function(row, column) {
+      Anchor2.prototype.$clipPositionToDocument = function(row, column) {
         var pos = {};
         if (row >= this.document.getLength()) {
           pos.row = Math.max(0, this.document.getLength() - 1);
@@ -27766,7 +28197,38 @@ var ace$2 = { exports: {} };
           pos.column = 0;
         return pos;
       };
-    }).call(Anchor.prototype);
+      return Anchor2;
+    }();
+    Anchor.prototype.$insertRight = false;
+    oop.implement(Anchor.prototype, EventEmitter);
+    function $pointsInOrder(point1, point2, equalPointsInOrder) {
+      var bColIsAfter = equalPointsInOrder ? point1.column <= point2.column : point1.column < point2.column;
+      return point1.row < point2.row || point1.row == point2.row && bColIsAfter;
+    }
+    function $getTransformedPoint(delta, point, moveIfEqual) {
+      var deltaIsInsert = delta.action == "insert";
+      var deltaRowShift = (deltaIsInsert ? 1 : -1) * (delta.end.row - delta.start.row);
+      var deltaColShift = (deltaIsInsert ? 1 : -1) * (delta.end.column - delta.start.column);
+      var deltaStart = delta.start;
+      var deltaEnd = deltaIsInsert ? deltaStart : delta.end;
+      if ($pointsInOrder(point, deltaStart, moveIfEqual)) {
+        return {
+          row: point.row,
+          column: point.column
+        };
+      }
+      if ($pointsInOrder(deltaEnd, point, !moveIfEqual)) {
+        return {
+          row: point.row + deltaRowShift,
+          column: point.column + (point.row == deltaEnd.row ? deltaColShift : 0)
+        };
+      }
+      return {
+        row: deltaStart.row,
+        column: deltaStart.column
+      };
+    }
+    exports2.Anchor = Anchor;
   });
   ace.define("ace/document", ["require", "exports", "module", "ace/lib/oop", "ace/apply_delta", "ace/lib/event_emitter", "ace/range", "ace/anchor"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
@@ -27774,44 +28236,34 @@ var ace$2 = { exports: {} };
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
     var Range = require2("./range").Range;
     var Anchor = require2("./anchor").Anchor;
-    var Document = function(textOrLines) {
-      this.$lines = [""];
-      if (textOrLines.length === 0) {
+    var Document = function() {
+      function Document2(textOrLines) {
         this.$lines = [""];
-      } else if (Array.isArray(textOrLines)) {
-        this.insertMergedLines({ row: 0, column: 0 }, textOrLines);
-      } else {
-        this.insert({ row: 0, column: 0 }, textOrLines);
+        if (textOrLines.length === 0) {
+          this.$lines = [""];
+        } else if (Array.isArray(textOrLines)) {
+          this.insertMergedLines({ row: 0, column: 0 }, textOrLines);
+        } else {
+          this.insert({ row: 0, column: 0 }, textOrLines);
+        }
       }
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setValue = function(text) {
+      Document2.prototype.setValue = function(text) {
         var len = this.getLength() - 1;
         this.remove(new Range(0, 0, len, this.getLine(len).length));
         this.insert({ row: 0, column: 0 }, text || "");
       };
-      this.getValue = function() {
+      Document2.prototype.getValue = function() {
         return this.getAllLines().join(this.getNewLineCharacter());
       };
-      this.createAnchor = function(row, column) {
+      Document2.prototype.createAnchor = function(row, column) {
         return new Anchor(this, row, column);
       };
-      if ("aaa".split(/a/).length === 0) {
-        this.$split = function(text) {
-          return text.replace(/\r\n|\r/g, "\n").split("\n");
-        };
-      } else {
-        this.$split = function(text) {
-          return text.split(/\r\n|\r|\n/);
-        };
-      }
-      this.$detectNewLine = function(text) {
+      Document2.prototype.$detectNewLine = function(text) {
         var match = text.match(/^.*?(\r\n|\r|\n)/m);
         this.$autoNewLine = match ? match[1] : "\n";
         this._signal("changeNewLineMode");
       };
-      this.getNewLineCharacter = function() {
+      Document2.prototype.getNewLineCharacter = function() {
         switch (this.$newLineMode) {
           case "windows":
             return "\r\n";
@@ -27821,36 +28273,34 @@ var ace$2 = { exports: {} };
             return this.$autoNewLine || "\n";
         }
       };
-      this.$autoNewLine = "";
-      this.$newLineMode = "auto";
-      this.setNewLineMode = function(newLineMode) {
+      Document2.prototype.setNewLineMode = function(newLineMode) {
         if (this.$newLineMode === newLineMode)
           return;
         this.$newLineMode = newLineMode;
         this._signal("changeNewLineMode");
       };
-      this.getNewLineMode = function() {
+      Document2.prototype.getNewLineMode = function() {
         return this.$newLineMode;
       };
-      this.isNewLine = function(text) {
+      Document2.prototype.isNewLine = function(text) {
         return text == "\r\n" || text == "\r" || text == "\n";
       };
-      this.getLine = function(row) {
+      Document2.prototype.getLine = function(row) {
         return this.$lines[row] || "";
       };
-      this.getLines = function(firstRow, lastRow) {
+      Document2.prototype.getLines = function(firstRow, lastRow) {
         return this.$lines.slice(firstRow, lastRow + 1);
       };
-      this.getAllLines = function() {
+      Document2.prototype.getAllLines = function() {
         return this.getLines(0, this.getLength());
       };
-      this.getLength = function() {
+      Document2.prototype.getLength = function() {
         return this.$lines.length;
       };
-      this.getTextRange = function(range) {
+      Document2.prototype.getTextRange = function(range) {
         return this.getLinesForRange(range).join(this.getNewLineCharacter());
       };
-      this.getLinesForRange = function(range) {
+      Document2.prototype.getLinesForRange = function(range) {
         var lines;
         if (range.start.row === range.end.row) {
           lines = [this.getLine(range.start.row).substring(range.start.column, range.end.column)];
@@ -27863,24 +28313,24 @@ var ace$2 = { exports: {} };
         }
         return lines;
       };
-      this.insertLines = function(row, lines) {
+      Document2.prototype.insertLines = function(row, lines) {
         console.warn("Use of document.insertLines is deprecated. Use the insertFullLines method instead.");
         return this.insertFullLines(row, lines);
       };
-      this.removeLines = function(firstRow, lastRow) {
+      Document2.prototype.removeLines = function(firstRow, lastRow) {
         console.warn("Use of document.removeLines is deprecated. Use the removeFullLines method instead.");
         return this.removeFullLines(firstRow, lastRow);
       };
-      this.insertNewLine = function(position) {
+      Document2.prototype.insertNewLine = function(position) {
         console.warn("Use of document.insertNewLine is deprecated. Use insertMergedLines(position, ['', '']) instead.");
         return this.insertMergedLines(position, ["", ""]);
       };
-      this.insert = function(position, text) {
+      Document2.prototype.insert = function(position, text) {
         if (this.getLength() <= 1)
           this.$detectNewLine(text);
         return this.insertMergedLines(position, this.$split(text));
       };
-      this.insertInLine = function(position, text) {
+      Document2.prototype.insertInLine = function(position, text) {
         var start = this.clippedPos(position.row, position.column);
         var end = this.pos(position.row, position.column + text.length);
         this.applyDelta({
@@ -27891,7 +28341,7 @@ var ace$2 = { exports: {} };
         }, true);
         return this.clonePos(end);
       };
-      this.clippedPos = function(row, column) {
+      Document2.prototype.clippedPos = function(row, column) {
         var length = this.getLength();
         if (row === void 0) {
           row = length;
@@ -27907,13 +28357,13 @@ var ace$2 = { exports: {} };
         column = Math.min(Math.max(column, 0), line.length);
         return { row, column };
       };
-      this.clonePos = function(pos) {
+      Document2.prototype.clonePos = function(pos) {
         return { row: pos.row, column: pos.column };
       };
-      this.pos = function(row, column) {
+      Document2.prototype.pos = function(row, column) {
         return { row, column };
       };
-      this.$clipPosition = function(position) {
+      Document2.prototype.$clipPosition = function(position) {
         var length = this.getLength();
         if (position.row >= length) {
           position.row = Math.max(0, length - 1);
@@ -27924,7 +28374,7 @@ var ace$2 = { exports: {} };
         }
         return position;
       };
-      this.insertFullLines = function(row, lines) {
+      Document2.prototype.insertFullLines = function(row, lines) {
         row = Math.min(Math.max(row, 0), this.getLength());
         var column = 0;
         if (row < this.getLength()) {
@@ -27937,7 +28387,7 @@ var ace$2 = { exports: {} };
         }
         this.insertMergedLines({ row, column }, lines);
       };
-      this.insertMergedLines = function(position, lines) {
+      Document2.prototype.insertMergedLines = function(position, lines) {
         var start = this.clippedPos(position.row, position.column);
         var end = {
           row: start.row + lines.length - 1,
@@ -27951,7 +28401,7 @@ var ace$2 = { exports: {} };
         });
         return this.clonePos(end);
       };
-      this.remove = function(range) {
+      Document2.prototype.remove = function(range) {
         var start = this.clippedPos(range.start.row, range.start.column);
         var end = this.clippedPos(range.end.row, range.end.column);
         this.applyDelta({
@@ -27962,7 +28412,7 @@ var ace$2 = { exports: {} };
         });
         return this.clonePos(start);
       };
-      this.removeInLine = function(row, startColumn, endColumn) {
+      Document2.prototype.removeInLine = function(row, startColumn, endColumn) {
         var start = this.clippedPos(row, startColumn);
         var end = this.clippedPos(row, endColumn);
         this.applyDelta({
@@ -27973,7 +28423,7 @@ var ace$2 = { exports: {} };
         }, true);
         return this.clonePos(start);
       };
-      this.removeFullLines = function(firstRow, lastRow) {
+      Document2.prototype.removeFullLines = function(firstRow, lastRow) {
         firstRow = Math.min(Math.max(0, firstRow), this.getLength() - 1);
         lastRow = Math.min(Math.max(0, lastRow), this.getLength() - 1);
         var deleteFirstNewLine = lastRow == this.getLength() - 1 && firstRow > 0;
@@ -27992,7 +28442,7 @@ var ace$2 = { exports: {} };
         });
         return deletedLines;
       };
-      this.removeNewLine = function(row) {
+      Document2.prototype.removeNewLine = function(row) {
         if (row < this.getLength() - 1 && row >= 0) {
           this.applyDelta({
             start: this.pos(row, this.getLine(row).length),
@@ -28002,7 +28452,7 @@ var ace$2 = { exports: {} };
           });
         }
       };
-      this.replace = function(range, text) {
+      Document2.prototype.replace = function(range, text) {
         if (!(range instanceof Range))
           range = Range.fromPoints(range.start, range.end);
         if (text.length === 0 && range.isEmpty())
@@ -28018,17 +28468,17 @@ var ace$2 = { exports: {} };
         }
         return end;
       };
-      this.applyDeltas = function(deltas) {
+      Document2.prototype.applyDeltas = function(deltas) {
         for (var i = 0; i < deltas.length; i++) {
           this.applyDelta(deltas[i]);
         }
       };
-      this.revertDeltas = function(deltas) {
+      Document2.prototype.revertDeltas = function(deltas) {
         for (var i = deltas.length - 1; i >= 0; i--) {
           this.revertDelta(deltas[i]);
         }
       };
-      this.applyDelta = function(delta, doNotValidate) {
+      Document2.prototype.applyDelta = function(delta, doNotValidate) {
         var isInsert = delta.action == "insert";
         if (isInsert ? delta.lines.length <= 1 && !delta.lines[0] : !Range.comparePoints(delta.start, delta.end)) {
           return;
@@ -28040,13 +28490,13 @@ var ace$2 = { exports: {} };
           this._signal("change", delta);
         }
       };
-      this.$safeApplyDelta = function(delta) {
+      Document2.prototype.$safeApplyDelta = function(delta) {
         var docLength = this.$lines.length;
         if (delta.action == "remove" && delta.start.row < docLength && delta.end.row < docLength || delta.action == "insert" && delta.start.row <= docLength) {
           this.applyDelta(delta);
         }
       };
-      this.$splitAndapplyLargeDelta = function(delta, MAX) {
+      Document2.prototype.$splitAndapplyLargeDelta = function(delta, MAX) {
         var lines = delta.lines;
         var l = lines.length - MAX + 1;
         var row = delta.start.row;
@@ -28067,7 +28517,7 @@ var ace$2 = { exports: {} };
         delta.start.column = column;
         this.applyDelta(delta, true);
       };
-      this.revertDelta = function(delta) {
+      Document2.prototype.revertDelta = function(delta) {
         this.$safeApplyDelta({
           start: this.clonePos(delta.start),
           end: this.clonePos(delta.end),
@@ -28075,7 +28525,7 @@ var ace$2 = { exports: {} };
           lines: delta.lines.slice()
         });
       };
-      this.indexToPosition = function(index2, startRow) {
+      Document2.prototype.indexToPosition = function(index2, startRow) {
         var lines = this.$lines || this.getAllLines();
         var newlineLength = this.getNewLineCharacter().length;
         for (var i = startRow || 0, l = lines.length; i < l; i++) {
@@ -28085,7 +28535,7 @@ var ace$2 = { exports: {} };
         }
         return { row: l - 1, column: index2 + lines[l - 1].length + newlineLength };
       };
-      this.positionToIndex = function(pos, startRow) {
+      Document2.prototype.positionToIndex = function(pos, startRow) {
         var lines = this.$lines || this.getAllLines();
         var newlineLength = this.getNewLineCharacter().length;
         var index2 = 0;
@@ -28094,85 +28544,91 @@ var ace$2 = { exports: {} };
           index2 += lines[i].length + newlineLength;
         return index2 + pos.column;
       };
-    }).call(Document.prototype);
+      Document2.prototype.$split = function(text) {
+        return text.split(/\r\n|\r|\n/);
+      };
+      return Document2;
+    }();
+    Document.prototype.$autoNewLine = "";
+    Document.prototype.$newLineMode = "auto";
+    oop.implement(Document.prototype, EventEmitter);
     exports2.Document = Document;
   });
   ace.define("ace/background_tokenizer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
-    var BackgroundTokenizer = function(tokenizer, editor) {
-      this.running = false;
-      this.lines = [];
-      this.states = [];
-      this.currentLine = 0;
-      this.tokenizer = tokenizer;
-      var self2 = this;
-      this.$worker = function() {
-        if (!self2.running) {
-          return;
-        }
-        var workerStart = new Date();
-        var currentLine = self2.currentLine;
-        var endLine = -1;
-        var doc = self2.doc;
-        var startLine = currentLine;
-        while (self2.lines[currentLine])
-          currentLine++;
-        var len = doc.getLength();
-        var processedLines = 0;
-        self2.running = false;
-        while (currentLine < len) {
-          self2.$tokenizeRow(currentLine);
-          endLine = currentLine;
-          do {
-            currentLine++;
-          } while (self2.lines[currentLine]);
-          processedLines++;
-          if (processedLines % 5 === 0 && new Date() - workerStart > 20) {
-            self2.running = setTimeout(self2.$worker, 20);
-            break;
+    var BackgroundTokenizer = function() {
+      function BackgroundTokenizer2(tokenizer, editor) {
+        this.running = false;
+        this.lines = [];
+        this.states = [];
+        this.currentLine = 0;
+        this.tokenizer = tokenizer;
+        var self2 = this;
+        this.$worker = function() {
+          if (!self2.running) {
+            return;
           }
-        }
-        self2.currentLine = currentLine;
-        if (endLine == -1)
-          endLine = currentLine;
-        if (startLine <= endLine)
-          self2.fireUpdateEvent(startLine, endLine);
-      };
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setTokenizer = function(tokenizer) {
+          var workerStart = new Date();
+          var currentLine = self2.currentLine;
+          var endLine = -1;
+          var doc = self2.doc;
+          var startLine = currentLine;
+          while (self2.lines[currentLine])
+            currentLine++;
+          var len = doc.getLength();
+          var processedLines = 0;
+          self2.running = false;
+          while (currentLine < len) {
+            self2.$tokenizeRow(currentLine);
+            endLine = currentLine;
+            do {
+              currentLine++;
+            } while (self2.lines[currentLine]);
+            processedLines++;
+            if (processedLines % 5 === 0 && new Date() - workerStart > 20) {
+              self2.running = setTimeout(self2.$worker, 20);
+              break;
+            }
+          }
+          self2.currentLine = currentLine;
+          if (endLine == -1)
+            endLine = currentLine;
+          if (startLine <= endLine)
+            self2.fireUpdateEvent(startLine, endLine);
+        };
+      }
+      BackgroundTokenizer2.prototype.setTokenizer = function(tokenizer) {
         this.tokenizer = tokenizer;
         this.lines = [];
         this.states = [];
         this.start(0);
       };
-      this.setDocument = function(doc) {
+      BackgroundTokenizer2.prototype.setDocument = function(doc) {
         this.doc = doc;
         this.lines = [];
         this.states = [];
         this.stop();
       };
-      this.fireUpdateEvent = function(firstRow, lastRow) {
+      BackgroundTokenizer2.prototype.fireUpdateEvent = function(firstRow, lastRow) {
         var data2 = {
           first: firstRow,
           last: lastRow
         };
         this._signal("update", { data: data2 });
       };
-      this.start = function(startRow) {
+      BackgroundTokenizer2.prototype.start = function(startRow) {
         this.currentLine = Math.min(startRow || 0, this.currentLine, this.doc.getLength());
         this.lines.splice(this.currentLine, this.lines.length);
         this.states.splice(this.currentLine, this.states.length);
         this.stop();
         this.running = setTimeout(this.$worker, 700);
       };
-      this.scheduleStart = function() {
+      BackgroundTokenizer2.prototype.scheduleStart = function() {
         if (!this.running)
           this.running = setTimeout(this.$worker, 700);
       };
-      this.$updateOnChange = function(delta) {
+      BackgroundTokenizer2.prototype.$updateOnChange = function(delta) {
         var startRow = delta.start.row;
         var len = delta.end.row - startRow;
         if (len === 0) {
@@ -28189,20 +28645,20 @@ var ace$2 = { exports: {} };
         this.currentLine = Math.min(startRow, this.currentLine, this.doc.getLength());
         this.stop();
       };
-      this.stop = function() {
+      BackgroundTokenizer2.prototype.stop = function() {
         if (this.running)
           clearTimeout(this.running);
         this.running = false;
       };
-      this.getTokens = function(row) {
+      BackgroundTokenizer2.prototype.getTokens = function(row) {
         return this.lines[row] || this.$tokenizeRow(row);
       };
-      this.getState = function(row) {
+      BackgroundTokenizer2.prototype.getState = function(row) {
         if (this.currentLine == row)
           this.$tokenizeRow(row);
         return this.states[row] || "start";
       };
-      this.$tokenizeRow = function(row) {
+      BackgroundTokenizer2.prototype.$tokenizeRow = function(row) {
         var line = this.doc.getLine(row);
         var state = this.states[row - 1];
         var data2 = this.tokenizer.getLineTokens(line, state, row);
@@ -28216,34 +28672,37 @@ var ace$2 = { exports: {} };
         }
         return this.lines[row] = data2.tokens;
       };
-      this.cleanup = function() {
+      BackgroundTokenizer2.prototype.cleanup = function() {
         this.running = false;
         this.lines = [];
         this.states = [];
         this.currentLine = 0;
         this.removeAllListeners();
       };
-    }).call(BackgroundTokenizer.prototype);
+      return BackgroundTokenizer2;
+    }();
+    oop.implement(BackgroundTokenizer.prototype, EventEmitter);
     exports2.BackgroundTokenizer = BackgroundTokenizer;
   });
-  ace.define("ace/search_highlight", ["require", "exports", "module", "ace/lib/lang", "ace/lib/oop", "ace/range"], function(require2, exports2, module2) {
+  ace.define("ace/search_highlight", ["require", "exports", "module", "ace/lib/lang", "ace/range"], function(require2, exports2, module2) {
     var lang = require2("./lib/lang");
-    require2("./lib/oop");
     var Range = require2("./range").Range;
-    var SearchHighlight = function(regExp, clazz, type) {
-      this.setRegexp(regExp);
-      this.clazz = clazz;
-      this.type = type || "text";
-    };
-    (function() {
-      this.MAX_RANGES = 500;
-      this.setRegexp = function(regExp) {
+    var SearchHighlight = function() {
+      function SearchHighlight2(regExp, clazz, type) {
+        if (type === void 0) {
+          type = "text";
+        }
+        this.setRegexp(regExp);
+        this.clazz = clazz;
+        this.type = type;
+      }
+      SearchHighlight2.prototype.setRegexp = function(regExp) {
         if (this.regExp + "" == regExp + "")
           return;
         this.regExp = regExp;
         this.cache = [];
       };
-      this.update = function(html, markerLayer, session, config) {
+      SearchHighlight2.prototype.update = function(html, markerLayer, session, config) {
         if (!this.regExp)
           return;
         var start = config.firstRow, end = config.lastRow;
@@ -28269,28 +28728,30 @@ var ace$2 = { exports: {} };
           }
         }
       };
-    }).call(SearchHighlight.prototype);
+      return SearchHighlight2;
+    }();
+    SearchHighlight.prototype.MAX_RANGES = 500;
     exports2.SearchHighlight = SearchHighlight;
   });
   ace.define("ace/edit_session/fold_line", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
     var Range = require2("../range").Range;
-    function FoldLine(foldData, folds) {
-      this.foldData = foldData;
-      if (Array.isArray(folds)) {
-        this.folds = folds;
-      } else {
-        folds = this.folds = [folds];
+    var FoldLine = function() {
+      function FoldLine2(foldData, folds) {
+        this.foldData = foldData;
+        if (Array.isArray(folds)) {
+          this.folds = folds;
+        } else {
+          folds = this.folds = [folds];
+        }
+        var last = folds[folds.length - 1];
+        this.range = new Range(folds[0].start.row, folds[0].start.column, last.end.row, last.end.column);
+        this.start = this.range.start;
+        this.end = this.range.end;
+        this.folds.forEach(function(fold) {
+          fold.setFoldLine(this);
+        }, this);
       }
-      var last = folds[folds.length - 1];
-      this.range = new Range(folds[0].start.row, folds[0].start.column, last.end.row, last.end.column);
-      this.start = this.range.start;
-      this.end = this.range.end;
-      this.folds.forEach(function(fold) {
-        fold.setFoldLine(this);
-      }, this);
-    }
-    (function() {
-      this.shiftRow = function(shift) {
+      FoldLine2.prototype.shiftRow = function(shift) {
         this.start.row += shift;
         this.end.row += shift;
         this.folds.forEach(function(fold) {
@@ -28298,7 +28759,7 @@ var ace$2 = { exports: {} };
           fold.end.row += shift;
         });
       };
-      this.addFold = function(fold) {
+      FoldLine2.prototype.addFold = function(fold) {
         if (fold.sameRow) {
           if (fold.start.row < this.startRow || fold.endRow > this.endRow) {
             throw new Error("Can't add a fold to this FoldLine as it has no connection");
@@ -28327,10 +28788,10 @@ var ace$2 = { exports: {} };
         }
         fold.foldLine = this;
       };
-      this.containsRow = function(row) {
+      FoldLine2.prototype.containsRow = function(row) {
         return row >= this.start.row && row <= this.end.row;
       };
-      this.walk = function(callback2, endRow, endColumn) {
+      FoldLine2.prototype.walk = function(callback2, endRow, endColumn) {
         var lastEnd = 0, folds = this.folds, fold, cmp, stop, isNewRow = true;
         if (endRow == null) {
           endRow = this.end.row;
@@ -28353,7 +28814,7 @@ var ace$2 = { exports: {} };
         }
         callback2(null, endRow, endColumn, lastEnd, isNewRow);
       };
-      this.getNextFoldTo = function(row, column) {
+      FoldLine2.prototype.getNextFoldTo = function(row, column) {
         var fold, cmp;
         for (var i = 0; i < this.folds.length; i++) {
           fold = this.folds[i];
@@ -28372,7 +28833,7 @@ var ace$2 = { exports: {} };
         }
         return null;
       };
-      this.addRemoveChars = function(row, column, len) {
+      FoldLine2.prototype.addRemoveChars = function(row, column, len) {
         var ret = this.getNextFoldTo(row, column), fold, folds;
         if (ret) {
           fold = ret.fold;
@@ -28396,7 +28857,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.split = function(row, column) {
+      FoldLine2.prototype.split = function(row, column) {
         var pos = this.getNextFoldTo(row, column);
         if (!pos || pos.kind == "inside")
           return null;
@@ -28408,11 +28869,11 @@ var ace$2 = { exports: {} };
         this.end.row = foldBefore.end.row;
         this.end.column = foldBefore.end.column;
         folds = folds.splice(i, folds.length - i);
-        var newFoldLine = new FoldLine(foldData, folds);
+        var newFoldLine = new FoldLine2(foldData, folds);
         foldData.splice(foldData.indexOf(this) + 1, 0, newFoldLine);
         return newFoldLine;
       };
-      this.merge = function(foldLineNext) {
+      FoldLine2.prototype.merge = function(foldLineNext) {
         var folds = foldLineNext.folds;
         for (var i = 0; i < folds.length; i++) {
           this.addFold(folds[i]);
@@ -28420,7 +28881,7 @@ var ace$2 = { exports: {} };
         var foldData = this.foldData;
         foldData.splice(foldData.indexOf(foldLineNext), 1);
       };
-      this.toString = function() {
+      FoldLine2.prototype.toString = function() {
         var ret = [this.range.toString() + ": ["];
         this.folds.forEach(function(fold) {
           ret.push("  " + fold.toString());
@@ -28428,7 +28889,7 @@ var ace$2 = { exports: {} };
         ret.push("]");
         return ret.join("\n");
       };
-      this.idxToPosition = function(idx) {
+      FoldLine2.prototype.idxToPosition = function(idx) {
         var lastFoldEndColumn = 0;
         for (var i = 0; i < this.folds.length; i++) {
           var fold = this.folds[i];
@@ -28450,19 +28911,19 @@ var ace$2 = { exports: {} };
           column: this.end.column + idx
         };
       };
-    }).call(FoldLine.prototype);
+      return FoldLine2;
+    }();
     exports2.FoldLine = FoldLine;
   });
   ace.define("ace/range_list", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
     var Range = require2("./range").Range;
     var comparePoints = Range.comparePoints;
     var RangeList = function() {
-      this.ranges = [];
-      this.$bias = 1;
-    };
-    (function() {
-      this.comparePoints = comparePoints;
-      this.pointIndex = function(pos, excludeEdges, startIndex) {
+      function RangeList2() {
+        this.ranges = [];
+        this.$bias = 1;
+      }
+      RangeList2.prototype.pointIndex = function(pos, excludeEdges, startIndex) {
         var list = this.ranges;
         for (var i = startIndex || 0; i < list.length; i++) {
           var range = list[i];
@@ -28478,7 +28939,7 @@ var ace$2 = { exports: {} };
         }
         return -i - 1;
       };
-      this.add = function(range) {
+      RangeList2.prototype.add = function(range) {
         var excludeEdges = !range.isEmpty();
         var startIndex = this.pointIndex(range.start, excludeEdges);
         if (startIndex < 0)
@@ -28490,19 +28951,19 @@ var ace$2 = { exports: {} };
           endIndex++;
         return this.ranges.splice(startIndex, endIndex - startIndex, range);
       };
-      this.addList = function(list) {
+      RangeList2.prototype.addList = function(list) {
         var removed = [];
         for (var i = list.length; i--; ) {
           removed.push.apply(removed, this.add(list[i]));
         }
         return removed;
       };
-      this.substractPoint = function(pos) {
+      RangeList2.prototype.substractPoint = function(pos) {
         var i = this.pointIndex(pos);
         if (i >= 0)
           return this.ranges.splice(i, 1);
       };
-      this.merge = function() {
+      RangeList2.prototype.merge = function() {
         var removed = [];
         var list = this.ranges;
         list = list.sort(function(a, b) {
@@ -28529,18 +28990,18 @@ var ace$2 = { exports: {} };
         this.ranges = list;
         return removed;
       };
-      this.contains = function(row, column) {
+      RangeList2.prototype.contains = function(row, column) {
         return this.pointIndex({ row, column }) >= 0;
       };
-      this.containsPoint = function(pos) {
+      RangeList2.prototype.containsPoint = function(pos) {
         return this.pointIndex(pos) >= 0;
       };
-      this.rangeAtPoint = function(pos) {
+      RangeList2.prototype.rangeAtPoint = function(pos) {
         var i = this.pointIndex(pos);
         if (i >= 0)
           return this.ranges[i];
       };
-      this.clipRows = function(startRow, endRow) {
+      RangeList2.prototype.clipRows = function(startRow, endRow) {
         var list = this.ranges;
         if (list[0].start.row > endRow || list[list.length - 1].start.row < startRow)
           return [];
@@ -28556,23 +29017,23 @@ var ace$2 = { exports: {} };
         }
         return clipped;
       };
-      this.removeAll = function() {
+      RangeList2.prototype.removeAll = function() {
         return this.ranges.splice(0, this.ranges.length);
       };
-      this.attach = function(session) {
+      RangeList2.prototype.attach = function(session) {
         if (this.session)
           this.detach();
         this.session = session;
         this.onChange = this.$onChange.bind(this);
         this.session.on("change", this.onChange);
       };
-      this.detach = function() {
+      RangeList2.prototype.detach = function() {
         if (!this.session)
           return;
         this.session.removeListener("change", this.onChange);
         this.session = null;
       };
-      this.$onChange = function(delta) {
+      RangeList2.prototype.$onChange = function(delta) {
         var start = delta.start;
         var end = delta.end;
         var startRow = start.row;
@@ -28659,42 +29120,66 @@ var ace$2 = { exports: {} };
           }
         }
       };
-    }).call(RangeList.prototype);
+      return RangeList2;
+    }();
+    RangeList.prototype.comparePoints = comparePoints;
     exports2.RangeList = RangeList;
   });
-  ace.define("ace/edit_session/fold", ["require", "exports", "module", "ace/range_list", "ace/lib/oop"], function(require2, exports2, module2) {
+  ace.define("ace/edit_session/fold", ["require", "exports", "module", "ace/range_list"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+          d2.__proto__ = b2;
+        } || function(d2, b2) {
+          for (var p in b2)
+            if (Object.prototype.hasOwnProperty.call(b2, p))
+              d2[p] = b2[p];
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        if (typeof b !== "function" && b !== null)
+          throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
     var RangeList = require2("../range_list").RangeList;
-    var oop = require2("../lib/oop");
-    var Fold = exports2.Fold = function(range, placeholder) {
-      this.foldLine = null;
-      this.placeholder = placeholder;
-      this.range = range;
-      this.start = range.start;
-      this.end = range.end;
-      this.sameRow = range.start.row == range.end.row;
-      this.subFolds = this.ranges = [];
-    };
-    oop.inherits(Fold, RangeList);
-    (function() {
-      this.toString = function() {
+    var Fold = function(_super) {
+      __extends(Fold2, _super);
+      function Fold2(range, placeholder) {
+        var _this = _super.call(this) || this;
+        _this.foldLine = null;
+        _this.placeholder = placeholder;
+        _this.range = range;
+        _this.start = range.start;
+        _this.end = range.end;
+        _this.sameRow = range.start.row == range.end.row;
+        _this.subFolds = _this.ranges = [];
+        return _this;
+      }
+      Fold2.prototype.toString = function() {
         return '"' + this.placeholder + '" ' + this.range.toString();
       };
-      this.setFoldLine = function(foldLine) {
+      Fold2.prototype.setFoldLine = function(foldLine) {
         this.foldLine = foldLine;
         this.subFolds.forEach(function(fold) {
           fold.setFoldLine(foldLine);
         });
       };
-      this.clone = function() {
+      Fold2.prototype.clone = function() {
         var range = this.range.clone();
-        var fold = new Fold(range, this.placeholder);
+        var fold = new Fold2(range, this.placeholder);
         this.subFolds.forEach(function(subFold) {
           fold.subFolds.push(subFold.clone());
         });
         fold.collapseChildren = this.collapseChildren;
         return fold;
       };
-      this.addSubFold = function(fold) {
+      Fold2.prototype.addSubFold = function(fold) {
         if (this.range.isEqual(fold))
           return;
         consumeRange(fold, this.start);
@@ -28728,10 +29213,11 @@ var ace$2 = { exports: {} };
         fold.setFoldLine(this.foldLine);
         return fold;
       };
-      this.restoreRange = function(range) {
+      Fold2.prototype.restoreRange = function(range) {
         return restoreRange(range, this.start);
       };
-    }).call(Fold.prototype);
+      return Fold2;
+    }(RangeList);
     function consumePoint(point, anchor) {
       point.row -= anchor.row;
       if (point.row == 0)
@@ -28750,6 +29236,7 @@ var ace$2 = { exports: {} };
       restorePoint(range.start, anchor);
       restorePoint(range.end, anchor);
     }
+    exports2.Fold = Fold;
   });
   ace.define("ace/edit_session/folding", ["require", "exports", "module", "ace/range", "ace/edit_session/fold_line", "ace/edit_session/fold", "ace/token_iterator"], function(require2, exports2, module2) {
     var Range = require2("../range").Range;
@@ -29518,7 +30005,7 @@ var ace$2 = { exports: {} };
         if (!token)
           return;
         if (!typeRe) {
-          typeRe = new RegExp("(\\.?" + token.type.replace(".", "\\.").replace("rparen", ".paren").replace(/\b(?:end)\b/, "(?:start|begin|end)") + ")+");
+          typeRe = new RegExp("(\\.?" + token.type.replace(".", "\\.").replace("rparen", ".paren").replace(/\b(?:end)\b/, "(?:start|begin|end)").replace(/-close\b/, "-(close|open)") + ")+");
         }
         var valueIndex = position.column - iterator.getCurrentTokenColumn() - 2;
         var value2 = token.value;
@@ -29558,7 +30045,7 @@ var ace$2 = { exports: {} };
         if (!token)
           return;
         if (!typeRe) {
-          typeRe = new RegExp("(\\.?" + token.type.replace(".", "\\.").replace("lparen", ".paren").replace(/\b(?:start|begin)\b/, "(?:start|begin|end)") + ")+");
+          typeRe = new RegExp("(\\.?" + token.type.replace(".", "\\.").replace("lparen", ".paren").replace(/\b(?:start|begin)\b/, "(?:start|begin|end)").replace(/-open\b/, "-(close|open)") + ")+");
         }
         var valueIndex = position.column - iterator.getCurrentTokenColumn();
         while (true) {
@@ -29761,39 +30248,37 @@ var ace$2 = { exports: {} };
     var Document = require2("./document").Document;
     var BackgroundTokenizer = require2("./background_tokenizer").BackgroundTokenizer;
     var SearchHighlight = require2("./search_highlight").SearchHighlight;
-    var EditSession = function(text, mode) {
-      this.$breakpoints = [];
-      this.$decorations = [];
-      this.$frontMarkers = {};
-      this.$backMarkers = {};
-      this.$markerId = 1;
-      this.$undoSelect = true;
-      this.$foldData = [];
-      this.id = "session" + ++EditSession.$uid;
-      this.$foldData.toString = function() {
-        return this.join("\n");
-      };
-      this.bgTokenizer = new BackgroundTokenizer(new TextMode().getTokenizer(), this);
-      var _self = this;
-      this.bgTokenizer.on("update", function(e) {
-        _self._signal("tokenizerUpdate", e);
-      });
-      this.on("changeFold", this.onChangeFold.bind(this));
-      this.$onChange = this.onChange.bind(this);
-      if (typeof text != "object" || !text.getLine)
-        text = new Document(text);
-      this.setDocument(text);
-      this.selection = new Selection(this);
-      this.$bidiHandler = new BidiHandler(this);
-      config.resetOptions(this);
-      this.setMode(mode);
-      config._signal("session", this);
-      this.destroyed = false;
-    };
-    EditSession.$uid = 0;
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setDocument = function(doc) {
+    var EditSession = function() {
+      function EditSession2(text, mode) {
+        this.$breakpoints = [];
+        this.$decorations = [];
+        this.$frontMarkers = {};
+        this.$backMarkers = {};
+        this.$markerId = 1;
+        this.$undoSelect = true;
+        this.$foldData = [];
+        this.id = "session" + ++EditSession2.$uid;
+        this.$foldData.toString = function() {
+          return this.join("\n");
+        };
+        this.bgTokenizer = new BackgroundTokenizer(new TextMode().getTokenizer(), this);
+        var _self = this;
+        this.bgTokenizer.on("update", function(e) {
+          _self._signal("tokenizerUpdate", e);
+        });
+        this.on("changeFold", this.onChangeFold.bind(this));
+        this.$onChange = this.onChange.bind(this);
+        if (typeof text != "object" || !text.getLine)
+          text = new Document(text);
+        this.setDocument(text);
+        this.selection = new Selection(this);
+        this.$bidiHandler = new BidiHandler(this);
+        config.resetOptions(this);
+        this.setMode(mode);
+        config._signal("session", this);
+        this.destroyed = false;
+      }
+      EditSession2.prototype.setDocument = function(doc) {
         if (this.doc)
           this.doc.off("change", this.$onChange);
         this.doc = doc;
@@ -29801,10 +30286,10 @@ var ace$2 = { exports: {} };
         this.bgTokenizer.setDocument(this.getDocument());
         this.resetCaches();
       };
-      this.getDocument = function() {
+      EditSession2.prototype.getDocument = function() {
         return this.doc;
       };
-      this.$resetRowCache = function(docRow) {
+      EditSession2.prototype.$resetRowCache = function(docRow) {
         if (!docRow) {
           this.$docRowCache = [];
           this.$screenRowCache = [];
@@ -29817,7 +30302,7 @@ var ace$2 = { exports: {} };
           this.$screenRowCache.splice(i, l);
         }
       };
-      this.$getRowCacheIndex = function(cacheArray, val) {
+      EditSession2.prototype.$getRowCacheIndex = function(cacheArray, val) {
         var low = 0;
         var hi = cacheArray.length - 1;
         while (low <= hi) {
@@ -29832,7 +30317,7 @@ var ace$2 = { exports: {} };
         }
         return low - 1;
       };
-      this.resetCaches = function() {
+      EditSession2.prototype.resetCaches = function() {
         this.$modified = true;
         this.$wrapData = [];
         this.$rowLengthCache = [];
@@ -29840,11 +30325,11 @@ var ace$2 = { exports: {} };
         if (!this.destroyed)
           this.bgTokenizer.start(0);
       };
-      this.onChangeFold = function(e) {
+      EditSession2.prototype.onChangeFold = function(e) {
         var fold = e.data;
         this.$resetRowCache(fold.start.row);
       };
-      this.onChange = function(delta) {
+      EditSession2.prototype.onChange = function(delta) {
         this.$modified = true;
         this.$bidiHandler.onChange(delta);
         this.$resetRowCache(delta.start.row);
@@ -29864,26 +30349,26 @@ var ace$2 = { exports: {} };
         this.bgTokenizer.$updateOnChange(delta);
         this._signal("change", delta);
       };
-      this.setValue = function(text) {
+      EditSession2.prototype.setValue = function(text) {
         this.doc.setValue(text);
         this.selection.moveTo(0, 0);
         this.$resetRowCache(0);
         this.setUndoManager(this.$undoManager);
         this.getUndoManager().reset();
       };
-      this.getValue = this.toString = function() {
+      EditSession2.prototype.toString = function() {
         return this.doc.getValue();
       };
-      this.getSelection = function() {
+      EditSession2.prototype.getSelection = function() {
         return this.selection;
       };
-      this.getState = function(row) {
+      EditSession2.prototype.getState = function(row) {
         return this.bgTokenizer.getState(row);
       };
-      this.getTokens = function(row) {
+      EditSession2.prototype.getTokens = function(row) {
         return this.bgTokenizer.getTokens(row);
       };
-      this.getTokenAt = function(row, column) {
+      EditSession2.prototype.getTokenAt = function(row, column) {
         var tokens = this.bgTokenizer.getTokens(row);
         var token, c = 0;
         if (column == null) {
@@ -29903,7 +30388,7 @@ var ace$2 = { exports: {} };
         token.start = c - token.value.length;
         return token;
       };
-      this.setUndoManager = function(undoManager) {
+      EditSession2.prototype.setUndoManager = function(undoManager) {
         this.$undoManager = undoManager;
         if (this.$informUndoManager)
           this.$informUndoManager.cancel();
@@ -29920,96 +30405,75 @@ var ace$2 = { exports: {} };
           };
         }
       };
-      this.markUndoGroup = function() {
+      EditSession2.prototype.markUndoGroup = function() {
         if (this.$syncInformUndoManager)
           this.$syncInformUndoManager();
       };
-      this.$defaultUndoManager = {
-        undo: function() {
-        },
-        redo: function() {
-        },
-        hasUndo: function() {
-        },
-        hasRedo: function() {
-        },
-        reset: function() {
-        },
-        add: function() {
-        },
-        addSelection: function() {
-        },
-        startNewGroup: function() {
-        },
-        addSession: function() {
-        }
-      };
-      this.getUndoManager = function() {
+      EditSession2.prototype.getUndoManager = function() {
         return this.$undoManager || this.$defaultUndoManager;
       };
-      this.getTabString = function() {
+      EditSession2.prototype.getTabString = function() {
         if (this.getUseSoftTabs()) {
           return lang.stringRepeat(" ", this.getTabSize());
         } else {
           return "	";
         }
       };
-      this.setUseSoftTabs = function(val) {
+      EditSession2.prototype.setUseSoftTabs = function(val) {
         this.setOption("useSoftTabs", val);
       };
-      this.getUseSoftTabs = function() {
+      EditSession2.prototype.getUseSoftTabs = function() {
         return this.$useSoftTabs && !this.$mode.$indentWithTabs;
       };
-      this.setTabSize = function(tabSize) {
+      EditSession2.prototype.setTabSize = function(tabSize) {
         this.setOption("tabSize", tabSize);
       };
-      this.getTabSize = function() {
+      EditSession2.prototype.getTabSize = function() {
         return this.$tabSize;
       };
-      this.isTabStop = function(position) {
+      EditSession2.prototype.isTabStop = function(position) {
         return this.$useSoftTabs && position.column % this.$tabSize === 0;
       };
-      this.setNavigateWithinSoftTabs = function(navigateWithinSoftTabs) {
+      EditSession2.prototype.setNavigateWithinSoftTabs = function(navigateWithinSoftTabs) {
         this.setOption("navigateWithinSoftTabs", navigateWithinSoftTabs);
       };
-      this.getNavigateWithinSoftTabs = function() {
+      EditSession2.prototype.getNavigateWithinSoftTabs = function() {
         return this.$navigateWithinSoftTabs;
       };
-      this.$overwrite = false;
-      this.setOverwrite = function(overwrite) {
+      EditSession2.prototype.setOverwrite = function(overwrite) {
         this.setOption("overwrite", overwrite);
       };
-      this.getOverwrite = function() {
+      EditSession2.prototype.getOverwrite = function() {
         return this.$overwrite;
       };
-      this.toggleOverwrite = function() {
+      EditSession2.prototype.toggleOverwrite = function() {
         this.setOverwrite(!this.$overwrite);
       };
-      this.addGutterDecoration = function(row, className) {
+      EditSession2.prototype.addGutterDecoration = function(row, className) {
         if (!this.$decorations[row])
           this.$decorations[row] = "";
         this.$decorations[row] += " " + className;
         this._signal("changeBreakpoint", {});
       };
-      this.removeGutterDecoration = function(row, className) {
+      EditSession2.prototype.removeGutterDecoration = function(row, className) {
         this.$decorations[row] = (this.$decorations[row] || "").replace(" " + className, "");
         this._signal("changeBreakpoint", {});
       };
-      this.getBreakpoints = function() {
+      EditSession2.prototype.getBreakpoints = function() {
         return this.$breakpoints;
       };
-      this.setBreakpoints = function(rows) {
+      EditSession2.prototype.setBreakpoints = function(rows) {
         this.$breakpoints = [];
         for (var i = 0; i < rows.length; i++) {
           this.$breakpoints[rows[i]] = "ace_breakpoint";
         }
         this._signal("changeBreakpoint", {});
       };
-      this.clearBreakpoints = function() {
+      EditSession2.prototype.clearBreakpoints = function() {
         this.$breakpoints = [];
         this._signal("changeBreakpoint", {});
       };
-      this.setBreakpoint = function(row, className) {
+      EditSession2.prototype.setBreakpoint = function(row, className) {
         if (className === void 0)
           className = "ace_breakpoint";
         if (className)
@@ -30018,11 +30482,11 @@ var ace$2 = { exports: {} };
           delete this.$breakpoints[row];
         this._signal("changeBreakpoint", {});
       };
-      this.clearBreakpoint = function(row) {
+      EditSession2.prototype.clearBreakpoint = function(row) {
         delete this.$breakpoints[row];
         this._signal("changeBreakpoint", {});
       };
-      this.addMarker = function(range, clazz, type, inFront) {
+      EditSession2.prototype.addMarker = function(range, clazz, type, inFront) {
         var id = this.$markerId++;
         var marker = {
           range,
@@ -30041,7 +30505,7 @@ var ace$2 = { exports: {} };
         }
         return id;
       };
-      this.addDynamicMarker = function(marker, inFront) {
+      EditSession2.prototype.addDynamicMarker = function(marker, inFront) {
         if (!marker.update)
           return;
         var id = this.$markerId++;
@@ -30056,7 +30520,7 @@ var ace$2 = { exports: {} };
         }
         return marker;
       };
-      this.removeMarker = function(markerId) {
+      EditSession2.prototype.removeMarker = function(markerId) {
         var marker = this.$frontMarkers[markerId] || this.$backMarkers[markerId];
         if (!marker)
           return;
@@ -30064,17 +30528,17 @@ var ace$2 = { exports: {} };
         delete markers[markerId];
         this._signal(marker.inFront ? "changeFrontMarker" : "changeBackMarker");
       };
-      this.getMarkers = function(inFront) {
+      EditSession2.prototype.getMarkers = function(inFront) {
         return inFront ? this.$frontMarkers : this.$backMarkers;
       };
-      this.highlight = function(re) {
+      EditSession2.prototype.highlight = function(re) {
         if (!this.$searchHighlight) {
           var highlight = new SearchHighlight(null, "ace_selected-word", "text");
           this.$searchHighlight = this.addDynamicMarker(highlight);
         }
         this.$searchHighlight.setRegexp(re);
       };
-      this.highlightLines = function(startRow, endRow, clazz, inFront) {
+      EditSession2.prototype.highlightLines = function(startRow, endRow, clazz, inFront) {
         if (typeof endRow != "number") {
           clazz = endRow;
           endRow = startRow;
@@ -30085,17 +30549,17 @@ var ace$2 = { exports: {} };
         range.id = this.addMarker(range, clazz, "fullLine", inFront);
         return range;
       };
-      this.setAnnotations = function(annotations) {
+      EditSession2.prototype.setAnnotations = function(annotations) {
         this.$annotations = annotations;
         this._signal("changeAnnotation", {});
       };
-      this.getAnnotations = function() {
+      EditSession2.prototype.getAnnotations = function() {
         return this.$annotations || [];
       };
-      this.clearAnnotations = function() {
+      EditSession2.prototype.clearAnnotations = function() {
         this.setAnnotations([]);
       };
-      this.$detectNewLine = function(text) {
+      EditSession2.prototype.$detectNewLine = function(text) {
         var match = text.match(/^.*?(\r?\n)/m);
         if (match) {
           this.$autoNewLine = match[1];
@@ -30103,7 +30567,7 @@ var ace$2 = { exports: {} };
           this.$autoNewLine = "\n";
         }
       };
-      this.getWordRange = function(row, column) {
+      EditSession2.prototype.getWordRange = function(row, column) {
         var line = this.getLine(row);
         var inToken = false;
         if (column > 0)
@@ -30129,7 +30593,7 @@ var ace$2 = { exports: {} };
         }
         return new Range(row, start, row, end);
       };
-      this.getAWordRange = function(row, column) {
+      EditSession2.prototype.getAWordRange = function(row, column) {
         var wordRange = this.getWordRange(row, column);
         var line = this.getLine(wordRange.end.row);
         while (line.charAt(wordRange.end.column).match(/[ \t]/)) {
@@ -30137,27 +30601,24 @@ var ace$2 = { exports: {} };
         }
         return wordRange;
       };
-      this.setNewLineMode = function(newLineMode) {
+      EditSession2.prototype.setNewLineMode = function(newLineMode) {
         this.doc.setNewLineMode(newLineMode);
       };
-      this.getNewLineMode = function() {
+      EditSession2.prototype.getNewLineMode = function() {
         return this.doc.getNewLineMode();
       };
-      this.setUseWorker = function(useWorker) {
+      EditSession2.prototype.setUseWorker = function(useWorker) {
         this.setOption("useWorker", useWorker);
       };
-      this.getUseWorker = function() {
+      EditSession2.prototype.getUseWorker = function() {
         return this.$useWorker;
       };
-      this.onReloadTokenizer = function(e) {
+      EditSession2.prototype.onReloadTokenizer = function(e) {
         var rows = e.data;
         this.bgTokenizer.start(rows.first);
         this._signal("tokenizerUpdate", e);
       };
-      this.$modes = config.$modes;
-      this.$mode = null;
-      this.$modeId = null;
-      this.setMode = function(mode, cb) {
+      EditSession2.prototype.setMode = function(mode, cb) {
         if (mode && typeof mode === "object") {
           if (mode.getTokenizer)
             return this.$onChangeMode(mode);
@@ -30192,7 +30653,7 @@ var ace$2 = { exports: {} };
         if (!this.$mode)
           this.$onChangeMode(this.$modes["ace/mode/text"], true);
       };
-      this.$onChangeMode = function(mode, $isPlaceholder) {
+      EditSession2.prototype.$onChangeMode = function(mode, $isPlaceholder) {
         if (!$isPlaceholder)
           this.$modeId = mode.$id;
         if (this.$mode === mode)
@@ -30220,13 +30681,13 @@ var ace$2 = { exports: {} };
           this._emit("changeMode", { oldMode, mode });
         }
       };
-      this.$stopWorker = function() {
+      EditSession2.prototype.$stopWorker = function() {
         if (this.$worker) {
           this.$worker.terminate();
           this.$worker = null;
         }
       };
-      this.$startWorker = function() {
+      EditSession2.prototype.$startWorker = function() {
         try {
           this.$worker = this.$mode.createWorker(this);
         } catch (e) {
@@ -30234,36 +30695,34 @@ var ace$2 = { exports: {} };
           this.$worker = null;
         }
       };
-      this.getMode = function() {
+      EditSession2.prototype.getMode = function() {
         return this.$mode;
       };
-      this.$scrollTop = 0;
-      this.setScrollTop = function(scrollTop) {
+      EditSession2.prototype.setScrollTop = function(scrollTop) {
         if (this.$scrollTop === scrollTop || isNaN(scrollTop))
           return;
         this.$scrollTop = scrollTop;
         this._signal("changeScrollTop", scrollTop);
       };
-      this.getScrollTop = function() {
+      EditSession2.prototype.getScrollTop = function() {
         return this.$scrollTop;
       };
-      this.$scrollLeft = 0;
-      this.setScrollLeft = function(scrollLeft) {
+      EditSession2.prototype.setScrollLeft = function(scrollLeft) {
         if (this.$scrollLeft === scrollLeft || isNaN(scrollLeft))
           return;
         this.$scrollLeft = scrollLeft;
         this._signal("changeScrollLeft", scrollLeft);
       };
-      this.getScrollLeft = function() {
+      EditSession2.prototype.getScrollLeft = function() {
         return this.$scrollLeft;
       };
-      this.getScreenWidth = function() {
+      EditSession2.prototype.getScreenWidth = function() {
         this.$computeWidth();
         if (this.lineWidgets)
           return Math.max(this.getLineWidgetMaxWidth(), this.screenWidth);
         return this.screenWidth;
       };
-      this.getLineWidgetMaxWidth = function() {
+      EditSession2.prototype.getLineWidgetMaxWidth = function() {
         if (this.lineWidgetsWidth != null)
           return this.lineWidgetsWidth;
         var width = 0;
@@ -30273,7 +30732,7 @@ var ace$2 = { exports: {} };
         });
         return this.lineWidgetWidth = width;
       };
-      this.$computeWidth = function(force) {
+      EditSession2.prototype.$computeWidth = function(force) {
         if (this.$modified || force) {
           this.$modified = false;
           if (this.$useWrapMode)
@@ -30301,28 +30760,28 @@ var ace$2 = { exports: {} };
           this.screenWidth = longestScreenLine;
         }
       };
-      this.getLine = function(row) {
+      EditSession2.prototype.getLine = function(row) {
         return this.doc.getLine(row);
       };
-      this.getLines = function(firstRow, lastRow) {
+      EditSession2.prototype.getLines = function(firstRow, lastRow) {
         return this.doc.getLines(firstRow, lastRow);
       };
-      this.getLength = function() {
+      EditSession2.prototype.getLength = function() {
         return this.doc.getLength();
       };
-      this.getTextRange = function(range) {
+      EditSession2.prototype.getTextRange = function(range) {
         return this.doc.getTextRange(range || this.selection.getRange());
       };
-      this.insert = function(position, text) {
+      EditSession2.prototype.insert = function(position, text) {
         return this.doc.insert(position, text);
       };
-      this.remove = function(range) {
+      EditSession2.prototype.remove = function(range) {
         return this.doc.remove(range);
       };
-      this.removeFullLines = function(firstRow, lastRow) {
+      EditSession2.prototype.removeFullLines = function(firstRow, lastRow) {
         return this.doc.removeFullLines(firstRow, lastRow);
       };
-      this.undoChanges = function(deltas, dontSelect) {
+      EditSession2.prototype.undoChanges = function(deltas, dontSelect) {
         if (!deltas.length)
           return;
         this.$fromUndo = true;
@@ -30342,7 +30801,7 @@ var ace$2 = { exports: {} };
         }
         this.$fromUndo = false;
       };
-      this.redoChanges = function(deltas, dontSelect) {
+      EditSession2.prototype.redoChanges = function(deltas, dontSelect) {
         if (!deltas.length)
           return;
         this.$fromUndo = true;
@@ -30360,10 +30819,10 @@ var ace$2 = { exports: {} };
         }
         this.$fromUndo = false;
       };
-      this.setUndoSelect = function(enable) {
+      EditSession2.prototype.setUndoSelect = function(enable) {
         this.$undoSelect = enable;
       };
-      this.$getUndoSelection = function(deltas, isUndo) {
+      EditSession2.prototype.$getUndoSelection = function(deltas, isUndo) {
         function isInsert(delta2) {
           return isUndo ? delta2.action !== "insert" : delta2.action === "insert";
         }
@@ -30398,10 +30857,10 @@ var ace$2 = { exports: {} };
         }
         return range;
       };
-      this.replace = function(range, text) {
+      EditSession2.prototype.replace = function(range, text) {
         return this.doc.replace(range, text);
       };
-      this.moveText = function(fromRange, toPosition, copy) {
+      EditSession2.prototype.moveText = function(fromRange, toPosition, copy) {
         var text = this.getTextRange(fromRange);
         var folds = this.getFoldsInRange(fromRange);
         var toRange = Range.fromPoints(toPosition, toPosition);
@@ -30439,12 +30898,12 @@ var ace$2 = { exports: {} };
         }
         return toRange;
       };
-      this.indentRows = function(startRow, endRow, indentString) {
+      EditSession2.prototype.indentRows = function(startRow, endRow, indentString) {
         indentString = indentString.replace(/\t/g, this.getTabString());
         for (var row = startRow; row <= endRow; row++)
           this.doc.insertInLine({ row, column: 0 }, indentString);
       };
-      this.outdentRows = function(range) {
+      EditSession2.prototype.outdentRows = function(range) {
         var rowRange = range.collapseRows();
         var deleteRange = new Range(0, 0, 0, 0);
         var size = this.getTabSize();
@@ -30465,7 +30924,7 @@ var ace$2 = { exports: {} };
           this.remove(deleteRange);
         }
       };
-      this.$moveLines = function(firstRow, lastRow, dir) {
+      EditSession2.prototype.$moveLines = function(firstRow, lastRow, dir) {
         firstRow = this.getRowFoldStart(firstRow);
         lastRow = this.getRowFoldEnd(lastRow);
         if (dir < 0) {
@@ -30495,24 +30954,24 @@ var ace$2 = { exports: {} };
         folds.length && this.addFolds(folds);
         return diff;
       };
-      this.moveLinesUp = function(firstRow, lastRow) {
+      EditSession2.prototype.moveLinesUp = function(firstRow, lastRow) {
         return this.$moveLines(firstRow, lastRow, -1);
       };
-      this.moveLinesDown = function(firstRow, lastRow) {
+      EditSession2.prototype.moveLinesDown = function(firstRow, lastRow) {
         return this.$moveLines(firstRow, lastRow, 1);
       };
-      this.duplicateLines = function(firstRow, lastRow) {
+      EditSession2.prototype.duplicateLines = function(firstRow, lastRow) {
         return this.$moveLines(firstRow, lastRow, 0);
       };
-      this.$clipRowToDocument = function(row) {
+      EditSession2.prototype.$clipRowToDocument = function(row) {
         return Math.max(0, Math.min(row, this.doc.getLength() - 1));
       };
-      this.$clipColumnToRow = function(row, column) {
+      EditSession2.prototype.$clipColumnToRow = function(row, column) {
         if (column < 0)
           return 0;
         return Math.min(this.doc.getLine(row).length, column);
       };
-      this.$clipPositionToDocument = function(row, column) {
+      EditSession2.prototype.$clipPositionToDocument = function(row, column) {
         column = Math.max(0, column);
         if (row < 0) {
           row = 0;
@@ -30531,7 +30990,7 @@ var ace$2 = { exports: {} };
           column
         };
       };
-      this.$clipRangeToDocument = function(range) {
+      EditSession2.prototype.$clipRangeToDocument = function(range) {
         if (range.start.row < 0) {
           range.start.row = 0;
           range.start.column = 0;
@@ -30547,13 +31006,7 @@ var ace$2 = { exports: {} };
         }
         return range;
       };
-      this.$wrapLimit = 80;
-      this.$useWrapMode = false;
-      this.$wrapLimitRange = {
-        min: null,
-        max: null
-      };
-      this.setUseWrapMode = function(useWrapMode) {
+      EditSession2.prototype.setUseWrapMode = function(useWrapMode) {
         if (useWrapMode != this.$useWrapMode) {
           this.$useWrapMode = useWrapMode;
           this.$modified = true;
@@ -30566,10 +31019,10 @@ var ace$2 = { exports: {} };
           this._signal("changeWrapMode");
         }
       };
-      this.getUseWrapMode = function() {
+      EditSession2.prototype.getUseWrapMode = function() {
         return this.$useWrapMode;
       };
-      this.setWrapLimitRange = function(min, max) {
+      EditSession2.prototype.setWrapLimitRange = function(min, max) {
         if (this.$wrapLimitRange.min !== min || this.$wrapLimitRange.max !== max) {
           this.$wrapLimitRange = { min, max };
           this.$modified = true;
@@ -30578,7 +31031,7 @@ var ace$2 = { exports: {} };
             this._signal("changeWrapMode");
         }
       };
-      this.adjustWrapLimit = function(desiredLimit, $printMargin) {
+      EditSession2.prototype.adjustWrapLimit = function(desiredLimit, $printMargin) {
         var limits = this.$wrapLimitRange;
         if (limits.max < 0)
           limits = { min: $printMargin, max: $printMargin };
@@ -30595,26 +31048,26 @@ var ace$2 = { exports: {} };
         }
         return false;
       };
-      this.$constrainWrapLimit = function(wrapLimit, min, max) {
+      EditSession2.prototype.$constrainWrapLimit = function(wrapLimit, min, max) {
         if (min)
           wrapLimit = Math.max(min, wrapLimit);
         if (max)
           wrapLimit = Math.min(max, wrapLimit);
         return wrapLimit;
       };
-      this.getWrapLimit = function() {
+      EditSession2.prototype.getWrapLimit = function() {
         return this.$wrapLimit;
       };
-      this.setWrapLimit = function(limit) {
+      EditSession2.prototype.setWrapLimit = function(limit) {
         this.setWrapLimitRange(limit, limit);
       };
-      this.getWrapLimitRange = function() {
+      EditSession2.prototype.getWrapLimitRange = function() {
         return {
           min: this.$wrapLimitRange.min,
           max: this.$wrapLimitRange.max
         };
       };
-      this.$updateInternalDataOnChange = function(delta) {
+      EditSession2.prototype.$updateInternalDataOnChange = function(delta) {
         var useWrapMode = this.$useWrapMode;
         var action = delta.action;
         var start = delta.start;
@@ -30700,11 +31153,11 @@ var ace$2 = { exports: {} };
           this.$updateRowLengthCache(firstRow, lastRow);
         return removedFolds;
       };
-      this.$updateRowLengthCache = function(firstRow, lastRow, b) {
+      EditSession2.prototype.$updateRowLengthCache = function(firstRow, lastRow, b) {
         this.$rowLengthCache[firstRow] = null;
         this.$rowLengthCache[lastRow] = null;
       };
-      this.$updateWrapData = function(firstRow, lastRow) {
+      EditSession2.prototype.$updateWrapData = function(firstRow, lastRow) {
         var lines = this.doc.getAllLines();
         var tabSize = this.getTabSize();
         var wrapData = this.$wrapData;
@@ -30739,8 +31192,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      var CHAR = 1, CHAR_EXT = 2, PLACEHOLDER_START = 3, PLACEHOLDER_BODY = 4, PUNCTUATION = 9, SPACE = 10, TAB = 11, TAB_SPACE = 12;
-      this.$computeWrapSplits = function(tokens, wrapLimit, tabSize) {
+      EditSession2.prototype.$computeWrapSplits = function(tokens, wrapLimit, tabSize) {
         if (tokens.length == 0) {
           return [];
         }
@@ -30842,7 +31294,7 @@ var ace$2 = { exports: {} };
         }
         return splits;
       };
-      this.$getDisplayTokens = function(str, offset) {
+      EditSession2.prototype.$getDisplayTokens = function(str, offset) {
         var arr = [];
         var tabSize;
         offset = offset || 0;
@@ -30866,7 +31318,7 @@ var ace$2 = { exports: {} };
         }
         return arr;
       };
-      this.$getStringScreenWidth = function(str, maxScreenColumn, screenColumn) {
+      EditSession2.prototype.$getStringScreenWidth = function(str, maxScreenColumn, screenColumn) {
         if (maxScreenColumn == 0)
           return [0, 0];
         if (maxScreenColumn == null)
@@ -30888,8 +31340,7 @@ var ace$2 = { exports: {} };
         }
         return [screenColumn, column];
       };
-      this.lineWidgets = null;
-      this.getRowLength = function(row) {
+      EditSession2.prototype.getRowLength = function(row) {
         var h = 1;
         if (this.lineWidgets)
           h += this.lineWidgets[row] && this.lineWidgets[row].rowCount || 0;
@@ -30898,14 +31349,14 @@ var ace$2 = { exports: {} };
         else
           return this.$wrapData[row].length + h;
       };
-      this.getRowLineCount = function(row) {
+      EditSession2.prototype.getRowLineCount = function(row) {
         if (!this.$useWrapMode || !this.$wrapData[row]) {
           return 1;
         } else {
           return this.$wrapData[row].length + 1;
         }
       };
-      this.getRowWrapIndent = function(screenRow) {
+      EditSession2.prototype.getRowWrapIndent = function(screenRow) {
         if (this.$useWrapMode) {
           var pos = this.screenToDocumentPosition(screenRow, Number.MAX_VALUE);
           var splits = this.$wrapData[pos.row];
@@ -30914,35 +31365,35 @@ var ace$2 = { exports: {} };
           return 0;
         }
       };
-      this.getScreenLastRowColumn = function(screenRow) {
+      EditSession2.prototype.getScreenLastRowColumn = function(screenRow) {
         var pos = this.screenToDocumentPosition(screenRow, Number.MAX_VALUE);
         return this.documentToScreenColumn(pos.row, pos.column);
       };
-      this.getDocumentLastRowColumn = function(docRow, docColumn) {
+      EditSession2.prototype.getDocumentLastRowColumn = function(docRow, docColumn) {
         var screenRow = this.documentToScreenRow(docRow, docColumn);
         return this.getScreenLastRowColumn(screenRow);
       };
-      this.getDocumentLastRowColumnPosition = function(docRow, docColumn) {
+      EditSession2.prototype.getDocumentLastRowColumnPosition = function(docRow, docColumn) {
         var screenRow = this.documentToScreenRow(docRow, docColumn);
         return this.screenToDocumentPosition(screenRow, Number.MAX_VALUE / 10);
       };
-      this.getRowSplitData = function(row) {
+      EditSession2.prototype.getRowSplitData = function(row) {
         if (!this.$useWrapMode) {
           return void 0;
         } else {
           return this.$wrapData[row];
         }
       };
-      this.getScreenTabSize = function(screenColumn) {
+      EditSession2.prototype.getScreenTabSize = function(screenColumn) {
         return this.$tabSize - (screenColumn % this.$tabSize | 0);
       };
-      this.screenToDocumentRow = function(screenRow, screenColumn) {
+      EditSession2.prototype.screenToDocumentRow = function(screenRow, screenColumn) {
         return this.screenToDocumentPosition(screenRow, screenColumn).row;
       };
-      this.screenToDocumentColumn = function(screenRow, screenColumn) {
+      EditSession2.prototype.screenToDocumentColumn = function(screenRow, screenColumn) {
         return this.screenToDocumentPosition(screenRow, screenColumn).column;
       };
-      this.screenToDocumentPosition = function(screenRow, screenColumn, offsetX) {
+      EditSession2.prototype.screenToDocumentPosition = function(screenRow, screenColumn, offsetX) {
         if (screenRow < 0)
           return { row: 0, column: 0 };
         var line;
@@ -31015,7 +31466,7 @@ var ace$2 = { exports: {} };
           return foldLine.idxToPosition(docColumn);
         return { row: docRow, column: docColumn };
       };
-      this.documentToScreenPosition = function(docRow, docColumn) {
+      EditSession2.prototype.documentToScreenPosition = function(docRow, docColumn) {
         if (typeof docColumn === "undefined")
           var pos = this.$clipPositionToDocument(docRow.row, docRow.column);
         else
@@ -31088,13 +31539,13 @@ var ace$2 = { exports: {} };
           column: wrapIndent + this.$getStringScreenWidth(textLine)[0]
         };
       };
-      this.documentToScreenColumn = function(row, docColumn) {
+      EditSession2.prototype.documentToScreenColumn = function(row, docColumn) {
         return this.documentToScreenPosition(row, docColumn).column;
       };
-      this.documentToScreenRow = function(docRow, docColumn) {
+      EditSession2.prototype.documentToScreenRow = function(docRow, docColumn) {
         return this.documentToScreenPosition(docRow, docColumn).row;
       };
-      this.getScreenLength = function() {
+      EditSession2.prototype.getScreenLength = function() {
         var screenRows = 0;
         var fold = null;
         if (!this.$useWrapMode) {
@@ -31124,7 +31575,7 @@ var ace$2 = { exports: {} };
           screenRows += this.$getWidgetScreenLength();
         return screenRows;
       };
-      this.$setFontMetrics = function(fm) {
+      EditSession2.prototype.$setFontMetrics = function(fm) {
         if (!this.$enableVarChar)
           return;
         this.$getStringScreenWidth = function(str, maxScreenColumn, screenColumn) {
@@ -31148,7 +31599,7 @@ var ace$2 = { exports: {} };
           return [screenColumn, column];
         };
       };
-      this.destroy = function() {
+      EditSession2.prototype.destroy = function() {
         if (!this.destroyed) {
           this.bgTokenizer.setDocument(null);
           this.bgTokenizer.cleanup();
@@ -31161,13 +31612,51 @@ var ace$2 = { exports: {} };
         }
         this.selection.detach();
       };
-      this.isFullWidth = isFullWidth;
-      function isFullWidth(c) {
-        if (c < 4352)
-          return false;
-        return c >= 4352 && c <= 4447 || c >= 4515 && c <= 4519 || c >= 4602 && c <= 4607 || c >= 9001 && c <= 9002 || c >= 11904 && c <= 11929 || c >= 11931 && c <= 12019 || c >= 12032 && c <= 12245 || c >= 12272 && c <= 12283 || c >= 12288 && c <= 12350 || c >= 12353 && c <= 12438 || c >= 12441 && c <= 12543 || c >= 12549 && c <= 12589 || c >= 12593 && c <= 12686 || c >= 12688 && c <= 12730 || c >= 12736 && c <= 12771 || c >= 12784 && c <= 12830 || c >= 12832 && c <= 12871 || c >= 12880 && c <= 13054 || c >= 13056 && c <= 19903 || c >= 19968 && c <= 42124 || c >= 42128 && c <= 42182 || c >= 43360 && c <= 43388 || c >= 44032 && c <= 55203 || c >= 55216 && c <= 55238 || c >= 55243 && c <= 55291 || c >= 63744 && c <= 64255 || c >= 65040 && c <= 65049 || c >= 65072 && c <= 65106 || c >= 65108 && c <= 65126 || c >= 65128 && c <= 65131 || c >= 65281 && c <= 65376 || c >= 65504 && c <= 65510;
+      return EditSession2;
+    }();
+    EditSession.$uid = 0;
+    EditSession.prototype.$modes = config.$modes;
+    EditSession.prototype.getValue = EditSession.prototype.toString;
+    EditSession.prototype.$defaultUndoManager = {
+      undo: function() {
+      },
+      redo: function() {
+      },
+      hasUndo: function() {
+      },
+      hasRedo: function() {
+      },
+      reset: function() {
+      },
+      add: function() {
+      },
+      addSelection: function() {
+      },
+      startNewGroup: function() {
+      },
+      addSession: function() {
       }
-    }).call(EditSession.prototype);
+    };
+    EditSession.prototype.$overwrite = false;
+    EditSession.prototype.$mode = null;
+    EditSession.prototype.$modeId = null;
+    EditSession.prototype.$scrollTop = 0;
+    EditSession.prototype.$scrollLeft = 0;
+    EditSession.prototype.$wrapLimit = 80;
+    EditSession.prototype.$useWrapMode = false;
+    EditSession.prototype.$wrapLimitRange = {
+      min: null,
+      max: null
+    };
+    EditSession.prototype.lineWidgets = null;
+    EditSession.prototype.isFullWidth = isFullWidth;
+    oop.implement(EditSession.prototype, EventEmitter);
+    var CHAR = 1, CHAR_EXT = 2, PLACEHOLDER_START = 3, PLACEHOLDER_BODY = 4, PUNCTUATION = 9, SPACE = 10, TAB = 11, TAB_SPACE = 12;
+    function isFullWidth(c) {
+      if (c < 4352)
+        return false;
+      return c >= 4352 && c <= 4447 || c >= 4515 && c <= 4519 || c >= 4602 && c <= 4607 || c >= 9001 && c <= 9002 || c >= 11904 && c <= 11929 || c >= 11931 && c <= 12019 || c >= 12032 && c <= 12245 || c >= 12272 && c <= 12283 || c >= 12288 && c <= 12350 || c >= 12353 && c <= 12438 || c >= 12441 && c <= 12543 || c >= 12549 && c <= 12589 || c >= 12593 && c <= 12686 || c >= 12688 && c <= 12730 || c >= 12736 && c <= 12771 || c >= 12784 && c <= 12830 || c >= 12832 && c <= 12871 || c >= 12880 && c <= 13054 || c >= 13056 && c <= 19903 || c >= 19968 && c <= 42124 || c >= 42128 && c <= 42182 || c >= 43360 && c <= 43388 || c >= 44032 && c <= 55203 || c >= 55216 && c <= 55238 || c >= 55243 && c <= 55291 || c >= 63744 && c <= 64255 || c >= 65040 && c <= 65049 || c >= 65072 && c <= 65106 || c >= 65108 && c <= 65126 || c >= 65128 && c <= 65131 || c >= 65281 && c <= 65376 || c >= 65504 && c <= 65510;
+    }
     require2("./edit_session/folding").Folding.call(EditSession.prototype);
     require2("./edit_session/bracket_match").BracketMatch.call(EditSession.prototype);
     config.defineOptions(EditSession.prototype, "session", {
@@ -31294,20 +31783,20 @@ var ace$2 = { exports: {} };
     var oop = require2("./lib/oop");
     var Range = require2("./range").Range;
     var Search = function() {
-      this.$options = {};
-    };
-    (function() {
-      this.set = function(options) {
+      function Search2() {
+        this.$options = {};
+      }
+      Search2.prototype.set = function(options) {
         oop.mixin(this.$options, options);
         return this;
       };
-      this.getOptions = function() {
+      Search2.prototype.getOptions = function() {
         return lang.copyObject(this.$options);
       };
-      this.setOptions = function(options) {
+      Search2.prototype.setOptions = function(options) {
         this.$options = options;
       };
-      this.find = function(session) {
+      Search2.prototype.find = function(session) {
         var options = this.$options;
         var iterator = this.$matchIterator(session, options);
         if (!iterator)
@@ -31323,7 +31812,7 @@ var ace$2 = { exports: {} };
         });
         return firstRange;
       };
-      this.findAll = function(session) {
+      Search2.prototype.findAll = function(session) {
         var options = this.$options;
         if (!options.needle)
           return [];
@@ -31378,7 +31867,7 @@ var ace$2 = { exports: {} };
         }
         return ranges;
       };
-      this.replace = function(input, replacement) {
+      Search2.prototype.replace = function(input, replacement) {
         var options = this.$options;
         var re = this.$assembleRegExp(options);
         if (options.$isMultiLine)
@@ -31402,7 +31891,7 @@ var ace$2 = { exports: {} };
         }
         return replacement;
       };
-      this.$assembleRegExp = function(options, $disableFakeMultiline) {
+      Search2.prototype.$assembleRegExp = function(options, $disableFakeMultiline) {
         if (options.needle instanceof RegExp)
           return options.re = options.needle;
         var needle = options.needle;
@@ -31423,7 +31912,7 @@ var ace$2 = { exports: {} };
         }
         return options.re = re;
       };
-      this.$assembleMultilineRegExp = function(needle, modifier) {
+      Search2.prototype.$assembleMultilineRegExp = function(needle, modifier) {
         var parts = needle.replace(/\r\n|\r|\n/g, "$\n^").split("\n");
         var re = [];
         for (var i = 0; i < parts.length; i++)
@@ -31434,7 +31923,7 @@ var ace$2 = { exports: {} };
           }
         return re;
       };
-      this.$matchIterator = function(session, options) {
+      Search2.prototype.$matchIterator = function(session, options) {
         var re = this.$assembleRegExp(options);
         if (!re)
           return false;
@@ -31544,7 +32033,8 @@ var ace$2 = { exports: {} };
         }
         return { forEach: forEach3 };
       };
-    }).call(Search.prototype);
+      return Search2;
+    }();
     function addWordBoundary(needle, options) {
       function wordBoundary(c) {
         if (/\w/.test(c) || options.regExp)
@@ -31743,23 +32233,44 @@ var ace$2 = { exports: {} };
     exports2.MultiHashHandler = MultiHashHandler;
   });
   ace.define("ace/commands/command_manager", ["require", "exports", "module", "ace/lib/oop", "ace/keyboard/hash_handler", "ace/lib/event_emitter"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+          d2.__proto__ = b2;
+        } || function(d2, b2) {
+          for (var p in b2)
+            if (Object.prototype.hasOwnProperty.call(b2, p))
+              d2[p] = b2[p];
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        if (typeof b !== "function" && b !== null)
+          throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
     var oop = require2("../lib/oop");
     var MultiHashHandler = require2("../keyboard/hash_handler").MultiHashHandler;
     var EventEmitter = require2("../lib/event_emitter").EventEmitter;
-    var CommandManager = function(platform, commands) {
-      MultiHashHandler.call(this, commands, platform);
-      this.byName = this.commands;
-      this.setDefaultHandler("exec", function(e) {
-        if (!e.args) {
-          return e.command.exec(e.editor, {}, e.event, true);
-        }
-        return e.command.exec(e.editor, e.args, e.event, false);
-      });
-    };
-    oop.inherits(CommandManager, MultiHashHandler);
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.exec = function(command, editor, args) {
+    var CommandManager = function(_super) {
+      __extends(CommandManager2, _super);
+      function CommandManager2(platform, commands) {
+        var _this = _super.call(this, commands, platform) || this;
+        _this.byName = _this.commands;
+        _this.setDefaultHandler("exec", function(e) {
+          if (!e.args) {
+            return e.command.exec(e.editor, {}, e.event, true);
+          }
+          return e.command.exec(e.editor, e.args, e.event, false);
+        });
+        return _this;
+      }
+      CommandManager2.prototype.exec = function(command, editor, args) {
         if (Array.isArray(command)) {
           for (var i = command.length; i--; ) {
             if (this.exec(command[i], editor, args))
@@ -31780,7 +32291,7 @@ var ace$2 = { exports: {} };
         this._signal("afterExec", e);
         return e.returnValue === false ? false : true;
       };
-      this.toggleRecording = function(editor) {
+      CommandManager2.prototype.toggleRecording = function(editor) {
         if (this.$inReplay)
           return;
         editor && editor._emit("changeStatus");
@@ -31801,7 +32312,7 @@ var ace$2 = { exports: {} };
         this.on("exec", this.$addCommandToMacro);
         return this.recording = true;
       };
-      this.replay = function(editor) {
+      CommandManager2.prototype.replay = function(editor) {
         if (this.$inReplay || !this.macro)
           return;
         if (this.recording)
@@ -31818,7 +32329,7 @@ var ace$2 = { exports: {} };
           this.$inReplay = false;
         }
       };
-      this.trimMacro = function(m) {
+      CommandManager2.prototype.trimMacro = function(m) {
         return m.map(function(x) {
           if (typeof x[0] != "string")
             x[0] = x[0].name;
@@ -31827,7 +32338,9 @@ var ace$2 = { exports: {} };
           return x;
         });
       };
-    }).call(CommandManager.prototype);
+      return CommandManager2;
+    }(MultiHashHandler);
+    oop.implement(CommandManager.prototype, EventEmitter);
     exports2.CommandManager = CommandManager;
   });
   ace.define("ace/commands/default_commands", ["require", "exports", "module", "ace/lib/lang", "ace/config", "ace/range"], function(require2, exports2, module2) {
@@ -32949,22 +33462,22 @@ var ace$2 = { exports: {} };
   });
   ace.define("ace/line_widgets", ["require", "exports", "module", "ace/lib/dom"], function(require2, exports2, module2) {
     var dom = require2("./lib/dom");
-    function LineWidgets(session) {
-      this.session = session;
-      this.session.widgetManager = this;
-      this.session.getRowLength = this.getRowLength;
-      this.session.$getWidgetScreenLength = this.$getWidgetScreenLength;
-      this.updateOnChange = this.updateOnChange.bind(this);
-      this.renderWidgets = this.renderWidgets.bind(this);
-      this.measureWidgets = this.measureWidgets.bind(this);
-      this.session._changedWidgets = [];
-      this.$onChangeEditor = this.$onChangeEditor.bind(this);
-      this.session.on("change", this.updateOnChange);
-      this.session.on("changeFold", this.updateOnFold);
-      this.session.on("changeEditor", this.$onChangeEditor);
-    }
-    (function() {
-      this.getRowLength = function(row) {
+    var LineWidgets = function() {
+      function LineWidgets2(session) {
+        this.session = session;
+        this.session.widgetManager = this;
+        this.session.getRowLength = this.getRowLength;
+        this.session.$getWidgetScreenLength = this.$getWidgetScreenLength;
+        this.updateOnChange = this.updateOnChange.bind(this);
+        this.renderWidgets = this.renderWidgets.bind(this);
+        this.measureWidgets = this.measureWidgets.bind(this);
+        this.session._changedWidgets = [];
+        this.$onChangeEditor = this.$onChangeEditor.bind(this);
+        this.session.on("change", this.updateOnChange);
+        this.session.on("changeFold", this.updateOnFold);
+        this.session.on("changeEditor", this.$onChangeEditor);
+      }
+      LineWidgets2.prototype.getRowLength = function(row) {
         var h;
         if (this.lineWidgets)
           h = this.lineWidgets[row] && this.lineWidgets[row].rowCount || 0;
@@ -32976,7 +33489,7 @@ var ace$2 = { exports: {} };
           return this.$wrapData[row].length + 1 + h;
         }
       };
-      this.$getWidgetScreenLength = function() {
+      LineWidgets2.prototype.$getWidgetScreenLength = function() {
         var screenRows = 0;
         this.lineWidgets.forEach(function(w) {
           if (w && w.rowCount && !w.hidden)
@@ -32984,10 +33497,10 @@ var ace$2 = { exports: {} };
         });
         return screenRows;
       };
-      this.$onChangeEditor = function(e) {
+      LineWidgets2.prototype.$onChangeEditor = function(e) {
         this.attach(e.editor);
       };
-      this.attach = function(editor) {
+      LineWidgets2.prototype.attach = function(editor) {
         if (editor && editor.widgetManager && editor.widgetManager != this)
           editor.widgetManager.detach();
         if (this.editor == editor)
@@ -33000,7 +33513,7 @@ var ace$2 = { exports: {} };
           editor.renderer.on("afterRender", this.renderWidgets);
         }
       };
-      this.detach = function(e) {
+      LineWidgets2.prototype.detach = function(e) {
         var editor = this.editor;
         if (!editor)
           return;
@@ -33016,7 +33529,7 @@ var ace$2 = { exports: {} };
           }
         });
       };
-      this.updateOnFold = function(e, session) {
+      LineWidgets2.prototype.updateOnFold = function(e, session) {
         var lineWidgets = session.lineWidgets;
         if (!lineWidgets || !e.action)
           return;
@@ -33041,7 +33554,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.updateOnChange = function(delta) {
+      LineWidgets2.prototype.updateOnChange = function(delta) {
         var lineWidgets = this.session.lineWidgets;
         if (!lineWidgets)
           return;
@@ -33069,7 +33582,7 @@ var ace$2 = { exports: {} };
           this.$updateRows();
         }
       };
-      this.$updateRows = function() {
+      LineWidgets2.prototype.$updateRows = function() {
         var lineWidgets = this.session.lineWidgets;
         if (!lineWidgets)
           return;
@@ -33087,7 +33600,7 @@ var ace$2 = { exports: {} };
         if (noWidgets)
           this.session.lineWidgets = null;
       };
-      this.$registerLineWidget = function(w) {
+      LineWidgets2.prototype.$registerLineWidget = function(w) {
         if (!this.session.lineWidgets)
           this.session.lineWidgets = new Array(this.session.getLength());
         var old = this.session.lineWidgets[w.row];
@@ -33101,7 +33614,7 @@ var ace$2 = { exports: {} };
         this.session.lineWidgets[w.row] = w;
         return w;
       };
-      this.addLineWidget = function(w) {
+      LineWidgets2.prototype.addLineWidget = function(w) {
         this.$registerLineWidget(w);
         w.session = this.session;
         if (!this.editor)
@@ -33149,7 +33662,7 @@ var ace$2 = { exports: {} };
         this.onWidgetChanged(w);
         return w;
       };
-      this.removeLineWidget = function(w) {
+      LineWidgets2.prototype.removeLineWidget = function(w) {
         w._inDocument = false;
         w.session = null;
         if (w.el && w.el.parentNode)
@@ -33178,7 +33691,7 @@ var ace$2 = { exports: {} };
         this.session._emit("changeFold", { data: { start: { row: w.row } } });
         this.$updateRows();
       };
-      this.getWidgetsAtRow = function(row) {
+      LineWidgets2.prototype.getWidgetsAtRow = function(row) {
         var lineWidgets = this.session.lineWidgets;
         var w = lineWidgets && lineWidgets[row];
         var list = [];
@@ -33188,11 +33701,11 @@ var ace$2 = { exports: {} };
         }
         return list;
       };
-      this.onWidgetChanged = function(w) {
+      LineWidgets2.prototype.onWidgetChanged = function(w) {
         this.session._changedWidgets.push(w);
         this.editor && this.editor.renderer.updateFull();
       };
-      this.measureWidgets = function(e, renderer) {
+      LineWidgets2.prototype.measureWidgets = function(e, renderer) {
         var changedWidgets = this.session._changedWidgets;
         var config = renderer.layerConfig;
         if (!changedWidgets || !changedWidgets.length)
@@ -33233,7 +33746,7 @@ var ace$2 = { exports: {} };
         }
         this.session._changedWidgets = [];
       };
-      this.renderWidgets = function(e, renderer) {
+      LineWidgets2.prototype.renderWidgets = function(e, renderer) {
         var config = renderer.layerConfig;
         var lineWidgets = this.session.lineWidgets;
         if (!lineWidgets)
@@ -33275,10 +33788,11 @@ var ace$2 = { exports: {} };
           }
         }
       };
-    }).call(LineWidgets.prototype);
+      return LineWidgets2;
+    }();
     exports2.LineWidgets = LineWidgets;
   });
-  ace.define("ace/editor", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/lib/useragent", "ace/keyboard/textinput", "ace/mouse/mouse_handler", "ace/mouse/fold_handler", "ace/keyboard/keybinding", "ace/edit_session", "ace/search", "ace/range", "ace/lib/event_emitter", "ace/commands/command_manager", "ace/commands/default_commands", "ace/config", "ace/token_iterator", "ace/line_widgets", "ace/clipboard"], function(require2, exports2, module2) {
+  ace.define("ace/editor", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/lib/useragent", "ace/keyboard/textinput", "ace/mouse/mouse_handler", "ace/mouse/fold_handler", "ace/keyboard/keybinding", "ace/edit_session", "ace/search", "ace/range", "ace/lib/event_emitter", "ace/commands/command_manager", "ace/commands/default_commands", "ace/config", "ace/token_iterator", "ace/line_widgets", "ace/clipboard", "ace/lib/keys"], function(require2, exports2, module2) {
     var __values = this && this.__values || function(o) {
       var s = typeof Symbol === "function" && Symbol.iterator, m = s && o[s], i = 0;
       if (m)
@@ -33311,44 +33825,43 @@ var ace$2 = { exports: {} };
     var TokenIterator = require2("./token_iterator").TokenIterator;
     var LineWidgets = require2("./line_widgets").LineWidgets;
     var clipboard2 = require2("./clipboard");
-    var Editor = function(renderer, session, options) {
-      this.$toDestroy = [];
-      var container = renderer.getContainerElement();
-      this.container = container;
-      this.renderer = renderer;
-      this.id = "editor" + ++Editor.$uid;
-      this.commands = new CommandManager(useragent.isMac ? "mac" : "win", defaultCommands);
-      if (typeof document == "object") {
-        this.textInput = new TextInput(renderer.getTextAreaContainer(), this);
-        this.renderer.textarea = this.textInput.getElement();
-        this.$mouseHandler = new MouseHandler(this);
-        new FoldHandler(this);
+    var keys = require2("./lib/keys");
+    var Editor = function() {
+      function Editor2(renderer, session, options) {
+        this.$toDestroy = [];
+        var container = renderer.getContainerElement();
+        this.container = container;
+        this.renderer = renderer;
+        this.id = "editor" + ++Editor2.$uid;
+        this.commands = new CommandManager(useragent.isMac ? "mac" : "win", defaultCommands);
+        if (typeof document == "object") {
+          this.textInput = new TextInput(renderer.getTextAreaContainer(), this);
+          this.renderer.textarea = this.textInput.getElement();
+          this.$mouseHandler = new MouseHandler(this);
+          new FoldHandler(this);
+        }
+        this.keyBinding = new KeyBinding(this);
+        this.$search = new Search().set({
+          wrap: true
+        });
+        this.$historyTracker = this.$historyTracker.bind(this);
+        this.commands.on("exec", this.$historyTracker);
+        this.$initOperationListeners();
+        this._$emitInputEvent = lang.delayedCall(function() {
+          this._signal("input", {});
+          if (this.session && !this.session.destroyed)
+            this.session.bgTokenizer.scheduleStart();
+        }.bind(this));
+        this.on("change", function(_, _self) {
+          _self._$emitInputEvent.schedule(31);
+        });
+        this.setSession(session || options && options.session || new EditSession(""));
+        config.resetOptions(this);
+        if (options)
+          this.setOptions(options);
+        config._signal("editor", this);
       }
-      this.keyBinding = new KeyBinding(this);
-      this.$search = new Search().set({
-        wrap: true
-      });
-      this.$historyTracker = this.$historyTracker.bind(this);
-      this.commands.on("exec", this.$historyTracker);
-      this.$initOperationListeners();
-      this._$emitInputEvent = lang.delayedCall(function() {
-        this._signal("input", {});
-        if (this.session && !this.session.destroyed)
-          this.session.bgTokenizer.scheduleStart();
-      }.bind(this));
-      this.on("change", function(_, _self) {
-        _self._$emitInputEvent.schedule(31);
-      });
-      this.setSession(session || options && options.session || new EditSession(""));
-      config.resetOptions(this);
-      if (options)
-        this.setOptions(options);
-      config._signal("editor", this);
-    };
-    Editor.$uid = 0;
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.$initOperationListeners = function() {
+      Editor2.prototype.$initOperationListeners = function() {
         this.commands.on("exec", this.startOperation.bind(this), true);
         this.commands.on("afterExec", this.endOperation.bind(this), true);
         this.$opResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
@@ -33367,9 +33880,7 @@ var ace$2 = { exports: {} };
           this.curOp.selectionChanged = true;
         }.bind(this), true);
       };
-      this.curOp = null;
-      this.prevOp = {};
-      this.startOperation = function(commandEvent) {
+      Editor2.prototype.startOperation = function(commandEvent) {
         if (this.curOp) {
           if (!commandEvent || this.curOp.command)
             return;
@@ -33387,7 +33898,7 @@ var ace$2 = { exports: {} };
         };
         this.curOp.selectionBefore = this.selection.toJSON();
       };
-      this.endOperation = function(e) {
+      Editor2.prototype.endOperation = function(e) {
         if (this.curOp && this.session) {
           if (e && e.returnValue === false || !this.session)
             return this.curOp = null;
@@ -33428,8 +33939,7 @@ var ace$2 = { exports: {} };
           this.curOp = null;
         }
       };
-      this.$mergeableCommands = ["backspace", "del", "insertstring"];
-      this.$historyTracker = function(e) {
+      Editor2.prototype.$historyTracker = function(e) {
         if (!this.$mergeUndoDeltas)
           return;
         var prev = this.prevOp;
@@ -33452,7 +33962,7 @@ var ace$2 = { exports: {} };
         else if (mergeableCommands.indexOf(e.command.name) !== -1)
           this.sequenceStartTime = Date.now();
       };
-      this.setKeyboardHandler = function(keyboardHandler, cb) {
+      Editor2.prototype.setKeyboardHandler = function(keyboardHandler, cb) {
         if (keyboardHandler && typeof keyboardHandler === "string" && keyboardHandler != "ace") {
           this.$keybindingId = keyboardHandler;
           var _self = this;
@@ -33467,10 +33977,10 @@ var ace$2 = { exports: {} };
           cb && cb();
         }
       };
-      this.getKeyboardHandler = function() {
+      Editor2.prototype.getKeyboardHandler = function() {
         return this.keyBinding.getKeyboardHandler();
       };
-      this.setSession = function(session) {
+      Editor2.prototype.setSession = function(session) {
         if (this.session == session)
           return;
         if (this.curOp)
@@ -33556,10 +34066,10 @@ var ace$2 = { exports: {} };
         if (session && !session.destroyed)
           session.bgTokenizer.scheduleStart();
       };
-      this.getSession = function() {
+      Editor2.prototype.getSession = function() {
         return this.session;
       };
-      this.setValue = function(val, cursorPos) {
+      Editor2.prototype.setValue = function(val, cursorPos) {
         this.session.doc.setValue(val);
         if (!cursorPos)
           this.selectAll();
@@ -33569,34 +34079,34 @@ var ace$2 = { exports: {} };
           this.navigateFileStart();
         return val;
       };
-      this.getValue = function() {
+      Editor2.prototype.getValue = function() {
         return this.session.getValue();
       };
-      this.getSelection = function() {
+      Editor2.prototype.getSelection = function() {
         return this.selection;
       };
-      this.resize = function(force) {
+      Editor2.prototype.resize = function(force) {
         this.renderer.onResize(force);
       };
-      this.setTheme = function(theme, cb) {
+      Editor2.prototype.setTheme = function(theme, cb) {
         this.renderer.setTheme(theme, cb);
       };
-      this.getTheme = function() {
+      Editor2.prototype.getTheme = function() {
         return this.renderer.getTheme();
       };
-      this.setStyle = function(style) {
+      Editor2.prototype.setStyle = function(style) {
         this.renderer.setStyle(style);
       };
-      this.unsetStyle = function(style) {
+      Editor2.prototype.unsetStyle = function(style) {
         this.renderer.unsetStyle(style);
       };
-      this.getFontSize = function() {
+      Editor2.prototype.getFontSize = function() {
         return this.getOption("fontSize") || dom.computedStyle(this.container).fontSize;
       };
-      this.setFontSize = function(size) {
+      Editor2.prototype.setFontSize = function(size) {
         this.setOption("fontSize", size);
       };
-      this.$highlightBrackets = function() {
+      Editor2.prototype.$highlightBrackets = function() {
         if (this.$highlightPending) {
           return;
         }
@@ -33655,16 +34165,16 @@ var ace$2 = { exports: {} };
             self2.renderer.$textLayer.$highlightIndentGuide();
         }, 50);
       };
-      this.focus = function() {
+      Editor2.prototype.focus = function() {
         this.textInput.focus();
       };
-      this.isFocused = function() {
+      Editor2.prototype.isFocused = function() {
         return this.textInput.isFocused();
       };
-      this.blur = function() {
+      Editor2.prototype.blur = function() {
         this.textInput.blur();
       };
-      this.onFocus = function(e) {
+      Editor2.prototype.onFocus = function(e) {
         if (this.$isFocused)
           return;
         this.$isFocused = true;
@@ -33672,7 +34182,7 @@ var ace$2 = { exports: {} };
         this.renderer.visualizeFocus();
         this._emit("focus", e);
       };
-      this.onBlur = function(e) {
+      Editor2.prototype.onBlur = function(e) {
         if (!this.$isFocused)
           return;
         this.$isFocused = false;
@@ -33680,33 +34190,33 @@ var ace$2 = { exports: {} };
         this.renderer.visualizeBlur();
         this._emit("blur", e);
       };
-      this.$cursorChange = function() {
+      Editor2.prototype.$cursorChange = function() {
         this.renderer.updateCursor();
         this.$highlightBrackets();
         this.$updateHighlightActiveLine();
       };
-      this.onDocumentChange = function(delta) {
+      Editor2.prototype.onDocumentChange = function(delta) {
         var wrap = this.session.$useWrapMode;
         var lastRow = delta.start.row == delta.end.row ? delta.end.row : Infinity;
         this.renderer.updateLines(delta.start.row, lastRow, wrap);
         this._signal("change", delta);
         this.$cursorChange();
       };
-      this.onTokenizerUpdate = function(e) {
+      Editor2.prototype.onTokenizerUpdate = function(e) {
         var rows = e.data;
         this.renderer.updateLines(rows.first, rows.last);
       };
-      this.onScrollTopChange = function() {
+      Editor2.prototype.onScrollTopChange = function() {
         this.renderer.scrollToY(this.session.getScrollTop());
       };
-      this.onScrollLeftChange = function() {
+      Editor2.prototype.onScrollLeftChange = function() {
         this.renderer.scrollToX(this.session.getScrollLeft());
       };
-      this.onCursorChange = function() {
+      Editor2.prototype.onCursorChange = function() {
         this.$cursorChange();
         this._signal("changeSelection");
       };
-      this.$updateHighlightActiveLine = function() {
+      Editor2.prototype.$updateHighlightActiveLine = function() {
         var session = this.getSession();
         var highlight;
         if (this.$highlightActiveLine) {
@@ -33731,7 +34241,7 @@ var ace$2 = { exports: {} };
           session._signal("changeBackMarker");
         }
       };
-      this.onSelectionChange = function(e) {
+      Editor2.prototype.onSelectionChange = function(e) {
         var session = this.session;
         if (session.$selectionMarker) {
           session.removeMarker(session.$selectionMarker);
@@ -33748,7 +34258,7 @@ var ace$2 = { exports: {} };
         this.session.highlight(re);
         this._signal("changeSelection");
       };
-      this.$getSelectionHighLightRegexp = function() {
+      Editor2.prototype.$getSelectionHighLightRegexp = function() {
         var session = this.session;
         var selection = this.getSelectionRange();
         if (selection.isEmpty() || selection.isMultiLine())
@@ -33769,36 +34279,36 @@ var ace$2 = { exports: {} };
           return;
         return re;
       };
-      this.onChangeFrontMarker = function() {
+      Editor2.prototype.onChangeFrontMarker = function() {
         this.renderer.updateFrontMarkers();
       };
-      this.onChangeBackMarker = function() {
+      Editor2.prototype.onChangeBackMarker = function() {
         this.renderer.updateBackMarkers();
       };
-      this.onChangeBreakpoint = function() {
+      Editor2.prototype.onChangeBreakpoint = function() {
         this.renderer.updateBreakpoints();
       };
-      this.onChangeAnnotation = function() {
+      Editor2.prototype.onChangeAnnotation = function() {
         this.renderer.setAnnotations(this.session.getAnnotations());
       };
-      this.onChangeMode = function(e) {
+      Editor2.prototype.onChangeMode = function(e) {
         this.renderer.updateText();
         this._emit("changeMode", e);
       };
-      this.onChangeWrapLimit = function() {
+      Editor2.prototype.onChangeWrapLimit = function() {
         this.renderer.updateFull();
       };
-      this.onChangeWrapMode = function() {
+      Editor2.prototype.onChangeWrapMode = function() {
         this.renderer.onResize(true);
       };
-      this.onChangeFold = function() {
+      Editor2.prototype.onChangeFold = function() {
         this.$updateHighlightActiveLine();
         this.renderer.updateFull();
       };
-      this.getSelectedText = function() {
+      Editor2.prototype.getSelectedText = function() {
         return this.session.getTextRange(this.getSelectionRange());
       };
-      this.getCopyText = function() {
+      Editor2.prototype.getCopyText = function() {
         var text = this.getSelectedText();
         var nl = this.session.doc.getNewLineCharacter();
         var copyLine = false;
@@ -33817,17 +34327,17 @@ var ace$2 = { exports: {} };
         clipboard2.lineMode = copyLine ? e.text : false;
         return e.text;
       };
-      this.onCopy = function() {
+      Editor2.prototype.onCopy = function() {
         this.commands.exec("copy", this);
       };
-      this.onCut = function() {
+      Editor2.prototype.onCut = function() {
         this.commands.exec("cut", this);
       };
-      this.onPaste = function(text, event) {
+      Editor2.prototype.onPaste = function(text, event) {
         var e = { text, event };
         this.commands.exec("paste", this, e);
       };
-      this.$handlePaste = function(e) {
+      Editor2.prototype.$handlePaste = function(e) {
         if (typeof e == "string")
           e = { text: e };
         this._signal("paste", e);
@@ -33857,10 +34367,10 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.execCommand = function(command, args) {
+      Editor2.prototype.execCommand = function(command, args) {
         return this.commands.exec(command, this, args);
       };
-      this.insert = function(text, pasted) {
+      Editor2.prototype.insert = function(text, pasted) {
         var session = this.session;
         var mode = session.getMode();
         var cursor = this.getCursorPosition();
@@ -33916,7 +34426,7 @@ var ace$2 = { exports: {} };
             mode.autoOutdent(lineState, session, cursor.row);
         }
       };
-      this.autoIndent = function() {
+      Editor2.prototype.autoIndent = function() {
         var session = this.session;
         var mode = session.getMode();
         var startRow, endRow;
@@ -33953,7 +34463,7 @@ var ace$2 = { exports: {} };
           mode.autoOutdent(prevLineState, session, row);
         }
       };
-      this.onTextInput = function(text, composition) {
+      Editor2.prototype.onTextInput = function(text, composition) {
         if (!composition)
           return this.keyBinding.onTextInput(text);
         this.startOperation({ command: { name: "insertstring" } });
@@ -33964,7 +34474,7 @@ var ace$2 = { exports: {} };
           applyComposition();
         this.endOperation();
       };
-      this.applyComposition = function(text, composition) {
+      Editor2.prototype.applyComposition = function(text, composition) {
         if (composition.extendLeft || composition.extendRight) {
           var r = this.selection.getRange();
           r.start.column -= composition.extendLeft;
@@ -33986,121 +34496,121 @@ var ace$2 = { exports: {} };
           this.selection.setRange(r);
         }
       };
-      this.onCommandKey = function(e, hashId, keyCode) {
+      Editor2.prototype.onCommandKey = function(e, hashId, keyCode) {
         return this.keyBinding.onCommandKey(e, hashId, keyCode);
       };
-      this.setOverwrite = function(overwrite) {
+      Editor2.prototype.setOverwrite = function(overwrite) {
         this.session.setOverwrite(overwrite);
       };
-      this.getOverwrite = function() {
+      Editor2.prototype.getOverwrite = function() {
         return this.session.getOverwrite();
       };
-      this.toggleOverwrite = function() {
+      Editor2.prototype.toggleOverwrite = function() {
         this.session.toggleOverwrite();
       };
-      this.setScrollSpeed = function(speed) {
+      Editor2.prototype.setScrollSpeed = function(speed) {
         this.setOption("scrollSpeed", speed);
       };
-      this.getScrollSpeed = function() {
+      Editor2.prototype.getScrollSpeed = function() {
         return this.getOption("scrollSpeed");
       };
-      this.setDragDelay = function(dragDelay) {
+      Editor2.prototype.setDragDelay = function(dragDelay) {
         this.setOption("dragDelay", dragDelay);
       };
-      this.getDragDelay = function() {
+      Editor2.prototype.getDragDelay = function() {
         return this.getOption("dragDelay");
       };
-      this.setSelectionStyle = function(val) {
+      Editor2.prototype.setSelectionStyle = function(val) {
         this.setOption("selectionStyle", val);
       };
-      this.getSelectionStyle = function() {
+      Editor2.prototype.getSelectionStyle = function() {
         return this.getOption("selectionStyle");
       };
-      this.setHighlightActiveLine = function(shouldHighlight) {
+      Editor2.prototype.setHighlightActiveLine = function(shouldHighlight) {
         this.setOption("highlightActiveLine", shouldHighlight);
       };
-      this.getHighlightActiveLine = function() {
+      Editor2.prototype.getHighlightActiveLine = function() {
         return this.getOption("highlightActiveLine");
       };
-      this.setHighlightGutterLine = function(shouldHighlight) {
+      Editor2.prototype.setHighlightGutterLine = function(shouldHighlight) {
         this.setOption("highlightGutterLine", shouldHighlight);
       };
-      this.getHighlightGutterLine = function() {
+      Editor2.prototype.getHighlightGutterLine = function() {
         return this.getOption("highlightGutterLine");
       };
-      this.setHighlightSelectedWord = function(shouldHighlight) {
+      Editor2.prototype.setHighlightSelectedWord = function(shouldHighlight) {
         this.setOption("highlightSelectedWord", shouldHighlight);
       };
-      this.getHighlightSelectedWord = function() {
+      Editor2.prototype.getHighlightSelectedWord = function() {
         return this.$highlightSelectedWord;
       };
-      this.setAnimatedScroll = function(shouldAnimate) {
+      Editor2.prototype.setAnimatedScroll = function(shouldAnimate) {
         this.renderer.setAnimatedScroll(shouldAnimate);
       };
-      this.getAnimatedScroll = function() {
+      Editor2.prototype.getAnimatedScroll = function() {
         return this.renderer.getAnimatedScroll();
       };
-      this.setShowInvisibles = function(showInvisibles) {
+      Editor2.prototype.setShowInvisibles = function(showInvisibles) {
         this.renderer.setShowInvisibles(showInvisibles);
       };
-      this.getShowInvisibles = function() {
+      Editor2.prototype.getShowInvisibles = function() {
         return this.renderer.getShowInvisibles();
       };
-      this.setDisplayIndentGuides = function(display) {
+      Editor2.prototype.setDisplayIndentGuides = function(display) {
         this.renderer.setDisplayIndentGuides(display);
       };
-      this.getDisplayIndentGuides = function() {
+      Editor2.prototype.getDisplayIndentGuides = function() {
         return this.renderer.getDisplayIndentGuides();
       };
-      this.setHighlightIndentGuides = function(highlight) {
+      Editor2.prototype.setHighlightIndentGuides = function(highlight) {
         this.renderer.setHighlightIndentGuides(highlight);
       };
-      this.getHighlightIndentGuides = function() {
+      Editor2.prototype.getHighlightIndentGuides = function() {
         return this.renderer.getHighlightIndentGuides();
       };
-      this.setShowPrintMargin = function(showPrintMargin) {
+      Editor2.prototype.setShowPrintMargin = function(showPrintMargin) {
         this.renderer.setShowPrintMargin(showPrintMargin);
       };
-      this.getShowPrintMargin = function() {
+      Editor2.prototype.getShowPrintMargin = function() {
         return this.renderer.getShowPrintMargin();
       };
-      this.setPrintMarginColumn = function(showPrintMargin) {
+      Editor2.prototype.setPrintMarginColumn = function(showPrintMargin) {
         this.renderer.setPrintMarginColumn(showPrintMargin);
       };
-      this.getPrintMarginColumn = function() {
+      Editor2.prototype.getPrintMarginColumn = function() {
         return this.renderer.getPrintMarginColumn();
       };
-      this.setReadOnly = function(readOnly) {
+      Editor2.prototype.setReadOnly = function(readOnly) {
         this.setOption("readOnly", readOnly);
       };
-      this.getReadOnly = function() {
+      Editor2.prototype.getReadOnly = function() {
         return this.getOption("readOnly");
       };
-      this.setBehavioursEnabled = function(enabled) {
+      Editor2.prototype.setBehavioursEnabled = function(enabled) {
         this.setOption("behavioursEnabled", enabled);
       };
-      this.getBehavioursEnabled = function() {
+      Editor2.prototype.getBehavioursEnabled = function() {
         return this.getOption("behavioursEnabled");
       };
-      this.setWrapBehavioursEnabled = function(enabled) {
+      Editor2.prototype.setWrapBehavioursEnabled = function(enabled) {
         this.setOption("wrapBehavioursEnabled", enabled);
       };
-      this.getWrapBehavioursEnabled = function() {
+      Editor2.prototype.getWrapBehavioursEnabled = function() {
         return this.getOption("wrapBehavioursEnabled");
       };
-      this.setShowFoldWidgets = function(show) {
+      Editor2.prototype.setShowFoldWidgets = function(show) {
         this.setOption("showFoldWidgets", show);
       };
-      this.getShowFoldWidgets = function() {
+      Editor2.prototype.getShowFoldWidgets = function() {
         return this.getOption("showFoldWidgets");
       };
-      this.setFadeFoldWidgets = function(fade) {
+      Editor2.prototype.setFadeFoldWidgets = function(fade) {
         this.setOption("fadeFoldWidgets", fade);
       };
-      this.getFadeFoldWidgets = function() {
+      Editor2.prototype.getFadeFoldWidgets = function() {
         return this.getOption("fadeFoldWidgets");
       };
-      this.remove = function(dir) {
+      Editor2.prototype.remove = function(dir) {
         if (this.selection.isEmpty()) {
           if (dir == "left")
             this.selection.selectLeft();
@@ -34127,19 +34637,19 @@ var ace$2 = { exports: {} };
         this.session.remove(range);
         this.clearSelection();
       };
-      this.removeWordRight = function() {
+      Editor2.prototype.removeWordRight = function() {
         if (this.selection.isEmpty())
           this.selection.selectWordRight();
         this.session.remove(this.getSelectionRange());
         this.clearSelection();
       };
-      this.removeWordLeft = function() {
+      Editor2.prototype.removeWordLeft = function() {
         if (this.selection.isEmpty())
           this.selection.selectWordLeft();
         this.session.remove(this.getSelectionRange());
         this.clearSelection();
       };
-      this.removeToLineStart = function() {
+      Editor2.prototype.removeToLineStart = function() {
         if (this.selection.isEmpty())
           this.selection.selectLineStart();
         if (this.selection.isEmpty())
@@ -34147,7 +34657,7 @@ var ace$2 = { exports: {} };
         this.session.remove(this.getSelectionRange());
         this.clearSelection();
       };
-      this.removeToLineEnd = function() {
+      Editor2.prototype.removeToLineEnd = function() {
         if (this.selection.isEmpty())
           this.selection.selectLineEnd();
         var range = this.getSelectionRange();
@@ -34158,7 +34668,7 @@ var ace$2 = { exports: {} };
         this.session.remove(range);
         this.clearSelection();
       };
-      this.splitLine = function() {
+      Editor2.prototype.splitLine = function() {
         if (!this.selection.isEmpty()) {
           this.session.remove(this.getSelectionRange());
           this.clearSelection();
@@ -34167,19 +34677,19 @@ var ace$2 = { exports: {} };
         this.insert("\n");
         this.moveCursorToPosition(cursor);
       };
-      this.setGhostText = function(text, position) {
+      Editor2.prototype.setGhostText = function(text, position) {
         if (!this.session.widgetManager) {
           this.session.widgetManager = new LineWidgets(this.session);
           this.session.widgetManager.attach(this);
         }
         this.renderer.setGhostText(text, position);
       };
-      this.removeGhostText = function() {
+      Editor2.prototype.removeGhostText = function() {
         if (!this.session.widgetManager)
           return;
         this.renderer.removeGhostText();
       };
-      this.transposeLetters = function() {
+      Editor2.prototype.transposeLetters = function() {
         if (!this.selection.isEmpty()) {
           return;
         }
@@ -34199,7 +34709,7 @@ var ace$2 = { exports: {} };
         this.session.replace(range, swap);
         this.session.selection.moveToPosition(range.end);
       };
-      this.toLowerCase = function() {
+      Editor2.prototype.toLowerCase = function() {
         var originalRange = this.getSelectionRange();
         if (this.selection.isEmpty()) {
           this.selection.selectWord();
@@ -34209,7 +34719,7 @@ var ace$2 = { exports: {} };
         this.session.replace(range, text.toLowerCase());
         this.selection.setSelectionRange(originalRange);
       };
-      this.toUpperCase = function() {
+      Editor2.prototype.toUpperCase = function() {
         var originalRange = this.getSelectionRange();
         if (this.selection.isEmpty()) {
           this.selection.selectWord();
@@ -34219,7 +34729,7 @@ var ace$2 = { exports: {} };
         this.session.replace(range, text.toUpperCase());
         this.selection.setSelectionRange(originalRange);
       };
-      this.indent = function() {
+      Editor2.prototype.indent = function() {
         var session = this.session;
         var range = this.getSelectionRange();
         if (range.start.row < range.end.row) {
@@ -34252,15 +34762,15 @@ var ace$2 = { exports: {} };
         }
         return this.insert(indentString);
       };
-      this.blockIndent = function() {
+      Editor2.prototype.blockIndent = function() {
         var rows = this.$getSelectedRows();
         this.session.indentRows(rows.first, rows.last, "	");
       };
-      this.blockOutdent = function() {
+      Editor2.prototype.blockOutdent = function() {
         var selection = this.session.getSelection();
         this.session.outdentRows(selection.getRange());
       };
-      this.sortLines = function() {
+      Editor2.prototype.sortLines = function() {
         var rows = this.$getSelectedRows();
         var session = this.session;
         var lines = [];
@@ -34282,18 +34792,18 @@ var ace$2 = { exports: {} };
           session.replace(deleteRange, lines[i - rows.first]);
         }
       };
-      this.toggleCommentLines = function() {
+      Editor2.prototype.toggleCommentLines = function() {
         var state = this.session.getState(this.getCursorPosition().row);
         var rows = this.$getSelectedRows();
         this.session.getMode().toggleCommentLines(state, this.session, rows.first, rows.last);
       };
-      this.toggleBlockComment = function() {
+      Editor2.prototype.toggleBlockComment = function() {
         var cursor = this.getCursorPosition();
         var state = this.session.getState(cursor.row);
         var range = this.getSelectionRange();
         this.session.getMode().toggleBlockComment(state, this.session, range, cursor);
       };
-      this.getNumberAt = function(row, column) {
+      Editor2.prototype.getNumberAt = function(row, column) {
         var _numberRx = /[\-]?[0-9]+(?:\.[0-9]+)?/g;
         _numberRx.lastIndex = 0;
         var s = this.session.getLine(row);
@@ -34310,7 +34820,7 @@ var ace$2 = { exports: {} };
         }
         return null;
       };
-      this.modifyNumber = function(amount) {
+      Editor2.prototype.modifyNumber = function(amount) {
         var row = this.selection.getCursor().row;
         var column = this.selection.getCursor().column;
         var charRange = new Range(row, column - 1, row, column);
@@ -34338,32 +34848,7 @@ var ace$2 = { exports: {} };
           this.toggleWord();
         }
       };
-      this.$toggleWordPairs = [
-        ["first", "last"],
-        ["true", "false"],
-        ["yes", "no"],
-        ["width", "height"],
-        ["top", "bottom"],
-        ["right", "left"],
-        ["on", "off"],
-        ["x", "y"],
-        ["get", "set"],
-        ["max", "min"],
-        ["horizontal", "vertical"],
-        ["show", "hide"],
-        ["add", "remove"],
-        ["up", "down"],
-        ["before", "after"],
-        ["even", "odd"],
-        ["in", "out"],
-        ["inside", "outside"],
-        ["next", "previous"],
-        ["increase", "decrease"],
-        ["attach", "detach"],
-        ["&&", "||"],
-        ["==", "!="]
-      ];
-      this.toggleWord = function() {
+      Editor2.prototype.toggleWord = function() {
         var row = this.selection.getCursor().row;
         var column = this.selection.getCursor().column;
         this.selection.selectWord();
@@ -34413,7 +34898,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.findLinkAt = function(row, column) {
+      Editor2.prototype.findLinkAt = function(row, column) {
         var e_1, _a;
         var line = this.session.getLine(row);
         var wordParts = line.split(/((?:https?|ftp):\/\/[\S]+)/);
@@ -34446,19 +34931,19 @@ var ace$2 = { exports: {} };
         }
         return match;
       };
-      this.openLink = function() {
+      Editor2.prototype.openLink = function() {
         var cursor = this.selection.getCursor();
         var url = this.findLinkAt(cursor.row, cursor.column);
         if (url)
           window.open(url, "_blank");
         return url != null;
       };
-      this.removeLines = function() {
+      Editor2.prototype.removeLines = function() {
         var rows = this.$getSelectedRows();
         this.session.removeFullLines(rows.first, rows.last);
         this.clearSelection();
       };
-      this.duplicateSelection = function() {
+      Editor2.prototype.duplicateSelection = function() {
         var sel = this.selection;
         var doc = this.session;
         var range = sel.getRange();
@@ -34474,22 +34959,22 @@ var ace$2 = { exports: {} };
           sel.setSelectionRange(range, reverse);
         }
       };
-      this.moveLinesDown = function() {
+      Editor2.prototype.moveLinesDown = function() {
         this.$moveLines(1, false);
       };
-      this.moveLinesUp = function() {
+      Editor2.prototype.moveLinesUp = function() {
         this.$moveLines(-1, false);
       };
-      this.moveText = function(range, toPosition, copy) {
+      Editor2.prototype.moveText = function(range, toPosition, copy) {
         return this.session.moveText(range, toPosition, copy);
       };
-      this.copyLinesUp = function() {
+      Editor2.prototype.copyLinesUp = function() {
         this.$moveLines(-1, true);
       };
-      this.copyLinesDown = function() {
+      Editor2.prototype.copyLinesDown = function() {
         this.$moveLines(1, true);
       };
-      this.$moveLines = function(dir, copy) {
+      Editor2.prototype.$moveLines = function(dir, copy) {
         var rows, moved2;
         var selection = this.selection;
         if (!selection.inMultiSelectMode || this.inVirtualSelectionMode) {
@@ -34540,38 +35025,38 @@ var ace$2 = { exports: {} };
           this.inVirtualSelectionMode = false;
         }
       };
-      this.$getSelectedRows = function(range) {
+      Editor2.prototype.$getSelectedRows = function(range) {
         range = (range || this.getSelectionRange()).collapseRows();
         return {
           first: this.session.getRowFoldStart(range.start.row),
           last: this.session.getRowFoldEnd(range.end.row)
         };
       };
-      this.onCompositionStart = function(compositionState) {
+      Editor2.prototype.onCompositionStart = function(compositionState) {
         this.renderer.showComposition(compositionState);
       };
-      this.onCompositionUpdate = function(text) {
+      Editor2.prototype.onCompositionUpdate = function(text) {
         this.renderer.setCompositionText(text);
       };
-      this.onCompositionEnd = function() {
+      Editor2.prototype.onCompositionEnd = function() {
         this.renderer.hideComposition();
       };
-      this.getFirstVisibleRow = function() {
+      Editor2.prototype.getFirstVisibleRow = function() {
         return this.renderer.getFirstVisibleRow();
       };
-      this.getLastVisibleRow = function() {
+      Editor2.prototype.getLastVisibleRow = function() {
         return this.renderer.getLastVisibleRow();
       };
-      this.isRowVisible = function(row) {
+      Editor2.prototype.isRowVisible = function(row) {
         return row >= this.getFirstVisibleRow() && row <= this.getLastVisibleRow();
       };
-      this.isRowFullyVisible = function(row) {
+      Editor2.prototype.isRowFullyVisible = function(row) {
         return row >= this.renderer.getFirstFullyVisibleRow() && row <= this.renderer.getLastFullyVisibleRow();
       };
-      this.$getVisibleRowCount = function() {
+      Editor2.prototype.$getVisibleRowCount = function() {
         return this.renderer.getScrollBottomRow() - this.renderer.getScrollTopRow() + 1;
       };
-      this.$moveByPage = function(dir, select) {
+      Editor2.prototype.$moveByPage = function(dir, select) {
         var renderer = this.renderer;
         var config2 = this.renderer.layerConfig;
         var rows = dir * Math.floor(config2.height / config2.lineHeight);
@@ -34589,31 +35074,31 @@ var ace$2 = { exports: {} };
           renderer.scrollCursorIntoView(null, 0.5);
         renderer.animateScrolling(scrollTop);
       };
-      this.selectPageDown = function() {
+      Editor2.prototype.selectPageDown = function() {
         this.$moveByPage(1, true);
       };
-      this.selectPageUp = function() {
+      Editor2.prototype.selectPageUp = function() {
         this.$moveByPage(-1, true);
       };
-      this.gotoPageDown = function() {
+      Editor2.prototype.gotoPageDown = function() {
         this.$moveByPage(1, false);
       };
-      this.gotoPageUp = function() {
+      Editor2.prototype.gotoPageUp = function() {
         this.$moveByPage(-1, false);
       };
-      this.scrollPageDown = function() {
+      Editor2.prototype.scrollPageDown = function() {
         this.$moveByPage(1);
       };
-      this.scrollPageUp = function() {
+      Editor2.prototype.scrollPageUp = function() {
         this.$moveByPage(-1);
       };
-      this.scrollToRow = function(row) {
+      Editor2.prototype.scrollToRow = function(row) {
         this.renderer.scrollToRow(row);
       };
-      this.scrollToLine = function(line, center, animate, callback2) {
+      Editor2.prototype.scrollToLine = function(line, center, animate, callback2) {
         this.renderer.scrollToLine(line, center, animate, callback2);
       };
-      this.centerSelection = function() {
+      Editor2.prototype.centerSelection = function() {
         var range = this.getSelectionRange();
         var pos = {
           row: Math.floor(range.start.row + (range.end.row - range.start.row) / 2),
@@ -34621,28 +35106,28 @@ var ace$2 = { exports: {} };
         };
         this.renderer.alignCursor(pos, 0.5);
       };
-      this.getCursorPosition = function() {
+      Editor2.prototype.getCursorPosition = function() {
         return this.selection.getCursor();
       };
-      this.getCursorPositionScreen = function() {
+      Editor2.prototype.getCursorPositionScreen = function() {
         return this.session.documentToScreenPosition(this.getCursorPosition());
       };
-      this.getSelectionRange = function() {
+      Editor2.prototype.getSelectionRange = function() {
         return this.selection.getRange();
       };
-      this.selectAll = function() {
+      Editor2.prototype.selectAll = function() {
         this.selection.selectAll();
       };
-      this.clearSelection = function() {
+      Editor2.prototype.clearSelection = function() {
         this.selection.clearSelection();
       };
-      this.moveCursorTo = function(row, column) {
+      Editor2.prototype.moveCursorTo = function(row, column) {
         this.selection.moveCursorTo(row, column);
       };
-      this.moveCursorToPosition = function(pos) {
+      Editor2.prototype.moveCursorToPosition = function(pos) {
         this.selection.moveCursorToPosition(pos);
       };
-      this.jumpToMatching = function(select, expand) {
+      Editor2.prototype.jumpToMatching = function(select, expand) {
         var cursor = this.getCursorPosition();
         var iterator = new TokenIterator(this.session, cursor.row, cursor.column);
         var prevToken = iterator.getCurrentToken();
@@ -34761,7 +35246,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.gotoLine = function(lineNumber, column, animate) {
+      Editor2.prototype.gotoLine = function(lineNumber, column, animate) {
         this.selection.clearSelection();
         this.session.unfold({ row: lineNumber - 1, column: column || 0 });
         this.exitMultiSelectMode && this.exitMultiSelectMode();
@@ -34769,10 +35254,10 @@ var ace$2 = { exports: {} };
         if (!this.isRowFullyVisible(lineNumber - 1))
           this.scrollToLine(lineNumber - 1, true, animate);
       };
-      this.navigateTo = function(row, column) {
+      Editor2.prototype.navigateTo = function(row, column) {
         this.selection.moveTo(row, column);
       };
-      this.navigateUp = function(times) {
+      Editor2.prototype.navigateUp = function(times) {
         if (this.selection.isMultiLine() && !this.selection.isBackwards()) {
           var selectionStart = this.selection.anchor.getPosition();
           return this.moveCursorToPosition(selectionStart);
@@ -34780,7 +35265,7 @@ var ace$2 = { exports: {} };
         this.selection.clearSelection();
         this.selection.moveCursorBy(-times || -1, 0);
       };
-      this.navigateDown = function(times) {
+      Editor2.prototype.navigateDown = function(times) {
         if (this.selection.isMultiLine() && this.selection.isBackwards()) {
           var selectionEnd = this.selection.anchor.getPosition();
           return this.moveCursorToPosition(selectionEnd);
@@ -34788,7 +35273,7 @@ var ace$2 = { exports: {} };
         this.selection.clearSelection();
         this.selection.moveCursorBy(times || 1, 0);
       };
-      this.navigateLeft = function(times) {
+      Editor2.prototype.navigateLeft = function(times) {
         if (!this.selection.isEmpty()) {
           var selectionStart = this.getSelectionRange().start;
           this.moveCursorToPosition(selectionStart);
@@ -34800,7 +35285,7 @@ var ace$2 = { exports: {} };
         }
         this.clearSelection();
       };
-      this.navigateRight = function(times) {
+      Editor2.prototype.navigateRight = function(times) {
         if (!this.selection.isEmpty()) {
           var selectionEnd = this.getSelectionRange().end;
           this.moveCursorToPosition(selectionEnd);
@@ -34812,31 +35297,31 @@ var ace$2 = { exports: {} };
         }
         this.clearSelection();
       };
-      this.navigateLineStart = function() {
+      Editor2.prototype.navigateLineStart = function() {
         this.selection.moveCursorLineStart();
         this.clearSelection();
       };
-      this.navigateLineEnd = function() {
+      Editor2.prototype.navigateLineEnd = function() {
         this.selection.moveCursorLineEnd();
         this.clearSelection();
       };
-      this.navigateFileEnd = function() {
+      Editor2.prototype.navigateFileEnd = function() {
         this.selection.moveCursorFileEnd();
         this.clearSelection();
       };
-      this.navigateFileStart = function() {
+      Editor2.prototype.navigateFileStart = function() {
         this.selection.moveCursorFileStart();
         this.clearSelection();
       };
-      this.navigateWordRight = function() {
+      Editor2.prototype.navigateWordRight = function() {
         this.selection.moveCursorWordRight();
         this.clearSelection();
       };
-      this.navigateWordLeft = function() {
+      Editor2.prototype.navigateWordLeft = function() {
         this.selection.moveCursorWordLeft();
         this.clearSelection();
       };
-      this.replace = function(replacement, options) {
+      Editor2.prototype.replace = function(replacement, options) {
         if (options)
           this.$search.set(options);
         var range = this.$search.find(this.session);
@@ -34850,7 +35335,7 @@ var ace$2 = { exports: {} };
         this.renderer.scrollSelectionIntoView(range.start, range.end);
         return replaced;
       };
-      this.replaceAll = function(replacement, options) {
+      Editor2.prototype.replaceAll = function(replacement, options) {
         if (options) {
           this.$search.set(options);
         }
@@ -34868,7 +35353,7 @@ var ace$2 = { exports: {} };
         this.selection.setSelectionRange(selection);
         return replaced;
       };
-      this.$tryReplace = function(range, replacement) {
+      Editor2.prototype.$tryReplace = function(range, replacement) {
         var input = this.session.getTextRange(range);
         replacement = this.$search.replace(input, replacement);
         if (replacement !== null) {
@@ -34878,10 +35363,10 @@ var ace$2 = { exports: {} };
           return null;
         }
       };
-      this.getLastSearchOptions = function() {
+      Editor2.prototype.getLastSearchOptions = function() {
         return this.$search.getOptions();
       };
-      this.find = function(needle, options, animate) {
+      Editor2.prototype.find = function(needle, options, animate) {
         if (!options)
           options = {};
         if (typeof needle == "string" || needle instanceof RegExp)
@@ -34913,13 +35398,13 @@ var ace$2 = { exports: {} };
           range.end = range.start;
         this.selection.setRange(range);
       };
-      this.findNext = function(options, animate) {
+      Editor2.prototype.findNext = function(options, animate) {
         this.find({ skipCurrent: true, backwards: false }, options, animate);
       };
-      this.findPrevious = function(options, animate) {
+      Editor2.prototype.findPrevious = function(options, animate) {
         this.find(options, { skipCurrent: true, backwards: true }, animate);
       };
-      this.revealRange = function(range, animate) {
+      Editor2.prototype.revealRange = function(range, animate) {
         this.session.unfold(range);
         this.selection.setSelectionRange(range);
         var scrollTop = this.renderer.scrollTop;
@@ -34927,15 +35412,15 @@ var ace$2 = { exports: {} };
         if (animate !== false)
           this.renderer.animateScrolling(scrollTop);
       };
-      this.undo = function() {
+      Editor2.prototype.undo = function() {
         this.session.getUndoManager().undo(this.session);
         this.renderer.scrollCursorIntoView(null, 0.5);
       };
-      this.redo = function() {
+      Editor2.prototype.redo = function() {
         this.session.getUndoManager().redo(this.session);
         this.renderer.scrollCursorIntoView(null, 0.5);
       };
-      this.destroy = function() {
+      Editor2.prototype.destroy = function() {
         if (this.$toDestroy) {
           this.$toDestroy.forEach(function(el) {
             el.destroy();
@@ -34952,7 +35437,7 @@ var ace$2 = { exports: {} };
           this._$emitInputEvent.cancel();
         this.removeAllListeners();
       };
-      this.setAutoScrollEditorIntoView = function(enable) {
+      Editor2.prototype.setAutoScrollEditorIntoView = function(enable) {
         if (!enable)
           return;
         var rect;
@@ -35001,7 +35486,7 @@ var ace$2 = { exports: {} };
           this.renderer.off("beforeRender", onBeforeRender);
         };
       };
-      this.$resetCursorStyle = function() {
+      Editor2.prototype.$resetCursorStyle = function() {
         var style = this.$cursorStyle || "ace";
         var cursorLayer = this.renderer.$cursorLayer;
         if (!cursorLayer)
@@ -35010,13 +35495,44 @@ var ace$2 = { exports: {} };
         cursorLayer.isBlinking = !this.$readOnly && style != "wide";
         dom.setCssClass(cursorLayer.element, "ace_slim-cursors", /slim/.test(style));
       };
-      this.prompt = function(message, options, callback2) {
+      Editor2.prototype.prompt = function(message, options, callback2) {
         var editor = this;
         config.loadModule("ace/ext/prompt", function(module3) {
           module3.prompt(editor, message, options, callback2);
         });
       };
-    }).call(Editor.prototype);
+      return Editor2;
+    }();
+    Editor.$uid = 0;
+    Editor.prototype.curOp = null;
+    Editor.prototype.prevOp = {};
+    Editor.prototype.$mergeableCommands = ["backspace", "del", "insertstring"];
+    Editor.prototype.$toggleWordPairs = [
+      ["first", "last"],
+      ["true", "false"],
+      ["yes", "no"],
+      ["width", "height"],
+      ["top", "bottom"],
+      ["right", "left"],
+      ["on", "off"],
+      ["x", "y"],
+      ["get", "set"],
+      ["max", "min"],
+      ["horizontal", "vertical"],
+      ["show", "hide"],
+      ["add", "remove"],
+      ["up", "down"],
+      ["before", "after"],
+      ["even", "odd"],
+      ["in", "out"],
+      ["inside", "outside"],
+      ["next", "previous"],
+      ["increase", "decrease"],
+      ["attach", "detach"],
+      ["&&", "||"],
+      ["==", "!="]
+    ];
+    oop.implement(Editor.prototype, EventEmitter);
     config.defineOptions(Editor.prototype, "editor", {
       selectionStyle: {
         set: function(style) {
@@ -35144,6 +35660,44 @@ var ace$2 = { exports: {} };
           this.$updatePlaceholder();
         }
       },
+      enableKeyboardAccessibility: {
+        set: function(value2) {
+          var blurCommand = {
+            name: "blurTextInput",
+            description: "Set focus to the editor content div to allow tabbing through the page",
+            bindKey: "Esc",
+            exec: function(editor) {
+              editor.blur();
+              editor.renderer.content.focus();
+            },
+            readOnly: true
+          };
+          var focusOnEnterKeyup = function(e) {
+            if (e.target == this.renderer.content && e.keyCode === keys["enter"]) {
+              e.stopPropagation();
+              e.preventDefault();
+              this.focus();
+            }
+          };
+          var keyboardFocusClassName = "ace_keyboard-focus";
+          if (value2) {
+            this.textInput.getElement().setAttribute("tabindex", -1);
+            this.renderer.content.setAttribute("tabindex", 0);
+            this.renderer.content.classList.add(keyboardFocusClassName);
+            this.renderer.content.setAttribute("aria-label", "Editor, press Enter key to start editing, press Escape key to exit");
+            this.renderer.content.addEventListener("keyup", focusOnEnterKeyup.bind(this));
+            this.commands.addCommand(blurCommand);
+          } else {
+            this.textInput.getElement().setAttribute("tabindex", 0);
+            this.renderer.content.setAttribute("tabindex", -1);
+            this.renderer.content.classList.remove(keyboardFocusClassName);
+            this.renderer.content.setAttribute("aria-label", "");
+            this.renderer.content.removeEventListener("keyup", focusOnEnterKeyup.bind(this));
+            this.commands.removeCommand(blurCommand);
+          }
+        },
+        initialValue: false
+      },
       customScrollbar: "renderer",
       hScrollBarAlwaysVisible: "renderer",
       vScrollBarAlwaysVisible: "renderer",
@@ -35168,6 +35722,9 @@ var ace$2 = { exports: {} };
       hasCssTransforms: "renderer",
       maxPixelHeight: "renderer",
       useTextareaForIME: "renderer",
+      useResizeObserver: "renderer",
+      useSvgGutterIcons: "renderer",
+      showFoldedAnnotations: "renderer",
       scrollSpeed: "$mouseHandler",
       dragDelay: "$mouseHandler",
       dragEnabled: "$mouseHandler",
@@ -35211,16 +35768,16 @@ var ace$2 = { exports: {} };
   });
   ace.define("ace/undomanager", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
     var UndoManager = function() {
-      this.$maxRev = 0;
-      this.$fromUndo = false;
-      this.$undoDepth = Infinity;
-      this.reset();
-    };
-    (function() {
-      this.addSession = function(session) {
+      function UndoManager2() {
+        this.$maxRev = 0;
+        this.$fromUndo = false;
+        this.$undoDepth = Infinity;
+        this.reset();
+      }
+      UndoManager2.prototype.addSession = function(session) {
         this.$session = session;
       };
-      this.add = function(delta, allowMerge, session) {
+      UndoManager2.prototype.add = function(delta, allowMerge, session) {
         if (this.$fromUndo)
           return;
         if (delta == this.$lastDelta)
@@ -35240,17 +35797,17 @@ var ace$2 = { exports: {} };
           this.$lastDelta = delta;
         this.lastDeltas.push(delta);
       };
-      this.addSelection = function(selection, rev) {
+      UndoManager2.prototype.addSelection = function(selection, rev) {
         this.selections.push({
           value: selection,
           rev: rev || this.$rev
         });
       };
-      this.startNewGroup = function() {
+      UndoManager2.prototype.startNewGroup = function() {
         this.lastDeltas = null;
         return this.$rev;
       };
-      this.markIgnored = function(from, to) {
+      UndoManager2.prototype.markIgnored = function(from, to) {
         if (to == null)
           to = this.$rev + 1;
         var stack = this.$undoStack;
@@ -35263,7 +35820,7 @@ var ace$2 = { exports: {} };
         }
         this.lastDeltas = null;
       };
-      this.getSelection = function(rev, after) {
+      UndoManager2.prototype.getSelection = function(rev, after) {
         var stack = this.selections;
         for (var i = stack.length; i--; ) {
           var selection = stack[i];
@@ -35274,10 +35831,10 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.getRevision = function() {
+      UndoManager2.prototype.getRevision = function() {
         return this.$rev;
       };
-      this.getDeltas = function(from, to) {
+      UndoManager2.prototype.getDeltas = function(from, to) {
         if (to == null)
           to = this.$rev + 1;
         var stack = this.$undoStack;
@@ -35293,15 +35850,15 @@ var ace$2 = { exports: {} };
         }
         return stack.slice(start, end);
       };
-      this.getChangedRanges = function(from, to) {
+      UndoManager2.prototype.getChangedRanges = function(from, to) {
         if (to == null)
           to = this.$rev + 1;
       };
-      this.getChangedLines = function(from, to) {
+      UndoManager2.prototype.getChangedLines = function(from, to) {
         if (to == null)
           to = this.$rev + 1;
       };
-      this.undo = function(session, dontSelect) {
+      UndoManager2.prototype.undo = function(session, dontSelect) {
         this.lastDeltas = null;
         var stack = this.$undoStack;
         if (!rearrangeUndoStack(stack, stack.length))
@@ -35321,7 +35878,7 @@ var ace$2 = { exports: {} };
         this.$fromUndo = false;
         return undoSelectionRange;
       };
-      this.redo = function(session, dontSelect) {
+      UndoManager2.prototype.redo = function(session, dontSelect) {
         this.lastDeltas = null;
         if (!session)
           session = this.$session;
@@ -35344,14 +35901,14 @@ var ace$2 = { exports: {} };
         this.$fromUndo = false;
         return redoSelectionRange;
       };
-      this.$syncRev = function() {
+      UndoManager2.prototype.$syncRev = function() {
         var stack = this.$undoStack;
         var nextDelta = stack[stack.length - 1];
         var id = nextDelta && nextDelta[0].id || 0;
         this.$redoStackBaseRev = id;
         this.$rev = id;
       };
-      this.reset = function() {
+      UndoManager2.prototype.reset = function() {
         this.lastDeltas = null;
         this.$lastDelta = null;
         this.$undoStack = [];
@@ -35361,34 +35918,35 @@ var ace$2 = { exports: {} };
         this.$redoStackBaseRev = this.$rev;
         this.selections = [];
       };
-      this.canUndo = function() {
+      UndoManager2.prototype.canUndo = function() {
         return this.$undoStack.length > 0;
       };
-      this.canRedo = function() {
+      UndoManager2.prototype.canRedo = function() {
         return this.$redoStack.length > 0;
       };
-      this.bookmark = function(rev) {
+      UndoManager2.prototype.bookmark = function(rev) {
         if (rev == void 0)
           rev = this.$rev;
         this.mark = rev;
       };
-      this.isAtBookmark = function() {
+      UndoManager2.prototype.isAtBookmark = function() {
         return this.$rev === this.mark;
       };
-      this.toJSON = function() {
+      UndoManager2.prototype.toJSON = function() {
       };
-      this.fromJSON = function() {
+      UndoManager2.prototype.fromJSON = function() {
       };
-      this.hasUndo = this.canUndo;
-      this.hasRedo = this.canRedo;
-      this.isClean = this.isAtBookmark;
-      this.markClean = this.bookmark;
-      this.$prettyPrint = function(delta) {
+      UndoManager2.prototype.$prettyPrint = function(delta) {
         if (delta)
           return stringifyDelta(delta);
         return stringifyDelta(this.$undoStack) + "\n---\n" + stringifyDelta(this.$redoStack);
       };
-    }).call(UndoManager.prototype);
+      return UndoManager2;
+    }();
+    UndoManager.prototype.hasUndo = UndoManager.prototype.canUndo;
+    UndoManager.prototype.hasRedo = UndoManager.prototype.canRedo;
+    UndoManager.prototype.isClean = UndoManager.prototype.isAtBookmark;
+    UndoManager.prototype.markClean = UndoManager.prototype.bookmark;
     function rearrangeUndoStack(stack, pos) {
       for (var i = pos; i--; ) {
         var deltaSet = stack[i];
@@ -35616,43 +36174,43 @@ var ace$2 = { exports: {} };
   });
   ace.define("ace/layer/lines", ["require", "exports", "module", "ace/lib/dom"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
-    var Lines = function(element, canvasHeight) {
-      this.element = element;
-      this.canvasHeight = canvasHeight || 5e5;
-      this.element.style.height = this.canvasHeight * 2 + "px";
-      this.cells = [];
-      this.cellCache = [];
-      this.$offsetCoefficient = 0;
-    };
-    (function() {
-      this.moveContainer = function(config) {
+    var Lines = function() {
+      function Lines2(element, canvasHeight) {
+        this.element = element;
+        this.canvasHeight = canvasHeight || 5e5;
+        this.element.style.height = this.canvasHeight * 2 + "px";
+        this.cells = [];
+        this.cellCache = [];
+        this.$offsetCoefficient = 0;
+      }
+      Lines2.prototype.moveContainer = function(config) {
         dom.translate(this.element, 0, -(config.firstRowScreen * config.lineHeight % this.canvasHeight) - config.offset * this.$offsetCoefficient);
       };
-      this.pageChanged = function(oldConfig, newConfig) {
+      Lines2.prototype.pageChanged = function(oldConfig, newConfig) {
         return Math.floor(oldConfig.firstRowScreen * oldConfig.lineHeight / this.canvasHeight) !== Math.floor(newConfig.firstRowScreen * newConfig.lineHeight / this.canvasHeight);
       };
-      this.computeLineTop = function(row, config, session) {
+      Lines2.prototype.computeLineTop = function(row, config, session) {
         var screenTop = config.firstRowScreen * config.lineHeight;
         var screenPage = Math.floor(screenTop / this.canvasHeight);
         var lineTop = session.documentToScreenRow(row, 0) * config.lineHeight;
         return lineTop - screenPage * this.canvasHeight;
       };
-      this.computeLineHeight = function(row, config, session) {
+      Lines2.prototype.computeLineHeight = function(row, config, session) {
         return config.lineHeight * session.getRowLineCount(row);
       };
-      this.getLength = function() {
+      Lines2.prototype.getLength = function() {
         return this.cells.length;
       };
-      this.get = function(index2) {
+      Lines2.prototype.get = function(index2) {
         return this.cells[index2];
       };
-      this.shift = function() {
+      Lines2.prototype.shift = function() {
         this.$cacheCell(this.cells.shift());
       };
-      this.pop = function() {
+      Lines2.prototype.pop = function() {
         this.$cacheCell(this.cells.pop());
       };
-      this.push = function(cell) {
+      Lines2.prototype.push = function(cell) {
         if (Array.isArray(cell)) {
           this.cells.push.apply(this.cells, cell);
           var fragment = dom.createFragment(this.element);
@@ -35665,7 +36223,7 @@ var ace$2 = { exports: {} };
           this.element.appendChild(cell.element);
         }
       };
-      this.unshift = function(cell) {
+      Lines2.prototype.unshift = function(cell) {
         if (Array.isArray(cell)) {
           this.cells.unshift.apply(this.cells, cell);
           var fragment = dom.createFragment(this.element);
@@ -35681,19 +36239,19 @@ var ace$2 = { exports: {} };
           this.element.insertAdjacentElement("afterbegin", cell.element);
         }
       };
-      this.last = function() {
+      Lines2.prototype.last = function() {
         if (this.cells.length)
           return this.cells[this.cells.length - 1];
         else
           return null;
       };
-      this.$cacheCell = function(cell) {
+      Lines2.prototype.$cacheCell = function(cell) {
         if (!cell)
           return;
         cell.element.remove();
         this.cellCache.push(cell);
       };
-      this.createCell = function(row, config, session, initElement) {
+      Lines2.prototype.createCell = function(row, config, session, initElement) {
         var cell = this.cellCache.pop();
         if (!cell) {
           var element = dom.createElement("div");
@@ -35709,7 +36267,8 @@ var ace$2 = { exports: {} };
         cell.row = row;
         return cell;
       };
-    }).call(Lines.prototype);
+      return Lines2;
+    }();
     exports2.Lines = Lines;
   });
   ace.define("ace/layer/gutter", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/lang", "ace/lib/event_emitter", "ace/layer/lines"], function(require2, exports2, module2) {
@@ -35718,61 +36277,62 @@ var ace$2 = { exports: {} };
     var lang = require2("../lib/lang");
     var EventEmitter = require2("../lib/event_emitter").EventEmitter;
     var Lines = require2("./lines").Lines;
-    var Gutter = function(parentEl2) {
-      this.element = dom.createElement("div");
-      this.element.className = "ace_layer ace_gutter-layer";
-      parentEl2.appendChild(this.element);
-      this.setShowFoldWidgets(this.$showFoldWidgets);
-      this.gutterWidth = 0;
-      this.$annotations = [];
-      this.$updateAnnotations = this.$updateAnnotations.bind(this);
-      this.$lines = new Lines(this.element);
-      this.$lines.$offsetCoefficient = 1;
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setSession = function(session) {
+    var Gutter = function() {
+      function Gutter2(parentEl2) {
+        this.element = dom.createElement("div");
+        this.element.className = "ace_layer ace_gutter-layer";
+        parentEl2.appendChild(this.element);
+        this.setShowFoldWidgets(this.$showFoldWidgets);
+        this.gutterWidth = 0;
+        this.$annotations = [];
+        this.$updateAnnotations = this.$updateAnnotations.bind(this);
+        this.$lines = new Lines(this.element);
+        this.$lines.$offsetCoefficient = 1;
+      }
+      Gutter2.prototype.setSession = function(session) {
         if (this.session)
           this.session.off("change", this.$updateAnnotations);
         this.session = session;
         if (session)
           session.on("change", this.$updateAnnotations);
       };
-      this.addGutterDecoration = function(row, className) {
+      Gutter2.prototype.addGutterDecoration = function(row, className) {
         if (window.console)
           console.warn && console.warn("deprecated use session.addGutterDecoration");
         this.session.addGutterDecoration(row, className);
       };
-      this.removeGutterDecoration = function(row, className) {
+      Gutter2.prototype.removeGutterDecoration = function(row, className) {
         if (window.console)
           console.warn && console.warn("deprecated use session.removeGutterDecoration");
         this.session.removeGutterDecoration(row, className);
       };
-      this.setAnnotations = function(annotations) {
+      Gutter2.prototype.setAnnotations = function(annotations) {
         this.$annotations = [];
         for (var i = 0; i < annotations.length; i++) {
           var annotation = annotations[i];
           var row = annotation.row;
           var rowInfo = this.$annotations[row];
           if (!rowInfo)
-            rowInfo = this.$annotations[row] = { text: [] };
+            rowInfo = this.$annotations[row] = { text: [], type: [] };
           var annoText = annotation.text;
+          var annoType = annotation.type;
           annoText = annoText ? lang.escapeHTML(annoText) : annotation.html || "";
-          if (rowInfo.text.indexOf(annoText) === -1)
+          if (rowInfo.text.indexOf(annoText) === -1) {
             rowInfo.text.push(annoText);
-          var type = annotation.type;
+            rowInfo.type.push(annoType);
+          }
           var className = annotation.className;
           if (className)
             rowInfo.className = className;
-          else if (type == "error")
+          else if (annoType == "error")
             rowInfo.className = " ace_error";
-          else if (type == "warning" && rowInfo.className != " ace_error")
+          else if (annoType == "warning" && rowInfo.className != " ace_error")
             rowInfo.className = " ace_warning";
-          else if (type == "info" && !rowInfo.className)
+          else if (annoType == "info" && !rowInfo.className)
             rowInfo.className = " ace_info";
         }
       };
-      this.$updateAnnotations = function(delta) {
+      Gutter2.prototype.$updateAnnotations = function(delta) {
         if (!this.$annotations.length)
           return;
         var firstRow = delta.start.row;
@@ -35787,7 +36347,7 @@ var ace$2 = { exports: {} };
           this.$annotations.splice.apply(this.$annotations, args);
         }
       };
-      this.update = function(config) {
+      Gutter2.prototype.update = function(config) {
         this.config = config;
         var session = this.session;
         var firstRow = config.firstRow;
@@ -35825,7 +36385,7 @@ var ace$2 = { exports: {} };
         this._signal("afterRender");
         this.$updateGutterWidth(config);
       };
-      this.$updateGutterWidth = function(config) {
+      Gutter2.prototype.$updateGutterWidth = function(config) {
         var session = this.session;
         var gutterRenderer = session.gutterRenderer || this.$renderer;
         var firstLineNumber = session.$firstLineNumber;
@@ -35841,7 +36401,7 @@ var ace$2 = { exports: {} };
           this._signal("changeGutterWidth", gutterWidth);
         }
       };
-      this.$updateCursorRow = function() {
+      Gutter2.prototype.$updateCursorRow = function() {
         if (!this.$highlightGutterLine)
           return;
         var position = this.session.selection.getCursor();
@@ -35849,7 +36409,7 @@ var ace$2 = { exports: {} };
           return;
         this.$cursorRow = position.row;
       };
-      this.updateLineHighlight = function() {
+      Gutter2.prototype.updateLineHighlight = function() {
         if (!this.$highlightGutterLine)
           return;
         var row = this.session.selection.cursor.row;
@@ -35876,7 +36436,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.scrollLines = function(config) {
+      Gutter2.prototype.scrollLines = function(config) {
         var oldConfig = this.config;
         this.config = config;
         this.$updateCursorRow();
@@ -35906,7 +36466,7 @@ var ace$2 = { exports: {} };
         this._signal("afterRender");
         this.$updateGutterWidth(config);
       };
-      this.$renderLines = function(config, firstRow, lastRow) {
+      Gutter2.prototype.$renderLines = function(config, firstRow, lastRow) {
         var fragment = [];
         var row = firstRow;
         var foldLine = this.session.getNextFoldLine(row);
@@ -35926,18 +36486,21 @@ var ace$2 = { exports: {} };
         }
         return fragment;
       };
-      this.$renderCell = function(cell, config, fold, row) {
+      Gutter2.prototype.$renderCell = function(cell, config, fold, row) {
         var element = cell.element;
         var session = this.session;
         var textNode = element.childNodes[0];
         var foldWidget = element.childNodes[1];
+        var annotationNode = element.childNodes[2];
         var firstLineNumber = session.$firstLineNumber;
         var breakpoints = session.$breakpoints;
         var decorations = session.$decorations;
         var gutterRenderer = session.gutterRenderer || this.$renderer;
         var foldWidgets = this.$showFoldWidgets && session.foldWidgets;
         var foldStart = fold ? fold.start.row : Number.MAX_VALUE;
-        var className = "ace_gutter-cell ";
+        var lineHeight = config.lineHeight + "px";
+        var className = this.$useSvgGutterIcons ? "ace_gutter-cell_svg-icons " : "ace_gutter-cell ";
+        var iconClassName = this.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
         if (this.$highlightGutterLine) {
           if (row == this.$cursorRow || fold && row < this.$cursorRow && row >= foldStart && this.$cursorRow <= fold.end.row) {
             className += "ace_gutter-active-line ";
@@ -35952,7 +36515,7 @@ var ace$2 = { exports: {} };
           className += breakpoints[row];
         if (decorations[row])
           className += decorations[row];
-        if (this.$annotations[row])
+        if (this.$annotations[row] && row !== foldStart)
           className += this.$annotations[row].className;
         if (element.className != className)
           element.className = className;
@@ -35963,19 +36526,51 @@ var ace$2 = { exports: {} };
         }
         if (c) {
           var className = "ace_fold-widget ace_" + c;
-          if (c == "start" && row == foldStart && row < fold.end.row)
+          if (c == "start" && row == foldStart && row < fold.end.row) {
             className += " ace_closed";
-          else
+            var foldAnnotationClass;
+            var annotationInFold = false;
+            for (var i = row + 1; i <= fold.end.row; i++) {
+              if (!this.$annotations[i])
+                continue;
+              if (this.$annotations[i].className === " ace_error") {
+                annotationInFold = true;
+                foldAnnotationClass = " ace_error_fold";
+                break;
+              }
+              if (this.$annotations[i].className === " ace_warning") {
+                annotationInFold = true;
+                foldAnnotationClass = " ace_warning_fold";
+                continue;
+              }
+            }
+            element.className += foldAnnotationClass;
+          } else
             className += " ace_open";
           if (foldWidget.className != className)
             foldWidget.className = className;
-          var foldHeight = config.lineHeight + "px";
-          dom.setStyle(foldWidget.style, "height", foldHeight);
+          dom.setStyle(foldWidget.style, "height", lineHeight);
           dom.setStyle(foldWidget.style, "display", "inline-block");
         } else {
           if (foldWidget) {
             dom.setStyle(foldWidget.style, "display", "none");
           }
+        }
+        if (annotationInFold && this.$showFoldedAnnotations) {
+          annotationNode.className = iconClassName;
+          annotationNode.className += foldAnnotationClass;
+          dom.setStyle(annotationNode.style, "height", lineHeight);
+          dom.setStyle(annotationNode.style, "display", "block");
+        } else if (this.$annotations[row]) {
+          annotationNode.className = iconClassName;
+          if (this.$useSvgGutterIcons)
+            annotationNode.className += this.$annotations[row].className;
+          else
+            element.classList.add(this.$annotations[row].className.replace(" ", ""));
+          dom.setStyle(annotationNode.style, "height", lineHeight);
+          dom.setStyle(annotationNode.style, "display", "block");
+        } else {
+          dom.setStyle(annotationNode.style, "display", "none");
         }
         var text = (gutterRenderer ? gutterRenderer.getText(session, row) : row + firstLineNumber).toString();
         if (text !== textNode.data) {
@@ -35986,15 +36581,10 @@ var ace$2 = { exports: {} };
         cell.text = text;
         return cell;
       };
-      this.$fixedWidth = false;
-      this.$highlightGutterLine = true;
-      this.$renderer = "";
-      this.setHighlightGutterLine = function(highlightGutterLine) {
+      Gutter2.prototype.setHighlightGutterLine = function(highlightGutterLine) {
         this.$highlightGutterLine = highlightGutterLine;
       };
-      this.$showLineNumbers = true;
-      this.$renderer = "";
-      this.setShowLineNumbers = function(show) {
+      Gutter2.prototype.setShowLineNumbers = function(show) {
         this.$renderer = !show && {
           getWidth: function() {
             return 0;
@@ -36004,11 +36594,10 @@ var ace$2 = { exports: {} };
           }
         };
       };
-      this.getShowLineNumbers = function() {
+      Gutter2.prototype.getShowLineNumbers = function() {
         return this.$showLineNumbers;
       };
-      this.$showFoldWidgets = true;
-      this.setShowFoldWidgets = function(show) {
+      Gutter2.prototype.setShowFoldWidgets = function(show) {
         if (show)
           dom.addCssClass(this.element, "ace_folding-enabled");
         else
@@ -36016,10 +36605,10 @@ var ace$2 = { exports: {} };
         this.$showFoldWidgets = show;
         this.$padding = null;
       };
-      this.getShowFoldWidgets = function() {
+      Gutter2.prototype.getShowFoldWidgets = function() {
         return this.$showFoldWidgets;
       };
-      this.$computePadding = function() {
+      Gutter2.prototype.$computePadding = function() {
         if (!this.element.firstChild)
           return { left: 0, right: 0 };
         var style = dom.computedStyle(this.element.firstChild);
@@ -36028,7 +36617,7 @@ var ace$2 = { exports: {} };
         this.$padding.right = (parseInt(style.borderRightWidth) || 0) + (parseInt(style.paddingRight) || 0);
         return this.$padding;
       };
-      this.getRegion = function(point) {
+      Gutter2.prototype.getRegion = function(point) {
         var padding = this.$padding || this.$computePadding();
         var rect = this.element.getBoundingClientRect();
         if (point.x < padding.left + rect.left)
@@ -36036,12 +36625,21 @@ var ace$2 = { exports: {} };
         if (this.$showFoldWidgets && point.x > rect.right - padding.right)
           return "foldWidgets";
       };
-    }).call(Gutter.prototype);
+      return Gutter2;
+    }();
+    Gutter.prototype.$fixedWidth = false;
+    Gutter.prototype.$highlightGutterLine = true;
+    Gutter.prototype.$renderer = "";
+    Gutter.prototype.$showLineNumbers = true;
+    Gutter.prototype.$showFoldWidgets = true;
+    oop.implement(Gutter.prototype, EventEmitter);
     function onCreateCell(element) {
       var textNode = document.createTextNode("");
       element.appendChild(textNode);
       var foldWidget = dom.createElement("span");
       element.appendChild(foldWidget);
+      var annotationNode = dom.createElement("span");
+      element.appendChild(annotationNode);
       return element;
     }
     exports2.Gutter = Gutter;
@@ -36049,23 +36647,22 @@ var ace$2 = { exports: {} };
   ace.define("ace/layer/marker", ["require", "exports", "module", "ace/range", "ace/lib/dom"], function(require2, exports2, module2) {
     var Range = require2("../range").Range;
     var dom = require2("../lib/dom");
-    var Marker = function(parentEl2) {
-      this.element = dom.createElement("div");
-      this.element.className = "ace_layer ace_marker-layer";
-      parentEl2.appendChild(this.element);
-    };
-    (function() {
-      this.$padding = 0;
-      this.setPadding = function(padding) {
+    var Marker = function() {
+      function Marker2(parentEl2) {
+        this.element = dom.createElement("div");
+        this.element.className = "ace_layer ace_marker-layer";
+        parentEl2.appendChild(this.element);
+      }
+      Marker2.prototype.setPadding = function(padding) {
         this.$padding = padding;
       };
-      this.setSession = function(session) {
+      Marker2.prototype.setSession = function(session) {
         this.session = session;
       };
-      this.setMarkers = function(markers) {
+      Marker2.prototype.setMarkers = function(markers) {
         this.markers = markers;
       };
-      this.elt = function(className, css2) {
+      Marker2.prototype.elt = function(className, css2) {
         var x = this.i != -1 && this.element.childNodes[this.i];
         if (!x) {
           x = document.createElement("div");
@@ -36077,7 +36674,7 @@ var ace$2 = { exports: {} };
         x.style.cssText = css2;
         x.className = className;
       };
-      this.update = function(config) {
+      Marker2.prototype.update = function(config) {
         if (!config)
           return;
         this.config = config;
@@ -36115,13 +36712,10 @@ var ace$2 = { exports: {} };
             this.element.removeChild(this.element.lastChild);
         }
       };
-      this.$getTop = function(row, layerConfig) {
+      Marker2.prototype.$getTop = function(row, layerConfig) {
         return (row - layerConfig.firstRowScreen) * layerConfig.lineHeight;
       };
-      function getBorderClass(tl, tr, br, bl) {
-        return (tl ? 1 : 0) | (tr ? 2 : 0) | (br ? 4 : 0) | (bl ? 8 : 0);
-      }
-      this.drawTextMarker = function(stringBuilder, range, clazz, layerConfig, extraStyle) {
+      Marker2.prototype.drawTextMarker = function(stringBuilder, range, clazz, layerConfig, extraStyle) {
         var session = this.session;
         var start = range.start.row;
         var end = range.end.row;
@@ -36140,7 +36734,7 @@ var ace$2 = { exports: {} };
           this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
         }
       };
-      this.drawMultiLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
+      Marker2.prototype.drawMultiLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
         var padding = this.$padding;
         var height = config.lineHeight;
         var top = this.$getTop(range.start.row, config);
@@ -36171,7 +36765,7 @@ var ace$2 = { exports: {} };
         var radiusClass = (range.start.column ? 1 : 0) | (range.end.column ? 0 : 8);
         this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:0;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
       };
-      this.drawSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
+      Marker2.prototype.drawSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
         if (this.session.$bidiHandler.isBidiRow(range.start.row))
           return this.drawBidiSingleLineMarker(stringBuilder, range, clazz, config, extraLength, extraStyle);
         var height = config.lineHeight;
@@ -36180,26 +36774,31 @@ var ace$2 = { exports: {} };
         var left = this.$padding + range.start.column * config.characterWidth;
         this.elt(clazz, "height:" + height + "px;width:" + width + "px;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
       };
-      this.drawBidiSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
+      Marker2.prototype.drawBidiSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
         var height = config.lineHeight, top = this.$getTop(range.start.row, config), padding = this.$padding;
         var selections = this.session.$bidiHandler.getSelections(range.start.column, range.end.column);
         selections.forEach(function(selection) {
           this.elt(clazz, "height:" + height + "px;width:" + (selection.width + (extraLength || 0)) + "px;top:" + top + "px;left:" + (padding + selection.left) + "px;" + (extraStyle || ""));
         }, this);
       };
-      this.drawFullLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
+      Marker2.prototype.drawFullLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
         var top = this.$getTop(range.start.row, config);
         var height = config.lineHeight;
         if (range.start.row != range.end.row)
           height += this.$getTop(range.end.row, config) - top;
         this.elt(clazz, "height:" + height + "px;top:" + top + "px;left:0;right:0;" + (extraStyle || ""));
       };
-      this.drawScreenLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
+      Marker2.prototype.drawScreenLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
         var top = this.$getTop(range.start.row, config);
         var height = config.lineHeight;
         this.elt(clazz, "height:" + height + "px;top:" + top + "px;left:0;right:0;" + (extraStyle || ""));
       };
-    }).call(Marker.prototype);
+      return Marker2;
+    }();
+    Marker.prototype.$padding = 0;
+    function getBorderClass(tl, tr, br, bl) {
+      return (tl ? 1 : 0) | (tr ? 2 : 0) | (br ? 4 : 0) | (bl ? 8 : 0);
+    }
     exports2.Marker = Marker;
   });
   ace.define("ace/layer/text", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/layer/lines", "ace/lib/event_emitter"], function(require2, exports2, module2) {
@@ -36208,25 +36807,16 @@ var ace$2 = { exports: {} };
     var lang = require2("../lib/lang");
     var Lines = require2("./lines").Lines;
     var EventEmitter = require2("../lib/event_emitter").EventEmitter;
-    var Text2 = function(parentEl2) {
-      this.dom = dom;
-      this.element = this.dom.createElement("div");
-      this.element.className = "ace_layer ace_text-layer";
-      parentEl2.appendChild(this.element);
-      this.$updateEolChar = this.$updateEolChar.bind(this);
-      this.$lines = new Lines(this.element);
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.EOF_CHAR = "\xB6";
-      this.EOL_CHAR_LF = "\xAC";
-      this.EOL_CHAR_CRLF = "\xA4";
-      this.EOL_CHAR = this.EOL_CHAR_LF;
-      this.TAB_CHAR = "\u2014";
-      this.SPACE_CHAR = "\xB7";
-      this.$padding = 0;
-      this.MAX_LINE_LENGTH = 1e4;
-      this.$updateEolChar = function() {
+    var Text2 = function() {
+      function Text3(parentEl2) {
+        this.dom = dom;
+        this.element = this.dom.createElement("div");
+        this.element.className = "ace_layer ace_text-layer";
+        parentEl2.appendChild(this.element);
+        this.$updateEolChar = this.$updateEolChar.bind(this);
+        this.$lines = new Lines(this.element);
+      }
+      Text3.prototype.$updateEolChar = function() {
         var doc = this.session.doc;
         var unixMode = doc.getNewLineCharacter() == "\n" && doc.getNewLineMode() != "windows";
         var EOL_CHAR = unixMode ? this.EOL_CHAR_LF : this.EOL_CHAR_CRLF;
@@ -36235,39 +36825,35 @@ var ace$2 = { exports: {} };
           return true;
         }
       };
-      this.setPadding = function(padding) {
+      Text3.prototype.setPadding = function(padding) {
         this.$padding = padding;
         this.element.style.margin = "0 " + padding + "px";
       };
-      this.getLineHeight = function() {
+      Text3.prototype.getLineHeight = function() {
         return this.$fontMetrics.$characterSize.height || 0;
       };
-      this.getCharacterWidth = function() {
+      Text3.prototype.getCharacterWidth = function() {
         return this.$fontMetrics.$characterSize.width || 0;
       };
-      this.$setFontMetrics = function(measure) {
+      Text3.prototype.$setFontMetrics = function(measure) {
         this.$fontMetrics = measure;
         this.$fontMetrics.on("changeCharacterSize", function(e) {
           this._signal("changeCharacterSize", e);
         }.bind(this));
         this.$pollSizeChanges();
       };
-      this.checkForSizeChanges = function() {
+      Text3.prototype.checkForSizeChanges = function() {
         this.$fontMetrics.checkForSizeChanges();
       };
-      this.$pollSizeChanges = function() {
+      Text3.prototype.$pollSizeChanges = function() {
         return this.$pollSizeChangesTimer = this.$fontMetrics.$pollSizeChanges();
       };
-      this.setSession = function(session) {
+      Text3.prototype.setSession = function(session) {
         this.session = session;
         if (session)
           this.$computeTabString();
       };
-      this.showInvisibles = false;
-      this.showSpaces = false;
-      this.showTabs = false;
-      this.showEOL = false;
-      this.setShowInvisibles = function(showInvisibles) {
+      Text3.prototype.setShowInvisibles = function(showInvisibles) {
         if (this.showInvisibles == showInvisibles)
           return false;
         this.showInvisibles = showInvisibles;
@@ -36281,23 +36867,20 @@ var ace$2 = { exports: {} };
         this.$computeTabString();
         return true;
       };
-      this.displayIndentGuides = true;
-      this.setDisplayIndentGuides = function(display) {
+      Text3.prototype.setDisplayIndentGuides = function(display) {
         if (this.displayIndentGuides == display)
           return false;
         this.displayIndentGuides = display;
         this.$computeTabString();
         return true;
       };
-      this.$highlightIndentGuides = true;
-      this.setHighlightIndentGuides = function(highlight) {
+      Text3.prototype.setHighlightIndentGuides = function(highlight) {
         if (this.$highlightIndentGuides === highlight)
           return false;
         this.$highlightIndentGuides = highlight;
         return highlight;
       };
-      this.$tabStrings = [];
-      this.onChangeTabSize = this.$computeTabString = function() {
+      Text3.prototype.$computeTabString = function() {
         var tabSize = this.session.getTabSize();
         this.tabSize = tabSize;
         var tabStr = this.$tabStrings = [0];
@@ -36328,7 +36911,7 @@ var ace$2 = { exports: {} };
           this.$tabStrings["	"] = span;
         }
       };
-      this.updateLines = function(config, firstRow, lastRow) {
+      Text3.prototype.updateLines = function(config, firstRow, lastRow) {
         if (this.config.lastRow != config.lastRow || this.config.firstRow != config.firstRow) {
           return this.update(config);
         }
@@ -36382,7 +36965,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.scrollLines = function(config) {
+      Text3.prototype.scrollLines = function(config) {
         var oldConfig = this.config;
         this.config = config;
         if (this.$lines.pageChanged(oldConfig, config))
@@ -36412,7 +36995,7 @@ var ace$2 = { exports: {} };
         }
         this.$highlightIndentGuide();
       };
-      this.$renderLinesFragment = function(config, firstRow, lastRow) {
+      Text3.prototype.$renderLinesFragment = function(config, firstRow, lastRow) {
         var fragment = [];
         var row = firstRow;
         var foldLine = this.session.getNextFoldLine(row);
@@ -36441,7 +37024,7 @@ var ace$2 = { exports: {} };
         }
         return fragment;
       };
-      this.update = function(config) {
+      Text3.prototype.update = function(config) {
         this.$lines.moveContainer(config);
         this.config = config;
         var firstRow = config.firstRow;
@@ -36451,12 +37034,7 @@ var ace$2 = { exports: {} };
           lines.pop();
         lines.push(this.$renderLinesFragment(config, firstRow, lastRow));
       };
-      this.$textToken = {
-        "text": true,
-        "rparen": true,
-        "lparen": true
-      };
-      this.$renderToken = function(parent, screenColumn, token, value2) {
+      Text3.prototype.$renderToken = function(parent, screenColumn, token, value2) {
         var self2 = this;
         var re = /(\t)|( +)|([\x00-\x1f\x80-\xa0\xad\u1680\u180E\u2000-\u200f\u2028\u2029\u202F\u205F\uFEFF\uFFF9-\uFFFC\u2066\u2067\u2068\u202A\u202B\u202D\u202E\u202C\u2069]+)|(\u3000)|([\u1100-\u115F\u11A3-\u11A7\u11FA-\u11FF\u2329-\u232A\u2E80-\u2E99\u2E9B-\u2EF3\u2F00-\u2FD5\u2FF0-\u2FFB\u3001-\u303E\u3041-\u3096\u3099-\u30FF\u3105-\u312D\u3131-\u318E\u3190-\u31BA\u31C0-\u31E3\u31F0-\u321E\u3220-\u3247\u3250-\u32FE\u3300-\u4DBF\u4E00-\uA48C\uA490-\uA4C6\uA960-\uA97C\uAC00-\uD7A3\uD7B0-\uD7C6\uD7CB-\uD7FB\uF900-\uFAFF\uFE10-\uFE19\uFE30-\uFE52\uFE54-\uFE66\uFE68-\uFE6B\uFF01-\uFF60\uFFE0-\uFFE6]|[\uD800-\uDBFF][\uDC00-\uDFFF])/g;
         var valueFragment = this.dom.createFragment(this.element);
@@ -36523,7 +37101,7 @@ var ace$2 = { exports: {} };
         }
         return screenColumn + value2.length;
       };
-      this.renderIndentGuide = function(parent, value2, max) {
+      Text3.prototype.renderIndentGuide = function(parent, value2, max) {
         var cols = value2.search(this.$indentGuideRe);
         if (cols <= 0 || cols >= max)
           return value2;
@@ -36545,7 +37123,7 @@ var ace$2 = { exports: {} };
         this.$highlightIndentGuide();
         return value2;
       };
-      this.$highlightIndentGuide = function() {
+      Text3.prototype.$highlightIndentGuide = function() {
         if (!this.$highlightIndentGuides || !this.displayIndentGuides)
           return;
         this.$highlightIndentGuideMarker = {
@@ -36595,7 +37173,7 @@ var ace$2 = { exports: {} };
         }
         this.$renderHighlightIndentGuide();
       };
-      this.$clearActiveIndentGuide = function() {
+      Text3.prototype.$clearActiveIndentGuide = function() {
         var cells = this.$lines.cells;
         for (var i = 0; i < cells.length; i++) {
           var cell = cells[i];
@@ -36610,7 +37188,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.$setIndentGuideActive = function(cell, indentLevel) {
+      Text3.prototype.$setIndentGuideActive = function(cell, indentLevel) {
         var line = this.session.doc.getLine(cell.row);
         if (line !== "") {
           var childNodes = cell.element.childNodes;
@@ -36621,7 +37199,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.$renderHighlightIndentGuide = function() {
+      Text3.prototype.$renderHighlightIndentGuide = function() {
         if (!this.$lines)
           return;
         var cells = this.$lines.cells;
@@ -36649,13 +37227,13 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.$createLineElement = function(parent) {
+      Text3.prototype.$createLineElement = function(parent) {
         var lineEl = this.dom.createElement("div");
         lineEl.className = "ace_line";
         lineEl.style.height = this.config.lineHeight + "px";
         return lineEl;
       };
-      this.$renderWrappedLine = function(parent, tokens, splits) {
+      Text3.prototype.$renderWrappedLine = function(parent, tokens, splits) {
         var chars = 0;
         var split = 0;
         var splitChars = splits[0];
@@ -36696,7 +37274,7 @@ var ace$2 = { exports: {} };
         if (splits[splits.length - 1] > this.MAX_LINE_LENGTH)
           this.$renderOverflowMessage(lineEl, screenColumn, null, "", true);
       };
-      this.$renderSimpleLine = function(parent, tokens) {
+      Text3.prototype.$renderSimpleLine = function(parent, tokens) {
         var screenColumn = 0;
         for (var i = 0; i < tokens.length; i++) {
           var token = tokens[i];
@@ -36711,14 +37289,14 @@ var ace$2 = { exports: {} };
           screenColumn = this.$renderToken(parent, screenColumn, token, value2);
         }
       };
-      this.$renderOverflowMessage = function(parent, screenColumn, token, value2, hide) {
+      Text3.prototype.$renderOverflowMessage = function(parent, screenColumn, token, value2, hide) {
         token && this.$renderToken(parent, screenColumn, token, value2.slice(0, this.MAX_LINE_LENGTH - screenColumn));
         var overflowEl = this.dom.createElement("span");
         overflowEl.className = "ace_inline_button ace_keyword ace_toggle_wrap";
         overflowEl.textContent = hide ? "<hide>" : "<click to see more...>";
         parent.appendChild(overflowEl);
       };
-      this.$renderLine = function(parent, row, foldLine) {
+      Text3.prototype.$renderLine = function(parent, row, foldLine) {
         if (!foldLine && foldLine != false)
           foldLine = this.session.getFoldLine(row);
         if (foldLine)
@@ -36752,7 +37330,7 @@ var ace$2 = { exports: {} };
           lastLineEl.appendChild(invisibleEl);
         }
       };
-      this.$getFoldLineTokens = function(row, foldLine) {
+      Text3.prototype.$getFoldLineTokens = function(row, foldLine) {
         var session = this.session;
         var renderTokens = [];
         function addTokens(tokens2, from, to) {
@@ -36803,36 +37381,58 @@ var ace$2 = { exports: {} };
         }, foldLine.end.row, this.session.getLine(foldLine.end.row).length);
         return renderTokens;
       };
-      this.$useLineGroups = function() {
+      Text3.prototype.$useLineGroups = function() {
         return this.session.getUseWrapMode();
       };
-      this.destroy = function() {
-      };
-    }).call(Text2.prototype);
+      return Text3;
+    }();
+    Text2.prototype.$textToken = {
+      "text": true,
+      "rparen": true,
+      "lparen": true
+    };
+    Text2.prototype.EOF_CHAR = "\xB6";
+    Text2.prototype.EOL_CHAR_LF = "\xAC";
+    Text2.prototype.EOL_CHAR_CRLF = "\xA4";
+    Text2.prototype.EOL_CHAR = Text2.prototype.EOL_CHAR_LF;
+    Text2.prototype.TAB_CHAR = "\u2014";
+    Text2.prototype.SPACE_CHAR = "\xB7";
+    Text2.prototype.$padding = 0;
+    Text2.prototype.MAX_LINE_LENGTH = 1e4;
+    Text2.prototype.showInvisibles = false;
+    Text2.prototype.showSpaces = false;
+    Text2.prototype.showTabs = false;
+    Text2.prototype.showEOL = false;
+    Text2.prototype.displayIndentGuides = true;
+    Text2.prototype.$highlightIndentGuides = true;
+    Text2.prototype.$tabStrings = [];
+    Text2.prototype.destroy = {};
+    Text2.prototype.onChangeTabSize = Text2.prototype.$computeTabString;
+    oop.implement(Text2.prototype, EventEmitter);
     exports2.Text = Text2;
   });
   ace.define("ace/layer/cursor", ["require", "exports", "module", "ace/lib/dom"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
-    var Cursor = function(parentEl2) {
-      this.element = dom.createElement("div");
-      this.element.className = "ace_layer ace_cursor-layer";
-      parentEl2.appendChild(this.element);
-      this.isVisible = false;
-      this.isBlinking = true;
-      this.blinkInterval = 1e3;
-      this.smoothBlinking = false;
-      this.cursors = [];
-      this.cursor = this.addCursor();
-      dom.addCssClass(this.element, "ace_hidden-cursors");
-      this.$updateCursors = this.$updateOpacity.bind(this);
-    };
-    (function() {
-      this.$updateOpacity = function(val) {
+    var Cursor = function() {
+      function Cursor2(parentEl2) {
+        this.element = dom.createElement("div");
+        this.element.className = "ace_layer ace_cursor-layer";
+        parentEl2.appendChild(this.element);
+        this.isVisible = false;
+        this.isBlinking = true;
+        this.blinkInterval = 1e3;
+        this.smoothBlinking = false;
+        this.cursors = [];
+        this.cursor = this.addCursor();
+        dom.addCssClass(this.element, "ace_hidden-cursors");
+        this.$updateCursors = this.$updateOpacity.bind(this);
+      }
+      Cursor2.prototype.$updateOpacity = function(val) {
         var cursors = this.cursors;
         for (var i = cursors.length; i--; )
           dom.setStyle(cursors[i].style, "opacity", val ? "" : "0");
       };
-      this.$startCssAnimation = function() {
+      Cursor2.prototype.$startCssAnimation = function() {
         var cursors = this.cursors;
         for (var i = cursors.length; i--; )
           cursors[i].style.animationDuration = this.blinkInterval + "ms";
@@ -36843,30 +37443,29 @@ var ace$2 = { exports: {} };
           }
         }.bind(this));
       };
-      this.$stopCssAnimation = function() {
+      Cursor2.prototype.$stopCssAnimation = function() {
         this.$isAnimating = false;
         dom.removeCssClass(this.element, "ace_animate-blinking");
       };
-      this.$padding = 0;
-      this.setPadding = function(padding) {
+      Cursor2.prototype.setPadding = function(padding) {
         this.$padding = padding;
       };
-      this.setSession = function(session) {
+      Cursor2.prototype.setSession = function(session) {
         this.session = session;
       };
-      this.setBlinking = function(blinking) {
+      Cursor2.prototype.setBlinking = function(blinking) {
         if (blinking != this.isBlinking) {
           this.isBlinking = blinking;
           this.restartTimer();
         }
       };
-      this.setBlinkInterval = function(blinkInterval) {
+      Cursor2.prototype.setBlinkInterval = function(blinkInterval) {
         if (blinkInterval != this.blinkInterval) {
           this.blinkInterval = blinkInterval;
           this.restartTimer();
         }
       };
-      this.setSmoothBlinking = function(smoothBlinking) {
+      Cursor2.prototype.setSmoothBlinking = function(smoothBlinking) {
         if (smoothBlinking != this.smoothBlinking) {
           this.smoothBlinking = smoothBlinking;
           dom.setCssClass(this.element, "ace_smooth-blinking", smoothBlinking);
@@ -36874,31 +37473,31 @@ var ace$2 = { exports: {} };
           this.restartTimer();
         }
       };
-      this.addCursor = function() {
+      Cursor2.prototype.addCursor = function() {
         var el = dom.createElement("div");
         el.className = "ace_cursor";
         this.element.appendChild(el);
         this.cursors.push(el);
         return el;
       };
-      this.removeCursor = function() {
+      Cursor2.prototype.removeCursor = function() {
         if (this.cursors.length > 1) {
           var el = this.cursors.pop();
           el.parentNode.removeChild(el);
           return el;
         }
       };
-      this.hideCursor = function() {
+      Cursor2.prototype.hideCursor = function() {
         this.isVisible = false;
         dom.addCssClass(this.element, "ace_hidden-cursors");
         this.restartTimer();
       };
-      this.showCursor = function() {
+      Cursor2.prototype.showCursor = function() {
         this.isVisible = true;
         dom.removeCssClass(this.element, "ace_hidden-cursors");
         this.restartTimer();
       };
-      this.restartTimer = function() {
+      Cursor2.prototype.restartTimer = function() {
         var update = this.$updateCursors;
         clearInterval(this.intervalId);
         clearTimeout(this.timeoutId);
@@ -36935,7 +37534,7 @@ var ace$2 = { exports: {} };
           blink();
         }
       };
-      this.getPixelPosition = function(position, onScreen) {
+      Cursor2.prototype.getPixelPosition = function(position, onScreen) {
         if (!this.config || !this.session)
           return { left: 0, top: 0 };
         if (!position)
@@ -36945,10 +37544,10 @@ var ace$2 = { exports: {} };
         var cursorTop = (pos.row - (onScreen ? this.config.firstRowScreen : 0)) * this.config.lineHeight;
         return { left: cursorLeft, top: cursorTop };
       };
-      this.isCursorInView = function(pixelPos, config) {
+      Cursor2.prototype.isCursorInView = function(pixelPos, config) {
         return pixelPos.top >= 0 && pixelPos.top < config.maxHeight;
       };
-      this.update = function(config) {
+      Cursor2.prototype.update = function(config) {
         this.config = config;
         var selections = this.session.$selectionMarkers;
         var i = 0, cursorIndex = 0;
@@ -36982,8 +37581,7 @@ var ace$2 = { exports: {} };
         this.$pixelPos = pixelPos;
         this.restartTimer();
       };
-      this.drawCursor = null;
-      this.$setOverwrite = function(overwrite) {
+      Cursor2.prototype.$setOverwrite = function(overwrite) {
         if (overwrite != this.overwrite) {
           this.overwrite = overwrite;
           if (overwrite)
@@ -36992,52 +37590,77 @@ var ace$2 = { exports: {} };
             dom.removeCssClass(this.element, "ace_overwrite-cursors");
         }
       };
-      this.destroy = function() {
+      Cursor2.prototype.destroy = function() {
         clearInterval(this.intervalId);
         clearTimeout(this.timeoutId);
       };
-    }).call(Cursor.prototype);
+      return Cursor2;
+    }();
+    Cursor.prototype.$padding = 0;
+    Cursor.prototype.drawCursor = null;
     exports2.Cursor = Cursor;
   });
   ace.define("ace/scrollbar", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/event", "ace/lib/event_emitter"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+          d2.__proto__ = b2;
+        } || function(d2, b2) {
+          for (var p in b2)
+            if (Object.prototype.hasOwnProperty.call(b2, p))
+              d2[p] = b2[p];
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        if (typeof b !== "function" && b !== null)
+          throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
     var event = require2("./lib/event");
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
     var MAX_SCROLL_H = 32768;
-    var ScrollBar = function(parent) {
-      this.element = dom.createElement("div");
-      this.element.className = "ace_scrollbar ace_scrollbar" + this.classSuffix;
-      this.inner = dom.createElement("div");
-      this.inner.className = "ace_scrollbar-inner";
-      this.inner.textContent = "\xA0";
-      this.element.appendChild(this.inner);
-      parent.appendChild(this.element);
-      this.setVisible(false);
-      this.skipEvent = false;
-      event.addListener(this.element, "scroll", this.onScroll.bind(this));
-      event.addListener(this.element, "mousedown", event.preventDefault);
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setVisible = function(isVisible) {
+    var Scrollbar = function() {
+      function Scrollbar2(parent, classSuffix) {
+        this.element = dom.createElement("div");
+        this.element.className = "ace_scrollbar ace_scrollbar" + classSuffix;
+        this.inner = dom.createElement("div");
+        this.inner.className = "ace_scrollbar-inner";
+        this.inner.textContent = "\xA0";
+        this.element.appendChild(this.inner);
+        parent.appendChild(this.element);
+        this.setVisible(false);
+        this.skipEvent = false;
+        event.addListener(this.element, "scroll", this.onScroll.bind(this));
+        event.addListener(this.element, "mousedown", event.preventDefault);
+      }
+      Scrollbar2.prototype.setVisible = function(isVisible) {
         this.element.style.display = isVisible ? "" : "none";
         this.isVisible = isVisible;
         this.coeff = 1;
       };
-    }).call(ScrollBar.prototype);
-    var VScrollBar = function(parent, renderer) {
-      ScrollBar.call(this, parent);
-      this.scrollTop = 0;
-      this.scrollHeight = 0;
-      renderer.$scrollbarWidth = this.width = dom.scrollbarWidth(parent.ownerDocument);
-      this.inner.style.width = this.element.style.width = (this.width || 15) + 5 + "px";
-      this.$minWidth = 0;
-    };
-    oop.inherits(VScrollBar, ScrollBar);
-    (function() {
-      this.classSuffix = "-v";
-      this.onScroll = function() {
+      return Scrollbar2;
+    }();
+    oop.implement(Scrollbar.prototype, EventEmitter);
+    var VScrollBar = function(_super) {
+      __extends(VScrollBar2, _super);
+      function VScrollBar2(parent, renderer) {
+        var _this = _super.call(this, parent, "-v") || this;
+        _this.scrollTop = 0;
+        _this.scrollHeight = 0;
+        renderer.$scrollbarWidth = _this.width = dom.scrollbarWidth(parent.ownerDocument);
+        _this.inner.style.width = _this.element.style.width = (_this.width || 15) + 5 + "px";
+        _this.$minWidth = 0;
+        return _this;
+      }
+      VScrollBar2.prototype.onScroll = function() {
         if (!this.skipEvent) {
           this.scrollTop = this.element.scrollTop;
           if (this.coeff != 1) {
@@ -37048,13 +37671,13 @@ var ace$2 = { exports: {} };
         }
         this.skipEvent = false;
       };
-      this.getWidth = function() {
+      VScrollBar2.prototype.getWidth = function() {
         return Math.max(this.isVisible ? this.width : 0, this.$minWidth || 0);
       };
-      this.setHeight = function(height) {
+      VScrollBar2.prototype.setHeight = function(height) {
         this.element.style.height = height + "px";
       };
-      this.setInnerHeight = this.setScrollHeight = function(height) {
+      VScrollBar2.prototype.setScrollHeight = function(height) {
         this.scrollHeight = height;
         if (height > MAX_SCROLL_H) {
           this.coeff = MAX_SCROLL_H / height;
@@ -37064,49 +37687,52 @@ var ace$2 = { exports: {} };
         }
         this.inner.style.height = height + "px";
       };
-      this.setScrollTop = function(scrollTop) {
+      VScrollBar2.prototype.setScrollTop = function(scrollTop) {
         if (this.scrollTop != scrollTop) {
           this.skipEvent = true;
           this.scrollTop = scrollTop;
           this.element.scrollTop = scrollTop * this.coeff;
         }
       };
-    }).call(VScrollBar.prototype);
-    var HScrollBar = function(parent, renderer) {
-      ScrollBar.call(this, parent);
-      this.scrollLeft = 0;
-      this.height = renderer.$scrollbarWidth;
-      this.inner.style.height = this.element.style.height = (this.height || 15) + 5 + "px";
-    };
-    oop.inherits(HScrollBar, ScrollBar);
-    (function() {
-      this.classSuffix = "-h";
-      this.onScroll = function() {
+      return VScrollBar2;
+    }(Scrollbar);
+    VScrollBar.prototype.setInnerHeight = VScrollBar.prototype.setScrollHeight;
+    var HScrollBar = function(_super) {
+      __extends(HScrollBar2, _super);
+      function HScrollBar2(parent, renderer) {
+        var _this = _super.call(this, parent, "-h") || this;
+        _this.scrollLeft = 0;
+        _this.height = renderer.$scrollbarWidth;
+        _this.inner.style.height = _this.element.style.height = (_this.height || 15) + 5 + "px";
+        return _this;
+      }
+      HScrollBar2.prototype.onScroll = function() {
         if (!this.skipEvent) {
           this.scrollLeft = this.element.scrollLeft;
           this._emit("scroll", { data: this.scrollLeft });
         }
         this.skipEvent = false;
       };
-      this.getHeight = function() {
+      HScrollBar2.prototype.getHeight = function() {
         return this.isVisible ? this.height : 0;
       };
-      this.setWidth = function(width) {
+      HScrollBar2.prototype.setWidth = function(width) {
         this.element.style.width = width + "px";
       };
-      this.setInnerWidth = function(width) {
+      HScrollBar2.prototype.setInnerWidth = function(width) {
         this.inner.style.width = width + "px";
       };
-      this.setScrollWidth = function(width) {
+      HScrollBar2.prototype.setScrollWidth = function(width) {
         this.inner.style.width = width + "px";
       };
-      this.setScrollLeft = function(scrollLeft) {
+      HScrollBar2.prototype.setScrollLeft = function(scrollLeft) {
         if (this.scrollLeft != scrollLeft) {
           this.skipEvent = true;
           this.scrollLeft = this.element.scrollLeft = scrollLeft;
         }
       };
-    }).call(HScrollBar.prototype);
+      return HScrollBar2;
+    }(Scrollbar);
     exports2.ScrollBar = VScrollBar;
     exports2.ScrollBarV = VScrollBar;
     exports2.ScrollBarH = HScrollBar;
@@ -37114,47 +37740,68 @@ var ace$2 = { exports: {} };
     exports2.HScrollBar = HScrollBar;
   });
   ace.define("ace/scrollbar_custom", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/event", "ace/lib/event_emitter"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d, b) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d2, b2) {
+          d2.__proto__ = b2;
+        } || function(d2, b2) {
+          for (var p in b2)
+            if (Object.prototype.hasOwnProperty.call(b2, p))
+              d2[p] = b2[p];
+        };
+        return extendStatics(d, b);
+      };
+      return function(d, b) {
+        if (typeof b !== "function" && b !== null)
+          throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() {
+          this.constructor = d;
+        }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+      };
+    }();
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
     var event = require2("./lib/event");
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
     dom.importCssString(".ace_editor>.ace_sb-v div, .ace_editor>.ace_sb-h div{\n  position: absolute;\n  background: rgba(128, 128, 128, 0.6);\n  -moz-box-sizing: border-box;\n  box-sizing: border-box;\n  border: 1px solid #bbb;\n  border-radius: 2px;\n  z-index: 8;\n}\n.ace_editor>.ace_sb-v, .ace_editor>.ace_sb-h {\n  position: absolute;\n  z-index: 6;\n  background: none;\n  overflow: hidden!important;\n}\n.ace_editor>.ace_sb-v {\n  z-index: 6;\n  right: 0;\n  top: 0;\n  width: 12px;\n}\n.ace_editor>.ace_sb-v div {\n  z-index: 8;\n  right: 0;\n  width: 100%;\n}\n.ace_editor>.ace_sb-h {\n  bottom: 0;\n  left: 0;\n  height: 12px;\n}\n.ace_editor>.ace_sb-h div {\n  bottom: 0;\n  height: 100%;\n}\n.ace_editor>.ace_sb_grabbed {\n  z-index: 8;\n  background: #000;\n}", "ace_scrollbar.css", false);
-    var ScrollBar = function(parent) {
-      this.element = dom.createElement("div");
-      this.element.className = "ace_sb" + this.classSuffix;
-      this.inner = dom.createElement("div");
-      this.inner.className = "";
-      this.element.appendChild(this.inner);
-      this.VScrollWidth = 12;
-      this.HScrollHeight = 12;
-      parent.appendChild(this.element);
-      this.setVisible(false);
-      this.skipEvent = false;
-      event.addMultiMouseDownListener(this.element, [500, 300, 300], this, "onMouseDown");
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setVisible = function(isVisible) {
+    var ScrollBar = function() {
+      function ScrollBar2(parent, classSuffix) {
+        this.element = dom.createElement("div");
+        this.element.className = "ace_sb" + classSuffix;
+        this.inner = dom.createElement("div");
+        this.inner.className = "";
+        this.element.appendChild(this.inner);
+        this.VScrollWidth = 12;
+        this.HScrollHeight = 12;
+        parent.appendChild(this.element);
+        this.setVisible(false);
+        this.skipEvent = false;
+        event.addMultiMouseDownListener(this.element, [500, 300, 300], this, "onMouseDown");
+      }
+      ScrollBar2.prototype.setVisible = function(isVisible) {
         this.element.style.display = isVisible ? "" : "none";
         this.isVisible = isVisible;
         this.coeff = 1;
       };
-    }).call(ScrollBar.prototype);
-    var VScrollBar = function(parent, renderer) {
-      ScrollBar.call(this, parent);
-      this.scrollTop = 0;
-      this.scrollHeight = 0;
-      this.parent = parent;
-      this.width = this.VScrollWidth;
-      this.renderer = renderer;
-      this.inner.style.width = this.element.style.width = (this.width || 15) + "px";
-      this.$minWidth = 0;
-    };
-    oop.inherits(VScrollBar, ScrollBar);
-    (function() {
-      this.classSuffix = "-v";
-      oop.implement(this, EventEmitter);
-      this.onMouseDown = function(eType, e) {
+      return ScrollBar2;
+    }();
+    oop.implement(ScrollBar.prototype, EventEmitter);
+    var VScrollBar = function(_super) {
+      __extends(VScrollBar2, _super);
+      function VScrollBar2(parent, renderer) {
+        var _this = _super.call(this, parent, "-v") || this;
+        _this.scrollTop = 0;
+        _this.scrollHeight = 0;
+        _this.parent = parent;
+        _this.width = _this.VScrollWidth;
+        _this.renderer = renderer;
+        _this.inner.style.width = _this.element.style.width = (_this.width || 15) + "px";
+        _this.$minWidth = 0;
+        return _this;
+      }
+      VScrollBar2.prototype.onMouseDown = function(eType, e) {
         if (eType !== "mousedown")
           return;
         if (event.getButton(e) !== 0 || e.detail === 2) {
@@ -37187,10 +37834,10 @@ var ace$2 = { exports: {} };
         this._emit("scroll", { data: this.scrollTopFromThumbTop(top) });
         return event.preventDefault(e);
       };
-      this.getHeight = function() {
+      VScrollBar2.prototype.getHeight = function() {
         return this.height;
       };
-      this.scrollTopFromThumbTop = function(thumbTop) {
+      VScrollBar2.prototype.scrollTopFromThumbTop = function(thumbTop) {
         var scrollTop = thumbTop * (this.pageHeight - this.viewHeight) / (this.slideHeight - this.thumbHeight);
         scrollTop = scrollTop >> 0;
         if (scrollTop < 0) {
@@ -37200,16 +37847,16 @@ var ace$2 = { exports: {} };
         }
         return scrollTop;
       };
-      this.getWidth = function() {
+      VScrollBar2.prototype.getWidth = function() {
         return Math.max(this.isVisible ? this.width : 0, this.$minWidth || 0);
       };
-      this.setHeight = function(height) {
+      VScrollBar2.prototype.setHeight = function(height) {
         this.height = Math.max(0, height);
         this.slideHeight = this.height;
         this.viewHeight = this.height;
         this.setScrollHeight(this.pageHeight, true);
       };
-      this.setInnerHeight = this.setScrollHeight = function(height, force) {
+      VScrollBar2.prototype.setScrollHeight = function(height, force) {
         if (this.pageHeight === height && !force)
           return;
         this.pageHeight = height;
@@ -37226,27 +37873,28 @@ var ace$2 = { exports: {} };
           this._emit("scroll", { data: this.scrollTop });
         }
       };
-      this.setScrollTop = function(scrollTop) {
+      VScrollBar2.prototype.setScrollTop = function(scrollTop) {
         this.scrollTop = scrollTop;
         if (scrollTop < 0)
           scrollTop = 0;
         this.thumbTop = scrollTop * (this.slideHeight - this.thumbHeight) / (this.pageHeight - this.viewHeight);
         this.inner.style.top = this.thumbTop + "px";
       };
-    }).call(VScrollBar.prototype);
-    var HScrollBar = function(parent, renderer) {
-      ScrollBar.call(this, parent);
-      this.scrollLeft = 0;
-      this.scrollWidth = 0;
-      this.height = this.HScrollHeight;
-      this.inner.style.height = this.element.style.height = (this.height || 12) + "px";
-      this.renderer = renderer;
-    };
-    oop.inherits(HScrollBar, ScrollBar);
-    (function() {
-      this.classSuffix = "-h";
-      oop.implement(this, EventEmitter);
-      this.onMouseDown = function(eType, e) {
+      return VScrollBar2;
+    }(ScrollBar);
+    VScrollBar.prototype.setInnerHeight = VScrollBar.prototype.setScrollHeight;
+    var HScrollBar = function(_super) {
+      __extends(HScrollBar2, _super);
+      function HScrollBar2(parent, renderer) {
+        var _this = _super.call(this, parent, "-h") || this;
+        _this.scrollLeft = 0;
+        _this.scrollWidth = 0;
+        _this.height = _this.HScrollHeight;
+        _this.inner.style.height = _this.element.style.height = (_this.height || 12) + "px";
+        _this.renderer = renderer;
+        return _this;
+      }
+      HScrollBar2.prototype.onMouseDown = function(eType, e) {
         if (eType !== "mousedown")
           return;
         if (event.getButton(e) !== 0 || e.detail === 2) {
@@ -37279,10 +37927,10 @@ var ace$2 = { exports: {} };
         this._emit("scroll", { data: this.scrollLeftFromThumbLeft(left) });
         return event.preventDefault(e);
       };
-      this.getHeight = function() {
+      HScrollBar2.prototype.getHeight = function() {
         return this.isVisible ? this.height : 0;
       };
-      this.scrollLeftFromThumbLeft = function(thumbLeft) {
+      HScrollBar2.prototype.scrollLeftFromThumbLeft = function(thumbLeft) {
         var scrollLeft = thumbLeft * (this.pageWidth - this.viewWidth) / (this.slideWidth - this.thumbWidth);
         scrollLeft = scrollLeft >> 0;
         if (scrollLeft < 0) {
@@ -37292,14 +37940,14 @@ var ace$2 = { exports: {} };
         }
         return scrollLeft;
       };
-      this.setWidth = function(width) {
+      HScrollBar2.prototype.setWidth = function(width) {
         this.width = Math.max(0, width);
         this.element.style.width = this.width + "px";
         this.slideWidth = this.width;
         this.viewWidth = this.width;
         this.setScrollWidth(this.pageWidth, true);
       };
-      this.setInnerWidth = this.setScrollWidth = function(width, force) {
+      HScrollBar2.prototype.setScrollWidth = function(width, force) {
         if (this.pageWidth === width && !force)
           return;
         this.pageWidth = width;
@@ -37316,14 +37964,16 @@ var ace$2 = { exports: {} };
           this._emit("scroll", { data: this.scrollLeft });
         }
       };
-      this.setScrollLeft = function(scrollLeft) {
+      HScrollBar2.prototype.setScrollLeft = function(scrollLeft) {
         this.scrollLeft = scrollLeft;
         if (scrollLeft < 0)
           scrollLeft = 0;
         this.thumbLeft = scrollLeft * (this.slideWidth - this.thumbWidth) / (this.pageWidth - this.viewWidth);
         this.inner.style.left = this.thumbLeft + "px";
       };
-    }).call(HScrollBar.prototype);
+      return HScrollBar2;
+    }(ScrollBar);
+    HScrollBar.prototype.setInnerWidth = HScrollBar.prototype.setScrollWidth;
     exports2.ScrollBar = VScrollBar;
     exports2.ScrollBarV = VScrollBar;
     exports2.ScrollBarH = HScrollBar;
@@ -37332,44 +37982,45 @@ var ace$2 = { exports: {} };
   });
   ace.define("ace/renderloop", ["require", "exports", "module", "ace/lib/event"], function(require2, exports2, module2) {
     var event = require2("./lib/event");
-    var RenderLoop = function(onRender, win) {
-      this.onRender = onRender;
-      this.pending = false;
-      this.changes = 0;
-      this.$recursionLimit = 2;
-      this.window = win || window;
-      var _self = this;
-      this._flush = function(ts) {
-        _self.pending = false;
-        var changes = _self.changes;
-        if (changes) {
-          event.blockIdle(100);
-          _self.changes = 0;
-          _self.onRender(changes);
-        }
-        if (_self.changes) {
-          if (_self.$recursionLimit-- < 0)
-            return;
-          _self.schedule();
-        } else {
-          _self.$recursionLimit = 2;
-        }
-      };
-    };
-    (function() {
-      this.schedule = function(change) {
+    var RenderLoop = function() {
+      function RenderLoop2(onRender, win) {
+        this.onRender = onRender;
+        this.pending = false;
+        this.changes = 0;
+        this.$recursionLimit = 2;
+        this.window = win || window;
+        var _self = this;
+        this._flush = function(ts) {
+          _self.pending = false;
+          var changes = _self.changes;
+          if (changes) {
+            event.blockIdle(100);
+            _self.changes = 0;
+            _self.onRender(changes);
+          }
+          if (_self.changes) {
+            if (_self.$recursionLimit-- < 0)
+              return;
+            _self.schedule();
+          } else {
+            _self.$recursionLimit = 2;
+          }
+        };
+      }
+      RenderLoop2.prototype.schedule = function(change) {
         this.changes = this.changes | change;
         if (this.changes && !this.pending) {
           event.nextFrame(this._flush);
           this.pending = true;
         }
       };
-      this.clear = function(change) {
+      RenderLoop2.prototype.clear = function(change) {
         var changes = this.changes;
         this.changes = 0;
         return changes;
       };
-    }).call(RenderLoop.prototype);
+      return RenderLoop2;
+    }();
     exports2.RenderLoop = RenderLoop;
   });
   ace.define("ace/layer/font_metrics", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/lib/event", "ace/lib/useragent", "ace/lib/event_emitter"], function(require2, exports2, module2) {
@@ -37382,27 +38033,25 @@ var ace$2 = { exports: {} };
     var CHAR_COUNT = 512;
     var USE_OBSERVER = typeof ResizeObserver == "function";
     var L = 200;
-    var FontMetrics = exports2.FontMetrics = function(parentEl2) {
-      this.el = dom.createElement("div");
-      this.$setMeasureNodeStyles(this.el.style, true);
-      this.$main = dom.createElement("div");
-      this.$setMeasureNodeStyles(this.$main.style);
-      this.$measureNode = dom.createElement("div");
-      this.$setMeasureNodeStyles(this.$measureNode.style);
-      this.el.appendChild(this.$main);
-      this.el.appendChild(this.$measureNode);
-      parentEl2.appendChild(this.el);
-      this.$measureNode.textContent = lang.stringRepeat("X", CHAR_COUNT);
-      this.$characterSize = { width: 0, height: 0 };
-      if (USE_OBSERVER)
-        this.$addObserver();
-      else
-        this.checkForSizeChanges();
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.$characterSize = { width: 0, height: 0 };
-      this.$setMeasureNodeStyles = function(style, isRoot) {
+    var FontMetrics = function() {
+      function FontMetrics2(parentEl2) {
+        this.el = dom.createElement("div");
+        this.$setMeasureNodeStyles(this.el.style, true);
+        this.$main = dom.createElement("div");
+        this.$setMeasureNodeStyles(this.$main.style);
+        this.$measureNode = dom.createElement("div");
+        this.$setMeasureNodeStyles(this.$measureNode.style);
+        this.el.appendChild(this.$main);
+        this.el.appendChild(this.$measureNode);
+        parentEl2.appendChild(this.el);
+        this.$measureNode.textContent = lang.stringRepeat("X", CHAR_COUNT);
+        this.$characterSize = { width: 0, height: 0 };
+        if (USE_OBSERVER)
+          this.$addObserver();
+        else
+          this.checkForSizeChanges();
+      }
+      FontMetrics2.prototype.$setMeasureNodeStyles = function(style, isRoot) {
         style.width = style.height = "auto";
         style.left = style.top = "0px";
         style.visibility = "hidden";
@@ -37415,7 +38064,7 @@ var ace$2 = { exports: {} };
         }
         style.overflow = isRoot ? "hidden" : "visible";
       };
-      this.checkForSizeChanges = function(size) {
+      FontMetrics2.prototype.checkForSizeChanges = function(size) {
         if (size === void 0)
           size = this.$measureSizes();
         if (size && (this.$characterSize.width !== size.width || this.$characterSize.height !== size.height)) {
@@ -37428,14 +38077,14 @@ var ace$2 = { exports: {} };
           this._emit("changeCharacterSize", { data: size });
         }
       };
-      this.$addObserver = function() {
+      FontMetrics2.prototype.$addObserver = function() {
         var self2 = this;
         this.$observer = new window.ResizeObserver(function(e) {
           self2.checkForSizeChanges();
         });
         this.$observer.observe(this.$measureNode);
       };
-      this.$pollSizeChanges = function() {
+      FontMetrics2.prototype.$pollSizeChanges = function() {
         if (this.$pollSizeChangesTimer || this.$observer)
           return this.$pollSizeChangesTimer;
         var self2 = this;
@@ -37444,7 +38093,7 @@ var ace$2 = { exports: {} };
           event.onIdle(cb, 500);
         }, 500);
       };
-      this.setPolling = function(val) {
+      FontMetrics2.prototype.setPolling = function(val) {
         if (val) {
           this.$pollSizeChanges();
         } else if (this.$pollSizeChangesTimer) {
@@ -37452,7 +38101,7 @@ var ace$2 = { exports: {} };
           this.$pollSizeChangesTimer = 0;
         }
       };
-      this.$measureSizes = function(node) {
+      FontMetrics2.prototype.$measureSizes = function(node) {
         var size = {
           height: (node || this.$measureNode).clientHeight,
           width: (node || this.$measureNode).clientWidth / CHAR_COUNT
@@ -37461,31 +38110,31 @@ var ace$2 = { exports: {} };
           return null;
         return size;
       };
-      this.$measureCharWidth = function(ch) {
+      FontMetrics2.prototype.$measureCharWidth = function(ch) {
         this.$main.textContent = lang.stringRepeat(ch, CHAR_COUNT);
         var rect = this.$main.getBoundingClientRect();
         return rect.width / CHAR_COUNT;
       };
-      this.getCharacterWidth = function(ch) {
+      FontMetrics2.prototype.getCharacterWidth = function(ch) {
         var w = this.charSizes[ch];
         if (w === void 0) {
           w = this.charSizes[ch] = this.$measureCharWidth(ch) / this.$characterSize.width;
         }
         return w;
       };
-      this.destroy = function() {
+      FontMetrics2.prototype.destroy = function() {
         clearInterval(this.$pollSizeChangesTimer);
         if (this.$observer)
           this.$observer.disconnect();
         if (this.el && this.el.parentNode)
           this.el.parentNode.removeChild(this.el);
       };
-      this.$getZoom = function getZoom(element) {
+      FontMetrics2.prototype.$getZoom = function(element) {
         if (!element || !element.parentElement)
           return 1;
-        return (window.getComputedStyle(element).zoom || 1) * getZoom(element.parentElement);
+        return (window.getComputedStyle(element).zoom || 1) * this.$getZoom(element.parentElement);
       };
-      this.$initTransformMeasureNodes = function() {
+      FontMetrics2.prototype.$initTransformMeasureNodes = function() {
         var t = function(t2, l) {
           return ["div", {
             style: "position: absolute;top:" + t2 + "px;left:" + l + "px;"
@@ -37493,7 +38142,7 @@ var ace$2 = { exports: {} };
         };
         this.els = dom.buildDom([t(0, 0), t(L, 0), t(0, L), t(L, L)], this.el);
       };
-      this.transformCoordinates = function(clientPos, elPos) {
+      FontMetrics2.prototype.transformCoordinates = function(clientPos, elPos) {
         if (clientPos) {
           var zoom = this.$getZoom(this.el);
           clientPos = mul(1 / zoom, clientPos);
@@ -37537,7 +38186,11 @@ var ace$2 = { exports: {} };
         var f = solve(sub(m1, mul(h[0], u)), sub(m2, mul(h[1], u)), u);
         return mul(L, f);
       };
-    }).call(FontMetrics.prototype);
+      return FontMetrics2;
+    }();
+    FontMetrics.prototype.$characterSize = { width: 0, height: 0 };
+    oop.implement(FontMetrics.prototype, EventEmitter);
+    exports2.FontMetrics = FontMetrics;
   });
   ace.define("ace/css/editor.css", ["require", "exports", "module"], function(require2, exports2, module2) {
     module2.exports = `
@@ -37562,7 +38215,7 @@ var ace$2 = { exports: {} };
     position: relative;
     overflow: hidden;
     padding: 0;
-    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;
+    font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'Source Code Pro', 'source-code-pro', monospace;
     direction: ltr;
     text-align: left;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
@@ -37587,6 +38240,11 @@ var ace$2 = { exports: {} };
     min-width: 100%;
     contain: style size layout;
     font-variant-ligatures: no-common-ligatures;
+}
+
+.ace_keyboard-focus:focus {
+    box-shadow: inset 0 0 0 2px #5E9ED6;
+    outline: none;
 }
 
 .ace_dragging .ace_scroller:before{
@@ -37636,7 +38294,7 @@ var ace$2 = { exports: {} };
     pointer-events: none;
 }
 
-.ace_gutter-cell {
+.ace_gutter-cell, .ace_gutter-cell_svg-icons {
     position: absolute;
     top: 0;
     left: 0;
@@ -37646,23 +38304,57 @@ var ace$2 = { exports: {} };
     background-repeat: no-repeat;
 }
 
-.ace_gutter-cell.ace_error {
+.ace_gutter-cell_svg-icons .ace_icon_svg {
+    margin-left: -14px;
+    float: left;
+}
+
+.ace_gutter-cell .ace_icon {
+    margin-left: -18px;
+    float: left;
+}
+
+.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");
     background-repeat: no-repeat;
     background-position: 2px center;
 }
 
-.ace_gutter-cell.ace_warning {
+.ace_gutter-cell.ace_warning, .ace_icon.ace_warning, .ace_icon.ace_warning_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");
+    background-repeat: no-repeat;
     background-position: 2px center;
 }
 
-.ace_gutter-cell.ace_info {
+.ace_gutter-cell.ace_info, .ace_icon.ace_info {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");
+    background-repeat: no-repeat;
     background-position: 2px center;
 }
-.ace_dark .ace_gutter-cell.ace_info {
+.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");
+}
+
+.ace_icon_svg.ace_error {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJyZWQiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgY3k9IjgiIHI9IjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjExIiB5MT0iNSIgeDI9IjUiIHkyPSIxMSIvPgo8bGluZSB4MT0iMTEiIHkxPSIxMSIgeDI9IjUiIHkyPSI1Ii8+CjwvZz4KPC9zdmc+");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_warning {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJkYXJrb3JhbmdlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+Cjxwb2x5Z29uIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGZpbGw9Im5vbmUiIHBvaW50cz0iOCAxIDE1IDE1IDEgMTUgOCAxIi8+CjxyZWN0IHg9IjgiIHk9IjEyIiB3aWR0aD0iMC4wMSIgaGVpZ2h0PSIwLjAxIi8+CjxsaW5lIHgxPSI4IiB5MT0iNiIgeDI9IjgiIHkyPSIxMCIvPgo8L2c+Cjwvc3ZnPg==");
+    background-color: darkorange;
+}
+.ace_icon_svg.ace_info {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJibHVlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CjxjaXJjbGUgZmlsbD0ibm9uZSIgY3g9IjgiIGN5PSI4IiByPSI3IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjxwb2x5bGluZSBwb2ludHM9IjggMTEgOCA4Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjkgOCA2IDgiLz4KPGxpbmUgeDE9IjEwIiB5MT0iMTEiIHgyPSI2IiB5Mj0iMTEiLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjAuMDEiIGhlaWdodD0iMC4wMSIvPgo8L2c+Cjwvc3ZnPg==");
+    background-color: royalblue;
+}
+
+.ace_icon_svg.ace_error_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0ibSAxOC45Mjk4NTEsNy44Mjk4MDc2IGMgMC4xNDYzNTMsNi4zMzc0NjA0IC02LjMyMzE0Nyw3Ljc3Nzg0NDQgLTcuNDc3OTEyLDcuNzc3ODQ0NCAtMi4xMDcyNzI2LC0wLjEyODc1IDUuMTE3Njc4LDAuMzU2MjQ5IDUuMDUxNjk4LC03Ljg3MDA2MTggLTAuNjA0NjcyLC04LjAwMzk3MzQ5IC03LjA3NzI3MDYsLTcuNTYzMTE4OSAtNC44NTczLC03LjQzMDM5NTU2IDEuNjA2LC0wLjExNTE0MjI1IDYuODk3NDg1LDEuMjYyNTQ1OTYgNy4yODM1MTQsNy41MjI2MTI5NiB6IiBmaWxsPSJjcmltc29uIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0ibSA4LjExNDc1NjIsMi4wNTI5ODI4IGMgMy4zNDkxNjk4LDAgNi4wNjQxMzI4LDIuNjc2ODYyNyA2LjA2NDEzMjgsNS45Nzg5NTMgMCwzLjMwMjExMjIgLTIuNzE0OTYzLDUuOTc4OTIwMiAtNi4wNjQxMzI4LDUuOTc4OTIwMiAtMy4zNDkxNDczLDAgLTYuMDY0MTc3MiwtMi42NzY4MDggLTYuMDY0MTc3MiwtNS45Nzg5MjAyIDAuMDA1MzksLTMuMjk5ODg2MSAyLjcxNzI2NTYsLTUuOTczNjQwOCA2LjA2NDE3NzIsLTUuOTc4OTUzIHogbSAwLC0xLjczNTgyNzE5IGMgLTQuMzIxNDgzNiwwIC03LjgyNDc0MDM4LDMuNDU0MDE4NDkgLTcuODI0NzQwMzgsNy43MTQ3ODAxOSAwLDQuMjYwNzI4MiAzLjUwMzI1Njc4LDcuNzE0NzQ1MiA3LjgyNDc0MDM4LDcuNzE0NzQ1MiA0LjMyMTQ0OTgsMCA3LjgyNDY5OTgsLTMuNDU0MDE3IDcuODI0Njk5OCwtNy43MTQ3NDUyIDAsLTIuMDQ2MDkxNCAtMC44MjQzOTIsLTQuMDA4MzY3MiAtMi4yOTE3NTYsLTUuNDU1MTc0NiBDIDEyLjE4MDIyNSwxLjEyOTk2NDggMTAuMTkwMDEzLDAuMzE3MTU1NjEgOC4xMTQ3NTYyLDAuMzE3MTU1NjEgWiBNIDYuOTM3NDU2Myw4LjI0MDU5ODUgNC42NzE4Njg1LDEwLjQ4NTg1MiA2LjAwODY4MTQsMTEuODc2NzI4IDguMzE3MDAzNSw5LjYwMDc5MTEgMTAuNjI1MzM3LDExLjg3NjcyOCAxMS45NjIxMzgsMTAuNDg1ODUyIDkuNjk2NTUwOCw4LjI0MDU5ODUgMTEuOTYyMTM4LDYuMDA2ODA2NiAxMC41NzMyNDYsNC42Mzc0MzM1IDguMzE3MDAzNSw2Ljg3MzQyOTcgNi4wNjA3NjA3LDQuNjM3NDMzNSA0LjY3MTg2ODUsNi4wMDY4MDY2IFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_warning_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNC43NzY5IDE0LjczMzdMOC42NTE5MiAyLjQ4MzY5QzguMzI5NDYgMS44Mzg3NyA3LjQwOTEzIDEuODM4NzcgNy4wODY2NyAyLjQ4MzY5TDAuOTYxNjY5IDE0LjczMzdDMC42NzA3NzUgMTUuMzE1NSAxLjA5MzgzIDE2IDEuNzQ0MjkgMTZIMTMuOTk0M0MxNC42NDQ4IDE2IDE1LjA2NzggMTUuMzE1NSAxNC43NzY5IDE0LjczMzdaTTMuMTYwMDcgMTQuMjVMNy44NjkyOSA0LjgzMTU2TDEyLjU3ODUgMTQuMjVIMy4xNjAwN1pNOC43NDQyOSAxMS42MjVWMTMuMzc1SDYuOTk0MjlWMTEuNjI1SDguNzQ0MjlaTTYuOTk0MjkgMTAuNzVWNy4yNUg4Ljc0NDI5VjEwLjc1SDYuOTk0MjlaIiBmaWxsPSIjRUM3MjExIi8+CjxwYXRoIGQ9Ik0xMS4xOTkxIDIuOTUyMzhDMTAuODgwOSAyLjMxNDY3IDEwLjM1MzcgMS44MDUyNiA5LjcwNTUgMS41MDlMMTEuMDQxIDEuMDY5NzhDMTEuNjg4MyAwLjk0OTgxNCAxMi4zMzcgMS4yNzI2MyAxMi42MzE3IDEuODYxNDFMMTcuNjEzNiAxMS44MTYxQzE4LjM1MjcgMTMuMjkyOSAxNy41OTM4IDE1LjA4MDQgMTYuMDE4IDE1LjU3NDVDMTYuNDA0NCAxNC40NTA3IDE2LjMyMzEgMTMuMjE4OCAxNS43OTI0IDEyLjE1NTVMMTEuMTk5MSAyLjk1MjM4WiIgZmlsbD0iI0VDNzIxMSIvPgo8L3N2Zz4=");
+    background-color: darkorange;
 }
 
 .ace_scrollbar {
@@ -37791,7 +38483,6 @@ var ace$2 = { exports: {} };
 .ace_hidpi .ace_content,
 .ace_hidpi .ace_gutter {
     contain: strict;
-    will-change: transform;
 }
 .ace_hidpi .ace_text-layer > .ace_line, 
 .ace_hidpi .ace_text-layer > .ace_line_group {
@@ -37930,8 +38621,7 @@ var ace$2 = { exports: {} };
 }
 
 .ace_tooltip {
-    background-color: #FFF;
-    background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));
+    background-color: #f5f5f5;
     border: 1px solid gray;
     border-radius: 1px;
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
@@ -37951,7 +38641,31 @@ var ace$2 = { exports: {} };
     pointer-events: none;
 }
 
-.ace_folding-enabled > .ace_gutter-cell {
+.ace_tooltip.ace_dark {
+    background-color: #636363;
+    color: #fff;
+}
+
+.ace_tooltip:focus {
+    outline: 1px solid #5E9ED6;
+}
+
+.ace_icon {
+    display: inline-block;
+    width: 18px;
+    vertical-align: top;
+}
+
+.ace_icon_svg {
+    display: inline-block;
+    width: 12px;
+    vertical-align: top;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-size: 12px;
+    -webkit-mask-position: center;
+}
+
+.ace_folding-enabled > .ace_gutter-cell, .ace_folding-enabled > .ace_gutter-cell_svg-icons {
     padding-right: 13px;
 }
 
@@ -38120,45 +38834,45 @@ var ace$2 = { exports: {} };
 .ace_ghost_text {
     opacity: 0.5;
     font-style: italic;
+    white-space: pre;
 }`;
   });
   ace.define("ace/layer/decorators", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
     var oop = require2("../lib/oop");
     var EventEmitter = require2("../lib/event_emitter").EventEmitter;
-    var Decorator = function(parent, renderer) {
-      this.canvas = dom.createElement("canvas");
-      this.renderer = renderer;
-      this.pixelRatio = 1;
-      this.maxHeight = renderer.layerConfig.maxHeight;
-      this.lineHeight = renderer.layerConfig.lineHeight;
-      this.canvasHeight = parent.parent.scrollHeight;
-      this.heightRatio = this.canvasHeight / this.maxHeight;
-      this.canvasWidth = parent.width;
-      this.minDecorationHeight = 2 * this.pixelRatio | 0;
-      this.halfMinDecorationHeight = this.minDecorationHeight / 2 | 0;
-      this.canvas.width = this.canvasWidth;
-      this.canvas.height = this.canvasHeight;
-      this.canvas.style.top = 0 + "px";
-      this.canvas.style.right = 0 + "px";
-      this.canvas.style.zIndex = 7 + "px";
-      this.canvas.style.position = "absolute";
-      this.colors = {};
-      this.colors.dark = {
-        "error": "rgba(255, 18, 18, 1)",
-        "warning": "rgba(18, 136, 18, 1)",
-        "info": "rgba(18, 18, 136, 1)"
-      };
-      this.colors.light = {
-        "error": "rgb(255,51,51)",
-        "warning": "rgb(32,133,72)",
-        "info": "rgb(35,68,138)"
-      };
-      parent.element.appendChild(this.canvas);
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.$updateDecorators = function(config) {
+    var Decorator = function() {
+      function Decorator2(parent, renderer) {
+        this.canvas = dom.createElement("canvas");
+        this.renderer = renderer;
+        this.pixelRatio = 1;
+        this.maxHeight = renderer.layerConfig.maxHeight;
+        this.lineHeight = renderer.layerConfig.lineHeight;
+        this.canvasHeight = parent.parent.scrollHeight;
+        this.heightRatio = this.canvasHeight / this.maxHeight;
+        this.canvasWidth = parent.width;
+        this.minDecorationHeight = 2 * this.pixelRatio | 0;
+        this.halfMinDecorationHeight = this.minDecorationHeight / 2 | 0;
+        this.canvas.width = this.canvasWidth;
+        this.canvas.height = this.canvasHeight;
+        this.canvas.style.top = 0 + "px";
+        this.canvas.style.right = 0 + "px";
+        this.canvas.style.zIndex = 7 + "px";
+        this.canvas.style.position = "absolute";
+        this.colors = {};
+        this.colors.dark = {
+          "error": "rgba(255, 18, 18, 1)",
+          "warning": "rgba(18, 136, 18, 1)",
+          "info": "rgba(18, 18, 136, 1)"
+        };
+        this.colors.light = {
+          "error": "rgb(255,51,51)",
+          "warning": "rgb(32,133,72)",
+          "info": "rgb(35,68,138)"
+        };
+        parent.element.appendChild(this.canvas);
+      }
+      Decorator2.prototype.$updateDecorators = function(config) {
         var colors = this.renderer.theme.isDark === true ? this.colors.dark : this.colors.light;
         if (config) {
           this.maxHeight = config.maxHeight;
@@ -38221,7 +38935,7 @@ var ace$2 = { exports: {} };
           ctx.fillRect(0, currentY, this.canvasWidth, 2);
         }
       };
-      this.compensateFoldRows = function(row, foldData) {
+      Decorator2.prototype.compensateFoldRows = function(row, foldData) {
         var compensateFold = 0;
         if (foldData && foldData.length > 0) {
           for (var j = 0; j < foldData.length; j++) {
@@ -38234,12 +38948,15 @@ var ace$2 = { exports: {} };
         }
         return compensateFold;
       };
-    }).call(Decorator.prototype);
+      return Decorator2;
+    }();
+    oop.implement(Decorator.prototype, EventEmitter);
     exports2.Decorator = Decorator;
   });
-  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor.css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
+  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor.css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
+    var lang = require2("./lib/lang");
     var config = require2("./config");
     var GutterLayer = require2("./layer/gutter").Gutter;
     var MarkerLayer = require2("./layer/marker").Marker;
@@ -38255,118 +38972,106 @@ var ace$2 = { exports: {} };
     var editorCss = require2("./css/editor.css");
     var Decorator = require2("./layer/decorators").Decorator;
     var useragent = require2("./lib/useragent");
-    var HIDE_TEXTAREA = useragent.isIE;
     dom.importCssString(editorCss, "ace_editor.css", false);
-    var VirtualRenderer = function(container, theme) {
-      var _self = this;
-      this.container = container || dom.createElement("div");
-      dom.addCssClass(this.container, "ace_editor");
-      if (dom.HI_DPI)
-        dom.addCssClass(this.container, "ace_hidpi");
-      this.setTheme(theme);
-      if (config.get("useStrictCSP") == null)
-        config.set("useStrictCSP", false);
-      this.$gutter = dom.createElement("div");
-      this.$gutter.className = "ace_gutter";
-      this.container.appendChild(this.$gutter);
-      this.$gutter.setAttribute("aria-hidden", true);
-      this.scroller = dom.createElement("div");
-      this.scroller.className = "ace_scroller";
-      this.container.appendChild(this.scroller);
-      this.content = dom.createElement("div");
-      this.content.className = "ace_content";
-      this.scroller.appendChild(this.content);
-      this.$gutterLayer = new GutterLayer(this.$gutter);
-      this.$gutterLayer.on("changeGutterWidth", this.onGutterResize.bind(this));
-      this.$markerBack = new MarkerLayer(this.content);
-      var textLayer = this.$textLayer = new TextLayer(this.content);
-      this.canvas = textLayer.element;
-      this.$markerFront = new MarkerLayer(this.content);
-      this.$cursorLayer = new CursorLayer(this.content);
-      this.$horizScroll = false;
-      this.$vScroll = false;
-      this.scrollBar = this.scrollBarV = new VScrollBar(this.container, this);
-      this.scrollBarH = new HScrollBar(this.container, this);
-      this.scrollBarV.on("scroll", function(e) {
-        if (!_self.$scrollAnimation)
-          _self.session.setScrollTop(e.data - _self.scrollMargin.top);
-      });
-      this.scrollBarH.on("scroll", function(e) {
-        if (!_self.$scrollAnimation)
-          _self.session.setScrollLeft(e.data - _self.scrollMargin.left);
-      });
-      this.scrollTop = 0;
-      this.scrollLeft = 0;
-      this.cursorPos = {
-        row: 0,
-        column: 0
-      };
-      this.$fontMetrics = new FontMetrics(this.container);
-      this.$textLayer.$setFontMetrics(this.$fontMetrics);
-      this.$textLayer.on("changeCharacterSize", function(e) {
-        _self.updateCharacterSize();
-        _self.onResize(true, _self.gutterWidth, _self.$size.width, _self.$size.height);
-        _self._signal("changeCharacterSize", e);
-      });
-      this.$size = {
-        width: 0,
-        height: 0,
-        scrollerHeight: 0,
-        scrollerWidth: 0,
-        $dirty: true
-      };
-      this.layerConfig = {
-        width: 1,
-        padding: 0,
-        firstRow: 0,
-        firstRowScreen: 0,
-        lastRow: 0,
-        lineHeight: 0,
-        characterWidth: 0,
-        minHeight: 1,
-        maxHeight: 1,
-        offset: 0,
-        height: 1,
-        gutterOffset: 1
-      };
-      this.scrollMargin = {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        v: 0,
-        h: 0
-      };
-      this.margin = {
-        left: 0,
-        right: 0,
-        top: 0,
-        bottom: 0,
-        v: 0,
-        h: 0
-      };
-      this.$keepTextAreaAtCursor = !useragent.isIOS;
-      this.$loop = new RenderLoop(this.$renderChanges.bind(this), this.container.ownerDocument.defaultView);
-      this.$loop.schedule(this.CHANGE_FULL);
-      this.updateCharacterSize();
-      this.setPadding(4);
-      config.resetOptions(this);
-      config._signal("renderer", this);
-    };
-    (function() {
-      this.CHANGE_CURSOR = 1;
-      this.CHANGE_MARKER = 2;
-      this.CHANGE_GUTTER = 4;
-      this.CHANGE_SCROLL = 8;
-      this.CHANGE_LINES = 16;
-      this.CHANGE_TEXT = 32;
-      this.CHANGE_SIZE = 64;
-      this.CHANGE_MARKER_BACK = 128;
-      this.CHANGE_MARKER_FRONT = 256;
-      this.CHANGE_FULL = 512;
-      this.CHANGE_H_SCROLL = 1024;
-      oop.implement(this, EventEmitter);
-      this.updateCharacterSize = function() {
+    var VirtualRenderer = function() {
+      function VirtualRenderer2(container, theme) {
+        var _self = this;
+        this.container = container || dom.createElement("div");
+        dom.addCssClass(this.container, "ace_editor");
+        if (dom.HI_DPI)
+          dom.addCssClass(this.container, "ace_hidpi");
+        this.setTheme(theme);
+        if (config.get("useStrictCSP") == null)
+          config.set("useStrictCSP", false);
+        this.$gutter = dom.createElement("div");
+        this.$gutter.className = "ace_gutter";
+        this.container.appendChild(this.$gutter);
+        this.$gutter.setAttribute("aria-hidden", true);
+        this.scroller = dom.createElement("div");
+        this.scroller.className = "ace_scroller";
+        this.container.appendChild(this.scroller);
+        this.content = dom.createElement("div");
+        this.content.className = "ace_content";
+        this.scroller.appendChild(this.content);
+        this.$gutterLayer = new GutterLayer(this.$gutter);
+        this.$gutterLayer.on("changeGutterWidth", this.onGutterResize.bind(this));
+        this.$markerBack = new MarkerLayer(this.content);
+        var textLayer = this.$textLayer = new TextLayer(this.content);
+        this.canvas = textLayer.element;
+        this.$markerFront = new MarkerLayer(this.content);
+        this.$cursorLayer = new CursorLayer(this.content);
+        this.$horizScroll = false;
+        this.$vScroll = false;
+        this.scrollBar = this.scrollBarV = new VScrollBar(this.container, this);
+        this.scrollBarH = new HScrollBar(this.container, this);
+        this.scrollBarV.on("scroll", function(e) {
+          if (!_self.$scrollAnimation)
+            _self.session.setScrollTop(e.data - _self.scrollMargin.top);
+        });
+        this.scrollBarH.on("scroll", function(e) {
+          if (!_self.$scrollAnimation)
+            _self.session.setScrollLeft(e.data - _self.scrollMargin.left);
+        });
+        this.scrollTop = 0;
+        this.scrollLeft = 0;
+        this.cursorPos = {
+          row: 0,
+          column: 0
+        };
+        this.$fontMetrics = new FontMetrics(this.container);
+        this.$textLayer.$setFontMetrics(this.$fontMetrics);
+        this.$textLayer.on("changeCharacterSize", function(e) {
+          _self.updateCharacterSize();
+          _self.onResize(true, _self.gutterWidth, _self.$size.width, _self.$size.height);
+          _self._signal("changeCharacterSize", e);
+        });
+        this.$size = {
+          width: 0,
+          height: 0,
+          scrollerHeight: 0,
+          scrollerWidth: 0,
+          $dirty: true
+        };
+        this.layerConfig = {
+          width: 1,
+          padding: 0,
+          firstRow: 0,
+          firstRowScreen: 0,
+          lastRow: 0,
+          lineHeight: 0,
+          characterWidth: 0,
+          minHeight: 1,
+          maxHeight: 1,
+          offset: 0,
+          height: 1,
+          gutterOffset: 1
+        };
+        this.scrollMargin = {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          v: 0,
+          h: 0
+        };
+        this.margin = {
+          left: 0,
+          right: 0,
+          top: 0,
+          bottom: 0,
+          v: 0,
+          h: 0
+        };
+        this.$keepTextAreaAtCursor = !useragent.isIOS;
+        this.$loop = new RenderLoop(this.$renderChanges.bind(this), this.container.ownerDocument.defaultView);
+        this.$loop.schedule(this.CHANGE_FULL);
+        this.updateCharacterSize();
+        this.setPadding(4);
+        this.$addResizeObserver();
+        config.resetOptions(this);
+        config._signal("renderer", this);
+      }
+      VirtualRenderer2.prototype.updateCharacterSize = function() {
         if (this.$textLayer.allowBoldFonts != this.$allowBoldFonts) {
           this.$allowBoldFonts = this.$textLayer.allowBoldFonts;
           this.setStyle("ace_nobold", !this.$allowBoldFonts);
@@ -38376,7 +39081,7 @@ var ace$2 = { exports: {} };
         this.$updatePrintMargin();
         dom.setStyle(this.scroller.style, "line-height", this.lineHeight + "px");
       };
-      this.setSession = function(session) {
+      VirtualRenderer2.prototype.setSession = function(session) {
         if (this.session)
           this.session.doc.off("changeNewLineMode", this.onChangeNewLineMode);
         this.session = session;
@@ -38396,7 +39101,7 @@ var ace$2 = { exports: {} };
         this.onChangeNewLineMode();
         this.session.doc.on("changeNewLineMode", this.onChangeNewLineMode);
       };
-      this.updateLines = function(firstRow, lastRow, force) {
+      VirtualRenderer2.prototype.updateLines = function(firstRow, lastRow, force) {
         if (lastRow === void 0)
           lastRow = Infinity;
         if (!this.$changedLines) {
@@ -38420,35 +39125,34 @@ var ace$2 = { exports: {} };
           return;
         this.$loop.schedule(this.CHANGE_LINES);
       };
-      this.onChangeNewLineMode = function() {
+      VirtualRenderer2.prototype.onChangeNewLineMode = function() {
         this.$loop.schedule(this.CHANGE_TEXT);
         this.$textLayer.$updateEolChar();
         this.session.$bidiHandler.setEolChar(this.$textLayer.EOL_CHAR);
       };
-      this.onChangeTabSize = function() {
+      VirtualRenderer2.prototype.onChangeTabSize = function() {
         this.$loop.schedule(this.CHANGE_TEXT | this.CHANGE_MARKER);
         this.$textLayer.onChangeTabSize();
       };
-      this.updateText = function() {
+      VirtualRenderer2.prototype.updateText = function() {
         this.$loop.schedule(this.CHANGE_TEXT);
       };
-      this.updateFull = function(force) {
+      VirtualRenderer2.prototype.updateFull = function(force) {
         if (force)
           this.$renderChanges(this.CHANGE_FULL, true);
         else
           this.$loop.schedule(this.CHANGE_FULL);
       };
-      this.updateFontSize = function() {
+      VirtualRenderer2.prototype.updateFontSize = function() {
         this.$textLayer.checkForSizeChanges();
       };
-      this.$changes = 0;
-      this.$updateSizeAsync = function() {
+      VirtualRenderer2.prototype.$updateSizeAsync = function() {
         if (this.$loop.pending)
           this.$size.$dirty = true;
         else
           this.onResize();
       };
-      this.onResize = function(force, gutterWidth, width, height) {
+      VirtualRenderer2.prototype.onResize = function(force, gutterWidth, width, height) {
         if (this.resizing > 2)
           return;
         else if (this.resizing > 0)
@@ -38461,6 +39165,8 @@ var ace$2 = { exports: {} };
         if (!width)
           width = el.clientWidth || el.scrollWidth;
         var changes = this.$updateCachedSize(force, gutterWidth, width, height);
+        if (this.$resizeTimer)
+          this.$resizeTimer.cancel();
         if (!this.$size.scrollerHeight || !width && !height)
           return this.resizing = 0;
         if (force)
@@ -38476,7 +39182,7 @@ var ace$2 = { exports: {} };
           this.$updateCustomScrollbar(true);
         }
       };
-      this.$updateCachedSize = function(force, gutterWidth, width, height) {
+      VirtualRenderer2.prototype.$updateCachedSize = function(force, gutterWidth, width, height) {
         height -= this.$extraHeight || 0;
         var changes = 0;
         var size = this.$size;
@@ -38520,7 +39226,7 @@ var ace$2 = { exports: {} };
           this._signal("resize", oldSize);
         return changes;
       };
-      this.onGutterResize = function(width) {
+      VirtualRenderer2.prototype.onGutterResize = function(width) {
         var gutterWidth = this.$showGutter ? width : 0;
         if (gutterWidth != this.gutterWidth)
           this.$changes |= this.$updateCachedSize(true, gutterWidth, this.$size.width, this.$size.height);
@@ -38532,67 +39238,67 @@ var ace$2 = { exports: {} };
           this.$computeLayerConfig();
         }
       };
-      this.adjustWrapLimit = function() {
+      VirtualRenderer2.prototype.adjustWrapLimit = function() {
         var availableWidth = this.$size.scrollerWidth - this.$padding * 2;
         var limit = Math.floor(availableWidth / this.characterWidth);
         return this.session.adjustWrapLimit(limit, this.$showPrintMargin && this.$printMarginColumn);
       };
-      this.setAnimatedScroll = function(shouldAnimate) {
+      VirtualRenderer2.prototype.setAnimatedScroll = function(shouldAnimate) {
         this.setOption("animatedScroll", shouldAnimate);
       };
-      this.getAnimatedScroll = function() {
+      VirtualRenderer2.prototype.getAnimatedScroll = function() {
         return this.$animatedScroll;
       };
-      this.setShowInvisibles = function(showInvisibles) {
+      VirtualRenderer2.prototype.setShowInvisibles = function(showInvisibles) {
         this.setOption("showInvisibles", showInvisibles);
         this.session.$bidiHandler.setShowInvisibles(showInvisibles);
       };
-      this.getShowInvisibles = function() {
+      VirtualRenderer2.prototype.getShowInvisibles = function() {
         return this.getOption("showInvisibles");
       };
-      this.getDisplayIndentGuides = function() {
+      VirtualRenderer2.prototype.getDisplayIndentGuide = function() {
         return this.getOption("displayIndentGuides");
       };
-      this.setDisplayIndentGuides = function(display) {
+      VirtualRenderer2.prototype.setDisplayIndentGuides = function(display) {
         this.setOption("displayIndentGuides", display);
       };
-      this.getHighlightIndentGuides = function() {
+      VirtualRenderer2.prototype.getHighlightIndentGuides = function() {
         return this.getOption("highlightIndentGuides");
       };
-      this.setHighlightIndentGuides = function(highlight) {
+      VirtualRenderer2.prototype.setHighlightIndentGuides = function(highlight) {
         this.setOption("highlightIndentGuides", highlight);
       };
-      this.setShowPrintMargin = function(showPrintMargin) {
+      VirtualRenderer2.prototype.setShowPrintMargin = function(showPrintMargin) {
         this.setOption("showPrintMargin", showPrintMargin);
       };
-      this.getShowPrintMargin = function() {
+      VirtualRenderer2.prototype.getShowPrintMargin = function() {
         return this.getOption("showPrintMargin");
       };
-      this.setPrintMarginColumn = function(showPrintMargin) {
+      VirtualRenderer2.prototype.setPrintMarginColumn = function(showPrintMargin) {
         this.setOption("printMarginColumn", showPrintMargin);
       };
-      this.getPrintMarginColumn = function() {
+      VirtualRenderer2.prototype.getPrintMarginColumn = function() {
         return this.getOption("printMarginColumn");
       };
-      this.getShowGutter = function() {
+      VirtualRenderer2.prototype.getShowGutter = function() {
         return this.getOption("showGutter");
       };
-      this.setShowGutter = function(show) {
+      VirtualRenderer2.prototype.setShowGutter = function(show) {
         return this.setOption("showGutter", show);
       };
-      this.getFadeFoldWidgets = function() {
+      VirtualRenderer2.prototype.getFadeFoldWidgets = function() {
         return this.getOption("fadeFoldWidgets");
       };
-      this.setFadeFoldWidgets = function(show) {
+      VirtualRenderer2.prototype.setFadeFoldWidgets = function(show) {
         this.setOption("fadeFoldWidgets", show);
       };
-      this.setHighlightGutterLine = function(shouldHighlight) {
+      VirtualRenderer2.prototype.setHighlightGutterLine = function(shouldHighlight) {
         this.setOption("highlightGutterLine", shouldHighlight);
       };
-      this.getHighlightGutterLine = function() {
+      VirtualRenderer2.prototype.getHighlightGutterLine = function() {
         return this.getOption("highlightGutterLine");
       };
-      this.$updatePrintMargin = function() {
+      VirtualRenderer2.prototype.$updatePrintMargin = function() {
         if (!this.$showPrintMargin && !this.$printMarginEl)
           return;
         if (!this.$printMarginEl) {
@@ -38609,16 +39315,16 @@ var ace$2 = { exports: {} };
         if (this.session && this.session.$wrap == -1)
           this.adjustWrapLimit();
       };
-      this.getContainerElement = function() {
+      VirtualRenderer2.prototype.getContainerElement = function() {
         return this.container;
       };
-      this.getMouseEventTarget = function() {
+      VirtualRenderer2.prototype.getMouseEventTarget = function() {
         return this.scroller;
       };
-      this.getTextAreaContainer = function() {
+      VirtualRenderer2.prototype.getTextAreaContainer = function() {
         return this.container;
       };
-      this.$moveTextAreaToCursor = function() {
+      VirtualRenderer2.prototype.$moveTextAreaToCursor = function() {
         if (this.$isMousePressed)
           return;
         var style = this.textarea.style;
@@ -38636,7 +39342,7 @@ var ace$2 = { exports: {} };
         var posTop = pixelPos.top;
         var posLeft = pixelPos.left;
         posTop -= config2.offset;
-        var h = composition && composition.useTextareaForIME ? this.lineHeight : HIDE_TEXTAREA ? 0 : 1;
+        var h = composition && composition.useTextareaForIME || useragent.isMobile ? this.lineHeight : 1;
         if (posTop < 0 || posTop > config2.height - h) {
           dom.translate(this.textarea, 0, 0);
           return;
@@ -38661,13 +39367,13 @@ var ace$2 = { exports: {} };
         dom.setStyle(style, "width", w + "px");
         dom.translate(this.textarea, Math.min(posLeft, this.$size.scrollerWidth - w), Math.min(posTop, maxTop));
       };
-      this.getFirstVisibleRow = function() {
+      VirtualRenderer2.prototype.getFirstVisibleRow = function() {
         return this.layerConfig.firstRow;
       };
-      this.getFirstFullyVisibleRow = function() {
+      VirtualRenderer2.prototype.getFirstFullyVisibleRow = function() {
         return this.layerConfig.firstRow + (this.layerConfig.offset === 0 ? 0 : 1);
       };
-      this.getLastFullyVisibleRow = function() {
+      VirtualRenderer2.prototype.getLastFullyVisibleRow = function() {
         var config2 = this.layerConfig;
         var lastRow = config2.lastRow;
         var top = this.session.documentToScreenRow(lastRow, 0) * config2.lineHeight;
@@ -38675,11 +39381,10 @@ var ace$2 = { exports: {} };
           return lastRow - 1;
         return lastRow;
       };
-      this.getLastVisibleRow = function() {
+      VirtualRenderer2.prototype.getLastVisibleRow = function() {
         return this.layerConfig.lastRow;
       };
-      this.$padding = null;
-      this.setPadding = function(padding) {
+      VirtualRenderer2.prototype.setPadding = function(padding) {
         this.$padding = padding;
         this.$textLayer.setPadding(padding);
         this.$cursorLayer.setPadding(padding);
@@ -38688,7 +39393,7 @@ var ace$2 = { exports: {} };
         this.$loop.schedule(this.CHANGE_FULL);
         this.$updatePrintMargin();
       };
-      this.setScrollMargin = function(top, bottom, left, right) {
+      VirtualRenderer2.prototype.setScrollMargin = function(top, bottom, left, right) {
         var sm = this.scrollMargin;
         sm.top = top | 0;
         sm.bottom = bottom | 0;
@@ -38700,7 +39405,7 @@ var ace$2 = { exports: {} };
           this.session.setScrollTop(-sm.top);
         this.updateFull();
       };
-      this.setMargin = function(top, bottom, left, right) {
+      VirtualRenderer2.prototype.setMargin = function(top, bottom, left, right) {
         var sm = this.margin;
         sm.top = top | 0;
         sm.bottom = bottom | 0;
@@ -38711,19 +39416,19 @@ var ace$2 = { exports: {} };
         this.$updateCachedSize(true, this.gutterWidth, this.$size.width, this.$size.height);
         this.updateFull();
       };
-      this.getHScrollBarAlwaysVisible = function() {
+      VirtualRenderer2.prototype.getHScrollBarAlwaysVisible = function() {
         return this.$hScrollBarAlwaysVisible;
       };
-      this.setHScrollBarAlwaysVisible = function(alwaysVisible) {
+      VirtualRenderer2.prototype.setHScrollBarAlwaysVisible = function(alwaysVisible) {
         this.setOption("hScrollBarAlwaysVisible", alwaysVisible);
       };
-      this.getVScrollBarAlwaysVisible = function() {
+      VirtualRenderer2.prototype.getVScrollBarAlwaysVisible = function() {
         return this.$vScrollBarAlwaysVisible;
       };
-      this.setVScrollBarAlwaysVisible = function(alwaysVisible) {
+      VirtualRenderer2.prototype.setVScrollBarAlwaysVisible = function(alwaysVisible) {
         this.setOption("vScrollBarAlwaysVisible", alwaysVisible);
       };
-      this.$updateScrollBarV = function() {
+      VirtualRenderer2.prototype.$updateScrollBarV = function() {
         var scrollHeight = this.layerConfig.maxHeight;
         var scrollerHeight = this.$size.scrollerHeight;
         if (!this.$maxLines && this.$scrollPastEnd) {
@@ -38736,18 +39441,17 @@ var ace$2 = { exports: {} };
         this.scrollBarV.setScrollHeight(scrollHeight + this.scrollMargin.v);
         this.scrollBarV.setScrollTop(this.scrollTop + this.scrollMargin.top);
       };
-      this.$updateScrollBarH = function() {
+      VirtualRenderer2.prototype.$updateScrollBarH = function() {
         this.scrollBarH.setScrollWidth(this.layerConfig.width + 2 * this.$padding + this.scrollMargin.h);
         this.scrollBarH.setScrollLeft(this.scrollLeft + this.scrollMargin.left);
       };
-      this.$frozen = false;
-      this.freeze = function() {
+      VirtualRenderer2.prototype.freeze = function() {
         this.$frozen = true;
       };
-      this.unfreeze = function() {
+      VirtualRenderer2.prototype.unfreeze = function() {
         this.$frozen = false;
       };
-      this.$renderChanges = function(changes, force) {
+      VirtualRenderer2.prototype.$renderChanges = function(changes, force) {
         if (this.$changes) {
           changes |= this.$changes;
           this.$changes = 0;
@@ -38770,7 +39474,7 @@ var ace$2 = { exports: {} };
         if (changes & this.CHANGE_FULL || changes & this.CHANGE_SIZE || changes & this.CHANGE_TEXT || changes & this.CHANGE_LINES || changes & this.CHANGE_SCROLL || changes & this.CHANGE_H_SCROLL) {
           changes |= this.$computeLayerConfig() | this.$loop.clear();
           if (config2.firstRow != this.layerConfig.firstRow && config2.firstRowScreen == this.layerConfig.firstRowScreen) {
-            var st = this.scrollTop + (config2.firstRow - this.layerConfig.firstRow) * this.lineHeight;
+            var st = this.scrollTop + (config2.firstRow - Math.max(this.layerConfig.firstRow, 0)) * this.lineHeight;
             if (st > 0) {
               this.scrollTop = st;
               changes = changes | this.CHANGE_SCROLL;
@@ -38867,7 +39571,7 @@ var ace$2 = { exports: {} };
         }
         this._signal("afterRender", changes);
       };
-      this.$autosize = function() {
+      VirtualRenderer2.prototype.$autosize = function() {
         var height = this.session.getScreenLength() * this.lineHeight;
         var maxHeight = this.$maxLines * this.lineHeight;
         var desiredHeight = Math.min(maxHeight, Math.max((this.$minLines || 1) * this.lineHeight, height)) + this.scrollMargin.v + (this.$extraHeight || 0);
@@ -38889,7 +39593,7 @@ var ace$2 = { exports: {} };
           this._signal("autosize");
         }
       };
-      this.$computeLayerConfig = function() {
+      VirtualRenderer2.prototype.$computeLayerConfig = function() {
         var session = this.session;
         var size = this.$size;
         var hideScrollbars = size.height <= 2 * this.lineHeight;
@@ -38960,7 +39664,7 @@ var ace$2 = { exports: {} };
           this.session.$bidiHandler.setContentWidth(longestLine - this.$padding);
         return changes;
       };
-      this.$updateLines = function() {
+      VirtualRenderer2.prototype.$updateLines = function() {
         if (!this.$changedLines)
           return;
         var firstRow = this.$changedLines.firstRow;
@@ -38982,7 +39686,7 @@ var ace$2 = { exports: {} };
         this.$textLayer.updateLines(layerConfig, firstRow, lastRow);
         return true;
       };
-      this.$getLongestLine = function() {
+      VirtualRenderer2.prototype.$getLongestLine = function() {
         var charCount = this.session.getScreenWidth();
         if (this.showInvisibles && !this.session.$useWrapMode)
           charCount += 1;
@@ -38990,41 +39694,41 @@ var ace$2 = { exports: {} };
           charCount = this.$textLayer.MAX_LINE_LENGTH + 30;
         return Math.max(this.$size.scrollerWidth - 2 * this.$padding, Math.round(charCount * this.characterWidth));
       };
-      this.updateFrontMarkers = function() {
+      VirtualRenderer2.prototype.updateFrontMarkers = function() {
         this.$markerFront.setMarkers(this.session.getMarkers(true));
         this.$loop.schedule(this.CHANGE_MARKER_FRONT);
       };
-      this.updateBackMarkers = function() {
+      VirtualRenderer2.prototype.updateBackMarkers = function() {
         this.$markerBack.setMarkers(this.session.getMarkers());
         this.$loop.schedule(this.CHANGE_MARKER_BACK);
       };
-      this.addGutterDecoration = function(row, className) {
+      VirtualRenderer2.prototype.addGutterDecoration = function(row, className) {
         this.$gutterLayer.addGutterDecoration(row, className);
       };
-      this.removeGutterDecoration = function(row, className) {
+      VirtualRenderer2.prototype.removeGutterDecoration = function(row, className) {
         this.$gutterLayer.removeGutterDecoration(row, className);
       };
-      this.updateBreakpoints = function(rows) {
+      VirtualRenderer2.prototype.updateBreakpoints = function(rows) {
         this.$loop.schedule(this.CHANGE_GUTTER);
       };
-      this.setAnnotations = function(annotations) {
+      VirtualRenderer2.prototype.setAnnotations = function(annotations) {
         this.$gutterLayer.setAnnotations(annotations);
         this.$loop.schedule(this.CHANGE_GUTTER);
       };
-      this.updateCursor = function() {
+      VirtualRenderer2.prototype.updateCursor = function() {
         this.$loop.schedule(this.CHANGE_CURSOR);
       };
-      this.hideCursor = function() {
+      VirtualRenderer2.prototype.hideCursor = function() {
         this.$cursorLayer.hideCursor();
       };
-      this.showCursor = function() {
+      VirtualRenderer2.prototype.showCursor = function() {
         this.$cursorLayer.showCursor();
       };
-      this.scrollSelectionIntoView = function(anchor, lead, offset) {
+      VirtualRenderer2.prototype.scrollSelectionIntoView = function(anchor, lead, offset) {
         this.scrollCursorIntoView(anchor, offset);
         this.scrollCursorIntoView(lead, offset);
       };
-      this.scrollCursorIntoView = function(cursor, offset, $viewMargin) {
+      VirtualRenderer2.prototype.scrollCursorIntoView = function(cursor, offset, $viewMargin) {
         if (this.$size.scrollerHeight === 0)
           return;
         var pos = this.$cursorLayer.getPixelPosition(cursor);
@@ -39064,22 +39768,22 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.getScrollTop = function() {
+      VirtualRenderer2.prototype.getScrollTop = function() {
         return this.session.getScrollTop();
       };
-      this.getScrollLeft = function() {
+      VirtualRenderer2.prototype.getScrollLeft = function() {
         return this.session.getScrollLeft();
       };
-      this.getScrollTopRow = function() {
+      VirtualRenderer2.prototype.getScrollTopRow = function() {
         return this.scrollTop / this.lineHeight;
       };
-      this.getScrollBottomRow = function() {
+      VirtualRenderer2.prototype.getScrollBottomRow = function() {
         return Math.max(0, Math.floor((this.scrollTop + this.$size.scrollerHeight) / this.lineHeight) - 1);
       };
-      this.scrollToRow = function(row) {
+      VirtualRenderer2.prototype.scrollToRow = function(row) {
         this.session.setScrollTop(row * this.lineHeight);
       };
-      this.alignCursor = function(cursor, alignment) {
+      VirtualRenderer2.prototype.alignCursor = function(cursor, alignment) {
         if (typeof cursor == "number")
           cursor = { row: cursor, column: 0 };
         var pos = this.$cursorLayer.getPixelPosition(cursor);
@@ -39088,8 +39792,7 @@ var ace$2 = { exports: {} };
         this.session.setScrollTop(offset);
         return offset;
       };
-      this.STEPS = 8;
-      this.$calcSteps = function(fromValue, toValue) {
+      VirtualRenderer2.prototype.$calcSteps = function(fromValue, toValue) {
         var i = 0;
         var l = this.STEPS;
         var steps = [];
@@ -39100,7 +39803,7 @@ var ace$2 = { exports: {} };
           steps.push(func(i / this.STEPS, fromValue, toValue - fromValue));
         return steps;
       };
-      this.scrollToLine = function(line, center, animate, callback2) {
+      VirtualRenderer2.prototype.scrollToLine = function(line, center, animate, callback2) {
         var pos = this.$cursorLayer.getPixelPosition({ row: line, column: 0 });
         var offset = pos.top;
         if (center)
@@ -39110,7 +39813,7 @@ var ace$2 = { exports: {} };
         if (animate !== false)
           this.animateScrolling(initialScroll, callback2);
       };
-      this.animateScrolling = function(fromValue, callback2) {
+      VirtualRenderer2.prototype.animateScrolling = function(fromValue, callback2) {
         var toValue = this.scrollTop;
         if (!this.$animatedScroll)
           return;
@@ -39155,26 +39858,26 @@ var ace$2 = { exports: {} };
           }
         }, 10);
       };
-      this.scrollToY = function(scrollTop) {
+      VirtualRenderer2.prototype.scrollToY = function(scrollTop) {
         if (this.scrollTop !== scrollTop) {
           this.$loop.schedule(this.CHANGE_SCROLL);
           this.scrollTop = scrollTop;
         }
       };
-      this.scrollToX = function(scrollLeft) {
+      VirtualRenderer2.prototype.scrollToX = function(scrollLeft) {
         if (this.scrollLeft !== scrollLeft)
           this.scrollLeft = scrollLeft;
         this.$loop.schedule(this.CHANGE_H_SCROLL);
       };
-      this.scrollTo = function(x, y) {
+      VirtualRenderer2.prototype.scrollTo = function(x, y) {
         this.session.setScrollTop(y);
         this.session.setScrollLeft(x);
       };
-      this.scrollBy = function(deltaX, deltaY) {
+      VirtualRenderer2.prototype.scrollBy = function(deltaX, deltaY) {
         deltaY && this.session.setScrollTop(this.session.getScrollTop() + deltaY);
         deltaX && this.session.setScrollLeft(this.session.getScrollLeft() + deltaX);
       };
-      this.isScrollableBy = function(deltaX, deltaY) {
+      VirtualRenderer2.prototype.isScrollableBy = function(deltaX, deltaY) {
         if (deltaY < 0 && this.session.getScrollTop() >= 1 - this.scrollMargin.top)
           return true;
         if (deltaY > 0 && this.session.getScrollTop() + this.$size.scrollerHeight - this.layerConfig.maxHeight < -1 + this.scrollMargin.bottom)
@@ -39184,7 +39887,7 @@ var ace$2 = { exports: {} };
         if (deltaX > 0 && this.session.getScrollLeft() + this.$size.scrollerWidth - this.layerConfig.width < -1 + this.scrollMargin.right)
           return true;
       };
-      this.pixelToScreenCoordinates = function(x, y) {
+      VirtualRenderer2.prototype.pixelToScreenCoordinates = function(x, y) {
         var canvasPos;
         if (this.$hasCssTransforms) {
           canvasPos = { top: 0, left: 0 };
@@ -39200,7 +39903,7 @@ var ace$2 = { exports: {} };
         var col = this.$blockCursor ? Math.floor(offset) : Math.round(offset);
         return { row, column: col, side: offset - col > 0 ? 1 : -1, offsetX };
       };
-      this.screenToTextCoordinates = function(x, y) {
+      VirtualRenderer2.prototype.screenToTextCoordinates = function(x, y) {
         var canvasPos;
         if (this.$hasCssTransforms) {
           canvasPos = { top: 0, left: 0 };
@@ -39216,7 +39919,7 @@ var ace$2 = { exports: {} };
         var row = Math.floor((y + this.scrollTop - canvasPos.top) / this.lineHeight);
         return this.session.screenToDocumentPosition(row, Math.max(col, 0), offsetX);
       };
-      this.textToScreenCoordinates = function(row, column) {
+      VirtualRenderer2.prototype.textToScreenCoordinates = function(row, column) {
         var canvasPos = this.scroller.getBoundingClientRect();
         var pos = this.session.documentToScreenPosition(row, column);
         var x = this.$padding + (this.session.$bidiHandler.isBidiRow(pos.row, row) ? this.session.$bidiHandler.getPosLeft(pos.column) : Math.round(pos.column * this.characterWidth));
@@ -39226,13 +39929,13 @@ var ace$2 = { exports: {} };
           pageY: canvasPos.top + y - this.scrollTop
         };
       };
-      this.visualizeFocus = function() {
+      VirtualRenderer2.prototype.visualizeFocus = function() {
         dom.addCssClass(this.container, "ace_focus");
       };
-      this.visualizeBlur = function() {
+      VirtualRenderer2.prototype.visualizeBlur = function() {
         dom.removeCssClass(this.container, "ace_focus");
       };
-      this.showComposition = function(composition) {
+      VirtualRenderer2.prototype.showComposition = function(composition) {
         this.$composition = composition;
         if (!composition.cssText) {
           composition.cssText = this.textarea.style.cssText;
@@ -39248,12 +39951,12 @@ var ace$2 = { exports: {} };
           composition.markerId = this.session.addMarker(composition.markerRange, "ace_composition_marker", "text");
         }
       };
-      this.setCompositionText = function(text) {
+      VirtualRenderer2.prototype.setCompositionText = function(text) {
         var cursor = this.session.selection.cursor;
         this.addToken(text, "composition_placeholder", cursor.row, cursor.column);
         this.$moveTextAreaToCursor();
       };
-      this.hideComposition = function() {
+      VirtualRenderer2.prototype.hideComposition = function() {
         if (!this.$composition)
           return;
         if (this.$composition.markerId)
@@ -39265,7 +39968,7 @@ var ace$2 = { exports: {} };
         this.$composition = null;
         this.$cursorLayer.element.style.display = "";
       };
-      this.setGhostText = function(text, position) {
+      VirtualRenderer2.prototype.setGhostText = function(text, position) {
         var cursor = this.session.selection.cursor;
         var insertPosition = position || { row: cursor.row, column: cursor.column };
         this.removeGhostText();
@@ -39288,7 +39991,7 @@ var ace$2 = { exports: {} };
           this.session.widgetManager.addLineWidget(this.$ghostTextWidget);
         }
       };
-      this.removeGhostText = function() {
+      VirtualRenderer2.prototype.removeGhostText = function() {
         if (!this.$ghostText)
           return;
         var position = this.$ghostText.position;
@@ -39299,12 +40002,12 @@ var ace$2 = { exports: {} };
         }
         this.$ghostText = null;
       };
-      this.addToken = function(text, type, row, column) {
+      VirtualRenderer2.prototype.addToken = function(text, type, row, column) {
         var session = this.session;
         session.bgTokenizer.lines[row] = null;
         var newToken = { type, value: text };
         var tokens = session.getTokens(row);
-        if (column == null) {
+        if (column == null || !tokens.length) {
           tokens.push(newToken);
         } else {
           var l = 0;
@@ -39322,10 +40025,11 @@ var ace$2 = { exports: {} };
         }
         this.updateLines(row, row);
       };
-      this.removeExtraToken = function(row, column) {
+      VirtualRenderer2.prototype.removeExtraToken = function(row, column) {
+        this.session.bgTokenizer.lines[row] = null;
         this.updateLines(row, row);
       };
-      this.setTheme = function(theme, cb) {
+      VirtualRenderer2.prototype.setTheme = function(theme, cb) {
         var _self = this;
         this.$themeId = theme;
         _self._dispatchEvent("themeChange", { theme });
@@ -39360,32 +40064,33 @@ var ace$2 = { exports: {} };
           cb && cb();
         }
       };
-      this.getTheme = function() {
+      VirtualRenderer2.prototype.getTheme = function() {
         return this.$themeId;
       };
-      this.setStyle = function(style, include) {
+      VirtualRenderer2.prototype.setStyle = function(style, include) {
         dom.setCssClass(this.container, style, include !== false);
       };
-      this.unsetStyle = function(style) {
+      VirtualRenderer2.prototype.unsetStyle = function(style) {
         dom.removeCssClass(this.container, style);
       };
-      this.setCursorStyle = function(style) {
+      VirtualRenderer2.prototype.setCursorStyle = function(style) {
         dom.setStyle(this.scroller.style, "cursor", style);
       };
-      this.setMouseCursor = function(cursorStyle) {
+      VirtualRenderer2.prototype.setMouseCursor = function(cursorStyle) {
         dom.setStyle(this.scroller.style, "cursor", cursorStyle);
       };
-      this.attachToShadowRoot = function() {
+      VirtualRenderer2.prototype.attachToShadowRoot = function() {
         dom.importCssString(editorCss, "ace_editor.css", this.container);
       };
-      this.destroy = function() {
+      VirtualRenderer2.prototype.destroy = function() {
         this.freeze();
         this.$fontMetrics.destroy();
         this.$cursorLayer.destroy();
         this.removeAllListeners();
         this.container.textContent = "";
+        this.setOption("useResizeObserver", false);
       };
-      this.$updateCustomScrollbar = function(val) {
+      VirtualRenderer2.prototype.$updateCustomScrollbar = function(val) {
         var _self = this;
         this.$horizScroll = this.$vScroll = null;
         this.scrollBarV.element.remove();
@@ -39421,8 +40126,55 @@ var ace$2 = { exports: {} };
           });
         }
       };
-    }).call(VirtualRenderer.prototype);
+      VirtualRenderer2.prototype.$addResizeObserver = function() {
+        if (!window.ResizeObserver || this.$resizeObserver)
+          return;
+        var self2 = this;
+        this.$resizeTimer = lang.delayedCall(function() {
+          if (!self2.destroyed)
+            self2.onResize();
+        }, 50);
+        this.$resizeObserver = new window.ResizeObserver(function(e) {
+          var w = e[0].contentRect.width;
+          var h = e[0].contentRect.height;
+          if (Math.abs(self2.$size.width - w) > 1 || Math.abs(self2.$size.height - h) > 1) {
+            self2.$resizeTimer.delay();
+          } else {
+            self2.$resizeTimer.cancel();
+          }
+        });
+        this.$resizeObserver.observe(this.container);
+      };
+      return VirtualRenderer2;
+    }();
+    VirtualRenderer.prototype.CHANGE_CURSOR = 1;
+    VirtualRenderer.prototype.CHANGE_MARKER = 2;
+    VirtualRenderer.prototype.CHANGE_GUTTER = 4;
+    VirtualRenderer.prototype.CHANGE_SCROLL = 8;
+    VirtualRenderer.prototype.CHANGE_LINES = 16;
+    VirtualRenderer.prototype.CHANGE_TEXT = 32;
+    VirtualRenderer.prototype.CHANGE_SIZE = 64;
+    VirtualRenderer.prototype.CHANGE_MARKER_BACK = 128;
+    VirtualRenderer.prototype.CHANGE_MARKER_FRONT = 256;
+    VirtualRenderer.prototype.CHANGE_FULL = 512;
+    VirtualRenderer.prototype.CHANGE_H_SCROLL = 1024;
+    VirtualRenderer.prototype.$changes = 0;
+    VirtualRenderer.prototype.$padding = null;
+    VirtualRenderer.prototype.$frozen = false;
+    VirtualRenderer.prototype.STEPS = 8;
+    oop.implement(VirtualRenderer.prototype, EventEmitter);
     config.defineOptions(VirtualRenderer.prototype, "renderer", {
+      useResizeObserver: {
+        set: function(value2) {
+          if (!value2 && this.$resizeObserver) {
+            this.$resizeObserver.disconnect();
+            this.$resizeTimer.cancel();
+            this.$resizeTimer = this.$resizeObserver = null;
+          } else if (value2 && !this.$resizeObserver) {
+            this.$addResizeObserver();
+          }
+        }
+      },
       animatedScroll: { initialValue: false },
       showInvisibles: {
         set: function(value2) {
@@ -39461,6 +40213,18 @@ var ace$2 = { exports: {} };
           this.onGutterResize();
         },
         initialValue: true
+      },
+      useSvgGutterIcons: {
+        set: function(value2) {
+          this.$gutterLayer.$useSvgGutterIcons = value2;
+        },
+        initialValue: false
+      },
+      showFoldedAnnotations: {
+        set: function(value2) {
+          this.$gutterLayer.$showFoldedAnnotations = value2;
+        },
+        initialValue: false
       },
       fadeFoldWidgets: {
         set: function(show) {
@@ -39790,30 +40554,29 @@ var ace$2 = { exports: {} };
     var Range = require2("./range").Range;
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
     var oop = require2("./lib/oop");
-    var PlaceHolder = function(session, length, pos, others, mainClass, othersClass) {
-      var _self = this;
-      this.length = length;
-      this.session = session;
-      this.doc = session.getDocument();
-      this.mainClass = mainClass;
-      this.othersClass = othersClass;
-      this.$onUpdate = this.onUpdate.bind(this);
-      this.doc.on("change", this.$onUpdate, true);
-      this.$others = others;
-      this.$onCursorChange = function() {
-        setTimeout(function() {
-          _self.onCursorChange();
-        });
-      };
-      this.$pos = pos;
-      var undoStack = session.getUndoManager().$undoStack || session.getUndoManager().$undostack || { length: -1 };
-      this.$undoStackDepth = undoStack.length;
-      this.setup();
-      session.selection.on("changeCursor", this.$onCursorChange);
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.setup = function() {
+    var PlaceHolder = function() {
+      function PlaceHolder2(session, length, pos, others, mainClass, othersClass) {
+        var _self = this;
+        this.length = length;
+        this.session = session;
+        this.doc = session.getDocument();
+        this.mainClass = mainClass;
+        this.othersClass = othersClass;
+        this.$onUpdate = this.onUpdate.bind(this);
+        this.doc.on("change", this.$onUpdate, true);
+        this.$others = others;
+        this.$onCursorChange = function() {
+          setTimeout(function() {
+            _self.onCursorChange();
+          });
+        };
+        this.$pos = pos;
+        var undoStack = session.getUndoManager().$undoStack || session.getUndoManager().$undostack || { length: -1 };
+        this.$undoStackDepth = undoStack.length;
+        this.setup();
+        session.selection.on("changeCursor", this.$onCursorChange);
+      }
+      PlaceHolder2.prototype.setup = function() {
         var _self = this;
         var doc = this.doc;
         var session = this.session;
@@ -39834,7 +40597,7 @@ var ace$2 = { exports: {} };
         });
         session.setUndoSelect(false);
       };
-      this.showOtherMarkers = function() {
+      PlaceHolder2.prototype.showOtherMarkers = function() {
         if (this.othersActive)
           return;
         var session = this.session;
@@ -39844,7 +40607,7 @@ var ace$2 = { exports: {} };
           anchor.markerId = session.addMarker(new Range(anchor.row, anchor.column, anchor.row, anchor.column + _self.length), _self.othersClass, null, false);
         });
       };
-      this.hideOtherMarkers = function() {
+      PlaceHolder2.prototype.hideOtherMarkers = function() {
         if (!this.othersActive)
           return;
         this.othersActive = false;
@@ -39852,7 +40615,7 @@ var ace$2 = { exports: {} };
           this.session.removeMarker(this.others[i].markerId);
         }
       };
-      this.onUpdate = function(delta) {
+      PlaceHolder2.prototype.onUpdate = function(delta) {
         if (this.$updating)
           return this.updateAnchors(delta);
         var range = delta;
@@ -39885,13 +40648,13 @@ var ace$2 = { exports: {} };
         this.$updating = false;
         this.updateMarkers();
       };
-      this.updateAnchors = function(delta) {
+      PlaceHolder2.prototype.updateAnchors = function(delta) {
         this.pos.onChange(delta);
         for (var i = this.others.length; i--; )
           this.others[i].onChange(delta);
         this.updateMarkers();
       };
-      this.updateMarkers = function() {
+      PlaceHolder2.prototype.updateMarkers = function() {
         if (this.$updating)
           return;
         var _self = this;
@@ -39904,7 +40667,7 @@ var ace$2 = { exports: {} };
         for (var i = this.others.length; i--; )
           updateMarker(this.others[i], this.othersClass);
       };
-      this.onCursorChange = function(event) {
+      PlaceHolder2.prototype.onCursorChange = function(event) {
         if (this.$updating || !this.session)
           return;
         var pos = this.session.selection.getCursor();
@@ -39916,7 +40679,7 @@ var ace$2 = { exports: {} };
           this._emit("cursorLeave", event);
         }
       };
-      this.detach = function() {
+      PlaceHolder2.prototype.detach = function() {
         this.session.removeMarker(this.pos && this.pos.markerId);
         this.hideOtherMarkers();
         this.doc.off("change", this.$onUpdate);
@@ -39924,7 +40687,7 @@ var ace$2 = { exports: {} };
         this.session.setUndoSelect(true);
         this.session = null;
       };
-      this.cancel = function() {
+      PlaceHolder2.prototype.cancel = function() {
         if (this.$undoStackDepth === -1)
           return;
         var undoManager = this.session.getUndoManager();
@@ -39935,7 +40698,9 @@ var ace$2 = { exports: {} };
         if (this.selectionBefore)
           this.session.selection.fromJSON(this.selectionBefore);
       };
-    }).call(PlaceHolder.prototype);
+      return PlaceHolder2;
+    }();
+    oop.implement(PlaceHolder.prototype, EventEmitter);
     exports2.PlaceHolder = PlaceHolder;
   });
   ace.define("ace/mouse/multi_select_handler", ["require", "exports", "module", "ace/lib/event", "ace/lib/useragent"], function(require2, exports2, module2) {
@@ -40156,7 +40921,7 @@ var ace$2 = { exports: {} };
       readOnly: true
     }, {
       name: "toggleSplitSelectionIntoLines",
-      description: "Split into lines",
+      description: "Split selection into lines",
       exec: function(editor) {
         if (editor.multiSelect.rangeCount > 1)
           editor.multiSelect.joinSelections();
@@ -41091,10 +41856,9 @@ var ace$2 = { exports: {} };
     };
     dom.importCssString("\n    .error_widget_wrapper {\n        background: inherit;\n        color: inherit;\n        border:none\n    }\n    .error_widget {\n        border-top: solid 2px;\n        border-bottom: solid 2px;\n        margin: 5px 0;\n        padding: 10px 40px;\n        white-space: pre-wrap;\n    }\n    .error_widget.ace_error, .error_widget_arrow.ace_error{\n        border-color: #ff5a5a\n    }\n    .error_widget.ace_warning, .error_widget_arrow.ace_warning{\n        border-color: #F1D817\n    }\n    .error_widget.ace_info, .error_widget_arrow.ace_info{\n        border-color: #5a5a5a\n    }\n    .error_widget.ace_ok, .error_widget_arrow.ace_ok{\n        border-color: #5aaa5a\n    }\n    .error_widget_arrow {\n        position: absolute;\n        border: solid 5px;\n        border-top-color: transparent!important;\n        border-right-color: transparent!important;\n        border-left-color: transparent!important;\n        top: -5px;\n    }\n", "error_marker.css", false);
   });
-  ace.define("ace/ace", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/range", "ace/editor", "ace/edit_session", "ace/undomanager", "ace/virtual_renderer", "ace/worker/worker_client", "ace/keyboard/hash_handler", "ace/placeholder", "ace/multi_select", "ace/mode/folding/fold_mode", "ace/theme/textmate", "ace/ext/error_marker", "ace/config", "ace/loader_build"], function(require2, exports2, module2) {
+  ace.define("ace/ace", ["require", "exports", "module", "ace/lib/dom", "ace/range", "ace/editor", "ace/edit_session", "ace/undomanager", "ace/virtual_renderer", "ace/worker/worker_client", "ace/keyboard/hash_handler", "ace/placeholder", "ace/multi_select", "ace/mode/folding/fold_mode", "ace/theme/textmate", "ace/ext/error_marker", "ace/config", "ace/loader_build"], function(require2, exports2, module2) {
     require2("./loader_build")(exports2);
     var dom = require2("./lib/dom");
-    var event = require2("./lib/event");
     var Range = require2("./range").Range;
     var Editor = require2("./editor").Editor;
     var EditSession = require2("./edit_session").EditSession;
@@ -41136,9 +41900,7 @@ var ace$2 = { exports: {} };
       };
       if (oldNode)
         env.textarea = oldNode;
-      event.addListener(window, "resize", env.onResize);
       editor.on("destroy", function() {
-        event.removeListener(window, "resize", env.onResize);
         env.editor.container.env = null;
       });
       editor.container.env = editor.env = env;
@@ -41338,7 +42100,7 @@ var modeJavascript = { exports: {} };
       this.HighlightRules = s, this.$outdent = new o(), this.$behaviour = new a(), this.foldingRules = new f();
     };
     r.inherits(l, i), function() {
-      this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.$quotes = { '"': '"', "'": "'", "`": "`" }, this.getNextLineIndent = function(e2, t2, n2) {
+      this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.$quotes = { '"': '"', "'": "'", "`": "`" }, this.$pairQuotesAfter = { "`": /\w/ }, this.getNextLineIndent = function(e2, t2, n2) {
         var r2 = this.$getIndent(t2), i2 = this.getTokenizer().getLineTokens(t2, e2), s2 = i2.tokens, o2 = i2.state;
         if (s2.length && s2[s2.length - 1].type == "comment")
           return r2;
@@ -41774,58 +42536,58 @@ var extLanguage_tools = { exports: {} };
       i.implement(this, s), this.getTokenizer = function() {
         return d.$tokenizer || this.createTokenizer();
       }, this.createTokenizer = function() {
-        function e2(e3) {
-          return e3 = e3.substr(1), /^\d+$/.test(e3) ? [{ tabstopId: parseInt(e3, 10) }] : [{ text: e3 }];
+        function e3(e4) {
+          return e4 = e4.substr(1), /^\d+$/.test(e4) ? [{ tabstopId: parseInt(e4, 10) }] : [{ text: e4 }];
         }
-        function t2(e3) {
-          return "(?:[^\\\\" + e3 + "]|\\\\.)";
+        function t2(e4) {
+          return "(?:[^\\\\" + e4 + "]|\\\\.)";
         }
-        var n2 = { regex: "/(" + t2("/") + "+)/", onMatch: function(e3, t3, n3) {
+        var n2 = { regex: "/(" + t2("/") + "+)/", onMatch: function(e4, t3, n3) {
           var r2 = n3[0];
-          return r2.fmtString = true, r2.guard = e3.slice(1, -1), r2.flag = "", "";
+          return r2.fmtString = true, r2.guard = e4.slice(1, -1), r2.flag = "", "";
         }, next: "formatString" };
-        return d.$tokenizer = new l({ start: [{ regex: /\\./, onMatch: function(e3, t3, n3) {
-          var r2 = e3[1];
-          return r2 == "}" && n3.length ? e3 = r2 : "`$\\".indexOf(r2) != -1 && (e3 = r2), [e3];
-        } }, { regex: /}/, onMatch: function(e3, t3, n3) {
-          return [n3.length ? n3.shift() : e3];
-        } }, { regex: /\$(?:\d+|\w+)/, onMatch: e2 }, { regex: /\$\{[\dA-Z_a-z]+/, onMatch: function(t3, n3, r2) {
-          var i2 = e2(t3.substr(1));
+        return d.$tokenizer = new l({ start: [{ regex: /\\./, onMatch: function(e4, t3, n3) {
+          var r2 = e4[1];
+          return r2 == "}" && n3.length ? e4 = r2 : "`$\\".indexOf(r2) != -1 && (e4 = r2), [e4];
+        } }, { regex: /}/, onMatch: function(e4, t3, n3) {
+          return [n3.length ? n3.shift() : e4];
+        } }, { regex: /\$(?:\d+|\w+)/, onMatch: e3 }, { regex: /\$\{[\dA-Z_a-z]+/, onMatch: function(t3, n3, r2) {
+          var i2 = e3(t3.substr(1));
           return r2.unshift(i2[0]), i2;
-        }, next: "snippetVar" }, { regex: /\n/, token: "newline", merge: false }], snippetVar: [{ regex: "\\|" + t2("\\|") + "*\\|", onMatch: function(e3, t3, n3) {
-          var r2 = e3.slice(1, -1).replace(/\\[,|\\]|,/g, function(e4) {
-            return e4.length == 2 ? e4[1] : "\0";
-          }).split("\0").map(function(e4) {
-            return { value: e4 };
+        }, next: "snippetVar" }, { regex: /\n/, token: "newline", merge: false }], snippetVar: [{ regex: "\\|" + t2("\\|") + "*\\|", onMatch: function(e4, t3, n3) {
+          var r2 = e4.slice(1, -1).replace(/\\[,|\\]|,/g, function(e5) {
+            return e5.length == 2 ? e5[1] : "\0";
+          }).split("\0").map(function(e5) {
+            return { value: e5 };
           });
           return n3[0].choices = r2, [r2[0]];
-        }, next: "start" }, n2, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "start" }], formatString: [{ regex: /:/, onMatch: function(e3, t3, n3) {
+        }, next: "start" }, n2, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "start" }], formatString: [{ regex: /:/, onMatch: function(e4, t3, n3) {
           return n3.length && n3[0].expectElse ? (n3[0].expectElse = false, n3[0].ifEnd = { elseEnd: n3[0] }, [n3[0].ifEnd]) : ":";
-        } }, { regex: /\\./, onMatch: function(e3, t3, n3) {
-          var r2 = e3[1];
-          return r2 == "}" && n3.length ? e3 = r2 : "`$\\".indexOf(r2) != -1 ? e3 = r2 : r2 == "n" ? e3 = "\n" : r2 == "t" ? e3 = "	" : "ulULE".indexOf(r2) != -1 && (e3 = { changeCase: r2, local: r2 > "a" }), [e3];
-        } }, { regex: "/\\w*}", onMatch: function(e3, t3, n3) {
+        } }, { regex: /\\./, onMatch: function(e4, t3, n3) {
+          var r2 = e4[1];
+          return r2 == "}" && n3.length ? e4 = r2 : "`$\\".indexOf(r2) != -1 ? e4 = r2 : r2 == "n" ? e4 = "\n" : r2 == "t" ? e4 = "	" : "ulULE".indexOf(r2) != -1 && (e4 = { changeCase: r2, local: r2 > "a" }), [e4];
+        } }, { regex: "/\\w*}", onMatch: function(e4, t3, n3) {
           var r2 = n3.shift();
-          return r2 && (r2.flag = e3.slice(1, -1)), this.next = r2 && r2.tabstopId ? "start" : "", [r2 || e3];
-        }, next: "start" }, { regex: /\$(?:\d+|\w+)/, onMatch: function(e3, t3, n3) {
-          return [{ text: e3.slice(1) }];
-        } }, { regex: /\${\w+/, onMatch: function(e3, t3, n3) {
-          var r2 = { text: e3.slice(2) };
+          return r2 && (r2.flag = e4.slice(1, -1)), this.next = r2 && r2.tabstopId ? "start" : "", [r2 || e4];
+        }, next: "start" }, { regex: /\$(?:\d+|\w+)/, onMatch: function(e4, t3, n3) {
+          return [{ text: e4.slice(1) }];
+        } }, { regex: /\${\w+/, onMatch: function(e4, t3, n3) {
+          var r2 = { text: e4.slice(2) };
           return n3.unshift(r2), [r2];
-        }, next: "formatStringVar" }, { regex: /\n/, token: "newline", merge: false }, { regex: /}/, onMatch: function(e3, t3, n3) {
+        }, next: "formatStringVar" }, { regex: /\n/, token: "newline", merge: false }, { regex: /}/, onMatch: function(e4, t3, n3) {
           var r2 = n3.shift();
-          return this.next = r2 && r2.tabstopId ? "start" : "", [r2 || e3];
-        }, next: "start" }], formatStringVar: [{ regex: /:\/\w+}/, onMatch: function(e3, t3, n3) {
+          return this.next = r2 && r2.tabstopId ? "start" : "", [r2 || e4];
+        }, next: "start" }], formatStringVar: [{ regex: /:\/\w+}/, onMatch: function(e4, t3, n3) {
           var r2 = n3[0];
-          return r2.formatFunction = e3.slice(2, -1), [n3.shift()];
-        }, next: "formatString" }, n2, { regex: /:[\?\-+]?/, onMatch: function(e3, t3, n3) {
-          e3[1] == "+" && (n3[0].ifEnd = n3[0]), e3[1] == "?" && (n3[0].expectElse = true);
+          return r2.formatFunction = e4.slice(2, -1), [n3.shift()];
+        }, next: "formatString" }, n2, { regex: /:[\?\-+]?/, onMatch: function(e4, t3, n3) {
+          e4[1] == "+" && (n3[0].ifEnd = n3[0]), e4[1] == "?" && (n3[0].expectElse = true);
         }, next: "formatString" }, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "formatString" }] }), d.$tokenizer;
-      }, this.tokenizeTmSnippet = function(e2, t2) {
-        return this.getTokenizer().getLineTokens(e2, t2).tokens.map(function(e3) {
-          return e3.value || e3;
+      }, this.tokenizeTmSnippet = function(e3, t2) {
+        return this.getTokenizer().getLineTokens(e3, t2).tokens.map(function(e4) {
+          return e4.value || e4;
         });
-      }, this.getVariableValue = function(e2, t2, n2) {
+      }, this.getVariableValue = function(e3, t2, n2) {
         if (/^\d+$/.test(t2))
           return (this.variables.__ || {})[t2] || "";
         if (/^[A-Z]\d+$/.test(t2))
@@ -41834,14 +42596,14 @@ var extLanguage_tools = { exports: {} };
         if (!this.variables.hasOwnProperty(t2))
           return "";
         var r2 = this.variables[t2];
-        return typeof r2 == "function" && (r2 = this.variables[t2](e2, t2, n2)), r2 == null ? "" : r2;
-      }, this.variables = h, this.tmStrFormat = function(e2, t2, n2) {
+        return typeof r2 == "function" && (r2 = this.variables[t2](e3, t2, n2)), r2 == null ? "" : r2;
+      }, this.variables = h, this.tmStrFormat = function(e3, t2, n2) {
         if (!t2.fmt)
-          return e2;
+          return e3;
         var r2 = t2.flag || "", i2 = t2.guard;
         i2 = new RegExp(i2, r2.replace(/[^gim]/g, ""));
-        var s2 = typeof t2.fmt == "string" ? this.tokenizeTmSnippet(t2.fmt, "formatString") : t2.fmt, o2 = this, u2 = e2.replace(i2, function() {
-          var e3 = o2.variables.__;
+        var s2 = typeof t2.fmt == "string" ? this.tokenizeTmSnippet(t2.fmt, "formatString") : t2.fmt, o2 = this, u2 = e3.replace(i2, function() {
+          var e4 = o2.variables.__;
           o2.variables.__ = [].slice.call(arguments);
           var t3 = o2.resolveVariables(s2, n2), r3 = "E";
           for (var i3 = 0; i3 < t3.length; i3++) {
@@ -41856,19 +42618,19 @@ var extLanguage_tools = { exports: {} };
             } else
               r3 == "U" ? t3[i3] = u3.toUpperCase() : r3 == "L" && (t3[i3] = u3.toLowerCase());
           }
-          return o2.variables.__ = e3, t3.join("");
+          return o2.variables.__ = e4, t3.join("");
         });
         return u2;
-      }, this.tmFormatFunction = function(e2, t2, n2) {
-        return t2.formatFunction == "upcase" ? e2.toUpperCase() : t2.formatFunction == "downcase" ? e2.toLowerCase() : e2;
-      }, this.resolveVariables = function(e2, t2) {
+      }, this.tmFormatFunction = function(e3, t2, n2) {
+        return t2.formatFunction == "upcase" ? e3.toUpperCase() : t2.formatFunction == "downcase" ? e3.toLowerCase() : e3;
+      }, this.resolveVariables = function(e3, t2) {
         function f2(t3) {
-          var n3 = e2.indexOf(t3, s2 + 1);
+          var n3 = e3.indexOf(t3, s2 + 1);
           n3 != -1 && (s2 = n3);
         }
         var n2 = [], r2 = "", i2 = true;
-        for (var s2 = 0; s2 < e2.length; s2++) {
-          var o2 = e2[s2];
+        for (var s2 = 0; s2 < e3.length; s2++) {
+          var o2 = e3[s2];
           if (typeof o2 == "string") {
             n2.push(o2), o2 == "\n" ? (i2 = true, r2 = "") : i2 && (r2 = /^\t*/.exec(o2)[0], i2 = /\S/.test(o2));
             continue;
@@ -41877,8 +42639,8 @@ var extLanguage_tools = { exports: {} };
             continue;
           i2 = false;
           if (o2.fmtString) {
-            var u2 = e2.indexOf(o2, s2 + 1);
-            u2 == -1 && (u2 = e2.length), o2.fmt = e2.slice(s2 + 1, u2), s2 = u2;
+            var u2 = e3.indexOf(o2, s2 + 1);
+            u2 == -1 && (u2 = e3.length), o2.fmt = e3.slice(s2 + 1, u2), s2 = u2;
           }
           if (o2.text) {
             var a2 = this.getVariableValue(t2, o2.text, r2) + "";
@@ -41887,105 +42649,114 @@ var extLanguage_tools = { exports: {} };
             o2.elseEnd ? f2(o2.elseEnd) : o2.tabstopId != null ? n2.push(o2) : o2.changeCase != null && n2.push(o2);
         }
         return n2;
-      }, this.insertSnippetForSelection = function(e2, t2) {
-        function f2(e3) {
+      };
+      var e2 = function(e3, t2, n2) {
+        function l2(e4) {
           var t3 = [];
-          for (var n3 = 0; n3 < e3.length; n3++) {
-            var r3 = e3[n3];
+          for (var n3 = 0; n3 < e4.length; n3++) {
+            var r3 = e4[n3];
             if (typeof r3 == "object") {
-              if (a2[r3.tabstopId])
+              if (f2[r3.tabstopId])
                 continue;
-              var i3 = e3.lastIndexOf(r3, n3 - 1);
+              var i3 = e4.lastIndexOf(r3, n3 - 1);
               r3 = t3[i3] || { tabstopId: r3.tabstopId };
             }
             t3[n3] = r3;
           }
           return t3;
         }
-        var n2 = e2.getCursorPosition(), r2 = e2.session.getLine(n2.row), i2 = e2.session.getTabString(), s2 = r2.match(/^\s*/)[0];
-        n2.column < s2.length && (s2 = s2.slice(0, n2.column)), t2 = t2.replace(/\r/g, "");
-        var o2 = this.tokenizeTmSnippet(t2);
-        o2 = this.resolveVariables(o2, e2), o2 = o2.map(function(e3) {
-          return e3 == "\n" ? e3 + s2 : typeof e3 == "string" ? e3.replace(/\t/g, i2) : e3;
+        var r2 = e3.getCursorPosition(), i2 = e3.session.getLine(r2.row), s2 = e3.session.getTabString(), o2 = i2.match(/^\s*/)[0];
+        r2.column < o2.length && (o2 = o2.slice(0, r2.column)), t2 = t2.replace(/\r/g, "");
+        var u2 = this.tokenizeTmSnippet(t2);
+        u2 = this.resolveVariables(u2, e3), u2 = u2.map(function(e4) {
+          return e4 == "\n" ? e4 + o2 : typeof e4 == "string" ? e4.replace(/\t/g, s2) : e4;
         });
-        var u2 = [];
-        o2.forEach(function(e3, t3) {
-          if (typeof e3 != "object")
+        var a2 = [];
+        u2.forEach(function(e4, t3) {
+          if (typeof e4 != "object")
             return;
-          var n3 = e3.tabstopId, r3 = u2[n3];
-          r3 || (r3 = u2[n3] = [], r3.index = n3, r3.value = "", r3.parents = {});
-          if (r3.indexOf(e3) !== -1)
+          var n3 = e4.tabstopId, r3 = a2[n3];
+          r3 || (r3 = a2[n3] = [], r3.index = n3, r3.value = "", r3.parents = {});
+          if (r3.indexOf(e4) !== -1)
             return;
-          e3.choices && !r3.choices && (r3.choices = e3.choices), r3.push(e3);
-          var i3 = o2.indexOf(e3, t3 + 1);
+          e4.choices && !r3.choices && (r3.choices = e4.choices), r3.push(e4);
+          var i3 = u2.indexOf(e4, t3 + 1);
           if (i3 === -1)
             return;
-          var s3 = o2.slice(t3 + 1, i3), a3 = s3.some(function(e4) {
-            return typeof e4 == "object";
+          var s3 = u2.slice(t3 + 1, i3), o3 = s3.some(function(e5) {
+            return typeof e5 == "object";
           });
-          a3 && !r3.value ? r3.value = s3 : s3.length && (!r3.value || typeof r3.value != "string") && (r3.value = s3.join(""));
-        }), u2.forEach(function(e3) {
-          e3.length = 0;
+          o3 && !r3.value ? r3.value = s3 : s3.length && (!r3.value || typeof r3.value != "string") && (r3.value = s3.join(""));
+        }), a2.forEach(function(e4) {
+          e4.length = 0;
         });
-        var a2 = {};
-        for (var l2 = 0; l2 < o2.length; l2++) {
-          var c2 = o2[l2];
-          if (typeof c2 != "object")
+        var f2 = {};
+        for (var c2 = 0; c2 < u2.length; c2++) {
+          var h2 = u2[c2];
+          if (typeof h2 != "object")
             continue;
-          var h2 = c2.tabstopId, p2 = u2[h2], d2 = o2.indexOf(c2, l2 + 1);
-          if (a2[h2]) {
-            a2[h2] === c2 && (delete a2[h2], Object.keys(a2).forEach(function(e3) {
-              p2.parents[e3] = true;
+          var p2 = h2.tabstopId, d2 = a2[p2], v2 = u2.indexOf(h2, c2 + 1);
+          if (f2[p2]) {
+            f2[p2] === h2 && (delete f2[p2], Object.keys(f2).forEach(function(e4) {
+              d2.parents[e4] = true;
             }));
             continue;
           }
-          a2[h2] = c2;
-          var m2 = p2.value;
-          typeof m2 != "string" ? m2 = f2(m2) : c2.fmt && (m2 = this.tmStrFormat(m2, c2, e2)), o2.splice.apply(o2, [l2 + 1, Math.max(0, d2 - l2)].concat(m2, c2)), p2.indexOf(c2) === -1 && p2.push(c2);
+          f2[p2] = h2;
+          var m2 = d2.value;
+          typeof m2 != "string" ? m2 = l2(m2) : h2.fmt && (m2 = this.tmStrFormat(m2, h2, e3)), u2.splice.apply(u2, [c2 + 1, Math.max(0, v2 - c2)].concat(m2, h2)), d2.indexOf(h2) === -1 && d2.push(h2);
         }
         var g2 = 0, y2 = 0, b = "";
-        o2.forEach(function(e3) {
-          if (typeof e3 == "string") {
-            var t3 = e3.split("\n");
-            t3.length > 1 ? (y2 = t3[t3.length - 1].length, g2 += t3.length - 1) : y2 += e3.length, b += e3;
+        return u2.forEach(function(e4) {
+          if (typeof e4 == "string") {
+            var t3 = e4.split("\n");
+            t3.length > 1 ? (y2 = t3[t3.length - 1].length, g2 += t3.length - 1) : y2 += e4.length, b += e4;
           } else
-            e3 && (e3.start ? e3.end = { row: g2, column: y2 } : e3.start = { row: g2, column: y2 });
-        });
-        var w = e2.getSelectionRange(), E = e2.session.replace(w, b), S = new v(e2), x = e2.inVirtualSelectionMode && e2.selection.index;
-        S.addTabstops(u2, w.start, E, x);
-      }, this.insertSnippet = function(e2, t2) {
-        var n2 = this;
-        if (e2.inVirtualSelectionMode)
-          return n2.insertSnippetForSelection(e2, t2);
-        e2.forEachSelection(function() {
-          n2.insertSnippetForSelection(e2, t2);
-        }, null, { keepOrder: true }), e2.tabstopManager && e2.tabstopManager.tabNext();
-      }, this.$getScope = function(e2) {
-        var t2 = e2.session.$mode.$id || "";
+            e4 && (e4.start ? e4.end = { row: g2, column: y2 } : e4.start = { row: g2, column: y2 });
+        }), { text: b, tabstops: a2, tokens: u2 };
+      };
+      this.getDisplayTextForSnippet = function(t2, n2) {
+        var r2 = e2.call(this, t2, n2);
+        return r2.text;
+      }, this.insertSnippetForSelection = function(t2, n2, r2) {
+        var i2 = e2.call(this, t2, n2), s2 = t2.getSelectionRange();
+        r2 && r2.compareRange(s2) === 0 && (s2 = r2);
+        var o2 = t2.session.replace(s2, i2.text), u2 = new v(t2), a2 = t2.inVirtualSelectionMode && t2.selection.index;
+        u2.addTabstops(i2.tabstops, s2.start, o2, a2);
+      }, this.insertSnippet = function(e3, t2, n2) {
+        var r2 = this;
+        n2 && !(n2 instanceof u) && (n2 = u.fromPoints(n2.start, n2.end));
+        if (e3.inVirtualSelectionMode)
+          return r2.insertSnippetForSelection(e3, t2, n2);
+        e3.forEachSelection(function() {
+          r2.insertSnippetForSelection(e3, t2, n2);
+        }, null, { keepOrder: true }), e3.tabstopManager && e3.tabstopManager.tabNext();
+      }, this.$getScope = function(e3) {
+        var t2 = e3.session.$mode.$id || "";
         t2 = t2.split("/").pop();
         if (t2 === "html" || t2 === "php") {
-          t2 === "php" && !e2.session.$mode.inlinePhp && (t2 = "html");
-          var n2 = e2.getCursorPosition(), r2 = e2.session.getState(n2.row);
+          t2 === "php" && !e3.session.$mode.inlinePhp && (t2 = "html");
+          var n2 = e3.getCursorPosition(), r2 = e3.session.getState(n2.row);
           typeof r2 == "object" && (r2 = r2[0]), r2.substring && (r2.substring(0, 3) == "js-" ? t2 = "javascript" : r2.substring(0, 4) == "css-" ? t2 = "css" : r2.substring(0, 4) == "php-" && (t2 = "php"));
         }
         return t2;
-      }, this.getActiveScopes = function(e2) {
-        var t2 = this.$getScope(e2), n2 = [t2], r2 = this.snippetMap;
+      }, this.getActiveScopes = function(e3) {
+        var t2 = this.$getScope(e3), n2 = [t2], r2 = this.snippetMap;
         return r2[t2] && r2[t2].includeScopes && n2.push.apply(n2, r2[t2].includeScopes), n2.push("_"), n2;
-      }, this.expandWithTab = function(e2, t2) {
-        var n2 = this, r2 = e2.forEachSelection(function() {
-          return n2.expandSnippetForSelection(e2, t2);
+      }, this.expandWithTab = function(e3, t2) {
+        var n2 = this, r2 = e3.forEachSelection(function() {
+          return n2.expandSnippetForSelection(e3, t2);
         }, null, { keepOrder: true });
-        return r2 && e2.tabstopManager && e2.tabstopManager.tabNext(), r2;
-      }, this.expandSnippetForSelection = function(e2, t2) {
-        var n2 = e2.getCursorPosition(), r2 = e2.session.getLine(n2.row), i2 = r2.substring(0, n2.column), s2 = r2.substr(n2.column), o2 = this.snippetMap, u2;
-        return this.getActiveScopes(e2).some(function(e3) {
-          var t3 = o2[e3];
+        return r2 && e3.tabstopManager && e3.tabstopManager.tabNext(), r2;
+      }, this.expandSnippetForSelection = function(e3, t2) {
+        var n2 = e3.getCursorPosition(), r2 = e3.session.getLine(n2.row), i2 = r2.substring(0, n2.column), s2 = r2.substr(n2.column), o2 = this.snippetMap, u2;
+        return this.getActiveScopes(e3).some(function(e4) {
+          var t3 = o2[e4];
           return t3 && (u2 = this.findMatchingSnippet(t3, i2, s2)), !!u2;
-        }, this), u2 ? t2 && t2.dryRun ? true : (e2.session.doc.removeInLine(n2.row, n2.column - u2.replaceBefore.length, n2.column + u2.replaceAfter.length), this.variables.M__ = u2.matchBefore, this.variables.T__ = u2.matchAfter, this.insertSnippetForSelection(e2, u2.content), this.variables.M__ = this.variables.T__ = null, true) : false;
-      }, this.findMatchingSnippet = function(e2, t2, n2) {
-        for (var r2 = e2.length; r2--; ) {
-          var i2 = e2[r2];
+        }, this), u2 ? t2 && t2.dryRun ? true : (e3.session.doc.removeInLine(n2.row, n2.column - u2.replaceBefore.length, n2.column + u2.replaceAfter.length), this.variables.M__ = u2.matchBefore, this.variables.T__ = u2.matchAfter, this.insertSnippetForSelection(e3, u2.content), this.variables.M__ = this.variables.T__ = null, true) : false;
+      }, this.findMatchingSnippet = function(e3, t2, n2) {
+        for (var r2 = e3.length; r2--; ) {
+          var i2 = e3[r2];
           if (i2.startRe && !i2.startRe.test(t2))
             continue;
           if (i2.endRe && !i2.endRe.test(n2))
@@ -41994,44 +42765,44 @@ var extLanguage_tools = { exports: {} };
             continue;
           return i2.matchBefore = i2.startRe ? i2.startRe.exec(t2) : [""], i2.matchAfter = i2.endRe ? i2.endRe.exec(n2) : [""], i2.replaceBefore = i2.triggerRe ? i2.triggerRe.exec(t2)[0] : "", i2.replaceAfter = i2.endTriggerRe ? i2.endTriggerRe.exec(n2)[0] : "", i2;
         }
-      }, this.snippetMap = {}, this.snippetNameMap = {}, this.register = function(e2, t2) {
-        function s2(e3) {
-          return e3 && !/^\^?\(.*\)\$?$|^\\b$/.test(e3) && (e3 = "(?:" + e3 + ")"), e3 || "";
+      }, this.snippetMap = {}, this.snippetNameMap = {}, this.register = function(e3, t2) {
+        function s2(e4) {
+          return e4 && !/^\^?\(.*\)\$?$|^\\b$/.test(e4) && (e4 = "(?:" + e4 + ")"), e4 || "";
         }
-        function u2(e3, t3, n3) {
-          return e3 = s2(e3), t3 = s2(t3), n3 ? (e3 = t3 + e3, e3 && e3[e3.length - 1] != "$" && (e3 += "$")) : (e3 += t3, e3 && e3[0] != "^" && (e3 = "^" + e3)), new RegExp(e3);
+        function u2(e4, t3, n3) {
+          return e4 = s2(e4), t3 = s2(t3), n3 ? (e4 = t3 + e4, e4 && e4[e4.length - 1] != "$" && (e4 += "$")) : (e4 += t3, e4 && e4[0] != "^" && (e4 = "^" + e4)), new RegExp(e4);
         }
-        function a2(e3) {
-          e3.scope || (e3.scope = t2 || "_"), t2 = e3.scope, n2[t2] || (n2[t2] = [], r2[t2] = {});
+        function a2(e4) {
+          e4.scope || (e4.scope = t2 || "_"), t2 = e4.scope, n2[t2] || (n2[t2] = [], r2[t2] = {});
           var s3 = r2[t2];
-          if (e3.name) {
-            var a3 = s3[e3.name];
-            a3 && i2.unregister(a3), s3[e3.name] = e3;
+          if (e4.name) {
+            var a3 = s3[e4.name];
+            a3 && i2.unregister(a3), s3[e4.name] = e4;
           }
-          n2[t2].push(e3), e3.prefix && (e3.tabTrigger = e3.prefix), !e3.content && e3.body && (e3.content = Array.isArray(e3.body) ? e3.body.join("\n") : e3.body), e3.tabTrigger && !e3.trigger && (!e3.guard && /^\w/.test(e3.tabTrigger) && (e3.guard = "\\b"), e3.trigger = o.escapeRegExp(e3.tabTrigger));
-          if (!e3.trigger && !e3.guard && !e3.endTrigger && !e3.endGuard)
+          n2[t2].push(e4), e4.prefix && (e4.tabTrigger = e4.prefix), !e4.content && e4.body && (e4.content = Array.isArray(e4.body) ? e4.body.join("\n") : e4.body), e4.tabTrigger && !e4.trigger && (!e4.guard && /^\w/.test(e4.tabTrigger) && (e4.guard = "\\b"), e4.trigger = o.escapeRegExp(e4.tabTrigger));
+          if (!e4.trigger && !e4.guard && !e4.endTrigger && !e4.endGuard)
             return;
-          e3.startRe = u2(e3.trigger, e3.guard, true), e3.triggerRe = new RegExp(e3.trigger), e3.endRe = u2(e3.endTrigger, e3.endGuard, true), e3.endTriggerRe = new RegExp(e3.endTrigger);
+          e4.startRe = u2(e4.trigger, e4.guard, true), e4.triggerRe = new RegExp(e4.trigger), e4.endRe = u2(e4.endTrigger, e4.endGuard, true), e4.endTriggerRe = new RegExp(e4.endTrigger);
         }
         var n2 = this.snippetMap, r2 = this.snippetNameMap, i2 = this;
-        e2 || (e2 = []), Array.isArray(e2) ? e2.forEach(a2) : Object.keys(e2).forEach(function(t3) {
-          a2(e2[t3]);
+        e3 || (e3 = []), Array.isArray(e3) ? e3.forEach(a2) : Object.keys(e3).forEach(function(t3) {
+          a2(e3[t3]);
         }), this._signal("registerSnippets", { scope: t2 });
-      }, this.unregister = function(e2, t2) {
-        function i2(e3) {
-          var i3 = r2[e3.scope || t2];
-          if (i3 && i3[e3.name]) {
-            delete i3[e3.name];
-            var s2 = n2[e3.scope || t2], o2 = s2 && s2.indexOf(e3);
+      }, this.unregister = function(e3, t2) {
+        function i2(e4) {
+          var i3 = r2[e4.scope || t2];
+          if (i3 && i3[e4.name]) {
+            delete i3[e4.name];
+            var s2 = n2[e4.scope || t2], o2 = s2 && s2.indexOf(e4);
             o2 >= 0 && s2.splice(o2, 1);
           }
         }
         var n2 = this.snippetMap, r2 = this.snippetNameMap;
-        e2.content ? i2(e2) : Array.isArray(e2) && e2.forEach(i2);
-      }, this.parseSnippetFile = function(e2) {
-        e2 = e2.replace(/\r/g, "");
+        e3.content ? i2(e3) : Array.isArray(e3) && e3.forEach(i2);
+      }, this.parseSnippetFile = function(e3) {
+        e3 = e3.replace(/\r/g, "");
         var t2 = [], n2 = {}, r2 = /^#.*|^({[\s\S]*})\s*$|^(\S+) (.*)$|^((?:\n*\t.*)+)/gm, i2;
-        while (i2 = r2.exec(e2)) {
+        while (i2 = r2.exec(e3)) {
           if (i2[1])
             try {
               n2 = JSON.parse(i2[1]), t2.push(n2);
@@ -42049,11 +42820,11 @@ var extLanguage_tools = { exports: {} };
           }
         }
         return t2;
-      }, this.getSnippetByName = function(e2, t2) {
+      }, this.getSnippetByName = function(e3, t2) {
         var n2 = this.snippetNameMap, r2;
         return this.getActiveScopes(t2).some(function(t3) {
           var i2 = n2[t3];
-          return i2 && (r2 = i2[e2]), !!r2;
+          return i2 && (r2 = i2[e3]), !!r2;
         }, this), r2;
       };
     }).call(d.prototype);
@@ -42199,116 +42970,147 @@ var extLanguage_tools = { exports: {} };
       t2.$maxLines = 4;
       var n2 = new i(t2);
       return n2.setHighlightActiveLine(false), n2.setShowPrintMargin(false), n2.renderer.setShowGutter(false), n2.renderer.setHighlightGutterLine(false), n2.$mouseHandler.$focusTimeout = 0, n2.$highlightTagPending = true, n2;
-    }, c = function(e2) {
-      var t2 = a.createElement("div"), n2 = new l(t2);
-      e2 && e2.appendChild(t2), t2.style.display = "none", n2.renderer.content.style.cursor = "default", n2.renderer.setStyle("ace_autocomplete"), n2.renderer.container.setAttribute("role", "listbox"), n2.renderer.container.setAttribute("aria-label", "Autocomplete suggestions"), n2.setOption("displayIndentGuides", false), n2.setOption("dragDelay", 150);
-      var r2 = function() {
-      };
-      n2.focus = r2, n2.$isFocused = true, n2.renderer.$cursorLayer.restartTimer = r2, n2.renderer.$cursorLayer.element.style.opacity = 0, n2.renderer.$maxLines = 8, n2.renderer.$keepTextAreaAtCursor = false, n2.setHighlightActiveLine(false), n2.session.highlight(""), n2.session.$searchHighlight.clazz = "ace_highlight-marker", n2.on("mousedown", function(e3) {
-        var t3 = e3.getDocumentPosition();
-        n2.selection.moveToPosition(t3), h.start.row = h.end.row = t3.row, e3.stop();
-      });
-      var i2, c2 = new s(-1, 0, -1, Infinity), h = new s(-1, 0, -1, Infinity);
-      h.id = n2.session.addMarker(h, "ace_active-line", "fullLine"), n2.setSelectOnHover = function(e3) {
-        e3 ? c2.id && (n2.session.removeMarker(c2.id), c2.id = null) : c2.id = n2.session.addMarker(c2, "ace_line-hover", "fullLine");
-      }, n2.setSelectOnHover(false), n2.on("mousemove", function(e3) {
-        if (!i2) {
-          i2 = e3;
-          return;
-        }
-        if (i2.x == e3.x && i2.y == e3.y)
-          return;
-        i2 = e3, i2.scrollTop = n2.renderer.scrollTop;
-        var t3 = i2.getDocumentPosition().row;
-        c2.start.row != t3 && (c2.id || n2.setRow(t3), d(t3));
-      }), n2.renderer.on("beforeRender", function() {
-        if (i2 && c2.start.row != -1) {
-          i2.$pos = null;
-          var e3 = i2.getDocumentPosition().row;
-          c2.id || n2.setRow(e3), d(e3, true);
-        }
-      }), n2.renderer.on("afterRender", function() {
-        var e3 = n2.getRow(), t3 = n2.renderer.$textLayer, r3 = t3.element.childNodes[e3 - t3.config.firstRow], i3 = document.activeElement;
-        r3 !== t3.selectedNode && t3.selectedNode && (a.removeCssClass(t3.selectedNode, "ace_selected"), i3.removeAttribute("aria-activedescendant"), t3.selectedNode.removeAttribute("id")), t3.selectedNode = r3;
-        if (r3) {
-          a.addCssClass(r3, "ace_selected");
-          var s2 = f(e3);
-          r3.id = s2, n2.renderer.container.setAttribute("aria-activedescendant", s2), i3.setAttribute("aria-activedescendant", s2), r3.setAttribute("role", "option"), r3.setAttribute("aria-label", n2.getData(e3).value), r3.setAttribute("aria-setsize", n2.data.length), r3.setAttribute("aria-posinset", e3);
-        }
-      });
-      var p = function() {
-        d(-1);
-      }, d = function(e3, t3) {
-        e3 !== c2.start.row && (c2.start.row = c2.end.row = e3, t3 || n2.session._emit("changeBackMarker"), n2._emit("changeHoverMarker"));
-      };
-      n2.getHoveredRow = function() {
-        return c2.start.row;
-      }, o.addListener(n2.container, "mouseout", p), n2.on("hide", p), n2.on("changeSelection", p), n2.session.doc.getLength = function() {
-        return n2.data.length;
-      }, n2.session.doc.getLine = function(e3) {
-        var t3 = n2.data[e3];
-        return typeof t3 == "string" ? t3 : t3 && t3.value || "";
-      };
-      var v = n2.session.bgTokenizer;
-      return v.$tokenizeRow = function(e3) {
-        function s2(e4, n3) {
-          e4 && r3.push({ type: (t3.className || "") + (n3 || ""), value: e4 });
-        }
-        var t3 = n2.data[e3], r3 = [];
-        if (!t3)
-          return r3;
-        typeof t3 == "string" && (t3 = { value: t3 });
-        var i3 = t3.caption || t3.value || t3.name, o2 = i3.toLowerCase(), u2 = (n2.filterText || "").toLowerCase(), a2 = 0, f2 = 0;
-        for (var l2 = 0; l2 <= u2.length; l2++)
-          if (l2 != f2 && (t3.matchMask & 1 << l2 || l2 == u2.length)) {
-            var c3 = u2.slice(f2, l2);
-            f2 = l2;
-            var h2 = o2.indexOf(c3, a2);
-            if (h2 == -1)
-              continue;
-            s2(i3.slice(a2, h2), ""), a2 = h2 + c3.length, s2(i3.slice(h2, a2), "completion-highlight");
+    }, c = function() {
+      function e2(e3) {
+        var t2 = a.createElement("div"), n2 = new l(t2);
+        e3 && e3.appendChild(t2), t2.style.display = "none", n2.renderer.content.style.cursor = "default", n2.renderer.setStyle("ace_autocomplete"), n2.renderer.container.setAttribute("role", "listbox"), n2.renderer.container.setAttribute("aria-label", "Autocomplete suggestions"), n2.setOption("displayIndentGuides", false), n2.setOption("dragDelay", 150);
+        var r2 = function() {
+        };
+        n2.focus = r2, n2.$isFocused = true, n2.renderer.$cursorLayer.restartTimer = r2, n2.renderer.$cursorLayer.element.style.opacity = 0, n2.renderer.$maxLines = 8, n2.renderer.$keepTextAreaAtCursor = false, n2.setHighlightActiveLine(false), n2.session.highlight(""), n2.session.$searchHighlight.clazz = "ace_highlight-marker", n2.on("mousedown", function(e4) {
+          var t3 = e4.getDocumentPosition();
+          n2.selection.moveToPosition(t3), h.start.row = h.end.row = t3.row, e4.stop();
+        });
+        var i2, c2 = new s(-1, 0, -1, Infinity), h = new s(-1, 0, -1, Infinity);
+        h.id = n2.session.addMarker(h, "ace_active-line", "fullLine"), n2.setSelectOnHover = function(e4) {
+          e4 ? c2.id && (n2.session.removeMarker(c2.id), c2.id = null) : c2.id = n2.session.addMarker(c2, "ace_line-hover", "fullLine");
+        }, n2.setSelectOnHover(false), n2.on("mousemove", function(e4) {
+          if (!i2) {
+            i2 = e4;
+            return;
           }
-        return s2(i3.slice(a2, i3.length), ""), t3.meta && r3.push({ type: "completion-meta", value: t3.meta }), t3.message && r3.push({ type: "completion-message", value: t3.message }), r3;
-      }, v.$updateOnChange = r2, v.start = r2, n2.session.$computeWidth = function() {
-        return this.screenWidth = 0;
-      }, n2.isOpen = false, n2.isTopdown = false, n2.autoSelect = true, n2.filterText = "", n2.data = [], n2.setData = function(e3, t3) {
-        n2.filterText = t3 || "", n2.setValue(u.stringRepeat("\n", e3.length), -1), n2.data = e3 || [], n2.setRow(0);
-      }, n2.getData = function(e3) {
-        return n2.data[e3];
-      }, n2.getRow = function() {
-        return h.start.row;
-      }, n2.setRow = function(e3) {
-        e3 = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length, e3)), h.start.row != e3 && (n2.selection.clearSelection(), h.start.row = h.end.row = e3 || 0, n2.session._emit("changeBackMarker"), n2.moveCursorTo(e3 || 0, 0), n2.isOpen && n2._signal("select"));
-      }, n2.on("changeSelection", function() {
-        n2.isOpen && n2.setRow(n2.selection.lead.row), n2.renderer.scrollCursorIntoView();
-      }), n2.hide = function() {
-        this.container.style.display = "none", this._signal("hide"), n2.isOpen = false;
-      }, n2.show = function(e3, t3, r3) {
-        var s2 = this.container, o2 = window.innerHeight, u2 = window.innerWidth, a2 = this.renderer, f2 = a2.$maxLines * t3 * 1.4, l2 = e3.top + this.$borderSize, c3 = l2 > o2 / 2 && !r3;
-        c3 && l2 + t3 + f2 > o2 ? (a2.$maxPixelHeight = l2 - 2 * this.$borderSize, s2.style.top = "", s2.style.bottom = o2 - l2 + "px", n2.isTopdown = false) : (l2 += t3, a2.$maxPixelHeight = o2 - l2 - 0.2 * t3, s2.style.top = l2 + "px", s2.style.bottom = "", n2.isTopdown = true), s2.style.display = "";
-        var h2 = e3.left;
-        h2 + s2.offsetWidth > u2 && (h2 = u2 - s2.offsetWidth), s2.style.left = h2 + "px", this._signal("show"), i2 = null, n2.isOpen = true;
-      }, n2.goTo = function(e3) {
-        var t3 = this.getRow(), n3 = this.session.getLength() - 1;
-        switch (e3) {
-          case "up":
-            t3 = t3 <= 0 ? n3 : t3 - 1;
-            break;
-          case "down":
-            t3 = t3 >= n3 ? -1 : t3 + 1;
-            break;
-          case "start":
-            t3 = 0;
-            break;
-          case "end":
-            t3 = n3;
-        }
-        this.setRow(t3);
-      }, n2.getTextLeftOffset = function() {
-        return this.$borderSize + this.renderer.$padding + this.$imageSize;
-      }, n2.$imageSize = 0, n2.$borderSize = 1, n2;
-    };
-    a.importCssString("\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin: 0.9em;\n}\n.ace_completion-message {\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}", "autocompletion.css", false), t.AcePopup = c, t.$singleLineEditor = l, t.getAriaId = f;
+          if (i2.x == e4.x && i2.y == e4.y)
+            return;
+          i2 = e4, i2.scrollTop = n2.renderer.scrollTop;
+          var t3 = i2.getDocumentPosition().row;
+          c2.start.row != t3 && (c2.id || n2.setRow(t3), d(t3));
+        }), n2.renderer.on("beforeRender", function() {
+          if (i2 && c2.start.row != -1) {
+            i2.$pos = null;
+            var e4 = i2.getDocumentPosition().row;
+            c2.id || n2.setRow(e4), d(e4, true);
+          }
+        }), n2.renderer.on("afterRender", function() {
+          var e4 = n2.getRow(), t3 = n2.renderer.$textLayer, r3 = t3.element.childNodes[e4 - t3.config.firstRow], i3 = document.activeElement;
+          r3 !== t3.selectedNode && t3.selectedNode && (a.removeCssClass(t3.selectedNode, "ace_selected"), i3.removeAttribute("aria-activedescendant"), t3.selectedNode.removeAttribute("id")), t3.selectedNode = r3;
+          if (r3) {
+            a.addCssClass(r3, "ace_selected");
+            var s2 = f(e4);
+            r3.id = s2, n2.renderer.container.setAttribute("aria-activedescendant", s2), i3.setAttribute("aria-activedescendant", s2), r3.setAttribute("role", "option"), r3.setAttribute("aria-label", n2.getData(e4).value), r3.setAttribute("aria-setsize", n2.data.length), r3.setAttribute("aria-posinset", e4);
+          }
+        });
+        var p = function() {
+          d(-1);
+        }, d = function(e4, t3) {
+          e4 !== c2.start.row && (c2.start.row = c2.end.row = e4, t3 || n2.session._emit("changeBackMarker"), n2._emit("changeHoverMarker"));
+        };
+        n2.getHoveredRow = function() {
+          return c2.start.row;
+        }, o.addListener(n2.container, "mouseout", p), n2.on("hide", p), n2.on("changeSelection", p), n2.session.doc.getLength = function() {
+          return n2.data.length;
+        }, n2.session.doc.getLine = function(e4) {
+          var t3 = n2.data[e4];
+          return typeof t3 == "string" ? t3 : t3 && t3.value || "";
+        };
+        var v = n2.session.bgTokenizer;
+        return v.$tokenizeRow = function(e4) {
+          function s2(e5, n3) {
+            e5 && r3.push({ type: (t3.className || "") + (n3 || ""), value: e5 });
+          }
+          var t3 = n2.data[e4], r3 = [];
+          if (!t3)
+            return r3;
+          typeof t3 == "string" && (t3 = { value: t3 });
+          var i3 = t3.caption || t3.value || t3.name, o2 = i3.toLowerCase(), u2 = (n2.filterText || "").toLowerCase(), a2 = 0, f2 = 0;
+          for (var l2 = 0; l2 <= u2.length; l2++)
+            if (l2 != f2 && (t3.matchMask & 1 << l2 || l2 == u2.length)) {
+              var c3 = u2.slice(f2, l2);
+              f2 = l2;
+              var h2 = o2.indexOf(c3, a2);
+              if (h2 == -1)
+                continue;
+              s2(i3.slice(a2, h2), ""), a2 = h2 + c3.length, s2(i3.slice(h2, a2), "completion-highlight");
+            }
+          return s2(i3.slice(a2, i3.length), ""), t3.meta && r3.push({ type: "completion-meta", value: t3.meta }), t3.message && r3.push({ type: "completion-message", value: t3.message }), r3;
+        }, v.$updateOnChange = r2, v.start = r2, n2.session.$computeWidth = function() {
+          return this.screenWidth = 0;
+        }, n2.isOpen = false, n2.isTopdown = false, n2.autoSelect = true, n2.filterText = "", n2.data = [], n2.setData = function(e4, t3) {
+          n2.filterText = t3 || "", n2.setValue(u.stringRepeat("\n", e4.length), -1), n2.data = e4 || [], n2.setRow(0);
+        }, n2.getData = function(e4) {
+          return n2.data[e4];
+        }, n2.getRow = function() {
+          return h.start.row;
+        }, n2.setRow = function(e4) {
+          e4 = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length, e4)), h.start.row != e4 && (n2.selection.clearSelection(), h.start.row = h.end.row = e4 || 0, n2.session._emit("changeBackMarker"), n2.moveCursorTo(e4 || 0, 0), n2.isOpen && n2._signal("select"));
+        }, n2.on("changeSelection", function() {
+          n2.isOpen && n2.setRow(n2.selection.lead.row), n2.renderer.scrollCursorIntoView();
+        }), n2.hide = function() {
+          this.container.style.display = "none", n2.anchorPos = null, n2.anchor = null, n2.isOpen && (n2.isOpen = false, this._signal("hide"));
+        }, n2.tryShow = function(e4, t3, r3, s2) {
+          if (!s2 && n2.isOpen && n2.anchorPos && n2.anchor && n2.anchorPos.top === e4.top && n2.anchorPos.left === e4.left && n2.anchor === r3)
+            return true;
+          var o2 = this.container, u2 = window.innerHeight, a2 = window.innerWidth, f2 = this.renderer, l2 = f2.$maxLines * t3 * 1.4, c3 = { top: 0, bottom: 0, left: 0 }, h2 = u2 - e4.top - 3 * this.$borderSize - t3, p2 = e4.top - 3 * this.$borderSize;
+          r3 || (p2 <= h2 || h2 >= l2 ? r3 = "bottom" : r3 = "top"), r3 === "top" ? (c3.bottom = e4.top - this.$borderSize, c3.top = c3.bottom - l2) : r3 === "bottom" && (c3.top = e4.top + t3 + this.$borderSize, c3.bottom = c3.top + l2);
+          var d2 = c3.top >= 0 && c3.bottom <= u2;
+          if (!s2 && !d2)
+            return false;
+          d2 ? f2.$maxPixelHeight = null : r3 === "top" ? f2.$maxPixelHeight = p2 : f2.$maxPixelHeight = h2, r3 === "top" ? (o2.style.top = "", o2.style.bottom = u2 - c3.bottom + "px", n2.isTopdown = false) : (o2.style.top = c3.top + "px", o2.style.bottom = "", n2.isTopdown = true), o2.style.display = "";
+          var v2 = e4.left;
+          return v2 + o2.offsetWidth > a2 && (v2 = a2 - o2.offsetWidth), o2.style.left = v2 + "px", o2.style.right = "", n2.isOpen || (n2.isOpen = true, this._signal("show"), i2 = null), n2.anchorPos = e4, n2.anchor = r3, true;
+        }, n2.show = function(e4, t3, n3) {
+          this.tryShow(e4, t3, n3 ? "bottom" : void 0, true);
+        }, n2.goTo = function(e4) {
+          var t3 = this.getRow(), n3 = this.session.getLength() - 1;
+          switch (e4) {
+            case "up":
+              t3 = t3 <= 0 ? n3 : t3 - 1;
+              break;
+            case "down":
+              t3 = t3 >= n3 ? -1 : t3 + 1;
+              break;
+            case "start":
+              t3 = 0;
+              break;
+            case "end":
+              t3 = n3;
+          }
+          this.setRow(t3);
+        }, n2.getTextLeftOffset = function() {
+          return this.$borderSize + this.renderer.$padding + this.$imageSize;
+        }, n2.$imageSize = 0, n2.$borderSize = 1, n2;
+      }
+      return e2;
+    }();
+    a.importCssString("\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin: 0 0.9em;\n}\n.ace_completion-message {\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete_right .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete_right .ace_line {\n    display: flex;\n}\n.ace_autocomplete_right .ace_completion-meta {\n    flex: 1;\n    text-align: right;\n}\n", "autocompletion.css", false), t.AcePopup = c, t.$singleLineEditor = l, t.getAriaId = f;
+  }), ace.define("ace/autocomplete/inline", ["require", "exports", "module", "ace/snippets"], function(e, t, n) {
+    var r = e("../snippets").snippetManager, i = function() {
+      function e2() {
+        this.editor = null;
+      }
+      return e2.prototype.show = function(e3, t2, n2) {
+        n2 = n2 || "", e3 && this.editor && this.editor !== e3 && (this.hide(), this.editor = null);
+        if (!e3 || !t2)
+          return false;
+        var i2 = t2.snippet ? r.getDisplayTextForSnippet(e3, t2.snippet) : t2.value;
+        return !i2 || !i2.startsWith(n2) ? false : (this.editor = e3, i2 = i2.slice(n2.length), i2 === "" ? e3.removeGhostText() : e3.setGhostText(i2), true);
+      }, e2.prototype.isOpen = function() {
+        return this.editor ? !!this.editor.renderer.$ghostText : false;
+      }, e2.prototype.hide = function() {
+        return this.editor ? (this.editor.removeGhostText(), true) : false;
+      }, e2.prototype.destroy = function() {
+        this.hide(), this.editor = null;
+      }, e2;
+    }();
+    t.AceInline = i;
   }), ace.define("ace/autocomplete/util", ["require", "exports", "module"], function(e, t, n) {
     t.parForEach = function(e2, t2, n2) {
       var r2 = 0, i = e2.length;
@@ -42345,101 +43147,75 @@ var extLanguage_tools = { exports: {} };
         }.bind(this));
       }.bind(this)), r2 || this.retrievePrecedingIdentifier(n2, t2.column);
     };
-  }), ace.define("ace/autocomplete", ["require", "exports", "module", "ace/keyboard/hash_handler", "ace/autocomplete/popup", "ace/autocomplete/popup", "ace/autocomplete/util", "ace/lib/lang", "ace/lib/dom", "ace/snippets", "ace/config"], function(e, t, n) {
-    var r = e("./keyboard/hash_handler").HashHandler, i = e("./autocomplete/popup").AcePopup, s = e("./autocomplete/popup").getAriaId, o = e("./autocomplete/util"), u = e("./lib/lang"), a = e("./lib/dom"), f = e("./snippets").snippetManager, l = e("./config"), c = function() {
-      this.autoInsert = false, this.autoSelect = true, this.exactMatch = false, this.gatherCompletionsId = 0, this.keyboardHandler = new r(), this.keyboardHandler.bindKeys(this.commands), this.blurListener = this.blurListener.bind(this), this.changeListener = this.changeListener.bind(this), this.mousedownListener = this.mousedownListener.bind(this), this.mousewheelListener = this.mousewheelListener.bind(this), this.changeTimer = u.delayedCall(function() {
-        this.updateCompletions(true);
-      }.bind(this)), this.tooltipTimer = u.delayedCall(this.updateDocTooltip.bind(this), 50);
-    };
-    (function() {
-      this.$init = function() {
-        return this.popup = new i(document.body || document.documentElement), this.popup.on("click", function(e2) {
-          this.insertMatch(), e2.stop();
-        }.bind(this)), this.popup.focus = this.editor.focus.bind(this.editor), this.popup.on("show", this.tooltipTimer.bind(null, null)), this.popup.on("select", this.tooltipTimer.bind(null, null)), this.popup.on("changeHoverMarker", this.tooltipTimer.bind(null, null)), this.popup;
-      }, this.getPopup = function() {
+  }), ace.define("ace/autocomplete", ["require", "exports", "module", "ace/keyboard/hash_handler", "ace/autocomplete/popup", "ace/autocomplete/inline", "ace/autocomplete/popup", "ace/autocomplete/util", "ace/lib/lang", "ace/lib/dom", "ace/snippets", "ace/config"], function(e, t, n) {
+    var r = e("./keyboard/hash_handler").HashHandler, i = e("./autocomplete/popup").AcePopup, s = e("./autocomplete/inline").AceInline, o = e("./autocomplete/popup").getAriaId, u = e("./autocomplete/util"), a = e("./lib/lang"), f = e("./lib/dom"), l = e("./snippets").snippetManager, c = e("./config"), h = function(e2, t2) {
+      t2.completer && t2.completer.destroy();
+    }, p = function() {
+      function e2() {
+        this.autoInsert = false, this.autoSelect = true, this.exactMatch = false, this.inlineEnabled = false, this.keyboardHandler = new r(), this.keyboardHandler.bindKeys(this.commands), this.blurListener = this.blurListener.bind(this), this.changeListener = this.changeListener.bind(this), this.mousedownListener = this.mousedownListener.bind(this), this.mousewheelListener = this.mousewheelListener.bind(this), this.changeTimer = a.delayedCall(function() {
+          this.updateCompletions(true);
+        }.bind(this)), this.tooltipTimer = a.delayedCall(this.updateDocTooltip.bind(this), 50);
+      }
+      return e2.prototype.$init = function() {
+        return this.popup = new i(document.body || document.documentElement), this.popup.on("click", function(e3) {
+          this.insertMatch(), e3.stop();
+        }.bind(this)), this.popup.focus = this.editor.focus.bind(this.editor), this.popup.on("show", this.$onPopupChange.bind(this)), this.popup.on("hide", this.$onHidePopup.bind(this)), this.popup.on("select", this.$onPopupChange.bind(this)), this.popup.on("changeHoverMarker", this.tooltipTimer.bind(null, null)), this.popup;
+      }, e2.prototype.$initInline = function() {
+        if (!this.inlineEnabled || this.inlineRenderer)
+          return;
+        return this.inlineRenderer = new s(), this.inlineRenderer;
+      }, e2.prototype.getPopup = function() {
         return this.popup || this.$init();
-      }, this.openPopup = function(e2, t2, n2) {
-        this.popup || this.$init(), this.popup.autoSelect = this.autoSelect, this.popup.setData(this.completions.filtered, this.completions.filterText), this.editor.textInput.setAriaOptions && this.editor.textInput.setAriaOptions({ activeDescendant: s(this.popup.getRow()) }), e2.keyBinding.addKeyboardHandler(this.keyboardHandler);
-        var r2 = e2.renderer;
-        this.popup.setRow(this.autoSelect ? 0 : -1);
-        if (!n2) {
-          this.popup.setTheme(e2.getTheme()), this.popup.setFontSize(e2.getFontSize());
-          var i2 = r2.layerConfig.lineHeight, o2 = r2.$cursorLayer.getPixelPosition(this.base, true);
-          o2.left -= this.popup.getTextLeftOffset();
-          var u2 = e2.container.getBoundingClientRect();
-          o2.top += u2.top - r2.layerConfig.offset, o2.left += u2.left - e2.renderer.scrollLeft, o2.left += r2.gutterWidth, this.popup.show(o2, i2);
-        } else
-          n2 && !t2 && this.detach();
-        this.changeTimer.cancel();
-      }, this.detach = function() {
-        this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.off("changeSelection", this.changeListener), this.editor.off("blur", this.blurListener), this.editor.off("mousedown", this.mousedownListener), this.editor.off("mousewheel", this.mousewheelListener), this.changeTimer.cancel(), this.hideDocTooltip(), this.gatherCompletionsId += 1, this.popup && this.popup.isOpen && this.popup.hide(), this.base && this.base.detach(), this.activated = false, this.completions = this.base = null;
-      }, this.changeListener = function(e2) {
+      }, e2.prototype.$onHidePopup = function() {
+        this.inlineRenderer && this.inlineRenderer.hide(), this.hideDocTooltip();
+      }, e2.prototype.$onPopupChange = function(e3) {
+        if (this.inlineRenderer && this.inlineEnabled) {
+          var t2 = e3 ? null : this.popup.getData(this.popup.getRow()), n2 = u.getCompletionPrefix(this.editor);
+          this.inlineRenderer.show(this.editor, t2, n2) || this.inlineRenderer.hide(), this.$updatePopupPosition();
+        }
+        this.tooltipTimer.call(null, null);
+      }, e2.prototype.$updatePopupPosition = function() {
+        var e3 = this.editor, t2 = e3.renderer, n2 = t2.layerConfig.lineHeight, r2 = t2.$cursorLayer.getPixelPosition(this.base, true);
+        r2.left -= this.popup.getTextLeftOffset();
+        var i2 = e3.container.getBoundingClientRect();
+        r2.top += i2.top - t2.layerConfig.offset, r2.left += i2.left - e3.renderer.scrollLeft, r2.left += t2.gutterWidth;
+        var s2 = { top: r2.top, left: r2.left };
+        t2.$ghostText && t2.$ghostTextWidget && this.base.row === t2.$ghostText.position.row && (s2.top += t2.$ghostTextWidget.el.offsetHeight);
+        if (this.popup.tryShow(s2, n2, "bottom"))
+          return;
+        if (this.popup.tryShow(r2, n2, "top"))
+          return;
+        this.popup.show(r2, n2);
+      }, e2.prototype.openPopup = function(e3, t2, n2) {
+        this.popup || this.$init(), this.inlineEnabled && !this.inlineRenderer && this.$initInline(), this.popup.autoSelect = this.autoSelect, this.popup.setData(this.completions.filtered, this.completions.filterText), this.editor.textInput.setAriaOptions && this.editor.textInput.setAriaOptions({ activeDescendant: o(this.popup.getRow()), inline: this.inlineEnabled }), e3.keyBinding.addKeyboardHandler(this.keyboardHandler), this.popup.setRow(this.autoSelect ? 0 : -1), n2 ? n2 && !t2 && this.detach() : (this.popup.setTheme(e3.getTheme()), this.popup.setFontSize(e3.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel();
+      }, e2.prototype.detach = function() {
+        this.editor && (this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.off("changeSelection", this.changeListener), this.editor.off("blur", this.blurListener), this.editor.off("mousedown", this.mousedownListener), this.editor.off("mousewheel", this.mousewheelListener)), this.changeTimer.cancel(), this.hideDocTooltip(), this.completionProvider && this.completionProvider.detach(), this.popup && this.popup.isOpen && this.popup.hide(), this.base && this.base.detach(), this.activated = false, this.completionProvider = this.completions = this.base = null;
+      }, e2.prototype.changeListener = function(e3) {
         var t2 = this.editor.selection.lead;
         (t2.row != this.base.row || t2.column < this.base.column) && this.detach(), this.activated ? this.changeTimer.schedule() : this.detach();
-      }, this.blurListener = function(e2) {
-        var t2 = document.activeElement, n2 = this.editor.textInput.getElement(), r2 = e2.relatedTarget && this.tooltipNode && this.tooltipNode.contains(e2.relatedTarget), i2 = this.popup && this.popup.container;
-        t2 != n2 && t2.parentNode != i2 && !r2 && t2 != this.tooltipNode && e2.relatedTarget != n2 && this.detach();
-      }, this.mousedownListener = function(e2) {
+      }, e2.prototype.blurListener = function(e3) {
+        var t2 = document.activeElement, n2 = this.editor.textInput.getElement(), r2 = e3.relatedTarget && this.tooltipNode && this.tooltipNode.contains(e3.relatedTarget), i2 = this.popup && this.popup.container;
+        t2 != n2 && t2.parentNode != i2 && !r2 && t2 != this.tooltipNode && e3.relatedTarget != n2 && this.detach();
+      }, e2.prototype.mousedownListener = function(e3) {
         this.detach();
-      }, this.mousewheelListener = function(e2) {
+      }, e2.prototype.mousewheelListener = function(e3) {
         this.detach();
-      }, this.goTo = function(e2) {
-        this.popup.goTo(e2);
-      }, this.insertMatch = function(e2, t2) {
-        e2 || (e2 = this.popup.getData(this.popup.getRow()));
-        if (!e2)
+      }, e2.prototype.goTo = function(e3) {
+        this.popup.goTo(e3);
+      }, e2.prototype.insertMatch = function(e3, t2) {
+        e3 || (e3 = this.popup.getData(this.popup.getRow()));
+        if (!e3)
           return false;
-        var n2 = this.completions;
-        this.editor.startOperation({ command: { name: "insertMatch" } });
-        if (e2.completer && e2.completer.insertMatch)
-          e2.completer.insertMatch(this.editor, e2);
-        else {
-          if (!n2)
-            return false;
-          if (n2.filterText) {
-            var r2 = this.editor.selection.getAllRanges();
-            for (var i2 = 0, s2; s2 = r2[i2]; i2++)
-              s2.start.column -= n2.filterText.length, this.editor.session.remove(s2);
-          }
-          e2.snippet ? f.insertSnippet(this.editor, e2.snippet) : this.editor.execCommand("insertstring", e2.value || e2);
-        }
-        this.completions == n2 && this.detach(), this.editor.endOperation();
-      }, this.commands = { Up: function(e2) {
-        e2.completer.goTo("up");
-      }, Down: function(e2) {
-        e2.completer.goTo("down");
-      }, "Ctrl-Up|Ctrl-Home": function(e2) {
-        e2.completer.goTo("start");
-      }, "Ctrl-Down|Ctrl-End": function(e2) {
-        e2.completer.goTo("end");
-      }, Esc: function(e2) {
-        e2.completer.detach();
-      }, Return: function(e2) {
-        return e2.completer.insertMatch();
-      }, "Shift-Return": function(e2) {
-        e2.completer.insertMatch(null, { deleteSuffix: true });
-      }, Tab: function(e2) {
-        var t2 = e2.completer.insertMatch();
-        if (!!t2 || !!e2.tabstopManager)
-          return t2;
-        e2.completer.goTo("down");
-      }, PageUp: function(e2) {
-        e2.completer.popup.gotoPageUp();
-      }, PageDown: function(e2) {
-        e2.completer.popup.gotoPageDown();
-      } }, this.gatherCompletions = function(e2, t2) {
-        var n2 = e2.getSession(), r2 = e2.getCursorPosition(), i2 = o.getCompletionPrefix(e2);
-        this.base = n2.doc.createAnchor(r2.row, r2.column - i2.length), this.base.$insertRight = true;
-        var s2 = [], u2 = e2.completers.length;
-        return e2.completers.forEach(function(a2, f2) {
-          a2.getCompletions(e2, n2, r2, i2, function(n3, r3) {
-            !n3 && r3 && (s2 = s2.concat(r3)), t2(null, { prefix: o.getCompletionPrefix(e2), matches: s2, finished: --u2 === 0 });
-          });
-        }), true;
-      }, this.showPopup = function(e2, t2) {
-        this.editor && this.detach(), this.activated = true, this.editor = e2, e2.completer != this && (e2.completer && e2.completer.detach(), e2.completer = this), e2.on("changeSelection", this.changeListener), e2.on("blur", this.blurListener), e2.on("mousedown", this.mousedownListener), e2.on("mousewheel", this.mousewheelListener), this.updateCompletions(false, t2);
-      }, this.updateCompletions = function(e2, t2) {
-        if (e2 && this.base && this.completions) {
+        var n2 = this.completions, r2 = this.getCompletionProvider().insertMatch(this.editor, e3, n2.filterText, t2);
+        return this.completions == n2 && this.detach(), r2;
+      }, e2.prototype.showPopup = function(e3, t2) {
+        this.editor && this.detach(), this.activated = true, this.editor = e3, e3.completer != this && (e3.completer && e3.completer.detach(), e3.completer = this), e3.on("changeSelection", this.changeListener), e3.on("blur", this.blurListener), e3.on("mousedown", this.mousedownListener), e3.on("mousewheel", this.mousewheelListener), this.updateCompletions(false, t2);
+      }, e2.prototype.getCompletionProvider = function() {
+        return this.completionProvider || (this.completionProvider = new d()), this.completionProvider;
+      }, e2.prototype.gatherCompletions = function(e3, t2) {
+        return this.getCompletionProvider().gatherCompletions(e3, t2);
+      }, e2.prototype.updateCompletions = function(e3, t2) {
+        if (e3 && this.base && this.completions) {
           var n2 = this.editor.getCursorPosition(), r2 = this.editor.session.getTextRange({ start: this.base, end: n2 });
           if (r2 == this.completions.filterText)
             return;
@@ -42448,71 +43224,62 @@ var extLanguage_tools = { exports: {} };
             return this.detach();
           if (this.completions.filtered.length == 1 && this.completions.filtered[0].value == r2 && !this.completions.filtered[0].snippet)
             return this.detach();
-          this.openPopup(this.editor, r2, e2);
+          this.openPopup(this.editor, r2, e3);
           return;
         }
         if (t2 && t2.matches) {
           var n2 = this.editor.getSelectionRange().start;
-          return this.base = this.editor.session.doc.createAnchor(n2.row, n2.column), this.base.$insertRight = true, this.completions = new h(t2.matches), this.openPopup(this.editor, "", e2);
+          return this.base = this.editor.session.doc.createAnchor(n2.row, n2.column), this.base.$insertRight = true, this.completions = new v(t2.matches), this.openPopup(this.editor, "", e3);
         }
-        var i2 = this.gatherCompletionsId, s2 = function(e3) {
-          if (!e3.finished)
-            return;
-          return this.detach();
-        }.bind(this), o2 = function(t3) {
-          var n3 = t3.prefix, r3 = t3.matches;
-          this.completions = new h(r3), this.exactMatch && (this.completions.exactMatch = true), this.completions.setFilter(n3);
-          var i3 = this.completions.filtered;
-          if (!i3.length)
-            return s2(t3);
-          if (i3.length == 1 && i3[0].value == n3 && !i3[0].snippet)
-            return s2(t3);
-          if (this.autoInsert && i3.length == 1 && t3.finished)
-            return this.insertMatch(i3[0]);
-          this.openPopup(this.editor, n3, e2);
-        }.bind(this), u2 = true, a2 = null;
-        this.gatherCompletions(this.editor, function(e3, t3) {
-          var n3 = t3.prefix, r3 = t3 && t3.matches;
-          if (!r3 || !r3.length)
-            return s2(t3);
-          if (n3.indexOf(t3.prefix) !== 0 || i2 != this.gatherCompletionsId)
-            return;
-          if (u2) {
-            a2 = t3;
-            return;
+        var i2 = this.editor.getSession(), n2 = this.editor.getCursorPosition(), r2 = u.getCompletionPrefix(this.editor);
+        this.base = i2.doc.createAnchor(n2.row, n2.column - r2.length), this.base.$insertRight = true;
+        var s2 = { exactMatch: this.exactMatch };
+        this.getCompletionProvider().provideCompletions(this.editor, s2, function(t3, n3, r3) {
+          var i3 = n3.filtered, s3 = u.getCompletionPrefix(this.editor);
+          if (r3) {
+            if (!i3.length)
+              return this.detach();
+            if (i3.length == 1 && i3[0].value == s3 && !i3[0].snippet)
+              return this.detach();
+            if (this.autoInsert && i3.length == 1)
+              return this.insertMatch(i3[0]);
           }
-          o2(t3);
-        }.bind(this)), u2 = false;
-        if (a2) {
-          var f2 = a2;
-          a2 = null, o2(f2);
-        }
-      }, this.cancelContextMenu = function() {
+          this.completions = n3, this.openPopup(this.editor, s3, e3);
+        }.bind(this));
+      }, e2.prototype.cancelContextMenu = function() {
         this.editor.$mouseHandler.cancelContextMenu();
-      }, this.updateDocTooltip = function() {
-        var e2 = this.popup, t2 = e2.data, n2 = t2 && (t2[e2.getHoveredRow()] || t2[e2.getRow()]), r2 = null;
+      }, e2.prototype.updateDocTooltip = function() {
+        var e3 = this.popup, t2 = e3.data, n2 = t2 && (t2[e3.getHoveredRow()] || t2[e3.getRow()]), r2 = null;
         if (!n2 || !this.editor || !this.popup.isOpen)
           return this.hideDocTooltip();
-        this.editor.completers.some(function(e3) {
-          return e3.getDocTooltip && (r2 = e3.getDocTooltip(n2)), r2;
-        }), !r2 && typeof n2 != "string" && (r2 = n2), typeof r2 == "string" && (r2 = { docText: r2 });
+        var i2 = this.editor.completers.length;
+        for (var s2 = 0; s2 < i2; s2++) {
+          var o2 = this.editor.completers[s2];
+          if (o2.getDocTooltip && n2.completerId === o2.id) {
+            r2 = o2.getDocTooltip(n2);
+            break;
+          }
+        }
+        !r2 && typeof n2 != "string" && (r2 = n2), typeof r2 == "string" && (r2 = { docText: r2 });
         if (!r2 || !r2.docHTML && !r2.docText)
           return this.hideDocTooltip();
         this.showDocTooltip(r2);
-      }, this.showDocTooltip = function(e2) {
-        this.tooltipNode || (this.tooltipNode = a.createElement("div"), this.tooltipNode.className = "ace_tooltip ace_doc-tooltip", this.tooltipNode.style.margin = 0, this.tooltipNode.style.pointerEvents = "auto", this.tooltipNode.tabIndex = -1, this.tooltipNode.onblur = this.blurListener.bind(this), this.tooltipNode.onclick = this.onTooltipClick.bind(this));
-        var t2 = this.tooltipNode;
-        e2.docHTML ? t2.innerHTML = e2.docHTML : e2.docText && (t2.textContent = e2.docText), t2.parentNode || document.body.appendChild(t2);
-        var n2 = this.popup, r2 = n2.container.getBoundingClientRect();
-        t2.style.top = n2.container.style.top, t2.style.bottom = n2.container.style.bottom, t2.style.display = "block", window.innerWidth - r2.right < 320 ? r2.left < 320 ? n2.isTopdown ? (t2.style.top = r2.bottom + "px", t2.style.left = r2.left + "px", t2.style.right = "", t2.style.bottom = "") : (t2.style.top = n2.container.offsetTop - t2.offsetHeight + "px", t2.style.left = r2.left + "px", t2.style.right = "", t2.style.bottom = "") : (t2.style.right = window.innerWidth - r2.left + "px", t2.style.left = "") : (t2.style.left = r2.right + 1 + "px", t2.style.right = "");
-      }, this.hideDocTooltip = function() {
+      }, e2.prototype.showDocTooltip = function(e3) {
+        this.tooltipNode || (this.tooltipNode = f.createElement("div"), this.tooltipNode.style.margin = 0, this.tooltipNode.style.pointerEvents = "auto", this.tooltipNode.tabIndex = -1, this.tooltipNode.onblur = this.blurListener.bind(this), this.tooltipNode.onclick = this.onTooltipClick.bind(this));
+        var t2 = this.editor.renderer.theme;
+        this.tooltipNode.className = "ace_tooltip ace_doc-tooltip " + (t2.isDark ? "ace_dark " : "") + (t2.cssClass || "");
+        var n2 = this.tooltipNode;
+        e3.docHTML ? n2.innerHTML = e3.docHTML : e3.docText && (n2.textContent = e3.docText), n2.parentNode || document.body.appendChild(n2);
+        var r2 = this.popup, i2 = r2.container.getBoundingClientRect();
+        n2.style.top = r2.container.style.top, n2.style.bottom = r2.container.style.bottom, n2.style.display = "block", window.innerWidth - i2.right < 320 ? i2.left < 320 ? r2.isTopdown ? (n2.style.top = i2.bottom + "px", n2.style.left = i2.left + "px", n2.style.right = "", n2.style.bottom = "") : (n2.style.top = r2.container.offsetTop - n2.offsetHeight + "px", n2.style.left = i2.left + "px", n2.style.right = "", n2.style.bottom = "") : (n2.style.right = window.innerWidth - i2.left + "px", n2.style.left = "") : (n2.style.left = i2.right + 1 + "px", n2.style.right = "");
+      }, e2.prototype.hideDocTooltip = function() {
         this.tooltipTimer.cancel();
         if (!this.tooltipNode)
           return;
-        var e2 = this.tooltipNode;
-        !this.editor.isFocused() && document.activeElement == e2 && this.editor.focus(), this.tooltipNode = null, e2.parentNode && e2.parentNode.removeChild(e2);
-      }, this.onTooltipClick = function(e2) {
-        var t2 = e2.target;
+        var e3 = this.tooltipNode;
+        !this.editor.isFocused() && document.activeElement == e3 && this.editor.focus(), this.tooltipNode = null, e3.parentNode && e3.parentNode.removeChild(e3);
+      }, e2.prototype.onTooltipClick = function(e3) {
+        var t2 = e3.target;
         while (t2 && t2 != this.tooltipNode) {
           if (t2.nodeName == "A" && t2.href) {
             t2.rel = "noreferrer", t2.target = "_blank";
@@ -42520,45 +43287,133 @@ var extLanguage_tools = { exports: {} };
           }
           t2 = t2.parentNode;
         }
-      }, this.destroy = function() {
+      }, e2.prototype.destroy = function() {
         this.detach();
         if (this.popup) {
           this.popup.destroy();
-          var e2 = this.popup.container;
-          e2 && e2.parentNode && e2.parentNode.removeChild(e2);
+          var e3 = this.popup.container;
+          e3 && e3.parentNode && e3.parentNode.removeChild(e3);
         }
-        this.editor && this.editor.completer == this && this.editor.completer == null, this.popup = null;
-      };
-    }).call(c.prototype), c.for = function(e2) {
-      return e2.completer ? e2.completer : (l.get("sharedPopups") ? (c.$shared || (c.$sharedInstance = new c()), e2.completer = c.$sharedInstance) : (e2.completer = new c(), e2.once("destroy", function(e3, t2) {
-        t2.completer.destroy();
-      })), e2.completer);
-    }, c.startCommand = { name: "startAutocomplete", exec: function(e2, t2) {
-      var n2 = c.for(e2);
+        this.editor && this.editor.completer == this && (this.editor.off("destroy", h), this.editor.completer = null), this.inlineRenderer = this.popup = this.editor = null;
+      }, e2;
+    }();
+    p.prototype.commands = { Up: function(e2) {
+      e2.completer.goTo("up");
+    }, Down: function(e2) {
+      e2.completer.goTo("down");
+    }, "Ctrl-Up|Ctrl-Home": function(e2) {
+      e2.completer.goTo("start");
+    }, "Ctrl-Down|Ctrl-End": function(e2) {
+      e2.completer.goTo("end");
+    }, Esc: function(e2) {
+      e2.completer.detach();
+    }, Return: function(e2) {
+      return e2.completer.insertMatch();
+    }, "Shift-Return": function(e2) {
+      e2.completer.insertMatch(null, { deleteSuffix: true });
+    }, Tab: function(e2) {
+      var t2 = e2.completer.insertMatch();
+      if (!!t2 || !!e2.tabstopManager)
+        return t2;
+      e2.completer.goTo("down");
+    }, PageUp: function(e2) {
+      e2.completer.popup.gotoPageUp();
+    }, PageDown: function(e2) {
+      e2.completer.popup.gotoPageDown();
+    } }, p.for = function(e2) {
+      return e2.completer instanceof p ? e2.completer : (e2.completer && (e2.completer.destroy(), e2.completer = null), c.get("sharedPopups") ? (p.$sharedInstance || (p.$sharedInstance = new p()), e2.completer = p.$sharedInstance) : (e2.completer = new p(), e2.once("destroy", h)), e2.completer);
+    }, p.startCommand = { name: "startAutocomplete", exec: function(e2, t2) {
+      var n2 = p.for(e2);
       n2.autoInsert = false, n2.autoSelect = true, n2.showPopup(e2, t2), n2.cancelContextMenu();
     }, bindKey: "Ctrl-Space|Ctrl-Shift-Space|Alt-Space" };
-    var h = function(e2, t2) {
-      this.all = e2, this.filtered = e2, this.filterText = t2 || "", this.exactMatch = false;
-    };
-    (function() {
-      this.setFilter = function(e2) {
-        if (e2.length > this.filterText && e2.lastIndexOf(this.filterText, 0) === 0)
+    var d = function() {
+      function e2() {
+        this.active = true;
+      }
+      return e2.prototype.insertByIndex = function(e3, t2, n2) {
+        return !this.completions || !this.completions.filtered ? false : this.insertMatch(e3, this.completions.filtered[t2], n2);
+      }, e2.prototype.insertMatch = function(e3, t2, n2) {
+        if (!t2)
+          return false;
+        e3.startOperation({ command: { name: "insertMatch" } });
+        if (t2.completer && t2.completer.insertMatch)
+          t2.completer.insertMatch(e3, t2);
+        else {
+          if (!this.completions)
+            return false;
+          if (this.completions.filterText) {
+            var r2 = e3.selection.getAllRanges();
+            for (var i2 = 0, s2; s2 = r2[i2]; i2++)
+              s2.start.column -= this.completions.filterText.length, e3.session.remove(s2);
+          }
+          t2.snippet ? l.insertSnippet(e3, t2.snippet, t2.range) : this.$insertString(e3, t2), t2.command && t2.command === "startAutocomplete" && e3.execCommand(t2.command);
+        }
+        return e3.endOperation(), true;
+      }, e2.prototype.$insertString = function(e3, t2) {
+        var n2 = t2.value || t2;
+        if (t2.range) {
+          if (e3.inVirtualSelectionMode)
+            return e3.session.replace(t2.range, n2);
+          e3.forEachSelection(function() {
+            var r2 = e3.getSelectionRange();
+            t2.range.compareRange(r2) === 0 ? e3.session.replace(t2.range, n2) : e3.insert(n2);
+          }, null, { keepOrder: true });
+        } else
+          e3.execCommand("insertstring", n2);
+      }, e2.prototype.gatherCompletions = function(e3, t2) {
+        var n2 = e3.getSession(), r2 = e3.getCursorPosition(), i2 = u.getCompletionPrefix(e3), s2 = [], o2 = e3.completers.length;
+        return e3.completers.forEach(function(a2, f2) {
+          a2.getCompletions(e3, n2, r2, i2, function(n3, r3) {
+            !n3 && r3 && (s2 = s2.concat(r3)), t2(null, { prefix: u.getCompletionPrefix(e3), matches: s2, finished: --o2 === 0 });
+          });
+        }), true;
+      }, e2.prototype.provideCompletions = function(e3, t2, n2) {
+        var r2 = function(e4) {
+          var r3 = e4.prefix, i3 = e4.matches;
+          this.completions = new v(i3), t2.exactMatch && (this.completions.exactMatch = true), t2.ignoreCaption && (this.completions.ignoreCaption = true), this.completions.setFilter(r3), (e4.finished || this.completions.filtered.length) && n2(null, this.completions, e4.finished);
+        }.bind(this), i2 = true, s2 = null;
+        this.gatherCompletions(e3, function(e4, t3) {
+          if (!this.active)
+            return;
+          e4 && (n2(e4, [], true), this.detach());
+          var o3 = t3.prefix;
+          if (o3.indexOf(t3.prefix) !== 0)
+            return;
+          if (i2) {
+            s2 = t3;
+            return;
+          }
+          r2(t3);
+        }.bind(this)), i2 = false;
+        if (s2) {
+          var o2 = s2;
+          s2 = null, r2(o2);
+        }
+      }, e2.prototype.detach = function() {
+        this.active = false;
+      }, e2;
+    }(), v = function() {
+      function e2(e3, t2) {
+        this.all = e3, this.filtered = e3, this.filterText = t2 || "", this.exactMatch = false, this.ignoreCaption = false;
+      }
+      return e2.prototype.setFilter = function(e3) {
+        if (e3.length > this.filterText && e3.lastIndexOf(this.filterText, 0) === 0)
           var t2 = this.filtered;
         else
           var t2 = this.all;
-        this.filterText = e2, t2 = this.filterCompletions(t2, this.filterText), t2 = t2.sort(function(e3, t3) {
-          return t3.exactMatch - e3.exactMatch || t3.$score - e3.$score || (e3.caption || e3.value).localeCompare(t3.caption || t3.value);
+        this.filterText = e3, t2 = this.filterCompletions(t2, this.filterText), t2 = t2.sort(function(e4, t3) {
+          return t3.exactMatch - e4.exactMatch || t3.$score - e4.$score || (e4.caption || e4.value).localeCompare(t3.caption || t3.value);
         });
         var n2 = null;
-        t2 = t2.filter(function(e3) {
-          var t3 = e3.snippet || e3.caption || e3.value;
+        t2 = t2.filter(function(e4) {
+          var t3 = e4.snippet || e4.caption || e4.value;
           return t3 === n2 ? false : (n2 = t3, true);
         }), this.filtered = t2;
-      }, this.filterCompletions = function(e2, t2) {
+      }, e2.prototype.filterCompletions = function(e3, t2) {
         var n2 = [], r2 = t2.toUpperCase(), i2 = t2.toLowerCase();
         e:
-          for (var s2 = 0, o2; o2 = e2[s2]; s2++) {
-            var u2 = o2.caption || o2.value || o2.snippet;
+          for (var s2 = 0, o2; o2 = e3[s2]; s2++) {
+            var u2 = !this.ignoreCaption && o2.caption || o2.value || o2.snippet;
             if (!u2)
               continue;
             var a2 = -1, f2 = 0, l2 = 0, c2, h2;
@@ -42566,23 +43421,24 @@ var extLanguage_tools = { exports: {} };
               if (t2 !== u2.substr(0, t2.length))
                 continue e;
             } else {
-              var p = u2.toLowerCase().indexOf(i2);
-              if (p > -1)
-                l2 = p;
+              var p2 = u2.toLowerCase().indexOf(i2);
+              if (p2 > -1)
+                l2 = p2;
               else
-                for (var d = 0; d < t2.length; d++) {
-                  var v = u2.indexOf(i2[d], a2 + 1), m = u2.indexOf(r2[d], a2 + 1);
-                  c2 = v >= 0 ? m < 0 || v < m ? v : m : m;
+                for (var d2 = 0; d2 < t2.length; d2++) {
+                  var v2 = u2.indexOf(i2[d2], a2 + 1), m = u2.indexOf(r2[d2], a2 + 1);
+                  c2 = v2 >= 0 ? m < 0 || v2 < m ? v2 : m : m;
                   if (c2 < 0)
                     continue e;
-                  h2 = c2 - a2 - 1, h2 > 0 && (a2 === -1 && (l2 += 10), l2 += h2, f2 |= 1 << d), a2 = c2;
+                  h2 = c2 - a2 - 1, h2 > 0 && (a2 === -1 && (l2 += 10), l2 += h2, f2 |= 1 << d2), a2 = c2;
                 }
             }
             o2.matchMask = f2, o2.exactMatch = l2 ? 0 : 1, o2.$score = (o2.score || 0) - l2, n2.push(o2);
           }
         return n2;
-      };
-    }).call(h.prototype), t.Autocomplete = c, t.FilteredList = h;
+      }, e2;
+    }();
+    t.Autocomplete = p, t.CompletionProvider = d, t.FilteredList = v;
   }), ace.define("ace/autocomplete/text_completer", ["require", "exports", "module", "ace/range"], function(e, t, n) {
     function s(e2, t2) {
       var n2 = e2.getTextRange(r.fromPoints({ row: 0, column: 0 }, t2));
@@ -42609,8 +43465,10 @@ var extLanguage_tools = { exports: {} };
       if (t2.$mode.completer)
         return t2.$mode.completer.getCompletions(e2, t2, n2, r2, i2);
       var s2 = e2.session.getState(n2.row), o2 = t2.$mode.getCompletions(s2, t2, n2, r2);
-      i2(null, o2);
-    } }, l = function(e2) {
+      o2 = o2.map(function(e3) {
+        return e3.completerId = f.id, e3;
+      }), i2(null, o2);
+    }, id: "keywordCompleter" }, l = function(e2) {
       var t2 = {};
       return e2.replace(/\${(\d+)(:(.*?))?}/g, function(e3, n2, r2, i2) {
         return t2[n2] = i2 || "";
@@ -42627,12 +43485,12 @@ var extLanguage_tools = { exports: {} };
           var r2 = t3[n3], i3 = r2.name || r2.tabTrigger;
           if (!i3)
             continue;
-          f2.push({ caption: i3, snippet: r2.content, meta: r2.tabTrigger && !r2.name ? r2.tabTrigger + "\u21E5 " : "snippet", type: "snippet" });
+          f2.push({ caption: i3, snippet: r2.content, meta: r2.tabTrigger && !r2.name ? r2.tabTrigger + "\u21E5 " : "snippet", completerId: c.id });
         }
       }, this), s2(null, f2);
     }, getDocTooltip: function(e2) {
-      e2.type == "snippet" && !e2.docHTML && (e2.docHTML = ["<b>", o.escapeHTML(e2.caption), "</b>", "<hr></hr>", o.escapeHTML(l(e2.snippet))].join(""));
-    } }, h = [c, a, f];
+      e2.snippet && !e2.docHTML && (e2.docHTML = ["<b>", o.escapeHTML(e2.caption), "</b>", "<hr></hr>", o.escapeHTML(l(e2.snippet))].join(""));
+    }, id: "snippetCompleter" }, h = [c, a, f];
     t.setCompleters = function(e2) {
       h.length = 0, e2 && h.push.apply(h, e2);
     }, t.addCompleter = function(e2) {
@@ -42690,7 +43548,7 @@ const MOCK_CASE_URL = "https://ks3-cn-beijing.ksyuncs.com/vform-static/vcase/";
 const ACE_BASE_PATH = "https://ks3-cn-beijing.ksyun.com/vform2021/ace-mini";
 const BEAUTIFIER_PATH = "https://ks3-cn-beijing.ksyun.com/vform2021/js-beautify/1.14.0/beautifier.min.js";
 var index_vue_vue_type_style_index_0_scoped_true_lang$4 = "";
-const _sfc_main$2y = {
+const _sfc_main$2A = {
   name: "CodeEditor",
   props: {
     modelValue: {
@@ -42781,17 +43639,17 @@ const _sfc_main$2y = {
     }
   }
 };
-const _hoisted_1$s = { class: "ace-container" };
+const _hoisted_1$L = { class: "ace-container" };
 const _hoisted_2$k = {
   class: "ace-editor",
   ref: "ace"
 };
-function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$s, [
+function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
+  return openBlock(), createElementBlock("div", _hoisted_1$L, [
     createElementVNode("div", _hoisted_2$k, null, 512)
   ]);
 }
-var CodeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2y, [["render", _sfc_render$2y], ["__scopeId", "data-v-35f2b510"]]);
+var CodeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2A, [["render", _sfc_render$2A], ["__scopeId", "data-v-35f2b510"]]);
 const generateCode = function(formJson, codeType = "vue") {
   let formJsonStr = JSON.stringify(formJson);
   if (codeType === "html") {
@@ -43813,7 +44671,7 @@ var FileSaver_min = { exports: {} };
   });
 })(FileSaver_min);
 var index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
-const _sfc_main$2x = {
+const _sfc_main$2z = {
   name: "ToolbarPanel",
   mixins: [i18n$1],
   components: {
@@ -44174,7 +45032,6 @@ const _sfc_main$2x = {
       this.$refs.preForm.reloadOptionData();
     },
     handleFormChange(fieldName, newValue, oldValue, formModel) {
-      console.log("formModel", formModel);
     },
     testOnAppendButtonClick(clickedWidget) {
       console.log("test", clickedWidget);
@@ -44207,7 +45064,7 @@ const _sfc_main$2x = {
     }
   }
 };
-const _hoisted_1$r = { class: "toolbar-container" };
+const _hoisted_1$K = { class: "toolbar-container" };
 const _hoisted_2$j = { class: "left-toolbar" };
 const _hoisted_3$g = { class: "right-toolbar-con" };
 const _hoisted_4$9 = {
@@ -44219,13 +45076,13 @@ const _hoisted_6$6 = {
   key: 1,
   class: ""
 };
-const _hoisted_7$3 = { class: "dialog-footer" };
-const _hoisted_8$3 = {
+const _hoisted_7$5 = { class: "dialog-footer" };
+const _hoisted_8$5 = {
   key: 2,
   class: ""
 };
-const _hoisted_9$2 = { class: "dialog-footer" };
-const _hoisted_10$2 = {
+const _hoisted_9$4 = { class: "dialog-footer" };
+const _hoisted_10$4 = {
   key: 3,
   class: ""
 };
@@ -44241,7 +45098,7 @@ const _hoisted_15 = {
   class: ""
 };
 const _hoisted_16 = { class: "dialog-footer" };
-function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tree = resolveComponent("el-tree");
@@ -44253,7 +45110,7 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", _hoisted_1$r, [
+  return openBlock(), createElementBlock("div", _hoisted_1$K, [
     createElementVNode("div", _hoisted_2$j, [
       createVNode(_component_el_button, {
         link: "",
@@ -44499,7 +45356,7 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_7$3, [
+          createElementVNode("div", _hoisted_7$5, [
             createVNode(_component_el_button, {
               type: "primary",
               onClick: $options.doJsonImport
@@ -44538,7 +45395,7 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showExportJsonDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_8$3, [
+    $data.showExportJsonDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_8$5, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.exportJson"),
         modelValue: $data.showExportJsonDialogFlag,
@@ -44552,7 +45409,7 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_9$2, [
+          createElementVNode("div", _hoisted_9$4, [
             createVNode(_component_el_button, {
               type: "primary",
               class: "copy-json-btn",
@@ -44593,7 +45450,7 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showExportCodeDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_10$2, [
+    $data.showExportCodeDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_10$4, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.exportCode"),
         modelValue: $data.showExportCodeDialogFlag,
@@ -44867,8 +45724,8 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$2x, [["render", _sfc_render$2x], ["__scopeId", "data-v-e1dbbb04"]]);
-const _sfc_main$2w = {
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$2z, [["render", _sfc_render$2z], ["__scopeId", "data-v-7811f572"]]);
+const _sfc_main$2y = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
   props: {
@@ -44877,7 +45734,7 @@ const _sfc_main$2w = {
     optionModel: Object
   }
 };
-function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -44892,12 +45749,12 @@ function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var allowCreateEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2w, [["render", _sfc_render$2w]]);
+var allowCreateEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2y, [["render", _sfc_render$2y]]);
 var __glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": allowCreateEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2v = {
+const _sfc_main$2x = {
   name: "appendButton-editor",
   mixins: [i18n$1],
   props: {
@@ -44906,7 +45763,7 @@ const _sfc_main$2v = {
     optionModel: Object
   }
 };
-function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_switch = resolveComponent("el-switch");
@@ -44935,12 +45792,12 @@ function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var appendButtonEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2v, [["render", _sfc_render$2v]]);
+var appendButtonEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2x, [["render", _sfc_render$2x]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2u = {
+const _sfc_main$2w = {
   name: "appendButtonDisabled-editor",
   mixins: [i18n$1],
   props: {
@@ -44949,7 +45806,7 @@ const _sfc_main$2u = {
     optionModel: Object
   }
 };
-function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -44964,12 +45821,12 @@ function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var appendButtonDisabledEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2u, [["render", _sfc_render$2u]]);
+var appendButtonDisabledEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2w, [["render", _sfc_render$2w]]);
 var __glob_0_2$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonDisabledEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2t = {
+const _sfc_main$2v = {
   name: "autoFullWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -44978,7 +45835,7 @@ const _sfc_main$2t = {
     optionModel: Object
   }
 };
-function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -44993,12 +45850,12 @@ function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var autoFullWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2t, [["render", _sfc_render$2t]]);
+var autoFullWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2v, [["render", _sfc_render$2v]]);
 var __glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": autoFullWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2s = {
+const _sfc_main$2u = {
   name: "automaticDropdown-editor",
   mixins: [i18n$1],
   props: {
@@ -45007,7 +45864,7 @@ const _sfc_main$2s = {
     optionModel: Object
   }
 };
-function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45022,12 +45879,12 @@ function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var automaticDropdownEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2s, [["render", _sfc_render$2s]]);
+var automaticDropdownEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2u, [["render", _sfc_render$2u]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": automaticDropdownEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2r = {
+const _sfc_main$2t = {
   name: "border-editor",
   mixins: [i18n$1],
   props: {
@@ -45036,7 +45893,7 @@ const _sfc_main$2r = {
     optionModel: Object
   }
 };
-function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45051,12 +45908,12 @@ function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var borderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2r, [["render", _sfc_render$2r]]);
+var borderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2t, [["render", _sfc_render$2t]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": borderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2q = {
+const _sfc_main$2s = {
   name: "buttonIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -45065,7 +45922,7 @@ const _sfc_main$2q = {
     optionModel: Object
   }
 };
-function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45081,12 +45938,12 @@ function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonIconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2q, [["render", _sfc_render$2q]]);
+var buttonIconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2s, [["render", _sfc_render$2s]]);
 var __glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2p = {
+const _sfc_main$2r = {
   name: "buttonStyle-editor",
   mixins: [i18n$1],
   props: {
@@ -45095,7 +45952,7 @@ const _sfc_main$2p = {
     optionModel: Object
   }
 };
-function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45110,12 +45967,12 @@ function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonStyleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2p, [["render", _sfc_render$2p]]);
+var buttonStyleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2r, [["render", _sfc_render$2r]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonStyleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2o = {
+const _sfc_main$2q = {
   name: "clearable-editor",
   mixins: [i18n$1],
   props: {
@@ -45124,7 +45981,7 @@ const _sfc_main$2o = {
     optionModel: Object
   }
 };
-function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45139,12 +45996,12 @@ function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var clearableEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2o, [["render", _sfc_render$2o]]);
+var clearableEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2q, [["render", _sfc_render$2q]]);
 var __glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": clearableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2n = {
+const _sfc_main$2p = {
   name: "columnWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -45165,7 +46022,7 @@ const _sfc_main$2n = {
     });
   }
 };
-function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -45185,12 +46042,12 @@ function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var columnWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2n, [["render", _sfc_render$2n]]);
+var columnWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2p, [["render", _sfc_render$2p]]);
 var __glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": columnWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2m = {
+const _sfc_main$2o = {
   name: "customClass-editor",
   componentName: "PropertyEditor",
   mixins: [i18n$1],
@@ -45211,7 +46068,7 @@ const _sfc_main$2m = {
     });
   }
 };
-function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -45242,7 +46099,7 @@ function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var customClassEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2m, [["render", _sfc_render$2m]]);
+var customClassEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2o, [["render", _sfc_render$2o]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": customClassEditor
@@ -45287,7 +46144,7 @@ var propertyMixin = {
     }
   }
 };
-const _sfc_main$2l = {
+const _sfc_main$2n = {
   name: "defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -45296,7 +46153,7 @@ const _sfc_main$2l = {
     optionModel: Object
   }
 };
-function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return !_ctx.hasConfig("optionItems") ? (openBlock(), createBlock(_component_el_form_item, {
@@ -45314,12 +46171,12 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var defaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2l, [["render", _sfc_render$2l]]);
+var defaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2n, [["render", _sfc_render$2n]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": defaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2k = {
+const _sfc_main$2m = {
   name: "disabled-editor",
   mixins: [i18n$1],
   props: {
@@ -45328,7 +46185,7 @@ const _sfc_main$2k = {
     optionModel: Object
   }
 };
-function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45343,12 +46200,12 @@ function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var disabledEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2k, [["render", _sfc_render$2k]]);
+var disabledEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2m, [["render", _sfc_render$2m]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": disabledEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2j = {
+const _sfc_main$2l = {
   name: "displayStyle-editor",
   mixins: [i18n$1],
   props: {
@@ -45357,7 +46214,7 @@ const _sfc_main$2j = {
     optionModel: Object
   }
 };
-function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -45389,12 +46246,12 @@ function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var displayStyleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2j, [["render", _sfc_render$2j]]);
+var displayStyleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2l, [["render", _sfc_render$2l]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": displayStyleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2i = {
+const _sfc_main$2k = {
   name: "editable-editor",
   mixins: [i18n$1],
   props: {
@@ -45403,7 +46260,7 @@ const _sfc_main$2i = {
     optionModel: Object
   }
 };
-function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45418,12 +46275,12 @@ function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var editableEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2i, [["render", _sfc_render$2i]]);
+var editableEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2k, [["render", _sfc_render$2k]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": editableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2h = {
+const _sfc_main$2j = {
   name: "endPlaceholder-editor",
   mixins: [i18n$1],
   props: {
@@ -45432,7 +46289,7 @@ const _sfc_main$2h = {
     optionModel: Object
   }
 };
-function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45448,12 +46305,12 @@ function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var endPlaceholderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2h, [["render", _sfc_render$2h]]);
+var endPlaceholderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2j, [["render", _sfc_render$2j]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": endPlaceholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2g = {
+const _sfc_main$2i = {
   name: "fileMaxSize-editor",
   mixins: [i18n$1],
   props: {
@@ -45462,7 +46319,7 @@ const _sfc_main$2g = {
     optionModel: Object
   }
 };
-function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45480,12 +46337,12 @@ function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var fileMaxSizeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2g, [["render", _sfc_render$2g]]);
+var fileMaxSizeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2i, [["render", _sfc_render$2i]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileMaxSizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2f = {
+const _sfc_main$2h = {
   name: "filterable-editor",
   mixins: [i18n$1],
   props: {
@@ -45494,7 +46351,7 @@ const _sfc_main$2f = {
     optionModel: Object
   }
 };
-function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45509,12 +46366,12 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var filterableEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2f, [["render", _sfc_render$2f]]);
+var filterableEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2h, [["render", _sfc_render$2h]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": filterableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2e = {
+const _sfc_main$2g = {
   name: "hidden-editor",
   mixins: [i18n$1],
   props: {
@@ -45523,7 +46380,7 @@ const _sfc_main$2e = {
     optionModel: Object
   }
 };
-function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45538,12 +46395,12 @@ function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var hiddenEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2e, [["render", _sfc_render$2e]]);
+var hiddenEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2g, [["render", _sfc_render$2g]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": hiddenEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2d = {
+const _sfc_main$2f = {
   name: "label-editor",
   mixins: [i18n$1],
   props: {
@@ -45557,7 +46414,7 @@ const _sfc_main$2d = {
     }
   }
 };
-function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return !$options.noLabelSetting ? (openBlock(), createBlock(_component_el_form_item, {
@@ -45574,13 +46431,13 @@ function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var labelEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2d, [["render", _sfc_render$2d]]);
+var labelEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2f, [["render", _sfc_render$2f]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var labelAlignEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2c = {
+const _sfc_main$2e = {
   name: "labelAlign-editor",
   mixins: [i18n$1],
   props: {
@@ -45594,7 +46451,7 @@ const _sfc_main$2c = {
     }
   }
 };
-function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -45634,12 +46491,12 @@ function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var labelAlignEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2c, [["render", _sfc_render$2c], ["__scopeId", "data-v-1cf9ee3e"]]);
+var labelAlignEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2e, [["render", _sfc_render$2e], ["__scopeId", "data-v-1cf9ee3e"]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2b = {
+const _sfc_main$2d = {
   name: "labelHidden-editor",
   mixins: [i18n$1],
   props: {
@@ -45648,7 +46505,7 @@ const _sfc_main$2b = {
     optionModel: Object
   }
 };
-function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45663,12 +46520,12 @@ function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelHiddenEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2b, [["render", _sfc_render$2b]]);
+var labelHiddenEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2d, [["render", _sfc_render$2d]]);
 var __glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelHiddenEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2a = {
+const _sfc_main$2c = {
   name: "labelIconClass-editor",
   mixins: [i18n$1],
   props: {
@@ -45677,7 +46534,7 @@ const _sfc_main$2a = {
     optionModel: Object
   }
 };
-function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
@@ -45707,12 +46564,12 @@ function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var labelIconClassEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2a, [["render", _sfc_render$2a]]);
+var labelIconClassEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2c, [["render", _sfc_render$2c]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelIconClassEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$29 = {
+const _sfc_main$2b = {
   name: "labelIconPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -45729,7 +46586,7 @@ const _sfc_main$29 = {
     };
   }
 };
-function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -45756,12 +46613,12 @@ function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelIconPositionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$29, [["render", _sfc_render$29]]);
+var labelIconPositionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2b, [["render", _sfc_render$2b]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelIconPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$28 = {
+const _sfc_main$2a = {
   name: "labelTooltip-editor",
   mixins: [i18n$1],
   props: {
@@ -45770,7 +46627,7 @@ const _sfc_main$28 = {
     optionModel: Object
   }
 };
-function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45786,12 +46643,12 @@ function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelTooltipEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$28, [["render", _sfc_render$28]]);
+var labelTooltipEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$2a, [["render", _sfc_render$2a]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelTooltipEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$27 = {
+const _sfc_main$29 = {
   name: "labelWidth-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -45800,7 +46657,7 @@ const _sfc_main$27 = {
     optionModel: Object
   }
 };
-function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45819,12 +46676,12 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$27, [["render", _sfc_render$27]]);
+var labelWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$29, [["render", _sfc_render$29]]);
 var __glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$26 = {
+const _sfc_main$28 = {
   name: "limit-editor",
   mixins: [i18n$1],
   props: {
@@ -45833,7 +46690,7 @@ const _sfc_main$26 = {
     optionModel: Object
   }
 };
-function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45851,12 +46708,12 @@ function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var limitEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$26, [["render", _sfc_render$26]]);
+var limitEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$28, [["render", _sfc_render$28]]);
 var __glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": limitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$25 = {
+const _sfc_main$27 = {
   name: "max-editor",
   mixins: [i18n$1],
   props: {
@@ -45879,7 +46736,7 @@ const _sfc_main$25 = {
     }
   }
 };
-function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45896,12 +46753,12 @@ function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var maxEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$25, [["render", _sfc_render$25]]);
+var maxEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$27, [["render", _sfc_render$27]]);
 var __glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": maxEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$24 = {
+const _sfc_main$26 = {
   name: "maxLength-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -45924,7 +46781,7 @@ const _sfc_main$24 = {
     }
   }
 };
-function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45944,12 +46801,12 @@ function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var maxLengthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$24, [["render", _sfc_render$24]]);
+var maxLengthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$26, [["render", _sfc_render$26]]);
 var __glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": maxLengthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$23 = {
+const _sfc_main$25 = {
   name: "min-editor",
   mixins: [i18n$1],
   props: {
@@ -45972,7 +46829,7 @@ const _sfc_main$23 = {
     }
   }
 };
-function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -45989,12 +46846,12 @@ function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var minEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$23, [["render", _sfc_render$23]]);
+var minEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$25, [["render", _sfc_render$25]]);
 var __glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": minEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$22 = {
+const _sfc_main$24 = {
   name: "minLength-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -46017,7 +46874,7 @@ const _sfc_main$22 = {
     }
   }
 };
-function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46037,12 +46894,12 @@ function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var minLengthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$22, [["render", _sfc_render$22]]);
+var minLengthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$24, [["render", _sfc_render$24]]);
 var __glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": minLengthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$21 = {
+const _sfc_main$23 = {
   name: "multiple-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -46051,7 +46908,7 @@ const _sfc_main$21 = {
     optionModel: Object
   }
 };
-function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46067,12 +46924,12 @@ function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$21, [["render", _sfc_render$21]]);
+var multipleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$23, [["render", _sfc_render$23]]);
 var __glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$20 = {
+const _sfc_main$22 = {
   name: "multipleLimit-editor",
   mixins: [i18n$1],
   props: {
@@ -46081,7 +46938,7 @@ const _sfc_main$20 = {
     optionModel: Object
   }
 };
-function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46099,12 +46956,12 @@ function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleLimitEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$20, [["render", _sfc_render$20]]);
+var multipleLimitEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$22, [["render", _sfc_render$22]]);
 var __glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleLimitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1$ = {
+const _sfc_main$21 = {
   name: "multipleSelect-editor",
   mixins: [i18n$1],
   props: {
@@ -46113,7 +46970,7 @@ const _sfc_main$1$ = {
     optionModel: Object
   }
 };
-function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46128,12 +46985,12 @@ function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleSelectEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$, [["render", _sfc_render$1$]]);
+var multipleSelectEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$21, [["render", _sfc_render$21]]);
 var __glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleSelectEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1_ = {
+const _sfc_main$20 = {
   name: "name-editor",
   mixins: [i18n$1],
   components: {
@@ -46191,7 +47048,7 @@ const _sfc_main$1_ = {
     }
   }
 };
-function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_input = resolveComponent("el-input");
@@ -46249,13 +47106,13 @@ function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["rules"]);
 }
-var nameEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1_, [["render", _sfc_render$1_]]);
+var nameEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$20, [["render", _sfc_render$20]]);
 var __glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": nameEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var optionItemsSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1Z = {
+const _sfc_main$1$ = {
   name: "OptionItemsSetting",
   mixins: [i18n$1],
   components: {
@@ -46365,27 +47222,27 @@ const _sfc_main$1Z = {
     }
   }
 };
-const _withScopeId$2 = (n) => (pushScopeId("data-v-c71d1fea"), n = n(), popScopeId(), n);
-const _hoisted_1$q = { class: "option-items-pane" };
-const _hoisted_2$i = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
-const _hoisted_3$f = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
+const _withScopeId$3 = (n) => (pushScopeId("data-v-c71d1fea"), n = n(), popScopeId(), n);
+const _hoisted_1$J = { class: "option-items-pane" };
+const _hoisted_2$i = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
+const _hoisted_3$f = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
 const _hoisted_4$8 = {
   key: 2,
   class: "full-width-input"
 };
 const _hoisted_5$6 = { key: 3 };
 const _hoisted_6$5 = { key: 4 };
-const _hoisted_7$2 = {
+const _hoisted_7$4 = {
   key: 5,
   class: ""
 };
-const _hoisted_8$2 = { class: "dialog-footer" };
-const _hoisted_9$1 = {
+const _hoisted_8$4 = { class: "dialog-footer" };
+const _hoisted_9$3 = {
   key: 6,
   class: ""
 };
-const _hoisted_10$1 = { class: "dialog-footer" };
-function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_10$3 = { class: "dialog-footer" };
+function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_radio = resolveComponent("el-radio");
@@ -46398,7 +47255,7 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_dialog = resolveComponent("el-dialog");
   const _component_code_editor = resolveComponent("code-editor");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", _hoisted_1$q, [
+  return openBlock(), createElementBlock("div", _hoisted_1$J, [
     $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
       key: 0,
       modelValue: $options.optionModel.defaultValue,
@@ -46560,7 +47417,7 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["onClick"])
     ])) : createCommentVNode("", true),
-    $data.showImportDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_7$2, [
+    $data.showImportDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_7$4, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.importOptions"),
         modelValue: $data.showImportDialogFlag,
@@ -46573,7 +47430,7 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_8$2, [
+          createElementVNode("div", _hoisted_8$4, [
             createVNode(_component_el_button, {
               size: "large",
               type: "primary",
@@ -46613,7 +47470,7 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showImportCascaderDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_9$1, [
+    $data.showImportCascaderDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_9$3, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.importOptions"),
         modelValue: $data.showImportCascaderDialogFlag,
@@ -46626,7 +47483,7 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_10$1, [
+          createElementVNode("div", _hoisted_10$3, [
             createVNode(_component_el_button, {
               size: "large",
               type: "primary",
@@ -46663,8 +47520,8 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$1Z, [["render", _sfc_render$1Z], ["__scopeId", "data-v-c71d1fea"]]);
-const _sfc_main$1Y = {
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$, [["render", _sfc_render$1$], ["__scopeId", "data-v-c71d1fea"]]);
+const _sfc_main$1_ = {
   name: "optionItems-editor",
   mixins: [i18n$1],
   props: {
@@ -46676,7 +47533,7 @@ const _sfc_main$1Y = {
     OptionItemsSetting
   }
 };
-function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_option_items_setting = resolveComponent("option-items-setting");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -46696,12 +47553,12 @@ function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var optionItemsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1Y, [["render", _sfc_render$1Y]]);
+var optionItemsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1_, [["render", _sfc_render$1_]]);
 var __glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": optionItemsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1X = {
+const _sfc_main$1Z = {
   name: "placeholder-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -46710,7 +47567,7 @@ const _sfc_main$1X = {
     optionModel: Object
   }
 };
-function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46726,12 +47583,12 @@ function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var placeholderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1X, [["render", _sfc_render$1X]]);
+var placeholderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1Z, [["render", _sfc_render$1Z]]);
 var __glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": placeholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1W = {
+const _sfc_main$1Y = {
   name: "precision-editor",
   mixins: [i18n$1],
   props: {
@@ -46740,7 +47597,7 @@ const _sfc_main$1W = {
     optionModel: Object
   }
 };
-function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46758,12 +47615,12 @@ function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var precisionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1W, [["render", _sfc_render$1W]]);
+var precisionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1Y, [["render", _sfc_render$1Y]]);
 var __glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": precisionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1V = {
+const _sfc_main$1X = {
   name: "prefixIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -46772,7 +47629,7 @@ const _sfc_main$1V = {
     optionModel: Object
   }
 };
-function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46788,12 +47645,12 @@ function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var prefixIconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1V, [["render", _sfc_render$1V]]);
+var prefixIconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1X, [["render", _sfc_render$1X]]);
 var __glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": prefixIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1U = {
+const _sfc_main$1W = {
   name: "readonly-editor",
   mixins: [i18n$1],
   props: {
@@ -46802,7 +47659,7 @@ const _sfc_main$1U = {
     optionModel: Object
   }
 };
-function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46817,12 +47674,12 @@ function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var readonlyEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1U, [["render", _sfc_render$1U]]);
+var readonlyEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1W, [["render", _sfc_render$1W]]);
 var __glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": readonlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1T = {
+const _sfc_main$1V = {
   name: "remote-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -46831,7 +47688,7 @@ const _sfc_main$1T = {
     optionModel: Object
   }
 };
-function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46847,12 +47704,12 @@ function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var remoteEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1T, [["render", _sfc_render$1T]]);
+var remoteEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1V, [["render", _sfc_render$1V]]);
 var __glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": remoteEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1S = {
+const _sfc_main$1U = {
   name: "required-editor",
   mixins: [i18n$1],
   props: {
@@ -46861,7 +47718,7 @@ const _sfc_main$1S = {
     optionModel: Object
   }
 };
-function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46876,12 +47733,12 @@ function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var requiredEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1S, [["render", _sfc_render$1S]]);
+var requiredEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1U, [["render", _sfc_render$1U]]);
 var __glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": requiredEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1R = {
+const _sfc_main$1T = {
   name: "requiredHint-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -46890,7 +47747,7 @@ const _sfc_main$1R = {
     optionModel: Object
   }
 };
-function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46906,12 +47763,12 @@ function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var requiredHintEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1R, [["render", _sfc_render$1R]]);
+var requiredHintEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1T, [["render", _sfc_render$1T]]);
 var __glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": requiredHintEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1Q = {
+const _sfc_main$1S = {
   name: "rows-editor",
   mixins: [i18n$1],
   props: {
@@ -46920,7 +47777,7 @@ const _sfc_main$1Q = {
     optionModel: Object
   }
 };
-function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46936,12 +47793,12 @@ function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var rowsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
+var rowsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1S, [["render", _sfc_render$1S]]);
 var __glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rowsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1P = {
+const _sfc_main$1R = {
   name: "showFileList-editor",
   mixins: [i18n$1],
   props: {
@@ -46950,7 +47807,7 @@ const _sfc_main$1P = {
     optionModel: Object
   }
 };
-function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -46965,12 +47822,12 @@ function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showFileListEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1P, [["render", _sfc_render$1P]]);
+var showFileListEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1R, [["render", _sfc_render$1R]]);
 var __glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showFileListEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1O = {
+const _sfc_main$1Q = {
   name: "showPassword-editor",
   mixins: [i18n$1],
   props: {
@@ -46979,7 +47836,7 @@ const _sfc_main$1O = {
     optionModel: Object
   }
 };
-function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return $props.optionModel.type === "password" ? (openBlock(), createBlock(_component_el_form_item, {
@@ -46995,12 +47852,12 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var showPasswordEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1O, [["render", _sfc_render$1O]]);
+var showPasswordEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
 var __glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showPasswordEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1N = {
+const _sfc_main$1P = {
   name: "showWordLimit-editor",
   mixins: [i18n$1],
   props: {
@@ -47009,7 +47866,7 @@ const _sfc_main$1N = {
     optionModel: Object
   }
 };
-function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47024,12 +47881,12 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showWordLimitEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1N, [["render", _sfc_render$1N]]);
+var showWordLimitEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1P, [["render", _sfc_render$1P]]);
 var __glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showWordLimitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1M = {
+const _sfc_main$1O = {
   name: "size-editor",
   mixins: [i18n$1],
   props: {
@@ -47047,7 +47904,7 @@ const _sfc_main$1M = {
     };
   }
 };
-function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -47074,12 +47931,12 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var sizeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1M, [["render", _sfc_render$1M]]);
+var sizeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1O, [["render", _sfc_render$1O]]);
 var __glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1L = {
+const _sfc_main$1N = {
   name: "startPlaceholder-editor",
   mixins: [i18n$1],
   props: {
@@ -47088,7 +47945,7 @@ const _sfc_main$1L = {
     optionModel: Object
   }
 };
-function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47104,12 +47961,12 @@ function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var startPlaceholderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1L, [["render", _sfc_render$1L]]);
+var startPlaceholderEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1N, [["render", _sfc_render$1N]]);
 var __glob_0_48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": startPlaceholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1K = {
+const _sfc_main$1M = {
   name: "step-editor",
   mixins: [i18n$1],
   props: {
@@ -47118,7 +47975,7 @@ const _sfc_main$1K = {
     optionModel: Object
   }
 };
-function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47135,12 +47992,12 @@ function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var stepEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1K, [["render", _sfc_render$1K]]);
+var stepEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1M, [["render", _sfc_render$1M]]);
 var __glob_0_49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": stepEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1J = {
+const _sfc_main$1L = {
   name: "suffixIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -47149,7 +48006,7 @@ const _sfc_main$1J = {
     optionModel: Object
   }
 };
-function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47165,12 +48022,12 @@ function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var suffixIconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1J, [["render", _sfc_render$1J]]);
+var suffixIconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1L, [["render", _sfc_render$1L]]);
 var __glob_0_50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": suffixIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1I = {
+const _sfc_main$1K = {
   name: "type-editor",
   mixins: [i18n$1],
   props: {
@@ -47180,7 +48037,7 @@ const _sfc_main$1I = {
   },
   computed: {}
 };
-function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -47209,12 +48066,12 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var typeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1I, [["render", _sfc_render$1I]]);
+var typeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1K, [["render", _sfc_render$1K]]);
 var __glob_0_51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": typeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1H = {
+const _sfc_main$1J = {
   name: "uploadTip-editor",
   mixins: [i18n$1],
   props: {
@@ -47223,7 +48080,7 @@ const _sfc_main$1H = {
     optionModel: Object
   }
 };
-function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47239,12 +48096,12 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var uploadTipEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1H, [["render", _sfc_render$1H]]);
+var uploadTipEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1J, [["render", _sfc_render$1J]]);
 var __glob_0_52 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadTipEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1G = {
+const _sfc_main$1I = {
   name: "uploadURL-editor",
   mixins: [i18n$1],
   props: {
@@ -47253,7 +48110,7 @@ const _sfc_main$1G = {
     optionModel: Object
   }
 };
-function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
@@ -47283,12 +48140,12 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var uploadURLEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1G, [["render", _sfc_render$1G]]);
+var uploadURLEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1I, [["render", _sfc_render$1I]]);
 var __glob_0_53 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadURLEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1F = {
+const _sfc_main$1H = {
   name: "validation-editor",
   mixins: [i18n$1],
   components: {
@@ -47314,7 +48171,7 @@ const _sfc_main$1F = {
     };
   }
 };
-function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_option = resolveComponent("el-option");
@@ -47359,12 +48216,12 @@ function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var validationEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1F, [["render", _sfc_render$1F]]);
+var validationEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1H, [["render", _sfc_render$1H]]);
 var __glob_0_54 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": validationEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1E = {
+const _sfc_main$1G = {
   name: "validationHint-editor",
   mixins: [i18n$1],
   props: {
@@ -47373,7 +48230,7 @@ const _sfc_main$1E = {
     optionModel: Object
   }
 };
-function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47389,12 +48246,12 @@ function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var validationHintEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1E, [["render", _sfc_render$1E]]);
+var validationHintEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1G, [["render", _sfc_render$1G]]);
 var __glob_0_55 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": validationHintEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1D = {
+const _sfc_main$1F = {
   name: "withCredentials-editor",
   mixins: [i18n$1],
   props: {
@@ -47403,7 +48260,7 @@ const _sfc_main$1D = {
     optionModel: Object
   }
 };
-function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47418,12 +48275,12 @@ function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var withCredentialsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1D, [["render", _sfc_render$1D]]);
+var withCredentialsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1F, [["render", _sfc_render$1F]]);
 var __glob_0_56 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": withCredentialsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1C = {
+const _sfc_main$1E = {
   name: "colHeight-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -47432,7 +48289,7 @@ const _sfc_main$1C = {
     optionModel: Object
   }
 };
-function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -47453,13 +48310,13 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var colHeightEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1C, [["render", _sfc_render$1C]]);
+var colHeightEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1E, [["render", _sfc_render$1E]]);
 var __glob_0_57 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var gutterEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1B = {
+const _sfc_main$1D = {
   name: "gutter-editor",
   mixins: [i18n$1],
   props: {
@@ -47488,8 +48345,8 @@ const _sfc_main$1B = {
     }
   }
 };
-const _hoisted_1$p = { class: "col-span-title" };
-function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$I = { class: "col-span-title" };
+function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input_number = resolveComponent("el-input-number");
@@ -47528,7 +48385,7 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
             key: colIdx,
             class: "col-item"
           }, [
-            createElementVNode("span", _hoisted_1$p, toDisplayString(_ctx.$t("designer.setting.colSpanTitle")) + toDisplayString(colIdx + 1), 1),
+            createElementVNode("span", _hoisted_1$I, toDisplayString(_ctx.$t("designer.setting.colSpanTitle")) + toDisplayString(colIdx + 1), 1),
             createVNode(_component_el_input_number, {
               modelValue: colItem.options.span,
               "onUpdate:modelValue": ($event) => colItem.options.span = $event,
@@ -47566,12 +48423,12 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var gutterEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1B, [["render", _sfc_render$1B], ["__scopeId", "data-v-a1c95c20"]]);
+var gutterEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1D, [["render", _sfc_render$1D], ["__scopeId", "data-v-a1c95c20"]]);
 var __glob_0_58 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gutterEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1A = {
+const _sfc_main$1C = {
   name: "grid-col-offset-editor",
   mixins: [i18n$1],
   props: {
@@ -47580,7 +48437,7 @@ const _sfc_main$1A = {
     optionModel: Object
   }
 };
-function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47599,12 +48456,12 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColOffsetEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1A, [["render", _sfc_render$1A]]);
+var gridColOffsetEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1C, [["render", _sfc_render$1C]]);
 var __glob_0_59 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColOffsetEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1z = {
+const _sfc_main$1B = {
   name: "grid-col-pull-editor",
   mixins: [i18n$1],
   props: {
@@ -47613,7 +48470,7 @@ const _sfc_main$1z = {
     optionModel: Object
   }
 };
-function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47632,12 +48489,12 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColPullEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1z, [["render", _sfc_render$1z]]);
+var gridColPullEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1B, [["render", _sfc_render$1B]]);
 var __glob_0_60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColPullEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1y = {
+const _sfc_main$1A = {
   name: "grid-col-push-editor",
   mixins: [i18n$1],
   props: {
@@ -47646,7 +48503,7 @@ const _sfc_main$1y = {
     optionModel: Object
   }
 };
-function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47665,12 +48522,12 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColPushEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1y, [["render", _sfc_render$1y]]);
+var gridColPushEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1A, [["render", _sfc_render$1A]]);
 var __glob_0_61 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColPushEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1x = {
+const _sfc_main$1z = {
   name: "grid-col-responsive-editor",
   mixins: [i18n$1],
   props: {
@@ -47679,7 +48536,7 @@ const _sfc_main$1x = {
     optionModel: Object
   }
 };
-function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47694,12 +48551,12 @@ function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColResponsiveEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1x, [["render", _sfc_render$1x]]);
+var gridColResponsiveEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1z, [["render", _sfc_render$1z]]);
 var __glob_0_62 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColResponsiveEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1w = {
+const _sfc_main$1y = {
   name: "grid-col-span-editor",
   mixins: [i18n$1],
   props: {
@@ -47713,7 +48570,7 @@ const _sfc_main$1w = {
     }
   }
 };
-function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -47783,12 +48640,12 @@ function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])) : createCommentVNode("", true)
   ]);
 }
-var gridColSpanEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1w, [["render", _sfc_render$1w]]);
+var gridColSpanEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1y, [["render", _sfc_render$1y]]);
 var __glob_0_63 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColSpanEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1v = {
+const _sfc_main$1x = {
   name: "showBlankRow-editor",
   mixins: [i18n$1],
   props: {
@@ -47797,7 +48654,7 @@ const _sfc_main$1v = {
     optionModel: Object
   }
 };
-function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47812,12 +48669,12 @@ function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showBlankRowEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1v, [["render", _sfc_render$1v]]);
+var showBlankRowEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1x, [["render", _sfc_render$1x]]);
 var __glob_0_64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showBlankRowEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1u = {
+const _sfc_main$1w = {
   name: "showRowNumber-editor",
   mixins: [i18n$1],
   props: {
@@ -47826,7 +48683,7 @@ const _sfc_main$1u = {
     optionModel: Object
   }
 };
-function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -47841,13 +48698,13 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showRowNumberEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1u, [["render", _sfc_render$1u]]);
+var showRowNumberEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1w, [["render", _sfc_render$1w]]);
 var __glob_0_65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showRowNumberEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormLabelAlignEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1t = {
+const _sfc_main$1v = {
   name: "sub-form-labelAlign-editor",
   mixins: [i18n$1],
   props: {
@@ -47856,7 +48713,7 @@ const _sfc_main$1t = {
     optionModel: Object
   }
 };
-function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -47895,13 +48752,13 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var subFormLabelAlignEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1t, [["render", _sfc_render$1t], ["__scopeId", "data-v-752e869a"]]);
+var subFormLabelAlignEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1v, [["render", _sfc_render$1v], ["__scopeId", "data-v-752e869a"]]);
 var __glob_0_66 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormLabelAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var tabCustomClassEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1s = {
+const _sfc_main$1u = {
   name: "tab-customClass-editor",
   componentName: "PropertyEditor",
   mixins: [i18n$1],
@@ -47939,10 +48796,10 @@ const _sfc_main$1s = {
     }
   }
 };
-const _withScopeId$1 = (n) => (pushScopeId("data-v-0a7851ed"), n = n(), popScopeId(), n);
-const _hoisted_1$o = { class: "col-item" };
-const _hoisted_2$h = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
-function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
+const _withScopeId$2 = (n) => (pushScopeId("data-v-0a7851ed"), n = n(), popScopeId(), n);
+const _hoisted_1$H = { class: "col-item" };
+const _hoisted_2$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
+function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -47991,7 +48848,7 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
           "item-key": "id"
         }, { group: "panesGroup", ghostClass: "ghost", handle: ".drag-option" }), {
           item: withCtx(({ element: tpItem, index: tpIdx }) => [
-            createElementVNode("li", _hoisted_1$o, [
+            createElementVNode("li", _hoisted_1$H, [
               createVNode(_component_el_checkbox, {
                 modelValue: tpItem.options.active,
                 "onUpdate:modelValue": ($event) => tpItem.options.active = $event,
@@ -48042,12 +48899,12 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var tabCustomClassEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1s, [["render", _sfc_render$1s], ["__scopeId", "data-v-0a7851ed"]]);
+var tabCustomClassEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1u, [["render", _sfc_render$1u], ["__scopeId", "data-v-0a7851ed"]]);
 var __glob_0_67 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabCustomClassEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1r = {
+const _sfc_main$1t = {
   name: "cellHeight-editor",
   mixins: [i18n$1],
   props: {
@@ -48056,7 +48913,7 @@ const _sfc_main$1r = {
     optionModel: Object
   }
 };
-function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -48072,12 +48929,12 @@ function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var cellHeightEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1r, [["render", _sfc_render$1r]]);
+var cellHeightEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1t, [["render", _sfc_render$1t]]);
 var __glob_0_68 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cellHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1q = {
+const _sfc_main$1s = {
   name: "cellWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -48086,7 +48943,7 @@ const _sfc_main$1q = {
     optionModel: Object
   }
 };
-function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -48102,7 +48959,7 @@ function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var cellWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1q, [["render", _sfc_render$1q]]);
+var cellWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1s, [["render", _sfc_render$1s]]);
 var __glob_0_69 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cellWidthEditor
@@ -48117,7 +48974,7 @@ var eventMixin = {
     }
   }
 };
-const _sfc_main$1p = {
+const _sfc_main$1r = {
   name: "onAppendButtonClick-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48131,13 +48988,17 @@ const _sfc_main$1p = {
     };
   }
 };
-function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$G = /* @__PURE__ */ createElementVNode("div", null, "onAppendButtonClick", -1);
+function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onAppendButtonClick",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$G,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onAppendButtonClick })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48155,12 +49016,12 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onAppendButtonClickEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1p, [["render", _sfc_render$1p]]);
+var onAppendButtonClickEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1r, [["render", _sfc_render$1r]]);
 var __glob_0_70 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onAppendButtonClickEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1o = {
+const _sfc_main$1q = {
   name: "onBeforeUpload-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48174,13 +49035,17 @@ const _sfc_main$1o = {
     };
   }
 };
-function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$F = /* @__PURE__ */ createElementVNode("div", null, "onBeforeUpload", -1);
+function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onBeforeUpload",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$F,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onBeforeUpload })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48198,12 +49063,12 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onBeforeUploadEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1o, [["render", _sfc_render$1o]]);
+var onBeforeUploadEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1q, [["render", _sfc_render$1q]]);
 var __glob_0_71 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onBeforeUploadEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1n = {
+const _sfc_main$1p = {
   name: "onBlur-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48217,13 +49082,17 @@ const _sfc_main$1n = {
     };
   }
 };
-function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$E = /* @__PURE__ */ createElementVNode("div", null, "onBlur", -1);
+function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onBlur",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$E,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onBlur })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48241,12 +49110,12 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onBlurEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1n, [["render", _sfc_render$1n]]);
+var onBlurEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1p, [["render", _sfc_render$1p]]);
 var __glob_0_72 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onBlurEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1m = {
+const _sfc_main$1o = {
   name: "onChange-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48260,13 +49129,17 @@ const _sfc_main$1m = {
     };
   }
 };
-function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$D = /* @__PURE__ */ createElementVNode("div", null, "onChange", -1);
+function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onChange",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$D,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onChange })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48284,12 +49157,12 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onChangeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1m, [["render", _sfc_render$1m]]);
+var onChangeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1o, [["render", _sfc_render$1o]]);
 var __glob_0_73 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1l = {
+const _sfc_main$1n = {
   name: "onClick-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48303,13 +49176,17 @@ const _sfc_main$1l = {
     };
   }
 };
-function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$C = /* @__PURE__ */ createElementVNode("div", null, "onClick", -1);
+function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onClick",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$C,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onClick })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48327,12 +49204,12 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onClickEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1l, [["render", _sfc_render$1l]]);
+var onClickEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1n, [["render", _sfc_render$1n]]);
 var __glob_0_74 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onClickEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1k = {
+const _sfc_main$1m = {
   name: "onCreated-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48346,13 +49223,17 @@ const _sfc_main$1k = {
     };
   }
 };
-function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$B = /* @__PURE__ */ createElementVNode("div", null, "onCreated", -1);
+function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onCreated",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$B,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onCreated })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48370,12 +49251,12 @@ function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onCreatedEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1k, [["render", _sfc_render$1k]]);
+var onCreatedEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1m, [["render", _sfc_render$1m]]);
 var __glob_0_75 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onCreatedEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1j = {
+const _sfc_main$1l = {
   name: "onFileRemove-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48389,13 +49270,17 @@ const _sfc_main$1j = {
     };
   }
 };
-function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$A = /* @__PURE__ */ createElementVNode("div", null, "onFileRemove", -1);
+function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onFileRemove",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$A,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onFileRemove })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48413,12 +49298,12 @@ function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onFileRemove = /* @__PURE__ */ _export_sfc$1(_sfc_main$1j, [["render", _sfc_render$1j]]);
+var onFileRemove = /* @__PURE__ */ _export_sfc$1(_sfc_main$1l, [["render", _sfc_render$1l]]);
 var __glob_0_76 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onFileRemove
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1i = {
+const _sfc_main$1k = {
   name: "onFocus-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48432,13 +49317,17 @@ const _sfc_main$1i = {
     };
   }
 };
-function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$z = /* @__PURE__ */ createElementVNode("div", null, "onFocus", -1);
+function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onFocus",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$z,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onFocus })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48456,12 +49345,12 @@ function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onFocusEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1i, [["render", _sfc_render$1i]]);
+var onFocusEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1k, [["render", _sfc_render$1k]]);
 var __glob_0_77 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onFocusEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1h = {
+const _sfc_main$1j = {
   name: "onInput-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48475,13 +49364,17 @@ const _sfc_main$1h = {
     };
   }
 };
-function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$y = /* @__PURE__ */ createElementVNode("div", null, "onInput", -1);
+function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onInput",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$y,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onInput })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48499,12 +49392,12 @@ function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onInputEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1h, [["render", _sfc_render$1h]]);
+var onInputEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1j, [["render", _sfc_render$1j]]);
 var __glob_0_78 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onInputEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1g = {
+const _sfc_main$1i = {
   name: "onMounted-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48518,13 +49411,17 @@ const _sfc_main$1g = {
     };
   }
 };
-function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$x = /* @__PURE__ */ createElementVNode("div", null, "onMounted", -1);
+function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onMounted",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$x,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onMounted })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48542,12 +49439,59 @@ function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onMountedEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1g, [["render", _sfc_render$1g]]);
+var onMountedEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1i, [["render", _sfc_render$1i]]);
 var __glob_0_79 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onMountedEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1f = {
+const _sfc_main$1h = {
+  name: "onQuerySearchAsync-editor",
+  mixins: [i18n$1, eventMixin],
+  props: {
+    designer: Object,
+    selectedWidget: Object,
+    optionModel: Object
+  },
+  data() {
+    return {
+      eventParams: ["queryString", "cb"]
+    };
+  }
+};
+const _hoisted_1$w = /* @__PURE__ */ createElementVNode("div", null, "onQuerySearchAsync", -1);
+function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_button = resolveComponent("el-button");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$w,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onQuerySearchAsync })
+      }, null, 2)
+    ]),
+    default: withCtx(() => [
+      createVNode(_component_el_button, {
+        type: "info",
+        icon: "el-icon-edit",
+        plain: "",
+        round: "",
+        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.editEventHandler("onQuerySearchAsync", $data.eventParams))
+      }, {
+        default: withCtx(() => [
+          createTextVNode(toDisplayString(_ctx.$t("designer.setting.addEventHandler")), 1)
+        ]),
+        _: 1
+      })
+    ]),
+    _: 1
+  });
+}
+var onQuerySearchAsyncEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1h, [["render", _sfc_render$1h]]);
+var __glob_0_80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": onQuerySearchAsyncEditor
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$1g = {
   name: "onRemoteQuery-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48561,13 +49505,17 @@ const _sfc_main$1f = {
     };
   }
 };
-function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$v = /* @__PURE__ */ createElementVNode("div", null, "onRemoteQuery", -1);
+function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onRemoteQuery",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$v,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onRemoteQuery })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48585,12 +49533,12 @@ function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onRemoteQueryEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1f, [["render", _sfc_render$1f]]);
-var __glob_0_80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onRemoteQueryEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1g, [["render", _sfc_render$1g]]);
+var __glob_0_81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onRemoteQueryEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1e = {
+const _sfc_main$1f = {
   name: "onSubFormRowAdd-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48604,13 +49552,17 @@ const _sfc_main$1e = {
     };
   }
 };
-function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$u = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowAdd", -1);
+function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onSubFormRowAdd",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$u,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowAdd })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48628,12 +49580,12 @@ function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowAddEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1e, [["render", _sfc_render$1e]]);
-var __glob_0_81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onSubFormRowAddEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1f, [["render", _sfc_render$1f]]);
+var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowAddEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1d = {
+const _sfc_main$1e = {
   name: "onSubFormRowChange-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48647,13 +49599,17 @@ const _sfc_main$1d = {
     };
   }
 };
-function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$t = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowChange", -1);
+function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onSubFormRowChange",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$t,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowChange })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48671,12 +49627,12 @@ function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowChangeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1d, [["render", _sfc_render$1d]]);
-var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onSubFormRowChangeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1e, [["render", _sfc_render$1e]]);
+var __glob_0_83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1c = {
+const _sfc_main$1d = {
   name: "onSubFormRowDelete-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48690,13 +49646,17 @@ const _sfc_main$1c = {
     };
   }
 };
-function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$s = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowDelete", -1);
+function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onSubFormRowDelete",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$s,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowDelete })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48714,12 +49674,12 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowDeleteEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1c, [["render", _sfc_render$1c]]);
-var __glob_0_83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onSubFormRowDeleteEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1d, [["render", _sfc_render$1d]]);
+var __glob_0_84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowDeleteEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1b = {
+const _sfc_main$1c = {
   name: "onSubFormRowInsert-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48733,13 +49693,17 @@ const _sfc_main$1b = {
     };
   }
 };
-function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$r = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowInsert", -1);
+function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onSubFormRowInsert",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$r,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowInsert })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48757,12 +49721,12 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowInsertEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1b, [["render", _sfc_render$1b]]);
-var __glob_0_84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onSubFormRowInsertEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1c, [["render", _sfc_render$1c]]);
+var __glob_0_85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowInsertEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1a = {
+const _sfc_main$1b = {
   name: "onUploadError-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48776,13 +49740,17 @@ const _sfc_main$1a = {
     };
   }
 };
-function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$q = /* @__PURE__ */ createElementVNode("div", null, "onUploadError", -1);
+function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onUploadError",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$q,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onUploadError })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48800,12 +49768,12 @@ function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onUploadErrorEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1a, [["render", _sfc_render$1a]]);
-var __glob_0_85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onUploadErrorEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1b, [["render", _sfc_render$1b]]);
+var __glob_0_86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onUploadErrorEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$19 = {
+const _sfc_main$1a = {
   name: "onUploadSuccess-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48819,13 +49787,17 @@ const _sfc_main$19 = {
     };
   }
 };
-function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$p = /* @__PURE__ */ createElementVNode("div", null, "onUploadSuccess", -1);
+function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onUploadSuccess",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$p,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onUploadSuccess })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48843,12 +49815,12 @@ function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onUploadSuccessEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$19, [["render", _sfc_render$19]]);
-var __glob_0_86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onUploadSuccessEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1a, [["render", _sfc_render$1a]]);
+var __glob_0_87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onUploadSuccessEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$18 = {
+const _sfc_main$19 = {
   name: "onValidate-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -48862,13 +49834,17 @@ const _sfc_main$18 = {
     };
   }
 };
-function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_1$o = /* @__PURE__ */ createElementVNode("div", null, "onValidate", -1);
+function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, {
-    label: "onValidate",
-    "label-width": "150px"
-  }, {
+  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
+    label: withCtx(() => [
+      _hoisted_1$o,
+      createElementVNode("div", {
+        class: normalizeClass({ "redPoint": $props.optionModel.onValidate })
+      }, null, 2)
+    ]),
     default: withCtx(() => [
       createVNode(_component_el_button, {
         type: "info",
@@ -48886,12 +49862,12 @@ function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onValidateEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$18, [["render", _sfc_render$18]]);
-var __glob_0_87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var onValidateEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$19, [["render", _sfc_render$19]]);
+var __glob_0_88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onValidateEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$17 = {
+const _sfc_main$18 = {
   name: "button-type-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -48900,7 +49876,7 @@ const _sfc_main$17 = {
     optionModel: Object
   }
 };
-function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -48948,12 +49924,12 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonTypeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$17, [["render", _sfc_render$17]]);
-var __glob_0_88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var buttonTypeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$18, [["render", _sfc_render$18]]);
+var __glob_0_89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$16 = {
+const _sfc_main$17 = {
   name: "circle-editor",
   mixins: [i18n$1],
   props: {
@@ -48962,7 +49938,7 @@ const _sfc_main$16 = {
     optionModel: Object
   }
 };
-function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -48977,12 +49953,12 @@ function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var circleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$16, [["render", _sfc_render$16]]);
-var __glob_0_89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var circleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$17, [["render", _sfc_render$17]]);
+var __glob_0_90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": circleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$15 = {
+const _sfc_main$16 = {
   name: "icon-editor",
   mixins: [i18n$1],
   props: {
@@ -48991,7 +49967,7 @@ const _sfc_main$15 = {
     optionModel: Object
   }
 };
-function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49007,12 +49983,12 @@ function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var iconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$15, [["render", _sfc_render$15]]);
-var __glob_0_90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var iconEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$16, [["render", _sfc_render$16]]);
+var __glob_0_91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": iconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$14 = {
+const _sfc_main$15 = {
   name: "plain-editor",
   mixins: [i18n$1],
   props: {
@@ -49021,7 +49997,7 @@ const _sfc_main$14 = {
     optionModel: Object
   }
 };
-function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49036,12 +50012,12 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var plainEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$14, [["render", _sfc_render$14]]);
-var __glob_0_91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var plainEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$15, [["render", _sfc_render$15]]);
+var __glob_0_92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": plainEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$13 = {
+const _sfc_main$14 = {
   name: "round-editor",
   mixins: [i18n$1],
   props: {
@@ -49050,7 +50026,7 @@ const _sfc_main$13 = {
     optionModel: Object
   }
 };
-function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49065,12 +50041,12 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var roundEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$13, [["render", _sfc_render$13]]);
-var __glob_0_92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var roundEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$14, [["render", _sfc_render$14]]);
+var __glob_0_93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": roundEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$12 = {
+const _sfc_main$13 = {
   name: "cascader-defaultValue-editor",
   props: {
     designer: Object,
@@ -49079,15 +50055,15 @@ const _sfc_main$12 = {
   }
 };
 const _hoisted_1$n = { style: { "display": "none" } };
-function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$n);
 }
-var cascaderDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$12, [["render", _sfc_render$12]]);
-var __glob_0_93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var cascaderDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$13, [["render", _sfc_render$13]]);
+var __glob_0_94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$11 = {
+const _sfc_main$12 = {
   name: "cascader-multiple-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -49096,7 +50072,7 @@ const _sfc_main$11 = {
     optionModel: Object
   }
 };
-function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49111,12 +50087,12 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var cascaderMultipleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$11, [["render", _sfc_render$11]]);
-var __glob_0_94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var cascaderMultipleEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$12, [["render", _sfc_render$12]]);
+var __glob_0_95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderMultipleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$10 = {
+const _sfc_main$11 = {
   name: "checkStrictly-editor",
   mixins: [i18n$1],
   props: {
@@ -49125,7 +50101,7 @@ const _sfc_main$10 = {
     optionModel: Object
   }
 };
-function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49140,12 +50116,12 @@ function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var checkStrictlyEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$10, [["render", _sfc_render$10]]);
-var __glob_0_95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var checkStrictlyEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$11, [["render", _sfc_render$11]]);
+var __glob_0_96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkStrictlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$$ = {
+const _sfc_main$10 = {
   name: "showAllLevels-editor",
   mixins: [i18n$1],
   props: {
@@ -49154,7 +50130,7 @@ const _sfc_main$$ = {
     optionModel: Object
   }
 };
-function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49169,12 +50145,12 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showAllLevelsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$$, [["render", _sfc_render$$]]);
-var __glob_0_96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var showAllLevelsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$10, [["render", _sfc_render$10]]);
+var __glob_0_97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showAllLevelsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$_ = {
+const _sfc_main$$ = {
   name: "checkbox-defaultValue-editor",
   props: {
     designer: Object,
@@ -49183,15 +50159,15 @@ const _sfc_main$_ = {
   }
 };
 const _hoisted_1$m = { style: { "display": "none" } };
-function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$m);
 }
-var checkboxDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$_, [["render", _sfc_render$_]]);
-var __glob_0_97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var checkboxDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$$, [["render", _sfc_render$$]]);
+var __glob_0_98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Z = {
+const _sfc_main$_ = {
   name: "color-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -49200,7 +50176,7 @@ const _sfc_main$Z = {
     optionModel: Object
   }
 };
-function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49216,12 +50192,12 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var colorDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$Z, [["render", _sfc_render$Z]]);
-var __glob_0_98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var colorDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$_, [["render", _sfc_render$_]]);
+var __glob_0_99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Y = {
+const _sfc_main$Z = {
   name: "date-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -49230,7 +50206,7 @@ const _sfc_main$Y = {
     optionModel: Object
   }
 };
-function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49250,12 +50226,12 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$Y, [["render", _sfc_render$Y]]);
-var __glob_0_99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$Z, [["render", _sfc_render$Z]]);
+var __glob_0_100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$X = {
+const _sfc_main$Y = {
   name: "date-format-editor",
   mixins: [i18n$1],
   props: {
@@ -49264,7 +50240,7 @@ const _sfc_main$X = {
     optionModel: Object
   }
 };
-function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49306,12 +50282,12 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$X, [["render", _sfc_render$X]]);
-var __glob_0_100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$Y, [["render", _sfc_render$Y]]);
+var __glob_0_101 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$W = {
+const _sfc_main$X = {
   name: "date-type-editor",
   mixins: [i18n$1],
   props: {
@@ -49320,7 +50296,7 @@ const _sfc_main$W = {
     optionModel: Object
   }
 };
-function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49364,12 +50340,12 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateTypeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$W, [["render", _sfc_render$W]]);
-var __glob_0_101 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateTypeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$X, [["render", _sfc_render$X]]);
+var __glob_0_102 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$V = {
+const _sfc_main$W = {
   name: "date-valueFormat-editor",
   mixins: [i18n$1],
   props: {
@@ -49378,7 +50354,7 @@ const _sfc_main$V = {
     optionModel: Object
   }
 };
-function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49408,12 +50384,12 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateValueFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$V, [["render", _sfc_render$V]]);
-var __glob_0_102 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateValueFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$W, [["render", _sfc_render$W]]);
+var __glob_0_103 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$U = {
+const _sfc_main$V = {
   name: "date-range-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -49422,7 +50398,7 @@ const _sfc_main$U = {
     optionModel: Object
   }
 };
-function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49442,12 +50418,12 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$U, [["render", _sfc_render$U]]);
-var __glob_0_103 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$V, [["render", _sfc_render$V]]);
+var __glob_0_104 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$T = {
+const _sfc_main$U = {
   name: "date-range-format-editor",
   mixins: [i18n$1],
   props: {
@@ -49456,7 +50432,7 @@ const _sfc_main$T = {
     optionModel: Object
   }
 };
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49498,12 +50474,12 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$T, [["render", _sfc_render$T]]);
-var __glob_0_104 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateRangeFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$U, [["render", _sfc_render$U]]);
+var __glob_0_105 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$S = {
+const _sfc_main$T = {
   name: "date-range-type-editor",
   mixins: [i18n$1],
   props: {
@@ -49512,7 +50488,7 @@ const _sfc_main$S = {
     optionModel: Object
   }
 };
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49544,12 +50520,12 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeTypeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$S, [["render", _sfc_render$S]]);
-var __glob_0_105 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateRangeTypeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$T, [["render", _sfc_render$T]]);
+var __glob_0_106 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$R = {
+const _sfc_main$S = {
   name: "date-range-valueFormat-editor",
   mixins: [i18n$1],
   props: {
@@ -49558,7 +50534,7 @@ const _sfc_main$R = {
     optionModel: Object
   }
 };
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49588,12 +50564,12 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeValueFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$R, [["render", _sfc_render$R]]);
-var __glob_0_106 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var dateRangeValueFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$S, [["render", _sfc_render$S]]);
+var __glob_0_107 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Q = {
+const _sfc_main$R = {
   name: "contentPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -49602,7 +50578,7 @@ const _sfc_main$Q = {
     optionModel: Object
   }
 };
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49634,12 +50610,12 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var contentPositionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$Q, [["render", _sfc_render$Q]]);
-var __glob_0_107 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var contentPositionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$R, [["render", _sfc_render$R]]);
+var __glob_0_108 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": contentPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$P = {
+const _sfc_main$Q = {
   name: "file-upload-fileTypes-editor",
   mixins: [i18n$1],
   components: {
@@ -49661,7 +50637,7 @@ const _sfc_main$P = {
     };
   }
 };
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_option = resolveComponent("el-option");
@@ -49707,13 +50683,13 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var fileUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$P, [["render", _sfc_render$P]]);
-var __glob_0_108 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var fileUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var __glob_0_109 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadFileTypesEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlContentEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$O = {
+const _sfc_main$P = {
   name: "htmlContent-editor",
   mixins: [i18n$1],
   props: {
@@ -49722,7 +50698,7 @@ const _sfc_main$O = {
     optionModel: Object
   }
 };
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createElementBlock("div", null, [
@@ -49743,12 +50719,12 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var htmlContentEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-a185d9d2"]]);
-var __glob_0_109 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var htmlContentEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-a185d9d2"]]);
+var __glob_0_110 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlContentEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$N = {
+const _sfc_main$O = {
   name: "controlsPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -49757,7 +50733,7 @@ const _sfc_main$N = {
     optionModel: Object
   }
 };
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -49785,12 +50761,12 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var controlsPositionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
-var __glob_0_110 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var controlsPositionEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$O, [["render", _sfc_render$O]]);
+var __glob_0_111 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": controlsPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$M = {
+const _sfc_main$N = {
   name: "number-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -49799,7 +50775,7 @@ const _sfc_main$M = {
     optionModel: Object
   }
 };
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49818,12 +50794,12 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var numberDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$M, [["render", _sfc_render$M]]);
-var __glob_0_111 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var numberDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$N, [["render", _sfc_render$N]]);
+var __glob_0_112 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$L = {
+const _sfc_main$M = {
   name: "picture-upload-fileTypes-editor",
   mixins: [i18n$1],
   components: {
@@ -49845,7 +50821,7 @@ const _sfc_main$L = {
     };
   }
 };
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_option = resolveComponent("el-option");
@@ -49891,12 +50867,12 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var pictureUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$L, [["render", _sfc_render$L]]);
-var __glob_0_112 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var pictureUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$M, [["render", _sfc_render$M]]);
+var __glob_0_113 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadFileTypesEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$K = {
+const _sfc_main$L = {
   name: "radio-defaultValue-editor",
   props: {
     designer: Object,
@@ -49905,15 +50881,15 @@ const _sfc_main$K = {
   }
 };
 const _hoisted_1$l = { style: { "display": "none" } };
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$l);
 }
-var radioDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K]]);
-var __glob_0_113 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var radioDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$L, [["render", _sfc_render$L]]);
+var __glob_0_114 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$J = {
+const _sfc_main$K = {
   name: "allowHalf-editor",
   mixins: [i18n$1],
   props: {
@@ -49922,7 +50898,7 @@ const _sfc_main$J = {
     optionModel: Object
   }
 };
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49937,12 +50913,12 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var allowHalfEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$J, [["render", _sfc_render$J]]);
-var __glob_0_114 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var allowHalfEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K]]);
+var __glob_0_115 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": allowHalfEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$I = {
+const _sfc_main$J = {
   name: "highThreshold-editor",
   mixins: [i18n$1],
   props: {
@@ -49951,7 +50927,7 @@ const _sfc_main$I = {
     optionModel: Object
   }
 };
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -49970,12 +50946,12 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var highThresholdEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I]]);
-var __glob_0_115 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var highThresholdEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$J, [["render", _sfc_render$J]]);
+var __glob_0_116 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": highThresholdEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$H = {
+const _sfc_main$I = {
   name: "lowThreshold-editor",
   mixins: [i18n$1],
   props: {
@@ -49984,7 +50960,7 @@ const _sfc_main$H = {
     optionModel: Object
   }
 };
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50003,12 +50979,12 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var lowThresholdEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["render", _sfc_render$H]]);
-var __glob_0_116 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var lowThresholdEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I]]);
+var __glob_0_117 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": lowThresholdEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$G = {
+const _sfc_main$H = {
   name: "rate-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -50017,7 +50993,7 @@ const _sfc_main$G = {
     optionModel: Object
   }
 };
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50036,12 +51012,12 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var rateDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$G]]);
-var __glob_0_117 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var rateDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$H, [["render", _sfc_render$H]]);
+var __glob_0_118 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$F = {
+const _sfc_main$G = {
   name: "rate-max-editor",
   mixins: [i18n$1],
   props: {
@@ -50050,7 +51026,7 @@ const _sfc_main$F = {
     optionModel: Object
   }
 };
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50069,12 +51045,12 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var rateMaxEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F]]);
-var __glob_0_118 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var rateMaxEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$G, [["render", _sfc_render$G]]);
+var __glob_0_119 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateMaxEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$E = {
+const _sfc_main$F = {
   name: "showScore-editor",
   mixins: [i18n$1],
   props: {
@@ -50083,7 +51059,7 @@ const _sfc_main$E = {
     optionModel: Object
   }
 };
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50098,12 +51074,12 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showScoreEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E]]);
-var __glob_0_119 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var showScoreEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F]]);
+var __glob_0_120 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showScoreEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$D = {
+const _sfc_main$E = {
   name: "showText-editor",
   mixins: [i18n$1],
   props: {
@@ -50112,7 +51088,7 @@ const _sfc_main$D = {
     optionModel: Object
   }
 };
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50127,12 +51103,12 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showTextEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D]]);
-var __glob_0_120 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var showTextEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E]]);
+var __glob_0_121 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$C = {
+const _sfc_main$D = {
   name: "rich-editor-contentHeight-editor",
   mixins: [i18n$1],
   props: {
@@ -50141,7 +51117,7 @@ const _sfc_main$C = {
     optionModel: Object
   }
 };
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -50159,12 +51135,12 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var richEditorContentHeightEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
-var __glob_0_121 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var richEditorContentHeightEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D]]);
+var __glob_0_122 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorContentHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$B = {
+const _sfc_main$C = {
   name: "select-defaultValue-editor",
   props: {
     designer: Object,
@@ -50173,15 +51149,15 @@ const _sfc_main$B = {
   }
 };
 const _hoisted_1$k = { style: { "display": "none" } };
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$k);
 }
-var selectDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["render", _sfc_render$B]]);
-var __glob_0_122 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var selectDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
+var __glob_0_123 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$A = {
+const _sfc_main$B = {
   name: "range-editor",
   mixins: [i18n$1],
   props: {
@@ -50190,7 +51166,7 @@ const _sfc_main$A = {
     optionModel: Object
   }
 };
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50205,12 +51181,12 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var rangeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A]]);
-var __glob_0_123 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var rangeEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$B, [["render", _sfc_render$B]]);
+var __glob_0_124 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$z = {
+const _sfc_main$A = {
   name: "showStops-editor",
   mixins: [i18n$1],
   props: {
@@ -50219,7 +51195,7 @@ const _sfc_main$z = {
     optionModel: Object
   }
 };
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50234,12 +51210,12 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showStopsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
-var __glob_0_124 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var showStopsEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A]]);
+var __glob_0_125 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showStopsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$y = {
+const _sfc_main$z = {
   name: "vertical-editor",
   mixins: [i18n$1],
   props: {
@@ -50248,7 +51224,7 @@ const _sfc_main$y = {
     optionModel: Object
   }
 };
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50263,12 +51239,12 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var verticalEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$y]]);
-var __glob_0_125 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var verticalEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
+var __glob_0_126 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": verticalEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$x = {
+const _sfc_main$y = {
   name: "textContent-editor",
   mixins: [i18n$1],
   props: {
@@ -50277,7 +51253,7 @@ const _sfc_main$x = {
     optionModel: Object
   }
 };
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50292,12 +51268,12 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var textContentEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
-var __glob_0_126 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var textContentEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$y, [["render", _sfc_render$y]]);
+var __glob_0_127 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textContentEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$w = {
+const _sfc_main$x = {
   name: "activeColor-editor",
   mixins: [i18n$1],
   props: {
@@ -50306,7 +51282,7 @@ const _sfc_main$w = {
     optionModel: Object
   }
 };
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50321,12 +51297,12 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var activeColorEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
-var __glob_0_127 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var activeColorEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
+var __glob_0_128 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": activeColorEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$v = {
+const _sfc_main$w = {
   name: "activeText-editor",
   mixins: [i18n$1],
   props: {
@@ -50335,7 +51311,7 @@ const _sfc_main$v = {
     optionModel: Object
   }
 };
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50350,12 +51326,12 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var activeTextEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["render", _sfc_render$v]]);
-var __glob_0_128 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var activeTextEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$w, [["render", _sfc_render$w]]);
+var __glob_0_129 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": activeTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$u = {
+const _sfc_main$v = {
   name: "inactiveColor-editor",
   mixins: [i18n$1],
   props: {
@@ -50364,7 +51340,7 @@ const _sfc_main$u = {
     optionModel: Object
   }
 };
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50379,12 +51355,12 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var inactiveColorEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u]]);
-var __glob_0_129 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var inactiveColorEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$v, [["render", _sfc_render$v]]);
+var __glob_0_130 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inactiveColorEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$t = {
+const _sfc_main$u = {
   name: "inactiveText-editor",
   mixins: [i18n$1],
   props: {
@@ -50393,7 +51369,7 @@ const _sfc_main$t = {
     optionModel: Object
   }
 };
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50408,12 +51384,12 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var inactiveTextEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t]]);
-var __glob_0_130 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var inactiveTextEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u]]);
+var __glob_0_131 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inactiveTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$s = {
+const _sfc_main$t = {
   name: "switch-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -50422,7 +51398,7 @@ const _sfc_main$s = {
     optionModel: Object
   }
 };
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50440,12 +51416,12 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var switchDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
-var __glob_0_131 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var switchDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t]]);
+var __glob_0_132 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$r = {
+const _sfc_main$s = {
   name: "switchWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -50454,7 +51430,7 @@ const _sfc_main$r = {
     optionModel: Object
   }
 };
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50470,12 +51446,12 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var switchWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$r, [["render", _sfc_render$r]]);
-var __glob_0_132 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var switchWidthEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$s, [["render", _sfc_render$s]]);
+var __glob_0_133 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$q = {
+const _sfc_main$r = {
   name: "time-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -50484,7 +51460,7 @@ const _sfc_main$q = {
     optionModel: Object
   }
 };
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50503,12 +51479,12 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var timeDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q]]);
-var __glob_0_133 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var timeDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$r, [["render", _sfc_render$r]]);
+var __glob_0_134 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$p = {
+const _sfc_main$q = {
   name: "time-format-editor",
   mixins: [i18n$1],
   props: {
@@ -50517,7 +51493,7 @@ const _sfc_main$p = {
     optionModel: Object
   }
 };
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -50551,12 +51527,12 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var timeFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$p, [["render", _sfc_render$p]]);
-var __glob_0_134 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var timeFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q]]);
+var __glob_0_135 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$o = {
+const _sfc_main$p = {
   name: "time-range-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -50565,7 +51541,7 @@ const _sfc_main$o = {
     optionModel: Object
   }
 };
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -50585,12 +51561,12 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var timeRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o]]);
-var __glob_0_135 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var timeRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$p, [["render", _sfc_render$p]]);
+var __glob_0_136 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$n = {
+const _sfc_main$o = {
   name: "time-range-format-editor",
   mixins: [i18n$1],
   props: {
@@ -50599,7 +51575,7 @@ const _sfc_main$n = {
     optionModel: Object
   }
 };
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -50633,19 +51609,19 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var timeRangeFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n]]);
-var __glob_0_136 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var timeRangeFormatEditor = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o]]);
+var __glob_0_137 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
 let comps = {};
-const modules$1 = { "./allowCreate-editor.vue": __glob_0_0$1, "./appendButton-editor.vue": __glob_0_1$1, "./appendButtonDisabled-editor.vue": __glob_0_2$1, "./autoFullWidth-editor.vue": __glob_0_3$1, "./automaticDropdown-editor.vue": __glob_0_4$1, "./border-editor.vue": __glob_0_5$1, "./buttonIcon-editor.vue": __glob_0_6, "./buttonStyle-editor.vue": __glob_0_7, "./clearable-editor.vue": __glob_0_8, "./columnWidth-editor.vue": __glob_0_9, "./customClass-editor.vue": __glob_0_10, "./defaultValue-editor.vue": __glob_0_11, "./disabled-editor.vue": __glob_0_12, "./displayStyle-editor.vue": __glob_0_13, "./editable-editor.vue": __glob_0_14, "./endPlaceholder-editor.vue": __glob_0_15, "./fileMaxSize-editor.vue": __glob_0_16, "./filterable-editor.vue": __glob_0_17, "./hidden-editor.vue": __glob_0_18, "./label-editor.vue": __glob_0_19, "./labelAlign-editor.vue": __glob_0_20, "./labelHidden-editor.vue": __glob_0_21, "./labelIconClass-editor.vue": __glob_0_22, "./labelIconPosition-editor.vue": __glob_0_23, "./labelTooltip-editor.vue": __glob_0_24, "./labelWidth-editor.vue": __glob_0_25, "./limit-editor.vue": __glob_0_26, "./max-editor.vue": __glob_0_27, "./maxLength-editor.vue": __glob_0_28, "./min-editor.vue": __glob_0_29, "./minLength-editor.vue": __glob_0_30, "./multiple-editor.vue": __glob_0_31, "./multipleLimit-editor.vue": __glob_0_32, "./multipleSelect-editor.vue": __glob_0_33, "./name-editor.vue": __glob_0_34, "./optionItems-editor.vue": __glob_0_35, "./placeholder-editor.vue": __glob_0_36, "./precision-editor.vue": __glob_0_37, "./prefixIcon-editor.vue": __glob_0_38, "./readonly-editor.vue": __glob_0_39, "./remote-editor.vue": __glob_0_40, "./required-editor.vue": __glob_0_41, "./requiredHint-editor.vue": __glob_0_42, "./rows-editor.vue": __glob_0_43, "./showFileList-editor.vue": __glob_0_44, "./showPassword-editor.vue": __glob_0_45, "./showWordLimit-editor.vue": __glob_0_46, "./size-editor.vue": __glob_0_47, "./startPlaceholder-editor.vue": __glob_0_48, "./step-editor.vue": __glob_0_49, "./suffixIcon-editor.vue": __glob_0_50, "./type-editor.vue": __glob_0_51, "./uploadTip-editor.vue": __glob_0_52, "./uploadURL-editor.vue": __glob_0_53, "./validation-editor.vue": __glob_0_54, "./validationHint-editor.vue": __glob_0_55, "./withCredentials-editor.vue": __glob_0_56, "./container-grid/colHeight-editor.vue": __glob_0_57, "./container-grid/gutter-editor.vue": __glob_0_58, "./container-grid-col/grid-col-offset-editor.vue": __glob_0_59, "./container-grid-col/grid-col-pull-editor.vue": __glob_0_60, "./container-grid-col/grid-col-push-editor.vue": __glob_0_61, "./container-grid-col/grid-col-responsive-editor.vue": __glob_0_62, "./container-grid-col/grid-col-span-editor.vue": __glob_0_63, "./container-sub-form/showBlankRow-editor.vue": __glob_0_64, "./container-sub-form/showRowNumber-editor.vue": __glob_0_65, "./container-sub-form/sub-form-labelAlign-editor.vue": __glob_0_66, "./container-tab/tab-customClass-editor.vue": __glob_0_67, "./container-table-cell/cellHeight-editor.vue": __glob_0_68, "./container-table-cell/cellWidth-editor.vue": __glob_0_69, "./event-handler/onAppendButtonClick-editor.vue": __glob_0_70, "./event-handler/onBeforeUpload-editor.vue": __glob_0_71, "./event-handler/onBlur-editor.vue": __glob_0_72, "./event-handler/onChange-editor.vue": __glob_0_73, "./event-handler/onClick-editor.vue": __glob_0_74, "./event-handler/onCreated-editor.vue": __glob_0_75, "./event-handler/onFileRemove.vue": __glob_0_76, "./event-handler/onFocus-editor.vue": __glob_0_77, "./event-handler/onInput-editor.vue": __glob_0_78, "./event-handler/onMounted-editor.vue": __glob_0_79, "./event-handler/onRemoteQuery-editor.vue": __glob_0_80, "./event-handler/onSubFormRowAdd-editor.vue": __glob_0_81, "./event-handler/onSubFormRowChange-editor.vue": __glob_0_82, "./event-handler/onSubFormRowDelete-editor.vue": __glob_0_83, "./event-handler/onSubFormRowInsert-editor.vue": __glob_0_84, "./event-handler/onUploadError-editor.vue": __glob_0_85, "./event-handler/onUploadSuccess-editor.vue": __glob_0_86, "./event-handler/onValidate-editor.vue": __glob_0_87, "./field-button/button-type-editor.vue": __glob_0_88, "./field-button/circle-editor.vue": __glob_0_89, "./field-button/icon-editor.vue": __glob_0_90, "./field-button/plain-editor.vue": __glob_0_91, "./field-button/round-editor.vue": __glob_0_92, "./field-cascader/cascader-defaultValue-editor.vue": __glob_0_93, "./field-cascader/cascader-multiple-editor.vue": __glob_0_94, "./field-cascader/checkStrictly-editor.vue": __glob_0_95, "./field-cascader/showAllLevels-editor.vue": __glob_0_96, "./field-checkbox/checkbox-defaultValue-editor.vue": __glob_0_97, "./field-color/color-defaultValue-editor.vue": __glob_0_98, "./field-date/date-defaultValue-editor.vue": __glob_0_99, "./field-date/date-format-editor.vue": __glob_0_100, "./field-date/date-type-editor.vue": __glob_0_101, "./field-date/date-valueFormat-editor.vue": __glob_0_102, "./field-date-range/date-range-defaultValue-editor.vue": __glob_0_103, "./field-date-range/date-range-format-editor.vue": __glob_0_104, "./field-date-range/date-range-type-editor.vue": __glob_0_105, "./field-date-range/date-range-valueFormat-editor.vue": __glob_0_106, "./field-divider/contentPosition-editor.vue": __glob_0_107, "./field-file-upload/file-upload-fileTypes-editor.vue": __glob_0_108, "./field-html-text/htmlContent-editor.vue": __glob_0_109, "./field-number/controlsPosition-editor.vue": __glob_0_110, "./field-number/number-defaultValue-editor.vue": __glob_0_111, "./field-picture-upload/picture-upload-fileTypes-editor.vue": __glob_0_112, "./field-radio/radio-defaultValue-editor.vue": __glob_0_113, "./field-rate/allowHalf-editor.vue": __glob_0_114, "./field-rate/highThreshold-editor.vue": __glob_0_115, "./field-rate/lowThreshold-editor.vue": __glob_0_116, "./field-rate/rate-defaultValue-editor.vue": __glob_0_117, "./field-rate/rate-max-editor.vue": __glob_0_118, "./field-rate/showScore-editor.vue": __glob_0_119, "./field-rate/showText-editor.vue": __glob_0_120, "./field-rich-editor/rich-editor-contentHeight-editor.vue": __glob_0_121, "./field-select/select-defaultValue-editor.vue": __glob_0_122, "./field-slider/range-editor.vue": __glob_0_123, "./field-slider/showStops-editor.vue": __glob_0_124, "./field-slider/vertical-editor.vue": __glob_0_125, "./field-static-text/textContent-editor.vue": __glob_0_126, "./field-switch/activeColor-editor.vue": __glob_0_127, "./field-switch/activeText-editor.vue": __glob_0_128, "./field-switch/inactiveColor-editor.vue": __glob_0_129, "./field-switch/inactiveText-editor.vue": __glob_0_130, "./field-switch/switch-defaultValue-editor.vue": __glob_0_131, "./field-switch/switchWidth-editor.vue": __glob_0_132, "./field-time/time-defaultValue-editor.vue": __glob_0_133, "./field-time/time-format-editor.vue": __glob_0_134, "./field-time-range/time-range-defaultValue-editor.vue": __glob_0_135, "./field-time-range/time-range-format-editor.vue": __glob_0_136 };
+const modules$1 = { "./allowCreate-editor.vue": __glob_0_0$1, "./appendButton-editor.vue": __glob_0_1$1, "./appendButtonDisabled-editor.vue": __glob_0_2$1, "./autoFullWidth-editor.vue": __glob_0_3$1, "./automaticDropdown-editor.vue": __glob_0_4$1, "./border-editor.vue": __glob_0_5$1, "./buttonIcon-editor.vue": __glob_0_6, "./buttonStyle-editor.vue": __glob_0_7, "./clearable-editor.vue": __glob_0_8, "./columnWidth-editor.vue": __glob_0_9, "./customClass-editor.vue": __glob_0_10, "./defaultValue-editor.vue": __glob_0_11, "./disabled-editor.vue": __glob_0_12, "./displayStyle-editor.vue": __glob_0_13, "./editable-editor.vue": __glob_0_14, "./endPlaceholder-editor.vue": __glob_0_15, "./fileMaxSize-editor.vue": __glob_0_16, "./filterable-editor.vue": __glob_0_17, "./hidden-editor.vue": __glob_0_18, "./label-editor.vue": __glob_0_19, "./labelAlign-editor.vue": __glob_0_20, "./labelHidden-editor.vue": __glob_0_21, "./labelIconClass-editor.vue": __glob_0_22, "./labelIconPosition-editor.vue": __glob_0_23, "./labelTooltip-editor.vue": __glob_0_24, "./labelWidth-editor.vue": __glob_0_25, "./limit-editor.vue": __glob_0_26, "./max-editor.vue": __glob_0_27, "./maxLength-editor.vue": __glob_0_28, "./min-editor.vue": __glob_0_29, "./minLength-editor.vue": __glob_0_30, "./multiple-editor.vue": __glob_0_31, "./multipleLimit-editor.vue": __glob_0_32, "./multipleSelect-editor.vue": __glob_0_33, "./name-editor.vue": __glob_0_34, "./optionItems-editor.vue": __glob_0_35, "./placeholder-editor.vue": __glob_0_36, "./precision-editor.vue": __glob_0_37, "./prefixIcon-editor.vue": __glob_0_38, "./readonly-editor.vue": __glob_0_39, "./remote-editor.vue": __glob_0_40, "./required-editor.vue": __glob_0_41, "./requiredHint-editor.vue": __glob_0_42, "./rows-editor.vue": __glob_0_43, "./showFileList-editor.vue": __glob_0_44, "./showPassword-editor.vue": __glob_0_45, "./showWordLimit-editor.vue": __glob_0_46, "./size-editor.vue": __glob_0_47, "./startPlaceholder-editor.vue": __glob_0_48, "./step-editor.vue": __glob_0_49, "./suffixIcon-editor.vue": __glob_0_50, "./type-editor.vue": __glob_0_51, "./uploadTip-editor.vue": __glob_0_52, "./uploadURL-editor.vue": __glob_0_53, "./validation-editor.vue": __glob_0_54, "./validationHint-editor.vue": __glob_0_55, "./withCredentials-editor.vue": __glob_0_56, "./container-grid/colHeight-editor.vue": __glob_0_57, "./container-grid/gutter-editor.vue": __glob_0_58, "./container-grid-col/grid-col-offset-editor.vue": __glob_0_59, "./container-grid-col/grid-col-pull-editor.vue": __glob_0_60, "./container-grid-col/grid-col-push-editor.vue": __glob_0_61, "./container-grid-col/grid-col-responsive-editor.vue": __glob_0_62, "./container-grid-col/grid-col-span-editor.vue": __glob_0_63, "./container-sub-form/showBlankRow-editor.vue": __glob_0_64, "./container-sub-form/showRowNumber-editor.vue": __glob_0_65, "./container-sub-form/sub-form-labelAlign-editor.vue": __glob_0_66, "./container-tab/tab-customClass-editor.vue": __glob_0_67, "./container-table-cell/cellHeight-editor.vue": __glob_0_68, "./container-table-cell/cellWidth-editor.vue": __glob_0_69, "./event-handler/onAppendButtonClick-editor.vue": __glob_0_70, "./event-handler/onBeforeUpload-editor.vue": __glob_0_71, "./event-handler/onBlur-editor.vue": __glob_0_72, "./event-handler/onChange-editor.vue": __glob_0_73, "./event-handler/onClick-editor.vue": __glob_0_74, "./event-handler/onCreated-editor.vue": __glob_0_75, "./event-handler/onFileRemove.vue": __glob_0_76, "./event-handler/onFocus-editor.vue": __glob_0_77, "./event-handler/onInput-editor.vue": __glob_0_78, "./event-handler/onMounted-editor.vue": __glob_0_79, "./event-handler/onQuerySearchAsync-editor.vue": __glob_0_80, "./event-handler/onRemoteQuery-editor.vue": __glob_0_81, "./event-handler/onSubFormRowAdd-editor.vue": __glob_0_82, "./event-handler/onSubFormRowChange-editor.vue": __glob_0_83, "./event-handler/onSubFormRowDelete-editor.vue": __glob_0_84, "./event-handler/onSubFormRowInsert-editor.vue": __glob_0_85, "./event-handler/onUploadError-editor.vue": __glob_0_86, "./event-handler/onUploadSuccess-editor.vue": __glob_0_87, "./event-handler/onValidate-editor.vue": __glob_0_88, "./field-button/button-type-editor.vue": __glob_0_89, "./field-button/circle-editor.vue": __glob_0_90, "./field-button/icon-editor.vue": __glob_0_91, "./field-button/plain-editor.vue": __glob_0_92, "./field-button/round-editor.vue": __glob_0_93, "./field-cascader/cascader-defaultValue-editor.vue": __glob_0_94, "./field-cascader/cascader-multiple-editor.vue": __glob_0_95, "./field-cascader/checkStrictly-editor.vue": __glob_0_96, "./field-cascader/showAllLevels-editor.vue": __glob_0_97, "./field-checkbox/checkbox-defaultValue-editor.vue": __glob_0_98, "./field-color/color-defaultValue-editor.vue": __glob_0_99, "./field-date/date-defaultValue-editor.vue": __glob_0_100, "./field-date/date-format-editor.vue": __glob_0_101, "./field-date/date-type-editor.vue": __glob_0_102, "./field-date/date-valueFormat-editor.vue": __glob_0_103, "./field-date-range/date-range-defaultValue-editor.vue": __glob_0_104, "./field-date-range/date-range-format-editor.vue": __glob_0_105, "./field-date-range/date-range-type-editor.vue": __glob_0_106, "./field-date-range/date-range-valueFormat-editor.vue": __glob_0_107, "./field-divider/contentPosition-editor.vue": __glob_0_108, "./field-file-upload/file-upload-fileTypes-editor.vue": __glob_0_109, "./field-html-text/htmlContent-editor.vue": __glob_0_110, "./field-number/controlsPosition-editor.vue": __glob_0_111, "./field-number/number-defaultValue-editor.vue": __glob_0_112, "./field-picture-upload/picture-upload-fileTypes-editor.vue": __glob_0_113, "./field-radio/radio-defaultValue-editor.vue": __glob_0_114, "./field-rate/allowHalf-editor.vue": __glob_0_115, "./field-rate/highThreshold-editor.vue": __glob_0_116, "./field-rate/lowThreshold-editor.vue": __glob_0_117, "./field-rate/rate-defaultValue-editor.vue": __glob_0_118, "./field-rate/rate-max-editor.vue": __glob_0_119, "./field-rate/showScore-editor.vue": __glob_0_120, "./field-rate/showText-editor.vue": __glob_0_121, "./field-rich-editor/rich-editor-contentHeight-editor.vue": __glob_0_122, "./field-select/select-defaultValue-editor.vue": __glob_0_123, "./field-slider/range-editor.vue": __glob_0_124, "./field-slider/showStops-editor.vue": __glob_0_125, "./field-slider/vertical-editor.vue": __glob_0_126, "./field-static-text/textContent-editor.vue": __glob_0_127, "./field-switch/activeColor-editor.vue": __glob_0_128, "./field-switch/activeText-editor.vue": __glob_0_129, "./field-switch/inactiveColor-editor.vue": __glob_0_130, "./field-switch/inactiveText-editor.vue": __glob_0_131, "./field-switch/switch-defaultValue-editor.vue": __glob_0_132, "./field-switch/switchWidth-editor.vue": __glob_0_133, "./field-time/time-defaultValue-editor.vue": __glob_0_134, "./field-time/time-format-editor.vue": __glob_0_135, "./field-time-range/time-range-defaultValue-editor.vue": __glob_0_136, "./field-time-range/time-range-format-editor.vue": __glob_0_137 };
 for (const path in modules$1) {
   let cname = modules$1[path].default.name;
   comps[cname] = modules$1[path].default;
 }
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$m = {
+const _sfc_main$n = {
   name: "form-setting",
   mixins: [i18n$1],
   components: {
@@ -50796,22 +51772,27 @@ const _sfc_main$m = {
     }
   }
 };
-const _hoisted_1$j = {
+const _withScopeId$1 = (n) => (pushScopeId("data-v-5f0b3b28"), n = n(), popScopeId(), n);
+const _hoisted_1$j = { style: { "height": "100%" } };
+const _hoisted_2$g = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormCreated", -1));
+const _hoisted_3$e = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormMounted", -1));
+const _hoisted_4$7 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormDataChange", -1));
+const _hoisted_5$5 = {
   key: 0,
   class: ""
 };
-const _hoisted_2$g = { class: "dialog-footer" };
-const _hoisted_3$e = {
+const _hoisted_6$4 = { class: "dialog-footer" };
+const _hoisted_7$3 = {
   key: 1,
   class: ""
 };
-const _hoisted_4$7 = { class: "dialog-footer" };
-const _hoisted_5$5 = {
+const _hoisted_8$3 = { class: "dialog-footer" };
+const _hoisted_9$2 = {
   key: 2,
   class: ""
 };
-const _hoisted_6$4 = { class: "dialog-footer" };
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+const _hoisted_10$2 = { class: "dialog-footer" };
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -50828,7 +51809,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_code_editor = resolveComponent("code-editor");
   const _component_el_dialog = resolveComponent("el-dialog");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", null, [
+  return openBlock(), createElementBlock("div", _hoisted_1$j, [
     createVNode(_component_el_form, {
       model: $props.formConfig,
       size: "small",
@@ -51067,10 +52048,13 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
               title: _ctx.$t("designer.setting.eventSetting")
             }, {
               default: withCtx(() => [
-                createVNode(_component_el_form_item, {
-                  label: "onFormCreated",
-                  "label-width": "150px"
-                }, {
+                createVNode(_component_el_form_item, { "label-width": "150px" }, {
+                  label: withCtx(() => [
+                    _hoisted_2$g,
+                    createElementVNode("div", {
+                      class: normalizeClass({ "redPoint": $props.formConfig.onFormCreated })
+                    }, null, 2)
+                  ]),
                   default: withCtx(() => [
                     createVNode(_component_el_button, {
                       type: "info",
@@ -51091,6 +52075,12 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
                   label: "onFormMounted",
                   "label-width": "150px"
                 }, {
+                  label: withCtx(() => [
+                    _hoisted_3$e,
+                    createElementVNode("div", {
+                      class: normalizeClass({ "redPoint": $props.formConfig.onFormMounted })
+                    }, null, 2)
+                  ]),
                   default: withCtx(() => [
                     createVNode(_component_el_button, {
                       type: "info",
@@ -51107,10 +52097,13 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
                   ]),
                   _: 1
                 }),
-                createVNode(_component_el_form_item, {
-                  label: "onFormDataChange",
-                  "label-width": "150px"
-                }, {
+                createVNode(_component_el_form_item, { "label-width": "150px" }, {
+                  label: withCtx(() => [
+                    _hoisted_4$7,
+                    createElementVNode("div", {
+                      class: normalizeClass({ "redPoint": $props.formConfig.onFormDataChange })
+                    }, null, 2)
+                  ]),
                   default: withCtx(() => [
                     createVNode(_component_el_button, {
                       type: "info",
@@ -51136,7 +52129,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 1
     }, 8, ["model"]),
-    $data.showFormEventDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_1$j, [
+    $data.showFormEventDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_5$5, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.editFormEventHandler"),
         modelValue: $data.showFormEventDialogFlag,
@@ -51149,7 +52142,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_2$g, [
+          createElementVNode("div", _hoisted_6$4, [
             createVNode(_component_el_button, {
               onClick: _cache[14] || (_cache[14] = ($event) => $data.showFormEventDialogFlag = false)
             }, {
@@ -51193,7 +52186,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showEditFormCssDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_3$e, [
+    $data.showEditFormCssDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_7$3, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.formCss"),
         modelValue: $data.showEditFormCssDialogFlag,
@@ -51206,7 +52199,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_4$7, [
+          createElementVNode("div", _hoisted_8$3, [
             createVNode(_component_el_button, {
               onClick: _cache[17] || (_cache[17] = ($event) => $data.showEditFormCssDialogFlag = false)
             }, {
@@ -51239,7 +52232,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showEditFunctionsDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_5$5, [
+    $data.showEditFunctionsDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_9$2, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.globalFunctions"),
         modelValue: $data.showEditFunctionsDialogFlag,
@@ -51252,7 +52245,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_6$4, [
+          createElementVNode("div", _hoisted_10$2, [
             createVNode(_component_el_button, {
               onClick: _cache[20] || (_cache[20] = ($event) => $data.showEditFunctionsDialogFlag = false)
             }, {
@@ -51288,7 +52281,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-0de8612e"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-5f0b3b28"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -51402,6 +52395,7 @@ const EVENT_PROPERTIES$1 = {
   "onFileRemove": "onFileRemove-editor",
   "onValidate": "onValidate-editor",
   "onAppendButtonClick": "onAppendButtonClick-editor",
+  "onQuerySearchAsync": "onQuerySearchAsync-editor",
   "onSubFormRowAdd": "onSubFormRowAdd-editor",
   "onSubFormRowInsert": "onSubFormRowInsert-editor",
   "onSubFormRowDelete": "onSubFormRowDelete-editor",
@@ -51431,7 +52425,7 @@ var WidgetProperties = {
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$2 = "";
 const { COMMON_PROPERTIES, ADVANCED_PROPERTIES, EVENT_PROPERTIES } = WidgetProperties;
-const _sfc_main$l = {
+const _sfc_main$m = {
   name: "SettingPanel",
   componentName: "SettingPanel",
   mixins: [i18n$1, emitter],
@@ -51588,237 +52582,213 @@ const _sfc_main$l = {
   }
 };
 const _hoisted_1$i = {
-  key: 0,
+  key: 1,
   class: ""
 };
 const _hoisted_2$f = { class: "dialog-footer" };
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
   const _component_el_collapse = resolveComponent("el-collapse");
   const _component_el_form = resolveComponent("el-form");
-  const _component_el_scrollbar = resolveComponent("el-scrollbar");
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_form_setting = resolveComponent("form-setting");
-  const _component_el_tabs = resolveComponent("el-tabs");
   const _component_el_alert = resolveComponent("el-alert");
   const _component_code_editor = resolveComponent("code-editor");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_dialog = resolveComponent("el-dialog");
-  const _component_el_container = resolveComponent("el-container");
+  const _component_el_tabs = resolveComponent("el-tabs");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createBlock(_component_el_container, { class: "panel-container" }, {
+  return openBlock(), createBlock(_component_el_tabs, {
+    modelValue: $data.activeTab,
+    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.activeTab = $event)
+  }, {
     default: withCtx(() => [
-      createVNode(_component_el_tabs, {
-        modelValue: $data.activeTab,
-        "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.activeTab = $event),
-        style: { "height": "100%", "overflow": "hidden" }
+      createVNode(_component_el_tab_pane, {
+        label: _ctx.$t("designer.hint.widgetSetting"),
+        name: "1"
       }, {
         default: withCtx(() => [
-          createVNode(_component_el_tab_pane, {
-            label: _ctx.$t("designer.hint.widgetSetting"),
-            name: "1"
-          }, {
-            default: withCtx(() => [
-              createVNode(_component_el_scrollbar, {
-                class: "setting-scrollbar",
-                style: normalizeStyle({ height: $data.scrollerHeight })
-              }, {
-                default: withCtx(() => [
-                  !!$props.designer.selectedWidget && !$props.designer.selectedWidget.category ? (openBlock(), createBlock(_component_el_form, {
-                    key: 0,
-                    model: $options.optionModel,
-                    size: "small",
-                    "label-position": "left",
-                    "label-width": "120px",
-                    class: "setting-form",
-                    onSubmit: _cache[1] || (_cache[1] = withModifiers(() => {
-                    }, ["prevent"]))
-                  }, {
-                    default: withCtx(() => [
-                      createVNode(_component_el_collapse, {
-                        modelValue: $data.widgetActiveCollapseNames,
-                        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.widgetActiveCollapseNames = $event),
-                        class: "setting-collapse"
-                      }, {
-                        default: withCtx(() => [
-                          $options.showCollapse($data.commonProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
-                            key: 0,
-                            name: "1",
-                            title: _ctx.$t("designer.setting.commonSetting")
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList($data.commonProps, (editorName, propName) => {
-                                return openBlock(), createElementBlock(Fragment, null, [
-                                  $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
-                                    key: 0,
-                                    designer: $props.designer,
-                                    "selected-widget": $props.selectedWidget,
-                                    "option-model": $options.optionModel
-                                  }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
-                                ], 64);
-                              }), 256))
-                            ]),
-                            _: 1
-                          }, 8, ["title"])) : createCommentVNode("", true),
-                          $options.showCollapse($data.advProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
-                            key: 1,
-                            name: "2",
-                            title: _ctx.$t("designer.setting.advancedSetting")
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList($data.advProps, (editorName, propName) => {
-                                return openBlock(), createElementBlock(Fragment, null, [
-                                  $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
-                                    key: 0,
-                                    designer: $props.designer,
-                                    "selected-widget": $props.selectedWidget,
-                                    "option-model": $options.optionModel
-                                  }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
-                                ], 64);
-                              }), 256))
-                            ]),
-                            _: 1
-                          }, 8, ["title"])) : createCommentVNode("", true),
-                          $options.showEventCollapse() && $options.showCollapse($data.eventProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
-                            key: 2,
-                            name: "3",
-                            title: _ctx.$t("designer.setting.eventSetting")
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList($data.eventProps, (editorName, propName) => {
-                                return openBlock(), createElementBlock(Fragment, null, [
-                                  $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
-                                    key: 0,
-                                    designer: $props.designer,
-                                    "selected-widget": $props.selectedWidget,
-                                    "option-model": $options.optionModel
-                                  }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
-                                ], 64);
-                              }), 256))
-                            ]),
-                            _: 1
-                          }, 8, ["title"])) : createCommentVNode("", true)
-                        ]),
-                        _: 1
-                      }, 8, ["modelValue"])
-                    ]),
-                    _: 1
-                  }, 8, ["model"])) : createCommentVNode("", true),
-                  !!$props.designer.selectedWidget && !!$props.designer.selectedWidget.category ? (openBlock(), createBlock(_component_el_form, {
-                    key: 1,
-                    model: $options.optionModel,
-                    size: "small",
-                    "label-position": "left",
-                    "label-width": "120px",
-                    class: "setting-form",
-                    onSubmit: _cache[3] || (_cache[3] = withModifiers(() => {
-                    }, ["prevent"]))
-                  }, {
-                    default: withCtx(() => [
-                      createVNode(_component_el_collapse, {
-                        modelValue: $data.widgetActiveCollapseNames,
-                        "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.widgetActiveCollapseNames = $event),
-                        class: "setting-collapse"
-                      }, {
-                        default: withCtx(() => [
-                          $options.showCollapse($data.commonProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
-                            key: 0,
-                            name: "1",
-                            title: _ctx.$t("designer.setting.commonSetting")
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList($data.commonProps, (editorName, propName) => {
-                                return openBlock(), createElementBlock(Fragment, null, [
-                                  $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
-                                    key: 0,
-                                    designer: $props.designer,
-                                    "selected-widget": $props.selectedWidget,
-                                    "option-model": $options.optionModel
-                                  }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
-                                ], 64);
-                              }), 256))
-                            ]),
-                            _: 1
-                          }, 8, ["title"])) : createCommentVNode("", true),
-                          $options.showCollapse($data.advProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
-                            key: 1,
-                            name: "2",
-                            title: _ctx.$t("designer.setting.advancedSetting")
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList($data.advProps, (editorName, propName) => {
-                                return openBlock(), createElementBlock(Fragment, null, [
-                                  $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
-                                    key: 0,
-                                    designer: $props.designer,
-                                    "selected-widget": $props.selectedWidget,
-                                    "option-model": $options.optionModel
-                                  }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
-                                ], 64);
-                              }), 256))
-                            ]),
-                            _: 1
-                          }, 8, ["title"])) : createCommentVNode("", true),
-                          $options.showEventCollapse() && $options.showCollapse($data.eventProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
-                            key: 2,
-                            name: "3",
-                            title: _ctx.$t("designer.setting.eventSetting")
-                          }, {
-                            default: withCtx(() => [
-                              (openBlock(true), createElementBlock(Fragment, null, renderList($data.eventProps, (editorName, propName) => {
-                                return openBlock(), createElementBlock(Fragment, null, [
-                                  $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
-                                    key: 0,
-                                    designer: $props.designer,
-                                    "selected-widget": $props.selectedWidget,
-                                    "option-model": $options.optionModel
-                                  }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
-                                ], 64);
-                              }), 256))
-                            ]),
-                            _: 1
-                          }, 8, ["title"])) : createCommentVNode("", true)
-                        ]),
-                        _: 1
-                      }, 8, ["modelValue"])
-                    ]),
-                    _: 1
-                  }, 8, ["model"])) : createCommentVNode("", true)
-                ]),
-                _: 1
-              }, 8, ["style"])
-            ]),
-            _: 1
-          }, 8, ["label"]),
-          !!$props.designer ? (openBlock(), createBlock(_component_el_tab_pane, {
+          !!$props.designer.selectedWidget && !$props.designer.selectedWidget.category ? (openBlock(), createBlock(_component_el_form, {
             key: 0,
-            label: _ctx.$t("designer.hint.formSetting"),
-            name: "2"
+            model: $options.optionModel,
+            size: "small",
+            "label-position": "left",
+            "label-width": "120px",
+            class: "setting-form",
+            onSubmit: _cache[1] || (_cache[1] = withModifiers(() => {
+            }, ["prevent"]))
           }, {
             default: withCtx(() => [
-              createVNode(_component_el_scrollbar, {
-                class: "setting-scrollbar",
-                style: normalizeStyle({ height: $data.scrollerHeight })
+              createVNode(_component_el_collapse, {
+                modelValue: $data.widgetActiveCollapseNames,
+                "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.widgetActiveCollapseNames = $event),
+                class: "setting-collapse"
               }, {
                 default: withCtx(() => [
-                  createVNode(_component_form_setting, {
-                    designer: $props.designer,
-                    "form-config": $props.formConfig
-                  }, null, 8, ["designer", "form-config"])
+                  $options.showCollapse($data.commonProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
+                    key: 0,
+                    name: "1",
+                    title: _ctx.$t("designer.setting.commonSetting")
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.commonProps, (editorName, propName) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
+                            key: 0,
+                            designer: $props.designer,
+                            "selected-widget": $props.selectedWidget,
+                            "option-model": $options.optionModel
+                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 1
+                  }, 8, ["title"])) : createCommentVNode("", true),
+                  $options.showCollapse($data.advProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
+                    key: 1,
+                    name: "2",
+                    title: _ctx.$t("designer.setting.advancedSetting")
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.advProps, (editorName, propName) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
+                            key: 0,
+                            designer: $props.designer,
+                            "selected-widget": $props.selectedWidget,
+                            "option-model": $options.optionModel
+                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 1
+                  }, 8, ["title"])) : createCommentVNode("", true),
+                  $options.showEventCollapse() && $options.showCollapse($data.eventProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
+                    key: 2,
+                    name: "3",
+                    title: _ctx.$t("designer.setting.eventSetting")
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.eventProps, (editorName, propName) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
+                            key: 0,
+                            designer: $props.designer,
+                            "selected-widget": $props.selectedWidget,
+                            "option-model": $options.optionModel
+                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 1
+                  }, 8, ["title"])) : createCommentVNode("", true)
                 ]),
                 _: 1
-              }, 8, ["style"])
+              }, 8, ["modelValue"])
             ]),
             _: 1
-          }, 8, ["label"])) : createCommentVNode("", true)
+          }, 8, ["model"])) : createCommentVNode("", true),
+          !!$props.designer.selectedWidget && !!$props.designer.selectedWidget.category ? (openBlock(), createBlock(_component_el_form, {
+            key: 1,
+            model: $options.optionModel,
+            size: "small",
+            "label-position": "left",
+            "label-width": "120px",
+            class: "setting-form",
+            onSubmit: _cache[3] || (_cache[3] = withModifiers(() => {
+            }, ["prevent"]))
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_el_collapse, {
+                modelValue: $data.widgetActiveCollapseNames,
+                "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.widgetActiveCollapseNames = $event),
+                class: "setting-collapse"
+              }, {
+                default: withCtx(() => [
+                  $options.showCollapse($data.commonProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
+                    key: 0,
+                    name: "1",
+                    title: _ctx.$t("designer.setting.commonSetting")
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.commonProps, (editorName, propName) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
+                            key: 0,
+                            designer: $props.designer,
+                            "selected-widget": $props.selectedWidget,
+                            "option-model": $options.optionModel
+                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 1
+                  }, 8, ["title"])) : createCommentVNode("", true),
+                  $options.showCollapse($data.advProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
+                    key: 1,
+                    name: "2",
+                    title: _ctx.$t("designer.setting.advancedSetting")
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.advProps, (editorName, propName) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
+                            key: 0,
+                            designer: $props.designer,
+                            "selected-widget": $props.selectedWidget,
+                            "option-model": $options.optionModel
+                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 1
+                  }, 8, ["title"])) : createCommentVNode("", true),
+                  $options.showEventCollapse() && $options.showCollapse($data.eventProps) ? (openBlock(), createBlock(_component_el_collapse_item, {
+                    key: 2,
+                    name: "3",
+                    title: _ctx.$t("designer.setting.eventSetting")
+                  }, {
+                    default: withCtx(() => [
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.eventProps, (editorName, propName) => {
+                        return openBlock(), createElementBlock(Fragment, null, [
+                          $options.hasPropEditor(propName, editorName) ? (openBlock(), createBlock(resolveDynamicComponent($options.getPropEditor(propName, editorName)), {
+                            key: 0,
+                            designer: $props.designer,
+                            "selected-widget": $props.selectedWidget,
+                            "option-model": $options.optionModel
+                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                        ], 64);
+                      }), 256))
+                    ]),
+                    _: 1
+                  }, 8, ["title"])) : createCommentVNode("", true)
+                ]),
+                _: 1
+              }, 8, ["modelValue"])
+            ]),
+            _: 1
+          }, 8, ["model"])) : createCommentVNode("", true)
         ]),
         _: 1
-      }, 8, ["modelValue"]),
+      }, 8, ["label"]),
+      !!$props.designer ? (openBlock(), createBlock(_component_el_tab_pane, {
+        key: 0,
+        label: _ctx.$t("designer.hint.formSetting"),
+        name: "2"
+      }, {
+        default: withCtx(() => [
+          createVNode(_component_form_setting, {
+            designer: $props.designer,
+            "form-config": $props.formConfig
+          }, null, 8, ["designer", "form-config"])
+        ]),
+        _: 1
+      }, 8, ["label"])) : createCommentVNode("", true),
       $data.showWidgetEventDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_1$i, [
         createVNode(_component_el_dialog, {
           title: _ctx.$t("designer.setting.editWidgetEventHandler"),
           modelValue: $data.showWidgetEventDialogFlag,
-          "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.showWidgetEventDialogFlag = $event),
+          "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.showWidgetEventDialogFlag = $event),
           "show-close": true,
           class: "drag-dialog small-padding-dialog",
           "append-to-body": "",
@@ -51829,7 +52799,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
           footer: withCtx(() => [
             createElementVNode("div", _hoisted_2$f, [
               createVNode(_component_el_button, {
-                onClick: _cache[6] || (_cache[6] = ($event) => $data.showWidgetEventDialogFlag = false)
+                onClick: _cache[5] || (_cache[5] = ($event) => $data.showWidgetEventDialogFlag = false)
               }, {
                 default: withCtx(() => [
                   createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
@@ -51857,7 +52827,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
               mode: "javascript",
               readonly: false,
               modelValue: $data.eventHandlerCode,
-              "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.eventHandlerCode = $event),
+              "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.eventHandlerCode = $event),
               ref: "ecEditor"
             }, null, 8, ["modelValue"]),
             createVNode(_component_el_alert, {
@@ -51873,9 +52843,9 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
       ]) : createCommentVNode("", true)
     ]),
     _: 1
-  });
+  }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-e0f9d7e2"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-7bddd6a6"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -51958,7 +52928,7 @@ var containerMixin = {
   }
 };
 var containerWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$k = {
+const _sfc_main$l = {
   name: "container-wrapper",
   mixins: [i18n$1, containerMixin],
   components: {
@@ -51986,15 +52956,15 @@ const _hoisted_3$d = ["title"];
 const _hoisted_4$6 = ["title"];
 const _hoisted_5$4 = ["title"];
 const _hoisted_6$3 = ["title"];
-const _hoisted_7$1 = ["title"];
-const _hoisted_8$1 = ["title"];
-const _hoisted_9 = {
+const _hoisted_7$2 = ["title"];
+const _hoisted_8$2 = ["title"];
+const _hoisted_9$1 = {
   key: 1,
   class: "drag-handler"
 };
-const _hoisted_10 = ["title"];
+const _hoisted_10$1 = ["title"];
 const _hoisted_11 = { key: 0 };
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
@@ -52041,20 +53011,20 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _cache[5] || (_cache[5] = withModifiers(($event) => _ctx.cloneContainer($props.widget), ["stop"]))
       }, [
         createVNode(_component_svg_icon, { "icon-class": "el-clone" })
-      ], 8, _hoisted_7$1)) : createCommentVNode("", true),
+      ], 8, _hoisted_7$2)) : createCommentVNode("", true),
       createElementVNode("i", {
         title: _ctx.$t("designer.hint.remove"),
         onClick: _cache[6] || (_cache[6] = withModifiers((...args) => _ctx.removeWidget && _ctx.removeWidget(...args), ["stop"]))
       }, [
         createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-      ], 8, _hoisted_8$1)
+      ], 8, _hoisted_8$2)
     ])) : createCommentVNode("", true),
-    $props.designer.selectedId === $props.widget.id && !$props.widget.internal ? (openBlock(), createElementBlock("div", _hoisted_9, [
+    $props.designer.selectedId === $props.widget.id && !$props.widget.internal ? (openBlock(), createElementBlock("div", _hoisted_9$1, [
       createElementVNode("i", {
         title: _ctx.$t("designer.hint.dragHandler")
       }, [
         createVNode(_component_svg_icon, { "icon-class": "el-drag-move" })
-      ], 8, _hoisted_10),
+      ], 8, _hoisted_10$1),
       createElementVNode("i", null, toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${$props.widget.type}`, `extension.widgetLabel.${$props.widget.type}`)), 1),
       $props.widget.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_11, [
         createVNode(_component_svg_icon, { "icon-class": "el-hide" })
@@ -52062,7 +53032,7 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var ContainerWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-49d9fa1c"]]);
+var ContainerWrapper = /* @__PURE__ */ _export_sfc$1(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-49d9fa1c"]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerWrapper
@@ -52092,7 +53062,7 @@ var refMixinDesign = {
   }
 };
 var gridColWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$j = {
+const _sfc_main$k = {
   name: "GridColWidget",
   componentName: "GridColWidget",
   mixins: [i18n$1, refMixinDesign],
@@ -52284,12 +53254,12 @@ const _hoisted_3$c = ["title"];
 const _hoisted_4$5 = ["title"];
 const _hoisted_5$3 = ["title"];
 const _hoisted_6$2 = ["title"];
-const _hoisted_7 = ["title"];
-const _hoisted_8 = {
+const _hoisted_7$1 = ["title"];
+const _hoisted_8$1 = {
   key: 1,
   class: "grid-col-handler"
 };
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_col = resolveComponent("el-col");
@@ -52369,22 +53339,22 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[6] || (_cache[6] = withModifiers((...args) => $options.removeWidget && $options.removeWidget(...args), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-        ], 8, _hoisted_7)
+        ], 8, _hoisted_7$1)
       ])) : createCommentVNode("", true),
-      $props.designer.selectedId === $props.widget.id && $props.widget.type === "grid-col" ? (openBlock(), createElementBlock("div", _hoisted_8, [
+      $props.designer.selectedId === $props.widget.id && $props.widget.type === "grid-col" ? (openBlock(), createElementBlock("div", _hoisted_8$1, [
         createElementVNode("i", null, toDisplayString(_ctx.$t("designer.widgetLabel." + $props.widget.type)), 1)
       ])) : createCommentVNode("", true)
     ]),
     _: 1
   }, 16, ["class", "style"])) : createCommentVNode("", true);
 }
-var GridColWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-0f53d1e8"]]);
+var GridColWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-0f53d1e8"]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var gridWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$i = {
+const _sfc_main$j = {
   name: "grid-widget",
   componentName: "ContainerWidget",
   mixins: [i18n$1, containerMixin, refMixinDesign],
@@ -52416,7 +53386,7 @@ const _sfc_main$i = {
   },
   methods: {}
 };
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_grid_col_widget = resolveComponent("grid-col-widget");
   const _component_el_row = resolveComponent("el-row");
   const _component_container_wrapper = resolveComponent("container-wrapper");
@@ -52453,13 +53423,13 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var gridWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-0786fd36"]]);
+var gridWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-0786fd36"]]);
 var __glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var tabWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$h = {
+const _sfc_main$i = {
   name: "tab-widget",
   componentName: "ContainerWidget",
   mixins: [i18n$1, containerMixin, refMixinDesign],
@@ -52504,7 +53474,7 @@ const _sfc_main$h = {
   }
 };
 const _hoisted_1$f = { class: "form-widget-list" };
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
@@ -52582,13 +53552,13 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var tabWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-3f4d16f7"]]);
+var tabWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-3f4d16f7"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var tableCellWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$g = {
+const _sfc_main$h = {
   name: "TableCellWidget",
   componentName: "TableCellWidget",
   mixins: [i18n$1, refMixinDesign],
@@ -52765,7 +53735,7 @@ const _hoisted_6$1 = {
   key: 1,
   class: "table-cell-handler"
 };
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_dropdown_item = resolveComponent("el-dropdown-item");
@@ -52964,13 +53934,13 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 14, _hoisted_1$e);
 }
-var TableCellWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-3e1f9e89"]]);
+var TableCellWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-3e1f9e89"]]);
 var __glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var tableWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$f = {
+const _sfc_main$g = {
   name: "table-widget",
   componentName: "ContainerWidget",
   mixins: [i18n$1, containerMixin, refMixinDesign],
@@ -53003,7 +53973,7 @@ const _sfc_main$f = {
   methods: {}
 };
 const _hoisted_1$d = { class: "table-layout" };
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_table_cell_widget = resolveComponent("table-cell-widget");
   const _component_container_wrapper = resolveComponent("container-wrapper");
   return openBlock(), createBlock(_component_container_wrapper, {
@@ -53051,7 +54021,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var tableWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-e9069e7e"]]);
+var tableWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-e9069e7e"]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableWidget
@@ -53066,7 +54036,7 @@ var ContainerWidgets = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
-const _sfc_main$e = {
+const _sfc_main$f = {
   name: "VFormWidget",
   componentName: "VFormWidget",
   mixins: [i18n$1],
@@ -53201,7 +54171,7 @@ const _hoisted_2$b = {
 };
 const _hoisted_3$a = { class: "form-widget-list" };
 const _hoisted_4$3 = { class: "transition-group-el" };
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_draggable = resolveComponent("draggable");
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createElementBlock("div", _hoisted_1$c, [
@@ -53254,7 +54224,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label-position", "class", "size"])
   ]);
 }
-var VFormWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-5d25fe48"]]);
+var VFormWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-5d25fe48"]]);
 function createDesigner(vueInstance) {
   let defaultFormConfig = deepClone(getDefaultFormConfig());
   return {
@@ -54030,7 +55000,7 @@ function createDesigner(vueInstance) {
 }
 var _imports_0 = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAWdJREFUeNrsmjFuwjAUhp8jxJQBujQH4ABhYmaDU7Sdu/QIcIKKE0APwM7GEQgLU/dmo0N3178SI0Qx2KpQ8sJ7kpUojsn/2S/JrxeImhRa64lpe13fgLbJsWZVCu+Yzdq0lMlcZ0qpPnai8sAbI/GI1K6EXYG92XSYZfy3WYWuBdAc71kDoFquzo+MaLHx+6H1S9iYNCF6Hxf7w/n180c9otcBUdz+2xdxmOnVJ9Fyd74v4pIu2RdzAFcIgAAIgABUG62qBTz3/c57jGsK8JRKClVgC3I/E+cygPIUEgABEAABEIDGADjrQvlP0XzfkqFjQgMlld7DiXiEC4DF7F8qbMGvbPPbXBjWGMUqBIphoWO8zBzE+1bmQgMpZ8X4XuN4jDyFBEAABEAA7g8giRkDwAPhE9PNzNx/jFmWh5u4c2aO7WdWm0Izhvfv7JBC5SrAVrH9qwGVB6ZYmjqnDTRa8Y2IXwEGAI1dAiVnUcUMAAAAAElFTkSuQmCC";
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$d = {
+const _sfc_main$e = {
   name: "VFormDesigner",
   componentName: "VFormDesigner",
   mixins: [i18n$1],
@@ -54180,20 +55150,19 @@ const _sfc_main$d = {
       if (!this.fieldListApi) {
         return;
       }
-      let headers = this.fieldListApi.headers || {};
-      axios.get(this.fieldListApi.URL, { "headers": headers }).then((res) => {
+      try {
         let labelKey = this.fieldListApi.labelKey || "label";
         let nameKey = this.fieldListApi.nameKey || "name";
         this.fieldList.splice(0, this.fieldList.length);
-        res.data.forEach((fieldItem) => {
+        this.fieldListApi.data.forEach((fieldItem) => {
           this.fieldList.push({
             label: fieldItem[labelKey],
             name: fieldItem[nameKey]
           });
         });
-      }).catch((error) => {
+      } catch (error) {
         this.$message.error(error);
-      });
+      }
     },
     handleLanguageChanged(command) {
       this.changeLanguage(command);
@@ -54269,181 +55238,151 @@ const _sfc_main$d = {
     }
   }
 };
-const _withScopeId = (n) => (pushScopeId("data-v-30ba6fee"), n = n(), popScopeId(), n);
-const _hoisted_1$b = { class: "float-left main-title" };
-const _hoisted_2$a = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { class: "bold" }, "VForm 3", -1));
-const _hoisted_3$9 = { class: "version-span" };
-const _hoisted_4$2 = { class: "float-right external-link" };
-const _hoisted_5$1 = { class: "el-dropdown-link" };
-const _hoisted_6 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-top-right" }, null, -1));
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+const _withScopeId = (n) => (pushScopeId("data-v-0f2ba4c0"), n = n(), popScopeId(), n);
+const _hoisted_1$b = { class: "main-container" };
+const _hoisted_2$a = { class: "main-header" };
+const _hoisted_3$9 = { class: "float-left main-title" };
+const _hoisted_4$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { class: "bold" }, "VForm 3", -1));
+const _hoisted_5$1 = { class: "version-span" };
+const _hoisted_6 = { class: "float-right external-link" };
+const _hoisted_7 = { class: "el-dropdown-link" };
+const _hoisted_8 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-top-right" }, null, -1));
+const _hoisted_9 = { class: "v-form-container" };
+const _hoisted_10 = { class: "center-layout-container" };
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_dropdown_item = resolveComponent("el-dropdown-item");
   const _component_el_dropdown_menu = resolveComponent("el-dropdown-menu");
   const _component_el_dropdown = resolveComponent("el-dropdown");
-  const _component_el_header = resolveComponent("el-header");
   const _component_widget_panel = resolveComponent("widget-panel");
-  const _component_el_aside = resolveComponent("el-aside");
   const _component_toolbar_panel = resolveComponent("toolbar-panel");
+  const _component_el_header = resolveComponent("el-header");
   const _component_v_form_widget = resolveComponent("v-form-widget");
-  const _component_el_scrollbar = resolveComponent("el-scrollbar");
-  const _component_el_main = resolveComponent("el-main");
-  const _component_el_container = resolveComponent("el-container");
   const _component_setting_panel = resolveComponent("setting-panel");
-  return openBlock(), createBlock(_component_el_container, { class: "main-container full-height" }, {
-    default: withCtx(() => [
-      createVNode(_component_el_header, { class: "main-header" }, {
-        default: withCtx(() => [
-          createElementVNode("div", _hoisted_1$b, [
-            createElementVNode("img", {
-              src: _imports_0,
-              onClick: _cache[0] || (_cache[0] = (...args) => $options.openHome && $options.openHome(...args))
-            }),
-            _hoisted_2$a,
-            createTextVNode(" " + toDisplayString(_ctx.$t("application.productTitle")) + " ", 1),
-            createElementVNode("span", _hoisted_3$9, "Ver " + toDisplayString($data.vFormVersion), 1)
-          ]),
-          createElementVNode("div", _hoisted_4$2, [
-            $options.showLink("languageMenu") ? (openBlock(), createBlock(_component_el_dropdown, {
-              key: 0,
-              "hide-timeout": 2e3,
-              onCommand: $options.handleLanguageChanged
-            }, {
-              dropdown: withCtx(() => [
-                createVNode(_component_el_dropdown_menu, null, {
+  return openBlock(), createElementBlock("div", _hoisted_1$b, [
+    createElementVNode("div", _hoisted_2$a, [
+      createElementVNode("div", _hoisted_3$9, [
+        createElementVNode("img", {
+          src: _imports_0,
+          onClick: _cache[0] || (_cache[0] = (...args) => $options.openHome && $options.openHome(...args))
+        }),
+        _hoisted_4$2,
+        createTextVNode(" " + toDisplayString(_ctx.$t("application.productTitle")) + " ", 1),
+        createElementVNode("span", _hoisted_5$1, "Ver " + toDisplayString($data.vFormVersion), 1)
+      ]),
+      createElementVNode("div", _hoisted_6, [
+        $options.showLink("languageMenu") ? (openBlock(), createBlock(_component_el_dropdown, {
+          key: 0,
+          "hide-timeout": 2e3,
+          onCommand: $options.handleLanguageChanged
+        }, {
+          dropdown: withCtx(() => [
+            createVNode(_component_el_dropdown_menu, null, {
+              default: withCtx(() => [
+                createVNode(_component_el_dropdown_item, { command: "zh-CN" }, {
                   default: withCtx(() => [
-                    createVNode(_component_el_dropdown_item, { command: "zh-CN" }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("application.zh-CN")), 1)
-                      ]),
-                      _: 1
-                    }),
-                    createVNode(_component_el_dropdown_item, { command: "en-US" }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("application.en-US")), 1)
-                      ]),
-                      _: 1
-                    })
+                    createTextVNode(toDisplayString(_ctx.$t("application.zh-CN")), 1)
+                  ]),
+                  _: 1
+                }),
+                createVNode(_component_el_dropdown_item, { command: "en-US" }, {
+                  default: withCtx(() => [
+                    createTextVNode(toDisplayString(_ctx.$t("application.en-US")), 1)
                   ]),
                   _: 1
                 })
               ]),
-              default: withCtx(() => [
-                createElementVNode("span", _hoisted_5$1, [
-                  createTextVNode(toDisplayString($data.curLangName), 1),
-                  createVNode(_component_svg_icon, { "icon-class": "el-arrow-down" })
-                ])
-              ]),
               _: 1
-            }, 8, ["onCommand"])) : createCommentVNode("", true),
-            $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
-              key: 1,
-              href: "javascript:void(0)",
-              onClick: _cache[1] || (_cache[1] = (ev) => $options.openUrl(ev, $data.gitUrl)),
-              target: "_blank"
-            }, [
-              createVNode(_component_svg_icon, { "icon-class": "github" }),
-              createTextVNode(toDisplayString(_ctx.$t("application.github")), 1)
-            ])) : createCommentVNode("", true),
-            $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
-              key: 2,
-              href: "javascript:void(0)",
-              onClick: _cache[2] || (_cache[2] = (ev) => $options.openUrl(ev, $data.docUrl)),
-              target: "_blank"
-            }, [
-              createVNode(_component_svg_icon, { "icon-class": "document" }),
-              createTextVNode(toDisplayString(_ctx.$t("application.document")), 1)
-            ])) : createCommentVNode("", true),
-            $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
-              key: 3,
-              href: "javascript:void(0)",
-              onClick: _cache[3] || (_cache[3] = (ev) => $options.openUrl(ev, $data.chatUrl)),
-              target: "_blank"
-            }, toDisplayString(_ctx.$t("application.qqGroup")), 1)) : createCommentVNode("", true),
-            $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
-              key: 4,
-              href: "javascript:void(0)",
-              onClick: _cache[4] || (_cache[4] = (ev) => $options.openUrl(ev, $data.subScribeUrl)),
-              target: "_blank"
-            }, [
-              createTextVNode(toDisplayString(_ctx.$t("application.subscription")), 1),
-              _hoisted_6
-            ])) : createCommentVNode("", true)
-          ])
-        ]),
-        _: 1
-      }),
-      createVNode(_component_el_container, null, {
-        default: withCtx(() => [
-          createVNode(_component_el_aside, { class: "side-panel" }, {
-            default: withCtx(() => [
-              createVNode(_component_widget_panel, { designer: $data.designer }, null, 8, ["designer"])
-            ]),
-            _: 1
-          }),
-          createVNode(_component_el_container, { class: "center-layout-container" }, {
-            default: withCtx(() => [
-              createVNode(_component_el_header, { class: "toolbar-header" }, {
-                default: withCtx(() => [
-                  createVNode(_component_toolbar_panel, {
-                    designer: $data.designer,
-                    "global-dsv": $props.globalDsv,
-                    ref: "toolbarRef"
-                  }, createSlots({ _: 2 }, [
-                    renderList(_ctx.$slots, (idx, slotName) => {
-                      return {
-                        name: slotName,
-                        fn: withCtx(() => [
-                          renderSlot(_ctx.$slots, slotName, {}, void 0, true)
-                        ])
-                      };
-                    })
-                  ]), 1032, ["designer", "global-dsv"])
-                ]),
-                _: 3
-              }),
-              createVNode(_component_el_main, { class: "form-widget-main" }, {
-                default: withCtx(() => [
-                  createVNode(_component_el_scrollbar, {
-                    class: "container-scroll-bar",
-                    style: normalizeStyle({ height: $data.scrollerHeight })
-                  }, {
-                    default: withCtx(() => [
-                      createVNode(_component_v_form_widget, {
-                        designer: $data.designer,
-                        "form-config": $data.designer.formConfig,
-                        "global-dsv": $props.globalDsv,
-                        ref: "formRef"
-                      }, null, 8, ["designer", "form-config", "global-dsv"])
-                    ]),
-                    _: 1
-                  }, 8, ["style"])
-                ]),
-                _: 1
-              })
-            ]),
-            _: 3
-          }),
-          createVNode(_component_el_aside, null, {
-            default: withCtx(() => [
-              createVNode(_component_setting_panel, {
-                designer: $data.designer,
-                "selected-widget": $data.designer.selectedWidget,
-                "form-config": $data.designer.formConfig,
-                "global-dsv": $props.globalDsv,
-                onEditEventHandler: $options.testEEH
-              }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
-            ]),
-            _: 1
-          })
-        ]),
-        _: 3
-      })
+            })
+          ]),
+          default: withCtx(() => [
+            createElementVNode("span", _hoisted_7, [
+              createTextVNode(toDisplayString($data.curLangName), 1),
+              createVNode(_component_svg_icon, { "icon-class": "el-arrow-down" })
+            ])
+          ]),
+          _: 1
+        }, 8, ["onCommand"])) : createCommentVNode("", true),
+        $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
+          key: 1,
+          href: "javascript:void(0)",
+          onClick: _cache[1] || (_cache[1] = (ev) => $options.openUrl(ev, $data.gitUrl)),
+          target: "_blank"
+        }, [
+          createVNode(_component_svg_icon, { "icon-class": "github" }),
+          createTextVNode(toDisplayString(_ctx.$t("application.github")), 1)
+        ])) : createCommentVNode("", true),
+        $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
+          key: 2,
+          href: "javascript:void(0)",
+          onClick: _cache[2] || (_cache[2] = (ev) => $options.openUrl(ev, $data.docUrl)),
+          target: "_blank"
+        }, [
+          createVNode(_component_svg_icon, { "icon-class": "document" }),
+          createTextVNode(toDisplayString(_ctx.$t("application.document")), 1)
+        ])) : createCommentVNode("", true),
+        $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
+          key: 3,
+          href: "javascript:void(0)",
+          onClick: _cache[3] || (_cache[3] = (ev) => $options.openUrl(ev, $data.chatUrl)),
+          target: "_blank"
+        }, toDisplayString(_ctx.$t("application.qqGroup")), 1)) : createCommentVNode("", true),
+        $options.showLink("externalLink") ? (openBlock(), createElementBlock("a", {
+          key: 4,
+          href: "javascript:void(0)",
+          onClick: _cache[4] || (_cache[4] = (ev) => $options.openUrl(ev, $data.subScribeUrl)),
+          target: "_blank"
+        }, [
+          createTextVNode(toDisplayString(_ctx.$t("application.subscription")), 1),
+          _hoisted_8
+        ])) : createCommentVNode("", true)
+      ])
     ]),
-    _: 3
-  });
+    createElementVNode("div", _hoisted_9, [
+      createVNode(_component_widget_panel, {
+        class: "v-form-panel",
+        designer: $data.designer,
+        style: { "--el-aside-width": "275px" }
+      }, null, 8, ["designer"]),
+      createElementVNode("div", _hoisted_10, [
+        createVNode(_component_el_header, { class: "toolbar-header" }, {
+          default: withCtx(() => [
+            createVNode(_component_toolbar_panel, {
+              designer: $data.designer,
+              "global-dsv": $props.globalDsv,
+              ref: "toolbarRef"
+            }, createSlots({ _: 2 }, [
+              renderList(_ctx.$slots, (idx, slotName) => {
+                return {
+                  name: slotName,
+                  fn: withCtx(() => [
+                    renderSlot(_ctx.$slots, slotName, {}, void 0, true)
+                  ])
+                };
+              })
+            ]), 1032, ["designer", "global-dsv"])
+          ]),
+          _: 3
+        }),
+        createVNode(_component_v_form_widget, {
+          designer: $data.designer,
+          "form-config": $data.designer.formConfig,
+          "global-dsv": $props.globalDsv,
+          ref: "formRef"
+        }, null, 8, ["designer", "form-config", "global-dsv"])
+      ]),
+      createVNode(_component_setting_panel, {
+        class: "v-form-panel",
+        designer: $data.designer,
+        "selected-widget": $data.designer.selectedWidget,
+        "form-config": $data.designer.formConfig,
+        "global-dsv": $props.globalDsv,
+        onEditEventHandler: $options.testEEH
+      }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
+    ])
+  ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$1(_sfc_main$d, [["render", _sfc_render$d], ["__scopeId", "data-v-30ba6fee"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-0f2ba4c0"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -60149,7 +61088,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$c = defineComponent({
+const _sfc_main$d = defineComponent({
   name: "ArrowDown"
 });
 const _hoisted_1$a = {
@@ -60166,11 +61105,11 @@ const _hoisted_2$9 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$8 = [
   _hoisted_2$9
 ];
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$a, _hoisted_3$8);
 }
-var arrowDown = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
-const _sfc_main$b = defineComponent({
+var arrowDown = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
+const _sfc_main$c = defineComponent({
   name: "ArrowUp"
 });
 const _hoisted_1$9 = {
@@ -60187,11 +61126,11 @@ const _hoisted_2$8 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$7 = [
   _hoisted_2$8
 ];
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$9, _hoisted_3$7);
 }
-var arrowUp = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
-const _sfc_main$a = defineComponent({
+var arrowUp = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
+const _sfc_main$b = defineComponent({
   name: "CirclePlus"
 });
 const _hoisted_1$8 = {
@@ -60218,11 +61157,11 @@ const _hoisted_5 = [
   _hoisted_3$6,
   _hoisted_4$1
 ];
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$8, _hoisted_5);
 }
-var circlePlus = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
-const _sfc_main$9 = defineComponent({
+var circlePlus = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
+const _sfc_main$a = defineComponent({
   name: "Delete"
 });
 const _hoisted_1$7 = {
@@ -60239,11 +61178,11 @@ const _hoisted_2$6 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$5 = [
   _hoisted_2$6
 ];
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$7, _hoisted_3$5);
 }
-var _delete = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
-const _sfc_main$8 = defineComponent({
+var _delete = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
+const _sfc_main$9 = defineComponent({
   name: "Edit"
 });
 const _hoisted_1$6 = {
@@ -60265,11 +61204,11 @@ const _hoisted_4 = [
   _hoisted_2$5,
   _hoisted_3$4
 ];
-function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$6, _hoisted_4);
 }
-var edit = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8]]);
-const _sfc_main$7 = defineComponent({
+var edit = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
+const _sfc_main$8 = defineComponent({
   name: "InfoFilled"
 });
 const _hoisted_1$5 = {
@@ -60286,11 +61225,11 @@ const _hoisted_2$4 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$3 = [
   _hoisted_2$4
 ];
-function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$5, _hoisted_3$3);
 }
-var infoFilled = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7]]);
-const _sfc_main$6 = defineComponent({
+var infoFilled = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8]]);
+const _sfc_main$7 = defineComponent({
   name: "Minus"
 });
 const _hoisted_1$4 = {
@@ -60307,11 +61246,11 @@ const _hoisted_2$3 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$2 = [
   _hoisted_2$3
 ];
-function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$4, _hoisted_3$2);
 }
-var minus = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6]]);
-const _sfc_main$5 = defineComponent({
+var minus = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7]]);
+const _sfc_main$6 = defineComponent({
   name: "Plus"
 });
 const _hoisted_1$3 = {
@@ -60328,11 +61267,11 @@ const _hoisted_2$2 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$1 = [
   _hoisted_2$2
 ];
-function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$3, _hoisted_3$1);
 }
-var plus = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5]]);
-const _sfc_main$4 = defineComponent({
+var plus = /* @__PURE__ */ _export_sfc(_sfc_main$6, [["render", _sfc_render$6]]);
+const _sfc_main$5 = defineComponent({
   name: "Search"
 });
 const _hoisted_1$2 = {
@@ -60349,10 +61288,10 @@ const _hoisted_2$1 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3 = [
   _hoisted_2$1
 ];
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$2, _hoisted_3);
 }
-var search = /* @__PURE__ */ _export_sfc(_sfc_main$4, [["render", _sfc_render$4]]);
+var search = /* @__PURE__ */ _export_sfc(_sfc_main$5, [["render", _sfc_render$5]]);
 function registerIcon(app) {
   app.component("el-icon-edit", edit);
   app.component("el-icon-minus", minus);
@@ -60367,17 +61306,17 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1679883185899__");
+    var svgDom = document.getElementById("__svg__icons__dom__1683532310463__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1679883185899__";
+      svgDom.id = "__svg__icons__dom__1683532310463__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
-    svgDom.innerHTML = '<symbol class="icon" viewBox="0 0 1024 1024"  id="icon-alert"><path d="M512 85.163a319.573 319.573 0 0 1 319.83 309.333l.17 10.667v174.805l58.88 134.656a53.29 53.29 0 0 1-48.853 74.71L640 789.418a128 128 0 0 1-255.787 7.509l-.213-7.637-201.6.042a53.333 53.333 0 0 1-48.939-74.581L192 580.011V405.163c0-177.28 143.019-320 320-320zm64 704.17-128 .128a64 64 0 0 0 127.701 6.144l.256-6.272zm-64-640.17c-141.653 0-256 114.09-256 256v188.16l-57.344 132.01h627.072L768 593.365V405.717l-.17-9.6A255.488 255.488 0 0 0 512 149.163zM896 352h85.333a32 32 0 0 1 4.352 63.701l-4.352.299H896a32 32 0 0 1-4.352-63.701L896 352zm-853.333 0H128a32 32 0 0 1 4.352 63.701L128 416H42.667a32 32 0 0 1-4.352-63.701l4.352-.299zm921.6-243.2a32 32 0 0 1-2.816 41.685l-3.584 3.115-85.334 64a32 32 0 0 1-41.984-48.085l3.584-3.115 85.334-64a32 32 0 0 1 44.8 6.4zm-859.734-6.4 85.334 64a32 32 0 1 1-38.4 51.2l-85.334-64a32 32 0 1 1 38.4-51.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-button"><path d="M912 176v416H732.48v-32H880V208H144v352h175.488v32H112V176z" /><path d="m436.384 788.512.544 2.688a16 16 0 0 0 27.776 5.504l44.032-54.336 56.768 97.664a16 16 0 0 0 21.792 5.856l68.672-39.392 2.368-1.664a16 16 0 0 0 3.52-20.256l-55.904-96.16 68.8-12.064a16 16 0 0 0 6.464-28.8l-256-180.64a16 16 0 0 0-25.12 14.976l36.288 306.624z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-card"><path d="M858.656 864H165.344C109.472 864 64 818.56 64 762.688V261.312C64 205.44 109.472 160 165.344 160h693.312C914.528 160 960 205.44 960 261.312v501.376C960 818.56 914.528 864 858.656 864zM165.344 224C144.736 224 128 240.736 128 261.312v501.376C128 783.264 144.736 800 165.344 800h693.312C879.264 800 896 783.264 896 762.688V261.312C896 240.736 879.264 224 858.656 224H165.344zM800 416H224c-17.664 0-32-14.336-32-32s14.336-32 32-32h576c17.696 0 32 14.336 32 32s-14.304 32-32 32zM320 736h-96c-17.664 0-32-14.304-32-32s14.336-32 32-32h96c17.664 0 32 14.304 32 32s-14.336 32-32 32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-cascader-field"><path d="M661.377 411.07v64.595H314.175v395.654H871.32V475.665h-48.447V411.07h48.447c35.675 0 64.595 28.92 64.595 64.595v395.654c0 35.675-28.92 64.595-64.595 64.595H314.175c-35.675 0-64.6-28.92-64.6-64.595V475.665c0-35.675 28.925-64.595 64.6-64.595h347.202zm48.448-322.984c35.675 0 64.6 28.92 64.6 64.595v403.73c0 35.676-28.925 64.595-64.6 64.595H362.623v-64.594h347.202V152.68H152.68v403.73h48.447v64.595H152.68c-35.675 0-64.595-28.92-64.595-64.594V152.68c0-35.675 28.92-64.595 64.595-64.595h557.144z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-checkbox-field"><path d="M897.94 896.77c6.259-6.278 10.257-14.835 10.257-24.531V147.672c0-9.118-3.998-18.235-10.257-24.533-6.277-6.258-14.815-9.696-24.51-9.696H149.644c-9.688 0-18.236 3.437-24.503 9.696-6.268 6.297-9.687 15.414-9.687 24.533V872.24c0 9.696 3.42 18.253 9.687 24.53 6.267 6.278 14.815 10.276 24.503 10.276h723.784c9.697 0 18.234-3.998 24.511-10.276zM149.645 61.52h723.784c23.933 0 45.586 9.697 60.98 25.111 15.397 15.974 25.073 37.666 25.073 61.04v724.567c0 23.97-9.676 45.643-25.073 61.056-15.394 15.396-37.047 25.093-60.98 25.093H149.645c-23.364 0-45.017-9.697-60.972-25.093-15.396-15.414-25.082-37.087-25.082-61.056V147.672c0-23.374 9.686-45.065 25.082-61.039 15.955-15.415 37.608-25.112 60.972-25.112z" /><path d="M417.42 698.27a23.556 23.556 0 0 1-16.668-6.9L259.5 550.12c-9.173-9.15-9.173-24.095 0-33.291 9.17-9.147 24.115-9.147 33.288 0l124.583 124.607 312.895-312.917c9.194-9.172 24.14-9.172 33.288 0 9.196 9.172 9.196 24.116 0 33.29L433.992 691.37c-4.618 4.645-10.643 6.9-16.666 6.9h.093z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-color-field"><path d="M619.52 490.667h-.853l-85.334-85.334h.854z" /><path d="M619.52 507.733h-.853a17.067 17.067 0 1 1 0-34.133c9.438 0 17.476 7.646 17.476 17.067s-7.185 17.066-16.623 17.066zM534.187 422.4c-9.438 0-17.494-7.646-17.494-17.067s7.202-17.066 16.64-17.066h.854a17.067 17.067 0 1 1 0 34.133zM192 866.133a34.133 34.133 0 0 1-24.132-58.265l42.666-42.667a34.133 34.133 0 1 1 48.265 48.265l-42.667 42.666A33.963 33.963 0 0 1 192 866.133z" /><path d="m619.52 490.667-.427-.427-84.906-84.907L746.667 192H832v85.333z" /><path d="M662.187 567.467a33.997 33.997 0 0 1-24.133-10.001L467.388 386.799a34.133 34.133 0 0 1 48.281-48.282l170.667 170.667a34.133 34.133 0 0 1-24.15 58.283z" /><path d="M320 806.4h-85.333a17.067 17.067 0 0 1-17.067-17.067V704c0-4.54 1.792-8.875 5-12.066L521.695 392.84a16.52 16.52 0 0 1 3.567-2.731l209.305-210.142a17.117 17.117 0 0 1 12.1-5.018H832a17.067 17.067 0 0 1 17.067 17.067v85.333a17.067 17.067 0 0 1-4.967 12.05L631.62 502.732a17.954 17.954 0 0 1-3.618 2.782L332.066 801.434A17.135 17.135 0 0 1 320 806.4zm-68.267-34.133h61.201l294.093-294.093a16.52 16.52 0 0 1 3.567-2.73l204.34-205.16v-61.217h-61.185L546.287 417.382a17.954 17.954 0 0 1-3.618 2.782L251.733 711.066v61.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-custom-component"><path d="M811.008 335.872c-2.048-7.168-11.264-9.216-17.408-4.096L690.176 435.2c-8.192 8.192-20.48 8.192-28.672 0L588.8 362.496c-8.192-8.192-8.192-20.48 0-28.672l104.448-104.448c5.12-5.12 3.072-14.336-4.096-17.408-17.408-4.096-35.84-7.168-54.272-7.168-108.544 0-195.584 94.208-183.296 204.8 2.048 17.408 6.144 32.768 12.288 48.128L225.28 697.344c-27.648 27.648-27.648 73.728 0 101.376 14.336 14.336 32.768 21.504 51.2 21.504s36.864-7.168 51.2-21.504l238.592-238.592c15.36 6.144 31.744 10.24 48.128 12.288 111.616 12.288 204.8-74.752 204.8-183.296 0-18.432-3.072-36.864-8.192-53.248z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-data-table"><path d="M915.692 39.385H108.308c-15.754 0-29.539 13.784-29.539 29.538v98.462c0 15.753 13.785 29.538 29.539 29.538h807.384c15.754 0 29.539-13.785 29.539-29.538V68.923c0-15.754-13.785-29.538-29.539-29.538zM285.538 275.692h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V305.23c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V305.23c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V305.23c0-15.754-13.785-29.539-29.539-29.539zM285.538 472.615h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zM285.538 669.538h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zM285.538 866.462h-177.23c-15.754 0-29.539 13.784-29.539 29.538v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V896c0-15.754-13.785-29.538-29.539-29.538zm315.077 0h-177.23c-15.754 0-29.539 13.784-29.539 29.538v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V896c0-15.754-13.785-29.538-29.539-29.538zm315.077 0h-177.23c-15.754 0-29.539 13.784-29.539 29.538v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V896c0-15.754-13.785-29.538-29.539-29.538z" /></symbol><symbol class="icon" viewBox="0 0 1132 1024"  id="icon-date-field"><path d="M1023.995 1023.995H107.789C48.262 1023.995 0 975.732 0 916.205V188.63C0 129.105 48.262 80.843 107.789 80.843h80.842v53.894h-80.842c-29.777 0-53.895 24.118-53.895 53.895V296.42H1077.89V188.63c0-29.776-24.117-53.894-53.894-53.894h-80.842V80.842h80.842c59.526 0 107.789 48.262 107.789 107.789v727.575c0 59.526-48.263 107.789-107.79 107.789Zm53.894-673.681H53.894v565.892c0 29.777 24.118 53.894 53.895 53.894h916.206c29.777 0 53.894-24.117 53.894-53.894V350.314ZM794.943 628.086l-3.584 5.632c-3.314 6.306-7.087 12.153-11.237 17.731L646.734 861.476H589.12l98.358-160.875c-.108 0-.216.027-.324.027-66.963 0-121.262-60.335-121.262-134.736 0-74.401 54.299-134.736 121.262-134.736 66.964 0 121.263 60.335 121.263 134.736 0 22.42-5.39 43.25-14.12 61.844l.646.35ZM687.154 485.05c-37.214 0-67.368 36.19-67.368 80.842 0 44.651 30.154 80.842 67.368 80.842 19.052 0 36.164-9.567 48.425-24.819l9.781-16.006c5.66-11.83 9.163-25.385 9.163-40.017 0-44.652-30.154-80.842-67.369-80.842Zm-310.216 21.881-80.734 72.327v-66.991l82.405-80.41h52.062v429.727h-53.733V506.93Zm512.32-291.353c-14.874 0-26.947-12.072-26.947-26.947V26.947C862.311 12.072 874.384 0 889.26 0s26.947 12.072 26.947 26.947v161.684c0 14.875-12.072 26.947-26.947 26.947ZM296.42 80.842h538.944v53.894H296.42V80.842Zm-53.895 134.736c-14.875 0-26.947-12.072-26.947-26.947V26.947C215.578 12.072 227.65 0 242.525 0s26.947 12.072 26.947 26.947v161.684c0 14.875-12.072 26.947-26.947 26.947Z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-date-range-field"><path d="M887.467 192.853H786.773v-73.386c0-10.24-6.826-17.067-17.066-17.067s-17.067 6.827-17.067 17.067v73.386H303.787v-73.386c0-10.24-6.827-17.067-17.067-17.067s-17.067 6.827-17.067 17.067v73.386H168.96c-46.08 0-85.333 37.547-85.333 85.334v558.08c0 46.08 37.546 85.333 85.333 85.333h718.507c46.08 0 85.333-37.547 85.333-85.333v-558.08c0-47.787-37.547-85.334-85.333-85.334zM168.96 226.987h100.693v66.56c0 10.24 6.827 17.066 17.067 17.066s17.067-6.826 17.067-17.066v-66.56h450.56v66.56c0 10.24 6.826 17.066 17.066 17.066s17.067-6.826 17.067-17.066v-66.56h98.987c27.306 0 51.2 22.186 51.2 51.2v88.746H117.76v-88.746c0-29.014 22.187-51.2 51.2-51.2zm718.507 660.48H168.96c-27.307 0-51.2-22.187-51.2-51.2v-435.2h820.907v435.2c0 27.306-22.187 51.2-51.2 51.2z" /><path d="M858.453 493.227H327.68c-10.24 0-17.067 6.826-17.067 17.066V624.64H194.56c-10.24 0-17.067 6.827-17.067 17.067v133.12c0 10.24 6.827 17.066 17.067 17.066H460.8c10.24 0 17.067-6.826 17.067-17.066V660.48h380.586c10.24 0 17.067-6.827 17.067-17.067v-133.12c0-10.24-6.827-17.066-17.067-17.066zM445.44 527.36v97.28h-98.987v-97.28h98.987zm-230.4 131.413h98.987v98.987H215.04v-98.987zm131.413 97.28v-97.28h98.987v97.28h-98.987zm133.12-228.693h97.28v98.987h-97.28V527.36zm131.414 0h98.986v98.987h-98.986V527.36zm230.4 97.28H742.4v-98.987h98.987v98.987z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-divider"><path d="M62.5 491.773h899v74.918h-899v-74.918z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-document"><path d="M979.478 706.382a44.522 44.522 0 0 1-11.843 57.967l-4.363 2.85L569.478 995.06l-5.388 4.764a84.013 84.013 0 0 1-43.943 17.808l-8.102.401c-19.056 0-37.31-6.545-52.046-18.254l-5.432-4.72L60.817 767.2a44.522 44.522 0 0 1-18.61-56.187l2.36-4.63a44.522 44.522 0 0 1 60.816-16.25l405.326 234.54 1.336 1.514 1.335-1.514 405.282-234.54a44.522 44.522 0 0 1 60.86 16.25zm0-222.609a44.522 44.522 0 0 1-11.843 57.968l-4.363 2.849-393.794 227.862-5.388 4.764a84.013 84.013 0 0 1-43.943 17.809l-8.102.4c-19.056 0-37.31-6.544-52.046-18.254l-5.432-4.719L60.817 544.59a44.522 44.522 0 0 1-18.61-56.187l2.36-4.63a44.522 44.522 0 0 1 60.816-16.25l405.326 234.54 1.336 1.514 1.335-1.514 405.282-234.54a44.522 44.522 0 0 1 60.86 16.25zM512 0c18.788 0 36.864 6.1 51.645 17.185l4.586 3.74 403.5 199.68 5.61 6.144c32.501 35.44 32.501 89.89 0 125.329l-5.61 6.144-403.5 199.59-4.541 3.785a86.239 86.239 0 0 1-43.676 16.83l-8.014.356c-18.788 0-36.864-6.1-51.645-17.186l-4.63-3.784L52.269 358.222l-5.61-6.144a92.739 92.739 0 0 1 0-125.329l5.61-6.144 403.456-199.68 4.585-3.74C473 7.702 488.136 1.87 503.986.356z" fill="#008df0" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-drag"><path d="M574.958 267.016h-63.454 204.649L511.213 63.655 307.85 267.016h141.191V456.68H258.688v125.917H449.04V772.95h125.917V582.596h188.875V456.679H574.958V267.016zm-63.704 693.33 189.62-187.396H323.126l188.129 187.395zM71.292 518.891l187.395 189.62v-377.75L71.292 518.892zm692.54-188.13v377.75L952.708 518.89 763.833 330.762z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-file-upload-field"><path d="m676.48 72.96 209.92 211.2 9.6 23.04V928l-32 32H160l-32-32V96l32-32h494.08l22.4 8.96zM640 320h192L640 128v192zM192 128v768h640V384H608l-32-32V128H192zm512 320H320v64h384v-64zM320 576h384v64H320v-64zm384 128H320v64h384v-64z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-github"><path d="M512 0C229.284 0 .142 234.943.142 524.868c0 231.829 146.647 428.553 350.068 497.952 25.593 4.82 34.977-11.389 34.977-25.294 0-12.455-.469-45.47-.725-89.277-142.382 31.735-172.453-70.38-172.453-70.38-23.247-60.57-56.817-76.694-56.817-76.694-46.493-32.588 3.54-31.948 3.54-31.948 51.357 3.71 78.358 54.086 78.358 54.086 45.683 80.191 119.817 57.072 148.993 43.594 4.65-33.911 17.915-57.03 32.503-70.168-113.675-13.223-233.151-58.224-233.151-259.341 0-57.285 19.92-104.163 52.678-140.846-5.246-13.266-22.82-66.627 4.991-138.884 0 0 42.996-14.076 140.76 53.787 40.864-11.644 84.628-17.445 128.179-17.659 43.465.214 87.271 6.015 128.135 17.66 97.68-67.907 140.59-53.788 140.59-53.788 27.939 72.257 10.408 125.618 5.119 138.884 32.844 36.683 52.593 83.56 52.593 140.846 0 201.587-119.647 245.99-233.663 258.957 18.341 16.21 34.72 48.2 34.72 97.21 0 70.168-.639 126.728-.639 143.96 0 14.034 9.214 30.371 35.19 25.21 203.25-69.528 349.77-266.124 349.77-497.867C1023.858 234.943 794.674 0 512 0" fill="#3E75C3" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-grid"><path d="M819.354 921.6h102.4V819.2h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V819.2a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V819.2h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V819.2a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V819.2h-102.4v102.4zm102.4-204.8h-102.4A102.4 102.4 0 0 0 .154 819.2v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V819.2a102.4 102.4 0 0 0-102.4-102.4zm614.4-153.6h102.4V460.8h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V460.8a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V460.8h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V460.8a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V460.8h-102.4v102.4zm102.4-204.8h-102.4A102.4 102.4 0 0 0 .154 460.8v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V460.8a102.4 102.4 0 0 0-102.4-102.4zm614.4-153.6h102.4V102.4h-102.4v102.4zM921.754 0h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V102.4A102.4 102.4 0 0 0 921.754 0zm-460.8 204.8h102.4V102.4h-102.4v102.4zM563.354 0h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V102.4A102.4 102.4 0 0 0 563.354 0zm-460.8 204.8h102.4V102.4h-102.4v102.4zM204.954 0h-102.4A102.4 102.4 0 0 0 .154 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V102.4A102.4 102.4 0 0 0 204.954 0z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-html-text"><path d="m137.6 512 204.8-204.8c12.8-12.8 12.8-32 0-44.8-12.8-12.8-32-12.8-44.8 0L70.4 489.6c-6.4 6.4-9.6 12.8-9.6 22.4 0 9.6 3.2 16 9.6 22.4l227.2 227.2c12.8 12.8 32 12.8 44.8 0 12.8-12.8 12.8-32 0-44.8L137.6 512zm464-339.2c-16-3.2-35.2 6.4-38.4 22.4L396.8 812.8c-3.2 16 6.4 35.2 22.4 38.4 16 3.2 35.2-6.4 38.4-22.4L624 211.2c6.4-16-3.2-35.2-22.4-38.4zm352 316.8L726.4 262.4c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8L886.4 512 681.6 716.8c-12.8 12.8-12.8 32 0 44.8 12.8 12.8 32 12.8 44.8 0l227.2-227.2c6.4-6.4 9.6-16 9.6-22.4 0-9.6-3.2-16-9.6-22.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-node-tree"><path d="M332.48 500.864a25.6 25.6 0 1 0 0-51.2H192.384v-184.96a115.2 115.2 0 0 0 89.6-112.128c0-63.488-51.712-115.2-115.2-115.2s-115.2 51.712-115.2 115.2a115.2 115.2 0 0 0 89.6 112.128v696.192a25.6 25.6 0 1 0 51.2 0v-141.12c2.304.192 4.48.512 6.912.512H332.48a25.6 25.6 0 1 0 0-51.2H199.296c-3.456 0-5.504-.448-6.08-.256a29.184 29.184 0 0 1-.896-8.576V500.8h140.16zM102.784 152.64c0-35.264 28.736-64 64-64s64 28.736 64 64-28.736 64-64 64-64-28.736-64-64zm818.432 207.424h-486.4c-28.224 0-51.2 22.976-51.2 51.2v128c0 28.224 22.976 51.2 51.2 51.2h486.4c28.224 0 51.2-22.976 51.2-51.2v-128c0-28.224-22.976-51.2-51.2-51.2zm-486.336 179.2v-128h486.4v128h-486.4zm486.336 140.352h-486.4c-28.224 0-51.2 22.976-51.2 51.2v128c0 28.224 22.976 51.2 51.2 51.2h486.4c28.224 0 51.2-22.976 51.2-51.2v-128c0-28.224-22.976-51.2-51.2-51.2zm-486.336 179.2v-128h486.4v128h-486.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-number-field"><path d="M960 1024H64a64 64 0 0 1-64-64V64A64 64 0 0 1 64 0h896a64 64 0 0 1 64 64v896a64 64 0 0 1-64 64zm0-896a64 64 0 0 0-64-64H128a64 64 0 0 0-64 64v768a64 64 0 0 0 64 64h768a64 64 0 0 0 64-64V128zM832 768H704a64 64 0 0 1 0-128h64v-64h-64a64 64 0 0 1 0-128h64v-64h-64a64 64 0 0 1 0-128h128a64 64 0 0 1 64 64v384a64 64 0 0 1-64 64zM512 640a64 64 0 0 1 0 128H384a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h64v-64h-64a64 64 0 0 1 0-128h128a64 64 0 0 1 64 64v192a64 64 0 0 1-64 64h-64v64h64zM192 768a64 64 0 0 1-64-64V320a64 64 0 0 1 128 0v384a64 64 0 0 1-64 64z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-picture-upload-field"><path d="M896 1024H128C57.312 1024 0 966.688 0 896V128C0 57.312 57.312 0 128 0h768c70.688 0 128 57.312 128 128v768c0 70.688-57.312 128-128 128zm0-64c35.328 0 64-28.672 64-64V639.968l-192-192L494.816 721.12 730.624 960H896zM64 896c0 35.328 28.672 64 64 64h512.032L318.24 638.208 64 865.952V896zm896-768c0-35.328-28.672-64-64-64H128c-35.328 0-64 28.672-64 64v650.752L320 544l129.856 131.552L768 352l192 196.096V128zM256 384c-70.688 0-128-57.312-128-128s57.312-128 128-128 128 57.312 128 128-57.312 128-128 128zm0-192c-35.328 0-64 28.672-64 64s28.672 64 64 64 64-28.672 64-64-28.672-64-64-64z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-radio-field"><path d="M512 65.983C266.08 65.983 65.983 266.08 65.983 512c0 245.952 200.065 446.017 446.017 446.017S958.017 757.952 958.017 512c0-245.92-200.065-446.017-446.017-446.017zm0 828.034c-210.656 0-382.017-171.392-382.017-382.017 0-210.656 171.36-382.017 382.017-382.017 210.625 0 382.017 171.36 382.017 382.017 0 210.625-171.392 382.017-382.017 382.017zM512 352C423.776 352 352 423.776 352 512s71.774 160 160 160 160-71.774 160-160-71.776-160-160-160z" /></symbol><symbol class="icon" viewBox="0 0 1069 1024"  id="icon-rate-field"><path d="m633.73 378.02 9.498 18.688 20.78 2.798 206.616 27.332a11.465 11.465 0 0 1 6.61 19.473L729.966 593.665l-14.893 14.893 3.8 20.683 37.847 204.89a11.465 11.465 0 0 1-16.481 12.296l-185.55-94.58-18.687-9.493-18.487 9.992-183.24 99.35a11.465 11.465 0 0 1-16.784-11.867l32.543-205.796 3.297-20.786-15.192-14.492-151.033-143.484a11.465 11.465 0 0 1 6.1-19.64L399 402.998l20.786-3.296 9.092-18.98 89.713-188.078a11.465 11.465 0 0 1 20.569-.263l94.568 185.635zM496.647 85.52 374.89 340.501l-279.126 44.26a34.395 34.395 0 0 0-18.303 58.908l204.873 194.663-44.169 279.115a34.395 34.395 0 0 0 50.366 35.616l248.4-134.679L788.776 946.66a34.395 34.395 0 0 0 49.437-36.894l-51.306-277.854 199.731-199.909a34.395 34.395 0 0 0-19.828-58.408l-280.118-37.032L558.33 84.713a34.395 34.395 0 0 0-61.682.802z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-redo"><path d="M412.081 346.3h443.415L640.168 133.871c-18.973-18.973-18.973-46.064 0-65.038s44.325-19.884 63.381-.83l291.385 284.591c18.973 18.973 18.973 44.159 0 63.132L703.549 700.649c-18.973 18.973-44.325 18.973-63.381-.083-18.973-18.973-18.973-43.91 0-62.883l215.328-208.534H412.081c-177.3 0-314.335 138.359-314.335 309.364v44.325c0 25.354-16.074 44.325-41.425 44.325s-41.425-18.973-41.425-44.325v-44.325c0-221.709 169.181-392.213 397.185-392.213z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-rich-editor-field"><path d="M313.36 448.094H632.63v31.927H313.36v-31.927ZM313.36 583.784h223.49v31.927H313.36v-31.927ZM313.36 719.474h127.709v31.927h-127.71v-31.927ZM889.412 554.809l-39.955-39.971-39.957-39.941c-7.358-7.358-19.285-7.358-26.642 0l-329.7 329.694a14.08 14.08 0 0 0-4.592 6.873L412.078 932.86a14.158 14.158 0 0 0 3.54 14.079l.99.763.77.982a14.174 14.174 0 0 0 14.062 3.555l121.395-36.495a14.04 14.04 0 0 0 6.938-4.677l329.639-329.63c7.35-7.343 7.35-19.284 0-26.627zM541.136 889.756l-95.198 28.622 28.623-95.235 255.02-255.02 66.6 66.599-255.045 255.034zM856.112 574.78l-46.611 46.611-66.59-66.598 46.605-46.597c3.677-3.68 9.641-3.68 13.319-.016l26.892 26.892 26.384 26.394c3.68 3.68 3.68 9.65.001 13.314z" /><path d="M671.874 224.898v-28.934c0-22.004-17.905-39.909-39.909-39.909H314.026c-22.004 0-39.909 17.905-39.909 39.91v28.933h-104.43v643.564c0 35.26 28.592 63.854 63.855 63.854h127.709v-47.89H249.506c-17.632 0-31.928-14.299-31.928-31.928v-579.71h56.54v10.976c0 22.004 17.904 39.909 39.908 39.909h317.938c22.004 0 39.91-17.905 39.91-39.91V272.79h56.538V437.45h47.89V224.898H671.875zm-47.89 50.884H322.007v-71.836h301.974v71.836z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-section"><path d="M141.074 906.496h741.852c89.581 0 134.583-44.562 134.583-132.846V250.331c0-88.283-45.002-132.845-134.583-132.845H141.074c-89.143.018-134.583 44.16-134.583 132.845V773.67c0 88.704 45.44 132.845 134.583 132.845zm1.28-68.992c-42.861 0-66.852-22.71-66.852-67.291V253.806c0-44.58 23.99-67.292 66.852-67.292h739.292c42.423 0 66.852 22.711 66.852 67.292v516.388c0 44.58-24.43 67.292-66.852 67.292z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-select-field"><path d="M374.784 649.515a32 32 0 0 1 3.072 41.685l-3.115 3.584L225.28 843.947a32 32 0 0 1-37.845 5.504l-3.968-2.56-85.334-64a32 32 0 0 1 34.432-53.76l3.968 2.56 63.147 47.36 129.835-129.622a32 32 0 0 1 45.269.043zm531.37 75.818a32 32 0 0 1 4.31 63.702l-4.31.298h-448a32 32 0 0 1-4.351-63.744l4.352-.256h448zm.513-256a32 32 0 0 1 4.352 63.702l-4.352.298h-448a32 32 0 0 1-4.352-63.701l4.352-.299h448zm-531.84-331.776a32 32 0 0 1 2.986 41.686l-3.114 3.584-149.846 149.205a32 32 0 0 1-37.888 5.419l-3.925-2.56-84.907-64a32 32 0 0 1 34.518-53.675l3.968 2.56 62.72 47.275L329.6 137.472a32 32 0 0 1 45.227.085zm531.328 75.819a32 32 0 0 1 4.309 63.701l-4.31.299H459.35a32 32 0 0 1-4.352-63.744l4.352-.256h446.806z" /></symbol><symbol class="icon" viewBox="0 0 1032 1024"  id="icon-select-group-field"><path d="M.028 590.018V195.496c0-27.484 11.468-38.867 39.207-38.867 263.005-.028 526.01-.028 789.014 0 27.541 0 39.122 11.581 39.122 39.093.028 263.005.028 526.01 0 789.015 0 27.738-11.412 39.235-38.839 39.263H38.444C11.468 1024 0 1012.532 0 985.584c0-131.855.028-263.71.028-395.566zm433.756-370.173H77.933c-14.689 0-14.745.028-14.745 14.83v710.63c0 15.479.028 15.507 15.197 15.507h710.63c15.14 0 15.168-.028 15.168-15.423V234.76c0-14.886-.028-14.914-14.547-14.914-118.608-.028-237.244 0-355.852 0z" fill="#707070" /><path d="M598.095.057h393.42c28.67 0 40.393 11.497 40.393 40.337.057 262.298.057 524.569 0 786.868 0 28.924-11.581 40.195-40.364 40.223-19.66.028-39.32.141-58.98-.056-19.687-.17-33.952-13.333-34.008-31.015-.057-17.993 13.643-31.354 33.274-32.06a398.903 398.903 0 0 1 27.88-.029c7.005.226 9.83-2.768 9.265-9.575-.198-2.486-.029-5-.029-7.514V79.713c0-16.383 0-16.411-16.242-16.411H243.006c-16.468 0-16.468.028-16.496 16.129 0 5.367.141 10.733-.085 16.072-.593 15.112-12.287 27.795-27.286 29.744-14.745 1.892-30.93-7.683-33.33-22.513-4.323-26.495-4.21-53.443 0-79.966C167.87 9.803 179.987 1.385 193.884.227c4.266-.34 8.559-.198 12.853-.198 130.5.028 260.942.028 391.357.028z" fill="#707070" /><path d="M384.437 796.755c-7.457-.028-14.038-2.457-19.518-7.513-13.417-12.316-26.806-24.603-40.082-37.088-41.862-39.376-83.695-78.808-125.444-118.326-8.389-7.937-12.004-17.682-8.445-29.15 3.474-11.27 11.327-17.937 22.823-20.14 10-1.893 18.106 2.09 25.253 8.728 17.512 16.27 35.138 32.456 52.567 48.839 27.597 25.902 55.278 51.691 82.395 78.074 6.525 6.355 10.028 5.14 15.169-.989 58.47-69.77 117.054-139.397 175.666-209.026 28.049-33.33 56.041-66.662 84.288-99.795 11.073-12.965 27.653-14.801 40.252-5.198 12.456 9.491 15.111 26.411 4.237 40.054-21.129 26.496-43.303 52.172-65.11 78.13a319580.675 319580.675 0 0 1-177.869 211.37c-14.49 17.203-29.15 34.236-43.754 51.353-5.875 6.892-13.19 10.79-22.428 10.677z" fill="#707070" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-slider-field"><path d="M951.453 476.844H523.672a131.836 131.836 0 0 0-254.18 0H72.547v70.312h196.945a131.836 131.836 0 0 0 254.18 0h427.781z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-slot-component"><path d="M512 102.4c-212.48 0-384 171.52-384 384s171.52 384 384 384 384-171.52 384-384-171.52-384-384-384zm25.6 716.8v-128c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v128C322.56 806.4 192 675.84 179.2 512h128c15.36 0 25.6-10.24 25.6-25.6s-10.24-25.6-25.6-25.6h-128C192 296.96 322.56 166.4 486.4 156.16V281.6c0 15.36 10.24 25.6 25.6 25.6s25.6-10.24 25.6-25.6V156.16C701.44 168.96 832 299.52 844.8 460.8h-128c-15.36 0-25.6 10.24-25.6 25.6s10.24 25.6 25.6 25.6h128C832 675.84 701.44 806.4 537.6 819.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-slot-field"><path d="M493.969 244.87h36.285q18.031 0 18.031 18.03v217.267q0 18.031-18.031 18.031h-36.285q-18.032 0-18.032-18.031V262.901q0-18.031 18.032-18.031ZM323.45000000000005 525.802h36.286q18.031 0 18.031 18.031v217.266q0 18.031-18.031 18.031H323.45q-18.03 0-18.03-18.03V543.832q0-18.031 18.03-18.031ZM664.2639999999999 525.802h36.286q18.03 0 18.03 18.031v217.266q0 18.031-18.03 18.031h-36.286q-18.031 0-18.031-18.03V543.832q0-18.031 18.031-18.031Z" /><path d="M827.437 122.212H196.563a74.574 74.574 0 0 0-74.35 74.351v630.874a74.574 74.574 0 0 0 74.35 74.35h630.874a74.574 74.574 0 0 0 74.35-74.35V196.563a74.574 74.574 0 0 0-74.35-74.35zm52.09 705.225a52.09 52.09 0 0 1-52.09 52.09H196.563a52.09 52.09 0 0 1-52.09-52.09V196.563a52.09 52.09 0 0 1 52.09-52.09h630.874a52.09 52.09 0 0 1 52.09 52.09z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-static-text"><path d="M213.333 160c-4.821 0-9.472.64-13.824 1.792a32 32 0 0 1-16.554-61.824C192.683 97.408 202.88 96 213.333 96h33.195a32 32 0 0 1 0 64h-33.195zm133.931-32a32 32 0 0 1 32-32h66.347a32 32 0 1 1 0 64h-66.304a32 32 0 0 1-32-32zm199.125 0a32 32 0 0 1 32-32h66.347a32 32 0 0 1 0 64h-66.347a32 32 0 0 1-32-32zm199.083 0a32 32 0 0 1 32-32h33.195c10.453 0 20.65 1.365 30.378 3.968a32 32 0 1 1-16.554 61.867A53.419 53.419 0 0 0 810.667 160h-33.195a32 32 0 0 1-32-32zm-606.293 32.341a32 32 0 0 1 22.613 39.168A53.461 53.461 0 0 0 160 213.333v33.195a32 32 0 0 1-64 0v-33.195c0-10.453 1.365-20.65 3.968-30.378a32 32 0 0 1 39.168-22.614zm745.685 0a32 32 0 0 1 39.168 22.614c2.56 9.728 3.968 19.925 3.968 30.378v33.195a32 32 0 0 1-64 0v-33.195c0-4.821-.64-9.472-1.792-13.824a32 32 0 0 1 22.613-39.168zM128 347.221a32 32 0 0 1 32 32v66.39a32 32 0 1 1-64 0v-66.304a32 32 0 0 1 32-32zm768 0a32 32 0 0 1 32 32v66.39a32 32 0 1 1-64 0v-66.304a32 32 0 0 1 32-32zM128 546.432a32 32 0 0 1 32 32v66.347a32 32 0 0 1-64 0v-66.347a32 32 0 0 1 32-32zm768 0a32 32 0 0 1 32 32v66.347a32 32 0 0 1-64 0v-66.347a32 32 0 0 1 32-32zm0 199.083a32 32 0 0 1 32 32v33.152c0 10.453-1.365 20.65-3.968 30.378a32 32 0 1 1-61.867-16.554c1.195-4.352 1.835-8.96 1.835-13.824v-33.195a32 32 0 0 1 32-32zm-768 0a32 32 0 0 1 32 32v33.152c0 4.821.64 9.472 1.792 13.824a32 32 0 0 1-61.824 16.512A117.461 117.461 0 0 1 96 810.667v-33.195a32 32 0 0 1 32-32zm32.341 139.392a32 32 0 0 1 39.168-22.656 53.814 53.814 0 0 0 13.824 1.792h33.195a32 32 0 0 1 0 64h-33.195c-10.453 0-20.65-1.366-30.378-3.968a32 32 0 0 1-22.614-39.168zm703.318 0a32 32 0 0 1-22.614 39.168c-9.728 2.56-19.925 3.968-30.378 3.968h-33.195a32 32 0 0 1 0-64h33.195c4.821 0 9.472-.64 13.824-1.792a32 32 0 0 1 39.168 22.613zM347.307 896a32 32 0 0 1 32-32h66.346a32 32 0 1 1 0 64h-66.346a32 32 0 0 1-32-32zm199.125 0a32 32 0 0 1 32-32h66.347a32 32 0 0 1 0 64h-66.347a32 32 0 0 1-32-32zM341.333 352a32 32 0 0 0 0 64H480v266.667a32 32 0 0 0 64 0V416h138.667a32 32 0 0 0 0-64H341.333z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-sub-form"><path d="M512 106.667H112a5.333 5.333 0 0 0-5.333 5.333v800a5.333 5.333 0 0 0 5.333 5.333h800a5.333 5.333 0 0 0 5.333-5.333V112a5.333 5.333 0 0 0-5.333-5.333zm0 74.666h325.333a5.333 5.333 0 0 1 5.334 5.334v160a5.333 5.333 0 0 1-5.334 5.333H186.667a5.333 5.333 0 0 1-5.334-5.333v-160a5.333 5.333 0 0 1 5.334-5.334zM597.333 432v405.333a5.333 5.333 0 0 1-5.333 5.334H432a5.333 5.333 0 0 1-5.333-5.334V432a5.333 5.333 0 0 1 5.333-5.333h160a5.333 5.333 0 0 1 5.333 5.333zm-410.666-5.333h160A5.333 5.333 0 0 1 352 432v405.333a5.333 5.333 0 0 1-5.333 5.334h-160a5.333 5.333 0 0 1-5.334-5.334V432a5.333 5.333 0 0 1 5.334-5.333zM672 837.333V432a5.333 5.333 0 0 1 5.333-5.333h160a5.333 5.333 0 0 1 5.334 5.333v405.333a5.333 5.333 0 0 1-5.334 5.334h-160a5.333 5.333 0 0 1-5.333-5.334z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-switch-field"><path d="M692 792H332C182 792 62 672 62 522s120-270 270-270h360c150 0 270 120 270 270 0 147-120 270-270 270zM332 312c-117 0-210 93-210 210s93 210 210 210h360c117 0 210-93 210-210s-93-210-210-210H332z" /><path d="M191 522a150 150 0 1 0 300 0 150 150 0 1 0-300 0z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-tab"><path d="M908.8 1005.44H115.2A101.76 101.76 0 0 1 14.08 903.68V110.72A101.76 101.76 0 0 1 115.2 8.96h296.96a32.64 32.64 0 0 1 32 32V262.4a32 32 0 0 1-32 32 32 32 0 0 1-32-32v-192H115.2a37.76 37.76 0 0 0-37.12 37.76v795.52a37.76 37.76 0 0 0 37.12 37.76h793.6a37.76 37.76 0 0 0 37.12-37.76V267.52a32 32 0 0 1 32-32 32 32 0 0 1 32 32v636.16a101.76 101.76 0 0 1-101.12 101.76z" /><path d="M977.92 299.52a32.64 32.64 0 0 1-32-32v-87.04a37.12 37.12 0 0 0-37.12-37.76H421.12a32 32 0 0 1-32-32 32 32 0 0 1 32-32H908.8a101.76 101.76 0 0 1 101.12 101.76v87.04a32 32 0 0 1-32 32z" /><path d="M977.92 299.52H64a32 32 0 0 1-32-32 32 32 0 0 1 32-32h913.92a32 32 0 0 1 32 32 32 32 0 0 1-32 32z" /><path d="M699.52 299.52a32 32 0 0 1-32-32v-156.8a32 32 0 0 1 64 0v156.8a32 32 0 0 1-32 32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-table"><path d="M925.586 0H101.369C69.885 0 42.24 28.924 42.24 62.328v902.8c0 33.403 27.645 58.872 59.129 58.872h824.217c31.484 0 56.057-25.469 56.057-58.873V62.328C981.643 28.924 957.198 0 925.586 0zM373.719 735.908V543.932h276.445v191.976zm276.445 42.235v203.494H373.719V778.143zm287.964-276.446h-244.45V298.203h244.45zm-287.964 0H373.719V298.203h276.445zm-319.96 0H85.754V298.203h244.45zm-244.45 42.235h244.45v191.976H85.754zm607.925 0h244.449v191.976h-244.45zM101.369 42.235h824.217c7.807 0 12.542 10.366 12.542 20.093v193.64H85.755V62.328c0-9.727 7.807-20.093 15.614-20.093zM85.755 964.999V778.143h244.449v203.494H101.369c-7.807 0-15.614-6.91-15.614-16.51zm839.83 16.638H693.68V778.143h244.449v186.856c0 9.727-4.607 16.638-12.542 16.638z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-text-field"><path d="M896 224H128c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64V288c0-35.2-28.8-64-64-64zm0 480c0 19.2-12.8 32-32 32H160c-19.2 0-32-12.8-32-32V320c0-19.2 12.8-32 32-32h704c19.2 0 32 12.8 32 32v384z" /><path d="M224 352c-19.2 0-32 12.8-32 32v256c0 16 12.8 32 32 32s32-12.8 32-32V384c0-16-12.8-32-32-32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-textarea-field"><path d="M896.4 173.1H128.9c-35.2 0-49 13.8-49 49v575.6c0 35.2 13.8 49 49 49h767.5c35.2 0 49-13.8 49-49V222.1c0-35.2-13.8-49-49-49zm0 592.6c0 16-12.8 32-32 32H160.9c-19.2 0-32-12.8-32-32V254.1c0-16 12.8-32 32-32h703.5c19.2 0 32 12.8 32 32v511.6z" /><path d="M710.2 766.7h141.5c8.1 0 14.7-6.6 14.7-14.7V610.4c0-1.3-1.6-2-2.6-1.1L709.1 764.1c-1 1-.3 2.6 1.1 2.6zm-503-172.4h-13.5c-10 0-18.2-8.2-18.2-18.2V291.8c0-10.2 8.4-18.6 18.6-18.6h12.8c10.2 0 18.6 8.4 18.6 18.6v284.3c-.1 10-8.3 18.2-18.3 18.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-time-field"><path d="M512 39.385A472.615 472.615 0 1 0 984.615 512 472.615 472.615 0 0 0 512 39.385zm0 866.461A393.846 393.846 0 1 1 905.846 512 393.846 393.846 0 0 1 512 905.846zm75.855-373.72A77.154 77.154 0 0 0 590.769 512a78.454 78.454 0 0 0-39.384-67.86V196.923a39.385 39.385 0 0 0-78.77 0V444.14a78.336 78.336 0 0 0 59.55 143.715l70.144 70.144a39.385 39.385 0 0 0 55.69-55.69zM512 551.385A39.385 39.385 0 1 1 551.385 512 39.385 39.385 0 0 1 512 551.385zm315.077-78.77A39.385 39.385 0 1 0 866.462 512a39.385 39.385 0 0 0-39.385-39.385zm-630.154 0A39.385 39.385 0 1 0 236.308 512a39.385 39.385 0 0 0-39.385-39.385zm509.991 234.3a39.385 39.385 0 1 0 55.69 0 39.385 39.385 0 0 0-55.69 0zM317.007 317.006a39.385 39.385 0 1 0-55.73 0 39.385 39.385 0 0 0 55.809.04zM512 787.692a39.385 39.385 0 1 0 39.385 39.385A39.385 39.385 0 0 0 512 787.692zm-250.604-80.778a39.385 39.385 0 1 0 55.69 0 39.385 39.385 0 0 0-55.69-.039zm445.518-445.518a39.385 39.385 0 1 0 55.69 0 39.385 39.385 0 0 0-55.69-.04z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-time-range-field"><path d="M498.596 482.29H345.42v57.308h210.478V274.197h-57.301V482.29zm79.089 162.695h379.88v57.302h-379.88v-57.302zm0 128.78h379.88v57.307h-379.88v-57.307zm0 128.785h379.88v57.307h-379.88V902.55zm0 0" /><path d="M102.523 382.29a28.668 28.668 0 0 0 23.367 2.56l190.81-61.886c15.053-4.883 23.298-21.04 18.415-36.09-4.882-15.052-21.04-23.297-36.093-18.415l-123.346 40c15.994-26.117 35.17-50.538 57.37-72.745 73.768-73.767 171.847-114.388 276.169-114.388 104.32 0 202.395 40.622 276.161 114.388S899.77 407.56 899.77 511.882c0 26.428-2.616 52.45-7.71 77.78h58.303c4.465-25.499 6.709-51.47 6.709-77.78 0-60.45-11.846-119.102-35.205-174.336-22.56-53.335-54.85-101.227-95.969-142.35-41.122-41.122-89.017-73.408-142.348-95.968-55.233-23.361-113.89-35.207-174.334-35.207-60.45 0-119.107 11.846-174.337 35.208-53.335 22.56-101.23 54.846-142.35 95.969-23.98 23.98-44.933 50.278-62.727 78.6l-20.738-105.654c-3.043-15.528-18.105-25.642-33.632-22.6-15.528 3.048-25.643 18.105-22.6 33.637l36.103 183.932a28.666 28.666 0 0 0 13.588 19.178zm23.497 205.652H67.768c5.76 33.679 15.368 66.544 28.79 98.278 22.56 53.334 54.85 101.225 95.972 142.348 41.123 41.123 89.014 73.409 142.349 95.969 54.112 22.888 111.518 34.711 170.668 35.182v-57.324c-102.95-.941-199.595-41.446-272.5-114.349-55.501-55.502-92.237-124.77-107.027-200.104zm0 0" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-undo"><path d="M609.206 396.656H193.504l201.87-199.152c17.787-17.787 17.787-43.185 0-60.973s-41.555-18.641-59.42-.778L62.857 402.557c-17.787 17.787-17.787 41.399 0 59.186L336.03 728.858c17.787 17.787 41.555 17.787 59.42-.078 17.787-17.787 17.787-41.166 0-58.953L193.502 474.326h415.702c166.219 0 311.155 129.712 311.155 290.029v41.555c0 23.769 15.069 41.555 38.836 41.555s38.836-17.787 38.836-41.555v-41.555c0-207.852-175.073-367.7-388.828-367.7z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-vue-sfc"><path d="M454.138 11.176 54.066 174.092c-72.088 29.49-72.088 120.523 0 150.014l400.276 162.916c36.454 14.95 78.847 14.95 115.506 0l400.071-162.814c72.191-29.593 72.089-120.83-.307-150.116L569.746 11.278a155.339 155.339 0 0 0-115.608-.205zm469.19 237.872L532.37 408.585l-7.885 2.457a55.09 55.09 0 0 1-32.562-2.457L100.35 249.048l391.265-159.23a55.09 55.09 0 0 1 40.447 0l391.162 159.23z" fill="#1890FF" /><path d="M498.681 729.911c-20.275 0-40.652-3.788-59.391-11.673L53.76 561.26C20.48 547.847 0 519.89 0 488.558c0-31.436 20.582-59.391 53.862-72.703l36.556-15.053c21.401-8.806 47.103-1.024 57.24 17.408 10.24 18.227 1.025 40.14-20.479 48.947l-36.454 14.95c-3.072 1.229-4.71 3.584-4.71 6.45 0 3.073 1.536 5.12 4.71 6.452l385.326 156.875c14.336 5.939 30.924 5.939 45.362 0L906.74 495.009c3.072-1.229 4.915-3.584 4.915-6.451 0-3.072-1.536-5.222-4.607-6.451l-44.851-18.227c-21.401-8.806-30.412-30.72-20.377-48.947 10.342-18.329 35.84-26.214 57.24-17.407l44.851 18.431c33.177 13.517 53.76 41.267 53.76 72.703 0 31.334-20.48 59.391-53.76 72.703L558.482 718.238a161.585 161.585 0 0 1-59.801 11.673z" fill="#5DE1C8" /><path d="M498.681 966.247c-20.275 0-40.652-3.89-59.391-11.673L53.76 797.597C20.48 784.08 0 756.227 0 724.997c0-31.437 20.582-59.494 53.862-72.806l36.556-14.95c21.401-8.807 47.103-1.024 57.24 17.407 10.24 18.227 1.025 40.14-20.479 48.947l-36.454 14.95c-3.072 1.126-4.71 3.584-4.71 6.451 0 3.072 1.536 5.12 4.71 6.349l385.326 156.977c14.336 5.939 30.924 5.939 45.362 0L906.74 731.14c3.072-1.126 4.915-3.584 4.915-6.349 0-3.072-1.536-5.324-4.607-6.45l-44.851-18.33c-21.401-8.806-30.412-30.72-20.377-48.947 10.342-18.431 35.84-26.214 57.24-17.407l44.851 18.329c33.177 13.517 53.76 41.369 53.76 72.703 0 31.436-20.48 59.494-53.76 72.805l-385.428 157.08a161.585 161.585 0 0 1-59.801 11.673z" fill="#FF7272" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-custom-search"><path d="M863.3 641.94A416.1 416.1 0 0 0 96.7 318.06a416.1 416.1 0 0 0 766.6 323.88zM480 832a352 352 0 1 1 248.9-103.1A349.69 349.69 0 0 1 480 832z" /><path d="m950.63 841.37-96-96a32 32 0 0 0-45.25 45.25l96 96a13.25 13.25 0 1 1-18.75 18.75l-96-96a32 32 0 0 0-45.25 45.25l96 96a77.25 77.25 0 1 0 109.25-109.25z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-arrow-down"><path d="M512 714.667c-8.533 0-17.067-2.134-23.467-8.534L147.2 364.8c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l320 317.867 317.867-320c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8L533.333 704c-4.266 8.533-12.8 10.667-21.333 10.667z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-back"><path fill="currentColor" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" /><path fill="currentColor" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" /></symbol><symbol viewBox="0 0 1024 1024"  id="icon-el-check"><path fill="currentColor" d="M406.656 706.944 195.84 496.256a32 32 0 1 0-45.248 45.248l256 256 512-512a32 32 0 0 0-45.248-45.248L406.592 706.944z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-clone"><path d="M774.144 839.68c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4H184.32c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672V380.928c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4v65.536c-18.432.683-33.792 7.168-46.08 19.456s-18.773 27.648-19.456 46.08V839.68c.683 18.432 7.168 33.792 19.456 46.08s27.648 18.773 46.08 19.456h458.752c18.432-.683 33.792-7.168 46.08-19.456s18.773-27.648 19.456-46.08h65.536zM380.928 118.784c-18.432.683-33.792 7.168-46.08 19.456s-18.773 27.648-19.456 46.08v458.752c.683 18.432 7.168 33.792 19.456 46.08s27.648 18.773 46.08 19.456H839.68c18.432-.683 33.792-7.168 46.08-19.456s18.773-27.648 19.456-46.08V184.32c-.683-18.432-7.168-33.792-19.456-46.08s-27.648-18.773-46.08-19.456H380.928zm0-65.536H839.68c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672v458.752c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4H380.928c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672V184.32c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-delete"><path fill="currentColor" d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-download"><path d="M896 672c-17.067 0-32 14.933-32 32v128c0 6.4-4.267 10.667-10.667 10.667H170.667c-6.4 0-10.667-4.267-10.667-10.667V704c0-17.067-14.933-32-32-32s-32 14.933-32 32v128c0 40.533 34.133 74.667 74.667 74.667h682.666C893.867 906.667 928 872.533 928 832V704c0-17.067-14.933-32-32-32z" /><path d="M488.533 727.467c6.4 6.4 14.934 8.533 23.467 8.533s17.067-2.133 23.467-8.533L748.8 514.133c12.8-12.8 12.8-32 0-44.8-12.8-12.8-32-12.8-44.8 0L546.133 627.2V170.667c0-17.067-14.933-32-32-32S480 153.6 480 170.667V627.2L322.133 469.333c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l211.2 213.334z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-drag-move"><path d="M909.3 506.3 781.7 405.6c-4.7-3.7-11.7-.4-11.7 5.7V476H548V254h64.8c6 0 9.4-7 5.7-11.7L517.7 114.7c-2.9-3.7-8.5-3.7-11.3 0L405.6 242.3c-3.7 4.7-.4 11.7 5.7 11.7H476v222H254v-64.8c0-6-7-9.4-11.7-5.7L114.7 506.3c-3.7 2.9-3.7 8.5 0 11.3l127.5 100.8c4.7 3.7 11.7.4 11.7-5.7V548h222v222h-64.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V548h222v64.8c0 6 7 9.4 11.7 5.7l127.5-100.8c3.7-2.9 3.7-8.5.1-11.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-form-template"><path d="M298.667 981.333A85.333 85.333 0 0 1 213.333 896V128a85.333 85.333 0 0 1 85.334-85.333h426.666A85.333 85.333 0 0 1 810.667 128v768a85.333 85.333 0 0 1-85.334 85.333zm0-832v725.334A21.333 21.333 0 0 0 320 896h384a21.333 21.333 0 0 0 21.333-21.333V149.333A21.333 21.333 0 0 0 704 128H320a21.333 21.333 0 0 0-21.333 21.333zm640 618.667V256a42.667 42.667 0 0 1 42.666-42.667A42.667 42.667 0 0 1 1024 256v512a42.667 42.667 0 0 1-42.667 42.667A42.667 42.667 0 0 1 938.667 768zM0 768V256a42.667 42.667 0 0 1 42.667-42.667A42.667 42.667 0 0 1 85.333 256v512a42.667 42.667 0 0 1-42.666 42.667A42.667 42.667 0 0 1 0 768z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-hide"><path d="M956.8 496c-41.6-70.4-99.2-147.2-176-204.8l105.6-105.6c12.8-12.8 12.8-32 0-44.8s-32-12.8-44.8 0L726.4 256C665.6 214.4 592 192 512 192c-214.4 0-358.4 166.4-444.8 304-6.4 9.6-6.4 22.4 0 32 41.6 70.4 102.4 147.2 176 204.8L134.4 841.6c-12.8 12.8-12.8 32 0 44.8 9.6 6.4 16 9.6 25.6 9.6s16-3.2 22.4-9.6l115.2-115.2C358.4 809.6 432 832 512 832c185.6 0 374.4-128 444.8-307.2 3.2-9.6 3.2-19.2 0-28.8zm-822.4 16C211.2 390.4 336 256 512 256c60.8 0 118.4 16 166.4 44.8l-80 80C576 361.6 544 352 512 352c-89.6 0-160 70.4-160 160 0 32 9.6 64 25.6 89.6L288 691.2C224 640 172.8 572.8 134.4 512zm473.6 0c0 54.4-41.6 96-96 96-16 0-28.8-3.2-41.6-9.6l128-128c6.4 12.8 9.6 25.6 9.6 41.6zm-192 0c0-54.4 41.6-96 96-96 16 0 28.8 3.2 41.6 9.6l-128 128c-6.4-12.8-9.6-25.6-9.6-41.6zm96 256c-60.8 0-118.4-16-166.4-44.8l80-80C448 662.4 480 672 512 672c89.6 0 160-70.4 160-160 0-32-9.6-64-25.6-89.6l89.6-89.6C803.2 384 854.4 451.2 892.8 512 825.6 659.2 665.6 768 512 768z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-info"><path d="M512.001 928.997c230.524 0 418.076-187.552 418.075-418.077 0-230.527-187.552-418.077-418.075-418.077S93.924 280.393 93.924 510.92c0 230.525 187.552 418.077 418.077 418.077zM512 301.88c28.86 0 52.26 23.399 52.26 52.263 0 28.858-23.399 52.257-52.26 52.257s-52.26-23.399-52.26-52.257c0-28.863 23.399-52.263 52.26-52.263zm-52.26 209.042c0-28.86 23.399-52.26 52.26-52.26s52.26 23.399 52.26 52.26v156.775c0 28.86-23.399 52.26-52.26 52.26s-52.26-23.399-52.26-52.26V510.922z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-insert-column"><path d="M653.184 713.6c12.864-12.864 33.6-12.864 46.528 0 6.4 6.4 3.776 14.72 3.776 23.232a32.675 32.675 0 0 1-9.6 23.104L569.92 886.4c-.128.128-.32.192-.512.32-2.88 2.88-9.536 5.184-13.312 6.784-3.456 1.344-.64 1.856-4.096 2.112-.768 0-1.344.384-2.048.384-.512 0-.896-.256-1.344-.256-3.84-.192-5.76-.896-9.344-2.24-3.264-1.344-6.016-3.52-8.64-5.76-.64-.512-1.472-.768-2.048-1.344L391.232 760c-12.864-12.736-6.976-33.6 5.888-46.4 12.8-12.864 33.6-12.864 46.464 0l105.472 100.352L653.184 713.6zM384 64v576h320V64H384zM128 704v256H64V640h256v320h-62.976L256 704H128m704 0v256h-64V640h256v320h-62.976L960 704H832" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-insert-row"><path d="M310.336 653.184c12.864 12.864 12.864 33.6 0 46.528-6.4 6.4-14.72 3.776-23.168 3.776s-16.832-3.264-23.168-9.6L137.6 569.92c-.128-.128-.192-.32-.256-.512-2.88-2.816-5.248-9.536-6.848-13.312-1.344-3.392-1.856-.576-2.112-4.096 0-.768-.384-1.344-.384-2.048 0-.512.256-.896.256-1.344.192-3.84.896-5.76 2.24-9.344 1.344-3.264 3.52-6.016 5.76-8.64.512-.704.768-1.536 1.344-2.112l126.336-137.344c12.8-12.864 33.6-6.976 46.4 5.888 12.864 12.8 12.864 33.6 0 46.464L210.048 548.992l100.288 104.192zM960 384H384v320h576V384zM320 128H64V64h320v256H64v-62.976L320 256V128m0 704H64v-64h320v256H64v-62.976L320 960V832" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-menu"><path d="M844.8 883.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c0 19.2-19.2 38.4-38.4 38.4zm0-403.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c0 19.2-19.2 38.4-38.4 38.4zM435.2 883.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c6.4 19.2-12.8 38.4-38.4 38.4zm0-403.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c6.4 19.2-12.8 38.4-38.4 38.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-move-down"><path d="M898.133 512c-12.8-12.8-32-12.8-44.8-2.133L544 800V149.333c0-17.066-14.933-32-32-32s-32 14.934-32 32V800L170.667 509.867c-12.8-12.8-34.134-10.667-44.8 2.133-12.8 12.8-10.667 34.133 2.133 44.8l362.667 341.333c2.133 2.134 6.4 4.267 8.533 6.4 4.267 2.134 6.4 2.134 10.667 2.134s8.533 0 10.666-2.134c4.267-2.133 6.4-4.266 8.534-6.4L891.733 556.8c17.067-12.8 19.2-32 6.4-44.8z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-move-up"><path d="M896 467.2 533.333 125.867c-2.133-2.134-6.4-4.267-8.533-6.4-4.267-2.134-6.4-2.134-10.667-2.134s-8.533 0-10.666 2.134c-4.267 2.133-6.4 4.266-8.534 6.4L132.267 467.2c-12.8 12.8-12.8 32-2.134 44.8 12.8 12.8 32 12.8 44.8 2.133L484.267 224v650.667c0 17.066 14.933 32 32 32s32-14.934 32-32V224l305.066 290.133c6.4 6.4 14.934 8.534 21.334 8.534 8.533 0 17.066-4.267 23.466-10.667 12.8-12.8 10.667-32-2.133-44.8z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-plus"><path d="M554.667 213.333h-85.334v256h-256v85.334h256v256h85.334v-256h256v-85.334h-256z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-set-up"><path d="M217.088 151.552c-18.432.683-33.792 7.168-46.08 19.456s-18.773 27.648-19.456 46.08v589.824c.683 18.432 7.168 33.792 19.456 46.08s27.648 18.773 46.08 19.456h589.824c18.432-.683 33.792-7.168 46.08-19.456s18.773-27.648 19.456-46.08V217.088c-.683-18.432-7.168-33.792-19.456-46.08s-27.648-18.773-46.08-19.456H217.088zm0-65.536h589.824c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672v589.824c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4H217.088c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672V217.088c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4zm163.84 327.68c18.432-.683 33.792-7.168 46.08-19.456s18.432-27.648 18.432-46.08-6.144-33.792-18.432-46.08-27.648-18.432-46.08-18.432-33.792 6.144-46.08 18.432-18.432 27.648-18.432 46.08 6.144 33.792 18.432 46.08 27.648 18.773 46.08 19.456zm0 65.536c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4zm98.304-163.84h262.144c21.845 0 32.768 10.923 32.768 32.768s-10.923 32.768-32.768 32.768H479.232c-21.845 0-32.768-10.923-32.768-32.768s10.923-32.768 32.768-32.768zm163.84 425.984c18.432-.683 33.792-7.168 46.08-19.456s18.432-27.648 18.432-46.08-6.144-33.792-18.432-46.08-27.648-18.432-46.08-18.432-33.792 6.144-46.08 18.432-18.432 27.648-18.432 46.08 6.144 33.792 18.432 46.08 27.648 18.773 46.08 19.456zm0 65.536c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4zm-360.448-163.84h262.144c21.845 0 32.768 10.923 32.768 32.768s-10.923 32.768-32.768 32.768H282.624c-21.845 0-32.768-10.923-32.768-32.768s10.923-32.768 32.768-32.768z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-view"><path fill="currentColor" d="M512 160c320 0 512 352 512 352S832 864 512 864 0 512 0 512s192-352 512-352zm0 64c-225.28 0-384.128 208.064-436.8 288 52.608 79.872 211.456 288 436.8 288 225.28 0 384.128-208.064 436.8-288-52.608-79.872-211.456-288-436.8-288zm0 64a224 224 0 1 1 0 448 224 224 0 0 1 0-448zm0 64a160.192 160.192 0 0 0-160 160c0 88.192 71.744 160 160 160s160-71.808 160-160-71.744-160-160-160z" /></symbol><symbol viewBox="0 0 1024 1024"  id="icon-el-zoom-in"><path fill="currentColor" d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704zm-32-384v-96a32 32 0 0 1 64 0v96h96a32 32 0 0 1 0 64h-96v96a32 32 0 0 1-64 0v-96h-96a32 32 0 0 1 0-64h96z" /></symbol>';
+    svgDom.innerHTML = '<symbol class="icon" viewBox="0 0 1024 1024"  id="icon-alert"><path d="M512 85.163a319.573 319.573 0 0 1 319.83 309.333l.17 10.667v174.805l58.88 134.656a53.29 53.29 0 0 1-48.853 74.71L640 789.418a128 128 0 0 1-255.787 7.509l-.213-7.637-201.6.042a53.333 53.333 0 0 1-48.939-74.581L192 580.011V405.163c0-177.28 143.019-320 320-320zm64 704.17-128 .128a64 64 0 0 0 127.701 6.144l.256-6.272zm-64-640.17c-141.653 0-256 114.09-256 256v188.16l-57.344 132.01h627.072L768 593.365V405.717l-.17-9.6A255.488 255.488 0 0 0 512 149.163zM896 352h85.333a32 32 0 0 1 4.352 63.701l-4.352.299H896a32 32 0 0 1-4.352-63.701L896 352zm-853.333 0H128a32 32 0 0 1 4.352 63.701L128 416H42.667a32 32 0 0 1-4.352-63.701l4.352-.299zm921.6-243.2a32 32 0 0 1-2.816 41.685l-3.584 3.115-85.334 64a32 32 0 0 1-41.984-48.085l3.584-3.115 85.334-64a32 32 0 0 1 44.8 6.4zm-859.734-6.4 85.334 64a32 32 0 1 1-38.4 51.2l-85.334-64a32 32 0 1 1 38.4-51.2z" /></symbol><symbol class="icon" viewBox="0 0 1280 1024"  id="icon-autocomplete"><defs><style>@font-face{font-family:feedback-iconfont;src:url(//at.alicdn.com/t/font_1031158_u69w8yhxdu.woff2?t=1630033759944) format("woff2"),url(//at.alicdn.com/t/font_1031158_u69w8yhxdu.woff?t=1630033759944) format("woff"),url(//at.alicdn.com/t/font_1031158_u69w8yhxdu.ttf?t=1630033759944) format("truetype")}</style></defs><path d="M1160.23 594.778c0-87.936 0-175.885.026-263.808.013-13.786-4.326-25.972-18.42-35.892-9.996-7.04-22.194-8.32-34.52-10.022H190.207c-8.806 1.613-18.15 1.216-26.406 5.082-16.858 7.936-26.1 19.136-27.546 34.01v451.174c2.38 6.08 2.086 12.595 6.771 18.38 10.407 12.852 25.331 19.7 45.184 20.724h919.104c20.736-1.088 36.467-8.141 46.669-22.004 5.914-8.038 6.144-16.832 6.17-25.523.166-57.37.076-114.739.076-172.121z" fill="#B3B3B3" /><path d="M1160.23 555.2c0-87.936 0-175.898.026-263.82.013-13.786-4.326-25.972-18.42-35.892-9.996-7.04-22.194-8.32-34.52-10.022H190.207c-8.806 1.612-18.15 1.216-26.406 5.081-16.858 7.936-26.1 19.136-27.546 34.01v451.187c2.38 6.067 2.086 12.595 6.771 18.38 10.407 12.852 25.331 19.7 45.184 20.724h919.104c20.736-1.1 36.467-8.14 46.669-22.003 5.914-8.051 6.144-16.832 6.17-25.523.166-57.37.076-114.752.076-172.122z" fill="#E5E7E6" data-spm-anchor-id="a313x.7781069.0.i2" class="selected" /><path d="M795.38 510.989V338.7c0-18.65 11.878-31.949 28.62-32.064 17.626-.128 29.773 12.672 29.773 31.949.051 115.174.025 230.336-.051 345.51 0 18.266-12.698 31.462-29.594 31.206-16.602-.243-28.723-13.273-28.736-31.104-.026-57.74-.013-115.456-.013-173.21zm-91.892-10.215c-5.094-4.172-5.952-7.014-3.277-13.184 22.861-52.48-8.537-111.142-64.96-120.985-23.462-4.083-47.309-1.165-70.989-1.485-19.89-.256-31.526 11.802-31.577 31.91-.09 38.004-.026 76.007-.026 113.997h-.077v114.01c-.025 19.737 11.815 31.757 31.744 31.872 27.367.14 54.733.025 82.074.128 39.27.153 72.128-21.914 85.005-57.165 13.325-36.429 2.995-73.843-27.917-99.098zm-112.435-49.01c.013-7.284.192-14.593-.039-21.876-.14-4.531 1.216-6.707 6.157-6.528 8.192.294 16.423-.282 24.602.205a28.954 28.954 0 0 1 27.635 29.478 29.3 29.3 0 0 1-28.518 28.698c-7.872.269-15.796-.205-23.693.115-4.851.192-6.4-1.715-6.234-6.362.269-7.91.09-15.808.09-23.73zm58.035 146.751c-16.973.192-33.933-.256-50.918.064-5.607.103-7.36-1.613-7.245-7.193.333-14.836.269-29.696.025-44.544-.102-5.146 1.639-6.938 6.784-6.746 8.781.307 17.562.09 26.356.09v.038c8.486 0 16.985-.243 25.459.051 16.947.563 29.427 13.517 29.043 29.786-.346 15.795-13.082 28.262-29.504 28.454z" fill="#B3B3B3" /><path d="M501.3 614.938c-4.02-11.47-8.385-22.797-12.558-34.202-23.718-64.704-47.372-129.42-71.142-194.1-5.222-14.22-15.962-21.631-30.4-21.618-16.768.012-26.112 6.374-31.808 22.016-27.43 75.302-54.771 150.643-82.214 225.932-2.548 6.976-4.288 13.888-2.074 21.312 3.802 12.775 14.413 21.812 26.803 22.656 14.323.96 26.867-6.118 31.463-19.84 2.7-8.038 6.745-9.843 14.476-9.472 13.978.628 27.968.18 41.959.18v-.026c15.206 0 30.413.384 45.606-.166 6.9-.27 10.035 1.92 12.416 8.512 5.952 16.473 23.155 24.05 39.22 18.24 15.795-5.722 23.948-23.156 18.252-39.424zm-141.658-45.53c-3.802.026-4.954-1.254-3.623-4.851 9.818-26.714 19.584-53.453 31.744-80.615l31.296 85.415c-20.71 0-40.064-.039-59.417.051z" fill="#29ABE2" data-spm-anchor-id="a313x.7781069.0.i3" class="selected" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-button"><path d="M912 176v416H732.48v-32H880V208H144v352h175.488v32H112V176z" /><path d="m436.384 788.512.544 2.688a16 16 0 0 0 27.776 5.504l44.032-54.336 56.768 97.664a16 16 0 0 0 21.792 5.856l68.672-39.392 2.368-1.664a16 16 0 0 0 3.52-20.256l-55.904-96.16 68.8-12.064a16 16 0 0 0 6.464-28.8l-256-180.64a16 16 0 0 0-25.12 14.976l36.288 306.624z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-card"><path d="M858.656 864H165.344C109.472 864 64 818.56 64 762.688V261.312C64 205.44 109.472 160 165.344 160h693.312C914.528 160 960 205.44 960 261.312v501.376C960 818.56 914.528 864 858.656 864zM165.344 224C144.736 224 128 240.736 128 261.312v501.376C128 783.264 144.736 800 165.344 800h693.312C879.264 800 896 783.264 896 762.688V261.312C896 240.736 879.264 224 858.656 224H165.344zM800 416H224c-17.664 0-32-14.336-32-32s14.336-32 32-32h576c17.696 0 32 14.336 32 32s-14.304 32-32 32zM320 736h-96c-17.664 0-32-14.304-32-32s14.336-32 32-32h96c17.664 0 32 14.304 32 32s-14.336 32-32 32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-cascader-field"><path d="M661.377 411.07v64.595H314.175v395.654H871.32V475.665h-48.447V411.07h48.447c35.675 0 64.595 28.92 64.595 64.595v395.654c0 35.675-28.92 64.595-64.595 64.595H314.175c-35.675 0-64.6-28.92-64.6-64.595V475.665c0-35.675 28.925-64.595 64.6-64.595h347.202zm48.448-322.984c35.675 0 64.6 28.92 64.6 64.595v403.73c0 35.676-28.925 64.595-64.6 64.595H362.623v-64.594h347.202V152.68H152.68v403.73h48.447v64.595H152.68c-35.675 0-64.595-28.92-64.595-64.594V152.68c0-35.675 28.92-64.595 64.595-64.595h557.144z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-checkbox-field"><path d="M897.94 896.77c6.259-6.278 10.257-14.835 10.257-24.531V147.672c0-9.118-3.998-18.235-10.257-24.533-6.277-6.258-14.815-9.696-24.51-9.696H149.644c-9.688 0-18.236 3.437-24.503 9.696-6.268 6.297-9.687 15.414-9.687 24.533V872.24c0 9.696 3.42 18.253 9.687 24.53 6.267 6.278 14.815 10.276 24.503 10.276h723.784c9.697 0 18.234-3.998 24.511-10.276zM149.645 61.52h723.784c23.933 0 45.586 9.697 60.98 25.111 15.397 15.974 25.073 37.666 25.073 61.04v724.567c0 23.97-9.676 45.643-25.073 61.056-15.394 15.396-37.047 25.093-60.98 25.093H149.645c-23.364 0-45.017-9.697-60.972-25.093-15.396-15.414-25.082-37.087-25.082-61.056V147.672c0-23.374 9.686-45.065 25.082-61.039 15.955-15.415 37.608-25.112 60.972-25.112z" /><path d="M417.42 698.27a23.556 23.556 0 0 1-16.668-6.9L259.5 550.12c-9.173-9.15-9.173-24.095 0-33.291 9.17-9.147 24.115-9.147 33.288 0l124.583 124.607 312.895-312.917c9.194-9.172 24.14-9.172 33.288 0 9.196 9.172 9.196 24.116 0 33.29L433.992 691.37c-4.618 4.645-10.643 6.9-16.666 6.9h.093z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-color-field"><path d="M619.52 490.667h-.853l-85.334-85.334h.854z" /><path d="M619.52 507.733h-.853a17.067 17.067 0 1 1 0-34.133c9.438 0 17.476 7.646 17.476 17.067s-7.185 17.066-16.623 17.066zM534.187 422.4c-9.438 0-17.494-7.646-17.494-17.067s7.202-17.066 16.64-17.066h.854a17.067 17.067 0 1 1 0 34.133zM192 866.133a34.133 34.133 0 0 1-24.132-58.265l42.666-42.667a34.133 34.133 0 1 1 48.265 48.265l-42.667 42.666A33.963 33.963 0 0 1 192 866.133z" /><path d="m619.52 490.667-.427-.427-84.906-84.907L746.667 192H832v85.333z" /><path d="M662.187 567.467a33.997 33.997 0 0 1-24.133-10.001L467.388 386.799a34.133 34.133 0 0 1 48.281-48.282l170.667 170.667a34.133 34.133 0 0 1-24.15 58.283z" /><path d="M320 806.4h-85.333a17.067 17.067 0 0 1-17.067-17.067V704c0-4.54 1.792-8.875 5-12.066L521.695 392.84a16.52 16.52 0 0 1 3.567-2.731l209.305-210.142a17.117 17.117 0 0 1 12.1-5.018H832a17.067 17.067 0 0 1 17.067 17.067v85.333a17.067 17.067 0 0 1-4.967 12.05L631.62 502.732a17.954 17.954 0 0 1-3.618 2.782L332.066 801.434A17.135 17.135 0 0 1 320 806.4zm-68.267-34.133h61.201l294.093-294.093a16.52 16.52 0 0 1 3.567-2.73l204.34-205.16v-61.217h-61.185L546.287 417.382a17.954 17.954 0 0 1-3.618 2.782L251.733 711.066v61.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-custom-component"><path d="M811.008 335.872c-2.048-7.168-11.264-9.216-17.408-4.096L690.176 435.2c-8.192 8.192-20.48 8.192-28.672 0L588.8 362.496c-8.192-8.192-8.192-20.48 0-28.672l104.448-104.448c5.12-5.12 3.072-14.336-4.096-17.408-17.408-4.096-35.84-7.168-54.272-7.168-108.544 0-195.584 94.208-183.296 204.8 2.048 17.408 6.144 32.768 12.288 48.128L225.28 697.344c-27.648 27.648-27.648 73.728 0 101.376 14.336 14.336 32.768 21.504 51.2 21.504s36.864-7.168 51.2-21.504l238.592-238.592c15.36 6.144 31.744 10.24 48.128 12.288 111.616 12.288 204.8-74.752 204.8-183.296 0-18.432-3.072-36.864-8.192-53.248z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-data-table"><path d="M915.692 39.385H108.308c-15.754 0-29.539 13.784-29.539 29.538v98.462c0 15.753 13.785 29.538 29.539 29.538h807.384c15.754 0 29.539-13.785 29.539-29.538V68.923c0-15.754-13.785-29.538-29.539-29.538zM285.538 275.692h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V305.23c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V305.23c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V305.23c0-15.754-13.785-29.539-29.539-29.539zM285.538 472.615h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zM285.538 669.538h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zm315.077 0h-177.23c-15.754 0-29.539 13.785-29.539 29.539v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538v-59.077c0-15.754-13.785-29.539-29.539-29.539zM285.538 866.462h-177.23c-15.754 0-29.539 13.784-29.539 29.538v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V896c0-15.754-13.785-29.538-29.539-29.538zm315.077 0h-177.23c-15.754 0-29.539 13.784-29.539 29.538v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V896c0-15.754-13.785-29.538-29.539-29.538zm315.077 0h-177.23c-15.754 0-29.539 13.784-29.539 29.538v59.077c0 15.754 13.785 29.538 29.539 29.538h177.23c15.754 0 29.539-13.784 29.539-29.538V896c0-15.754-13.785-29.538-29.539-29.538z" /></symbol><symbol class="icon" viewBox="0 0 1132 1024"  id="icon-date-field"><path d="M1023.995 1023.995H107.789C48.262 1023.995 0 975.732 0 916.205V188.63C0 129.105 48.262 80.843 107.789 80.843h80.842v53.894h-80.842c-29.777 0-53.895 24.118-53.895 53.895V296.42H1077.89V188.63c0-29.776-24.117-53.894-53.894-53.894h-80.842V80.842h80.842c59.526 0 107.789 48.262 107.789 107.789v727.575c0 59.526-48.263 107.789-107.79 107.789Zm53.894-673.681H53.894v565.892c0 29.777 24.118 53.894 53.895 53.894h916.206c29.777 0 53.894-24.117 53.894-53.894V350.314ZM794.943 628.086l-3.584 5.632c-3.314 6.306-7.087 12.153-11.237 17.731L646.734 861.476H589.12l98.358-160.875c-.108 0-.216.027-.324.027-66.963 0-121.262-60.335-121.262-134.736 0-74.401 54.299-134.736 121.262-134.736 66.964 0 121.263 60.335 121.263 134.736 0 22.42-5.39 43.25-14.12 61.844l.646.35ZM687.154 485.05c-37.214 0-67.368 36.19-67.368 80.842 0 44.651 30.154 80.842 67.368 80.842 19.052 0 36.164-9.567 48.425-24.819l9.781-16.006c5.66-11.83 9.163-25.385 9.163-40.017 0-44.652-30.154-80.842-67.369-80.842Zm-310.216 21.881-80.734 72.327v-66.991l82.405-80.41h52.062v429.727h-53.733V506.93Zm512.32-291.353c-14.874 0-26.947-12.072-26.947-26.947V26.947C862.311 12.072 874.384 0 889.26 0s26.947 12.072 26.947 26.947v161.684c0 14.875-12.072 26.947-26.947 26.947ZM296.42 80.842h538.944v53.894H296.42V80.842Zm-53.895 134.736c-14.875 0-26.947-12.072-26.947-26.947V26.947C215.578 12.072 227.65 0 242.525 0s26.947 12.072 26.947 26.947v161.684c0 14.875-12.072 26.947-26.947 26.947Z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-date-range-field"><path d="M887.467 192.853H786.773v-73.386c0-10.24-6.826-17.067-17.066-17.067s-17.067 6.827-17.067 17.067v73.386H303.787v-73.386c0-10.24-6.827-17.067-17.067-17.067s-17.067 6.827-17.067 17.067v73.386H168.96c-46.08 0-85.333 37.547-85.333 85.334v558.08c0 46.08 37.546 85.333 85.333 85.333h718.507c46.08 0 85.333-37.547 85.333-85.333v-558.08c0-47.787-37.547-85.334-85.333-85.334zM168.96 226.987h100.693v66.56c0 10.24 6.827 17.066 17.067 17.066s17.067-6.826 17.067-17.066v-66.56h450.56v66.56c0 10.24 6.826 17.066 17.066 17.066s17.067-6.826 17.067-17.066v-66.56h98.987c27.306 0 51.2 22.186 51.2 51.2v88.746H117.76v-88.746c0-29.014 22.187-51.2 51.2-51.2zm718.507 660.48H168.96c-27.307 0-51.2-22.187-51.2-51.2v-435.2h820.907v435.2c0 27.306-22.187 51.2-51.2 51.2z" /><path d="M858.453 493.227H327.68c-10.24 0-17.067 6.826-17.067 17.066V624.64H194.56c-10.24 0-17.067 6.827-17.067 17.067v133.12c0 10.24 6.827 17.066 17.067 17.066H460.8c10.24 0 17.067-6.826 17.067-17.066V660.48h380.586c10.24 0 17.067-6.827 17.067-17.067v-133.12c0-10.24-6.827-17.066-17.067-17.066zM445.44 527.36v97.28h-98.987v-97.28h98.987zm-230.4 131.413h98.987v98.987H215.04v-98.987zm131.413 97.28v-97.28h98.987v97.28h-98.987zm133.12-228.693h97.28v98.987h-97.28V527.36zm131.414 0h98.986v98.987h-98.986V527.36zm230.4 97.28H742.4v-98.987h98.987v98.987z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-divider"><path d="M62.5 491.773h899v74.918h-899v-74.918z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-document"><path d="M979.478 706.382a44.522 44.522 0 0 1-11.843 57.967l-4.363 2.85L569.478 995.06l-5.388 4.764a84.013 84.013 0 0 1-43.943 17.808l-8.102.401c-19.056 0-37.31-6.545-52.046-18.254l-5.432-4.72L60.817 767.2a44.522 44.522 0 0 1-18.61-56.187l2.36-4.63a44.522 44.522 0 0 1 60.816-16.25l405.326 234.54 1.336 1.514 1.335-1.514 405.282-234.54a44.522 44.522 0 0 1 60.86 16.25zm0-222.609a44.522 44.522 0 0 1-11.843 57.968l-4.363 2.849-393.794 227.862-5.388 4.764a84.013 84.013 0 0 1-43.943 17.809l-8.102.4c-19.056 0-37.31-6.544-52.046-18.254l-5.432-4.719L60.817 544.59a44.522 44.522 0 0 1-18.61-56.187l2.36-4.63a44.522 44.522 0 0 1 60.816-16.25l405.326 234.54 1.336 1.514 1.335-1.514 405.282-234.54a44.522 44.522 0 0 1 60.86 16.25zM512 0c18.788 0 36.864 6.1 51.645 17.185l4.586 3.74 403.5 199.68 5.61 6.144c32.501 35.44 32.501 89.89 0 125.329l-5.61 6.144-403.5 199.59-4.541 3.785a86.239 86.239 0 0 1-43.676 16.83l-8.014.356c-18.788 0-36.864-6.1-51.645-17.186l-4.63-3.784L52.269 358.222l-5.61-6.144a92.739 92.739 0 0 1 0-125.329l5.61-6.144 403.456-199.68 4.585-3.74C473 7.702 488.136 1.87 503.986.356z" fill="#008df0" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-drag"><path d="M574.958 267.016h-63.454 204.649L511.213 63.655 307.85 267.016h141.191V456.68H258.688v125.917H449.04V772.95h125.917V582.596h188.875V456.679H574.958V267.016zm-63.704 693.33 189.62-187.396H323.126l188.129 187.395zM71.292 518.891l187.395 189.62v-377.75L71.292 518.892zm692.54-188.13v377.75L952.708 518.89 763.833 330.762z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-file-upload-field"><path d="m676.48 72.96 209.92 211.2 9.6 23.04V928l-32 32H160l-32-32V96l32-32h494.08l22.4 8.96zM640 320h192L640 128v192zM192 128v768h640V384H608l-32-32V128H192zm512 320H320v64h384v-64zM320 576h384v64H320v-64zm384 128H320v64h384v-64z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-github"><path d="M512 0C229.284 0 .142 234.943.142 524.868c0 231.829 146.647 428.553 350.068 497.952 25.593 4.82 34.977-11.389 34.977-25.294 0-12.455-.469-45.47-.725-89.277-142.382 31.735-172.453-70.38-172.453-70.38-23.247-60.57-56.817-76.694-56.817-76.694-46.493-32.588 3.54-31.948 3.54-31.948 51.357 3.71 78.358 54.086 78.358 54.086 45.683 80.191 119.817 57.072 148.993 43.594 4.65-33.911 17.915-57.03 32.503-70.168-113.675-13.223-233.151-58.224-233.151-259.341 0-57.285 19.92-104.163 52.678-140.846-5.246-13.266-22.82-66.627 4.991-138.884 0 0 42.996-14.076 140.76 53.787 40.864-11.644 84.628-17.445 128.179-17.659 43.465.214 87.271 6.015 128.135 17.66 97.68-67.907 140.59-53.788 140.59-53.788 27.939 72.257 10.408 125.618 5.119 138.884 32.844 36.683 52.593 83.56 52.593 140.846 0 201.587-119.647 245.99-233.663 258.957 18.341 16.21 34.72 48.2 34.72 97.21 0 70.168-.639 126.728-.639 143.96 0 14.034 9.214 30.371 35.19 25.21 203.25-69.528 349.77-266.124 349.77-497.867C1023.858 234.943 794.674 0 512 0" fill="#3E75C3" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-grid"><path d="M819.354 921.6h102.4V819.2h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V819.2a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V819.2h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V819.2a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V819.2h-102.4v102.4zm102.4-204.8h-102.4A102.4 102.4 0 0 0 .154 819.2v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V819.2a102.4 102.4 0 0 0-102.4-102.4zm614.4-153.6h102.4V460.8h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V460.8a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V460.8h-102.4v102.4zm102.4-204.8h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V460.8a102.4 102.4 0 0 0-102.4-102.4zm-460.8 204.8h102.4V460.8h-102.4v102.4zm102.4-204.8h-102.4A102.4 102.4 0 0 0 .154 460.8v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V460.8a102.4 102.4 0 0 0-102.4-102.4zm614.4-153.6h102.4V102.4h-102.4v102.4zM921.754 0h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V102.4A102.4 102.4 0 0 0 921.754 0zm-460.8 204.8h102.4V102.4h-102.4v102.4zM563.354 0h-102.4a102.4 102.4 0 0 0-102.4 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V102.4A102.4 102.4 0 0 0 563.354 0zm-460.8 204.8h102.4V102.4h-102.4v102.4zM204.954 0h-102.4A102.4 102.4 0 0 0 .154 102.4v102.4a102.4 102.4 0 0 0 102.4 102.4h102.4a102.4 102.4 0 0 0 102.4-102.4V102.4A102.4 102.4 0 0 0 204.954 0z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-html-text"><path d="m137.6 512 204.8-204.8c12.8-12.8 12.8-32 0-44.8-12.8-12.8-32-12.8-44.8 0L70.4 489.6c-6.4 6.4-9.6 12.8-9.6 22.4 0 9.6 3.2 16 9.6 22.4l227.2 227.2c12.8 12.8 32 12.8 44.8 0 12.8-12.8 12.8-32 0-44.8L137.6 512zm464-339.2c-16-3.2-35.2 6.4-38.4 22.4L396.8 812.8c-3.2 16 6.4 35.2 22.4 38.4 16 3.2 35.2-6.4 38.4-22.4L624 211.2c6.4-16-3.2-35.2-22.4-38.4zm352 316.8L726.4 262.4c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8L886.4 512 681.6 716.8c-12.8 12.8-12.8 32 0 44.8 12.8 12.8 32 12.8 44.8 0l227.2-227.2c6.4-6.4 9.6-16 9.6-22.4 0-9.6-3.2-16-9.6-22.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-node-tree"><path d="M332.48 500.864a25.6 25.6 0 1 0 0-51.2H192.384v-184.96a115.2 115.2 0 0 0 89.6-112.128c0-63.488-51.712-115.2-115.2-115.2s-115.2 51.712-115.2 115.2a115.2 115.2 0 0 0 89.6 112.128v696.192a25.6 25.6 0 1 0 51.2 0v-141.12c2.304.192 4.48.512 6.912.512H332.48a25.6 25.6 0 1 0 0-51.2H199.296c-3.456 0-5.504-.448-6.08-.256a29.184 29.184 0 0 1-.896-8.576V500.8h140.16zM102.784 152.64c0-35.264 28.736-64 64-64s64 28.736 64 64-28.736 64-64 64-64-28.736-64-64zm818.432 207.424h-486.4c-28.224 0-51.2 22.976-51.2 51.2v128c0 28.224 22.976 51.2 51.2 51.2h486.4c28.224 0 51.2-22.976 51.2-51.2v-128c0-28.224-22.976-51.2-51.2-51.2zm-486.336 179.2v-128h486.4v128h-486.4zm486.336 140.352h-486.4c-28.224 0-51.2 22.976-51.2 51.2v128c0 28.224 22.976 51.2 51.2 51.2h486.4c28.224 0 51.2-22.976 51.2-51.2v-128c0-28.224-22.976-51.2-51.2-51.2zm-486.336 179.2v-128h486.4v128h-486.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-number-field"><path d="M960 1024H64a64 64 0 0 1-64-64V64A64 64 0 0 1 64 0h896a64 64 0 0 1 64 64v896a64 64 0 0 1-64 64zm0-896a64 64 0 0 0-64-64H128a64 64 0 0 0-64 64v768a64 64 0 0 0 64 64h768a64 64 0 0 0 64-64V128zM832 768H704a64 64 0 0 1 0-128h64v-64h-64a64 64 0 0 1 0-128h64v-64h-64a64 64 0 0 1 0-128h128a64 64 0 0 1 64 64v384a64 64 0 0 1-64 64zM512 640a64 64 0 0 1 0 128H384a64 64 0 0 1-64-64V512a64 64 0 0 1 64-64h64v-64h-64a64 64 0 0 1 0-128h128a64 64 0 0 1 64 64v192a64 64 0 0 1-64 64h-64v64h64zM192 768a64 64 0 0 1-64-64V320a64 64 0 0 1 128 0v384a64 64 0 0 1-64 64z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-picture-upload-field"><path d="M896 1024H128C57.312 1024 0 966.688 0 896V128C0 57.312 57.312 0 128 0h768c70.688 0 128 57.312 128 128v768c0 70.688-57.312 128-128 128zm0-64c35.328 0 64-28.672 64-64V639.968l-192-192L494.816 721.12 730.624 960H896zM64 896c0 35.328 28.672 64 64 64h512.032L318.24 638.208 64 865.952V896zm896-768c0-35.328-28.672-64-64-64H128c-35.328 0-64 28.672-64 64v650.752L320 544l129.856 131.552L768 352l192 196.096V128zM256 384c-70.688 0-128-57.312-128-128s57.312-128 128-128 128 57.312 128 128-57.312 128-128 128zm0-192c-35.328 0-64 28.672-64 64s28.672 64 64 64 64-28.672 64-64-28.672-64-64-64z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-radio-field"><path d="M512 65.983C266.08 65.983 65.983 266.08 65.983 512c0 245.952 200.065 446.017 446.017 446.017S958.017 757.952 958.017 512c0-245.92-200.065-446.017-446.017-446.017zm0 828.034c-210.656 0-382.017-171.392-382.017-382.017 0-210.656 171.36-382.017 382.017-382.017 210.625 0 382.017 171.36 382.017 382.017 0 210.625-171.392 382.017-382.017 382.017zM512 352C423.776 352 352 423.776 352 512s71.774 160 160 160 160-71.774 160-160-71.776-160-160-160z" /></symbol><symbol class="icon" viewBox="0 0 1069 1024"  id="icon-rate-field"><path d="m633.73 378.02 9.498 18.688 20.78 2.798 206.616 27.332a11.465 11.465 0 0 1 6.61 19.473L729.966 593.665l-14.893 14.893 3.8 20.683 37.847 204.89a11.465 11.465 0 0 1-16.481 12.296l-185.55-94.58-18.687-9.493-18.487 9.992-183.24 99.35a11.465 11.465 0 0 1-16.784-11.867l32.543-205.796 3.297-20.786-15.192-14.492-151.033-143.484a11.465 11.465 0 0 1 6.1-19.64L399 402.998l20.786-3.296 9.092-18.98 89.713-188.078a11.465 11.465 0 0 1 20.569-.263l94.568 185.635zM496.647 85.52 374.89 340.501l-279.126 44.26a34.395 34.395 0 0 0-18.303 58.908l204.873 194.663-44.169 279.115a34.395 34.395 0 0 0 50.366 35.616l248.4-134.679L788.776 946.66a34.395 34.395 0 0 0 49.437-36.894l-51.306-277.854 199.731-199.909a34.395 34.395 0 0 0-19.828-58.408l-280.118-37.032L558.33 84.713a34.395 34.395 0 0 0-61.682.802z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-redo"><path d="M412.081 346.3h443.415L640.168 133.871c-18.973-18.973-18.973-46.064 0-65.038s44.325-19.884 63.381-.83l291.385 284.591c18.973 18.973 18.973 44.159 0 63.132L703.549 700.649c-18.973 18.973-44.325 18.973-63.381-.083-18.973-18.973-18.973-43.91 0-62.883l215.328-208.534H412.081c-177.3 0-314.335 138.359-314.335 309.364v44.325c0 25.354-16.074 44.325-41.425 44.325s-41.425-18.973-41.425-44.325v-44.325c0-221.709 169.181-392.213 397.185-392.213z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-rich-editor-field"><path d="M313.36 448.094H632.63v31.927H313.36v-31.927ZM313.36 583.784h223.49v31.927H313.36v-31.927ZM313.36 719.474h127.709v31.927h-127.71v-31.927ZM889.412 554.809l-39.955-39.971-39.957-39.941c-7.358-7.358-19.285-7.358-26.642 0l-329.7 329.694a14.08 14.08 0 0 0-4.592 6.873L412.078 932.86a14.158 14.158 0 0 0 3.54 14.079l.99.763.77.982a14.174 14.174 0 0 0 14.062 3.555l121.395-36.495a14.04 14.04 0 0 0 6.938-4.677l329.639-329.63c7.35-7.343 7.35-19.284 0-26.627zM541.136 889.756l-95.198 28.622 28.623-95.235 255.02-255.02 66.6 66.599-255.045 255.034zM856.112 574.78l-46.611 46.611-66.59-66.598 46.605-46.597c3.677-3.68 9.641-3.68 13.319-.016l26.892 26.892 26.384 26.394c3.68 3.68 3.68 9.65.001 13.314z" /><path d="M671.874 224.898v-28.934c0-22.004-17.905-39.909-39.909-39.909H314.026c-22.004 0-39.909 17.905-39.909 39.91v28.933h-104.43v643.564c0 35.26 28.592 63.854 63.855 63.854h127.709v-47.89H249.506c-17.632 0-31.928-14.299-31.928-31.928v-579.71h56.54v10.976c0 22.004 17.904 39.909 39.908 39.909h317.938c22.004 0 39.91-17.905 39.91-39.91V272.79h56.538V437.45h47.89V224.898H671.875zm-47.89 50.884H322.007v-71.836h301.974v71.836z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-section"><path d="M141.074 906.496h741.852c89.581 0 134.583-44.562 134.583-132.846V250.331c0-88.283-45.002-132.845-134.583-132.845H141.074c-89.143.018-134.583 44.16-134.583 132.845V773.67c0 88.704 45.44 132.845 134.583 132.845zm1.28-68.992c-42.861 0-66.852-22.71-66.852-67.291V253.806c0-44.58 23.99-67.292 66.852-67.292h739.292c42.423 0 66.852 22.711 66.852 67.292v516.388c0 44.58-24.43 67.292-66.852 67.292z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-select-field"><path d="M374.784 649.515a32 32 0 0 1 3.072 41.685l-3.115 3.584L225.28 843.947a32 32 0 0 1-37.845 5.504l-3.968-2.56-85.334-64a32 32 0 0 1 34.432-53.76l3.968 2.56 63.147 47.36 129.835-129.622a32 32 0 0 1 45.269.043zm531.37 75.818a32 32 0 0 1 4.31 63.702l-4.31.298h-448a32 32 0 0 1-4.351-63.744l4.352-.256h448zm.513-256a32 32 0 0 1 4.352 63.702l-4.352.298h-448a32 32 0 0 1-4.352-63.701l4.352-.299h448zm-531.84-331.776a32 32 0 0 1 2.986 41.686l-3.114 3.584-149.846 149.205a32 32 0 0 1-37.888 5.419l-3.925-2.56-84.907-64a32 32 0 0 1 34.518-53.675l3.968 2.56 62.72 47.275L329.6 137.472a32 32 0 0 1 45.227.085zm531.328 75.819a32 32 0 0 1 4.309 63.701l-4.31.299H459.35a32 32 0 0 1-4.352-63.744l4.352-.256h446.806z" /></symbol><symbol class="icon" viewBox="0 0 1032 1024"  id="icon-select-group-field"><path d="M.028 590.018V195.496c0-27.484 11.468-38.867 39.207-38.867 263.005-.028 526.01-.028 789.014 0 27.541 0 39.122 11.581 39.122 39.093.028 263.005.028 526.01 0 789.015 0 27.738-11.412 39.235-38.839 39.263H38.444C11.468 1024 0 1012.532 0 985.584c0-131.855.028-263.71.028-395.566zm433.756-370.173H77.933c-14.689 0-14.745.028-14.745 14.83v710.63c0 15.479.028 15.507 15.197 15.507h710.63c15.14 0 15.168-.028 15.168-15.423V234.76c0-14.886-.028-14.914-14.547-14.914-118.608-.028-237.244 0-355.852 0z" fill="#707070" /><path d="M598.095.057h393.42c28.67 0 40.393 11.497 40.393 40.337.057 262.298.057 524.569 0 786.868 0 28.924-11.581 40.195-40.364 40.223-19.66.028-39.32.141-58.98-.056-19.687-.17-33.952-13.333-34.008-31.015-.057-17.993 13.643-31.354 33.274-32.06a398.903 398.903 0 0 1 27.88-.029c7.005.226 9.83-2.768 9.265-9.575-.198-2.486-.029-5-.029-7.514V79.713c0-16.383 0-16.411-16.242-16.411H243.006c-16.468 0-16.468.028-16.496 16.129 0 5.367.141 10.733-.085 16.072-.593 15.112-12.287 27.795-27.286 29.744-14.745 1.892-30.93-7.683-33.33-22.513-4.323-26.495-4.21-53.443 0-79.966C167.87 9.803 179.987 1.385 193.884.227c4.266-.34 8.559-.198 12.853-.198 130.5.028 260.942.028 391.357.028z" fill="#707070" /><path d="M384.437 796.755c-7.457-.028-14.038-2.457-19.518-7.513-13.417-12.316-26.806-24.603-40.082-37.088-41.862-39.376-83.695-78.808-125.444-118.326-8.389-7.937-12.004-17.682-8.445-29.15 3.474-11.27 11.327-17.937 22.823-20.14 10-1.893 18.106 2.09 25.253 8.728 17.512 16.27 35.138 32.456 52.567 48.839 27.597 25.902 55.278 51.691 82.395 78.074 6.525 6.355 10.028 5.14 15.169-.989 58.47-69.77 117.054-139.397 175.666-209.026 28.049-33.33 56.041-66.662 84.288-99.795 11.073-12.965 27.653-14.801 40.252-5.198 12.456 9.491 15.111 26.411 4.237 40.054-21.129 26.496-43.303 52.172-65.11 78.13a319580.675 319580.675 0 0 1-177.869 211.37c-14.49 17.203-29.15 34.236-43.754 51.353-5.875 6.892-13.19 10.79-22.428 10.677z" fill="#707070" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-slider-field"><path d="M951.453 476.844H523.672a131.836 131.836 0 0 0-254.18 0H72.547v70.312h196.945a131.836 131.836 0 0 0 254.18 0h427.781z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-slot-component"><path d="M512 102.4c-212.48 0-384 171.52-384 384s171.52 384 384 384 384-171.52 384-384-171.52-384-384-384zm25.6 716.8v-128c0-15.36-10.24-25.6-25.6-25.6s-25.6 10.24-25.6 25.6v128C322.56 806.4 192 675.84 179.2 512h128c15.36 0 25.6-10.24 25.6-25.6s-10.24-25.6-25.6-25.6h-128C192 296.96 322.56 166.4 486.4 156.16V281.6c0 15.36 10.24 25.6 25.6 25.6s25.6-10.24 25.6-25.6V156.16C701.44 168.96 832 299.52 844.8 460.8h-128c-15.36 0-25.6 10.24-25.6 25.6s10.24 25.6 25.6 25.6h128C832 675.84 701.44 806.4 537.6 819.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-slot-field"><path d="M493.969 244.87h36.285q18.031 0 18.031 18.03v217.267q0 18.031-18.031 18.031h-36.285q-18.032 0-18.032-18.031V262.901q0-18.031 18.032-18.031ZM323.45000000000005 525.802h36.286q18.031 0 18.031 18.031v217.266q0 18.031-18.031 18.031H323.45q-18.03 0-18.03-18.03V543.832q0-18.031 18.03-18.031ZM664.2639999999999 525.802h36.286q18.03 0 18.03 18.031v217.266q0 18.031-18.03 18.031h-36.286q-18.031 0-18.031-18.03V543.832q0-18.031 18.031-18.031Z" /><path d="M827.437 122.212H196.563a74.574 74.574 0 0 0-74.35 74.351v630.874a74.574 74.574 0 0 0 74.35 74.35h630.874a74.574 74.574 0 0 0 74.35-74.35V196.563a74.574 74.574 0 0 0-74.35-74.35zm52.09 705.225a52.09 52.09 0 0 1-52.09 52.09H196.563a52.09 52.09 0 0 1-52.09-52.09V196.563a52.09 52.09 0 0 1 52.09-52.09h630.874a52.09 52.09 0 0 1 52.09 52.09z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-static-text"><path d="M213.333 160c-4.821 0-9.472.64-13.824 1.792a32 32 0 0 1-16.554-61.824C192.683 97.408 202.88 96 213.333 96h33.195a32 32 0 0 1 0 64h-33.195zm133.931-32a32 32 0 0 1 32-32h66.347a32 32 0 1 1 0 64h-66.304a32 32 0 0 1-32-32zm199.125 0a32 32 0 0 1 32-32h66.347a32 32 0 0 1 0 64h-66.347a32 32 0 0 1-32-32zm199.083 0a32 32 0 0 1 32-32h33.195c10.453 0 20.65 1.365 30.378 3.968a32 32 0 1 1-16.554 61.867A53.419 53.419 0 0 0 810.667 160h-33.195a32 32 0 0 1-32-32zm-606.293 32.341a32 32 0 0 1 22.613 39.168A53.461 53.461 0 0 0 160 213.333v33.195a32 32 0 0 1-64 0v-33.195c0-10.453 1.365-20.65 3.968-30.378a32 32 0 0 1 39.168-22.614zm745.685 0a32 32 0 0 1 39.168 22.614c2.56 9.728 3.968 19.925 3.968 30.378v33.195a32 32 0 0 1-64 0v-33.195c0-4.821-.64-9.472-1.792-13.824a32 32 0 0 1 22.613-39.168zM128 347.221a32 32 0 0 1 32 32v66.39a32 32 0 1 1-64 0v-66.304a32 32 0 0 1 32-32zm768 0a32 32 0 0 1 32 32v66.39a32 32 0 1 1-64 0v-66.304a32 32 0 0 1 32-32zM128 546.432a32 32 0 0 1 32 32v66.347a32 32 0 0 1-64 0v-66.347a32 32 0 0 1 32-32zm768 0a32 32 0 0 1 32 32v66.347a32 32 0 0 1-64 0v-66.347a32 32 0 0 1 32-32zm0 199.083a32 32 0 0 1 32 32v33.152c0 10.453-1.365 20.65-3.968 30.378a32 32 0 1 1-61.867-16.554c1.195-4.352 1.835-8.96 1.835-13.824v-33.195a32 32 0 0 1 32-32zm-768 0a32 32 0 0 1 32 32v33.152c0 4.821.64 9.472 1.792 13.824a32 32 0 0 1-61.824 16.512A117.461 117.461 0 0 1 96 810.667v-33.195a32 32 0 0 1 32-32zm32.341 139.392a32 32 0 0 1 39.168-22.656 53.814 53.814 0 0 0 13.824 1.792h33.195a32 32 0 0 1 0 64h-33.195c-10.453 0-20.65-1.366-30.378-3.968a32 32 0 0 1-22.614-39.168zm703.318 0a32 32 0 0 1-22.614 39.168c-9.728 2.56-19.925 3.968-30.378 3.968h-33.195a32 32 0 0 1 0-64h33.195c4.821 0 9.472-.64 13.824-1.792a32 32 0 0 1 39.168 22.613zM347.307 896a32 32 0 0 1 32-32h66.346a32 32 0 1 1 0 64h-66.346a32 32 0 0 1-32-32zm199.125 0a32 32 0 0 1 32-32h66.347a32 32 0 0 1 0 64h-66.347a32 32 0 0 1-32-32zM341.333 352a32 32 0 0 0 0 64H480v266.667a32 32 0 0 0 64 0V416h138.667a32 32 0 0 0 0-64H341.333z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-sub-form"><path d="M512 106.667H112a5.333 5.333 0 0 0-5.333 5.333v800a5.333 5.333 0 0 0 5.333 5.333h800a5.333 5.333 0 0 0 5.333-5.333V112a5.333 5.333 0 0 0-5.333-5.333zm0 74.666h325.333a5.333 5.333 0 0 1 5.334 5.334v160a5.333 5.333 0 0 1-5.334 5.333H186.667a5.333 5.333 0 0 1-5.334-5.333v-160a5.333 5.333 0 0 1 5.334-5.334zM597.333 432v405.333a5.333 5.333 0 0 1-5.333 5.334H432a5.333 5.333 0 0 1-5.333-5.334V432a5.333 5.333 0 0 1 5.333-5.333h160a5.333 5.333 0 0 1 5.333 5.333zm-410.666-5.333h160A5.333 5.333 0 0 1 352 432v405.333a5.333 5.333 0 0 1-5.333 5.334h-160a5.333 5.333 0 0 1-5.334-5.334V432a5.333 5.333 0 0 1 5.334-5.333zM672 837.333V432a5.333 5.333 0 0 1 5.333-5.333h160a5.333 5.333 0 0 1 5.334 5.333v405.333a5.333 5.333 0 0 1-5.334 5.334h-160a5.333 5.333 0 0 1-5.333-5.334z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-switch-field"><path d="M692 792H332C182 792 62 672 62 522s120-270 270-270h360c150 0 270 120 270 270 0 147-120 270-270 270zM332 312c-117 0-210 93-210 210s93 210 210 210h360c117 0 210-93 210-210s-93-210-210-210H332z" /><path d="M191 522a150 150 0 1 0 300 0 150 150 0 1 0-300 0z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-tab"><path d="M908.8 1005.44H115.2A101.76 101.76 0 0 1 14.08 903.68V110.72A101.76 101.76 0 0 1 115.2 8.96h296.96a32.64 32.64 0 0 1 32 32V262.4a32 32 0 0 1-32 32 32 32 0 0 1-32-32v-192H115.2a37.76 37.76 0 0 0-37.12 37.76v795.52a37.76 37.76 0 0 0 37.12 37.76h793.6a37.76 37.76 0 0 0 37.12-37.76V267.52a32 32 0 0 1 32-32 32 32 0 0 1 32 32v636.16a101.76 101.76 0 0 1-101.12 101.76z" /><path d="M977.92 299.52a32.64 32.64 0 0 1-32-32v-87.04a37.12 37.12 0 0 0-37.12-37.76H421.12a32 32 0 0 1-32-32 32 32 0 0 1 32-32H908.8a101.76 101.76 0 0 1 101.12 101.76v87.04a32 32 0 0 1-32 32z" /><path d="M977.92 299.52H64a32 32 0 0 1-32-32 32 32 0 0 1 32-32h913.92a32 32 0 0 1 32 32 32 32 0 0 1-32 32z" /><path d="M699.52 299.52a32 32 0 0 1-32-32v-156.8a32 32 0 0 1 64 0v156.8a32 32 0 0 1-32 32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-table"><path d="M925.586 0H101.369C69.885 0 42.24 28.924 42.24 62.328v902.8c0 33.403 27.645 58.872 59.129 58.872h824.217c31.484 0 56.057-25.469 56.057-58.873V62.328C981.643 28.924 957.198 0 925.586 0zM373.719 735.908V543.932h276.445v191.976zm276.445 42.235v203.494H373.719V778.143zm287.964-276.446h-244.45V298.203h244.45zm-287.964 0H373.719V298.203h276.445zm-319.96 0H85.754V298.203h244.45zm-244.45 42.235h244.45v191.976H85.754zm607.925 0h244.449v191.976h-244.45zM101.369 42.235h824.217c7.807 0 12.542 10.366 12.542 20.093v193.64H85.755V62.328c0-9.727 7.807-20.093 15.614-20.093zM85.755 964.999V778.143h244.449v203.494H101.369c-7.807 0-15.614-6.91-15.614-16.51zm839.83 16.638H693.68V778.143h244.449v186.856c0 9.727-4.607 16.638-12.542 16.638z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-text-field"><path d="M896 224H128c-35.2 0-64 28.8-64 64v448c0 35.2 28.8 64 64 64h768c35.2 0 64-28.8 64-64V288c0-35.2-28.8-64-64-64zm0 480c0 19.2-12.8 32-32 32H160c-19.2 0-32-12.8-32-32V320c0-19.2 12.8-32 32-32h704c19.2 0 32 12.8 32 32v384z" /><path d="M224 352c-19.2 0-32 12.8-32 32v256c0 16 12.8 32 32 32s32-12.8 32-32V384c0-16-12.8-32-32-32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-textarea-field"><path d="M896.4 173.1H128.9c-35.2 0-49 13.8-49 49v575.6c0 35.2 13.8 49 49 49h767.5c35.2 0 49-13.8 49-49V222.1c0-35.2-13.8-49-49-49zm0 592.6c0 16-12.8 32-32 32H160.9c-19.2 0-32-12.8-32-32V254.1c0-16 12.8-32 32-32h703.5c19.2 0 32 12.8 32 32v511.6z" /><path d="M710.2 766.7h141.5c8.1 0 14.7-6.6 14.7-14.7V610.4c0-1.3-1.6-2-2.6-1.1L709.1 764.1c-1 1-.3 2.6 1.1 2.6zm-503-172.4h-13.5c-10 0-18.2-8.2-18.2-18.2V291.8c0-10.2 8.4-18.6 18.6-18.6h12.8c10.2 0 18.6 8.4 18.6 18.6v284.3c-.1 10-8.3 18.2-18.3 18.2z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-time-field"><path d="M512 39.385A472.615 472.615 0 1 0 984.615 512 472.615 472.615 0 0 0 512 39.385zm0 866.461A393.846 393.846 0 1 1 905.846 512 393.846 393.846 0 0 1 512 905.846zm75.855-373.72A77.154 77.154 0 0 0 590.769 512a78.454 78.454 0 0 0-39.384-67.86V196.923a39.385 39.385 0 0 0-78.77 0V444.14a78.336 78.336 0 0 0 59.55 143.715l70.144 70.144a39.385 39.385 0 0 0 55.69-55.69zM512 551.385A39.385 39.385 0 1 1 551.385 512 39.385 39.385 0 0 1 512 551.385zm315.077-78.77A39.385 39.385 0 1 0 866.462 512a39.385 39.385 0 0 0-39.385-39.385zm-630.154 0A39.385 39.385 0 1 0 236.308 512a39.385 39.385 0 0 0-39.385-39.385zm509.991 234.3a39.385 39.385 0 1 0 55.69 0 39.385 39.385 0 0 0-55.69 0zM317.007 317.006a39.385 39.385 0 1 0-55.73 0 39.385 39.385 0 0 0 55.809.04zM512 787.692a39.385 39.385 0 1 0 39.385 39.385A39.385 39.385 0 0 0 512 787.692zm-250.604-80.778a39.385 39.385 0 1 0 55.69 0 39.385 39.385 0 0 0-55.69-.039zm445.518-445.518a39.385 39.385 0 1 0 55.69 0 39.385 39.385 0 0 0-55.69-.04z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-time-range-field"><path d="M498.596 482.29H345.42v57.308h210.478V274.197h-57.301V482.29zm79.089 162.695h379.88v57.302h-379.88v-57.302zm0 128.78h379.88v57.307h-379.88v-57.307zm0 128.785h379.88v57.307h-379.88V902.55zm0 0" /><path d="M102.523 382.29a28.668 28.668 0 0 0 23.367 2.56l190.81-61.886c15.053-4.883 23.298-21.04 18.415-36.09-4.882-15.052-21.04-23.297-36.093-18.415l-123.346 40c15.994-26.117 35.17-50.538 57.37-72.745 73.768-73.767 171.847-114.388 276.169-114.388 104.32 0 202.395 40.622 276.161 114.388S899.77 407.56 899.77 511.882c0 26.428-2.616 52.45-7.71 77.78h58.303c4.465-25.499 6.709-51.47 6.709-77.78 0-60.45-11.846-119.102-35.205-174.336-22.56-53.335-54.85-101.227-95.969-142.35-41.122-41.122-89.017-73.408-142.348-95.968-55.233-23.361-113.89-35.207-174.334-35.207-60.45 0-119.107 11.846-174.337 35.208-53.335 22.56-101.23 54.846-142.35 95.969-23.98 23.98-44.933 50.278-62.727 78.6l-20.738-105.654c-3.043-15.528-18.105-25.642-33.632-22.6-15.528 3.048-25.643 18.105-22.6 33.637l36.103 183.932a28.666 28.666 0 0 0 13.588 19.178zm23.497 205.652H67.768c5.76 33.679 15.368 66.544 28.79 98.278 22.56 53.334 54.85 101.225 95.972 142.348 41.123 41.123 89.014 73.409 142.349 95.969 54.112 22.888 111.518 34.711 170.668 35.182v-57.324c-102.95-.941-199.595-41.446-272.5-114.349-55.501-55.502-92.237-124.77-107.027-200.104zm0 0" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-undo"><path d="M609.206 396.656H193.504l201.87-199.152c17.787-17.787 17.787-43.185 0-60.973s-41.555-18.641-59.42-.778L62.857 402.557c-17.787 17.787-17.787 41.399 0 59.186L336.03 728.858c17.787 17.787 41.555 17.787 59.42-.078 17.787-17.787 17.787-41.166 0-58.953L193.502 474.326h415.702c166.219 0 311.155 129.712 311.155 290.029v41.555c0 23.769 15.069 41.555 38.836 41.555s38.836-17.787 38.836-41.555v-41.555c0-207.852-175.073-367.7-388.828-367.7z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-vue-sfc"><path d="M454.138 11.176 54.066 174.092c-72.088 29.49-72.088 120.523 0 150.014l400.276 162.916c36.454 14.95 78.847 14.95 115.506 0l400.071-162.814c72.191-29.593 72.089-120.83-.307-150.116L569.746 11.278a155.339 155.339 0 0 0-115.608-.205zm469.19 237.872L532.37 408.585l-7.885 2.457a55.09 55.09 0 0 1-32.562-2.457L100.35 249.048l391.265-159.23a55.09 55.09 0 0 1 40.447 0l391.162 159.23z" fill="#1890FF" /><path d="M498.681 729.911c-20.275 0-40.652-3.788-59.391-11.673L53.76 561.26C20.48 547.847 0 519.89 0 488.558c0-31.436 20.582-59.391 53.862-72.703l36.556-15.053c21.401-8.806 47.103-1.024 57.24 17.408 10.24 18.227 1.025 40.14-20.479 48.947l-36.454 14.95c-3.072 1.229-4.71 3.584-4.71 6.45 0 3.073 1.536 5.12 4.71 6.452l385.326 156.875c14.336 5.939 30.924 5.939 45.362 0L906.74 495.009c3.072-1.229 4.915-3.584 4.915-6.451 0-3.072-1.536-5.222-4.607-6.451l-44.851-18.227c-21.401-8.806-30.412-30.72-20.377-48.947 10.342-18.329 35.84-26.214 57.24-17.407l44.851 18.431c33.177 13.517 53.76 41.267 53.76 72.703 0 31.334-20.48 59.391-53.76 72.703L558.482 718.238a161.585 161.585 0 0 1-59.801 11.673z" fill="#5DE1C8" /><path d="M498.681 966.247c-20.275 0-40.652-3.89-59.391-11.673L53.76 797.597C20.48 784.08 0 756.227 0 724.997c0-31.437 20.582-59.494 53.862-72.806l36.556-14.95c21.401-8.807 47.103-1.024 57.24 17.407 10.24 18.227 1.025 40.14-20.479 48.947l-36.454 14.95c-3.072 1.126-4.71 3.584-4.71 6.451 0 3.072 1.536 5.12 4.71 6.349l385.326 156.977c14.336 5.939 30.924 5.939 45.362 0L906.74 731.14c3.072-1.126 4.915-3.584 4.915-6.349 0-3.072-1.536-5.324-4.607-6.45l-44.851-18.33c-21.401-8.806-30.412-30.72-20.377-48.947 10.342-18.431 35.84-26.214 57.24-17.407l44.851 18.329c33.177 13.517 53.76 41.369 53.76 72.703 0 31.436-20.48 59.494-53.76 72.805l-385.428 157.08a161.585 161.585 0 0 1-59.801 11.673z" fill="#FF7272" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-custom-search"><path d="M863.3 641.94A416.1 416.1 0 0 0 96.7 318.06a416.1 416.1 0 0 0 766.6 323.88zM480 832a352 352 0 1 1 248.9-103.1A349.69 349.69 0 0 1 480 832z" /><path d="m950.63 841.37-96-96a32 32 0 0 0-45.25 45.25l96 96a13.25 13.25 0 1 1-18.75 18.75l-96-96a32 32 0 0 0-45.25 45.25l96 96a77.25 77.25 0 1 0 109.25-109.25z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-arrow-down"><path d="M512 714.667c-8.533 0-17.067-2.134-23.467-8.534L147.2 364.8c-12.8-12.8-12.8-32 0-44.8 12.8-12.8 32-12.8 44.8 0l320 317.867 317.867-320c12.8-12.8 32-12.8 44.8 0 12.8 12.8 12.8 32 0 44.8L533.333 704c-4.266 8.533-12.8 10.667-21.333 10.667z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-back"><path fill="currentColor" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" /><path fill="currentColor" d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" /></symbol><symbol viewBox="0 0 1024 1024"  id="icon-el-check"><path fill="currentColor" d="M406.656 706.944 195.84 496.256a32 32 0 1 0-45.248 45.248l256 256 512-512a32 32 0 0 0-45.248-45.248L406.592 706.944z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-clone"><path d="M774.144 839.68c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4H184.32c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672V380.928c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4v65.536c-18.432.683-33.792 7.168-46.08 19.456s-18.773 27.648-19.456 46.08V839.68c.683 18.432 7.168 33.792 19.456 46.08s27.648 18.773 46.08 19.456h458.752c18.432-.683 33.792-7.168 46.08-19.456s18.773-27.648 19.456-46.08h65.536zM380.928 118.784c-18.432.683-33.792 7.168-46.08 19.456s-18.773 27.648-19.456 46.08v458.752c.683 18.432 7.168 33.792 19.456 46.08s27.648 18.773 46.08 19.456H839.68c18.432-.683 33.792-7.168 46.08-19.456s18.773-27.648 19.456-46.08V184.32c-.683-18.432-7.168-33.792-19.456-46.08s-27.648-18.773-46.08-19.456H380.928zm0-65.536H839.68c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672v458.752c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4H380.928c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672V184.32c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-delete"><path fill="currentColor" d="M160 256H96a32 32 0 0 1 0-64h256V95.936a32 32 0 0 1 32-32h256a32 32 0 0 1 32 32V192h256a32 32 0 1 1 0 64h-64v672a32 32 0 0 1-32 32H192a32 32 0 0 1-32-32V256zm448-64v-64H416v64h192zM224 896h576V256H224v640zm192-128a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32zm192 0a32 32 0 0 1-32-32V416a32 32 0 0 1 64 0v320a32 32 0 0 1-32 32z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-download"><path d="M896 672c-17.067 0-32 14.933-32 32v128c0 6.4-4.267 10.667-10.667 10.667H170.667c-6.4 0-10.667-4.267-10.667-10.667V704c0-17.067-14.933-32-32-32s-32 14.933-32 32v128c0 40.533 34.133 74.667 74.667 74.667h682.666C893.867 906.667 928 872.533 928 832V704c0-17.067-14.933-32-32-32z" /><path d="M488.533 727.467c6.4 6.4 14.934 8.533 23.467 8.533s17.067-2.133 23.467-8.533L748.8 514.133c12.8-12.8 12.8-32 0-44.8-12.8-12.8-32-12.8-44.8 0L546.133 627.2V170.667c0-17.067-14.933-32-32-32S480 153.6 480 170.667V627.2L322.133 469.333c-12.8-12.8-32-12.8-44.8 0-12.8 12.8-12.8 32 0 44.8l211.2 213.334z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-drag-move"><path d="M909.3 506.3 781.7 405.6c-4.7-3.7-11.7-.4-11.7 5.7V476H548V254h64.8c6 0 9.4-7 5.7-11.7L517.7 114.7c-2.9-3.7-8.5-3.7-11.3 0L405.6 242.3c-3.7 4.7-.4 11.7 5.7 11.7H476v222H254v-64.8c0-6-7-9.4-11.7-5.7L114.7 506.3c-3.7 2.9-3.7 8.5 0 11.3l127.5 100.8c4.7 3.7 11.7.4 11.7-5.7V548h222v222h-64.8c-6 0-9.4 7-5.7 11.7l100.8 127.5c2.9 3.7 8.5 3.7 11.3 0l100.8-127.5c3.7-4.7.4-11.7-5.7-11.7H548V548h222v64.8c0 6 7 9.4 11.7 5.7l127.5-100.8c3.7-2.9 3.7-8.5.1-11.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-form-template"><path d="M298.667 981.333A85.333 85.333 0 0 1 213.333 896V128a85.333 85.333 0 0 1 85.334-85.333h426.666A85.333 85.333 0 0 1 810.667 128v768a85.333 85.333 0 0 1-85.334 85.333zm0-832v725.334A21.333 21.333 0 0 0 320 896h384a21.333 21.333 0 0 0 21.333-21.333V149.333A21.333 21.333 0 0 0 704 128H320a21.333 21.333 0 0 0-21.333 21.333zm640 618.667V256a42.667 42.667 0 0 1 42.666-42.667A42.667 42.667 0 0 1 1024 256v512a42.667 42.667 0 0 1-42.667 42.667A42.667 42.667 0 0 1 938.667 768zM0 768V256a42.667 42.667 0 0 1 42.667-42.667A42.667 42.667 0 0 1 85.333 256v512a42.667 42.667 0 0 1-42.666 42.667A42.667 42.667 0 0 1 0 768z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-hide"><path d="M956.8 496c-41.6-70.4-99.2-147.2-176-204.8l105.6-105.6c12.8-12.8 12.8-32 0-44.8s-32-12.8-44.8 0L726.4 256C665.6 214.4 592 192 512 192c-214.4 0-358.4 166.4-444.8 304-6.4 9.6-6.4 22.4 0 32 41.6 70.4 102.4 147.2 176 204.8L134.4 841.6c-12.8 12.8-12.8 32 0 44.8 9.6 6.4 16 9.6 25.6 9.6s16-3.2 22.4-9.6l115.2-115.2C358.4 809.6 432 832 512 832c185.6 0 374.4-128 444.8-307.2 3.2-9.6 3.2-19.2 0-28.8zm-822.4 16C211.2 390.4 336 256 512 256c60.8 0 118.4 16 166.4 44.8l-80 80C576 361.6 544 352 512 352c-89.6 0-160 70.4-160 160 0 32 9.6 64 25.6 89.6L288 691.2C224 640 172.8 572.8 134.4 512zm473.6 0c0 54.4-41.6 96-96 96-16 0-28.8-3.2-41.6-9.6l128-128c6.4 12.8 9.6 25.6 9.6 41.6zm-192 0c0-54.4 41.6-96 96-96 16 0 28.8 3.2 41.6 9.6l-128 128c-6.4-12.8-9.6-25.6-9.6-41.6zm96 256c-60.8 0-118.4-16-166.4-44.8l80-80C448 662.4 480 672 512 672c89.6 0 160-70.4 160-160 0-32-9.6-64-25.6-89.6l89.6-89.6C803.2 384 854.4 451.2 892.8 512 825.6 659.2 665.6 768 512 768z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-info"><path d="M512.001 928.997c230.524 0 418.076-187.552 418.075-418.077 0-230.527-187.552-418.077-418.075-418.077S93.924 280.393 93.924 510.92c0 230.525 187.552 418.077 418.077 418.077zM512 301.88c28.86 0 52.26 23.399 52.26 52.263 0 28.858-23.399 52.257-52.26 52.257s-52.26-23.399-52.26-52.257c0-28.863 23.399-52.263 52.26-52.263zm-52.26 209.042c0-28.86 23.399-52.26 52.26-52.26s52.26 23.399 52.26 52.26v156.775c0 28.86-23.399 52.26-52.26 52.26s-52.26-23.399-52.26-52.26V510.922z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-insert-column"><path d="M653.184 713.6c12.864-12.864 33.6-12.864 46.528 0 6.4 6.4 3.776 14.72 3.776 23.232a32.675 32.675 0 0 1-9.6 23.104L569.92 886.4c-.128.128-.32.192-.512.32-2.88 2.88-9.536 5.184-13.312 6.784-3.456 1.344-.64 1.856-4.096 2.112-.768 0-1.344.384-2.048.384-.512 0-.896-.256-1.344-.256-3.84-.192-5.76-.896-9.344-2.24-3.264-1.344-6.016-3.52-8.64-5.76-.64-.512-1.472-.768-2.048-1.344L391.232 760c-12.864-12.736-6.976-33.6 5.888-46.4 12.8-12.864 33.6-12.864 46.464 0l105.472 100.352L653.184 713.6zM384 64v576h320V64H384zM128 704v256H64V640h256v320h-62.976L256 704H128m704 0v256h-64V640h256v320h-62.976L960 704H832" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-insert-row"><path d="M310.336 653.184c12.864 12.864 12.864 33.6 0 46.528-6.4 6.4-14.72 3.776-23.168 3.776s-16.832-3.264-23.168-9.6L137.6 569.92c-.128-.128-.192-.32-.256-.512-2.88-2.816-5.248-9.536-6.848-13.312-1.344-3.392-1.856-.576-2.112-4.096 0-.768-.384-1.344-.384-2.048 0-.512.256-.896.256-1.344.192-3.84.896-5.76 2.24-9.344 1.344-3.264 3.52-6.016 5.76-8.64.512-.704.768-1.536 1.344-2.112l126.336-137.344c12.8-12.864 33.6-6.976 46.4 5.888 12.864 12.8 12.864 33.6 0 46.464L210.048 548.992l100.288 104.192zM960 384H384v320h576V384zM320 128H64V64h320v256H64v-62.976L320 256V128m0 704H64v-64h320v256H64v-62.976L320 960V832" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-menu"><path d="M844.8 883.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c0 19.2-19.2 38.4-38.4 38.4zm0-403.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c0 19.2-19.2 38.4-38.4 38.4zM435.2 883.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c6.4 19.2-12.8 38.4-38.4 38.4zm0-403.2h-256c-19.2 0-38.4-19.2-38.4-38.4v-256c0-19.2 19.2-38.4 38.4-38.4h256c19.2 0 38.4 19.2 38.4 38.4v256c6.4 19.2-12.8 38.4-38.4 38.4z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-move-down"><path d="M898.133 512c-12.8-12.8-32-12.8-44.8-2.133L544 800V149.333c0-17.066-14.933-32-32-32s-32 14.934-32 32V800L170.667 509.867c-12.8-12.8-34.134-10.667-44.8 2.133-12.8 12.8-10.667 34.133 2.133 44.8l362.667 341.333c2.133 2.134 6.4 4.267 8.533 6.4 4.267 2.134 6.4 2.134 10.667 2.134s8.533 0 10.666-2.134c4.267-2.133 6.4-4.266 8.534-6.4L891.733 556.8c17.067-12.8 19.2-32 6.4-44.8z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-move-up"><path d="M896 467.2 533.333 125.867c-2.133-2.134-6.4-4.267-8.533-6.4-4.267-2.134-6.4-2.134-10.667-2.134s-8.533 0-10.666 2.134c-4.267 2.133-6.4 4.266-8.534 6.4L132.267 467.2c-12.8 12.8-12.8 32-2.134 44.8 12.8 12.8 32 12.8 44.8 2.133L484.267 224v650.667c0 17.066 14.933 32 32 32s32-14.934 32-32V224l305.066 290.133c6.4 6.4 14.934 8.534 21.334 8.534 8.533 0 17.066-4.267 23.466-10.667 12.8-12.8 10.667-32-2.133-44.8z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-plus"><path d="M554.667 213.333h-85.334v256h-256v85.334h256v256h85.334v-256h256v-85.334h-256z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-set-up"><path d="M217.088 151.552c-18.432.683-33.792 7.168-46.08 19.456s-18.773 27.648-19.456 46.08v589.824c.683 18.432 7.168 33.792 19.456 46.08s27.648 18.773 46.08 19.456h589.824c18.432-.683 33.792-7.168 46.08-19.456s18.773-27.648 19.456-46.08V217.088c-.683-18.432-7.168-33.792-19.456-46.08s-27.648-18.773-46.08-19.456H217.088zm0-65.536h589.824c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672v589.824c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4H217.088c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672V217.088c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4zm163.84 327.68c18.432-.683 33.792-7.168 46.08-19.456s18.432-27.648 18.432-46.08-6.144-33.792-18.432-46.08-27.648-18.432-46.08-18.432-33.792 6.144-46.08 18.432-18.432 27.648-18.432 46.08 6.144 33.792 18.432 46.08 27.648 18.773 46.08 19.456zm0 65.536c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4zm98.304-163.84h262.144c21.845 0 32.768 10.923 32.768 32.768s-10.923 32.768-32.768 32.768H479.232c-21.845 0-32.768-10.923-32.768-32.768s10.923-32.768 32.768-32.768zm163.84 425.984c18.432-.683 33.792-7.168 46.08-19.456s18.432-27.648 18.432-46.08-6.144-33.792-18.432-46.08-27.648-18.432-46.08-18.432-33.792 6.144-46.08 18.432-18.432 27.648-18.432 46.08 6.144 33.792 18.432 46.08 27.648 18.773 46.08 19.456zm0 65.536c-36.864-.683-67.755-13.483-92.672-38.4s-37.717-55.808-38.4-92.672c.683-36.864 13.483-67.755 38.4-92.672s55.808-37.717 92.672-38.4c36.864.683 67.755 13.483 92.672 38.4s37.717 55.808 38.4 92.672c-.683 36.864-13.483 67.755-38.4 92.672s-55.808 37.717-92.672 38.4zm-360.448-163.84h262.144c21.845 0 32.768 10.923 32.768 32.768s-10.923 32.768-32.768 32.768H282.624c-21.845 0-32.768-10.923-32.768-32.768s10.923-32.768 32.768-32.768z" /></symbol><symbol class="icon" viewBox="0 0 1024 1024"  id="icon-el-view"><path fill="currentColor" d="M512 160c320 0 512 352 512 352S832 864 512 864 0 512 0 512s192-352 512-352zm0 64c-225.28 0-384.128 208.064-436.8 288 52.608 79.872 211.456 288 436.8 288 225.28 0 384.128-208.064 436.8-288-52.608-79.872-211.456-288-436.8-288zm0 64a224 224 0 1 1 0 448 224 224 0 0 1 0-448zm0 64a160.192 160.192 0 0 0-160 160c0 88.192 71.744 160 160 160s160-71.808 160-160-71.744-160-160-160z" /></symbol><symbol viewBox="0 0 1024 1024"  id="icon-el-zoom-in"><path fill="currentColor" d="m795.904 750.72 124.992 124.928a32 32 0 0 1-45.248 45.248L750.656 795.904a416 416 0 1 1 45.248-45.248zM480 832a352 352 0 1 0 0-704 352 352 0 0 0 0 704zm-32-384v-96a32 32 0 0 1 64 0v96h96a32 32 0 0 1 0 64h-96v96a32 32 0 0 1-64 0v-96h-96a32 32 0 0 1 0-64h96z" /></symbol>';
     body.insertBefore(svgDom, body.firstChild);
   };
   if (document.readyState === "loading") {
@@ -60682,8 +61621,52 @@ const selectGroupSchema = {
     onValidate: ""
   }
 };
+const autoCompleteSchema = {
+  type: "auto-complete",
+  icon: "autocomplete",
+  formItemFlag: true,
+  options: {
+    name: "",
+    label: "",
+    labelZh: "",
+    labelAlign: "",
+    type: "text",
+    defaultValue: "",
+    placeholder: "",
+    columnWidth: "200px",
+    size: "",
+    labelWidth: null,
+    labelHidden: false,
+    readonly: false,
+    disabled: false,
+    hidden: false,
+    clearable: true,
+    showPassword: false,
+    required: false,
+    requiredHint: "",
+    validation: "",
+    validationHint: "",
+    optionItems: [],
+    customClass: "",
+    labelIconClass: null,
+    labelIconPosition: "rear",
+    labelTooltip: null,
+    minLength: null,
+    maxLength: null,
+    showWordLimit: false,
+    prefixIcon: "",
+    suffixIcon: "",
+    appendButton: false,
+    appendButtonDisabled: false,
+    buttonIcon: "el-icon-search",
+    onMounted: "",
+    onChange: "",
+    onQuerySearchAsync: "",
+    onInput: ""
+  }
+};
 var cardWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3 = {
+const _sfc_main$4 = {
   name: "card-widget",
   componentName: "ContainerWidget",
   mixins: [i18n$1, containerMixin, refMixinDesign],
@@ -60726,7 +61709,7 @@ const _sfc_main$3 = {
 };
 const _hoisted_1$1 = { class: "clear-fix" };
 const _hoisted_2 = { class: "form-widget-list" };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown = resolveComponent("ArrowDown");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_ArrowUp = resolveComponent("ArrowUp");
@@ -60811,9 +61794,9 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var CardWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-78104555"]]);
+var CardWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-78104555"]]);
 var cardItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2 = {
+const _sfc_main$3 = {
   name: "card-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -60845,7 +61828,7 @@ const _sfc_main$2 = {
   }
 };
 const _hoisted_1 = { class: "clear-fix" };
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown = resolveComponent("ArrowDown");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_ArrowUp = resolveComponent("ArrowUp");
@@ -60928,7 +61911,7 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var CardItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-1999fb0d"]]);
+var CardItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-1999fb0d"]]);
 const cardTemplateGenerator = function(cw, formConfig2) {
   const wop = cw.options;
   const classAttr = buildClassAttr(cw);
@@ -60972,8 +61955,11 @@ const alertTemplateGenerator = function(fw, formConfig2) {
 const selectGroupGenerator = function(fw, formConfig2) {
   return "";
 };
+const autoCompleteTemplateGenerator = function(fw, formConfig2) {
+  return "";
+};
 var selectGroupWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1 = {
+const _sfc_main$2 = {
   name: "select-group-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -61033,7 +62019,7 @@ const _sfc_main$1 = {
   },
   methods: {}
 };
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_option_group = resolveComponent("el-option-group");
   const _component_el_select = resolveComponent("el-select");
@@ -61102,8 +62088,8 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectGroupWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_render$1], ["__scopeId", "data-v-2d8f78ae"]]);
-const _sfc_main = {
+var SelectGroupWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-2d8f78ae"]]);
+const _sfc_main$1 = {
   name: "alert-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -61149,7 +62135,7 @@ const _sfc_main = {
     }
   }
 };
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_alert = resolveComponent("el-alert");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -61180,11 +62166,134 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AlertWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render]]);
+var AlertWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$1, [["render", _sfc_render$1]]);
+var autoCompleteWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main = {
+  name: "auto-complete-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: null,
+      rules: []
+    };
+  },
+  computed: {
+    allowDefaultFirstOption() {
+      return !!this.field.options.filterable && !!this.field.options.allowCreate;
+    }
+  },
+  beforeCreate() {
+  },
+  created() {
+    this.initOptionItems();
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {}
+};
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_button = resolveComponent("el-button");
+  const _component_el_autocomplete = resolveComponent("el-autocomplete");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_el_autocomplete, {
+        ref: "fieldEditor",
+        modelValue: $data.fieldModel,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
+        disabled: $props.field.options.disabled,
+        readonly: $props.field.options.readonly,
+        size: $props.field.options.size,
+        class: "hide-spin-button",
+        "show-password": $props.field.options.showPassword,
+        placeholder: _ctx.$t($props.field.options.placeholder),
+        clearable: $props.field.options.clearable,
+        minlength: $props.field.options.minLength,
+        maxlength: $props.field.options.maxLength,
+        "show-word-limit": $props.field.options.showWordLimit,
+        "prefix-icon": $props.field.options.prefixIcon,
+        "suffix-icon": $props.field.options.suffixIcon,
+        "fetch-suggestions": _ctx.querySearchAsync,
+        onSelect: _cache[1] || (_cache[1] = (value2) => _ctx.handleChangeEvent(value2.value)),
+        onFocus: _ctx.handleFocusCustomEvent,
+        onBlur: _ctx.handleBlurCustomEvent,
+        onInput: _ctx.handleInputCustomEvent,
+        onChange: _ctx.handleChangeEvent
+      }, {
+        default: withCtx(() => [
+          $props.field.options.appendButton ? (openBlock(), createBlock(_component_el_button, {
+            key: 0,
+            slot: "append",
+            disabled: $props.field.options.disabled || $props.field.options.appendButtonDisabled,
+            class: normalizeClass($props.field.options.buttonIcon),
+            onClick: _ctx.emitAppendButtonClick
+          }, null, 8, ["disabled", "class", "onClick"])) : createCommentVNode("", true)
+        ]),
+        _: 1
+      }, 8, ["modelValue", "disabled", "readonly", "size", "show-password", "placeholder", "clearable", "minlength", "maxlength", "show-word-limit", "prefix-icon", "suffix-icon", "fetch-suggestions", "onFocus", "onBlur", "onInput", "onChange"])
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-6373b197"]]);
 const loadExtension = function(app) {
   loadCard(app);
   loadAlertWidget(app);
   loadSelectGroupWidget(app);
+  loadAutoCompleteWidget(app);
+};
+const loadAutoCompleteWidget = (app) => {
+  addCustomWidgetSchema(autoCompleteSchema);
+  app.component(AutoCompleteWidget.name, AutoCompleteWidget);
+  registerFWGenerator("autoComplete", autoCompleteTemplateGenerator);
 };
 const loadSelectGroupWidget = (app) => {
   addCustomWidgetSchema(selectGroupSchema);
