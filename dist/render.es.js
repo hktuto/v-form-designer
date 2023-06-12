@@ -3650,7 +3650,32 @@ var fieldMixin = {
     querySearchAsync(queryString, cb) {
       if (!!this.field.options.onQuerySearchAsync) {
         let remoteFn = new Function("queryString", "cb", this.field.options.onQuerySearchAsync);
+        console.log({ remoteFn }, "ss");
         remoteFn.call(this, queryString, cb);
+      }
+    },
+    onShortcutsFn() {
+      if (!!this.field.options.onShortcuts) {
+        let fn = new Function("", this.field.options.onShortcuts);
+        return fn.call(this);
+      }
+    },
+    disabledDateFn(dateTime) {
+      if (!!this.field.options.onDisabledDate) {
+        let fn = new Function("dateTime", this.field.options.onDisabledDate);
+        return fn.call(this, dateTime);
+      }
+    },
+    disabledHourFn() {
+      if (!!this.field.options.onDisabledHour) {
+        let remoteFn = new Function(this.field.options.onDisabledHour);
+        remoteFn.call(this);
+      }
+    },
+    disabledMinuteFn() {
+      if (!!this.field.options.onDisabledMinute) {
+        let remoteFn = new Function(this.field.options.onDisabledMinute);
+        remoteFn.call(this);
       }
     },
     lazyLoad(node, resolve) {
@@ -4243,7 +4268,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
           props: {
             checkStrictly: $props.field.options.checkStrictly,
             multiple: $props.field.options.multiple,
-            expandTrigger: "hover",
+            expandTrigger: $props.field.options.expandTrigger,
             lazy: $props.field.options.lazy,
             lazyLoad: _ctx.lazyLoad
           },
@@ -4256,7 +4281,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-ad7fe48c"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-31476c64"]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
@@ -4508,7 +4533,36 @@ const _sfc_main$F = {
     return {
       oldFieldValue: null,
       fieldModel: null,
-      rules: []
+      rules: [],
+      aasvv: [
+        {
+          text: "Last week",
+          value: () => {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1e3 * 24 * 7);
+            return [start, end];
+          }
+        },
+        {
+          text: "Last month",
+          value: () => {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1e3 * 24 * 30);
+            return [start, end];
+          }
+        },
+        {
+          text: "Last 3 months",
+          value: () => {
+            const end = new Date();
+            const start = new Date();
+            start.setTime(start.getTime() - 3600 * 1e3 * 24 * 90);
+            return [start, end];
+          }
+        }
+      ]
     };
   },
   computed: {},
@@ -4560,19 +4614,21 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
           editable: $props.field.options.editable,
           format: $props.field.options.format,
           "value-format": $props.field.options.valueFormat,
+          shortcuts: _ctx.onShortcutsFn(),
           "default-time": $props.field.options.defaultTime,
           "start-placeholder": $props.field.options.startPlaceholder || _ctx.$t("render.hint.startDatePlaceholder"),
           "end-placeholder": $props.field.options.endPlaceholder || _ctx.$t("render.hint.endDatePlaceholder"),
+          "disabled-date": _ctx.disabledDateFn,
           onFocus: _ctx.handleFocusCustomEvent,
           onBlur: _ctx.handleBlurCustomEvent,
           onChange: _ctx.handleChangeEvent
-        }, null, 8, ["type", "modelValue", "disabled", "readonly", "size", "clearable", "editable", "format", "value-format", "default-time", "start-placeholder", "end-placeholder", "onFocus", "onBlur", "onChange"])
+        }, null, 8, ["type", "modelValue", "disabled", "readonly", "size", "clearable", "editable", "format", "value-format", "shortcuts", "default-time", "start-placeholder", "end-placeholder", "disabled-date", "onFocus", "onBlur", "onChange"])
       ], 2)
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-3a8016d4"]]);
+var dateRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-7a880a58"]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeWidget
@@ -4663,16 +4719,20 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
         format: $props.field.options.format,
         "value-format": $props.field.options.valueFormat,
         "default-time": $props.field.options.defaultTime,
+        shortcuts: _ctx.onShortcutsFn(),
+        "disabled-date": _ctx.disabledDateFn,
+        "disabled-hour": _ctx.disabledHour,
+        "disabled-minute": _ctx.disabledMinute,
         placeholder: $props.field.options.placeholder || _ctx.$t("render.hint.datePlaceholder"),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onChange: _ctx.handleChangeEvent
-      }, null, 8, ["type", "modelValue", "class", "readonly", "disabled", "size", "clearable", "editable", "format", "value-format", "default-time", "placeholder", "onFocus", "onBlur", "onChange"])
+      }, null, 8, ["type", "modelValue", "class", "readonly", "disabled", "size", "clearable", "editable", "format", "value-format", "default-time", "shortcuts", "disabled-date", "disabled-hour", "disabled-minute", "placeholder", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-875ea7ee"]]);
+var dateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-42e3abba"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateWidget
@@ -20037,13 +20097,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1683711445856__");
+    var svgDom = document.getElementById("__svg__icons__dom__1686547936079__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1683711445856__";
+      svgDom.id = "__svg__icons__dom__1686547936079__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

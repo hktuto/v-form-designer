@@ -413,7 +413,32 @@ export default {
     querySearchAsync(queryString, cb) {
       if (!!this.field.options.onQuerySearchAsync) {
         let remoteFn = new Function('queryString','cb', this.field.options.onQuerySearchAsync)
+        console.log({remoteFn}, 'ss');
         remoteFn.call(this, queryString, cb)
+      }
+    },
+    onShortcutsFn() {
+      if (!!this.field.options.onShortcuts) {
+        let fn = new Function('', this.field.options.onShortcuts)
+        return fn.call(this)
+      }
+    },
+    disabledDateFn(dateTime) {
+      if (!!this.field.options.onDisabledDate) {
+        let fn = new Function('dateTime', this.field.options.onDisabledDate)
+        return fn.call(this, dateTime)
+      }
+    },
+    disabledHourFn() {
+      if (!!this.field.options.onDisabledHour) {
+        let remoteFn = new Function(this.field.options.onDisabledHour)
+        remoteFn.call(this)
+      }
+    },
+    disabledMinuteFn() {
+      if (!!this.field.options.onDisabledMinute) {
+        let remoteFn = new Function(this.field.options.onDisabledMinute)
+        remoteFn.call(this)
       }
     },
     lazyLoad(node, resolve) {

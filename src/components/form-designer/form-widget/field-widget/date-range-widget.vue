@@ -8,9 +8,11 @@
                       :size="widgetSize"
                       :clearable="field.options.clearable" :editable="field.options.editable"
                       :format="field.options.format" :value-format="field.options.valueFormat"
+                      :shortcuts="onShortcutsFn()"
                       :default-time="field.options.defaultTime"
                       :start-placeholder="field.options.startPlaceholder || $t('render.hint.startDatePlaceholder')"
                       :end-placeholder="field.options.endPlaceholder || $t('render.hint.endDatePlaceholder')"
+                      :disabled-date="disabledDateFn"
                       @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                       @change="handleChangeEvent">
       </el-date-picker>
@@ -62,6 +64,35 @@
         oldFieldValue: null, //field组件change之前的值
         fieldModel: null,
         rules: [],
+        aasvv: [
+          {
+            text: 'Last week',
+            value: () => {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+              return [start, end]
+            },
+          },
+          {
+            text: 'Last month',
+            value: () => {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+              return [start, end]
+            },
+          },
+          {
+            text: 'Last 3 months',
+            value: () => {
+              const end = new Date()
+              const start = new Date()
+              start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+              return [start, end]
+            },
+          },
+        ]
       }
     },
     computed: {
@@ -91,7 +122,6 @@
     },
 
     methods: {
-
     }
   }
 </script>

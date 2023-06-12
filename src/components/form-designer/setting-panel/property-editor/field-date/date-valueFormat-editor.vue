@@ -3,6 +3,7 @@
     <el-select v-model="optionModel.valueFormat" filterable allow-create>
       <el-option label="YYYY-MM-DD" value="YYYY-MM-DD"></el-option>
       <el-option label="YYYY-MM-DD HH:mm:ss" value="YYYY-MM-DD HH:mm:ss"></el-option>
+      <el-option label="YYYY-MM-DDTHH:mm:ss.000Z" value="YYYY-MM-DDTHH:mm:ss.000Z"></el-option>
     </el-select>
   </el-form-item>
 </template>

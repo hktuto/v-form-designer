@@ -8,6 +8,7 @@ const COMMON_PROPERTIES = {
   'name'              :            'name-editor',
   'label'             :            'label-editor',
   'labelAlign'        :            'labelAlign-editor',
+  'expandTrigger'     :            'expandTrigger-editor',
   'type'              :            'type-editor',
   'defaultValue'      :            'defaultValue-editor',
   'placeholder'       :            'placeholder-editor',
@@ -125,6 +126,10 @@ const EVENT_PROPERTIES = {
   'onFileRemove'      :            'onFileRemove-editor',
   'onValidate'        :            'onValidate-editor',
   'onAppendButtonClick':           'onAppendButtonClick-editor',
+  'onDisabledDate'    :            'onDisabledDate-editor',
+  'onShortcuts'       :            'onShortcuts-editor',
+  'onDisabledHour'    :            'onDisabledHour-editor',
+  'onDisabledMinute'  :            'onDisabledMinute-editor',
   'onQuerySearchAsync':            'onQuerySearchAsync-editor',
   'onLazyLoad'        :            'onLazyLoad-editor',
 

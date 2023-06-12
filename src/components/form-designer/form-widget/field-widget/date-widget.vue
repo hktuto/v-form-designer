@@ -9,6 +9,10 @@
                     :clearable="field.options.clearable" :editable="field.options.editable"
                     :format="field.options.format" :value-format="field.options.valueFormat"
                     :default-time="field.options.defaultTime"
+                    :shortcuts="onShortcutsFn()"
+                    :disabled-date="disabledDateFn"
+                    :disabled-hour="disabledHour"
+                    :disabled-minute="disabledMinute"
                     :placeholder="field.options.placeholder || $t('render.hint.datePlaceholder')"
                     @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                     @change="handleChangeEvent">
@@ -37,7 +41,7 @@
         type: Boolean,
         default: false
       },
-
+      
       subFormRowIndex: { /* 子表单组件行索引，从0开始计数 */
         type: Number,
         default: -1
@@ -82,6 +86,7 @@
 
     mounted() {
       this.handleOnMounted()
+      
     },
 
     beforeUnmount() {
@@ -89,7 +94,6 @@
     },
 
     methods: {
-
     }
   }
 </script>
