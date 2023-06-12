@@ -463,6 +463,8 @@ export const basicFields = [
       requiredHint: '',
       validation: '',
       validationHint: '',
+      
+
       //-------------------
       customClass: '',  //自定义css类名
       labelIconClass: null,
@@ -475,6 +477,10 @@ export const basicFields = [
       onFocus: '',
       onBlur: '',
       onValidate: '',
+      onShortcuts: '',
+      onDisabledDate: '',
+      // onDisabledHour: '',
+      // onDisabledMinute: '',
     },
   },
 
@@ -519,6 +525,8 @@ export const basicFields = [
       onFocus: '',
       onBlur: '',
       onValidate: '',
+      onShortcuts: '',
+      onDisabledDate: '',
     },
   },
 
@@ -899,6 +907,7 @@ export const advancedFields = [
       multiple: false,
       checkStrictly: false,  //可选择任意一级选项，默认不开启
       showAllLevels: true,  //显示完整路径
+      expandTrigger: 'click',
       optionItems: [],
       required: false,
       requiredHint: '',
