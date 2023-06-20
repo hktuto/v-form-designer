@@ -1667,6 +1667,8 @@ var enLocale = {
       endPlaceholder: "End Placeholder",
       widgetColumnWidth: "Width",
       widgetSize: "Size",
+      fontSize: "Font Size",
+      textAlign: "Text Align",
       autoFullWidth: "Auto Full Width",
       showStops: "Show Stops",
       displayStyle: "Display Style",
@@ -1686,6 +1688,7 @@ var enLocale = {
       disabled: "Disabled",
       hidden: "Hidden",
       textContent: "Text",
+      preWrap: "Line Wrap",
       htmlContent: "HTML",
       clearable: "Clearable",
       editable: "Editable",
@@ -1722,6 +1725,7 @@ var enLocale = {
       headers: "Request Headers",
       cellWidth: "Width",
       cellHeight: "Height",
+      wordBreak: "Line Wrap",
       gridColHeight: "Height Of Col(px)",
       gutter: "Gutter(px)",
       columnSetting: "Cols Setting",
@@ -1975,6 +1979,8 @@ var zhLocale = {
       endPlaceholder: "\u622A\u6B62\u5360\u4F4D\u5185\u5BB9",
       widgetColumnWidth: "\u7EC4\u4EF6\u5217\u5BBD",
       widgetSize: "\u7EC4\u4EF6\u5927\u5C0F",
+      fontSize: "\u5B57\u4F53\u5927\u5C0F",
+      textAlign: "\u6587\u5B57\u5BF9\u9F50",
       autoFullWidth: "\u81EA\u52A8\u62C9\u4F38\u5BBD\u5EA6",
       showStops: "\u663E\u793A\u95F4\u65AD\u70B9",
       displayStyle: "\u663E\u793A\u6837\u5F0F",
@@ -1994,6 +2000,7 @@ var zhLocale = {
       disabled: "\u7981\u7528",
       hidden: "\u9690\u85CF",
       textContent: "\u9759\u6001\u6587\u5B57",
+      preWrap: "\u81EA\u52A8\u6362\u884C",
       htmlContent: "HTML",
       clearable: "\u53EF\u6E05\u9664",
       editable: "\u53EF\u8F93\u5165",
@@ -2030,6 +2037,7 @@ var zhLocale = {
       headers: "\u4E0A\u4F20\u8BF7\u6C42\u5934",
       cellWidth: "\u5BBD\u5EA6",
       cellHeight: "\u9AD8\u5EA6",
+      wordBreak: "\u6587\u5B57\u81EA\u52A8\u6362\u884C",
       gridColHeight: "\u6805\u683C\u5217\u7EDF\u4E00\u9AD8\u5EA6(px)",
       gutter: "\u6805\u683C\u95F4\u9694(px)",
       columnSetting: "\u6805\u683C\u5C5E\u6027\u8BBE\u7F6E",
@@ -17540,6 +17548,13 @@ const _sfc_main$t = {
   computed: {
     allowDefaultFirstOption() {
       return !!this.field.options.filterable && !!this.field.options.allowCreate;
+    },
+    remoteMethod() {
+      if (!!this.field.options.remote && !!this.field.options.onRemoteQuery) {
+        return this.remoteQuery;
+      } else {
+        return void 0;
+      }
     }
   },
   beforeCreate() {
@@ -17591,9 +17606,9 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
-        placeholder: _ctx.$t($props.field.options.placeholder) || _ctx.$t("render.hint.selectPlaceholder"),
+        placeholder: $props.field.options.placeholder || _ctx.$t("render.hint.selectPlaceholder"),
         remote: $props.field.options.remote,
-        "remote-method": _ctx.remoteQuery,
+        "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onChange: _ctx.handleChangeEvent
@@ -17614,7 +17629,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-4206ba6a"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-8cdb0588"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -17854,12 +17869,19 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", { ref: "fieldEditor" }, toDisplayString($props.field.options.textContent), 513)
+      createElementVNode("div", {
+        ref: "fieldEditor",
+        style: normalizeStyle(!!$props.field.options.fontSize ? `font-size: ${$props.field.options.fontSize};` : "")
+      }, [
+        createElementVNode("pre", {
+          style: normalizeStyle({ "white-space": !!$props.field.options.preWrap ? "pre-wrap" : "pre", "text-align": !!$props.field.options.textAlign ? $props.field.options.textAlign : "left" })
+        }, toDisplayString($props.field.options.textContent), 5)
+      ], 4)
     ]),
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-86aee66c"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-990dcae8"]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
@@ -19149,7 +19171,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     class: normalizeClass(["table-cell", [$options.customClass]]),
     colspan: $props.widget.options.colspan || 1,
     rowspan: $props.widget.options.rowspan || 1,
-    style: normalizeStyle({ width: $props.widget.options.cellWidth + " !important" || "", height: $props.widget.options.cellHeight + " !important" || "" })
+    style: normalizeStyle({ width: $props.widget.options.cellWidth + " !important" || "", height: $props.widget.options.cellHeight + " !important" || "", "word-break": !!$props.widget.options.wordBreak ? "break-all" : "normal" })
   }, [
     (openBlock(true), createElementBlock(Fragment, null, renderList($props.widget.widgetList, (subWidget, swIdx) => {
       return openBlock(), createElementBlock(Fragment, null, [
@@ -19188,7 +19210,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ], 14, _hoisted_1$c);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-ecf77248"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-162f05d8"]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
@@ -20097,13 +20119,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1686548252550__");
+    var svgDom = document.getElementById("__svg__icons__dom__1687250274134__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1686548252550__";
+      svgDom.id = "__svg__icons__dom__1687250274134__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
