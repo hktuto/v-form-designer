@@ -6404,7 +6404,7 @@ const _sfc_main$33 = {
       this.dispatch("VFormRender", "filePreview", file);
     },
     handleUploadHeaders() {
-      const cookieToken = sessionStorage.getItem("token");
+      const cookieToken = localStorage.getItem("token");
       if (cookieToken)
         this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
@@ -6421,7 +6421,7 @@ const _sfc_main$33 = {
     }
   }
 };
-const _withScopeId$4 = (n) => (pushScopeId("data-v-297d1816"), n = n(), popScopeId(), n);
+const _withScopeId$4 = (n) => (pushScopeId("data-v-7294b3ab"), n = n(), popScopeId(), n);
 const _hoisted_1$Y = {
   key: 0,
   class: "el-upload__tip"
@@ -6496,7 +6496,7 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-297d1816"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-7294b3ab"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -6994,7 +6994,7 @@ const _sfc_main$2$ = {
       this.$refs["imageRef"].$el.children[0].click();
     },
     handleUploadHeaders() {
-      const cookieToken = sessionStorage.getItem("token");
+      const cookieToken = localStorage.getItem("token");
       if (cookieToken)
         this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
@@ -7109,7 +7109,7 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-43e460a4"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-f37ca60e"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
@@ -22359,7 +22359,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.18.0";
+    exports2.version = "1.19.0";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -24295,7 +24295,7 @@ var ace$2 = { exports: {} };
       HoverTooltip2.prototype.hide = function(e) {
         if (!e && document.activeElement == this.getElement())
           return;
-        if (e && e.target && e.type != "keydown" && this.$element.contains(e.target))
+        if (e && e.target && (e.type != "keydown" || e.ctrlKey || e.metaKey) && this.$element.contains(e.target))
           return;
         this.lastEvent = null;
         if (this.timeout)
@@ -24580,11 +24580,6 @@ var ace$2 = { exports: {} };
         this.$inSelection = null;
         this.propagationStopped = false;
         this.defaultPrevented = false;
-        this.getAccelKey = useragent.isMac ? function() {
-          return this.domEvent.metaKey;
-        } : function() {
-          return this.domEvent.ctrlKey;
-        };
       }
       MouseEvent3.prototype.stopPropagation = function() {
         event.stopPropagation(this.domEvent);
@@ -24622,6 +24617,9 @@ var ace$2 = { exports: {} };
       };
       MouseEvent3.prototype.getShiftKey = function() {
         return this.domEvent.shiftKey;
+      };
+      MouseEvent3.prototype.getAccelKey = function() {
+        return useragent.isMac ? this.domEvent.metaKey : this.domEvent.ctrlKey;
       };
       return MouseEvent3;
     }();
@@ -28621,13 +28619,11 @@ var ace$2 = { exports: {} };
           index2 += lines[i].length + newlineLength;
         return index2 + pos.column;
       };
+      Document2.prototype.$split = function(text) {
+        return text.split(/\r\n|\r|\n/);
+      };
       return Document2;
     }();
-    Document.prototype.$split = "aaa".split(/a/).length === 0 ? function(text) {
-      return text.replace(/\r\n|\r/g, "\n").split("\n");
-    } : function(text) {
-      return text.split(/\r\n|\r|\n/);
-    };
     Document.prototype.$autoNewLine = "";
     Document.prototype.$newLineMode = "auto";
     oop.implement(Document.prototype, EventEmitter);
@@ -42804,6 +42800,7 @@ var extLanguage_tools = { exports: {} };
         u2.addTabstops(i2.tabstops, s2.start, o2, a2);
       }, this.insertSnippet = function(e3, t2, n2) {
         var r2 = this;
+        n2 && !(n2 instanceof u) && (n2 = u.fromPoints(n2.start, n2.end));
         if (e3.inVirtualSelectionMode)
           return r2.insertSnippetForSelection(e3, t2, n2);
         e3.forEachSelection(function() {
@@ -61714,13 +61711,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1686548241903__");
+    var svgDom = document.getElementById("__svg__icons__dom__1687763267098__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1686548241903__";
+      svgDom.id = "__svg__icons__dom__1687763267098__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
