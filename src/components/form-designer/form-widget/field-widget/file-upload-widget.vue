@@ -5,7 +5,9 @@
     <!-- el-upload增加:name="field.options.name"后，会导致又拍云上传失败！故删除之！！ -->
     <el-upload ref="fieldEditor" :disabled="field.options.disabled" name="files"
                :style="styleVariables" class="dynamicPseudoAfter"
-               :action="field.options.uploadURL" :headers="uploadHeaders" :data="uploadData"
+               :action="field.options.uploadURL"
+               :name="field.options.uploadName"
+               :headers="uploadHeaders" :data="uploadData"
                :with-credentials="field.options.withCredentials"
                :multiple="field.options.multipleSelect" :file-list="fileList"
                :show-file-list="field.options.showFileList" :class="{'hideUploadDiv': uploadBtnHidden}"
