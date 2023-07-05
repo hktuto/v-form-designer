@@ -5,7 +5,7 @@
     <!-- el-upload增加:name="field.options.name"后，会导致又拍云上传失败！故删除之！！ -->
     <el-upload ref="fieldEditor" :disabled="field.options.disabled" name="files"
                :style="styleVariables" class="dynamicPseudoAfter"
-               :action="field.options.uploadURL"
+               :action="realUploadURL"
                :name="field.options.uploadName"
                :headers="uploadHeaders" :data="uploadData"
                :with-credentials="field.options.withCredentials"
@@ -40,7 +40,7 @@
   import FormItemWrapper from './form-item-wrapper'
   import emitter from '@/utils/emitter'
   import i18n, {translate} from "@/utils/i18n";
-  import {deepClone} from "@/utils/util";
+  import {deepClone, evalFn} from "@/utils/util";
   import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
   import SvgIcon from "@/components/svg-icon/index";
 
@@ -103,6 +103,16 @@
       }
     },
     computed: {
+      realUploadURL() {
+        let uploadURL = this.field.options.uploadURL
+        if (!!uploadURL && ((uploadURL.indexOf('DSV.') > -1) || (uploadURL.indexOf('DSV[') > -1))) {
+          let DSV = this.getGlobalDsv()
+          console.log('test DSV: ', DSV)  //防止DSV被打包工具优化！！！
+          return evalFn(this.field.options.uploadURL, DSV)
+        }
+
+        return this.field.options.uploadURL
+      },
 
     },
     beforeCreate() {
