@@ -6418,7 +6418,7 @@ const _sfc_main$38 = {
       this.dispatch("VFormRender", "filePreview", file);
     },
     handleUploadHeaders() {
-      const cookieToken = sessionStorage.getItem("token");
+      const cookieToken = localStorage.getItem("token");
       if (cookieToken)
         this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
@@ -6435,7 +6435,7 @@ const _sfc_main$38 = {
     }
   }
 };
-const _withScopeId$4 = (n) => (pushScopeId("data-v-6cc483fe"), n = n(), popScopeId(), n);
+const _withScopeId$4 = (n) => (pushScopeId("data-v-5115f993"), n = n(), popScopeId(), n);
 const _hoisted_1$Y = {
   key: 0,
   class: "el-upload__tip"
@@ -6510,7 +6510,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-6cc483fe"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-5115f993"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -7008,7 +7008,7 @@ const _sfc_main$34 = {
       this.$refs["imageRef"].$el.children[0].click();
     },
     handleUploadHeaders() {
-      const cookieToken = sessionStorage.getItem("token");
+      const cookieToken = localStorage.getItem("token");
       if (cookieToken)
         this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
@@ -7123,7 +7123,7 @@ function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-18b30bf4"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-4b9de55e"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
@@ -61938,13 +61938,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1689215252459__");
+    var svgDom = document.getElementById("__svg__icons__dom__1689215782121__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1689215252459__";
+      svgDom.id = "__svg__icons__dom__1689215782121__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
