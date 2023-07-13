@@ -15,13 +15,13 @@ import ContainerItems from '@/components/form-render/container-item/index'
 import { addDirective } from '@/utils/directive'
 import { installI18n } from '@/utils/i18n'
 import { loadExtension } from '@/extension/extension-loader'
-
+import { translate } from "@/utils/i18n"
 if (typeof window !== 'undefined') {
   window.axios = axios
 }
 const vfApp = createApp(App)
 
-vfApp.config.globalProperties.$t = (key) => (key)
+vfApp.config.globalProperties.$t = (key) => (translate(key))
 
 vfApp.use(ElementPlus)
 registerIcon(vfApp)

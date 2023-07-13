@@ -111,7 +111,7 @@ export default {
     overflow: hidden;
   }
   .el-tab-pane {
-    overflow: hidden;
+    overflow: auto;
     height: 100%;
   }
 }

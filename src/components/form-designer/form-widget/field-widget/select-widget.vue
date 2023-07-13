@@ -7,12 +7,12 @@
                :size="widgetSize"
                :clearable="field.options.clearable"
                :filterable="field.options.filterable"
+               defaultFirstOption
                :allow-create="field.options.allowCreate"
-               :default-first-option="allowDefaultFirstOption"
                :automatic-dropdown="field.options.automaticDropdown"
                :multiple="field.options.multiple" :multiple-limit="field.options.multipleLimit"
-               :placeholder="$t(field.options.placeholder) || $t('render.hint.selectPlaceholder')"
-               :remote="field.options.remote" :remote-method="remoteQuery"
+               :placeholder="field.options.placeholder || $t('render.hint.selectPlaceholder')"
+               :remote="field.options.remote" :remote-method="remoteMethod"
                @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                @change="handleChangeEvent">
       <el-option v-for="item in field.options.optionItems" :key="item.value" :label="$t(item.label)"
@@ -73,6 +73,14 @@
         return (!!this.field.options.filterable && !!this.field.options.allowCreate)
       },
 
+      remoteMethod() {
+        if (!!this.field.options.remote && !!this.field.options.onRemoteQuery) {
+          return this.remoteQuery
+        } else {
+          return undefined
+        }
+      },
+
     },
     beforeCreate() {
       /* 这里不能访问方法和属性！！ */
@@ -92,6 +100,9 @@
 
     mounted() {
       this.handleOnMounted()
+      this.$nextTick(() => {
+        this.handleInput()
+      })
     },
 
     beforeUnmount() {
@@ -99,7 +110,21 @@
     },
 
     methods: {
-
+      handleInput() {
+        const fieldEditor = this.$refs.fieldEditor
+        const input = fieldEditor.input
+        if(!input) return
+        input.onkeyup = (event) => {
+          if(this.allowDefaultFirstOption && event.key === 'Enter' && fieldEditor.hoverIndex === -1) {
+            const value = event.target.value
+            fieldEditor.handleOptionSelect({
+              label: value,
+              value,
+              created: true
+            })
+          }
+        }
+      }
     }
   }
 </script>

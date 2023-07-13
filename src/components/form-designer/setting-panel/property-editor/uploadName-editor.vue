@@ -1,14 +1,14 @@
 <template>
-  <el-form-item :label="i18nt('designer.setting.textContent')">
-    <el-input v-model="optionModel.textContent" type="textarea" :rows="3"></el-input>
-  </el-form-item>
+    <el-form-item :label="$t('designer.setting.uploadName')">
+      <el-input type="text" v-model="optionModel.uploadName"></el-input>
+    </el-form-item>
 </template>
 
 <script>
   import i18n from "@/utils/i18n"
 
   export default {
-    name: "textContent-editor",
+    name: "uploadName-editor",
     mixins: [i18n],
     props: {
       designer: Object,

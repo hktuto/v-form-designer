@@ -169,6 +169,7 @@ function getElAttrs(widget, formConfig) {  //获取El组件属性
     sliderVertical: !!wop.vertical ? `vertical` : '',
 
     uploadAction: !!wop.uploadURL ? `action="${wop.uploadURL}"` : '',
+    uploadName: !!wop.uploadName ? `name="${wop.uploadName}"` : 'files',
     withCredentials: !!wop.withCredentials ? `with-credentials` : '',
     multipleSelect: !!wop.multipleSelect ? `multiple` : '',
     showFileList: !!wop.showFileList ? `show-file-list` : '',
