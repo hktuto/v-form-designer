@@ -270,7 +270,7 @@
         this.dispatch('VFormRender', 'filePreview', file)
       },
       handleUploadHeaders() {
-        const cookieToken = sessionStorage.getItem('token')
+        const cookieToken = localStorage.getItem('token')
         if (cookieToken) this.uploadHeaders = { 'Authorization': `Bearer ${cookieToken}` }
       },
       getCookie(name) {
