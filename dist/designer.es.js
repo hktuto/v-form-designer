@@ -18968,11 +18968,31 @@ const _sfc_main$2$ = {
   },
   mounted() {
     this.handleOnMounted();
+    this.$nextTick(() => {
+      this.handleInput();
+    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    handleInput() {
+      const fieldEditor = this.$refs.fieldEditor;
+      const input = fieldEditor.input;
+      if (!input)
+        return;
+      input.onkeyup = (event) => {
+        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
+          const value2 = event.target.value;
+          fieldEditor.handleOptionSelect({
+            label: value2,
+            value: value2,
+            created: true
+          });
+        }
+      };
+    }
+  }
 };
 function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
@@ -19000,8 +19020,8 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
         size: _ctx.widgetSize,
         clearable: $props.field.options.clearable,
         filterable: $props.field.options.filterable,
+        defaultFirstOption: "",
         "allow-create": $props.field.options.allowCreate,
-        "default-first-option": $options.allowDefaultFirstOption,
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
@@ -19023,12 +19043,12 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 1
-      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "default-first-option", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
+      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-8cdb0588"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-6d7fd084"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -22387,7 +22407,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.18.0";
+    exports2.version = "1.19.0";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -24323,7 +24343,7 @@ var ace$2 = { exports: {} };
       HoverTooltip2.prototype.hide = function(e) {
         if (!e && document.activeElement == this.getElement())
           return;
-        if (e && e.target && e.type != "keydown" && this.$element.contains(e.target))
+        if (e && e.target && (e.type != "keydown" || e.ctrlKey || e.metaKey) && this.$element.contains(e.target))
           return;
         this.lastEvent = null;
         if (this.timeout)
@@ -24608,11 +24628,6 @@ var ace$2 = { exports: {} };
         this.$inSelection = null;
         this.propagationStopped = false;
         this.defaultPrevented = false;
-        this.getAccelKey = useragent.isMac ? function() {
-          return this.domEvent.metaKey;
-        } : function() {
-          return this.domEvent.ctrlKey;
-        };
       }
       MouseEvent3.prototype.stopPropagation = function() {
         event.stopPropagation(this.domEvent);
@@ -24650,6 +24665,9 @@ var ace$2 = { exports: {} };
       };
       MouseEvent3.prototype.getShiftKey = function() {
         return this.domEvent.shiftKey;
+      };
+      MouseEvent3.prototype.getAccelKey = function() {
+        return useragent.isMac ? this.domEvent.metaKey : this.domEvent.ctrlKey;
       };
       return MouseEvent3;
     }();
@@ -28649,13 +28667,11 @@ var ace$2 = { exports: {} };
           index2 += lines[i].length + newlineLength;
         return index2 + pos.column;
       };
+      Document2.prototype.$split = function(text) {
+        return text.split(/\r\n|\r|\n/);
+      };
       return Document2;
     }();
-    Document.prototype.$split = "aaa".split(/a/).length === 0 ? function(text) {
-      return text.replace(/\r\n|\r/g, "\n").split("\n");
-    } : function(text) {
-      return text.split(/\r\n|\r|\n/);
-    };
     Document.prototype.$autoNewLine = "";
     Document.prototype.$newLineMode = "auto";
     oop.implement(Document.prototype, EventEmitter);
@@ -42832,6 +42848,7 @@ var extLanguage_tools = { exports: {} };
         u2.addTabstops(i2.tabstops, s2.start, o2, a2);
       }, this.insertSnippet = function(e3, t2, n2) {
         var r2 = this;
+        n2 && !(n2 instanceof u) && (n2 = u.fromPoints(n2.start, n2.end));
         if (e3.inVirtualSelectionMode)
           return r2.insertSnippetForSelection(e3, t2, n2);
         e3.forEachSelection(function() {
@@ -61921,13 +61938,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1688089095815__");
+    var svgDom = document.getElementById("__svg__icons__dom__1689215252459__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1688089095815__";
+      svgDom.id = "__svg__icons__dom__1689215252459__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

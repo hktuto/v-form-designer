@@ -17569,11 +17569,31 @@ const _sfc_main$t = {
   },
   mounted() {
     this.handleOnMounted();
+    this.$nextTick(() => {
+      this.handleInput();
+    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    handleInput() {
+      const fieldEditor = this.$refs.fieldEditor;
+      const input = fieldEditor.input;
+      if (!input)
+        return;
+      input.onkeyup = (event) => {
+        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
+          const value2 = event.target.value;
+          fieldEditor.handleOptionSelect({
+            label: value2,
+            value: value2,
+            created: true
+          });
+        }
+      };
+    }
+  }
 };
 function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
@@ -17601,8 +17621,8 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
         size: _ctx.widgetSize,
         clearable: $props.field.options.clearable,
         filterable: $props.field.options.filterable,
+        defaultFirstOption: "",
         "allow-create": $props.field.options.allowCreate,
-        "default-first-option": $options.allowDefaultFirstOption,
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
@@ -17624,12 +17644,12 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 1
-      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "default-first-option", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
+      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-8cdb0588"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-6d7fd084"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -20119,13 +20139,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1688089107110__");
+    var svgDom = document.getElementById("__svg__icons__dom__1689215263149__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1688089107110__";
+      svgDom.id = "__svg__icons__dom__1689215263149__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -7,8 +7,8 @@
                :size="widgetSize"
                :clearable="field.options.clearable"
                :filterable="field.options.filterable"
+               defaultFirstOption
                :allow-create="field.options.allowCreate"
-               :default-first-option="allowDefaultFirstOption"
                :automatic-dropdown="field.options.automaticDropdown"
                :multiple="field.options.multiple" :multiple-limit="field.options.multipleLimit"
                :placeholder="field.options.placeholder || $t('render.hint.selectPlaceholder')"
@@ -100,6 +100,9 @@
 
     mounted() {
       this.handleOnMounted()
+      this.$nextTick(() => {
+        this.handleInput()
+      })
     },
 
     beforeUnmount() {
@@ -107,7 +110,21 @@
     },
 
     methods: {
-
+      handleInput() {
+        const fieldEditor = this.$refs.fieldEditor
+        const input = fieldEditor.input
+        if(!input) return
+        input.onkeyup = (event) => {
+          if(this.allowDefaultFirstOption && event.key === 'Enter' && fieldEditor.hoverIndex === -1) {
+            const value = event.target.value
+            fieldEditor.handleOptionSelect({
+              label: value,
+              value,
+              created: true
+            })
+          }
+        }
+      }
     }
   }
 </script>
