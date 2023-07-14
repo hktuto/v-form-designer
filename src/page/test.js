@@ -1,76 +1,42 @@
 export default {
   "widgetList": [
     {
-      "key": 66701,
-      "type": "date",
-      "icon": "date-field",
+      "key": 45099,
+      "type": "select",
+      "icon": "select-field",
       "formItemFlag": true,
       "options": {
-        "name": "date110330",
-        "label": "date",
+        "name": "select79819",
+        "label": "select",
         "labelAlign": "",
-        "type": "date",
-        "defaultValue": "",
+        "defaultValue": [],
         "placeholder": "",
         "columnWidth": "200px",
         "size": "",
-        "autoFullWidth": true,
         "labelWidth": null,
         "labelHidden": false,
-        "readonly": false,
         "disabled": false,
         "hidden": false,
         "clearable": true,
-        "editable": false,
-        "format": "YYYY-MM-DD HH:mm",
-        "valueFormat": "YYYY-MM-DD HH:mm",
-        "defaultTime": "2000-01-01 00:00:00",
-        "required": false,
-        "requiredHint": "",
-        "validation": "",
-        "validationHint": "",
-        "customClass": [],
-        "labelIconClass": null,
-        "labelIconPosition": "rear",
-        "labelTooltip": null,
-        "onCreated": "",
-        "onMounted": "",
-        "onChange": "",
-        "onFocus": "",
-        "onBlur": "",
-        "onValidate": "",
-        "onDisabledDate": "return dateTime.getTime() <  new Date().getTime()"
-      },
-      "id": "date110330"
-    },
-    {
-      "key": 12248,
-      "type": "date-range",
-      "icon": "date-range-field",
-      "formItemFlag": true,
-      "options": {
-        "name": "daterange64355",
-        "label": "date-range",
-        "labelAlign": "",
-        "type": "daterange",
-        "defaultValue": null,
-        "startPlaceholder": "",
-        "endPlaceholder": "",
-        "columnWidth": "200px",
-        "size": "",
-        "autoFullWidth": true,
-        "labelWidth": null,
-        "labelHidden": false,
-        "readonly": false,
-        "disabled": false,
-        "hidden": false,
-        "clearable": true,
-        "editable": false,
-        "format": "YYYY-MM-DD",
-        "valueFormat": "YYYY-MM-DD HH:mm",
-        "defaultTime": [
-          "2000-01-01 00:00:00",
-          "2000-01-01 23:59:00"
+        "filterable": true,
+        "allowCreate": true,
+        "remote": false,
+        "automaticDropdown": false,
+        "multiple": true,
+        "multipleLimit": 0,
+        "optionItems": [
+          {
+            "label": "select 1",
+            "value": 1
+          },
+          {
+            "label": "select 2",
+            "value": 2
+          },
+          {
+            "label": "select 3",
+            "value": 3
+          }
         ],
         "required": false,
         "requiredHint": "",
@@ -82,13 +48,13 @@ export default {
         "labelTooltip": null,
         "onCreated": "",
         "onMounted": "",
+        "onRemoteQuery": "",
         "onChange": "",
         "onFocus": "",
         "onBlur": "",
-        "onValidate": "",
-        "onDisabledDate": ""
+        "onValidate": ""
       },
-      "id": "daterange64355"
+      "id": "select79819"
     }
   ],
   "formConfig": {

@@ -1755,6 +1755,7 @@ var enLocale = {
       suffixIcon: "Suffix Icon",
       inputButton: "Input Button Setting",
       appendButton: "Append Button",
+      appendButtonText: "Append Button Text",
       appendButtonDisabled: "Button Disabled",
       appendButtonIcon: "Append Button Icon",
       buttonIcon: "Button Icon",
@@ -2067,6 +2068,7 @@ var zhLocale = {
       suffixIcon: "\u5C3E\u90E8Icon",
       inputButton: "\u8F93\u5165\u6846\u6309\u94AE\u8BBE\u7F6E",
       appendButton: "\u6DFB\u52A0\u540E\u7F6E\u6309\u94AE",
+      appendButtonText: "\u6DFB\u52A0\u540E\u7F6E\u6587\u672C",
       appendButtonDisabled: "\u540E\u7F6E\u6309\u94AE\u7981\u7528",
       appendButtonIcon: "\u540E\u7F6E\u6309\u94AEIcon",
       buttonIcon: "\u6309\u94AEIcon",
@@ -2323,14 +2325,14 @@ const _sfc_main$M = {
     }
   }
 };
-const _hoisted_1$n = ["xlink:href"];
+const _hoisted_1$o = ["xlink:href"];
 const _hoisted_2$h = { key: 0 };
 function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
   }, [
-    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$n),
+    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$o),
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$h, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
@@ -2422,7 +2424,7 @@ const _sfc_main$L = {
     }
   }
 };
-const _hoisted_1$m = {
+const _hoisted_1$n = {
   key: 0,
   class: "field-action"
 };
@@ -2451,7 +2453,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
       renderSlot(_ctx.$slots, "default", {}, void 0, true)
     ], 6)) : createCommentVNode("", true),
     !!this.designer ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$m, [
+      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$n, [
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.selectParentWidget"),
           onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $options.selectParentWidget($props.field), ["stop"]))
@@ -4050,7 +4052,7 @@ const _sfc_main$J = {
     }
   }
 };
-const _hoisted_1$l = {
+const _hoisted_1$m = {
   key: 0,
   class: "custom-label"
 };
@@ -4086,7 +4088,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $options.selectField($props.field), ["stop"]))
     }, {
       label: withCtx(() => [
-        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$l, [
+        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$m, [
           $props.field.options.labelIconPosition === "front" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
             !!$props.field.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
               createVNode(_component_el_tooltip, {
@@ -4244,7 +4246,7 @@ const _sfc_main$I = {
   },
   methods: {}
 };
-const _hoisted_1$k = { class: "full-width-input" };
+const _hoisted_1$l = { class: "full-width-input" };
 function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -4261,7 +4263,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$k, [
+      createElementVNode("div", _hoisted_1$l, [
         createVNode(_component_el_cascader, {
           ref: "fieldEditor",
           options: $props.field.options.optionItems,
@@ -5037,7 +5039,7 @@ const _sfc_main$C = {
   }
 };
 const _withScopeId = (n) => (pushScopeId("data-v-5115f993"), n = n(), popScopeId(), n);
-const _hoisted_1$j = {
+const _hoisted_1$k = {
   key: 0,
   class: "el-upload__tip"
 };
@@ -5082,7 +5084,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
-          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$j, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
+          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$k, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
@@ -5163,7 +5165,7 @@ const _sfc_main$B = {
   },
   methods: {}
 };
-const _hoisted_1$i = ["innerHTML"];
+const _hoisted_1$j = ["innerHTML"];
 function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -5181,7 +5183,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         ref: "fieldEditor",
         innerHTML: $props.field.options.htmlContent
-      }, null, 8, _hoisted_1$i)
+      }, null, 8, _hoisted_1$j)
     ]),
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
@@ -5255,6 +5257,7 @@ const _sfc_main$A = {
   },
   methods: {}
 };
+const _hoisted_1$i = { key: 1 };
 function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
@@ -5303,9 +5306,11 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: _ctx.emitAppendButtonClick
             }, {
               default: withCtx(() => [
-                createVNode(_component_svg_icon, {
+                $props.field.options.buttonIcon ? (openBlock(), createBlock(_component_svg_icon, {
+                  key: 0,
                   "icon-class": $props.field.options.buttonIcon
-                }, null, 8, ["icon-class"])
+                }, null, 8, ["icon-class"])) : createCommentVNode("", true),
+                $props.field.options.appendButtonText ? (openBlock(), createElementBlock("span", _hoisted_1$i, toDisplayString(_ctx.$t($props.field.options.appendButtonText)), 1)) : createCommentVNode("", true)
               ]),
               _: 1
             }, 8, ["disabled", "onClick"])
@@ -5317,7 +5322,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-b6d96cc0"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-92f41dd2"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
@@ -20139,13 +20144,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1689215792809__");
+    var svgDom = document.getElementById("__svg__icons__dom__1689301666678__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1689215792809__";
+      svgDom.id = "__svg__icons__dom__1689301666678__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

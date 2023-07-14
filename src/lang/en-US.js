@@ -270,6 +270,7 @@ export default {
       suffixIcon: 'Suffix Icon',
       inputButton: 'Input Button Setting',
       appendButton: 'Append Button',
+      appendButtonText: 'Append Button Text',
       appendButtonDisabled: 'Button Disabled',
       appendButtonIcon: 'Append Button Icon',
       buttonIcon: 'Button Icon',

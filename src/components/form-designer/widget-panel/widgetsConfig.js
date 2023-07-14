@@ -132,6 +132,7 @@ export const basicFields = [
       prefixIcon: '',
       suffixIcon: '',
       appendButton: false,
+      appendButtonText: '',
       appendButtonDisabled: false,
       buttonIcon: 'custom-search',
       //-------------------
