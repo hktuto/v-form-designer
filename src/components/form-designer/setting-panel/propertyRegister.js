@@ -110,6 +110,7 @@ const ADVANCED_PROPERTIES = {
   'labelIconPosition' :            'labelIconPosition-editor',
   'labelTooltip'      :            'labelTooltip-editor',
   'appendButton'      :            'appendButton-editor',
+  'appendButtonText'  :            'appendButtonText-editor',
   'appendButtonDisabled':          'appendButtonDisabled-editor',
   'buttonIcon'        :            'buttonIcon-editor',
 
