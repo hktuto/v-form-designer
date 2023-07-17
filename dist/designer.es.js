@@ -18990,6 +18990,8 @@ const _sfc_main$30 = {
       input.onkeyup = (event) => {
         if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
           const value2 = event.target.value;
+          if (!value2)
+            return;
           fieldEditor.handleOptionSelect({
             label: value2,
             value: value2,
@@ -19054,7 +19056,7 @@ function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-6d7fd084"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-9c06d874"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -61975,13 +61977,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1689301846547__");
+    var svgDom = document.getElementById("__svg__icons__dom__1689582094046__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1689301846547__";
+      svgDom.id = "__svg__icons__dom__1689582094046__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
