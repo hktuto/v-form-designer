@@ -37,7 +37,24 @@ export const containers = [
       customClass: '',  //自定义css类名
     }
   },
-
+  {
+    type: 'sub-form',
+    category: 'container',
+    icon: 'sub-form',
+    widgetList: [],
+    options: {
+      name: '',
+      showBlankRow: true,
+      showRowNumber: true,
+      labelAlign: 'label-center-align',
+      hidden: false,
+      customClass: '',  //自定义css类名
+      onSubFormRowAdd: '',
+      onSubFormRowInsert: '',
+      onSubFormRowDelete: '',
+      onSubFormRowChange: '',
+    }
+  },
   {
     type: 'grid-col',
     category: 'container',
