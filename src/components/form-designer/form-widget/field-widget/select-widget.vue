@@ -117,6 +117,7 @@
         input.onkeyup = (event) => {
           if(this.allowDefaultFirstOption && event.key === 'Enter' && fieldEditor.hoverIndex === -1) {
             const value = event.target.value
+            if (!value) return
             fieldEditor.handleOptionSelect({
               label: value,
               value,
