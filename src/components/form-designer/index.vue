@@ -33,7 +33,7 @@
     </div>
 
     <div class="v-form-container">
-      <widget-panel class="v-form-panel" :designer="designer" style="--el-aside-width: 275px"/>
+      <widget-panel class="v-form-panel" :designer="designer" style="--el-aside-width: 285px"/>
 
       <div class="center-layout-container">
         <el-header class="toolbar-header">
@@ -454,6 +454,7 @@
     font-size: 14px;
     border-bottom: 1px dotted #CCCCCC;
     height: 42px !important;
+    padding: unset;
     //line-height: 42px !important;
   }
 
@@ -469,7 +470,7 @@
     .v-form-container {
       display: grid;
       grid-template-columns: min-content 1fr min-content;
-      overflow: hidden;
+      overflow: auto;
       .v-form-panel {
         padding: 10px;
         height: 100%;
@@ -489,7 +490,7 @@
       .center-layout-container {
         display: grid;
         grid-template-rows: min-content 1fr;
-        min-width: 680px;
+        min-width: 800px;
         border-left: 2px dotted #EBEEF5;
         border-right: 2px dotted #EBEEF5;
         height: 100%;
