@@ -45216,7 +45216,7 @@ const _sfc_main$2N = {
 };
 const _hoisted_1$Q = { class: "toolbar-container" };
 const _hoisted_2$j = { class: "left-toolbar" };
-const _hoisted_3$g = { class: "right-toolbar-con" };
+const _hoisted_3$g = { class: "right-toolbar" };
 const _hoisted_4$9 = {
   key: 0,
   class: ""
@@ -45251,6 +45251,8 @@ const _hoisted_16 = { class: "dialog-footer" };
 function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
+  const _component_el_button_group = resolveComponent("el-button-group");
+  const _component_dir = resolveComponent("dir");
   const _component_el_tree = resolveComponent("el-tree");
   const _component_el_drawer = resolveComponent("el-drawer");
   const _component_VFormRender = resolveComponent("VFormRender");
@@ -45261,47 +45263,158 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tabs = resolveComponent("el-tabs");
   const _directive_drag = resolveDirective("drag");
   return openBlock(), createElementBlock("div", _hoisted_1$Q, [
-    createElementVNode("div", _hoisted_2$j, [
-      createVNode(_component_el_button, {
-        link: "",
-        type: "primary",
-        disabled: $options.undoDisabled,
-        title: _ctx.$t("designer.toolbar.undoHint"),
-        onClick: $options.undoHistory
-      }, {
-        default: withCtx(() => [
-          createVNode(_component_svg_icon, { "icon-class": "undo" })
+    createVNode(_component_dir, { class: "toolbar-content" }, {
+      default: withCtx(() => [
+        createElementVNode("div", _hoisted_2$j, [
+          createVNode(_component_el_button, {
+            link: "",
+            type: "primary",
+            disabled: $options.undoDisabled,
+            title: _ctx.$t("designer.toolbar.undoHint"),
+            onClick: $options.undoHistory
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_svg_icon, { "icon-class": "undo" })
+            ]),
+            _: 1
+          }, 8, ["disabled", "title", "onClick"]),
+          createVNode(_component_el_button, {
+            link: "",
+            type: "primary",
+            disabled: $options.redoDisabled,
+            title: _ctx.$t("designer.toolbar.redoHint"),
+            onClick: $options.redoHistory
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_svg_icon, { "icon-class": "redo" })
+            ]),
+            _: 1
+          }, 8, ["disabled", "title", "onClick"]),
+          createVNode(_component_el_button_group, { style: { "margin-left": "10px" } }, {
+            default: withCtx(() => [
+              createVNode(_component_el_button, {
+                type: $options.layoutType === "PC" ? "info" : "",
+                onClick: _cache[0] || (_cache[0] = ($event) => $options.changeLayoutType("PC"))
+              }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.pcLayout")), 1)
+                ]),
+                _: 1
+              }, 8, ["type"]),
+              createVNode(_component_el_button, {
+                type: $options.layoutType === "Pad" ? "info" : "",
+                onClick: _cache[1] || (_cache[1] = ($event) => $options.changeLayoutType("Pad"))
+              }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.padLayout")), 1)
+                ]),
+                _: 1
+              }, 8, ["type"]),
+              createVNode(_component_el_button, {
+                type: $options.layoutType === "H5" ? "info" : "",
+                onClick: _cache[2] || (_cache[2] = ($event) => $options.changeLayoutType("H5"))
+              }, {
+                default: withCtx(() => [
+                  createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.mobileLayout")), 1)
+                ]),
+                _: 1
+              }, 8, ["type"])
+            ]),
+            _: 1
+          }),
+          createVNode(_component_el_button, {
+            style: { "margin-left": "10px" },
+            title: _ctx.$t("designer.toolbar.nodeTreeHint"),
+            onClick: $options.showNodeTreeDrawer
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_svg_icon, { "icon-class": "node-tree" })
+            ]),
+            _: 1
+          }, 8, ["title", "onClick"])
         ]),
-        _: 1
-      }, 8, ["disabled", "title", "onClick"]),
-      createVNode(_component_el_button, {
-        link: "",
-        type: "primary",
-        disabled: $options.redoDisabled,
-        title: _ctx.$t("designer.toolbar.redoHint"),
-        onClick: $options.redoHistory
-      }, {
-        default: withCtx(() => [
-          createVNode(_component_svg_icon, { "icon-class": "redo" })
-        ]),
-        _: 1
-      }, 8, ["disabled", "title", "onClick"]),
-      createVNode(_component_el_button, {
-        style: { "margin-left": "20px" },
-        title: _ctx.$t("designer.toolbar.nodeTreeHint"),
-        onClick: $options.showNodeTreeDrawer
-      }, {
-        default: withCtx(() => [
-          createVNode(_component_svg_icon, { "icon-class": "node-tree" })
-        ]),
-        _: 1
-      }, 8, ["title", "onClick"])
-    ]),
+        createElementVNode("div", _hoisted_3$g, [
+          $options.showToolButton("clearDesignerButton") ? (openBlock(), createBlock(_component_el_button, {
+            key: 0,
+            link: "",
+            type: "primary",
+            onClick: $options.clearFormWidget
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_svg_icon, { "icon-class": "el-delete" }),
+              createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.clear")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])) : createCommentVNode("", true),
+          $options.showToolButton("previewFormButton") ? (openBlock(), createBlock(_component_el_button, {
+            key: 1,
+            link: "",
+            type: "primary",
+            onClick: $options.previewForm
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_svg_icon, { "icon-class": "el-view" }),
+              createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.preview")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])) : createCommentVNode("", true),
+          $options.showToolButton("importJsonButton") ? (openBlock(), createBlock(_component_el_button, {
+            key: 2,
+            link: "",
+            type: "primary",
+            onClick: $options.importJson
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.importJson")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])) : createCommentVNode("", true),
+          $options.showToolButton("exportJsonButton") ? (openBlock(), createBlock(_component_el_button, {
+            key: 3,
+            link: "",
+            type: "primary",
+            onClick: $options.exportJson
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.exportJson")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])) : createCommentVNode("", true),
+          $options.showToolButton("exportCodeButton") ? (openBlock(), createBlock(_component_el_button, {
+            key: 4,
+            link: "",
+            type: "primary",
+            onClick: $options.exportCode
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.exportCode")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])) : createCommentVNode("", true),
+          $options.showToolButton("generateSFCButton") ? (openBlock(), createBlock(_component_el_button, {
+            key: 5,
+            link: "",
+            type: "primary",
+            onClick: $options.generateSFC
+          }, {
+            default: withCtx(() => [
+              createVNode(_component_svg_icon, { "icon-class": "vue-sfc" }),
+              createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.generateSFC")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])) : createCommentVNode("", true),
+          (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.$slots, (idx, slotName) => {
+            return renderSlot(_ctx.$slots, slotName, {}, void 0, true);
+          }), 256))
+        ])
+      ]),
+      _: 3
+    }),
     createVNode(_component_el_drawer, {
       title: _ctx.$t("designer.toolbar.nodeTreeTitle"),
       direction: "ltr",
       modelValue: $data.showNodeTreeDrawerFlag,
-      "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.showNodeTreeDrawerFlag = $event),
+      "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.showNodeTreeDrawerFlag = $event),
       modal: true,
       size: 280,
       "destroy-on-close": true,
@@ -45321,90 +45434,11 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 1
     }, 8, ["title", "modelValue"]),
-    createElementVNode("div", {
-      class: "right-toolbar",
-      style: normalizeStyle({ width: $data.toolbarWidth + "px" })
-    }, [
-      createElementVNode("div", _hoisted_3$g, [
-        $options.showToolButton("clearDesignerButton") ? (openBlock(), createBlock(_component_el_button, {
-          key: 0,
-          link: "",
-          type: "primary",
-          onClick: $options.clearFormWidget
-        }, {
-          default: withCtx(() => [
-            createVNode(_component_svg_icon, { "icon-class": "el-delete" }),
-            createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.clear")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])) : createCommentVNode("", true),
-        $options.showToolButton("previewFormButton") ? (openBlock(), createBlock(_component_el_button, {
-          key: 1,
-          link: "",
-          type: "primary",
-          onClick: $options.previewForm
-        }, {
-          default: withCtx(() => [
-            createVNode(_component_svg_icon, { "icon-class": "el-view" }),
-            createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.preview")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])) : createCommentVNode("", true),
-        $options.showToolButton("importJsonButton") ? (openBlock(), createBlock(_component_el_button, {
-          key: 2,
-          link: "",
-          type: "primary",
-          onClick: $options.importJson
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.importJson")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])) : createCommentVNode("", true),
-        $options.showToolButton("exportJsonButton") ? (openBlock(), createBlock(_component_el_button, {
-          key: 3,
-          link: "",
-          type: "primary",
-          onClick: $options.exportJson
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.exportJson")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])) : createCommentVNode("", true),
-        $options.showToolButton("exportCodeButton") ? (openBlock(), createBlock(_component_el_button, {
-          key: 4,
-          link: "",
-          type: "primary",
-          onClick: $options.exportCode
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.exportCode")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])) : createCommentVNode("", true),
-        $options.showToolButton("generateSFCButton") ? (openBlock(), createBlock(_component_el_button, {
-          key: 5,
-          link: "",
-          type: "primary",
-          onClick: $options.generateSFC
-        }, {
-          default: withCtx(() => [
-            createVNode(_component_svg_icon, { "icon-class": "vue-sfc" }),
-            createTextVNode(toDisplayString(_ctx.$t("designer.toolbar.generateSFC")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])) : createCommentVNode("", true),
-        (openBlock(true), createElementBlock(Fragment, null, renderList(_ctx.$slots, (idx, slotName) => {
-          return renderSlot(_ctx.$slots, slotName, {}, void 0, true);
-        }), 256))
-      ])
-    ], 4),
     $data.showPreviewDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_4$9, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.preview"),
         modelValue: $data.showPreviewDialogFlag,
-        "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.showPreviewDialogFlag = $event),
+        "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.showPreviewDialogFlag = $event),
         "show-close": true,
         "close-on-click-modal": false,
         "close-on-press-escape": false,
@@ -45454,7 +45488,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["onClick"]),
             createVNode(_component_el_button, {
-              onClick: _cache[1] || (_cache[1] = ($event) => $data.showPreviewDialogFlag = false)
+              onClick: _cache[4] || (_cache[4] = ($event) => $data.showPreviewDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.closePreview")), 1)
@@ -45496,7 +45530,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.importJson"),
         modelValue: $data.showImportJsonDialogFlag,
-        "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.showImportJsonDialogFlag = $event),
+        "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.showImportJsonDialogFlag = $event),
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
         "append-to-body": true,
@@ -45517,7 +45551,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["onClick"]),
             createVNode(_component_el_button, {
-              onClick: _cache[4] || (_cache[4] = ($event) => $data.showImportJsonDialogFlag = false)
+              onClick: _cache[7] || (_cache[7] = ($event) => $data.showImportJsonDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
@@ -45537,7 +45571,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
             mode: "json",
             readonly: false,
             modelValue: $data.importTemplate,
-            "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.importTemplate = $event)
+            "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.importTemplate = $event)
           }, null, 8, ["modelValue"])
         ]),
         _: 1
@@ -45549,7 +45583,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.exportJson"),
         modelValue: $data.showExportJsonDialogFlag,
-        "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.showExportJsonDialogFlag = $event),
+        "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => $data.showExportJsonDialogFlag = $event),
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
         center: "",
@@ -45578,7 +45612,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["onClick"]),
             createVNode(_component_el_button, {
-              onClick: _cache[7] || (_cache[7] = ($event) => $data.showExportJsonDialogFlag = false)
+              onClick: _cache[10] || (_cache[10] = ($event) => $data.showExportJsonDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.closePreview")), 1)
@@ -45592,7 +45626,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
             mode: "json",
             readonly: true,
             modelValue: $data.jsonContent,
-            "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.jsonContent = $event)
+            "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.jsonContent = $event)
           }, null, 8, ["modelValue"])
         ]),
         _: 1
@@ -45604,7 +45638,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.exportCode"),
         modelValue: $data.showExportCodeDialogFlag,
-        "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => $data.showExportCodeDialogFlag = $event),
+        "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.showExportCodeDialogFlag = $event),
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
         center: "",
@@ -45651,7 +45685,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["onClick"]),
             createVNode(_component_el_button, {
-              onClick: _cache[12] || (_cache[12] = ($event) => $data.showExportCodeDialogFlag = false)
+              onClick: _cache[15] || (_cache[15] = ($event) => $data.showExportCodeDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.closePreview")), 1)
@@ -45665,7 +45699,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
             type: "border-card",
             class: "no-box-shadow no-padding",
             modelValue: $data.activeCodeTab,
-            "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => $data.activeCodeTab = $event)
+            "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => $data.activeCodeTab = $event)
           }, {
             default: withCtx(() => [
               createVNode(_component_el_tab_pane, {
@@ -45677,7 +45711,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
                     mode: "html",
                     readonly: true,
                     modelValue: $data.vueCode,
-                    "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.vueCode = $event),
+                    "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => $data.vueCode = $event),
                     "user-worker": false
                   }, null, 8, ["modelValue"])
                 ]),
@@ -45692,7 +45726,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
                     mode: "html",
                     readonly: true,
                     modelValue: $data.htmlCode,
-                    "onUpdate:modelValue": _cache[10] || (_cache[10] = ($event) => $data.htmlCode = $event),
+                    "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => $data.htmlCode = $event),
                     "user-worker": false
                   }, null, 8, ["modelValue"])
                 ]),
@@ -45711,7 +45745,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.hint.exportFormData"),
         modelValue: $data.showFormDataDialogFlag,
-        "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.showFormDataDialogFlag = $event),
+        "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => $data.showFormDataDialogFlag = $event),
         "show-close": true,
         class: "nested-drag-dialog dialog-title-light-bg",
         center: "",
@@ -45740,7 +45774,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["onClick"]),
             createVNode(_component_el_button, {
-              onClick: _cache[15] || (_cache[15] = ($event) => $data.showFormDataDialogFlag = false)
+              onClick: _cache[18] || (_cache[18] = ($event) => $data.showFormDataDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.closePreview")), 1)
@@ -45755,7 +45789,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               mode: "json",
               readonly: true,
               modelValue: $data.formDataJson,
-              "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => $data.formDataJson = $event)
+              "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.formDataJson = $event)
             }, null, 8, ["modelValue"])
           ])
         ]),
@@ -45769,7 +45803,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
         key: 0,
         title: _ctx.$t("designer.toolbar.generateSFC"),
         modelValue: $data.showExportSFCDialogFlag,
-        "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.showExportSFCDialogFlag = $event),
+        "onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => $data.showExportSFCDialogFlag = $event),
         "append-to-body": "",
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
@@ -45816,7 +45850,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["onClick"]),
             createVNode(_component_el_button, {
-              onClick: _cache[20] || (_cache[20] = ($event) => $data.showExportSFCDialogFlag = false)
+              onClick: _cache[23] || (_cache[23] = ($event) => $data.showExportSFCDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.closePreview")), 1)
@@ -45830,7 +45864,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
             type: "border-card",
             class: "no-box-shadow no-padding",
             modelValue: $data.activeSFCTab,
-            "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => $data.activeSFCTab = $event)
+            "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => $data.activeSFCTab = $event)
           }, {
             default: withCtx(() => [
               createVNode(_component_el_tab_pane, {
@@ -45842,7 +45876,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
                     mode: "html",
                     readonly: true,
                     modelValue: $data.sfcCode,
-                    "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.sfcCode = $event),
+                    "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => $data.sfcCode = $event),
                     "user-worker": false
                   }, null, 8, ["modelValue"])
                 ]),
@@ -45857,7 +45891,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
                     mode: "html",
                     readonly: true,
                     modelValue: $data.sfcCodeV3,
-                    "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => $data.sfcCodeV3 = $event),
+                    "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.sfcCodeV3 = $event),
                     "user-worker": false
                   }, null, 8, ["modelValue"])
                 ]),
@@ -45874,7 +45908,7 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$2N, [["render", _sfc_render$2N], ["__scopeId", "data-v-744aec55"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$2N, [["render", _sfc_render$2N], ["__scopeId", "data-v-478bf66d"]]);
 const _sfc_main$2M = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -52445,7 +52479,7 @@ const _sfc_main$o = {
     }
   }
 };
-const _withScopeId$1 = (n) => (pushScopeId("data-v-5f0b3b28"), n = n(), popScopeId(), n);
+const _withScopeId$1 = (n) => (pushScopeId("data-v-1bcc72a7"), n = n(), popScopeId(), n);
 const _hoisted_1$k = { style: { "height": "100%" } };
 const _hoisted_2$g = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormCreated", -1));
 const _hoisted_3$e = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormMounted", -1));
@@ -52954,7 +52988,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-5f0b3b28"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-1bcc72a7"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -53535,7 +53569,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-816bdb7c"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-8e7e4706"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -56038,7 +56072,7 @@ const _sfc_main$e = {
     }
   }
 };
-const _withScopeId = (n) => (pushScopeId("data-v-1f71568a"), n = n(), popScopeId(), n);
+const _withScopeId = (n) => (pushScopeId("data-v-6e82425b"), n = n(), popScopeId(), n);
 const _hoisted_1$b = { class: "main-container" };
 const _hoisted_2$a = { class: "main-header" };
 const _hoisted_3$9 = { class: "float-left main-title" };
@@ -56142,7 +56176,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_widget_panel, {
         class: "v-form-panel",
         designer: $data.designer,
-        style: { "--el-aside-width": "275px" }
+        style: { "--el-aside-width": "285px" }
       }, null, 8, ["designer"]),
       createElementVNode("div", _hoisted_10, [
         createVNode(_component_el_header, { class: "toolbar-header" }, {
@@ -56182,7 +56216,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-1f71568a"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-6e82425b"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -62106,13 +62140,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1690875953501__");
+    var svgDom = document.getElementById("__svg__icons__dom__1691978510658__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1690875953501__";
+      svgDom.id = "__svg__icons__dom__1691978510658__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -1,6 +1,6 @@
 <template>
  <el-tabs v-model="activeName" class="demo-tabs">
-  <el-tab-pane label="VFormDesigner" name="VFormDesigner">
+  <el-tab-pane class="demo-tabs-pane" label="VFormDesigner" name="VFormDesigner">
       <el-config-provider :locale="elLocale">
         <VFormDesigner ref="vfDesignerRef" :global-dsv="globalDsv"
           :fieldListApi="{
@@ -102,17 +102,21 @@ export default {
 </script>
 
 <style lang="scss" scope>
-.el-tabs {
+.demo-tabs {
   height: 97vh;
   overflow: hidden;
   display: grid;
   grid-template-rows: min-content 1fr;
-  :deep(.el-tabs__content) {
-    overflow: hidden;
-  }
-  .el-tab-pane {
+  .demo-tabs-pane {
     overflow: auto;
     height: 100%;
   }
+  // :deep(.el-tabs__content) {
+  //   overflow: auto;
+  //   .el-tab-pane {
+  //     overflow: auto;
+  //     height: 100%;
+  //   }
+  // }
 }
 </style>

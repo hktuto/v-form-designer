@@ -311,7 +311,7 @@
 
   .setting-collapse {
     height: 100%;
-    overflow: auto;
+    overflow: hidden;
     :deep(.el-collapse-item__content) {
       padding-bottom: 6px;
     }
