@@ -18,20 +18,20 @@
               <template v-if="subWidget.options.labelIconPosition === 'front'">
                 <template v-if="!!subWidget.options.labelTooltip">
                   <el-tooltip :content="subWidget.options.labelTooltip" effect="light">
-                    <svg-icon :icon-class="subWidget.options.labelIconClass" /></el-tooltip>{{subWidget.options.label}}</template>
+                    <svg-icon :icon-class="subWidget.options.labelIconClass" /></el-tooltip>{{$t(subWidget.options.label)}}</template>
                 <template v-else>
-                  <svg-icon :icon-class="subWidget.options.labelIconClass" />{{subWidget.options.label}}</template>
+                  <svg-icon :icon-class="subWidget.options.labelIconClass" />{{$t(subWidget.options.label)}}</template>
               </template>
               <template v-else-if="subWidget.options.labelIconPosition === 'rear'">
                 <template v-if="!!subWidget.options.labelTooltip">
-                  {{subWidget.options.label}}<el-tooltip :content="subWidget.options.labelTooltip" effect="light">
+                  {{$t(subWidget.options.label)}}<el-tooltip :content="subWidget.options.labelTooltip" effect="light">
                   <svg-icon :icon-class="subWidget.options.labelIconClass" /></el-tooltip></template>
                 <template v-else>
-                  {{subWidget.options.label}}<svg-icon :icon-class="subWidget.options.labelIconClass" /></template>
+                  {{$t(subWidget.options.label)}}<svg-icon :icon-class="subWidget.options.labelIconClass" /></template>
               </template>
             </span>
             <template v-else>
-              <span :title="subWidget.options.labelTooltip">{{subWidget.options.label}}</span></template>
+              <span :title="subWidget.options.labelTooltip">{{$t(subWidget.options.label)}}</span></template>
           </div>
         </template>
       </el-row>

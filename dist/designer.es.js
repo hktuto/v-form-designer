@@ -19320,13 +19320,13 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createElementVNode("pre", {
           style: normalizeStyle({ "white-space": !!$props.field.options.preWrap ? "pre-wrap" : "pre", "text-align": !!$props.field.options.textAlign ? $props.field.options.textAlign : "left" })
-        }, toDisplayString($props.field.options.textContent), 5)
+        }, toDisplayString(_ctx.$t($props.field.options.textContent)), 5)
       ], 4)
     ]),
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-990dcae8"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-5c0e1d8a"]]);
 var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
@@ -20358,16 +20358,16 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
                         ]),
                         _: 2
                       }, 1032, ["content"]),
-                      createTextVNode(toDisplayString(subWidget.options.label), 1)
+                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1)
                     ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                       createVNode(_component_svg_icon, {
                         "icon-class": subWidget.options.labelIconClass
                       }, null, 8, ["icon-class"]),
-                      createTextVNode(toDisplayString(subWidget.options.label), 1)
+                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1)
                     ], 64))
                   ], 64)) : subWidget.options.labelIconPosition === "rear" ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                     !!subWidget.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-                      createTextVNode(toDisplayString(subWidget.options.label), 1),
+                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1),
                       createVNode(_component_el_tooltip, {
                         content: subWidget.options.labelTooltip,
                         effect: "light"
@@ -20380,7 +20380,7 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
                         _: 2
                       }, 1032, ["content"])
                     ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-                      createTextVNode(toDisplayString(subWidget.options.label), 1),
+                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1),
                       createVNode(_component_svg_icon, {
                         "icon-class": subWidget.options.labelIconClass
                       }, null, 8, ["icon-class"])
@@ -20389,7 +20389,7 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
                 ])) : (openBlock(), createElementBlock("span", {
                   key: 1,
                   title: subWidget.options.labelTooltip
-                }, toDisplayString(subWidget.options.label), 9, _hoisted_4$a))
+                }, toDisplayString(_ctx.$t(subWidget.options.label)), 9, _hoisted_4$a))
               ], 6);
             }), 128))
           ]),
@@ -20457,7 +20457,7 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-0391bfba"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$1(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-352932f2"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -62140,13 +62140,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1691978510658__");
+    var svgDom = document.getElementById("__svg__icons__dom__1692697787774__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1691978510658__";
+      svgDom.id = "__svg__icons__dom__1692697787774__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
