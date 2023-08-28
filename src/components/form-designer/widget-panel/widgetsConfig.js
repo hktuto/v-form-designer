@@ -159,6 +159,7 @@ export const basicFields = [
       onChange: '',
       onFocus: '',
       onBlur: '',
+      onEnter: '',
       onValidate: '',
       onAppendButtonClick: '',
     },

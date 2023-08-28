@@ -12,6 +12,7 @@
               :minlength="field.options.minLength" :maxlength="field.options.maxLength"
               :show-word-limit="field.options.showWordLimit"
               :prefix-icon="field.options.prefixIcon" :suffix-icon="field.options.suffixIcon"
+              @keyup.enter="handleEnterEvent"
               @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent" @input="handleInputCustomEvent"
               @change="handleChangeEvent">
       <template #append v-if="field.options.appendButton">
@@ -107,7 +108,9 @@
     },
 
     methods: {
-
+      keyupTest() {
+        console.log('??????????');
+      }
     }
   }
 </script>
