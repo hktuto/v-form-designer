@@ -7,7 +7,7 @@
                :circle="field.options.circle" :icon="field.options.icon"
                :disabled="field.options.disabled"
                @click="handleButtonWidgetClick">
-      {{field.options.label}}</el-button>
+      {{$t(field.options.label)}}</el-button>
   </static-content-wrapper>
 </template>
 
