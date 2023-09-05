@@ -24,7 +24,7 @@ export default {
     emit$(eventName, data) {
       if (this.vfEvents[eventName]) {
         this.vfEvents[eventName].forEach((fn) => {
-          if(Array.isArray(data) ) fn(...data);
+          if(['fieldChange'].includes(eventName) ) fn(...data);
           else fn(data)
         });
       }

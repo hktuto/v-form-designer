@@ -4384,7 +4384,7 @@ var emitter = {
     emit$(eventName, data2) {
       if (this.vfEvents[eventName]) {
         this.vfEvents[eventName].forEach((fn) => {
-          if (Array.isArray(data2))
+          if (["fieldChange"].includes(eventName))
             fn(...data2);
           else
             fn(data2);
@@ -62196,13 +62196,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1693881507806__");
+    var svgDom = document.getElementById("__svg__icons__dom__1693893080627__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1693881507806__";
+      svgDom.id = "__svg__icons__dom__1693893080627__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
