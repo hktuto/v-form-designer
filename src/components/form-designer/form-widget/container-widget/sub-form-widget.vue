@@ -88,12 +88,10 @@
         }
 
         this.designer.emitHistoryChange()
-        console.log('test', 'onSubFormDragAdd')
         this.designer.emitEvent('field-selected', this.widget)
       },
 
       onSubFormDragEnd(evt) {
-        console.log('sub form drag end: ', evt)
       },
 
     }

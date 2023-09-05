@@ -109,7 +109,6 @@
 
     methods: {
       keyupTest() {
-        console.log('??????????');
       }
     }
   }

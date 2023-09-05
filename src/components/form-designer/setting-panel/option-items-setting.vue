@@ -120,7 +120,6 @@
       'selectedWidget.options': {
         deep: true,
         handler(val) {
-          //console.log('888888', 'Options change!')
         }
       },
     },
@@ -163,7 +162,6 @@
 
       saveOptions() {
         let lineArray = this.optionLines.split('\n')
-        //console.log('test', lineArray)
         if (lineArray.length > 0) {
           this.optionModel.optionItems = []
           lineArray.forEach((optLine) => {

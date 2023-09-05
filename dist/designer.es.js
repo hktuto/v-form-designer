@@ -6685,7 +6685,6 @@ const _sfc_main$39 = {
   },
   methods: {
     keyupTest() {
-      console.log("??????????");
     }
   }
 };
@@ -6755,7 +6754,7 @@ function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-14e6fed8"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-3dffc62a"]]);
 var __glob_0_10$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
@@ -45168,7 +45167,6 @@ const _sfc_main$2O = {
       axios.get("https://www.fastmock.site/mock/e9710039bb5f11262d1a0f2f0bbe08c8/vform3/getFS").then((res) => {
         let newFormJson = res.data;
         this.$refs.preForm.setFormJson(newFormJson);
-        console.log("test", "aaaaaaaa");
         this.$nextTick(() => {
           let newFormData = { "input30696": "668899" };
           this.$refs.preForm.setFormData(newFormData);
@@ -45923,7 +45921,7 @@ function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$2O, [["render", _sfc_render$2O], ["__scopeId", "data-v-478bf66d"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$1(_sfc_main$2O, [["render", _sfc_render$2O], ["__scopeId", "data-v-7e3e936b"]]);
 const _sfc_main$2N = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -47528,7 +47526,7 @@ const _sfc_main$2b = {
     }
   }
 };
-const _withScopeId$3 = (n) => (pushScopeId("data-v-c71d1fea"), n = n(), popScopeId(), n);
+const _withScopeId$3 = (n) => (pushScopeId("data-v-1a454c25"), n = n(), popScopeId(), n);
 const _hoisted_1$Q = { class: "option-items-pane" };
 const _hoisted_2$i = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
 const _hoisted_3$f = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
@@ -47826,7 +47824,7 @@ function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$2b, [["render", _sfc_render$2b], ["__scopeId", "data-v-c71d1fea"]]);
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$1(_sfc_main$2b, [["render", _sfc_render$2b], ["__scopeId", "data-v-1a454c25"]]);
 const _sfc_main$2a = {
   name: "optionItems-editor",
   mixins: [i18n$1],
@@ -54252,11 +54250,9 @@ const _sfc_main$j = {
         this.designer.setSelected(subList[newIndex2]);
       }
       this.designer.emitHistoryChange();
-      console.log("test", "onSubFormDragAdd");
       this.designer.emitEvent("field-selected", this.widget);
     },
     onSubFormDragEnd(evt) {
-      console.log("sub form drag end: ", evt);
     }
   }
 };
@@ -54321,7 +54317,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var subFormWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-65c062cf"]]);
+var subFormWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-c339c292"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormWidget
@@ -55793,7 +55789,6 @@ function createDesigner(vueInstance) {
           spanSum += col.options.span;
         });
         if (spanSum >= 24) {
-          console.log("\u5217\u6805\u683C\u4E4B\u548C\u8D85\u51FA24");
           gridWidget2.cols.push(newGridCol);
         } else {
           newGridCol.options.span = 24 - spanSum > 12 ? 12 : 24 - spanSum;
@@ -55984,8 +55979,6 @@ const _sfc_main$e = {
   },
   methods: {
     testEEH(eventName, eventParams) {
-      console.log("test", eventName);
-      console.log("test222222", eventParams);
     },
     showLink(configName) {
       if (this.designerConfig[configName] === void 0) {
@@ -56135,7 +56128,7 @@ const _sfc_main$e = {
     }
   }
 };
-const _withScopeId = (n) => (pushScopeId("data-v-6e82425b"), n = n(), popScopeId(), n);
+const _withScopeId = (n) => (pushScopeId("data-v-88e1ce00"), n = n(), popScopeId(), n);
 const _hoisted_1$b = { class: "main-container" };
 const _hoisted_2$a = { class: "main-header" };
 const _hoisted_3$9 = { class: "float-left main-title" };
@@ -56279,7 +56272,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-6e82425b"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$1(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-88e1ce00"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -62203,13 +62196,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1693881105141__");
+    var svgDom = document.getElementById("__svg__icons__dom__1693881507806__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1693881105141__";
+      svgDom.id = "__svg__icons__dom__1693881507806__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
