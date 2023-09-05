@@ -172,8 +172,6 @@
     },
     methods: {
       testEEH(eventName, eventParams) {
-        console.log('test', eventName)
-        console.log('test222222', eventParams)
       },
 
       showLink(configName) {

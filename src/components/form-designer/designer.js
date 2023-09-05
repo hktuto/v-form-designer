@@ -729,7 +729,6 @@ export function createDesigner(vueInstance) {
       let newWidget = deepClone(origin)
       let tempId = generateId()
       newWidget.id = newWidget.type.replace(/-/g, '') + tempId
-      //console.log('test id===', newWidget.id)
       newWidget.options.name = newWidget.id
       newWidget.options.label = newWidget.options.label || newWidget.type.toLowerCase()
 
@@ -826,7 +825,7 @@ export function createDesigner(vueInstance) {
 
         if (spanSum >= 24) {
           //this.$message.info('列栅格之和超出24')
-          console.log('列栅格之和超出24')
+          // console.log('列栅格之和超出24')
           gridWidget.cols.push(newGridCol)
         } else {
           newGridCol.options.span = (24 - spanSum) > 12 ? 12 : (24 - spanSum)

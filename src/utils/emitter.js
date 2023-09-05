@@ -24,7 +24,8 @@ export default {
     emit$(eventName, data) {
       if (this.vfEvents[eventName]) {
         this.vfEvents[eventName].forEach((fn) => {
-          fn(data);
+          if(Array.isArray(data) ) fn(...data);
+          else fn(data)
         });
       }
     },

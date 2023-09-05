@@ -343,7 +343,12 @@ export default {
         customFn.call(this, event)
       }
     },
-
+    handleEnterEvent(event) {
+      if (!!this.field.options.onEnter) {
+        let customFn = new Function('event', this.field.options.onEnter)
+        customFn.call(this, event)
+      }
+    },
     handleBlurCustomEvent(event) {
       if (!!this.field.options.onBlur) {
         let customFn = new Function('event', this.field.options.onBlur)

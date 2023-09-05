@@ -91,11 +91,8 @@ export default {
   methods: {
     doTest() {
       let fieldList = this.$refs.vfDesignerRef.getFieldWidgets(null, true)
-      console.log('test', fieldList)
-      console.log(this.formJson);
     },
     filePreview(file){
-      console.log(45678789, file);
     }
   }
 }
