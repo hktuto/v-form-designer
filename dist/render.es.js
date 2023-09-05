@@ -17,7 +17,7 @@ var __spreadValues = (a, b) => {
   return a;
 };
 var __spreadProps = (a, b) => __defProps(a, __getOwnPropDescs(b));
-import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, pushScopeId, popScopeId, createSlots, watch, ref, onBeforeUnmount, onMounted, onUnmounted, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, defineComponent, isVNode } from "vue";
+import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, pushScopeId, popScopeId, withKeys, createSlots, watch, ref, onBeforeUnmount, onMounted, onUnmounted, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, defineComponent, isVNode } from "vue";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 function getDefaultExportFromCjs(x) {
   return x && x.__esModule && Object.prototype.hasOwnProperty.call(x, "default") ? x["default"] : x;
@@ -1076,7 +1076,10 @@ var emitter = {
     emit$(eventName, data2) {
       if (this.vfEvents[eventName]) {
         this.vfEvents[eventName].forEach((fn) => {
-          fn(data2);
+          if (Array.isArray(data2))
+            fn(...data2);
+          else
+            fn(data2);
         });
       }
     },
@@ -3603,6 +3606,12 @@ var fieldMixin = {
         customFn.call(this, event);
       }
     },
+    handleEnterEvent(event) {
+      if (!!this.field.options.onEnter) {
+        let customFn = new Function("event", this.field.options.onEnter);
+        customFn.call(this, event);
+      }
+    },
     handleBlurCustomEvent(event) {
       if (!!this.field.options.onBlur) {
         let customFn = new Function("event", this.field.options.onBlur);
@@ -3907,7 +3916,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: _ctx.handleButtonWidgetClick
       }, {
         default: withCtx(() => [
-          createTextVNode(toDisplayString($props.field.options.label), 1)
+          createTextVNode(toDisplayString(_ctx.$t($props.field.options.label)), 1)
         ]),
         _: 1
       }, 8, ["type", "size", "plain", "round", "circle", "icon", "disabled", "onClick"])
@@ -3915,7 +3924,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-6f92d10c"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-0c3ad1ca"]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
@@ -4815,7 +4824,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
         "content-position": $props.field.options.contentPosition
       }, {
         default: withCtx(() => [
-          createTextVNode(toDisplayString($props.field.options.label), 1)
+          createTextVNode(toDisplayString(_ctx.$t($props.field.options.label)), 1)
         ]),
         _: 1
       }, 8, ["content-position"])
@@ -4823,7 +4832,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-a326e5e0"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-a3d9051e"]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
@@ -5255,7 +5264,11 @@ const _sfc_main$A = {
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    keyupTest() {
+      console.log("??????????");
+    }
+  }
 };
 const _hoisted_1$i = { key: 1 };
 function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
@@ -5293,6 +5306,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         "show-word-limit": $props.field.options.showWordLimit,
         "prefix-icon": $props.field.options.prefixIcon,
         "suffix-icon": $props.field.options.suffixIcon,
+        onKeyup: withKeys(_ctx.handleEnterEvent, ["enter"]),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onInput: _ctx.handleInputCustomEvent,
@@ -5317,12 +5331,12 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
           ]),
           key: "0"
         } : void 0
-      ]), 1032, ["modelValue", "disabled", "readonly", "size", "type", "show-password", "placeholder", "clearable", "minlength", "maxlength", "show-word-limit", "prefix-icon", "suffix-icon", "onFocus", "onBlur", "onInput", "onChange"])
+      ]), 1032, ["modelValue", "disabled", "readonly", "size", "type", "show-password", "placeholder", "clearable", "minlength", "maxlength", "show-word-limit", "prefix-icon", "suffix-icon", "onKeyup", "onFocus", "onBlur", "onInput", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-92f41dd2"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-14e6fed8"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
@@ -20146,13 +20160,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1692697798394__");
+    var svgDom = document.getElementById("__svg__icons__dom__1693881116380__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1692697798394__";
+      svgDom.id = "__svg__icons__dom__1693881116380__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
