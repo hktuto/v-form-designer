@@ -84,7 +84,7 @@
     computed: {
       editorOption() {
         return {
-          placeholder: this.field.options.placeholder,
+          placeholder: $t(this.field.options.placeholder),
           modules: {
             //toolbar: this.customToolbar
           }

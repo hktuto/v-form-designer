@@ -4282,7 +4282,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
           size: _ctx.widgetSize,
           clearable: $props.field.options.clearable,
           filterable: $props.field.options.filterable,
-          placeholder: $props.field.options.placeholder || _ctx.$t("render.hint.selectPlaceholder"),
+          placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.i18nt("render.hint.selectPlaceholder"),
           "show-all-levels": $options.showFullPath,
           props: {
             checkStrictly: $props.field.options.checkStrictly,
@@ -4300,7 +4300,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-31476c64"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-b198da06"]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
@@ -4635,8 +4635,8 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
           "value-format": $props.field.options.valueFormat,
           shortcuts: _ctx.onShortcutsFn(),
           "default-time": $props.field.options.defaultTime,
-          "start-placeholder": $props.field.options.startPlaceholder || _ctx.$t("render.hint.startDatePlaceholder"),
-          "end-placeholder": $props.field.options.endPlaceholder || _ctx.$t("render.hint.endDatePlaceholder"),
+          "start-placeholder": $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startDatePlaceholder"),
+          "end-placeholder": $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endDatePlaceholder"),
           "disabled-date": _ctx.disabledDateFn,
           onFocus: _ctx.handleFocusCustomEvent,
           onBlur: _ctx.handleBlurCustomEvent,
@@ -4647,7 +4647,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-7a880a58"]]);
+var dateRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-bffd300a"]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeWidget
@@ -4742,7 +4742,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
         "disabled-date": _ctx.disabledDateFn,
         "disabled-hour": _ctx.disabledHour,
         "disabled-minute": _ctx.disabledMinute,
-        placeholder: $props.field.options.placeholder || _ctx.$t("render.hint.datePlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.i18nt("render.hint.datePlaceholder"),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onChange: _ctx.handleChangeEvent
@@ -4751,7 +4751,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-42e3abba"]]);
+var dateWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-5a047b2b"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateWidget
@@ -5298,7 +5298,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         class: "hide-spin-button",
         type: $options.inputType,
         "show-password": $props.field.options.showPassword,
-        placeholder: $props.field.options.placeholder,
+        placeholder: _ctx.$t($props.field.options.placeholder),
         clearable: $props.field.options.clearable,
         minlength: $props.field.options.minLength,
         maxlength: $props.field.options.maxLength,
@@ -5335,7 +5335,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-3dffc62a"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-cfd76370"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
@@ -5420,7 +5420,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $props.field.options.disabled,
         size: _ctx.widgetSize,
         "controls-position": $props.field.options.controlsPosition,
-        placeholder: $props.field.options.placeholder,
+        placeholder: _ctx.$t($props.field.options.placeholder),
         min: $props.field.options.min,
         max: $props.field.options.max,
         precision: $props.field.options.precision,
@@ -5433,7 +5433,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-78aba4ad"]]);
+var numberWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-dbbd8ba0"]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberWidget
@@ -17452,7 +17452,7 @@ const _sfc_main$u = {
   computed: {
     editorOption() {
       return {
-        placeholder: this.field.options.placeholder,
+        placeholder: $t(this.field.options.placeholder),
         modules: {}
       };
     }
@@ -17520,7 +17520,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-736d97e5"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-875bcc5c"]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
@@ -17646,7 +17646,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
-        placeholder: $props.field.options.placeholder || _ctx.$t("render.hint.selectPlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.i18nt("render.hint.selectPlaceholder"),
         remote: $props.field.options.remote,
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
@@ -17669,7 +17669,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-9c06d874"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-38beeb77"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -18099,7 +18099,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $props.field.options.disabled,
         readonly: $props.field.options.readonly,
         size: _ctx.widgetSize,
-        placeholder: $props.field.options.placeholder,
+        placeholder: _ctx.$t($props.field.options.placeholder),
         rows: $props.field.options.rows,
         minlength: $props.field.options.minLength,
         maxlength: $props.field.options.maxLength,
@@ -18113,7 +18113,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-07ccea24"]]);
+var textareaWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-f9d2719e"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textareaWidget
@@ -18206,8 +18206,8 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
           editable: $props.field.options.editable,
           format: $props.field.options.format,
           "value-format": "HH:mm:ss",
-          "start-placeholder": $props.field.options.startPlaceholder || _ctx.$t("render.hint.startTimePlaceholder"),
-          "end-placeholder": $props.field.options.endPlaceholder || _ctx.$t("render.hint.endTimePlaceholder"),
+          "start-placeholder": $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startTimePlaceholder"),
+          "end-placeholder": $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endTimePlaceholder"),
           onFocus: _ctx.handleFocusCustomEvent,
           onBlur: _ctx.handleBlurCustomEvent,
           onChange: _ctx.handleChangeEvent
@@ -18217,7 +18217,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-2b70e154"]]);
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-39163a8d"]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
@@ -18306,7 +18306,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
         editable: $props.field.options.editable,
         format: $props.field.options.format,
         "value-format": "HH:mm:ss",
-        placeholder: $props.field.options.placeholder || _ctx.$t("render.hint.timePlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.i18nt("render.hint.timePlaceholder"),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onChange: _ctx.handleChangeEvent
@@ -18315,7 +18315,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-4f8b3e9b"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$1(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-fcdc66e8"]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -20159,13 +20159,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1693893091537__");
+    var svgDom = document.getElementById("__svg__icons__dom__1694425145428__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1693893091537__";
+      svgDom.id = "__svg__icons__dom__1694425145428__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

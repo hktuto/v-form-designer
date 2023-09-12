@@ -9,8 +9,8 @@
                       :size="widgetSize"
                       :clearable="field.options.clearable" :editable="field.options.editable"
                       :format="field.options.format" value-format="HH:mm:ss"
-                      :start-placeholder="field.options.startPlaceholder || $t('render.hint.startTimePlaceholder')"
-                      :end-placeholder="field.options.endPlaceholder || $t('render.hint.endTimePlaceholder')"
+                      :start-placeholder="field.options.startPlaceholder ? $t(field.options.startPlaceholder) : $t('render.hint.startTimePlaceholder')"
+                      :end-placeholder="field.options.endPlaceholder ? $t(field.options.endPlaceholder) : $t('render.hint.endTimePlaceholder')"
                       @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                       @change="handleChangeEvent">
       </el-time-picker>
