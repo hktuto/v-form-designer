@@ -13,7 +13,7 @@
                     :disabled-date="disabledDateFn"
                     :disabled-hour="disabledHour"
                     :disabled-minute="disabledMinute"
-                    :placeholder="field.options.placeholder ? $t(field.options.placeholder) : i18nt('render.hint.datePlaceholder')"
+                    :placeholder="field.options.placeholder ? $t(field.options.placeholder) : $t('render.hint.datePlaceholder')"
                     @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                     @change="handleChangeEvent">
     </el-date-picker>
