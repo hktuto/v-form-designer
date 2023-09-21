@@ -45,7 +45,6 @@ export const changeLocale = function(langName) {
 
 export const translate = function(key) {
   if(window.$t) {
-    console.log(window.$t, window.$t(key))
     return window.$t(key)
   }
   return i18n.$st(key)
