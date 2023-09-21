@@ -2,41 +2,37 @@
   <form-item-wrapper :designer="designer" :field="field" :rules="rules" :design-state="designState"
                      :parent-widget="parentWidget" :parent-list="parentList" :index-of-parent-list="indexOfParentList"
                      :sub-form-row-index="subFormRowIndex" :sub-form-col-index="subFormColIndex" :sub-form-row-id="subFormRowId">
-    <!--
-    <vue-editor ref="fieldEditor" v-model="fieldModel" :editor-toolbar="customToolbar"
-                :disabled="field.options.disabled" :placeholder="field.options.placeholder"
-                @text-change="handleRichEditorChangeEvent"
-                @focus="handleRichEditorFocusEvent" @blur="handleRichEditorBlurEvent">
-    </vue-editor>
-    -->
-
-    <div>
-      <quill-editor
-              v-model:value="fieldModel"
-              :options="editorOption"
-              :disabled="field.options.disabled"
-              @blur="handleRichEditorBlurEvent"
-              @focus="handleRichEditorFocusEvent"
-              @change="handleRichEditorChangeEvent"
-              :style="!!field.options.contentHeight ? `height: ${field.options.contentHeight};`: ''"></quill-editor>
+    <div style="border: 1px solid #ccc">
+      <Toolbar
+        style="border-bottom: 1px solid #ccc"
+        :editor="editorRef"
+        :defaultConfig="toolbarConfig"
+        :mode="mode"
+      />
+      <Editor
+        style="height: 500px; overflow-y: hidden;"
+        v-model="fieldModel"
+        :defaultConfig="editorConfig"
+        :mode="mode"
+        @onCreated="handleCreated"
+        @onChange="handleChange"
+      />
     </div>
-
   </form-item-wrapper>
 </template>
 
 <script>
   import FormItemWrapper from './form-item-wrapper'
   import emitter from '@/utils/emitter'
-  import i18n, {translate} from "@/utils/i18n";
   import {deepClone} from "@/utils/util";
   import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
 
-  import { Quill, quillEditor } from 'vue3-quill'
-
+  import '@wangeditor/editor/dist/css/style.css'
+  import { Editor, Toolbar } from '@wangeditor/editor-for-vue'
   export default {
     name: "rich-editor-widget",
     componentName: 'FieldWidget',  //必须固定为FieldWidget，用于接收父级组件的broadcast事件
-    mixins: [emitter, fieldMixin, i18n],
+    mixins: [emitter, fieldMixin],
     props: {
       field: Object,
       parentWidget: Object,
@@ -69,7 +65,7 @@
       // VueEditor: resolve => { //懒加载！！
       //   require(['vue2-editor'], ({VueEditor}) => resolve(VueEditor))
       // }
-      quillEditor,
+      Editor, Toolbar
     },
     data() {
       return {
@@ -79,12 +75,26 @@
 
         customToolbar: [], //富文本编辑器自定义工具栏
         valueChangedFlag: false, //vue2-editor数据值是否改变标志
+
+        editorConfig: {
+          placeholder: '请输入内容...',
+          MENU_CONF: {
+            uploadImage: {
+              base64LimitSize: 5 * 1024 * 1024,
+            }
+          }
+        },
+        editorRef: null,
+        toolbarConfig: {
+          excludeKeys: ['insertVideo', 'insertTable', 'fullScreen', 'undo', 'redo', 'todo']
+        },
+        mode: 'default'
       }
     },
     computed: {
       editorOption() {
         return {
-          placeholder: this.field.options.placeholder,
+          placeholder: $t(this.field.options.placeholder),
           modules: {
             //toolbar: this.customToolbar
           }
@@ -112,11 +122,17 @@
     },
 
     beforeUnmount() {
+      const editor = this.editorRef
+      if (editor == null) return
+      editor.destroy()
       this.unregisterFromRefList()
     },
 
     methods: {
-      handleRichEditorChangeEvent() {
+      handleChange(editor) {
+        console.log(editor)
+        const html = editor.getHtml()
+        console.log({html}, this.fieldModel);
         this.valueChangedFlag = true
         this.syncUpdateFormModel(this.fieldModel)
       },
@@ -131,11 +147,12 @@
           this.valueChangedFlag = false
         }
       },
-
+      handleCreated(editor) {
+        this.editorRef = editor // 记录 editor 实例，重要！ 
+      }
     }
   }
 </script>
-
 <style lang="scss" scoped>
   @import "../../../../styles/global.scss"; /* form-item-wrapper已引入，还需要重复引入吗？ */
 

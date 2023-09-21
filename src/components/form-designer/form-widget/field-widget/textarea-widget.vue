@@ -5,7 +5,7 @@
     <el-input type="textarea" ref="fieldEditor" v-model="fieldModel"
               :disabled="field.options.disabled" :readonly="field.options.readonly"
               :size="widgetSize"
-              :placeholder="field.options.placeholder" :rows="field.options.rows"
+              :placeholder="$t(field.options.placeholder)" :rows="field.options.rows"
               :minlength="field.options.minLength" :maxlength="field.options.maxLength"
               :show-word-limit="field.options.showWordLimit"
               @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent" @input="handleInputCustomEvent"

@@ -1,6 +1,6 @@
 {
   "name": "v-form",
-  "version": "3.0.17",
+  "version": "3.0.19",
   "private": false,
   "main": "dist/designer.umd.js",
   "files": [
@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@element-plus/icons-vue": "^0.2.4",
+    "@wangeditor/editor": "^5.1.23",
+    "@wangeditor/editor-for-vue": "^5.1.12",
     "axios": "^0.24.0",
     "clipboard": "^2.0.8",
     "core-js": "^3.6.5",

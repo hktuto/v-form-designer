@@ -10,8 +10,8 @@
                       :format="field.options.format" :value-format="field.options.valueFormat"
                       :shortcuts="onShortcutsFn()"
                       :default-time="field.options.defaultTime"
-                      :start-placeholder="field.options.startPlaceholder || $t('render.hint.startDatePlaceholder')"
-                      :end-placeholder="field.options.endPlaceholder || $t('render.hint.endDatePlaceholder')"
+                      :start-placeholder="field.options.startPlaceholder ? $t(field.options.startPlaceholder) : $t('render.hint.startDatePlaceholder')"
+                      :end-placeholder="field.options.endPlaceholder ? $t(field.options.endPlaceholder) : $t('render.hint.endDatePlaceholder')"
                       :disabled-date="disabledDateFn"
                       @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent"
                       @change="handleChangeEvent">

@@ -1,6 +1,6 @@
 <template>
   <el-form-item v-if="!hasConfig('optionItems')" :label="$t('designer.setting.defaultValue')">
-    <el-input type="text" v-model="optionModel.defaultValue"
+    <el-input type="textarea" :rows="3" v-model="optionModel.defaultValue"
               @change="emitDefaultValueChange"></el-input>
   </el-form-item>
 </template>
