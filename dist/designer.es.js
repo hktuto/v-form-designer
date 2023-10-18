@@ -5512,6 +5512,7 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
   }, [
     !!$props.field.formItemFlag && (!$props.field.options.hidden || $props.designState === true) ? (openBlock(), createBlock(_component_el_form_item, {
       key: 0,
+      id: `vform-dp-${$props.field.options.name}`,
       label: _ctx.$t($options.label),
       "label-width": $options.labelWidth + "px",
       title: $props.field.options.labelTooltip,
@@ -5569,7 +5570,7 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, "default", {}, void 0, true)
       ]),
       _: 3
-    }, 8, ["label", "label-width", "title", "rules", "prop", "class"])) : createCommentVNode("", true),
+    }, 8, ["id", "label", "label-width", "title", "rules", "prop", "class"])) : createCommentVNode("", true),
     !!this.designer ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
       $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_2$p, [
         createElementVNode("i", {
@@ -5613,7 +5614,7 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-6e1ed8ce"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-3f292399"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
@@ -73608,13 +73609,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1695286195406__");
+    var svgDom = document.getElementById("__svg__icons__dom__1697617746507__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1695286195406__";
+      svgDom.id = "__svg__icons__dom__1697617746507__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
