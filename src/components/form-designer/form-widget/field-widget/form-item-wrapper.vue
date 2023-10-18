@@ -11,6 +11,7 @@
 <template>
   <div class="field-wrapper" :class="{'design-time-bottom-margin': !!this.designer}">
     <el-form-item v-if="!!field.formItemFlag && (!field.options.hidden || (designState === true))"
+                  :id="`vform-dp-${field.options.name}`"
                   :label="$t(label)" :label-width="labelWidth + 'px'"
                   :title="field.options.labelTooltip"
                   :rules="rules" :prop="getPropName()"
