@@ -1,6 +1,6 @@
 {
   "name": "v-form",
-  "version": "3.0.20",
+  "version": "3.0.21",
   "private": false,
   "main": "dist/designer.umd.js",
   "files": [
