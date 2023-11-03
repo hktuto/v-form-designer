@@ -57,14 +57,13 @@ export const installI18n = (app) => {
 export default {
   methods: {
     i18nt(key) {
-      return window.$t(key)
+      return translate(key)
     },
 
     /* 如果key1不存在，则查找key2 */
     i18n2t(key1, key2) {
-      if(window.$t(key1) === key1) return window.$t(key2)
-      return window.$t(key1)
+      if(translate(key1) === key1) return translate(key2)
+      return translate(key1)
     },
-
   }
 }

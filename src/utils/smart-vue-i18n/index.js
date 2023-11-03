@@ -8,8 +8,8 @@ let locale = reactive({
 export function createI18n(options) {
     return {
         messages: options.messages,
-
         $st(path, ...args) {
+            if(!path) return path
             const message = get(this.messages[locale.lang], path)
             return typeof message === 'function'
                 ? message(...args)
