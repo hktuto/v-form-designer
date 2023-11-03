@@ -21,7 +21,6 @@ if (typeof window !== 'undefined') {
 }
 const vfApp = createApp(App)
 vfApp.config.globalProperties.$t = (key) => (translate(key))
-if (!window.$t) window.$t= (key) => (translate(key))
 vfApp.use(ElementPlus)
 registerIcon(vfApp)
 vfApp.component('draggable', Draggable)
