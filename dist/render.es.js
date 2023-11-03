@@ -1189,6 +1189,8 @@ function createI18n(options) {
   return {
     messages: options.messages,
     $st(path, ...args) {
+      if (!path)
+        return path;
       const message = get(this.messages[locale.lang], path);
       return typeof message === "function" ? message(...args) : message !== null ? message : path;
     },
@@ -2270,12 +2272,12 @@ const translate = function(key) {
 var i18n$1 = {
   methods: {
     i18nt(key) {
-      return window.$t(key);
+      return translate(key);
     },
     i18n2t(key1, key2) {
-      if (window.$t(key1) === key1)
-        return window.$t(key2);
-      return window.$t(key1);
+      if (translate(key1) === key1)
+        return translate(key2);
+      return translate(key1);
     }
   }
 };
@@ -31571,13 +31573,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1697617759840__");
+    var svgDom = document.getElementById("__svg__icons__dom__1698973979617__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1697617759840__";
+      svgDom.id = "__svg__icons__dom__1698973979617__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
