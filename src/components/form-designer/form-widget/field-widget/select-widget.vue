@@ -112,6 +112,7 @@
     methods: {
       handleInput() {
         const fieldEditor = this.$refs.fieldEditor
+        if(!fieldEditor) return
         const input = fieldEditor.input
         if(!input) return
         input.onkeyup = (event) => {
