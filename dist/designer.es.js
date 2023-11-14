@@ -162,6 +162,7 @@ const basicFields = [
       suffixIcon: "",
       appendButton: false,
       appendButtonText: "",
+      prependText: "",
       appendButtonDisabled: false,
       buttonIcon: "custom-search",
       onCreated: "",
@@ -1535,6 +1536,10 @@ const overwriteObj = function(obj1, obj2) {
     obj1[prop] = obj2[prop];
   });
 };
+const evalFn = function(fn2, DSV = null, VFR = null) {
+  let f10 = new Function("DSV", "VFR", "return " + fn2);
+  return f10(DSV, VFR);
+};
 const addWindowResizeHandler = function(handler) {
   let oldHandler = window.onresize;
   if (typeof window.onresize != "function") {
@@ -1827,6 +1832,8 @@ function createI18n(options) {
       return typeof message === "function" ? message(...args) : message !== null ? message : path;
     },
     $st2(path, path2) {
+      if (!path || !path2)
+        return path;
       let messages = this.messages[locale.lang];
       const message = get(messages, path);
       return message !== null ? message : get(messages, path2);
@@ -1836,307 +1843,6 @@ function createI18n(options) {
     }
   };
 }
-var en$1 = {};
-(function(exports) {
-  Object.defineProperty(exports, "__esModule", { value: true });
-  var English = {
-    name: "en",
-    el: {
-      colorpicker: {
-        confirm: "OK",
-        clear: "Clear",
-        defaultLabel: "color picker",
-        description: "current color is {color}. press enter to select a new color."
-      },
-      datepicker: {
-        now: "Now",
-        today: "Today",
-        cancel: "Cancel",
-        clear: "Clear",
-        confirm: "OK",
-        dateTablePrompt: "Use the arrow keys and enter to select the day of the month",
-        monthTablePrompt: "Use the arrow keys and enter to select the month",
-        yearTablePrompt: "Use the arrow keys and enter to select the year",
-        selectedDate: "Selected date",
-        selectDate: "Select date",
-        selectTime: "Select time",
-        startDate: "Start Date",
-        startTime: "Start Time",
-        endDate: "End Date",
-        endTime: "End Time",
-        prevYear: "Previous Year",
-        nextYear: "Next Year",
-        prevMonth: "Previous Month",
-        nextMonth: "Next Month",
-        year: "",
-        month1: "January",
-        month2: "February",
-        month3: "March",
-        month4: "April",
-        month5: "May",
-        month6: "June",
-        month7: "July",
-        month8: "August",
-        month9: "September",
-        month10: "October",
-        month11: "November",
-        month12: "December",
-        week: "week",
-        weeks: {
-          sun: "Sun",
-          mon: "Mon",
-          tue: "Tue",
-          wed: "Wed",
-          thu: "Thu",
-          fri: "Fri",
-          sat: "Sat"
-        },
-        weeksFull: {
-          sun: "Sunday",
-          mon: "Monday",
-          tue: "Tuesday",
-          wed: "Wednesday",
-          thu: "Thursday",
-          fri: "Friday",
-          sat: "Saturday"
-        },
-        months: {
-          jan: "Jan",
-          feb: "Feb",
-          mar: "Mar",
-          apr: "Apr",
-          may: "May",
-          jun: "Jun",
-          jul: "Jul",
-          aug: "Aug",
-          sep: "Sep",
-          oct: "Oct",
-          nov: "Nov",
-          dec: "Dec"
-        }
-      },
-      inputNumber: {
-        decrease: "decrease number",
-        increase: "increase number"
-      },
-      select: {
-        loading: "Loading",
-        noMatch: "No matching data",
-        noData: "No data",
-        placeholder: "Select"
-      },
-      dropdown: {
-        toggleDropdown: "Toggle Dropdown"
-      },
-      cascader: {
-        noMatch: "No matching data",
-        loading: "Loading",
-        placeholder: "Select",
-        noData: "No data"
-      },
-      pagination: {
-        goto: "Go to",
-        pagesize: "/page",
-        total: "Total {total}",
-        pageClassifier: "",
-        page: "Page",
-        prev: "Go to previous page",
-        next: "Go to next page",
-        currentPage: "page {pager}",
-        prevPages: "Previous {pager} pages",
-        nextPages: "Next {pager} pages",
-        deprecationWarning: "Deprecated usages detected, please refer to the el-pagination documentation for more details"
-      },
-      dialog: {
-        close: "Close this dialog"
-      },
-      drawer: {
-        close: "Close this dialog"
-      },
-      messagebox: {
-        title: "Message",
-        confirm: "OK",
-        cancel: "Cancel",
-        error: "Illegal input",
-        close: "Close this dialog"
-      },
-      upload: {
-        deleteTip: "press delete to remove",
-        delete: "Delete",
-        preview: "Preview",
-        continue: "Continue"
-      },
-      slider: {
-        defaultLabel: "slider between {min} and {max}",
-        defaultRangeStartLabel: "pick start value",
-        defaultRangeEndLabel: "pick end value"
-      },
-      table: {
-        emptyText: "No Data",
-        confirmFilter: "Confirm",
-        resetFilter: "Reset",
-        clearFilter: "All",
-        sumText: "Sum"
-      },
-      tree: {
-        emptyText: "No Data"
-      },
-      transfer: {
-        noMatch: "No matching data",
-        noData: "No data",
-        titles: ["List 1", "List 2"],
-        filterPlaceholder: "Enter keyword",
-        noCheckedFormat: "{total} items",
-        hasCheckedFormat: "{checked}/{total} checked"
-      },
-      image: {
-        error: "FAILED"
-      },
-      pageHeader: {
-        title: "Back"
-      },
-      popconfirm: {
-        confirmButtonText: "Yes",
-        cancelButtonText: "No"
-      }
-    }
-  };
-  exports["default"] = English;
-})(en$1);
-var enLocaleElement = /* @__PURE__ */ getDefaultExportFromCjs(en$1);
-var zhCn = {};
-(function(exports) {
-  Object.defineProperty(exports, "__esModule", { value: true });
-  var zhCn2 = {
-    name: "zh-cn",
-    el: {
-      colorpicker: {
-        confirm: "\u786E\u5B9A",
-        clear: "\u6E05\u7A7A"
-      },
-      datepicker: {
-        now: "\u6B64\u523B",
-        today: "\u4ECA\u5929",
-        cancel: "\u53D6\u6D88",
-        clear: "\u6E05\u7A7A",
-        confirm: "\u786E\u5B9A",
-        selectDate: "\u9009\u62E9\u65E5\u671F",
-        selectTime: "\u9009\u62E9\u65F6\u95F4",
-        startDate: "\u5F00\u59CB\u65E5\u671F",
-        startTime: "\u5F00\u59CB\u65F6\u95F4",
-        endDate: "\u7ED3\u675F\u65E5\u671F",
-        endTime: "\u7ED3\u675F\u65F6\u95F4",
-        prevYear: "\u524D\u4E00\u5E74",
-        nextYear: "\u540E\u4E00\u5E74",
-        prevMonth: "\u4E0A\u4E2A\u6708",
-        nextMonth: "\u4E0B\u4E2A\u6708",
-        year: "\u5E74",
-        month1: "1 \u6708",
-        month2: "2 \u6708",
-        month3: "3 \u6708",
-        month4: "4 \u6708",
-        month5: "5 \u6708",
-        month6: "6 \u6708",
-        month7: "7 \u6708",
-        month8: "8 \u6708",
-        month9: "9 \u6708",
-        month10: "10 \u6708",
-        month11: "11 \u6708",
-        month12: "12 \u6708",
-        weeks: {
-          sun: "\u65E5",
-          mon: "\u4E00",
-          tue: "\u4E8C",
-          wed: "\u4E09",
-          thu: "\u56DB",
-          fri: "\u4E94",
-          sat: "\u516D"
-        },
-        months: {
-          jan: "\u4E00\u6708",
-          feb: "\u4E8C\u6708",
-          mar: "\u4E09\u6708",
-          apr: "\u56DB\u6708",
-          may: "\u4E94\u6708",
-          jun: "\u516D\u6708",
-          jul: "\u4E03\u6708",
-          aug: "\u516B\u6708",
-          sep: "\u4E5D\u6708",
-          oct: "\u5341\u6708",
-          nov: "\u5341\u4E00\u6708",
-          dec: "\u5341\u4E8C\u6708"
-        }
-      },
-      select: {
-        loading: "\u52A0\u8F7D\u4E2D",
-        noMatch: "\u65E0\u5339\u914D\u6570\u636E",
-        noData: "\u65E0\u6570\u636E",
-        placeholder: "\u8BF7\u9009\u62E9"
-      },
-      cascader: {
-        noMatch: "\u65E0\u5339\u914D\u6570\u636E",
-        loading: "\u52A0\u8F7D\u4E2D",
-        placeholder: "\u8BF7\u9009\u62E9",
-        noData: "\u6682\u65E0\u6570\u636E"
-      },
-      pagination: {
-        goto: "\u524D\u5F80",
-        pagesize: "\u6761/\u9875",
-        total: "\u5171 {total} \u6761",
-        pageClassifier: "\u9875",
-        page: "\u9875",
-        prev: "\u4E0A\u4E00\u9875",
-        next: "\u4E0B\u4E00\u9875",
-        currentPage: "\u7B2C {pager} \u9875",
-        prevPages: "\u5411\u524D {pager} \u9875",
-        nextPages: "\u5411\u540E {pager} \u9875",
-        deprecationWarning: "\u4F60\u4F7F\u7528\u4E86\u4E00\u4E9B\u5DF2\u88AB\u5E9F\u5F03\u7684\u7528\u6CD5\uFF0C\u8BF7\u53C2\u8003 el-pagination \u7684\u5B98\u65B9\u6587\u6863"
-      },
-      messagebox: {
-        title: "\u63D0\u793A",
-        confirm: "\u786E\u5B9A",
-        cancel: "\u53D6\u6D88",
-        error: "\u8F93\u5165\u7684\u6570\u636E\u4E0D\u5408\u6CD5!"
-      },
-      upload: {
-        deleteTip: "\u6309 delete \u952E\u53EF\u5220\u9664",
-        delete: "\u5220\u9664",
-        preview: "\u67E5\u770B\u56FE\u7247",
-        continue: "\u7EE7\u7EED\u4E0A\u4F20"
-      },
-      table: {
-        emptyText: "\u6682\u65E0\u6570\u636E",
-        confirmFilter: "\u7B5B\u9009",
-        resetFilter: "\u91CD\u7F6E",
-        clearFilter: "\u5168\u90E8",
-        sumText: "\u5408\u8BA1"
-      },
-      tree: {
-        emptyText: "\u6682\u65E0\u6570\u636E"
-      },
-      transfer: {
-        noMatch: "\u65E0\u5339\u914D\u6570\u636E",
-        noData: "\u65E0\u6570\u636E",
-        titles: ["\u5217\u8868 1", "\u5217\u8868 2"],
-        filterPlaceholder: "\u8BF7\u8F93\u5165\u641C\u7D22\u5185\u5BB9",
-        noCheckedFormat: "\u5171 {total} \u9879",
-        hasCheckedFormat: "\u5DF2\u9009 {checked}/{total} \u9879"
-      },
-      image: {
-        error: "\u52A0\u8F7D\u5931\u8D25"
-      },
-      pageHeader: {
-        title: "\u8FD4\u56DE"
-      },
-      popconfirm: {
-        confirmButtonText: "\u786E\u5B9A",
-        cancelButtonText: "\u53D6\u6D88"
-      }
-    }
-  };
-  exports["default"] = zhCn2;
-})(zhCn);
-var zhLocaleElement = /* @__PURE__ */ getDefaultExportFromCjs(zhCn);
 var enLocale = {
   application: {
     "zh-CN": "\u7B80\u4F53\u4E2D\u6587",
@@ -2393,6 +2099,7 @@ var enLocale = {
       inputButton: "Input Button Setting",
       appendButton: "Append Button",
       appendButtonText: "Append Button Text",
+      prependText: "Prepend Text",
       appendButtonDisabled: "Button Disabled",
       appendButtonIcon: "Append Button Icon",
       buttonIcon: "Button Icon",
@@ -2706,6 +2413,7 @@ var zhLocale = {
       inputButton: "\u8F93\u5165\u6846\u6309\u94AE\u8BBE\u7F6E",
       appendButton: "\u6DFB\u52A0\u540E\u7F6E\u6309\u94AE",
       appendButtonText: "\u6DFB\u52A0\u540E\u7F6E\u6587\u672C",
+      prependText: "\u6DFB\u52A0\u524D\u7F6E\u6587\u672C",
       appendButtonDisabled: "\u540E\u7F6E\u6309\u94AE\u7981\u7528",
       appendButtonIcon: "\u540E\u7F6E\u6309\u94AEIcon",
       buttonIcon: "\u6309\u94AEIcon",
@@ -2880,16 +2588,17 @@ var zhLocale_extension = {
   }
 };
 const langResources = {
-  "en-US": __spreadValues2(__spreadValues2(__spreadValues2(__spreadValues2({
+  "en-US": __spreadValues2(__spreadValues2(__spreadValues2({
     something: {}
-  }, enLocaleElement), enLocale), enLocale_render), enLocale_extension),
-  "zh-CN": __spreadValues2(__spreadValues2(__spreadValues2(__spreadValues2({
+  }, enLocale), enLocale_render), enLocale_extension),
+  "zh-CN": __spreadValues2(__spreadValues2(__spreadValues2({
     something: {}
-  }, zhLocaleElement), zhLocale), zhLocale_render), zhLocale_extension)
+  }, zhLocale), zhLocale_render), zhLocale_extension)
 };
 const i18n = createI18n({
   locale: localStorage.getItem("v_form_locale") || "en-US",
-  messages: langResources
+  messages: langResources,
+  legacy: false
 });
 const changeLocale = function(langName) {
   i18n.setLang(langName);
@@ -3965,7 +3674,7 @@ var _export_sfc$2 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$3n = {
+const _sfc_main$3o = {
   name: "SvgIcon",
   props: {
     iconClass: {
@@ -3995,7 +3704,7 @@ const _sfc_main$3n = {
 };
 const _hoisted_1$15 = ["xlink:href"];
 const _hoisted_2$s = { key: 0 };
-function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
@@ -4004,9 +3713,9 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$s, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n], ["__scopeId", "data-v-47daada2"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3o, [["render", _sfc_render$3o], ["__scopeId", "data-v-2a03d21b"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$6 = "";
-const _sfc_main$3m = {
+const _sfc_main$3n = {
   name: "FieldPanel",
   mixins: [i18n$1],
   components: {
@@ -4142,7 +3851,7 @@ const _hoisted_5$d = ["src"];
 const _hoisted_6$b = ["src"];
 const _hoisted_7$a = { class: "bottom clear-fix" };
 const _hoisted_8$8 = { class: "ft-title" };
-function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_draggable = resolveComponent("draggable");
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
@@ -4380,7 +4089,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-53d5caba"]]);
+var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n], ["__scopeId", "data-v-53d5caba"]]);
 var emitter = {
   data() {
     return {
@@ -4456,7 +4165,7 @@ var emitter = {
     }
   }
 };
-const _sfc_main$3l = {
+const _sfc_main$3m = {
   name: "container-item-wrapper",
   props: {
     widget: Object
@@ -4467,14 +4176,14 @@ const _sfc_main$3l = {
     }
   }
 };
-function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3l, [["render", _sfc_render$3l]]);
+var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m]]);
 var __glob_0_0$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerItemWrapper
@@ -4505,7 +4214,7 @@ var refMixin = {
   }
 };
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3k = {
+const _sfc_main$3l = {
   name: "static-content-wrapper",
   mixins: [i18n$1],
   components: {
@@ -4605,7 +4314,7 @@ const _hoisted_6$a = {
 };
 const _hoisted_7$9 = ["title"];
 const _hoisted_8$7 = { key: 0 };
-function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["field-wrapper", { "design-time-bottom-margin": !!this.designer }]),
@@ -4662,7 +4371,7 @@ function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3k, [["render", _sfc_render$3k], ["__scopeId", "data-v-2c3a4c20"]]);
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3l, [["render", _sfc_render$3l], ["__scopeId", "data-v-2c3a4c20"]]);
 var __glob_0_19$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
@@ -5268,7 +4977,7 @@ var fieldMixin = {
   }
 };
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3j = {
+const _sfc_main$3k = {
   name: "button-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5314,7 +5023,7 @@ const _sfc_main$3j = {
   },
   methods: {}
 };
-function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -5350,13 +5059,13 @@ function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3j, [["render", _sfc_render$3j], ["__scopeId", "data-v-0c3ad1ca"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3k, [["render", _sfc_render$3k], ["__scopeId", "data-v-0c3ad1ca"]]);
 var __glob_0_0$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var formItemWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3i = {
+const _sfc_main$3j = {
   name: "form-item-wrapper",
   mixins: [i18n$1],
   components: {
@@ -5505,7 +5214,7 @@ const _hoisted_7$8 = {
 };
 const _hoisted_8$6 = ["title"];
 const _hoisted_9$5 = { key: 0 };
-function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -5616,13 +5325,13 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-3f292399"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3j, [["render", _sfc_render$3j], ["__scopeId", "data-v-3f292399"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
 }, Symbol.toStringTag, { value: "Module" }));
 var cascaderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3h = {
+const _sfc_main$3i = {
   name: "cascader-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5683,7 +5392,7 @@ const _sfc_main$3h = {
   methods: {}
 };
 const _hoisted_1$11 = { class: "full-width-input" };
-function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5727,13 +5436,13 @@ function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3h, [["render", _sfc_render$3h], ["__scopeId", "data-v-b198da06"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-b198da06"]]);
 var __glob_0_1$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var checkboxWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3g = {
+const _sfc_main$3h = {
   name: "checkbox-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5789,7 +5498,7 @@ const _sfc_main$3g = {
   },
   methods: {}
 };
-function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox_button = resolveComponent("el-checkbox-button");
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
@@ -5850,13 +5559,13 @@ function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-501920b3"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3h, [["render", _sfc_render$3h], ["__scopeId", "data-v-501920b3"]]);
 var __glob_0_2$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var colorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3f = {
+const _sfc_main$3g = {
   name: "color-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5911,7 +5620,7 @@ const _sfc_main$3f = {
   },
   methods: {}
 };
-function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5939,13 +5648,13 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-1aa76420"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-1aa76420"]]);
 var __glob_0_3$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3e = {
+const _sfc_main$3f = {
   name: "date-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6029,7 +5738,7 @@ const _sfc_main$3e = {
   },
   methods: {}
 };
-function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6074,13 +5783,13 @@ function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3e, [["render", _sfc_render$3e], ["__scopeId", "data-v-bffd300a"]]);
+var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-bffd300a"]]);
 var __glob_0_4$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3d = {
+const _sfc_main$3e = {
   name: "date-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6135,7 +5844,7 @@ const _sfc_main$3d = {
   },
   methods: {}
 };
-function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6178,13 +5887,13 @@ function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3d, [["render", _sfc_render$3d], ["__scopeId", "data-v-1cba4a63"]]);
+var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3e, [["render", _sfc_render$3e], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dividerWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3c = {
+const _sfc_main$3d = {
   name: "divider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6230,7 +5939,7 @@ const _sfc_main$3c = {
   },
   methods: {}
 };
-function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -6259,14 +5968,14 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-a3d9051e"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3d, [["render", _sfc_render$3d], ["__scopeId", "data-v-a3d9051e"]]);
 var __glob_0_6$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var fileUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 let selectFileText = "'" + translate("render.hint.selectFile") + "'";
-const _sfc_main$3b = {
+const _sfc_main$3c = {
   name: "file-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6313,7 +6022,17 @@ const _sfc_main$3b = {
       }
     };
   },
-  computed: {},
+  computed: {
+    realUploadURL() {
+      let uploadURL = this.field.options.uploadURL;
+      if (!!uploadURL && (uploadURL.indexOf("DSV.") > -1 || uploadURL.indexOf("DSV[") > -1)) {
+        let DSV = this.getGlobalDsv();
+        console.log("test DSV: ", DSV);
+        return evalFn(this.field.options.uploadURL, DSV);
+      }
+      return this.field.options.uploadURL;
+    }
+  },
   beforeCreate() {
   },
   created() {
@@ -6474,7 +6193,7 @@ const _sfc_main$3b = {
     }
   }
 };
-const _withScopeId$4 = (n10) => (pushScopeId("data-v-5115f993"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$4 = (n10) => (pushScopeId("data-v-2aaef425"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$10 = {
   key: 0,
   class: "el-upload__tip"
@@ -6483,7 +6202,7 @@ const _hoisted_2$o = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ create
 const _hoisted_3$j = { class: "upload-file-list" };
 const _hoisted_4$c = ["title", "onClick"];
 const _hoisted_5$a = ["title", "onClick"];
-function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -6506,7 +6225,7 @@ function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
         name: "files",
         style: normalizeStyle($data.styleVariables),
         class: normalizeClass(["dynamicPseudoAfter", { "hideUploadDiv": $data.uploadBtnHidden }]),
-        action: $props.field.options.uploadURL,
+        action: $options.realUploadURL,
         headers: $data.uploadHeaders,
         data: $data.uploadData,
         "with-credentials": $props.field.options.withCredentials,
@@ -6549,13 +6268,13 @@ function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3b, [["render", _sfc_render$3b], ["__scopeId", "data-v-5115f993"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-2aaef425"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3a = {
+const _sfc_main$3b = {
   name: "html-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6602,7 +6321,7 @@ const _sfc_main$3a = {
   methods: {}
 };
 const _hoisted_1$$ = ["innerHTML"];
-function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -6624,13 +6343,13 @@ function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3a, [["render", _sfc_render$3a], ["__scopeId", "data-v-a0d236d6"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3b, [["render", _sfc_render$3b], ["__scopeId", "data-v-a0d236d6"]]);
 var __glob_0_9$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var inputWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$39 = {
+const _sfc_main$3a = {
   name: "input-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6697,7 +6416,7 @@ const _sfc_main$39 = {
   }
 };
 const _hoisted_1$_ = { key: 1 };
-function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_input = resolveComponent("el-input");
@@ -6738,6 +6457,13 @@ function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
         onInput: _ctx.handleInputCustomEvent,
         onChange: _ctx.handleChangeEvent
       }, createSlots({ _: 2 }, [
+        $props.field.options.prependText ? {
+          name: "prepend",
+          fn: withCtx(() => [
+            createTextVNode(toDisplayString(_ctx.$t($props.field.options.prependText)), 1)
+          ]),
+          key: "0"
+        } : void 0,
         $props.field.options.appendButton ? {
           name: "append",
           fn: withCtx(() => [
@@ -6755,20 +6481,20 @@ function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["disabled", "onClick"])
           ]),
-          key: "0"
+          key: "1"
         } : void 0
       ]), 1032, ["modelValue", "disabled", "readonly", "size", "type", "show-password", "placeholder", "clearable", "minlength", "maxlength", "show-word-limit", "prefix-icon", "suffix-icon", "onKeyup", "onFocus", "onBlur", "onInput", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-7078bc5c"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3a, [["render", _sfc_render$3a], ["__scopeId", "data-v-4e1e3348"]]);
 var __glob_0_10$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var numberWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$38 = {
+const _sfc_main$39 = {
   name: "number-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6823,7 +6549,7 @@ const _sfc_main$38 = {
   },
   methods: {}
 };
-function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6860,13 +6586,13 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-dbbd8ba0"]]);
+var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-dbbd8ba0"]]);
 var __glob_0_11$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var pictureUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$37 = {
+const _sfc_main$38 = {
   name: "picture-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6915,6 +6641,15 @@ const _sfc_main$37 = {
   computed: {
     previewList() {
       return this.fileList.map((el2) => el2.url);
+    },
+    realUploadURL() {
+      let uploadURL = this.field.options.uploadURL;
+      if (!!uploadURL && (uploadURL.indexOf("DSV.") > -1 || uploadURL.indexOf("DSV[") > -1)) {
+        let DSV = this.getGlobalDsv();
+        console.log("test DSV: ", DSV);
+        return evalFn(this.field.options.uploadURL, DSV);
+      }
+      return this.field.options.uploadURL;
     }
   },
   beforeCreate() {
@@ -7084,7 +6819,7 @@ const _hoisted_6$8 = {
   class: "el-upload__tip"
 };
 const _hoisted_7$7 = { class: "uploader-icon" };
-function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_image = resolveComponent("el-image");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -7106,7 +6841,7 @@ function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
         ref: "fieldEditor",
         disabled: $props.field.options.disabled,
         name: "files",
-        action: $props.field.options.uploadURL,
+        action: $options.realUploadURL,
         headers: $data.uploadHeaders,
         data: $data.uploadData,
         "with-credentials": $props.field.options.withCredentials,
@@ -7169,13 +6904,13 @@ function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-4b9de55e"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-55854757"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var radioWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$36 = {
+const _sfc_main$37 = {
   name: "radio-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7231,7 +6966,7 @@ const _sfc_main$36 = {
   },
   methods: {}
 };
-function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -7293,13 +7028,13 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-5becdb92"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-5becdb92"]]);
 var __glob_0_13$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var rateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$35 = {
+const _sfc_main$36 = {
   name: "rate-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7354,7 +7089,7 @@ const _sfc_main$35 = {
   },
   methods: {}
 };
-function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -7387,7 +7122,7 @@ function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$35, [["render", _sfc_render$35], ["__scopeId", "data-v-e8d5267c"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-e8d5267c"]]);
 var __glob_0_14$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -30163,7 +29898,7 @@ function _sfc_render$1$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$1$1, null, 512);
 }
 var Editor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$1, [["render", _sfc_render$1$1]]);
-const _sfc_main$34 = defineComponent({
+const _sfc_main$35 = defineComponent({
   props: {
     editor: {
       type: Object
@@ -30206,12 +29941,12 @@ const _sfc_main$34 = defineComponent({
   }
 });
 const _hoisted_1$Y = { ref: "selector" };
-function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$Y, null, 512);
 }
-var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$34, [["render", _sfc_render$34]]);
+var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$35, [["render", _sfc_render$35]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$33 = {
+const _sfc_main$34 = {
   name: "rich-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin],
@@ -30315,7 +30050,7 @@ const _sfc_main$33 = {
   }
 };
 const _hoisted_1$X = { style: { "border": "1px solid #ccc" } };
-function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -30353,13 +30088,13 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-375e7373"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-375e7373"]]);
 var __glob_0_15$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$32 = {
+const _sfc_main$33 = {
   name: "select-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30430,6 +30165,8 @@ const _sfc_main$32 = {
   methods: {
     handleInput() {
       const fieldEditor = this.$refs.fieldEditor;
+      if (!fieldEditor)
+        return;
       const input = fieldEditor.input;
       if (!input)
         return;
@@ -30448,7 +30185,7 @@ const _sfc_main$32 = {
     }
   }
 };
-function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -30502,13 +30239,13 @@ function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-b7768362"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-a0c65f06"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var sliderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$31 = {
+const _sfc_main$32 = {
   name: "slider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30563,7 +30300,7 @@ const _sfc_main$31 = {
   },
   methods: {}
 };
-function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30596,13 +30333,13 @@ function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-e54b3390"]]);
+var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-e54b3390"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var slotWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$30 = {
+const _sfc_main$31 = {
   name: "slot-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30652,7 +30389,7 @@ const _hoisted_1$W = {
   key: 0,
   class: "slot-title"
 };
-function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -30676,13 +30413,13 @@ function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-1b458525"]]);
+var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-1b458525"]]);
 var __glob_0_18$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var staticTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2$ = {
+const _sfc_main$30 = {
   name: "static-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30728,7 +30465,7 @@ const _sfc_main$2$ = {
   },
   methods: {}
 };
-function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -30754,13 +30491,13 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-5c0e1d8a"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-5c0e1d8a"]]);
 var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var switchWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2_ = {
+const _sfc_main$2$ = {
   name: "switch-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30815,7 +30552,7 @@ const _sfc_main$2_ = {
   },
   methods: {}
 };
-function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30847,13 +30584,13 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-51a90f56"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-51a90f56"]]);
 var __glob_0_21$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var textareaWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Z = {
+const _sfc_main$2_ = {
   name: "textarea-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30908,7 +30645,7 @@ const _sfc_main$2Z = {
   },
   methods: {}
 };
-function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30946,14 +30683,118 @@ function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-f9d2719e"]]);
+var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-f9d2719e"]]);
 var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textareaWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Y = {
+const _sfc_main$2Z = {
   name: "time-range-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: null,
+      rules: []
+    };
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {}
+};
+function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_time_picker = resolveComponent("el-time-picker");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createElementVNode("div", {
+        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width" : ""])
+      }, [
+        createVNode(_component_el_time_picker, {
+          ref: "fieldEditor",
+          "is-range": "",
+          modelValue: $data.fieldModel,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
+          class: normalizeClass([!!$props.field.options.autoFullWidth ? "full-width-input" : ""]),
+          disabled: $props.field.options.disabled,
+          readonly: $props.field.options.readonly,
+          size: _ctx.widgetSize,
+          clearable: $props.field.options.clearable,
+          editable: $props.field.options.editable,
+          format: $props.field.options.format,
+          "value-format": "HH:mm:ss",
+          "start-placeholder": $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startTimePlaceholder"),
+          "end-placeholder": $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endTimePlaceholder"),
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: _ctx.handleChangeEvent
+        }, null, 8, ["modelValue", "class", "disabled", "readonly", "size", "clearable", "editable", "format", "start-placeholder", "end-placeholder", "onFocus", "onBlur", "onChange"])
+      ], 2)
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-39163a8d"]]);
+var __glob_0_23$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": timeRangeWidget
+}, Symbol.toStringTag, { value: "Module" }));
+var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$2Y = {
+  name: "time-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
   props: {
@@ -31023,110 +30864,6 @@ function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", {
-        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width" : ""])
-      }, [
-        createVNode(_component_el_time_picker, {
-          ref: "fieldEditor",
-          "is-range": "",
-          modelValue: $data.fieldModel,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
-          class: normalizeClass([!!$props.field.options.autoFullWidth ? "full-width-input" : ""]),
-          disabled: $props.field.options.disabled,
-          readonly: $props.field.options.readonly,
-          size: _ctx.widgetSize,
-          clearable: $props.field.options.clearable,
-          editable: $props.field.options.editable,
-          format: $props.field.options.format,
-          "value-format": "HH:mm:ss",
-          "start-placeholder": $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startTimePlaceholder"),
-          "end-placeholder": $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endTimePlaceholder"),
-          onFocus: _ctx.handleFocusCustomEvent,
-          onBlur: _ctx.handleBlurCustomEvent,
-          onChange: _ctx.handleChangeEvent
-        }, null, 8, ["modelValue", "class", "disabled", "readonly", "size", "clearable", "editable", "format", "start-placeholder", "end-placeholder", "onFocus", "onBlur", "onChange"])
-      ], 2)
-    ]),
-    _: 1
-  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
-}
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-39163a8d"]]);
-var __glob_0_23$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": timeRangeWidget
-}, Symbol.toStringTag, { value: "Module" }));
-var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2X = {
-  name: "time-widget",
-  componentName: "FieldWidget",
-  mixins: [emitter, fieldMixin, i18n$1],
-  props: {
-    field: Object,
-    parentWidget: Object,
-    parentList: Array,
-    indexOfParentList: Number,
-    designer: Object,
-    designState: {
-      type: Boolean,
-      default: false
-    },
-    subFormRowIndex: {
-      type: Number,
-      default: -1
-    },
-    subFormColIndex: {
-      type: Number,
-      default: -1
-    },
-    subFormRowId: {
-      type: String,
-      default: ""
-    }
-  },
-  components: {
-    FormItemWrapper
-  },
-  data() {
-    return {
-      oldFieldValue: null,
-      fieldModel: null,
-      rules: []
-    };
-  },
-  computed: {},
-  beforeCreate() {
-  },
-  created() {
-    this.initFieldModel();
-    this.registerToRefList();
-    this.initEventHandler();
-    this.buildFieldRules();
-    this.handleOnCreated();
-  },
-  mounted() {
-    this.handleOnMounted();
-  },
-  beforeUnmount() {
-    this.unregisterFromRefList();
-  },
-  methods: {}
-};
-function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_time_picker = resolveComponent("el-time-picker");
-  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
-  return openBlock(), createBlock(_component_form_item_wrapper, {
-    designer: $props.designer,
-    field: $props.field,
-    rules: $data.rules,
-    "design-state": $props.designState,
-    "parent-widget": $props.parentWidget,
-    "parent-list": $props.parentList,
-    "index-of-parent-list": $props.indexOfParentList,
-    "sub-form-row-index": $props.subFormRowIndex,
-    "sub-form-col-index": $props.subFormColIndex,
-    "sub-form-row-id": $props.subFormRowId
-  }, {
-    default: withCtx(() => [
       createVNode(_component_el_time_picker, {
         ref: "fieldEditor",
         modelValue: $data.fieldModel,
@@ -31148,7 +30885,7 @@ function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2X, [["render", _sfc_render$2X], ["__scopeId", "data-v-fcdc66e8"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-fcdc66e8"]]);
 var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -31160,7 +30897,7 @@ for (const path in modules$3) {
   comps$1[cname] = modules$3[path].default;
 }
 var gridColItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2W = {
+const _sfc_main$2X = {
   name: "GridColItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -31232,7 +30969,7 @@ const _sfc_main$2W = {
 };
 const _hoisted_1$V = { class: "blank-cell" };
 const _hoisted_2$m = { class: "invisible-content" };
-function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
   return withDirectives((openBlock(), createBlock(_component_el_col, mergeProps({
     class: ["grid-cell", [$options.customClass]]
@@ -31290,7 +31027,7 @@ function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, !$props.widget.options.hidden]
   ]);
 }
-var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2W, [["render", _sfc_render$2W], ["__scopeId", "data-v-8cecd14e"]]);
+var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2X, [["render", _sfc_render$2X], ["__scopeId", "data-v-8cecd14e"]]);
 var __glob_0_1$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColItem
@@ -31451,7 +31188,7 @@ var containerItemMixin = {
     }
   }
 };
-const _sfc_main$2V = {
+const _sfc_main$2W = {
   name: "vf-grid-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31473,7 +31210,7 @@ const _sfc_main$2V = {
   },
   methods: {}
 };
-function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_grid_col_item = resolveComponent("grid-col-item");
   const _component_el_row = resolveComponent("el-row");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -31514,13 +31251,13 @@ function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2V, [["render", _sfc_render$2V]]);
+var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2W, [["render", _sfc_render$2W]]);
 var __glob_0_2$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridItem
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2U = {
+const _sfc_main$2V = {
   name: "sub-form-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31734,7 +31471,7 @@ const _hoisted_7$6 = {
   key: 0,
   class: "row-number-span"
 };
-function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -31885,12 +31622,12 @@ function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2U, [["render", _sfc_render$2U], ["__scopeId", "data-v-352932f2"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2V, [["render", _sfc_render$2V], ["__scopeId", "data-v-352932f2"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2T = {
+const _sfc_main$2U = {
   name: "tab-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31937,7 +31674,7 @@ const _sfc_main$2T = {
     }
   }
 };
-function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -32012,13 +31749,13 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2T, [["render", _sfc_render$2T]]);
+var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2U, [["render", _sfc_render$2U]]);
 var __glob_0_4$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableCellItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2S = {
+const _sfc_main$2T = {
   name: "TableCellItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -32039,7 +31776,7 @@ const _sfc_main$2S = {
   methods: {}
 };
 const _hoisted_1$T = ["colspan", "rowspan"];
-function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
     colspan: $props.widget.options.colspan || 1,
@@ -32083,13 +31820,13 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ], 14, _hoisted_1$T);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2S, [["render", _sfc_render$2S], ["__scopeId", "data-v-162f05d8"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-162f05d8"]]);
 var __glob_0_5$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2R = {
+const _sfc_main$2S = {
   name: "table-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -32111,7 +31848,7 @@ const _sfc_main$2R = {
   },
   methods: {}
 };
-function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_table_cell_item = resolveComponent("table-cell-item");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
   return openBlock(), createBlock(_component_container_item_wrapper, { widget: $props.widget }, {
@@ -32161,7 +31898,7 @@ function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-656b4452"]]);
+var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2S, [["render", _sfc_render$2S], ["__scopeId", "data-v-656b4452"]]);
 var __glob_0_6$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableItem
@@ -32176,7 +31913,7 @@ var ContainerItems = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$5 = "";
-const _sfc_main$2Q = {
+const _sfc_main$2R = {
   name: "VFormRender",
   componentName: "VFormRender",
   mixins: [emitter, i18n$1],
@@ -32383,6 +32120,7 @@ const _sfc_main$2Q = {
     addFieldValidateEventHandler() {
       this.off$("fieldValidation");
       this.on$("fieldValidation", (fieldName) => {
+        console.log(this.$refs.renderForm);
         this.$refs.renderForm.validateField(fieldName);
       });
     },
@@ -32711,7 +32449,7 @@ const _sfc_main$2Q = {
     }
   }
 };
-function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createBlock(_component_el_form, {
     "label-position": $options.labelPosition,
@@ -32766,7 +32504,7 @@ function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Q, [["render", _sfc_render$2Q], ["__scopeId", "data-v-cf2815f6"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-50f283fa"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -55125,7 +54863,7 @@ const MOCK_CASE_URL = "https://ks3-cn-beijing.ksyuncs.com/vform-static/vcase/";
 const ACE_BASE_PATH = "https://ks3-cn-beijing.ksyun.com/vform2021/ace-mini";
 const BEAUTIFIER_PATH = "https://ks3-cn-beijing.ksyun.com/vform2021/js-beautify/1.14.0/beautifier.min.js";
 var index_vue_vue_type_style_index_0_scoped_true_lang$4 = "";
-const _sfc_main$2P = {
+const _sfc_main$2Q = {
   name: "CodeEditor",
   props: {
     modelValue: {
@@ -55221,12 +54959,12 @@ const _hoisted_2$k = {
   class: "ace-editor",
   ref: "ace"
 };
-function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$S, [
     createElementVNode("div", _hoisted_2$k, null, 512)
   ]);
 }
-var CodeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2P, [["render", _sfc_render$2P], ["__scopeId", "data-v-35f2b510"]]);
+var CodeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Q, [["render", _sfc_render$2Q], ["__scopeId", "data-v-35f2b510"]]);
 const generateCode = function(formJson, codeType = "vue") {
   let formJsonStr = JSON.stringify(formJson);
   if (codeType === "html") {
@@ -56249,7 +55987,7 @@ var FileSaver_min = { exports: {} };
   });
 })(FileSaver_min);
 var index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
-const _sfc_main$2O = {
+const _sfc_main$2P = {
   name: "ToolbarPanel",
   mixins: [i18n$1],
   components: {
@@ -56675,7 +56413,7 @@ const _hoisted_15 = {
   class: ""
 };
 const _hoisted_16 = { class: "dialog-footer" };
-function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_button_group = resolveComponent("el-button-group");
@@ -56838,14 +56576,14 @@ function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
       _: 3
     }),
     createVNode(_component_el_drawer, {
-      title: _ctx.$t("designer.toolbar.nodeTreeTitle"),
+      title: _ctx.i18nt("designer.toolbar.nodeTreeTitle"),
       direction: "ltr",
       modelValue: $data.showNodeTreeDrawerFlag,
       "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.showNodeTreeDrawerFlag = $event),
       modal: true,
       size: 280,
       "destroy-on-close": true,
-      "custom-class": "node-tree-drawer"
+      class: "node-tree-drawer"
     }, {
       default: withCtx(() => [
         createVNode(_component_el_tree, {
@@ -57335,8 +57073,8 @@ function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$2O, [["render", _sfc_render$2O], ["__scopeId", "data-v-7e3e936b"]]);
-const _sfc_main$2N = {
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$2P, [["render", _sfc_render$2P], ["__scopeId", "data-v-27112323"]]);
+const _sfc_main$2O = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
   props: {
@@ -57345,7 +57083,7 @@ const _sfc_main$2N = {
     optionModel: Object
   }
 };
-function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57360,12 +57098,12 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var allowCreateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2N, [["render", _sfc_render$2N]]);
+var allowCreateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2O, [["render", _sfc_render$2O]]);
 var __glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": allowCreateEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2M = {
+const _sfc_main$2N = {
   name: "appendButton-editor",
   mixins: [i18n$1],
   props: {
@@ -57374,7 +57112,7 @@ const _sfc_main$2M = {
     optionModel: Object
   }
 };
-function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_switch = resolveComponent("el-switch");
@@ -57403,12 +57141,12 @@ function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var appendButtonEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2M, [["render", _sfc_render$2M]]);
+var appendButtonEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2N, [["render", _sfc_render$2N]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2L = {
+const _sfc_main$2M = {
   name: "appendButtonDisabled-editor",
   mixins: [i18n$1],
   props: {
@@ -57417,7 +57155,7 @@ const _sfc_main$2L = {
     optionModel: Object
   }
 };
-function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57432,12 +57170,12 @@ function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var appendButtonDisabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2L, [["render", _sfc_render$2L]]);
+var appendButtonDisabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2M, [["render", _sfc_render$2M]]);
 var __glob_0_2$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonDisabledEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2K = {
+const _sfc_main$2L = {
   name: "appendButtonText-editor",
   mixins: [i18n$1],
   props: {
@@ -57446,7 +57184,7 @@ const _sfc_main$2K = {
     optionModel: Object
   }
 };
-function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57462,12 +57200,12 @@ function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var appendButtonTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2K, [["render", _sfc_render$2K]]);
+var appendButtonTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2L, [["render", _sfc_render$2L]]);
 var __glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2J = {
+const _sfc_main$2K = {
   name: "autoFullWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -57476,7 +57214,7 @@ const _sfc_main$2J = {
     optionModel: Object
   }
 };
-function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57491,12 +57229,12 @@ function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var autoFullWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2J, [["render", _sfc_render$2J]]);
+var autoFullWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2K, [["render", _sfc_render$2K]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": autoFullWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2I = {
+const _sfc_main$2J = {
   name: "automaticDropdown-editor",
   mixins: [i18n$1],
   props: {
@@ -57505,7 +57243,7 @@ const _sfc_main$2I = {
     optionModel: Object
   }
 };
-function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57520,12 +57258,12 @@ function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var automaticDropdownEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2I, [["render", _sfc_render$2I]]);
+var automaticDropdownEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2J, [["render", _sfc_render$2J]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": automaticDropdownEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2H = {
+const _sfc_main$2I = {
   name: "border-editor",
   mixins: [i18n$1],
   props: {
@@ -57534,7 +57272,7 @@ const _sfc_main$2H = {
     optionModel: Object
   }
 };
-function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57549,12 +57287,12 @@ function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var borderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2H, [["render", _sfc_render$2H]]);
+var borderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2I, [["render", _sfc_render$2I]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": borderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2G = {
+const _sfc_main$2H = {
   name: "buttonIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -57563,7 +57301,7 @@ const _sfc_main$2G = {
     optionModel: Object
   }
 };
-function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57579,12 +57317,12 @@ function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2G, [["render", _sfc_render$2G]]);
+var buttonIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2H, [["render", _sfc_render$2H]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2F = {
+const _sfc_main$2G = {
   name: "buttonStyle-editor",
   mixins: [i18n$1],
   props: {
@@ -57593,7 +57331,7 @@ const _sfc_main$2F = {
     optionModel: Object
   }
 };
-function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57608,12 +57346,12 @@ function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2F, [["render", _sfc_render$2F]]);
+var buttonStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2G, [["render", _sfc_render$2G]]);
 var __glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonStyleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2E = {
+const _sfc_main$2F = {
   name: "clearable-editor",
   mixins: [i18n$1],
   props: {
@@ -57622,7 +57360,7 @@ const _sfc_main$2E = {
     optionModel: Object
   }
 };
-function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57637,12 +57375,12 @@ function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var clearableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2E, [["render", _sfc_render$2E]]);
+var clearableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2F, [["render", _sfc_render$2F]]);
 var __glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": clearableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2D = {
+const _sfc_main$2E = {
   name: "columnWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -57663,7 +57401,7 @@ const _sfc_main$2D = {
     });
   }
 };
-function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -57683,12 +57421,12 @@ function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var columnWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2D, [["render", _sfc_render$2D]]);
+var columnWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2E, [["render", _sfc_render$2E]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": columnWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2C = {
+const _sfc_main$2D = {
   name: "customClass-editor",
   componentName: "PropertyEditor",
   mixins: [i18n$1],
@@ -57709,7 +57447,7 @@ const _sfc_main$2C = {
     });
   }
 };
-function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -57740,7 +57478,7 @@ function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var customClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2C, [["render", _sfc_render$2C]]);
+var customClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2D, [["render", _sfc_render$2D]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": customClassEditor
@@ -57785,7 +57523,7 @@ var propertyMixin = {
     }
   }
 };
-const _sfc_main$2B = {
+const _sfc_main$2C = {
   name: "defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -57794,7 +57532,7 @@ const _sfc_main$2B = {
     optionModel: Object
   }
 };
-function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return !_ctx.hasConfig("optionItems") ? (openBlock(), createBlock(_component_el_form_item, {
@@ -57813,12 +57551,12 @@ function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var defaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2B, [["render", _sfc_render$2B]]);
+var defaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2C, [["render", _sfc_render$2C]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": defaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2A = {
+const _sfc_main$2B = {
   name: "disabled-editor",
   mixins: [i18n$1],
   props: {
@@ -57827,7 +57565,7 @@ const _sfc_main$2A = {
     optionModel: Object
   }
 };
-function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57842,12 +57580,12 @@ function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var disabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2A, [["render", _sfc_render$2A]]);
+var disabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2B, [["render", _sfc_render$2B]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": disabledEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2z = {
+const _sfc_main$2A = {
   name: "displayStyle-editor",
   mixins: [i18n$1],
   props: {
@@ -57856,7 +57594,7 @@ const _sfc_main$2z = {
     optionModel: Object
   }
 };
-function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -57888,12 +57626,12 @@ function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var displayStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2z, [["render", _sfc_render$2z]]);
+var displayStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2A, [["render", _sfc_render$2A]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": displayStyleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2y = {
+const _sfc_main$2z = {
   name: "editable-editor",
   mixins: [i18n$1],
   props: {
@@ -57902,7 +57640,7 @@ const _sfc_main$2y = {
     optionModel: Object
   }
 };
-function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57917,12 +57655,12 @@ function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var editableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2y, [["render", _sfc_render$2y]]);
+var editableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2z, [["render", _sfc_render$2z]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": editableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2x = {
+const _sfc_main$2y = {
   name: "endPlaceholder-editor",
   mixins: [i18n$1],
   props: {
@@ -57931,7 +57669,7 @@ const _sfc_main$2x = {
     optionModel: Object
   }
 };
-function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57947,13 +57685,13 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var endPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2x, [["render", _sfc_render$2x]]);
+var endPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2y, [["render", _sfc_render$2y]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": endPlaceholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var expandTriggerEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2w = {
+const _sfc_main$2x = {
   name: "expandTrigger-editor",
   mixins: [i18n$1],
   props: {
@@ -57962,7 +57700,7 @@ const _sfc_main$2w = {
     optionModel: Object
   }
 };
-function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -57995,12 +57733,12 @@ function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var expandTriggerEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2w, [["render", _sfc_render$2w], ["__scopeId", "data-v-7aa053cb"]]);
+var expandTriggerEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2x, [["render", _sfc_render$2x], ["__scopeId", "data-v-7aa053cb"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": expandTriggerEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2v = {
+const _sfc_main$2w = {
   name: "fileMaxSize-editor",
   mixins: [i18n$1],
   props: {
@@ -58009,7 +57747,7 @@ const _sfc_main$2v = {
     optionModel: Object
   }
 };
-function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58027,12 +57765,12 @@ function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var fileMaxSizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2v, [["render", _sfc_render$2v]]);
+var fileMaxSizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2w, [["render", _sfc_render$2w]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileMaxSizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2u = {
+const _sfc_main$2v = {
   name: "filterable-editor",
   mixins: [i18n$1],
   props: {
@@ -58041,7 +57779,7 @@ const _sfc_main$2u = {
     optionModel: Object
   }
 };
-function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58056,12 +57794,12 @@ function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var filterableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2u, [["render", _sfc_render$2u]]);
+var filterableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2v, [["render", _sfc_render$2v]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": filterableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2t = {
+const _sfc_main$2u = {
   name: "hidden-editor",
   mixins: [i18n$1],
   props: {
@@ -58070,7 +57808,7 @@ const _sfc_main$2t = {
     optionModel: Object
   }
 };
-function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58085,12 +57823,12 @@ function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var hiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2t, [["render", _sfc_render$2t]]);
+var hiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2u, [["render", _sfc_render$2u]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": hiddenEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2s = {
+const _sfc_main$2t = {
   name: "label-editor",
   mixins: [i18n$1],
   props: {
@@ -58104,7 +57842,7 @@ const _sfc_main$2s = {
     }
   }
 };
-function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return !$options.noLabelSetting ? (openBlock(), createBlock(_component_el_form_item, {
@@ -58121,13 +57859,13 @@ function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var labelEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2s, [["render", _sfc_render$2s]]);
+var labelEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2t, [["render", _sfc_render$2t]]);
 var __glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var labelAlignEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2r = {
+const _sfc_main$2s = {
   name: "labelAlign-editor",
   mixins: [i18n$1],
   props: {
@@ -58141,7 +57879,7 @@ const _sfc_main$2r = {
     }
   }
 };
-function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -58181,12 +57919,12 @@ function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var labelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2r, [["render", _sfc_render$2r], ["__scopeId", "data-v-1cf9ee3e"]]);
+var labelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2s, [["render", _sfc_render$2s], ["__scopeId", "data-v-1cf9ee3e"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2q = {
+const _sfc_main$2r = {
   name: "labelHidden-editor",
   mixins: [i18n$1],
   props: {
@@ -58195,7 +57933,7 @@ const _sfc_main$2q = {
     optionModel: Object
   }
 };
-function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58210,12 +57948,12 @@ function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelHiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2q, [["render", _sfc_render$2q]]);
+var labelHiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2r, [["render", _sfc_render$2r]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelHiddenEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2p = {
+const _sfc_main$2q = {
   name: "labelIconClass-editor",
   mixins: [i18n$1],
   props: {
@@ -58224,7 +57962,7 @@ const _sfc_main$2p = {
     optionModel: Object
   }
 };
-function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
@@ -58254,12 +57992,12 @@ function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var labelIconClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2p, [["render", _sfc_render$2p]]);
+var labelIconClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2q, [["render", _sfc_render$2q]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelIconClassEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2o = {
+const _sfc_main$2p = {
   name: "labelIconPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -58276,7 +58014,7 @@ const _sfc_main$2o = {
     };
   }
 };
-function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -58303,12 +58041,12 @@ function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelIconPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2o, [["render", _sfc_render$2o]]);
+var labelIconPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2p, [["render", _sfc_render$2p]]);
 var __glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelIconPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2n = {
+const _sfc_main$2o = {
   name: "labelTooltip-editor",
   mixins: [i18n$1],
   props: {
@@ -58317,7 +58055,7 @@ const _sfc_main$2n = {
     optionModel: Object
   }
 };
-function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58333,12 +58071,12 @@ function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelTooltipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2n, [["render", _sfc_render$2n]]);
+var labelTooltipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2o, [["render", _sfc_render$2o]]);
 var __glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelTooltipEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2m = {
+const _sfc_main$2n = {
   name: "labelWidth-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58347,7 +58085,7 @@ const _sfc_main$2m = {
     optionModel: Object
   }
 };
-function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58366,12 +58104,12 @@ function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2m, [["render", _sfc_render$2m]]);
+var labelWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2n, [["render", _sfc_render$2n]]);
 var __glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2l = {
+const _sfc_main$2m = {
   name: "lazy-editor",
   mixins: [i18n$1],
   props: {
@@ -58380,7 +58118,7 @@ const _sfc_main$2l = {
     optionModel: Object
   }
 };
-function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58395,12 +58133,12 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var lazyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l]]);
+var lazyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2m, [["render", _sfc_render$2m]]);
 var __glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": lazyEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2k = {
+const _sfc_main$2l = {
   name: "limit-editor",
   mixins: [i18n$1],
   props: {
@@ -58409,7 +58147,7 @@ const _sfc_main$2k = {
     optionModel: Object
   }
 };
-function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58427,12 +58165,12 @@ function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var limitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2k, [["render", _sfc_render$2k]]);
+var limitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l]]);
 var __glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": limitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2j = {
+const _sfc_main$2k = {
   name: "max-editor",
   mixins: [i18n$1],
   props: {
@@ -58455,7 +58193,7 @@ const _sfc_main$2j = {
     }
   }
 };
-function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58472,12 +58210,12 @@ function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var maxEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2j, [["render", _sfc_render$2j]]);
+var maxEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2k, [["render", _sfc_render$2k]]);
 var __glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": maxEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2i = {
+const _sfc_main$2j = {
   name: "maxLength-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58500,7 +58238,7 @@ const _sfc_main$2i = {
     }
   }
 };
-function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58520,12 +58258,12 @@ function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var maxLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2i, [["render", _sfc_render$2i]]);
+var maxLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2j, [["render", _sfc_render$2j]]);
 var __glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": maxLengthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2h = {
+const _sfc_main$2i = {
   name: "min-editor",
   mixins: [i18n$1],
   props: {
@@ -58548,7 +58286,7 @@ const _sfc_main$2h = {
     }
   }
 };
-function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58565,12 +58303,12 @@ function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var minEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2h, [["render", _sfc_render$2h]]);
+var minEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2i, [["render", _sfc_render$2i]]);
 var __glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": minEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2g = {
+const _sfc_main$2h = {
   name: "minLength-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58593,7 +58331,7 @@ const _sfc_main$2g = {
     }
   }
 };
-function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58613,12 +58351,12 @@ function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var minLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2g, [["render", _sfc_render$2g]]);
+var minLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2h, [["render", _sfc_render$2h]]);
 var __glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": minLengthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2f = {
+const _sfc_main$2g = {
   name: "multiple-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58627,7 +58365,7 @@ const _sfc_main$2f = {
     optionModel: Object
   }
 };
-function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58643,12 +58381,12 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2f, [["render", _sfc_render$2f]]);
+var multipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2g, [["render", _sfc_render$2g]]);
 var __glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2e = {
+const _sfc_main$2f = {
   name: "multipleLimit-editor",
   mixins: [i18n$1],
   props: {
@@ -58657,7 +58395,7 @@ const _sfc_main$2e = {
     optionModel: Object
   }
 };
-function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58675,12 +58413,12 @@ function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2e, [["render", _sfc_render$2e]]);
+var multipleLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2f, [["render", _sfc_render$2f]]);
 var __glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleLimitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2d = {
+const _sfc_main$2e = {
   name: "multipleSelect-editor",
   mixins: [i18n$1],
   props: {
@@ -58689,7 +58427,7 @@ const _sfc_main$2d = {
     optionModel: Object
   }
 };
-function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58704,12 +58442,12 @@ function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleSelectEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2d, [["render", _sfc_render$2d]]);
+var multipleSelectEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2e, [["render", _sfc_render$2e]]);
 var __glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleSelectEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2c = {
+const _sfc_main$2d = {
   name: "name-editor",
   mixins: [i18n$1],
   components: {
@@ -58767,7 +58505,7 @@ const _sfc_main$2c = {
     }
   }
 };
-function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_input = resolveComponent("el-input");
@@ -58825,13 +58563,13 @@ function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["rules"]);
 }
-var nameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2c, [["render", _sfc_render$2c]]);
+var nameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2d, [["render", _sfc_render$2d]]);
 var __glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": nameEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var optionItemsSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2b = {
+const _sfc_main$2c = {
   name: "OptionItemsSetting",
   mixins: [i18n$1],
   components: {
@@ -58961,7 +58699,7 @@ const _hoisted_9$3 = {
   class: ""
 };
 const _hoisted_10$3 = { class: "dialog-footer" };
-function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_radio = resolveComponent("el-radio");
@@ -59239,8 +58977,8 @@ function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2b, [["render", _sfc_render$2b], ["__scopeId", "data-v-1a454c25"]]);
-const _sfc_main$2a = {
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2c, [["render", _sfc_render$2c], ["__scopeId", "data-v-1a454c25"]]);
+const _sfc_main$2b = {
   name: "optionItems-editor",
   mixins: [i18n$1],
   props: {
@@ -59252,7 +58990,7 @@ const _sfc_main$2a = {
     OptionItemsSetting
   }
 };
-function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_option_items_setting = resolveComponent("option-items-setting");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -59272,12 +59010,12 @@ function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var optionItemsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2a, [["render", _sfc_render$2a]]);
+var optionItemsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2b, [["render", _sfc_render$2b]]);
 var __glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": optionItemsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$29 = {
+const _sfc_main$2a = {
   name: "placeholder-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -59286,7 +59024,7 @@ const _sfc_main$29 = {
     optionModel: Object
   }
 };
-function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59302,12 +59040,12 @@ function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var placeholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$29, [["render", _sfc_render$29]]);
+var placeholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2a, [["render", _sfc_render$2a]]);
 var __glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": placeholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$28 = {
+const _sfc_main$29 = {
   name: "precision-editor",
   mixins: [i18n$1],
   props: {
@@ -59316,7 +59054,7 @@ const _sfc_main$28 = {
     optionModel: Object
   }
 };
-function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59334,12 +59072,12 @@ function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var precisionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$28, [["render", _sfc_render$28]]);
+var precisionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$29, [["render", _sfc_render$29]]);
 var __glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": precisionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$27 = {
+const _sfc_main$28 = {
   name: "prefixIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -59348,7 +59086,7 @@ const _sfc_main$27 = {
     optionModel: Object
   }
 };
-function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59364,10 +59102,40 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var prefixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$27, [["render", _sfc_render$27]]);
+var prefixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$28, [["render", _sfc_render$28]]);
 var __glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": prefixIconEditor
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$27 = {
+  name: "prependText-editor",
+  mixins: [i18n$1],
+  props: {
+    designer: Object,
+    selectedWidget: Object,
+    optionModel: Object
+  }
+};
+function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input = resolveComponent("el-input");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    label: _ctx.$t("designer.setting.prependText")
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_el_input, {
+        type: "text",
+        modelValue: $props.optionModel.prependText,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.prependText = $event)
+      }, null, 8, ["modelValue"])
+    ]),
+    _: 1
+  }, 8, ["label"]);
+}
+var prependTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$27, [["render", _sfc_render$27]]);
+var __glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": prependTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$26 = {
   name: "readonly-editor",
@@ -59394,7 +59162,7 @@ function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var readonlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$26, [["render", _sfc_render$26]]);
-var __glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": readonlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59424,7 +59192,7 @@ function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var remoteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$25, [["render", _sfc_render$25]]);
-var __glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": remoteEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59453,7 +59221,7 @@ function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var requiredEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$24, [["render", _sfc_render$24]]);
-var __glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": requiredEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59483,7 +59251,7 @@ function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var requiredHintEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$23, [["render", _sfc_render$23]]);
-var __glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": requiredHintEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59513,7 +59281,7 @@ function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rowsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$22, [["render", _sfc_render$22]]);
-var __glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rowsEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59542,7 +59310,7 @@ function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showFileListEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$21, [["render", _sfc_render$21]]);
-var __glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showFileListEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59572,7 +59340,7 @@ function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"])) : createCommentVNode("", true);
 }
 var showPasswordEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$20, [["render", _sfc_render$20]]);
-var __glob_0_48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showPasswordEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59601,7 +59369,7 @@ function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showWordLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1$, [["render", _sfc_render$1$]]);
-var __glob_0_49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showWordLimitEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59651,7 +59419,7 @@ function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var sizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1_, [["render", _sfc_render$1_]]);
-var __glob_0_50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59681,7 +59449,7 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var startPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Z, [["render", _sfc_render$1Z]]);
-var __glob_0_51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_52 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": startPlaceholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59712,7 +59480,7 @@ function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var stepEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Y, [["render", _sfc_render$1Y]]);
-var __glob_0_52 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_53 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": stepEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59742,7 +59510,7 @@ function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var suffixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1X, [["render", _sfc_render$1X]]);
-var __glob_0_53 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_54 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": suffixIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59797,7 +59565,7 @@ function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"])) : createCommentVNode("", true);
 }
 var textAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1W, [["render", _sfc_render$1W], ["__scopeId", "data-v-7454a9b8"]]);
-var __glob_0_54 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_55 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59841,7 +59609,7 @@ function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"])) : createCommentVNode("", true);
 }
 var typeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1V, [["render", _sfc_render$1V]]);
-var __glob_0_55 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_56 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": typeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59871,7 +59639,7 @@ function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var uploadNameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1U, [["render", _sfc_render$1U]]);
-var __glob_0_56 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_57 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadNameEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59901,7 +59669,7 @@ function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var uploadTipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1T, [["render", _sfc_render$1T]]);
-var __glob_0_57 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_58 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadTipEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -59945,7 +59713,7 @@ function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var uploadURLEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1S, [["render", _sfc_render$1S]]);
-var __glob_0_58 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_59 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadURLEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60021,7 +59789,7 @@ function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var validationEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1R, [["render", _sfc_render$1R]]);
-var __glob_0_59 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": validationEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60051,7 +59819,7 @@ function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var validationHintEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
-var __glob_0_60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_61 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": validationHintEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60080,7 +59848,7 @@ function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var withCredentialsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1P, [["render", _sfc_render$1P]]);
-var __glob_0_61 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_62 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": withCredentialsEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60115,7 +59883,7 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var colHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1O, [["render", _sfc_render$1O]]);
-var __glob_0_62 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_63 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60228,7 +59996,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var gutterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-a1c95c20"]]);
-var __glob_0_63 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gutterEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60261,7 +60029,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var gridColOffsetEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M]]);
-var __glob_0_64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColOffsetEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60294,7 +60062,7 @@ function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var gridColPullEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1L, [["render", _sfc_render$1L]]);
-var __glob_0_65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_66 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColPullEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60327,7 +60095,7 @@ function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var gridColPushEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1K, [["render", _sfc_render$1K]]);
-var __glob_0_66 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_67 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColPushEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60356,7 +60124,7 @@ function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var gridColResponsiveEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1J, [["render", _sfc_render$1J]]);
-var __glob_0_67 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_68 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColResponsiveEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60445,7 +60213,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var gridColSpanEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I]]);
-var __glob_0_68 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_69 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColSpanEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60474,7 +60242,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showBlankRowEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H]]);
-var __glob_0_69 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_70 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showBlankRowEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60503,7 +60271,7 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showRowNumberEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1G, [["render", _sfc_render$1G]]);
-var __glob_0_70 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_71 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showRowNumberEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60557,7 +60325,7 @@ function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var subFormLabelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1F, [["render", _sfc_render$1F], ["__scopeId", "data-v-752e869a"]]);
-var __glob_0_71 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_72 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormLabelAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60704,7 +60472,7 @@ function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var tabCustomClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1E, [["render", _sfc_render$1E], ["__scopeId", "data-v-0a7851ed"]]);
-var __glob_0_72 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_73 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabCustomClassEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60734,7 +60502,7 @@ function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var cellHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1D, [["render", _sfc_render$1D]]);
-var __glob_0_73 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_74 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cellHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60764,7 +60532,7 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var cellWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C]]);
-var __glob_0_74 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_75 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cellWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60793,7 +60561,7 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var wordBreakEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1B, [["render", _sfc_render$1B]]);
-var __glob_0_75 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_76 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": wordBreakEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60850,7 +60618,7 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onAppendButtonClickEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1A, [["render", _sfc_render$1A]]);
-var __glob_0_76 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_77 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onAppendButtonClickEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60897,7 +60665,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onBeforeUploadEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z]]);
-var __glob_0_77 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_78 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onBeforeUploadEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60944,7 +60712,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onBlurEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1y, [["render", _sfc_render$1y]]);
-var __glob_0_78 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_79 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onBlurEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -60991,7 +60759,7 @@ function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onChangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1x, [["render", _sfc_render$1x]]);
-var __glob_0_79 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61038,7 +60806,7 @@ function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onClickEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1w, [["render", _sfc_render$1w]]);
-var __glob_0_80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onClickEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61085,7 +60853,7 @@ function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onCreatedEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1v, [["render", _sfc_render$1v]]);
-var __glob_0_81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onCreatedEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61132,7 +60900,7 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onDisabledDateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1u, [["render", _sfc_render$1u]]);
-var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onDisabledDateEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61179,7 +60947,7 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onDisabledHourEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1t, [["render", _sfc_render$1t]]);
-var __glob_0_83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onDisabledHourEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61226,7 +60994,7 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onDisabledMinuteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1s, [["render", _sfc_render$1s]]);
-var __glob_0_84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onDisabledMinuteEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61273,7 +61041,7 @@ function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onEnterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1r, [["render", _sfc_render$1r]]);
-var __glob_0_85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onEnterEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61320,7 +61088,7 @@ function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onFileRemove = /* @__PURE__ */ _export_sfc$2(_sfc_main$1q, [["render", _sfc_render$1q]]);
-var __glob_0_86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onFileRemove
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61367,7 +61135,7 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onFocusEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1p, [["render", _sfc_render$1p]]);
-var __glob_0_87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onFocusEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61414,7 +61182,7 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onInputEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1o, [["render", _sfc_render$1o]]);
-var __glob_0_88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onInputEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61464,7 +61232,7 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   })) : createCommentVNode("", true);
 }
 var onLazyLoadEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1n, [["render", _sfc_render$1n]]);
-var __glob_0_89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onLazyLoadEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61511,7 +61279,7 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onMountedEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1m, [["render", _sfc_render$1m]]);
-var __glob_0_90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onMountedEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61558,7 +61326,7 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onQuerySearchAsyncEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1l, [["render", _sfc_render$1l]]);
-var __glob_0_91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onQuerySearchAsyncEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61605,7 +61373,7 @@ function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onRemoteQueryEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1k, [["render", _sfc_render$1k]]);
-var __glob_0_92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onRemoteQueryEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61652,7 +61420,7 @@ function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onShortcutsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1j, [["render", _sfc_render$1j]]);
-var __glob_0_93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onShortcutsEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61699,7 +61467,7 @@ function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onSubFormRowAddEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1i, [["render", _sfc_render$1i]]);
-var __glob_0_94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowAddEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61746,7 +61514,7 @@ function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onSubFormRowChangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1h, [["render", _sfc_render$1h]]);
-var __glob_0_95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61793,7 +61561,7 @@ function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onSubFormRowDeleteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1g, [["render", _sfc_render$1g]]);
-var __glob_0_96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowDeleteEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61840,7 +61608,7 @@ function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onSubFormRowInsertEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1f, [["render", _sfc_render$1f]]);
-var __glob_0_97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowInsertEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61887,7 +61655,7 @@ function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onUploadErrorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1e, [["render", _sfc_render$1e]]);
-var __glob_0_98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onUploadErrorEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61934,7 +61702,7 @@ function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onUploadSuccessEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1d, [["render", _sfc_render$1d]]);
-var __glob_0_99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onUploadSuccessEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -61981,7 +61749,7 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var onValidateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1c, [["render", _sfc_render$1c]]);
-var __glob_0_100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_101 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onValidateEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62043,7 +61811,7 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var buttonTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1b, [["render", _sfc_render$1b]]);
-var __glob_0_101 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_102 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62072,7 +61840,7 @@ function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var circleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1a, [["render", _sfc_render$1a]]);
-var __glob_0_102 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_103 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": circleEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62102,7 +61870,7 @@ function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var iconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$19, [["render", _sfc_render$19]]);
-var __glob_0_103 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_104 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": iconEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62131,7 +61899,7 @@ function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var plainEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$18, [["render", _sfc_render$18]]);
-var __glob_0_104 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_105 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": plainEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62160,7 +61928,7 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var roundEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$17, [["render", _sfc_render$17]]);
-var __glob_0_105 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_106 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": roundEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62177,7 +61945,7 @@ function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$o);
 }
 var cascaderDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$16, [["render", _sfc_render$16]]);
-var __glob_0_106 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_107 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62206,7 +61974,7 @@ function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var cascaderMultipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$15, [["render", _sfc_render$15]]);
-var __glob_0_107 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_108 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderMultipleEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62235,7 +62003,7 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var checkStrictlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$14, [["render", _sfc_render$14]]);
-var __glob_0_108 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_109 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkStrictlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62264,7 +62032,7 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showAllLevelsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$13, [["render", _sfc_render$13]]);
-var __glob_0_109 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_110 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showAllLevelsEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62281,7 +62049,7 @@ function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$n);
 }
 var checkboxDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$12, [["render", _sfc_render$12]]);
-var __glob_0_110 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_111 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62311,7 +62079,7 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var colorDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$11, [["render", _sfc_render$11]]);
-var __glob_0_111 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_112 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62345,7 +62113,7 @@ function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$10, [["render", _sfc_render$10]]);
-var __glob_0_112 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_113 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62401,7 +62169,7 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$$, [["render", _sfc_render$$]]);
-var __glob_0_113 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_114 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62459,7 +62227,7 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$_, [["render", _sfc_render$_]]);
-var __glob_0_114 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_115 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62507,7 +62275,7 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateValueFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Z, [["render", _sfc_render$Z]]);
-var __glob_0_115 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_116 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62541,7 +62309,7 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Y, [["render", _sfc_render$Y]]);
-var __glob_0_116 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_117 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62597,7 +62365,7 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateRangeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$X, [["render", _sfc_render$X]]);
-var __glob_0_117 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_118 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62643,7 +62411,7 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateRangeTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$W, [["render", _sfc_render$W]]);
-var __glob_0_118 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_119 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62687,7 +62455,7 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var dateRangeValueFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$V, [["render", _sfc_render$V]]);
-var __glob_0_119 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_120 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62733,7 +62501,7 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var contentPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U]]);
-var __glob_0_120 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_121 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": contentPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62806,7 +62574,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var fileUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T]]);
-var __glob_0_121 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_122 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadFileTypesEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62842,7 +62610,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var htmlContentEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-a185d9d2"]]);
-var __glob_0_122 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_123 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlContentEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62884,7 +62652,7 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var controlsPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R]]);
-var __glob_0_123 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_124 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": controlsPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62917,7 +62685,7 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var numberDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Q, [["render", _sfc_render$Q]]);
-var __glob_0_124 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_125 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62990,7 +62758,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var pictureUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P]]);
-var __glob_0_125 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_126 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadFileTypesEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63007,7 +62775,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$m);
 }
 var radioDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O]]);
-var __glob_0_126 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_127 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63036,7 +62804,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var allowHalfEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N]]);
-var __glob_0_127 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_128 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": allowHalfEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63069,7 +62837,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var highThresholdEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M]]);
-var __glob_0_128 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_129 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": highThresholdEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63102,7 +62870,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var lowThresholdEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L]]);
-var __glob_0_129 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_130 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": lowThresholdEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63135,7 +62903,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rateDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K]]);
-var __glob_0_130 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_131 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63168,7 +62936,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rateMaxEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J]]);
-var __glob_0_131 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_132 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateMaxEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63197,7 +62965,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showScoreEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I]]);
-var __glob_0_132 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_133 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showScoreEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63226,7 +62994,7 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H]]);
-var __glob_0_133 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_134 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63258,7 +63026,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var richEditorContentHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$G, [["render", _sfc_render$G]]);
-var __glob_0_134 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_135 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorContentHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63275,7 +63043,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$l);
 }
 var selectDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F]]);
-var __glob_0_135 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_136 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63304,7 +63072,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E]]);
-var __glob_0_136 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_137 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63333,7 +63101,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showStopsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$D, [["render", _sfc_render$D]]);
-var __glob_0_137 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_138 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showStopsEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63362,7 +63130,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var verticalEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$C, [["render", _sfc_render$C]]);
-var __glob_0_138 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_139 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": verticalEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63391,7 +63159,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var fontSizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B]]);
-var __glob_0_139 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_140 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fontSizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63420,7 +63188,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var preWrapEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A]]);
-var __glob_0_140 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_141 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": preWrapEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63451,7 +63219,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var textContentEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z]]);
-var __glob_0_141 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_142 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textContentEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63480,7 +63248,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var activeColorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y]]);
-var __glob_0_142 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_143 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": activeColorEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63509,7 +63277,7 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var activeTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x]]);
-var __glob_0_143 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_144 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": activeTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63538,7 +63306,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var inactiveColorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w]]);
-var __glob_0_144 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_145 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inactiveColorEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63567,7 +63335,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var inactiveTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v]]);
-var __glob_0_145 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_146 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inactiveTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63599,7 +63367,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var switchDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u]]);
-var __glob_0_146 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_147 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63629,7 +63397,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var switchWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t]]);
-var __glob_0_147 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_148 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63662,7 +63430,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s]]);
-var __glob_0_148 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_149 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63710,7 +63478,7 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r]]);
-var __glob_0_149 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_150 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63744,7 +63512,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q]]);
-var __glob_0_150 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_151 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63792,12 +63560,12 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeRangeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$p, [["render", _sfc_render$p]]);
-var __glob_0_151 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_152 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
 let comps = {};
-const modules$1 = { "./allowCreate-editor.vue": __glob_0_0$1, "./appendButton-editor.vue": __glob_0_1$1, "./appendButtonDisabled-editor.vue": __glob_0_2$1, "./appendButtonText-editor.vue": __glob_0_3$1, "./autoFullWidth-editor.vue": __glob_0_4$1, "./automaticDropdown-editor.vue": __glob_0_5$1, "./border-editor.vue": __glob_0_6$1, "./buttonIcon-editor.vue": __glob_0_7, "./buttonStyle-editor.vue": __glob_0_8, "./clearable-editor.vue": __glob_0_9, "./columnWidth-editor.vue": __glob_0_10, "./customClass-editor.vue": __glob_0_11, "./defaultValue-editor.vue": __glob_0_12, "./disabled-editor.vue": __glob_0_13, "./displayStyle-editor.vue": __glob_0_14, "./editable-editor.vue": __glob_0_15, "./endPlaceholder-editor.vue": __glob_0_16, "./expandTrigger-editor.vue": __glob_0_17, "./fileMaxSize-editor.vue": __glob_0_18, "./filterable-editor.vue": __glob_0_19, "./hidden-editor.vue": __glob_0_20, "./label-editor.vue": __glob_0_21, "./labelAlign-editor.vue": __glob_0_22, "./labelHidden-editor.vue": __glob_0_23, "./labelIconClass-editor.vue": __glob_0_24, "./labelIconPosition-editor.vue": __glob_0_25, "./labelTooltip-editor.vue": __glob_0_26, "./labelWidth-editor.vue": __glob_0_27, "./lazy-editor.vue": __glob_0_28, "./limit-editor.vue": __glob_0_29, "./max-editor.vue": __glob_0_30, "./maxLength-editor.vue": __glob_0_31, "./min-editor.vue": __glob_0_32, "./minLength-editor.vue": __glob_0_33, "./multiple-editor.vue": __glob_0_34, "./multipleLimit-editor.vue": __glob_0_35, "./multipleSelect-editor.vue": __glob_0_36, "./name-editor.vue": __glob_0_37, "./optionItems-editor.vue": __glob_0_38, "./placeholder-editor.vue": __glob_0_39, "./precision-editor.vue": __glob_0_40, "./prefixIcon-editor.vue": __glob_0_41, "./readonly-editor.vue": __glob_0_42, "./remote-editor.vue": __glob_0_43, "./required-editor.vue": __glob_0_44, "./requiredHint-editor.vue": __glob_0_45, "./rows-editor.vue": __glob_0_46, "./showFileList-editor.vue": __glob_0_47, "./showPassword-editor.vue": __glob_0_48, "./showWordLimit-editor.vue": __glob_0_49, "./size-editor.vue": __glob_0_50, "./startPlaceholder-editor.vue": __glob_0_51, "./step-editor.vue": __glob_0_52, "./suffixIcon-editor.vue": __glob_0_53, "./textAlign-editor.vue": __glob_0_54, "./type-editor.vue": __glob_0_55, "./uploadName-editor.vue": __glob_0_56, "./uploadTip-editor.vue": __glob_0_57, "./uploadURL-editor.vue": __glob_0_58, "./validation-editor.vue": __glob_0_59, "./validationHint-editor.vue": __glob_0_60, "./withCredentials-editor.vue": __glob_0_61, "./container-grid/colHeight-editor.vue": __glob_0_62, "./container-grid/gutter-editor.vue": __glob_0_63, "./container-grid-col/grid-col-offset-editor.vue": __glob_0_64, "./container-grid-col/grid-col-pull-editor.vue": __glob_0_65, "./container-grid-col/grid-col-push-editor.vue": __glob_0_66, "./container-grid-col/grid-col-responsive-editor.vue": __glob_0_67, "./container-grid-col/grid-col-span-editor.vue": __glob_0_68, "./container-sub-form/showBlankRow-editor.vue": __glob_0_69, "./container-sub-form/showRowNumber-editor.vue": __glob_0_70, "./container-sub-form/sub-form-labelAlign-editor.vue": __glob_0_71, "./container-tab/tab-customClass-editor.vue": __glob_0_72, "./container-table-cell/cellHeight-editor.vue": __glob_0_73, "./container-table-cell/cellWidth-editor.vue": __glob_0_74, "./container-table-cell/wordBreak-editor.vue": __glob_0_75, "./event-handler/onAppendButtonClick-editor.vue": __glob_0_76, "./event-handler/onBeforeUpload-editor.vue": __glob_0_77, "./event-handler/onBlur-editor.vue": __glob_0_78, "./event-handler/onChange-editor.vue": __glob_0_79, "./event-handler/onClick-editor.vue": __glob_0_80, "./event-handler/onCreated-editor.vue": __glob_0_81, "./event-handler/onDisabledDate-editor.vue": __glob_0_82, "./event-handler/onDisabledHour-editor.vue": __glob_0_83, "./event-handler/onDisabledMinute-editor.vue": __glob_0_84, "./event-handler/onEnter-editor.vue": __glob_0_85, "./event-handler/onFileRemove.vue": __glob_0_86, "./event-handler/onFocus-editor.vue": __glob_0_87, "./event-handler/onInput-editor.vue": __glob_0_88, "./event-handler/onLazyLoad-editor.vue": __glob_0_89, "./event-handler/onMounted-editor.vue": __glob_0_90, "./event-handler/onQuerySearchAsync-editor.vue": __glob_0_91, "./event-handler/onRemoteQuery-editor.vue": __glob_0_92, "./event-handler/onShortcuts-editor.vue": __glob_0_93, "./event-handler/onSubFormRowAdd-editor.vue": __glob_0_94, "./event-handler/onSubFormRowChange-editor.vue": __glob_0_95, "./event-handler/onSubFormRowDelete-editor.vue": __glob_0_96, "./event-handler/onSubFormRowInsert-editor.vue": __glob_0_97, "./event-handler/onUploadError-editor.vue": __glob_0_98, "./event-handler/onUploadSuccess-editor.vue": __glob_0_99, "./event-handler/onValidate-editor.vue": __glob_0_100, "./field-button/button-type-editor.vue": __glob_0_101, "./field-button/circle-editor.vue": __glob_0_102, "./field-button/icon-editor.vue": __glob_0_103, "./field-button/plain-editor.vue": __glob_0_104, "./field-button/round-editor.vue": __glob_0_105, "./field-cascader/cascader-defaultValue-editor.vue": __glob_0_106, "./field-cascader/cascader-multiple-editor.vue": __glob_0_107, "./field-cascader/checkStrictly-editor.vue": __glob_0_108, "./field-cascader/showAllLevels-editor.vue": __glob_0_109, "./field-checkbox/checkbox-defaultValue-editor.vue": __glob_0_110, "./field-color/color-defaultValue-editor.vue": __glob_0_111, "./field-date/date-defaultValue-editor.vue": __glob_0_112, "./field-date/date-format-editor.vue": __glob_0_113, "./field-date/date-type-editor.vue": __glob_0_114, "./field-date/date-valueFormat-editor.vue": __glob_0_115, "./field-date-range/date-range-defaultValue-editor.vue": __glob_0_116, "./field-date-range/date-range-format-editor.vue": __glob_0_117, "./field-date-range/date-range-type-editor.vue": __glob_0_118, "./field-date-range/date-range-valueFormat-editor.vue": __glob_0_119, "./field-divider/contentPosition-editor.vue": __glob_0_120, "./field-file-upload/file-upload-fileTypes-editor.vue": __glob_0_121, "./field-html-text/htmlContent-editor.vue": __glob_0_122, "./field-number/controlsPosition-editor.vue": __glob_0_123, "./field-number/number-defaultValue-editor.vue": __glob_0_124, "./field-picture-upload/picture-upload-fileTypes-editor.vue": __glob_0_125, "./field-radio/radio-defaultValue-editor.vue": __glob_0_126, "./field-rate/allowHalf-editor.vue": __glob_0_127, "./field-rate/highThreshold-editor.vue": __glob_0_128, "./field-rate/lowThreshold-editor.vue": __glob_0_129, "./field-rate/rate-defaultValue-editor.vue": __glob_0_130, "./field-rate/rate-max-editor.vue": __glob_0_131, "./field-rate/showScore-editor.vue": __glob_0_132, "./field-rate/showText-editor.vue": __glob_0_133, "./field-rich-editor/rich-editor-contentHeight-editor.vue": __glob_0_134, "./field-select/select-defaultValue-editor.vue": __glob_0_135, "./field-slider/range-editor.vue": __glob_0_136, "./field-slider/showStops-editor.vue": __glob_0_137, "./field-slider/vertical-editor.vue": __glob_0_138, "./field-static-text/fontSize-editor.vue": __glob_0_139, "./field-static-text/preWrap-editor.vue": __glob_0_140, "./field-static-text/textContent-editor.vue": __glob_0_141, "./field-switch/activeColor-editor.vue": __glob_0_142, "./field-switch/activeText-editor.vue": __glob_0_143, "./field-switch/inactiveColor-editor.vue": __glob_0_144, "./field-switch/inactiveText-editor.vue": __glob_0_145, "./field-switch/switch-defaultValue-editor.vue": __glob_0_146, "./field-switch/switchWidth-editor.vue": __glob_0_147, "./field-time/time-defaultValue-editor.vue": __glob_0_148, "./field-time/time-format-editor.vue": __glob_0_149, "./field-time-range/time-range-defaultValue-editor.vue": __glob_0_150, "./field-time-range/time-range-format-editor.vue": __glob_0_151 };
+const modules$1 = { "./allowCreate-editor.vue": __glob_0_0$1, "./appendButton-editor.vue": __glob_0_1$1, "./appendButtonDisabled-editor.vue": __glob_0_2$1, "./appendButtonText-editor.vue": __glob_0_3$1, "./autoFullWidth-editor.vue": __glob_0_4$1, "./automaticDropdown-editor.vue": __glob_0_5$1, "./border-editor.vue": __glob_0_6$1, "./buttonIcon-editor.vue": __glob_0_7, "./buttonStyle-editor.vue": __glob_0_8, "./clearable-editor.vue": __glob_0_9, "./columnWidth-editor.vue": __glob_0_10, "./customClass-editor.vue": __glob_0_11, "./defaultValue-editor.vue": __glob_0_12, "./disabled-editor.vue": __glob_0_13, "./displayStyle-editor.vue": __glob_0_14, "./editable-editor.vue": __glob_0_15, "./endPlaceholder-editor.vue": __glob_0_16, "./expandTrigger-editor.vue": __glob_0_17, "./fileMaxSize-editor.vue": __glob_0_18, "./filterable-editor.vue": __glob_0_19, "./hidden-editor.vue": __glob_0_20, "./label-editor.vue": __glob_0_21, "./labelAlign-editor.vue": __glob_0_22, "./labelHidden-editor.vue": __glob_0_23, "./labelIconClass-editor.vue": __glob_0_24, "./labelIconPosition-editor.vue": __glob_0_25, "./labelTooltip-editor.vue": __glob_0_26, "./labelWidth-editor.vue": __glob_0_27, "./lazy-editor.vue": __glob_0_28, "./limit-editor.vue": __glob_0_29, "./max-editor.vue": __glob_0_30, "./maxLength-editor.vue": __glob_0_31, "./min-editor.vue": __glob_0_32, "./minLength-editor.vue": __glob_0_33, "./multiple-editor.vue": __glob_0_34, "./multipleLimit-editor.vue": __glob_0_35, "./multipleSelect-editor.vue": __glob_0_36, "./name-editor.vue": __glob_0_37, "./optionItems-editor.vue": __glob_0_38, "./placeholder-editor.vue": __glob_0_39, "./precision-editor.vue": __glob_0_40, "./prefixIcon-editor.vue": __glob_0_41, "./prependText-editor.vue": __glob_0_42, "./readonly-editor.vue": __glob_0_43, "./remote-editor.vue": __glob_0_44, "./required-editor.vue": __glob_0_45, "./requiredHint-editor.vue": __glob_0_46, "./rows-editor.vue": __glob_0_47, "./showFileList-editor.vue": __glob_0_48, "./showPassword-editor.vue": __glob_0_49, "./showWordLimit-editor.vue": __glob_0_50, "./size-editor.vue": __glob_0_51, "./startPlaceholder-editor.vue": __glob_0_52, "./step-editor.vue": __glob_0_53, "./suffixIcon-editor.vue": __glob_0_54, "./textAlign-editor.vue": __glob_0_55, "./type-editor.vue": __glob_0_56, "./uploadName-editor.vue": __glob_0_57, "./uploadTip-editor.vue": __glob_0_58, "./uploadURL-editor.vue": __glob_0_59, "./validation-editor.vue": __glob_0_60, "./validationHint-editor.vue": __glob_0_61, "./withCredentials-editor.vue": __glob_0_62, "./container-grid/colHeight-editor.vue": __glob_0_63, "./container-grid/gutter-editor.vue": __glob_0_64, "./container-grid-col/grid-col-offset-editor.vue": __glob_0_65, "./container-grid-col/grid-col-pull-editor.vue": __glob_0_66, "./container-grid-col/grid-col-push-editor.vue": __glob_0_67, "./container-grid-col/grid-col-responsive-editor.vue": __glob_0_68, "./container-grid-col/grid-col-span-editor.vue": __glob_0_69, "./container-sub-form/showBlankRow-editor.vue": __glob_0_70, "./container-sub-form/showRowNumber-editor.vue": __glob_0_71, "./container-sub-form/sub-form-labelAlign-editor.vue": __glob_0_72, "./container-tab/tab-customClass-editor.vue": __glob_0_73, "./container-table-cell/cellHeight-editor.vue": __glob_0_74, "./container-table-cell/cellWidth-editor.vue": __glob_0_75, "./container-table-cell/wordBreak-editor.vue": __glob_0_76, "./event-handler/onAppendButtonClick-editor.vue": __glob_0_77, "./event-handler/onBeforeUpload-editor.vue": __glob_0_78, "./event-handler/onBlur-editor.vue": __glob_0_79, "./event-handler/onChange-editor.vue": __glob_0_80, "./event-handler/onClick-editor.vue": __glob_0_81, "./event-handler/onCreated-editor.vue": __glob_0_82, "./event-handler/onDisabledDate-editor.vue": __glob_0_83, "./event-handler/onDisabledHour-editor.vue": __glob_0_84, "./event-handler/onDisabledMinute-editor.vue": __glob_0_85, "./event-handler/onEnter-editor.vue": __glob_0_86, "./event-handler/onFileRemove.vue": __glob_0_87, "./event-handler/onFocus-editor.vue": __glob_0_88, "./event-handler/onInput-editor.vue": __glob_0_89, "./event-handler/onLazyLoad-editor.vue": __glob_0_90, "./event-handler/onMounted-editor.vue": __glob_0_91, "./event-handler/onQuerySearchAsync-editor.vue": __glob_0_92, "./event-handler/onRemoteQuery-editor.vue": __glob_0_93, "./event-handler/onShortcuts-editor.vue": __glob_0_94, "./event-handler/onSubFormRowAdd-editor.vue": __glob_0_95, "./event-handler/onSubFormRowChange-editor.vue": __glob_0_96, "./event-handler/onSubFormRowDelete-editor.vue": __glob_0_97, "./event-handler/onSubFormRowInsert-editor.vue": __glob_0_98, "./event-handler/onUploadError-editor.vue": __glob_0_99, "./event-handler/onUploadSuccess-editor.vue": __glob_0_100, "./event-handler/onValidate-editor.vue": __glob_0_101, "./field-button/button-type-editor.vue": __glob_0_102, "./field-button/circle-editor.vue": __glob_0_103, "./field-button/icon-editor.vue": __glob_0_104, "./field-button/plain-editor.vue": __glob_0_105, "./field-button/round-editor.vue": __glob_0_106, "./field-cascader/cascader-defaultValue-editor.vue": __glob_0_107, "./field-cascader/cascader-multiple-editor.vue": __glob_0_108, "./field-cascader/checkStrictly-editor.vue": __glob_0_109, "./field-cascader/showAllLevels-editor.vue": __glob_0_110, "./field-checkbox/checkbox-defaultValue-editor.vue": __glob_0_111, "./field-color/color-defaultValue-editor.vue": __glob_0_112, "./field-date/date-defaultValue-editor.vue": __glob_0_113, "./field-date/date-format-editor.vue": __glob_0_114, "./field-date/date-type-editor.vue": __glob_0_115, "./field-date/date-valueFormat-editor.vue": __glob_0_116, "./field-date-range/date-range-defaultValue-editor.vue": __glob_0_117, "./field-date-range/date-range-format-editor.vue": __glob_0_118, "./field-date-range/date-range-type-editor.vue": __glob_0_119, "./field-date-range/date-range-valueFormat-editor.vue": __glob_0_120, "./field-divider/contentPosition-editor.vue": __glob_0_121, "./field-file-upload/file-upload-fileTypes-editor.vue": __glob_0_122, "./field-html-text/htmlContent-editor.vue": __glob_0_123, "./field-number/controlsPosition-editor.vue": __glob_0_124, "./field-number/number-defaultValue-editor.vue": __glob_0_125, "./field-picture-upload/picture-upload-fileTypes-editor.vue": __glob_0_126, "./field-radio/radio-defaultValue-editor.vue": __glob_0_127, "./field-rate/allowHalf-editor.vue": __glob_0_128, "./field-rate/highThreshold-editor.vue": __glob_0_129, "./field-rate/lowThreshold-editor.vue": __glob_0_130, "./field-rate/rate-defaultValue-editor.vue": __glob_0_131, "./field-rate/rate-max-editor.vue": __glob_0_132, "./field-rate/showScore-editor.vue": __glob_0_133, "./field-rate/showText-editor.vue": __glob_0_134, "./field-rich-editor/rich-editor-contentHeight-editor.vue": __glob_0_135, "./field-select/select-defaultValue-editor.vue": __glob_0_136, "./field-slider/range-editor.vue": __glob_0_137, "./field-slider/showStops-editor.vue": __glob_0_138, "./field-slider/vertical-editor.vue": __glob_0_139, "./field-static-text/fontSize-editor.vue": __glob_0_140, "./field-static-text/preWrap-editor.vue": __glob_0_141, "./field-static-text/textContent-editor.vue": __glob_0_142, "./field-switch/activeColor-editor.vue": __glob_0_143, "./field-switch/activeText-editor.vue": __glob_0_144, "./field-switch/inactiveColor-editor.vue": __glob_0_145, "./field-switch/inactiveText-editor.vue": __glob_0_146, "./field-switch/switch-defaultValue-editor.vue": __glob_0_147, "./field-switch/switchWidth-editor.vue": __glob_0_148, "./field-time/time-defaultValue-editor.vue": __glob_0_149, "./field-time/time-format-editor.vue": __glob_0_150, "./field-time-range/time-range-defaultValue-editor.vue": __glob_0_151, "./field-time-range/time-range-format-editor.vue": __glob_0_152 };
 for (const path in modules$1) {
   let cname = modules$1[path].default.name;
   comps[cname] = modules$1[path].default;
@@ -64568,7 +64336,8 @@ const ADVANCED_PROPERTIES$1 = {
   "appendButton": "appendButton-editor",
   "appendButtonText": "appendButtonText-editor",
   "appendButtonDisabled": "appendButtonDisabled-editor",
-  "buttonIcon": "buttonIcon-editor"
+  "buttonIcon": "buttonIcon-editor",
+  "prependText": "prependText-editor"
 };
 const EVENT_PROPERTIES$1 = {
   "onCreated": "onCreated-editor",
@@ -67543,7 +67312,7 @@ const _sfc_main$e = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-88e1ce00"), n10 = n10(), popScopeId(), n10);
+const _withScopeId = (n10) => (pushScopeId("data-v-fb9e1f7c"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$b = { class: "main-container" };
 const _hoisted_2$a = { class: "main-header" };
 const _hoisted_3$9 = { class: "float-left main-title" };
@@ -67563,7 +67332,10 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_toolbar_panel = resolveComponent("toolbar-panel");
   const _component_el_header = resolveComponent("el-header");
   const _component_v_form_widget = resolveComponent("v-form-widget");
+  const _component_el_scrollbar = resolveComponent("el-scrollbar");
+  const _component_el_main = resolveComponent("el-main");
   const _component_setting_panel = resolveComponent("setting-panel");
+  const _component_el_aside = resolveComponent("el-aside");
   return openBlock(), createElementBlock("div", _hoisted_1$b, [
     createElementVNode("div", _hoisted_2$a, [
       createElementVNode("div", _hoisted_3$9, [
@@ -67669,25 +67441,42 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
           ]),
           _: 3
         }),
-        createVNode(_component_v_form_widget, {
-          designer: $data.designer,
-          "form-config": $data.designer.formConfig,
-          "global-dsv": $props.globalDsv,
-          ref: "formRef"
-        }, null, 8, ["designer", "form-config", "global-dsv"])
+        createVNode(_component_el_main, { class: "form-widget-main" }, {
+          default: withCtx(() => [
+            createVNode(_component_el_scrollbar, {
+              class: "container-scroll-bar",
+              style: normalizeStyle({ height: $data.scrollerHeight })
+            }, {
+              default: withCtx(() => [
+                createVNode(_component_v_form_widget, {
+                  designer: $data.designer,
+                  "form-config": $data.designer.formConfig,
+                  "global-dsv": $props.globalDsv,
+                  ref: "formRef"
+                }, null, 8, ["designer", "form-config", "global-dsv"])
+              ]),
+              _: 1
+            }, 8, ["style"])
+          ]),
+          _: 1
+        })
       ]),
-      createVNode(_component_setting_panel, {
-        class: "v-form-panel",
-        designer: $data.designer,
-        "selected-widget": $data.designer.selectedWidget,
-        "form-config": $data.designer.formConfig,
-        "global-dsv": $props.globalDsv,
-        onEditEventHandler: $options.testEEH
-      }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
+      createVNode(_component_el_aside, null, {
+        default: withCtx(() => [
+          createVNode(_component_setting_panel, {
+            designer: $data.designer,
+            "selected-widget": $data.designer.selectedWidget,
+            "form-config": $data.designer.formConfig,
+            "global-dsv": $props.globalDsv,
+            onEditEventHandler: $options.testEEH
+          }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
+        ]),
+        _: 1
+      })
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-88e1ce00"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-fb9e1f7c"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -73611,13 +73400,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1698973966464__");
+    var svgDom = document.getElementById("__svg__icons__dom__1699929883207__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1698973966464__";
+      svgDom.id = "__svg__icons__dom__1699929883207__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -73963,6 +73752,7 @@ const autoCompleteSchema = {
     suffixIcon: "",
     appendButton: false,
     appendButtonText: "",
+    prependText: "",
     appendButtonDisabled: false,
     buttonIcon: "el-icon-search",
     onMounted: "",

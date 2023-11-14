@@ -17,6 +17,7 @@ export function createI18n(options) {
         },
 
         $st2(path, path2) {
+            if(!path || !path2) return path
             let messages = this.messages[locale.lang]
             const message = get(messages, path)
             return (message !== null) ? message : get(messages, path2)

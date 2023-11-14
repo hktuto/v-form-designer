@@ -113,7 +113,7 @@ const ADVANCED_PROPERTIES = {
   'appendButtonText'  :            'appendButtonText-editor',
   'appendButtonDisabled':          'appendButtonDisabled-editor',
   'buttonIcon'        :            'buttonIcon-editor',
-
+  'prependText'       :            'prependText-editor',
 }
 
 const EVENT_PROPERTIES = {

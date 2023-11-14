@@ -19,9 +19,6 @@ var __spreadValues2 = (a10, b10) => {
 var __spreadProps2 = (a10, b10) => __defProps2(a10, __getOwnPropDescs2(b10));
 import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, pushScopeId, popScopeId, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, isVNode } from "vue";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
-function getDefaultExportFromCjs(x10) {
-  return x10 && x10.__esModule && Object.prototype.hasOwnProperty.call(x10, "default") ? x10["default"] : x10;
-}
 var axios$2 = { exports: {} };
 var bind$2 = function bind2(fn2, thisArg) {
   return function wrap() {
@@ -1195,6 +1192,8 @@ function createI18n(options) {
       return typeof message === "function" ? message(...args) : message !== null ? message : path;
     },
     $st2(path, path2) {
+      if (!path || !path2)
+        return path;
       let messages = this.messages[locale.lang];
       const message = get(messages, path);
       return message !== null ? message : get(messages, path2);
@@ -1204,307 +1203,6 @@ function createI18n(options) {
     }
   };
 }
-var en$1 = {};
-(function(exports) {
-  Object.defineProperty(exports, "__esModule", { value: true });
-  var English = {
-    name: "en",
-    el: {
-      colorpicker: {
-        confirm: "OK",
-        clear: "Clear",
-        defaultLabel: "color picker",
-        description: "current color is {color}. press enter to select a new color."
-      },
-      datepicker: {
-        now: "Now",
-        today: "Today",
-        cancel: "Cancel",
-        clear: "Clear",
-        confirm: "OK",
-        dateTablePrompt: "Use the arrow keys and enter to select the day of the month",
-        monthTablePrompt: "Use the arrow keys and enter to select the month",
-        yearTablePrompt: "Use the arrow keys and enter to select the year",
-        selectedDate: "Selected date",
-        selectDate: "Select date",
-        selectTime: "Select time",
-        startDate: "Start Date",
-        startTime: "Start Time",
-        endDate: "End Date",
-        endTime: "End Time",
-        prevYear: "Previous Year",
-        nextYear: "Next Year",
-        prevMonth: "Previous Month",
-        nextMonth: "Next Month",
-        year: "",
-        month1: "January",
-        month2: "February",
-        month3: "March",
-        month4: "April",
-        month5: "May",
-        month6: "June",
-        month7: "July",
-        month8: "August",
-        month9: "September",
-        month10: "October",
-        month11: "November",
-        month12: "December",
-        week: "week",
-        weeks: {
-          sun: "Sun",
-          mon: "Mon",
-          tue: "Tue",
-          wed: "Wed",
-          thu: "Thu",
-          fri: "Fri",
-          sat: "Sat"
-        },
-        weeksFull: {
-          sun: "Sunday",
-          mon: "Monday",
-          tue: "Tuesday",
-          wed: "Wednesday",
-          thu: "Thursday",
-          fri: "Friday",
-          sat: "Saturday"
-        },
-        months: {
-          jan: "Jan",
-          feb: "Feb",
-          mar: "Mar",
-          apr: "Apr",
-          may: "May",
-          jun: "Jun",
-          jul: "Jul",
-          aug: "Aug",
-          sep: "Sep",
-          oct: "Oct",
-          nov: "Nov",
-          dec: "Dec"
-        }
-      },
-      inputNumber: {
-        decrease: "decrease number",
-        increase: "increase number"
-      },
-      select: {
-        loading: "Loading",
-        noMatch: "No matching data",
-        noData: "No data",
-        placeholder: "Select"
-      },
-      dropdown: {
-        toggleDropdown: "Toggle Dropdown"
-      },
-      cascader: {
-        noMatch: "No matching data",
-        loading: "Loading",
-        placeholder: "Select",
-        noData: "No data"
-      },
-      pagination: {
-        goto: "Go to",
-        pagesize: "/page",
-        total: "Total {total}",
-        pageClassifier: "",
-        page: "Page",
-        prev: "Go to previous page",
-        next: "Go to next page",
-        currentPage: "page {pager}",
-        prevPages: "Previous {pager} pages",
-        nextPages: "Next {pager} pages",
-        deprecationWarning: "Deprecated usages detected, please refer to the el-pagination documentation for more details"
-      },
-      dialog: {
-        close: "Close this dialog"
-      },
-      drawer: {
-        close: "Close this dialog"
-      },
-      messagebox: {
-        title: "Message",
-        confirm: "OK",
-        cancel: "Cancel",
-        error: "Illegal input",
-        close: "Close this dialog"
-      },
-      upload: {
-        deleteTip: "press delete to remove",
-        delete: "Delete",
-        preview: "Preview",
-        continue: "Continue"
-      },
-      slider: {
-        defaultLabel: "slider between {min} and {max}",
-        defaultRangeStartLabel: "pick start value",
-        defaultRangeEndLabel: "pick end value"
-      },
-      table: {
-        emptyText: "No Data",
-        confirmFilter: "Confirm",
-        resetFilter: "Reset",
-        clearFilter: "All",
-        sumText: "Sum"
-      },
-      tree: {
-        emptyText: "No Data"
-      },
-      transfer: {
-        noMatch: "No matching data",
-        noData: "No data",
-        titles: ["List 1", "List 2"],
-        filterPlaceholder: "Enter keyword",
-        noCheckedFormat: "{total} items",
-        hasCheckedFormat: "{checked}/{total} checked"
-      },
-      image: {
-        error: "FAILED"
-      },
-      pageHeader: {
-        title: "Back"
-      },
-      popconfirm: {
-        confirmButtonText: "Yes",
-        cancelButtonText: "No"
-      }
-    }
-  };
-  exports["default"] = English;
-})(en$1);
-var enLocaleElement = /* @__PURE__ */ getDefaultExportFromCjs(en$1);
-var zhCn = {};
-(function(exports) {
-  Object.defineProperty(exports, "__esModule", { value: true });
-  var zhCn2 = {
-    name: "zh-cn",
-    el: {
-      colorpicker: {
-        confirm: "\u786E\u5B9A",
-        clear: "\u6E05\u7A7A"
-      },
-      datepicker: {
-        now: "\u6B64\u523B",
-        today: "\u4ECA\u5929",
-        cancel: "\u53D6\u6D88",
-        clear: "\u6E05\u7A7A",
-        confirm: "\u786E\u5B9A",
-        selectDate: "\u9009\u62E9\u65E5\u671F",
-        selectTime: "\u9009\u62E9\u65F6\u95F4",
-        startDate: "\u5F00\u59CB\u65E5\u671F",
-        startTime: "\u5F00\u59CB\u65F6\u95F4",
-        endDate: "\u7ED3\u675F\u65E5\u671F",
-        endTime: "\u7ED3\u675F\u65F6\u95F4",
-        prevYear: "\u524D\u4E00\u5E74",
-        nextYear: "\u540E\u4E00\u5E74",
-        prevMonth: "\u4E0A\u4E2A\u6708",
-        nextMonth: "\u4E0B\u4E2A\u6708",
-        year: "\u5E74",
-        month1: "1 \u6708",
-        month2: "2 \u6708",
-        month3: "3 \u6708",
-        month4: "4 \u6708",
-        month5: "5 \u6708",
-        month6: "6 \u6708",
-        month7: "7 \u6708",
-        month8: "8 \u6708",
-        month9: "9 \u6708",
-        month10: "10 \u6708",
-        month11: "11 \u6708",
-        month12: "12 \u6708",
-        weeks: {
-          sun: "\u65E5",
-          mon: "\u4E00",
-          tue: "\u4E8C",
-          wed: "\u4E09",
-          thu: "\u56DB",
-          fri: "\u4E94",
-          sat: "\u516D"
-        },
-        months: {
-          jan: "\u4E00\u6708",
-          feb: "\u4E8C\u6708",
-          mar: "\u4E09\u6708",
-          apr: "\u56DB\u6708",
-          may: "\u4E94\u6708",
-          jun: "\u516D\u6708",
-          jul: "\u4E03\u6708",
-          aug: "\u516B\u6708",
-          sep: "\u4E5D\u6708",
-          oct: "\u5341\u6708",
-          nov: "\u5341\u4E00\u6708",
-          dec: "\u5341\u4E8C\u6708"
-        }
-      },
-      select: {
-        loading: "\u52A0\u8F7D\u4E2D",
-        noMatch: "\u65E0\u5339\u914D\u6570\u636E",
-        noData: "\u65E0\u6570\u636E",
-        placeholder: "\u8BF7\u9009\u62E9"
-      },
-      cascader: {
-        noMatch: "\u65E0\u5339\u914D\u6570\u636E",
-        loading: "\u52A0\u8F7D\u4E2D",
-        placeholder: "\u8BF7\u9009\u62E9",
-        noData: "\u6682\u65E0\u6570\u636E"
-      },
-      pagination: {
-        goto: "\u524D\u5F80",
-        pagesize: "\u6761/\u9875",
-        total: "\u5171 {total} \u6761",
-        pageClassifier: "\u9875",
-        page: "\u9875",
-        prev: "\u4E0A\u4E00\u9875",
-        next: "\u4E0B\u4E00\u9875",
-        currentPage: "\u7B2C {pager} \u9875",
-        prevPages: "\u5411\u524D {pager} \u9875",
-        nextPages: "\u5411\u540E {pager} \u9875",
-        deprecationWarning: "\u4F60\u4F7F\u7528\u4E86\u4E00\u4E9B\u5DF2\u88AB\u5E9F\u5F03\u7684\u7528\u6CD5\uFF0C\u8BF7\u53C2\u8003 el-pagination \u7684\u5B98\u65B9\u6587\u6863"
-      },
-      messagebox: {
-        title: "\u63D0\u793A",
-        confirm: "\u786E\u5B9A",
-        cancel: "\u53D6\u6D88",
-        error: "\u8F93\u5165\u7684\u6570\u636E\u4E0D\u5408\u6CD5!"
-      },
-      upload: {
-        deleteTip: "\u6309 delete \u952E\u53EF\u5220\u9664",
-        delete: "\u5220\u9664",
-        preview: "\u67E5\u770B\u56FE\u7247",
-        continue: "\u7EE7\u7EED\u4E0A\u4F20"
-      },
-      table: {
-        emptyText: "\u6682\u65E0\u6570\u636E",
-        confirmFilter: "\u7B5B\u9009",
-        resetFilter: "\u91CD\u7F6E",
-        clearFilter: "\u5168\u90E8",
-        sumText: "\u5408\u8BA1"
-      },
-      tree: {
-        emptyText: "\u6682\u65E0\u6570\u636E"
-      },
-      transfer: {
-        noMatch: "\u65E0\u5339\u914D\u6570\u636E",
-        noData: "\u65E0\u6570\u636E",
-        titles: ["\u5217\u8868 1", "\u5217\u8868 2"],
-        filterPlaceholder: "\u8BF7\u8F93\u5165\u641C\u7D22\u5185\u5BB9",
-        noCheckedFormat: "\u5171 {total} \u9879",
-        hasCheckedFormat: "\u5DF2\u9009 {checked}/{total} \u9879"
-      },
-      image: {
-        error: "\u52A0\u8F7D\u5931\u8D25"
-      },
-      pageHeader: {
-        title: "\u8FD4\u56DE"
-      },
-      popconfirm: {
-        confirmButtonText: "\u786E\u5B9A",
-        cancelButtonText: "\u53D6\u6D88"
-      }
-    }
-  };
-  exports["default"] = zhCn2;
-})(zhCn);
-var zhLocaleElement = /* @__PURE__ */ getDefaultExportFromCjs(zhCn);
 var enLocale = {
   application: {
     "zh-CN": "\u7B80\u4F53\u4E2D\u6587",
@@ -1761,6 +1459,7 @@ var enLocale = {
       inputButton: "Input Button Setting",
       appendButton: "Append Button",
       appendButtonText: "Append Button Text",
+      prependText: "Prepend Text",
       appendButtonDisabled: "Button Disabled",
       appendButtonIcon: "Append Button Icon",
       buttonIcon: "Button Icon",
@@ -2074,6 +1773,7 @@ var zhLocale = {
       inputButton: "\u8F93\u5165\u6846\u6309\u94AE\u8BBE\u7F6E",
       appendButton: "\u6DFB\u52A0\u540E\u7F6E\u6309\u94AE",
       appendButtonText: "\u6DFB\u52A0\u540E\u7F6E\u6587\u672C",
+      prependText: "\u6DFB\u52A0\u524D\u7F6E\u6587\u672C",
       appendButtonDisabled: "\u540E\u7F6E\u6309\u94AE\u7981\u7528",
       appendButtonIcon: "\u540E\u7F6E\u6309\u94AEIcon",
       buttonIcon: "\u6309\u94AEIcon",
@@ -2248,16 +1948,17 @@ var zhLocale_extension = {
   }
 };
 const langResources = {
-  "en-US": __spreadValues2(__spreadValues2(__spreadValues2(__spreadValues2({
+  "en-US": __spreadValues2(__spreadValues2(__spreadValues2({
     something: {}
-  }, enLocaleElement), enLocale), enLocale_render), enLocale_extension),
-  "zh-CN": __spreadValues2(__spreadValues2(__spreadValues2(__spreadValues2({
+  }, enLocale), enLocale_render), enLocale_extension),
+  "zh-CN": __spreadValues2(__spreadValues2(__spreadValues2({
     something: {}
-  }, zhLocaleElement), zhLocale), zhLocale_render), zhLocale_extension)
+  }, zhLocale), zhLocale_render), zhLocale_extension)
 };
 const i18n = createI18n({
   locale: localStorage.getItem("v_form_locale") || "en-US",
-  messages: langResources
+  messages: langResources,
+  legacy: false
 });
 const changeLocale = function(langName) {
   i18n.setLang(langName);
@@ -2346,7 +2047,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$h, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-47daada2"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-2a03d21b"]]);
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$L = {
   name: "static-content-wrapper",
@@ -3083,6 +2784,10 @@ const deepClone = function(origin) {
     return void 0;
   }
   return JSON.parse(JSON.stringify(origin));
+};
+const evalFn = function(fn2, DSV = null, VFR = null) {
+  let f10 = new Function("DSV", "VFR", "return " + fn2);
+  return f10(DSV, VFR);
 };
 const insertCustomCssToHead = function(cssCode, formId = "") {
   let head = document.getElementsByTagName("head")[0];
@@ -4894,7 +4599,17 @@ const _sfc_main$C = {
       }
     };
   },
-  computed: {},
+  computed: {
+    realUploadURL() {
+      let uploadURL = this.field.options.uploadURL;
+      if (!!uploadURL && (uploadURL.indexOf("DSV.") > -1 || uploadURL.indexOf("DSV[") > -1)) {
+        let DSV = this.getGlobalDsv();
+        console.log("test DSV: ", DSV);
+        return evalFn(this.field.options.uploadURL, DSV);
+      }
+      return this.field.options.uploadURL;
+    }
+  },
   beforeCreate() {
   },
   created() {
@@ -5055,7 +4770,7 @@ const _sfc_main$C = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-5115f993"), n10 = n10(), popScopeId(), n10);
+const _withScopeId = (n10) => (pushScopeId("data-v-2aaef425"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$l = {
   key: 0,
   class: "el-upload__tip"
@@ -5087,7 +4802,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
         name: "files",
         style: normalizeStyle($data.styleVariables),
         class: normalizeClass(["dynamicPseudoAfter", { "hideUploadDiv": $data.uploadBtnHidden }]),
-        action: $props.field.options.uploadURL,
+        action: $options.realUploadURL,
         headers: $data.uploadHeaders,
         data: $data.uploadData,
         "with-credentials": $props.field.options.withCredentials,
@@ -5130,7 +4845,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$C, [["render", _sfc_render$C], ["__scopeId", "data-v-5115f993"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$C, [["render", _sfc_render$C], ["__scopeId", "data-v-2aaef425"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -5319,6 +5034,13 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         onInput: _ctx.handleInputCustomEvent,
         onChange: _ctx.handleChangeEvent
       }, createSlots({ _: 2 }, [
+        $props.field.options.prependText ? {
+          name: "prepend",
+          fn: withCtx(() => [
+            createTextVNode(toDisplayString(_ctx.$t($props.field.options.prependText)), 1)
+          ]),
+          key: "0"
+        } : void 0,
         $props.field.options.appendButton ? {
           name: "append",
           fn: withCtx(() => [
@@ -5336,14 +5058,14 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["disabled", "onClick"])
           ]),
-          key: "0"
+          key: "1"
         } : void 0
       ]), 1032, ["modelValue", "disabled", "readonly", "size", "type", "show-password", "placeholder", "clearable", "minlength", "maxlength", "show-word-limit", "prefix-icon", "suffix-icon", "onKeyup", "onFocus", "onBlur", "onInput", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-7078bc5c"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-4e1e3348"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
@@ -5496,6 +5218,15 @@ const _sfc_main$y = {
   computed: {
     previewList() {
       return this.fileList.map((el2) => el2.url);
+    },
+    realUploadURL() {
+      let uploadURL = this.field.options.uploadURL;
+      if (!!uploadURL && (uploadURL.indexOf("DSV.") > -1 || uploadURL.indexOf("DSV[") > -1)) {
+        let DSV = this.getGlobalDsv();
+        console.log("test DSV: ", DSV);
+        return evalFn(this.field.options.uploadURL, DSV);
+      }
+      return this.field.options.uploadURL;
     }
   },
   beforeCreate() {
@@ -5687,7 +5418,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
         ref: "fieldEditor",
         disabled: $props.field.options.disabled,
         name: "files",
-        action: $props.field.options.uploadURL,
+        action: $options.realUploadURL,
         headers: $data.uploadHeaders,
         data: $data.uploadData,
         "with-credentials": $props.field.options.withCredentials,
@@ -5750,7 +5481,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-4b9de55e"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-55854757"]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
@@ -29011,6 +28742,8 @@ const _sfc_main$t = {
   methods: {
     handleInput() {
       const fieldEditor = this.$refs.fieldEditor;
+      if (!fieldEditor)
+        return;
       const input = fieldEditor.input;
       if (!input)
         return;
@@ -29083,7 +28816,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-b7768362"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-a0c65f06"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -30964,6 +30697,7 @@ const _sfc_main$f = {
     addFieldValidateEventHandler() {
       this.off$("fieldValidation");
       this.on$("fieldValidation", (fieldName) => {
+        console.log(this.$refs.renderForm);
         this.$refs.renderForm.validateField(fieldName);
       });
     },
@@ -31347,7 +31081,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-cf2815f6"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-50f283fa"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31573,13 +31307,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1698973979617__");
+    var svgDom = document.getElementById("__svg__icons__dom__1699929895287__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1698973979617__";
+      svgDom.id = "__svg__icons__dom__1699929895287__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

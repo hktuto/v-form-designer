@@ -271,6 +271,7 @@ export default {
       inputButton: '输入框按钮设置',
       appendButton: '添加后置按钮',
       appendButtonText: '添加后置文本',
+      prependText: '添加前置文本',
       appendButtonDisabled: '后置按钮禁用',
       appendButtonIcon: '后置按钮Icon',
       buttonIcon: '按钮Icon',

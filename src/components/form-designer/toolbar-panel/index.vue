@@ -18,8 +18,6 @@
           <svg-icon icon-class="node-tree" /></el-button>
       </div>
 
-
-
       <div class="right-toolbar">
           <el-button v-if="showToolButton('clearDesignerButton')" link type="primary" @click="clearFormWidget">
             <svg-icon icon-class="el-delete" />{{$t('designer.toolbar.clear')}}</el-button>
@@ -38,8 +36,9 @@
           </template>
       </div>
     </dir>
-    <el-drawer :title="$t('designer.toolbar.nodeTreeTitle')" direction="ltr" v-model="showNodeTreeDrawerFlag" :modal="true" :size="280"
-               :destroy-on-close="true" custom-class="node-tree-drawer">
+
+    <el-drawer :title="i18nt('designer.toolbar.nodeTreeTitle')" direction="ltr" v-model="showNodeTreeDrawerFlag" :modal="true" :size="280"
+               :destroy-on-close="true" class="node-tree-drawer">
       <el-tree ref="nodeTree" :data="nodeTreeData" node-key="id" default-expand-all highlight-current class="node-tree"
                icon-class="el-icon-arrow-right" @node-click="onNodeTreeClick"></el-tree>
     </el-drawer>

@@ -43,14 +43,18 @@
             </template>
           </toolbar-panel>
         </el-header>
-        <v-form-widget :designer="designer" :form-config="designer.formConfig" :global-dsv="globalDsv" ref="formRef">
-        </v-form-widget>
+        <el-main class="form-widget-main">
+          <el-scrollbar class="container-scroll-bar" :style="{height: scrollerHeight}">
+            <v-form-widget :designer="designer" :form-config="designer.formConfig" :global-dsv="globalDsv" ref="formRef">
+            </v-form-widget>
+          </el-scrollbar>
+        </el-main>
       </div>
-
-      <setting-panel class="v-form-panel" :designer="designer" :selected-widget="designer.selectedWidget"
+      <el-aside>
+        <setting-panel :designer="designer" :selected-widget="designer.selectedWidget"
                        :form-config="designer.formConfig" :global-dsv="globalDsv" @edit-event-handler="testEEH" />
+      </el-aside>
     </div>
-
   </div>
 </template>
 

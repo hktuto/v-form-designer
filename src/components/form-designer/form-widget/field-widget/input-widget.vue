@@ -15,6 +15,9 @@
               @keyup.enter="handleEnterEvent"
               @focus="handleFocusCustomEvent" @blur="handleBlurCustomEvent" @input="handleInputCustomEvent"
               @change="handleChangeEvent">
+      <template #prepend v-if="field.options.prependText">
+          {{$t(field.options.prependText)}}
+      </template>
       <template #append v-if="field.options.appendButton">
         <el-button :disabled="field.options.disabled || field.options.appendButtonDisabled"
                    @click="emitAppendButtonClick">
