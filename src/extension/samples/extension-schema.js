@@ -119,6 +119,7 @@ export const autoCompleteSchema = {
     suffixIcon: '',
     appendButton: false,
     appendButtonText: '',
+    prependText: '',
     appendButtonDisabled: false,
     buttonIcon: 'el-icon-search',
     //-------------------

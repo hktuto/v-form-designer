@@ -271,6 +271,7 @@ export default {
       inputButton: 'Input Button Setting',
       appendButton: 'Append Button',
       appendButtonText: 'Append Button Text',
+      prependText: 'Prepend Text',
       appendButtonDisabled: 'Button Disabled',
       appendButtonIcon: 'Append Button Icon',
       buttonIcon: 'Button Icon',
