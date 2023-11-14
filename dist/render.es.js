@@ -1459,6 +1459,7 @@ var enLocale = {
       inputButton: "Input Button Setting",
       appendButton: "Append Button",
       appendButtonText: "Append Button Text",
+      prependText: "Prepend Text",
       appendButtonDisabled: "Button Disabled",
       appendButtonIcon: "Append Button Icon",
       buttonIcon: "Button Icon",
@@ -1772,6 +1773,7 @@ var zhLocale = {
       inputButton: "\u8F93\u5165\u6846\u6309\u94AE\u8BBE\u7F6E",
       appendButton: "\u6DFB\u52A0\u540E\u7F6E\u6309\u94AE",
       appendButtonText: "\u6DFB\u52A0\u540E\u7F6E\u6587\u672C",
+      prependText: "\u6DFB\u52A0\u524D\u7F6E\u6587\u672C",
       appendButtonDisabled: "\u540E\u7F6E\u6309\u94AE\u7981\u7528",
       appendButtonIcon: "\u540E\u7F6E\u6309\u94AEIcon",
       buttonIcon: "\u6309\u94AEIcon",
@@ -5032,6 +5034,13 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         onInput: _ctx.handleInputCustomEvent,
         onChange: _ctx.handleChangeEvent
       }, createSlots({ _: 2 }, [
+        $props.field.options.prependText ? {
+          name: "prepend",
+          fn: withCtx(() => [
+            createTextVNode(toDisplayString(_ctx.$t($props.field.options.prependText)), 1)
+          ]),
+          key: "0"
+        } : void 0,
         $props.field.options.appendButton ? {
           name: "append",
           fn: withCtx(() => [
@@ -5049,14 +5058,14 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
               _: 1
             }, 8, ["disabled", "onClick"])
           ]),
-          key: "0"
+          key: "1"
         } : void 0
       ]), 1032, ["modelValue", "disabled", "readonly", "size", "type", "show-password", "placeholder", "clearable", "minlength", "maxlength", "show-word-limit", "prefix-icon", "suffix-icon", "onKeyup", "onFocus", "onBlur", "onInput", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-7078bc5c"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-4e1e3348"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
@@ -31298,13 +31307,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1699336780313__");
+    var svgDom = document.getElementById("__svg__icons__dom__1699929895287__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1699336780313__";
+      svgDom.id = "__svg__icons__dom__1699929895287__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
