@@ -1,6 +1,6 @@
 <template>
   <div class="option-items-pane">
-    <el-radio-group v-if="(selectedWidget.type === 'radio') || ((selectedWidget.type === 'select') && !selectedWidget.options.multiple)"
+    <el-radio-group v-if="(selectedWidget.type === 'radio') || (selectedWidget.type === 'select-v2') || ((selectedWidget.type === 'select') && !selectedWidget.options.multiple)"
                     v-model="optionModel.defaultValue" @change="emitDefaultValueChange">
       <draggable tag="ul" :list="optionModel.optionItems" item-key="id"
                  v-bind="{group:'optionsGroup', ghostClass: 'ghost', handle: '.drag-option'}">
@@ -45,7 +45,7 @@
       <el-button link type="primary" @click="resetDefault">{{$t('designer.setting.resetDefault')}}</el-button>
     </div>
 
-    <div v-if="(selectedWidget.type === 'radio') || (selectedWidget.type === 'checkbox') || (selectedWidget.type === 'select')">
+    <div v-if="(selectedWidget.type === 'radio') || (selectedWidget.type === 'checkbox') || (selectedWidget.type === 'select') || (selectedWidget.type === 'select-v2')">
       <el-button link type="primary" @click="addOption">{{$t('designer.setting.addOption')}}</el-button>
       <el-button link type="primary" @click="importOptions">{{$t('designer.setting.importOptions')}}</el-button>
       <el-button link type="primary" @click="resetDefault">{{$t('designer.setting.resetDefault')}}</el-button>
