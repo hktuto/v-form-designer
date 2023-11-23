@@ -371,6 +371,51 @@ const basicFields = [
     }
   },
   {
+    type: "select-v2",
+    icon: "select-v2-field",
+    formItemFlag: true,
+    options: {
+      name: "",
+      label: "",
+      labelAlign: "",
+      defaultValue: "",
+      placeholder: "",
+      columnWidth: "200px",
+      size: "",
+      labelWidth: null,
+      labelHidden: false,
+      disabled: false,
+      hidden: false,
+      clearable: true,
+      filterable: false,
+      allowCreate: false,
+      remote: false,
+      automaticDropdown: false,
+      multiple: false,
+      multipleLimit: 0,
+      optionItems: [
+        { label: "select 1", value: 1 },
+        { label: "select 2", value: 2 },
+        { label: "select 3", value: 3 }
+      ],
+      required: false,
+      requiredHint: "",
+      validation: "",
+      validationHint: "",
+      customClass: "",
+      labelIconClass: null,
+      labelIconPosition: "rear",
+      labelTooltip: null,
+      onCreated: "",
+      onMounted: "",
+      onRemoteQuery: "",
+      onChange: "",
+      onFocus: "",
+      onBlur: "",
+      onValidate: ""
+    }
+  },
+  {
     type: "time",
     icon: "time-field",
     formItemFlag: true,
@@ -3674,7 +3719,7 @@ var _export_sfc$2 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$3o = {
+const _sfc_main$3p = {
   name: "SvgIcon",
   props: {
     iconClass: {
@@ -3704,7 +3749,7 @@ const _sfc_main$3o = {
 };
 const _hoisted_1$15 = ["xlink:href"];
 const _hoisted_2$s = { key: 0 };
-function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
@@ -3713,9 +3758,9 @@ function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$s, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3o, [["render", _sfc_render$3o], ["__scopeId", "data-v-2a03d21b"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3p, [["render", _sfc_render$3p], ["__scopeId", "data-v-2a03d21b"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$6 = "";
-const _sfc_main$3n = {
+const _sfc_main$3o = {
   name: "FieldPanel",
   mixins: [i18n$1],
   components: {
@@ -3851,7 +3896,7 @@ const _hoisted_5$d = ["src"];
 const _hoisted_6$b = ["src"];
 const _hoisted_7$a = { class: "bottom clear-fix" };
 const _hoisted_8$8 = { class: "ft-title" };
-function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_draggable = resolveComponent("draggable");
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
@@ -4089,7 +4134,7 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n], ["__scopeId", "data-v-53d5caba"]]);
+var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3o, [["render", _sfc_render$3o], ["__scopeId", "data-v-53d5caba"]]);
 var emitter = {
   data() {
     return {
@@ -4165,7 +4210,7 @@ var emitter = {
     }
   }
 };
-const _sfc_main$3m = {
+const _sfc_main$3n = {
   name: "container-item-wrapper",
   props: {
     widget: Object
@@ -4176,14 +4221,14 @@ const _sfc_main$3m = {
     }
   }
 };
-function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m]]);
+var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n]]);
 var __glob_0_0$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerItemWrapper
@@ -4214,7 +4259,7 @@ var refMixin = {
   }
 };
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3l = {
+const _sfc_main$3m = {
   name: "static-content-wrapper",
   mixins: [i18n$1],
   components: {
@@ -4314,7 +4359,7 @@ const _hoisted_6$a = {
 };
 const _hoisted_7$9 = ["title"];
 const _hoisted_8$7 = { key: 0 };
-function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["field-wrapper", { "design-time-bottom-margin": !!this.designer }]),
@@ -4371,8 +4416,8 @@ function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3l, [["render", _sfc_render$3l], ["__scopeId", "data-v-2c3a4c20"]]);
-var __glob_0_19$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-2c3a4c20"]]);
+var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
 }, Symbol.toStringTag, { value: "Module" }));
@@ -4405,35 +4450,35 @@ const validateFn = function(validatorName, rule, value, callback, defaultErrorMs
 };
 const FormValidators = {
   number(rule2, value2, callback2) {
-    validateFn("number", rule2, value2, callback2, "[" + rule2.label + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
+    validateFn("number", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
   },
   letter(rule2, value2, callback2) {
-    validateFn("letter", rule2, value2, callback2, "[" + rule2.label + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
+    validateFn("letter", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
   },
   letterAndNumber(rule2, value2, callback2) {
-    validateFn("letterAndNumber", rule2, value2, callback2, "[" + rule2.label + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
+    validateFn("letterAndNumber", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
   },
   mobilePhone(rule2, value2, callback2) {
-    validateFn("mobilePhone", rule2, value2, callback2, "[" + rule2.label + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
+    validateFn("mobilePhone", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
   },
   noBlankStart(rule2, value2, callback2) {
   },
   noBlankEnd(rule2, value2, callback2) {
   },
   letterStartNumberIncluded(rule2, value2, callback2) {
-    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + rule2.label + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
+    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
   },
   noChinese(rule2, value2, callback2) {
-    validateFn("noChinese", rule2, value2, callback2, "[" + rule2.label + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("noChinese", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
   },
   chinese(rule2, value2, callback2) {
-    validateFn("chinese", rule2, value2, callback2, "[" + rule2.label + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("chinese", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
   },
   email(rule2, value2, callback2) {
-    validateFn("email", rule2, value2, callback2, "[" + rule2.label + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
+    validateFn("email", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
   },
   url(rule2, value2, callback2) {
-    validateFn("url", rule2, value2, callback2, "[" + rule2.label + "]URL\u683C\u5F0F\u6709\u8BEF");
+    validateFn("url", rule2, value2, callback2, "[" + $t(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
   },
   regExp(rule, value, callback) {
     if (isNull(value) || value.length <= 0) {
@@ -4442,7 +4487,7 @@ const FormValidators = {
     }
     const pattern = eval(rule.regExp);
     if (!pattern.test(value)) {
-      let errTxt = rule.errorMsg || "[" + rule.label + "]invalid value";
+      let errTxt = $t(rule.errorMsg) || "[" + $t(rule.label) + "]invalid value";
       callback(new Error(errTxt));
     } else {
       callback();
@@ -4647,7 +4692,7 @@ var fieldMixin = {
             validator: FormValidators[vldName2],
             trigger: ["blur", "change"],
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: this.field.options.validationHint
           });
         } else {
           this.rules.push({
@@ -4655,7 +4700,7 @@ var fieldMixin = {
             trigger: ["blur", "change"],
             regExp: vldName2,
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: this.field.options.validationHint
           });
         }
       }
@@ -4977,7 +5022,7 @@ var fieldMixin = {
   }
 };
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3k = {
+const _sfc_main$3l = {
   name: "button-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5023,7 +5068,7 @@ const _sfc_main$3k = {
   },
   methods: {}
 };
-function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -5059,13 +5104,13 @@ function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3k, [["render", _sfc_render$3k], ["__scopeId", "data-v-0c3ad1ca"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3l, [["render", _sfc_render$3l], ["__scopeId", "data-v-0c3ad1ca"]]);
 var __glob_0_0$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var formItemWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3j = {
+const _sfc_main$3k = {
   name: "form-item-wrapper",
   mixins: [i18n$1],
   components: {
@@ -5214,7 +5259,7 @@ const _hoisted_7$8 = {
 };
 const _hoisted_8$6 = ["title"];
 const _hoisted_9$5 = { key: 0 };
-function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -5325,13 +5370,13 @@ function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3j, [["render", _sfc_render$3j], ["__scopeId", "data-v-3f292399"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3k, [["render", _sfc_render$3k], ["__scopeId", "data-v-3f292399"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
 }, Symbol.toStringTag, { value: "Module" }));
 var cascaderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3i = {
+const _sfc_main$3j = {
   name: "cascader-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5392,7 +5437,7 @@ const _sfc_main$3i = {
   methods: {}
 };
 const _hoisted_1$11 = { class: "full-width-input" };
-function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5436,13 +5481,13 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-b198da06"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3j, [["render", _sfc_render$3j], ["__scopeId", "data-v-b198da06"]]);
 var __glob_0_1$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var checkboxWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3h = {
+const _sfc_main$3i = {
   name: "checkbox-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5498,7 +5543,7 @@ const _sfc_main$3h = {
   },
   methods: {}
 };
-function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox_button = resolveComponent("el-checkbox-button");
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
@@ -5559,13 +5604,13 @@ function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3h, [["render", _sfc_render$3h], ["__scopeId", "data-v-501920b3"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-501920b3"]]);
 var __glob_0_2$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var colorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3g = {
+const _sfc_main$3h = {
   name: "color-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5620,7 +5665,7 @@ const _sfc_main$3g = {
   },
   methods: {}
 };
-function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5648,13 +5693,13 @@ function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-1aa76420"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3h, [["render", _sfc_render$3h], ["__scopeId", "data-v-1aa76420"]]);
 var __glob_0_3$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3f = {
+const _sfc_main$3g = {
   name: "date-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5738,7 +5783,7 @@ const _sfc_main$3f = {
   },
   methods: {}
 };
-function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5783,13 +5828,13 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-bffd300a"]]);
+var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-bffd300a"]]);
 var __glob_0_4$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3e = {
+const _sfc_main$3f = {
   name: "date-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5844,7 +5889,7 @@ const _sfc_main$3e = {
   },
   methods: {}
 };
-function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5887,13 +5932,13 @@ function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3e, [["render", _sfc_render$3e], ["__scopeId", "data-v-1cba4a63"]]);
+var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dividerWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3d = {
+const _sfc_main$3e = {
   name: "divider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5939,7 +5984,7 @@ const _sfc_main$3d = {
   },
   methods: {}
 };
-function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -5968,14 +6013,14 @@ function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3d, [["render", _sfc_render$3d], ["__scopeId", "data-v-a3d9051e"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3e, [["render", _sfc_render$3e], ["__scopeId", "data-v-a3d9051e"]]);
 var __glob_0_6$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var fileUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 let selectFileText = "'" + translate("render.hint.selectFile") + "'";
-const _sfc_main$3c = {
+const _sfc_main$3d = {
   name: "file-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6202,7 +6247,7 @@ const _hoisted_2$o = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ create
 const _hoisted_3$j = { class: "upload-file-list" };
 const _hoisted_4$c = ["title", "onClick"];
 const _hoisted_5$a = ["title", "onClick"];
-function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -6268,13 +6313,13 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-2aaef425"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3d, [["render", _sfc_render$3d], ["__scopeId", "data-v-2aaef425"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3b = {
+const _sfc_main$3c = {
   name: "html-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6321,7 +6366,7 @@ const _sfc_main$3b = {
   methods: {}
 };
 const _hoisted_1$$ = ["innerHTML"];
-function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -6343,13 +6388,13 @@ function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3b, [["render", _sfc_render$3b], ["__scopeId", "data-v-a0d236d6"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-a0d236d6"]]);
 var __glob_0_9$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var inputWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3a = {
+const _sfc_main$3b = {
   name: "input-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6416,7 +6461,7 @@ const _sfc_main$3a = {
   }
 };
 const _hoisted_1$_ = { key: 1 };
-function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_input = resolveComponent("el-input");
@@ -6488,13 +6533,13 @@ function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3a, [["render", _sfc_render$3a], ["__scopeId", "data-v-4e1e3348"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3b, [["render", _sfc_render$3b], ["__scopeId", "data-v-4e1e3348"]]);
 var __glob_0_10$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var numberWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$39 = {
+const _sfc_main$3a = {
   name: "number-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6549,7 +6594,7 @@ const _sfc_main$39 = {
   },
   methods: {}
 };
-function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6586,13 +6631,13 @@ function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-dbbd8ba0"]]);
+var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3a, [["render", _sfc_render$3a], ["__scopeId", "data-v-dbbd8ba0"]]);
 var __glob_0_11$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var pictureUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$38 = {
+const _sfc_main$39 = {
   name: "picture-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6819,7 +6864,7 @@ const _hoisted_6$8 = {
   class: "el-upload__tip"
 };
 const _hoisted_7$7 = { class: "uploader-icon" };
-function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_image = resolveComponent("el-image");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -6904,13 +6949,13 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-55854757"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-55854757"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var radioWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$37 = {
+const _sfc_main$38 = {
   name: "radio-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6966,7 +7011,7 @@ const _sfc_main$37 = {
   },
   methods: {}
 };
-function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -7028,13 +7073,13 @@ function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-5becdb92"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-5becdb92"]]);
 var __glob_0_13$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var rateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$36 = {
+const _sfc_main$37 = {
   name: "rate-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7089,7 +7134,7 @@ const _sfc_main$36 = {
   },
   methods: {}
 };
-function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -7122,7 +7167,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-e8d5267c"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-e8d5267c"]]);
 var __glob_0_14$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -29898,7 +29943,7 @@ function _sfc_render$1$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$1$1, null, 512);
 }
 var Editor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$1, [["render", _sfc_render$1$1]]);
-const _sfc_main$35 = defineComponent({
+const _sfc_main$36 = defineComponent({
   props: {
     editor: {
       type: Object
@@ -29941,12 +29986,12 @@ const _sfc_main$35 = defineComponent({
   }
 });
 const _hoisted_1$Y = { ref: "selector" };
-function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$Y, null, 512);
 }
-var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$35, [["render", _sfc_render$35]]);
+var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$36, [["render", _sfc_render$36]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$34 = {
+const _sfc_main$35 = {
   name: "rich-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin],
@@ -30050,7 +30095,7 @@ const _sfc_main$34 = {
   }
 };
 const _hoisted_1$X = { style: { "border": "1px solid #ccc" } };
-function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -30088,10 +30133,148 @@ function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-375e7373"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$35, [["render", _sfc_render$35], ["__scopeId", "data-v-375e7373"]]);
 var __glob_0_15$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
+}, Symbol.toStringTag, { value: "Module" }));
+var selectV2Widget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$34 = {
+  name: "select-v2-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: null,
+      rules: []
+    };
+  },
+  computed: {
+    allowDefaultFirstOption() {
+      return !!this.field.options.filterable && !!this.field.options.allowCreate;
+    },
+    remoteMethod() {
+      if (!!this.field.options.remote && !!this.field.options.onRemoteQuery) {
+        return this.remoteQuery;
+      } else {
+        return void 0;
+      }
+    }
+  },
+  beforeCreate() {
+  },
+  created() {
+    this.initOptionItems();
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+    this.$nextTick(() => {
+      this.handleInput();
+    });
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    handleInput() {
+      const fieldEditor = this.$refs.fieldEditor;
+      if (!fieldEditor)
+        return;
+      const input = fieldEditor.input;
+      if (!input)
+        return;
+      input.onkeyup = (event) => {
+        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
+          const value2 = event.target.value;
+          if (!value2)
+            return;
+          fieldEditor.handleOptionSelect({
+            label: value2,
+            value: value2,
+            created: true
+          });
+        }
+      };
+    }
+  }
+};
+function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_select_v2 = resolveComponent("el-select-v2");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_el_select_v2, {
+        ref: "fieldEditor",
+        modelValue: $data.fieldModel,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
+        class: "full-width-input",
+        disabled: $props.field.options.disabled,
+        size: _ctx.widgetSize,
+        clearable: $props.field.options.clearable,
+        filterable: $props.field.options.filterable,
+        multiple: $props.field.options.multiple,
+        "multiple-limit": $props.field.options.multipleLimit,
+        remote: $props.field.options.remote,
+        "remote-method": $options.remoteMethod,
+        "allow-create": $props.field.options.allowCreate,
+        "automatic-dropdown": $props.field.options.automaticDropdown,
+        options: $props.field.options.optionItems,
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        onFocus: _ctx.handleFocusCustomEvent,
+        onBlur: _ctx.handleBlurCustomEvent,
+        onChange: _ctx.handleChangeEvent
+      }, null, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "multiple", "multiple-limit", "remote", "remote-method", "allow-create", "automatic-dropdown", "options", "placeholder", "onFocus", "onBlur", "onChange"])
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-00c6c588"]]);
+var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": selectV2Widget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$33 = {
@@ -30240,7 +30423,7 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-a0c65f06"]]);
-var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30334,7 +30517,7 @@ function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-e54b3390"]]);
-var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_18$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30414,7 +30597,7 @@ function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-1b458525"]]);
-var __glob_0_18$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_19$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30492,7 +30675,7 @@ function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-5c0e1d8a"]]);
-var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_21$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30585,7 +30768,7 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-51a90f56"]]);
-var __glob_0_21$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30684,7 +30867,7 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-f9d2719e"]]);
-var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_23$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textareaWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30788,7 +30971,7 @@ function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-39163a8d"]]);
-var __glob_0_23$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
@@ -30886,12 +31069,12 @@ function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
 var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-fcdc66e8"]]);
-var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_25$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 let comps$1 = {};
-const modules$3 = { "./button-widget.vue": __glob_0_0$2, "./cascader-widget.vue": __glob_0_1$3, "./checkbox-widget.vue": __glob_0_2$3, "./color-widget.vue": __glob_0_3$3, "./date-range-widget.vue": __glob_0_4$3, "./date-widget.vue": __glob_0_5$3, "./divider-widget.vue": __glob_0_6$3, "./file-upload-widget.vue": __glob_0_7$1, "./form-item-wrapper.vue": __glob_0_8$1, "./html-text-widget.vue": __glob_0_9$1, "./input-widget.vue": __glob_0_10$1, "./number-widget.vue": __glob_0_11$1, "./picture-upload-widget.vue": __glob_0_12$1, "./radio-widget.vue": __glob_0_13$1, "./rate-widget.vue": __glob_0_14$1, "./rich-editor-widget.vue": __glob_0_15$1, "./select-widget.vue": __glob_0_16$1, "./slider-widget.vue": __glob_0_17$1, "./slot-widget.vue": __glob_0_18$1, "./static-content-wrapper.vue": __glob_0_19$1, "./static-text-widget.vue": __glob_0_20$1, "./switch-widget.vue": __glob_0_21$1, "./textarea-widget.vue": __glob_0_22$1, "./time-range-widget.vue": __glob_0_23$1, "./time-widget.vue": __glob_0_24$1 };
+const modules$3 = { "./button-widget.vue": __glob_0_0$2, "./cascader-widget.vue": __glob_0_1$3, "./checkbox-widget.vue": __glob_0_2$3, "./color-widget.vue": __glob_0_3$3, "./date-range-widget.vue": __glob_0_4$3, "./date-widget.vue": __glob_0_5$3, "./divider-widget.vue": __glob_0_6$3, "./file-upload-widget.vue": __glob_0_7$1, "./form-item-wrapper.vue": __glob_0_8$1, "./html-text-widget.vue": __glob_0_9$1, "./input-widget.vue": __glob_0_10$1, "./number-widget.vue": __glob_0_11$1, "./picture-upload-widget.vue": __glob_0_12$1, "./radio-widget.vue": __glob_0_13$1, "./rate-widget.vue": __glob_0_14$1, "./rich-editor-widget.vue": __glob_0_15$1, "./select-v2-widget.vue": __glob_0_16$1, "./select-widget.vue": __glob_0_17$1, "./slider-widget.vue": __glob_0_18$1, "./slot-widget.vue": __glob_0_19$1, "./static-content-wrapper.vue": __glob_0_20$1, "./static-text-widget.vue": __glob_0_21$1, "./switch-widget.vue": __glob_0_22$1, "./textarea-widget.vue": __glob_0_23$1, "./time-range-widget.vue": __glob_0_24$1, "./time-widget.vue": __glob_0_25$1 };
 for (const path in modules$3) {
   let cname = modules$3[path].default.name;
   comps$1[cname] = modules$3[path].default;
@@ -58679,7 +58862,7 @@ const _sfc_main$2c = {
     }
   }
 };
-const _withScopeId$3 = (n10) => (pushScopeId("data-v-1a454c25"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$3 = (n10) => (pushScopeId("data-v-84ea73fa"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$Q = { class: "option-items-pane" };
 const _hoisted_2$i = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
 const _hoisted_3$f = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
@@ -58713,7 +58896,7 @@ function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_code_editor = resolveComponent("code-editor");
   const _directive_drag = resolveDirective("drag");
   return openBlock(), createElementBlock("div", _hoisted_1$Q, [
-    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
+    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select-v2" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
       key: 0,
       modelValue: $options.optionModel.defaultValue,
       "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $options.optionModel.defaultValue = $event),
@@ -58842,7 +59025,7 @@ function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["onClick"])
     ])) : createCommentVNode("", true),
-    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" ? (openBlock(), createElementBlock("div", _hoisted_6$5, [
+    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" || $props.selectedWidget.type === "select-v2" ? (openBlock(), createElementBlock("div", _hoisted_6$5, [
       createVNode(_component_el_button, {
         link: "",
         type: "primary",
@@ -58977,7 +59160,7 @@ function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2c, [["render", _sfc_render$2c], ["__scopeId", "data-v-1a454c25"]]);
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2c, [["render", _sfc_render$2c], ["__scopeId", "data-v-84ea73fa"]]);
 const _sfc_main$2b = {
   name: "optionItems-editor",
   mixins: [i18n$1],
@@ -73400,13 +73583,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1699929883207__");
+    var svgDom = document.getElementById("__svg__icons__dom__1700710794652__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1699929883207__";
+      svgDom.id = "__svg__icons__dom__1700710794652__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

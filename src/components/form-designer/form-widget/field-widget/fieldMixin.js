@@ -219,7 +219,7 @@ export default {
             validator: FormValidators[vldName],
             trigger: ['blur', 'change'],
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: this.field.options.validationHint
           })
         } else {
           this.rules.push({
@@ -227,7 +227,7 @@ export default {
             trigger: ['blur', 'change'],
             regExp: vldName,
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: this.field.options.validationHint
           })
         }
       }
