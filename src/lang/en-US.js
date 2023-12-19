@@ -263,6 +263,7 @@ export default {
       precision: 'Precision',
       step: 'Step',
       controlsPosition: 'Controls Position',
+      stepStrictly: 'Step Strictly',
       minLength: 'Min Length',
       maxLength: 'Max Length',
       showWordLimit: 'Show Word Limit',

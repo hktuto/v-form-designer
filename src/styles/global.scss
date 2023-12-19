@@ -128,3 +128,15 @@ body {//IE浏览器滚动条样式
 */
 
 /* 滚动条样式 end */
+.align-right {
+  text-align: right!important;
+  .el-input__inner {
+    text-align: right!important;
+  }
+}
+.align-left {
+  text-align: left!important;
+  .el-input__inner {
+    text-align: left!important;
+  }
+}
