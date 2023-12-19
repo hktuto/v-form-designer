@@ -85,6 +85,7 @@ const ADVANCED_PROPERTIES = {
   'precision'         :            'precision-editor',
   'step'              :            'step-editor',
   'controlsPosition'  :            'controlsPosition-editor',
+  'stepStrictly'      :            'step-strictly-editor',
   'minLength'         :            'minLength-editor',
   'maxLength'         :            'maxLength-editor',
   'showWordLimit'     :            'showWordLimit-editor',

@@ -237,6 +237,7 @@ export const basicFields = [
       precision: 0,
       step: 1,
       controlsPosition: 'right',
+      stepStrictly: false,
       //-------------------
       onCreated: '',
       onMounted: '',

@@ -5,6 +5,7 @@
     <el-input-number ref="fieldEditor" v-model="fieldModel" class="full-width-input"
                      :disabled="field.options.disabled"
                      :size="widgetSize" :controls-position="field.options.controlsPosition"
+                     :stepStrictly="field.options.stepStrictly"
                      :placeholder="$t(field.options.placeholder)"
                      :min="field.options.min" :max="field.options.max"
                      :precision="field.options.precision" :step="field.options.step"

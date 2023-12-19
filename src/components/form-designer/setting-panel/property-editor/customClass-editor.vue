@@ -23,6 +23,7 @@
     data() {
       return {
         cssClassList: [],
+        defaultClass: ['align-left', 'align-right']
       }
     },
     created() {
@@ -31,6 +32,7 @@
       this.designer.handleEvent('form-css-updated', (cssClassList) => {
         this.cssClassList = cssClassList
       })
+      this.cssClassList.push(...this.defaultClass)
     }
   }
 </script>
