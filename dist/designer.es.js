@@ -243,6 +243,7 @@ const basicFields = [
       precision: 0,
       step: 1,
       controlsPosition: "right",
+      stepStrictly: false,
       onCreated: "",
       onMounted: "",
       onChange: "",
@@ -2136,6 +2137,7 @@ var enLocale = {
       precision: "Precision",
       step: "Step",
       controlsPosition: "Controls Position",
+      stepStrictly: "Step Strictly",
       minLength: "Min Length",
       maxLength: "Max Length",
       showWordLimit: "Show Word Limit",
@@ -2450,6 +2452,7 @@ var zhLocale = {
       precision: "\u7CBE\u5EA6",
       step: "\u589E\u51CF\u6B65\u957F",
       controlsPosition: "\u63A7\u5236\u6309\u94AE\u4F4D\u7F6E",
+      stepStrictly: "\u4E25\u683C\u6B65\u8FDB",
       minLength: "\u6700\u5C0F\u957F\u5EA6",
       maxLength: "\u6700\u5927\u957F\u5EA6",
       showWordLimit: "\u663E\u793A\u5B57\u6570\u7EDF\u8BA1",
@@ -3719,7 +3722,7 @@ var _export_sfc$2 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$3p = {
+const _sfc_main$3q = {
   name: "SvgIcon",
   props: {
     iconClass: {
@@ -3749,7 +3752,7 @@ const _sfc_main$3p = {
 };
 const _hoisted_1$15 = ["xlink:href"];
 const _hoisted_2$s = { key: 0 };
-function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3q(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
@@ -3758,9 +3761,9 @@ function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$s, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3p, [["render", _sfc_render$3p], ["__scopeId", "data-v-2a03d21b"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3q, [["render", _sfc_render$3q], ["__scopeId", "data-v-8002b89a"]]);
 var index_vue_vue_type_style_index_0_scoped_true_lang$6 = "";
-const _sfc_main$3o = {
+const _sfc_main$3p = {
   name: "FieldPanel",
   mixins: [i18n$1],
   components: {
@@ -3896,7 +3899,7 @@ const _hoisted_5$d = ["src"];
 const _hoisted_6$b = ["src"];
 const _hoisted_7$a = { class: "bottom clear-fix" };
 const _hoisted_8$8 = { class: "ft-title" };
-function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_draggable = resolveComponent("draggable");
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
@@ -4134,7 +4137,7 @@ function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3o, [["render", _sfc_render$3o], ["__scopeId", "data-v-53d5caba"]]);
+var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3p, [["render", _sfc_render$3p], ["__scopeId", "data-v-24f4261a"]]);
 var emitter = {
   data() {
     return {
@@ -4210,7 +4213,7 @@ var emitter = {
     }
   }
 };
-const _sfc_main$3n = {
+const _sfc_main$3o = {
   name: "container-item-wrapper",
   props: {
     widget: Object
@@ -4221,14 +4224,14 @@ const _sfc_main$3n = {
     }
   }
 };
-function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3o(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n]]);
+var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3o, [["render", _sfc_render$3o]]);
 var __glob_0_0$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerItemWrapper
@@ -4259,7 +4262,7 @@ var refMixin = {
   }
 };
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3m = {
+const _sfc_main$3n = {
   name: "static-content-wrapper",
   mixins: [i18n$1],
   components: {
@@ -4359,7 +4362,7 @@ const _hoisted_6$a = {
 };
 const _hoisted_7$9 = ["title"];
 const _hoisted_8$7 = { key: 0 };
-function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["field-wrapper", { "design-time-bottom-margin": !!this.designer }]),
@@ -4416,7 +4419,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-2c3a4c20"]]);
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n], ["__scopeId", "data-v-dac971c6"]]);
 var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
@@ -4591,7 +4594,6 @@ var fieldMixin = {
     },
     initEventHandler() {
       this.on$("setFormData", (newFormData) => {
-        console.log("formModel of globalModel----------", this.globalModel.formModel);
         if (!this.subFormItemFlag) {
           this.setValue(newFormData[this.field.options.name]);
         }
@@ -5022,7 +5024,7 @@ var fieldMixin = {
   }
 };
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3l = {
+const _sfc_main$3m = {
   name: "button-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5068,7 +5070,7 @@ const _sfc_main$3l = {
   },
   methods: {}
 };
-function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -5104,13 +5106,13 @@ function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3l, [["render", _sfc_render$3l], ["__scopeId", "data-v-0c3ad1ca"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-c66844f0"]]);
 var __glob_0_0$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var formItemWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3k = {
+const _sfc_main$3l = {
   name: "form-item-wrapper",
   mixins: [i18n$1],
   components: {
@@ -5259,7 +5261,7 @@ const _hoisted_7$8 = {
 };
 const _hoisted_8$6 = ["title"];
 const _hoisted_9$5 = { key: 0 };
-function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -5370,13 +5372,13 @@ function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3k, [["render", _sfc_render$3k], ["__scopeId", "data-v-3f292399"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3l, [["render", _sfc_render$3l], ["__scopeId", "data-v-774b5bb8"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
 }, Symbol.toStringTag, { value: "Module" }));
 var cascaderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3j = {
+const _sfc_main$3k = {
   name: "cascader-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5437,7 +5439,7 @@ const _sfc_main$3j = {
   methods: {}
 };
 const _hoisted_1$11 = { class: "full-width-input" };
-function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5481,13 +5483,13 @@ function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3j, [["render", _sfc_render$3j], ["__scopeId", "data-v-b198da06"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3k, [["render", _sfc_render$3k], ["__scopeId", "data-v-8149033a"]]);
 var __glob_0_1$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var checkboxWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3i = {
+const _sfc_main$3j = {
   name: "checkbox-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5543,7 +5545,7 @@ const _sfc_main$3i = {
   },
   methods: {}
 };
-function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox_button = resolveComponent("el-checkbox-button");
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
@@ -5604,13 +5606,13 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-501920b3"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3j, [["render", _sfc_render$3j], ["__scopeId", "data-v-716b0a6b"]]);
 var __glob_0_2$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var colorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3h = {
+const _sfc_main$3i = {
   name: "color-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5665,7 +5667,7 @@ const _sfc_main$3h = {
   },
   methods: {}
 };
-function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5693,13 +5695,13 @@ function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3h, [["render", _sfc_render$3h], ["__scopeId", "data-v-1aa76420"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-8d04bd98"]]);
 var __glob_0_3$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3g = {
+const _sfc_main$3h = {
   name: "date-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5783,7 +5785,7 @@ const _sfc_main$3g = {
   },
   methods: {}
 };
-function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5828,13 +5830,13 @@ function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-bffd300a"]]);
+var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3h, [["render", _sfc_render$3h], ["__scopeId", "data-v-70c0efa1"]]);
 var __glob_0_4$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3f = {
+const _sfc_main$3g = {
   name: "date-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5889,7 +5891,7 @@ const _sfc_main$3f = {
   },
   methods: {}
 };
-function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5932,13 +5934,13 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-1cba4a63"]]);
+var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-39eeee06"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dividerWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3e = {
+const _sfc_main$3f = {
   name: "divider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5984,7 +5986,7 @@ const _sfc_main$3e = {
   },
   methods: {}
 };
-function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -6013,14 +6015,14 @@ function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3e, [["render", _sfc_render$3e], ["__scopeId", "data-v-a3d9051e"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-4a82b0d8"]]);
 var __glob_0_6$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var fileUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 let selectFileText = "'" + translate("render.hint.selectFile") + "'";
-const _sfc_main$3d = {
+const _sfc_main$3e = {
   name: "file-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6238,7 +6240,7 @@ const _sfc_main$3d = {
     }
   }
 };
-const _withScopeId$4 = (n10) => (pushScopeId("data-v-2aaef425"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$4 = (n10) => (pushScopeId("data-v-41b76cb4"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$10 = {
   key: 0,
   class: "el-upload__tip"
@@ -6247,7 +6249,7 @@ const _hoisted_2$o = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ create
 const _hoisted_3$j = { class: "upload-file-list" };
 const _hoisted_4$c = ["title", "onClick"];
 const _hoisted_5$a = ["title", "onClick"];
-function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -6313,13 +6315,13 @@ function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3d, [["render", _sfc_render$3d], ["__scopeId", "data-v-2aaef425"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3e, [["render", _sfc_render$3e], ["__scopeId", "data-v-41b76cb4"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3c = {
+const _sfc_main$3d = {
   name: "html-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6366,7 +6368,7 @@ const _sfc_main$3c = {
   methods: {}
 };
 const _hoisted_1$$ = ["innerHTML"];
-function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -6388,13 +6390,13 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-a0d236d6"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3d, [["render", _sfc_render$3d], ["__scopeId", "data-v-3d941b4e"]]);
 var __glob_0_9$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var inputWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3b = {
+const _sfc_main$3c = {
   name: "input-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6461,7 +6463,7 @@ const _sfc_main$3b = {
   }
 };
 const _hoisted_1$_ = { key: 1 };
-function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_input = resolveComponent("el-input");
@@ -6533,13 +6535,13 @@ function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3b, [["render", _sfc_render$3b], ["__scopeId", "data-v-4e1e3348"]]);
+var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-40f3d4c3"]]);
 var __glob_0_10$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inputWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var numberWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3a = {
+const _sfc_main$3b = {
   name: "number-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6594,7 +6596,7 @@ const _sfc_main$3a = {
   },
   methods: {}
 };
-function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -6618,6 +6620,7 @@ function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $props.field.options.disabled,
         size: _ctx.widgetSize,
         "controls-position": $props.field.options.controlsPosition,
+        stepStrictly: $props.field.options.stepStrictly,
         placeholder: _ctx.$t($props.field.options.placeholder),
         min: $props.field.options.min,
         max: $props.field.options.max,
@@ -6626,18 +6629,18 @@ function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onChange: _ctx.handleChangeEvent
-      }, null, 8, ["modelValue", "disabled", "size", "controls-position", "placeholder", "min", "max", "precision", "step", "onFocus", "onBlur", "onChange"])
+      }, null, 8, ["modelValue", "disabled", "size", "controls-position", "stepStrictly", "placeholder", "min", "max", "precision", "step", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3a, [["render", _sfc_render$3a], ["__scopeId", "data-v-dbbd8ba0"]]);
+var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3b, [["render", _sfc_render$3b], ["__scopeId", "data-v-68a5bd58"]]);
 var __glob_0_11$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var pictureUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$39 = {
+const _sfc_main$3a = {
   name: "picture-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -6864,7 +6867,7 @@ const _hoisted_6$8 = {
   class: "el-upload__tip"
 };
 const _hoisted_7$7 = { class: "uploader-icon" };
-function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$3a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_image = resolveComponent("el-image");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -6949,13 +6952,13 @@ function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-55854757"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3a, [["render", _sfc_render$3a], ["__scopeId", "data-v-72787dcd"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var radioWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$38 = {
+const _sfc_main$39 = {
   name: "radio-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7011,7 +7014,7 @@ const _sfc_main$38 = {
   },
   methods: {}
 };
-function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -7073,13 +7076,13 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-5becdb92"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$39, [["render", _sfc_render$39], ["__scopeId", "data-v-253adc5e"]]);
 var __glob_0_13$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var rateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$37 = {
+const _sfc_main$38 = {
   name: "rate-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -7134,7 +7137,7 @@ const _sfc_main$37 = {
   },
   methods: {}
 };
-function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -7167,7 +7170,7 @@ function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-e8d5267c"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-409c0e8b"]]);
 var __glob_0_14$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -29943,7 +29946,7 @@ function _sfc_render$1$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$1$1, null, 512);
 }
 var Editor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$1, [["render", _sfc_render$1$1]]);
-const _sfc_main$36 = defineComponent({
+const _sfc_main$37 = defineComponent({
   props: {
     editor: {
       type: Object
@@ -29986,12 +29989,12 @@ const _sfc_main$36 = defineComponent({
   }
 });
 const _hoisted_1$Y = { ref: "selector" };
-function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$Y, null, 512);
 }
-var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$36, [["render", _sfc_render$36]]);
+var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$37, [["render", _sfc_render$37]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$35 = {
+const _sfc_main$36 = {
   name: "rich-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin],
@@ -30095,7 +30098,7 @@ const _sfc_main$35 = {
   }
 };
 const _hoisted_1$X = { style: { "border": "1px solid #ccc" } };
-function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -30133,13 +30136,13 @@ function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$35, [["render", _sfc_render$35], ["__scopeId", "data-v-375e7373"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-297e7d24"]]);
 var __glob_0_15$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectV2Widget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$34 = {
+const _sfc_main$35 = {
   name: "select-v2-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30230,7 +30233,7 @@ const _sfc_main$34 = {
     }
   }
 };
-function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$35(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_select_v2 = resolveComponent("el-select-v2");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30271,13 +30274,13 @@ function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-00c6c588"]]);
+var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$35, [["render", _sfc_render$35], ["__scopeId", "data-v-b20e3dc4"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectV2Widget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$33 = {
+const _sfc_main$34 = {
   name: "select-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30368,7 +30371,7 @@ const _sfc_main$33 = {
     }
   }
 };
-function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -30422,13 +30425,13 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-a0c65f06"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-e8a33dd0"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var sliderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$32 = {
+const _sfc_main$33 = {
   name: "slider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30483,7 +30486,7 @@ const _sfc_main$32 = {
   },
   methods: {}
 };
-function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30516,13 +30519,13 @@ function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-e54b3390"]]);
+var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-92a76556"]]);
 var __glob_0_18$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var slotWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$31 = {
+const _sfc_main$32 = {
   name: "slot-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30572,7 +30575,7 @@ const _hoisted_1$W = {
   key: 0,
   class: "slot-title"
 };
-function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$32(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -30596,13 +30599,13 @@ function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-1b458525"]]);
+var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$32, [["render", _sfc_render$32], ["__scopeId", "data-v-95f13fca"]]);
 var __glob_0_19$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var staticTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$30 = {
+const _sfc_main$31 = {
   name: "static-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30648,7 +30651,7 @@ const _sfc_main$30 = {
   },
   methods: {}
 };
-function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -30674,13 +30677,13 @@ function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-5c0e1d8a"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$31, [["render", _sfc_render$31], ["__scopeId", "data-v-0f585042"]]);
 var __glob_0_21$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var switchWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2$ = {
+const _sfc_main$30 = {
   name: "switch-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30735,7 +30738,7 @@ const _sfc_main$2$ = {
   },
   methods: {}
 };
-function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$30(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30767,13 +30770,13 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-51a90f56"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$30, [["render", _sfc_render$30], ["__scopeId", "data-v-3529e848"]]);
 var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var textareaWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2_ = {
+const _sfc_main$2$ = {
   name: "textarea-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -30828,7 +30831,7 @@ const _sfc_main$2_ = {
   },
   methods: {}
 };
-function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -30866,14 +30869,118 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-f9d2719e"]]);
+var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2$, [["render", _sfc_render$2$], ["__scopeId", "data-v-0a243825"]]);
 var __glob_0_23$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textareaWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Z = {
+const _sfc_main$2_ = {
   name: "time-range-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: null,
+      rules: []
+    };
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {}
+};
+function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_time_picker = resolveComponent("el-time-picker");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createElementVNode("div", {
+        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width" : ""])
+      }, [
+        createVNode(_component_el_time_picker, {
+          ref: "fieldEditor",
+          "is-range": "",
+          modelValue: $data.fieldModel,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
+          class: normalizeClass([!!$props.field.options.autoFullWidth ? "full-width-input" : ""]),
+          disabled: $props.field.options.disabled,
+          readonly: $props.field.options.readonly,
+          size: _ctx.widgetSize,
+          clearable: $props.field.options.clearable,
+          editable: $props.field.options.editable,
+          format: $props.field.options.format,
+          "value-format": "HH:mm:ss",
+          "start-placeholder": $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startTimePlaceholder"),
+          "end-placeholder": $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endTimePlaceholder"),
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: _ctx.handleChangeEvent
+        }, null, 8, ["modelValue", "class", "disabled", "readonly", "size", "clearable", "editable", "format", "start-placeholder", "end-placeholder", "onFocus", "onBlur", "onChange"])
+      ], 2)
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-37df7776"]]);
+var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": timeRangeWidget
+}, Symbol.toStringTag, { value: "Module" }));
+var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$2Z = {
+  name: "time-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
   props: {
@@ -30943,110 +31050,6 @@ function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", {
-        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width" : ""])
-      }, [
-        createVNode(_component_el_time_picker, {
-          ref: "fieldEditor",
-          "is-range": "",
-          modelValue: $data.fieldModel,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
-          class: normalizeClass([!!$props.field.options.autoFullWidth ? "full-width-input" : ""]),
-          disabled: $props.field.options.disabled,
-          readonly: $props.field.options.readonly,
-          size: _ctx.widgetSize,
-          clearable: $props.field.options.clearable,
-          editable: $props.field.options.editable,
-          format: $props.field.options.format,
-          "value-format": "HH:mm:ss",
-          "start-placeholder": $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startTimePlaceholder"),
-          "end-placeholder": $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endTimePlaceholder"),
-          onFocus: _ctx.handleFocusCustomEvent,
-          onBlur: _ctx.handleBlurCustomEvent,
-          onChange: _ctx.handleChangeEvent
-        }, null, 8, ["modelValue", "class", "disabled", "readonly", "size", "clearable", "editable", "format", "start-placeholder", "end-placeholder", "onFocus", "onBlur", "onChange"])
-      ], 2)
-    ]),
-    _: 1
-  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
-}
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-39163a8d"]]);
-var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
-  __proto__: null,
-  "default": timeRangeWidget
-}, Symbol.toStringTag, { value: "Module" }));
-var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2Y = {
-  name: "time-widget",
-  componentName: "FieldWidget",
-  mixins: [emitter, fieldMixin, i18n$1],
-  props: {
-    field: Object,
-    parentWidget: Object,
-    parentList: Array,
-    indexOfParentList: Number,
-    designer: Object,
-    designState: {
-      type: Boolean,
-      default: false
-    },
-    subFormRowIndex: {
-      type: Number,
-      default: -1
-    },
-    subFormColIndex: {
-      type: Number,
-      default: -1
-    },
-    subFormRowId: {
-      type: String,
-      default: ""
-    }
-  },
-  components: {
-    FormItemWrapper
-  },
-  data() {
-    return {
-      oldFieldValue: null,
-      fieldModel: null,
-      rules: []
-    };
-  },
-  computed: {},
-  beforeCreate() {
-  },
-  created() {
-    this.initFieldModel();
-    this.registerToRefList();
-    this.initEventHandler();
-    this.buildFieldRules();
-    this.handleOnCreated();
-  },
-  mounted() {
-    this.handleOnMounted();
-  },
-  beforeUnmount() {
-    this.unregisterFromRefList();
-  },
-  methods: {}
-};
-function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_time_picker = resolveComponent("el-time-picker");
-  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
-  return openBlock(), createBlock(_component_form_item_wrapper, {
-    designer: $props.designer,
-    field: $props.field,
-    rules: $data.rules,
-    "design-state": $props.designState,
-    "parent-widget": $props.parentWidget,
-    "parent-list": $props.parentList,
-    "index-of-parent-list": $props.indexOfParentList,
-    "sub-form-row-index": $props.subFormRowIndex,
-    "sub-form-col-index": $props.subFormColIndex,
-    "sub-form-row-id": $props.subFormRowId
-  }, {
-    default: withCtx(() => [
       createVNode(_component_el_time_picker, {
         ref: "fieldEditor",
         modelValue: $data.fieldModel,
@@ -31068,7 +31071,7 @@ function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-fcdc66e8"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-5cc62ec1"]]);
 var __glob_0_25$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -31080,7 +31083,7 @@ for (const path in modules$3) {
   comps$1[cname] = modules$3[path].default;
 }
 var gridColItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2X = {
+const _sfc_main$2Y = {
   name: "GridColItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -31152,7 +31155,7 @@ const _sfc_main$2X = {
 };
 const _hoisted_1$V = { class: "blank-cell" };
 const _hoisted_2$m = { class: "invisible-content" };
-function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
   return withDirectives((openBlock(), createBlock(_component_el_col, mergeProps({
     class: ["grid-cell", [$options.customClass]]
@@ -31210,7 +31213,7 @@ function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, !$props.widget.options.hidden]
   ]);
 }
-var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2X, [["render", _sfc_render$2X], ["__scopeId", "data-v-8cecd14e"]]);
+var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Y, [["render", _sfc_render$2Y], ["__scopeId", "data-v-3406a44d"]]);
 var __glob_0_1$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColItem
@@ -31371,7 +31374,7 @@ var containerItemMixin = {
     }
   }
 };
-const _sfc_main$2W = {
+const _sfc_main$2X = {
   name: "vf-grid-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31393,7 +31396,7 @@ const _sfc_main$2W = {
   },
   methods: {}
 };
-function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_grid_col_item = resolveComponent("grid-col-item");
   const _component_el_row = resolveComponent("el-row");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -31434,13 +31437,13 @@ function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2W, [["render", _sfc_render$2W]]);
+var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2X, [["render", _sfc_render$2X]]);
 var __glob_0_2$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridItem
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2V = {
+const _sfc_main$2W = {
   name: "sub-form-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31654,7 +31657,7 @@ const _hoisted_7$6 = {
   key: 0,
   class: "row-number-span"
 };
-function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -31805,12 +31808,12 @@ function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2V, [["render", _sfc_render$2V], ["__scopeId", "data-v-352932f2"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2W, [["render", _sfc_render$2W], ["__scopeId", "data-v-605581bd"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2U = {
+const _sfc_main$2V = {
   name: "tab-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31857,7 +31860,7 @@ const _sfc_main$2U = {
     }
   }
 };
-function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -31932,13 +31935,13 @@ function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2U, [["render", _sfc_render$2U]]);
+var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2V, [["render", _sfc_render$2V]]);
 var __glob_0_4$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableCellItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2T = {
+const _sfc_main$2U = {
   name: "TableCellItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -31959,7 +31962,7 @@ const _sfc_main$2T = {
   methods: {}
 };
 const _hoisted_1$T = ["colspan", "rowspan"];
-function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
     colspan: $props.widget.options.colspan || 1,
@@ -32003,13 +32006,13 @@ function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ], 14, _hoisted_1$T);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-162f05d8"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2U, [["render", _sfc_render$2U], ["__scopeId", "data-v-3e48ee34"]]);
 var __glob_0_5$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2S = {
+const _sfc_main$2T = {
   name: "table-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -32031,7 +32034,7 @@ const _sfc_main$2S = {
   },
   methods: {}
 };
-function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_table_cell_item = resolveComponent("table-cell-item");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
   return openBlock(), createBlock(_component_container_item_wrapper, { widget: $props.widget }, {
@@ -32081,7 +32084,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2S, [["render", _sfc_render$2S], ["__scopeId", "data-v-656b4452"]]);
+var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-429726ac"]]);
 var __glob_0_6$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableItem
@@ -32096,7 +32099,7 @@ var ContainerItems = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$5 = "";
-const _sfc_main$2R = {
+const _sfc_main$2S = {
   name: "VFormRender",
   componentName: "VFormRender",
   mixins: [emitter, i18n$1],
@@ -32303,7 +32306,6 @@ const _sfc_main$2R = {
     addFieldValidateEventHandler() {
       this.off$("fieldValidation");
       this.on$("fieldValidation", (fieldName) => {
-        console.log(this.$refs.renderForm);
         this.$refs.renderForm.validateField(fieldName);
       });
     },
@@ -32632,7 +32634,7 @@ const _sfc_main$2R = {
     }
   }
 };
-function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createBlock(_component_el_form, {
     "label-position": $options.labelPosition,
@@ -32687,7 +32689,7 @@ function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-50f283fa"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2S, [["render", _sfc_render$2S], ["__scopeId", "data-v-8cd779ca"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -32923,7 +32925,27 @@ var ace$2 = { exports: {} };
   ace.define("ace/lib/fixoldbrowsers", ["require", "exports", "module", "ace/lib/es6-shim"], function(require2, exports2, module2) {
     require2("./es6-shim");
   });
-  ace.define("ace/lib/lang", ["require", "exports", "module"], function(require2, exports2, module2) {
+  ace.define("ace/lib/deep_copy", ["require", "exports", "module"], function(require2, exports2, module2) {
+    exports2.deepCopy = function deepCopy(obj) {
+      if (typeof obj !== "object" || !obj)
+        return obj;
+      var copy;
+      if (Array.isArray(obj)) {
+        copy = [];
+        for (var key = 0; key < obj.length; key++) {
+          copy[key] = deepCopy(obj[key]);
+        }
+        return copy;
+      }
+      if (Object.prototype.toString.call(obj) !== "[object Object]")
+        return obj;
+      copy = {};
+      for (var key in obj)
+        copy[key] = deepCopy(obj[key]);
+      return copy;
+    };
+  });
+  ace.define("ace/lib/lang", ["require", "exports", "module", "ace/lib/deep_copy"], function(require2, exports2, module2) {
     exports2.last = function(a10) {
       return a10[a10.length - 1];
     };
@@ -32965,24 +32987,7 @@ var ace$2 = { exports: {} };
       }
       return copy;
     };
-    exports2.deepCopy = function deepCopy(obj) {
-      if (typeof obj !== "object" || !obj)
-        return obj;
-      var copy;
-      if (Array.isArray(obj)) {
-        copy = [];
-        for (var key = 0; key < obj.length; key++) {
-          copy[key] = deepCopy(obj[key]);
-        }
-        return copy;
-      }
-      if (Object.prototype.toString.call(obj) !== "[object Object]")
-        return obj;
-      copy = {};
-      for (var key in obj)
-        copy[key] = deepCopy(obj[key]);
-      return copy;
-    };
+    exports2.deepCopy = require2("./deep_copy").deepCopy;
     exports2.arrayToMap = function(arr) {
       var map = {};
       for (var i10 = 0; i10 < arr.length; i10++) {
@@ -33075,6 +33080,17 @@ var ace$2 = { exports: {} };
       };
       return _self;
     };
+    exports2.supportsLookbehind = function() {
+      try {
+        new RegExp("(?<=.)");
+      } catch (e13) {
+        return false;
+      }
+      return true;
+    };
+    exports2.skipEmptyMatch = function(line, last, supportsUnicodeFlag) {
+      return supportsUnicodeFlag && line.codePointAt(last) > 65535 ? 2 : 1;
+    };
   });
   ace.define("ace/lib/useragent", ["require", "exports", "module"], function(require2, exports2, module2) {
     exports2.OS = {
@@ -33101,14 +33117,15 @@ var ace$2 = { exports: {} };
     exports2.isIE = appName == "Microsoft Internet Explorer" || appName.indexOf("MSAppHost") >= 0 ? parseFloat((ua2.match(/(?:MSIE |Trident\/[0-9]+[\.0-9]+;.*rv:)([0-9]+[\.0-9]+)/) || [])[1]) : parseFloat((ua2.match(/(?:Trident\/[0-9]+[\.0-9]+;.*rv:)([0-9]+[\.0-9]+)/) || [])[1]);
     exports2.isOldIE = exports2.isIE && exports2.isIE < 9;
     exports2.isGecko = exports2.isMozilla = ua2.match(/ Gecko\/\d+/);
-    exports2.isOpera = typeof opera == "object" && Object.prototype.toString.call(window.opera) == "[object Opera]";
+    exports2.isOpera = typeof opera == "object" && Object.prototype.toString.call(window["opera"]) == "[object Opera]";
     exports2.isWebKit = parseFloat(ua2.split("WebKit/")[1]) || void 0;
     exports2.isChrome = parseFloat(ua2.split(" Chrome/")[1]) || void 0;
+    exports2.isSafari = parseFloat(ua2.split(" Safari/")[1]) && !exports2.isChrome || void 0;
     exports2.isEdge = parseFloat(ua2.split(" Edge/")[1]) || void 0;
     exports2.isAIR = ua2.indexOf("AdobeAIR") >= 0;
     exports2.isAndroid = ua2.indexOf("Android") >= 0;
     exports2.isChromeOS = ua2.indexOf(" CrOS ") >= 0;
-    exports2.isIOS = /iPad|iPhone|iPod/.test(ua2) && !window.MSStream;
+    exports2.isIOS = /iPad|iPhone|iPod/.test(ua2) && !window["MSStream"];
     if (exports2.isIOS)
       exports2.isMac = true;
     exports2.isMobile = exports2.isIOS || exports2.isAndroid;
@@ -33527,10 +33544,22 @@ var ace$2 = { exports: {} };
     };
     exports2.EventEmitter = EventEmitter;
   });
-  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
+  ace.define("ace/lib/report_error", ["require", "exports", "module"], function(require2, exports2, module2) {
+    exports2.reportError = function reportError(msg, data2) {
+      var e13 = new Error(msg);
+      e13["data"] = data2;
+      if (typeof console == "object" && console.error)
+        console.error(e13);
+      setTimeout(function() {
+        throw e13;
+      });
+    };
+  });
+  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error"], function(require2, exports2, module2) {
     "no use strict";
     var oop = require2("./oop");
     var EventEmitter = require2("./event_emitter").EventEmitter;
+    var reportError = require2("./report_error").reportError;
     var optionsProvider = {
       setOptions: function(optList) {
         Object.keys(optList).forEach(function(key) {
@@ -33581,15 +33610,7 @@ var ace$2 = { exports: {} };
       if (typeof console != "undefined" && console.warn)
         console.warn.apply(console, arguments);
     }
-    function reportError(msg, data2) {
-      var e13 = new Error(msg);
-      e13.data = data2;
-      if (typeof console == "object" && console.error)
-        console.error(e13);
-      setTimeout(function() {
-        throw e13;
-      });
-    }
+    var messages;
     var AppConfig = function() {
       function AppConfig2() {
         this.$defaultOptions = {};
@@ -33637,6 +33658,23 @@ var ace$2 = { exports: {} };
           this.setDefaultValue(path, key, optionHash[key]);
         }, this);
       };
+      AppConfig2.prototype.setMessages = function(value2) {
+        messages = value2;
+      };
+      AppConfig2.prototype.nls = function(string, params) {
+        if (messages && !messages[string]) {
+          warn("No message found for '" + string + "' in the provided messages, falling back to default English message.");
+        }
+        var translated = messages && messages[string] || string;
+        if (params) {
+          translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, name) {
+            if (name == "$")
+              return "$";
+            return params[name];
+          });
+        }
+        return translated;
+      };
       return AppConfig2;
     }();
     AppConfig.prototype.warn = warn;
@@ -33644,13 +33682,13 @@ var ace$2 = { exports: {} };
     oop.implement(AppConfig.prototype, EventEmitter);
     exports2.AppConfig = AppConfig;
   });
-  ace.define("ace/theme/textmate.css", ["require", "exports", "module"], function(require2, exports2, module2) {
+  ace.define("ace/theme/textmate-css", ["require", "exports", "module"], function(require2, exports2, module2) {
     module2.exports = '.ace-tm .ace_gutter {\n  background: #f0f0f0;\n  color: #333;\n}\n\n.ace-tm .ace_print-margin {\n  width: 1px;\n  background: #e8e8e8;\n}\n\n.ace-tm .ace_fold {\n    background-color: #6B72E6;\n}\n\n.ace-tm {\n  background-color: #FFFFFF;\n  color: black;\n}\n\n.ace-tm .ace_cursor {\n  color: black;\n}\n        \n.ace-tm .ace_invisible {\n  color: rgb(191, 191, 191);\n}\n\n.ace-tm .ace_storage,\n.ace-tm .ace_keyword {\n  color: blue;\n}\n\n.ace-tm .ace_constant {\n  color: rgb(197, 6, 11);\n}\n\n.ace-tm .ace_constant.ace_buildin {\n  color: rgb(88, 72, 246);\n}\n\n.ace-tm .ace_constant.ace_language {\n  color: rgb(88, 92, 246);\n}\n\n.ace-tm .ace_constant.ace_library {\n  color: rgb(6, 150, 14);\n}\n\n.ace-tm .ace_invalid {\n  background-color: rgba(255, 0, 0, 0.1);\n  color: red;\n}\n\n.ace-tm .ace_support.ace_function {\n  color: rgb(60, 76, 114);\n}\n\n.ace-tm .ace_support.ace_constant {\n  color: rgb(6, 150, 14);\n}\n\n.ace-tm .ace_support.ace_type,\n.ace-tm .ace_support.ace_class {\n  color: rgb(109, 121, 222);\n}\n\n.ace-tm .ace_keyword.ace_operator {\n  color: rgb(104, 118, 135);\n}\n\n.ace-tm .ace_string {\n  color: rgb(3, 106, 7);\n}\n\n.ace-tm .ace_comment {\n  color: rgb(76, 136, 107);\n}\n\n.ace-tm .ace_comment.ace_doc {\n  color: rgb(0, 102, 255);\n}\n\n.ace-tm .ace_comment.ace_doc.ace_tag {\n  color: rgb(128, 159, 191);\n}\n\n.ace-tm .ace_constant.ace_numeric {\n  color: rgb(0, 0, 205);\n}\n\n.ace-tm .ace_variable {\n  color: rgb(49, 132, 149);\n}\n\n.ace-tm .ace_xml-pe {\n  color: rgb(104, 104, 91);\n}\n\n.ace-tm .ace_entity.ace_name.ace_function {\n  color: #0000A2;\n}\n\n\n.ace-tm .ace_heading {\n  color: rgb(12, 7, 255);\n}\n\n.ace-tm .ace_list {\n  color:rgb(185, 6, 144);\n}\n\n.ace-tm .ace_meta.ace_tag {\n  color:rgb(0, 22, 142);\n}\n\n.ace-tm .ace_string.ace_regex {\n  color: rgb(255, 0, 0)\n}\n\n.ace-tm .ace_marker-layer .ace_selection {\n  background: rgb(181, 213, 255);\n}\n.ace-tm.ace_multiselect .ace_selection.ace_start {\n  box-shadow: 0 0 3px 0px white;\n}\n.ace-tm .ace_marker-layer .ace_step {\n  background: rgb(252, 255, 0);\n}\n\n.ace-tm .ace_marker-layer .ace_stack {\n  background: rgb(164, 229, 101);\n}\n\n.ace-tm .ace_marker-layer .ace_bracket {\n  margin: -1px 0 0 -1px;\n  border: 1px solid rgb(192, 192, 192);\n}\n\n.ace-tm .ace_marker-layer .ace_active-line {\n  background: rgba(0, 0, 0, 0.07);\n}\n\n.ace-tm .ace_gutter-active-line {\n    background-color : #dcdcdc;\n}\n\n.ace-tm .ace_marker-layer .ace_selected-word {\n  background: rgb(250, 250, 255);\n  border: 1px solid rgb(200, 200, 250);\n}\n\n.ace-tm .ace_indent-guide {\n  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;\n}\n\n.ace-tm .ace_indent-guide-active {\n  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAZSURBVHjaYvj///9/hivKyv8BAAAA//8DACLqBhbvk+/eAAAAAElFTkSuQmCC") right repeat-y;\n}\n';
   });
-  ace.define("ace/theme/textmate", ["require", "exports", "module", "ace/theme/textmate.css", "ace/lib/dom"], function(require2, exports2, module2) {
+  ace.define("ace/theme/textmate", ["require", "exports", "module", "ace/theme/textmate-css", "ace/lib/dom"], function(require2, exports2, module2) {
     exports2.isDark = false;
     exports2.cssClass = "ace-tm";
-    exports2.cssText = require2("./textmate.css");
+    exports2.cssText = require2("./textmate-css");
     exports2.$id = "ace/theme/textmate";
     var dom = require2("../lib/dom");
     dom.importCssString(exports2.cssText, exports2.cssClass, false);
@@ -33720,34 +33758,42 @@ var ace$2 = { exports: {} };
     var loader = function(moduleName, cb2) {
       if (moduleName === "ace/theme/textmate" || moduleName === "./theme/textmate")
         return cb2(null, require2("./theme/textmate"));
-      return console.error("loader is not configured");
+      if (customLoader)
+        return customLoader(moduleName, cb2);
+      console.error("loader is not configured");
     };
+    var customLoader;
     exports2.setLoader = function(cb2) {
-      loader = cb2;
+      customLoader = cb2;
     };
     exports2.dynamicModules = Object.create(null);
     exports2.$loading = {};
-    exports2.loadModule = function(moduleName, onLoad) {
-      var module3, moduleType;
-      if (Array.isArray(moduleName)) {
-        moduleType = moduleName[0];
-        moduleName = moduleName[1];
+    exports2.$loaded = {};
+    exports2.loadModule = function(moduleId, onLoad) {
+      var loadedModule;
+      if (Array.isArray(moduleId)) {
+        var moduleType = moduleId[0];
+        var moduleName = moduleId[1];
+      } else if (typeof moduleId == "string") {
+        var moduleName = moduleId;
       }
-      var load = function(module4) {
-        if (module4 && !exports2.$loading[moduleName])
-          return onLoad && onLoad(module4);
+      var load = function(module3) {
+        if (module3 && !exports2.$loading[moduleName])
+          return onLoad && onLoad(module3);
         if (!exports2.$loading[moduleName])
           exports2.$loading[moduleName] = [];
         exports2.$loading[moduleName].push(onLoad);
         if (exports2.$loading[moduleName].length > 1)
           return;
         var afterLoad = function() {
-          loader(moduleName, function(err, module5) {
-            exports2._emit("load.module", { name: moduleName, module: module5 });
+          loader(moduleName, function(err, module4) {
+            if (module4)
+              exports2.$loaded[moduleName] = module4;
+            exports2._emit("load.module", { name: moduleName, module: module4 });
             var listeners = exports2.$loading[moduleName];
             exports2.$loading[moduleName] = null;
             listeners.forEach(function(onLoad2) {
-              onLoad2 && onLoad2(module5);
+              onLoad2 && onLoad2(module4);
             });
           });
         };
@@ -33757,19 +33803,25 @@ var ace$2 = { exports: {} };
         reportErrorIfPathIsNotConfigured();
       };
       if (exports2.dynamicModules[moduleName]) {
-        exports2.dynamicModules[moduleName]().then(function(module4) {
-          if (module4.default) {
-            load(module4.default);
+        exports2.dynamicModules[moduleName]().then(function(module3) {
+          if (module3.default) {
+            load(module3.default);
           } else {
-            load(module4);
+            load(module3);
           }
         });
       } else {
         try {
-          module3 = require2(moduleName);
+          loadedModule = this.$require(moduleName);
         } catch (e13) {
         }
-        load(module3);
+        load(loadedModule || exports2.$loaded[moduleName]);
+      }
+    };
+    exports2.$require = function(moduleName) {
+      if (typeof module2["require"] == "function") {
+        var req = "require";
+        return module2[req](moduleName);
       }
     };
     exports2.setModuleLoader = function(moduleName, onLoad) {
@@ -33782,7 +33834,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.19.0";
+    exports2.version = "1.32.2";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -33797,6 +33849,7 @@ var ace$2 = { exports: {} };
     }();
     module2.exports = function(ace2) {
       config.init = init;
+      config.$require = require2;
       ace2.require = require2;
     };
     init(true);
@@ -33848,9 +33901,6 @@ var ace$2 = { exports: {} };
     }
   });
   ace.define("ace/range", ["require", "exports", "module"], function(require2, exports2, module2) {
-    var comparePoints = function(p12, p22) {
-      return p12.row - p22.row || p12.column - p22.column;
-    };
     var Range = function() {
       function Range2(startRow, startColumn, endRow, endColumn) {
         this.start = {
@@ -34051,7 +34101,6 @@ var ace$2 = { exports: {} };
     Range.fromPoints = function(start, end) {
       return new Range(start.row, start.column, end.row, end.column);
     };
-    Range.comparePoints = comparePoints;
     Range.comparePoints = function(p12, p22) {
       return p12.row - p22.row || p12.column - p22.column;
     };
@@ -34242,6 +34291,7 @@ var ace$2 = { exports: {} };
       return ret;
     }();
     oop.mixin(exports2, Keys);
+    exports2.default = exports2;
     exports2.keyCodeToString = function(keyCode) {
       var keyString = Keys[keyCode];
       if (typeof keyString != "string")
@@ -34262,6 +34312,7 @@ var ace$2 = { exports: {} };
         }, {
           get passive() {
             activeListenerOptions = { passive: false };
+            return true;
           }
         });
       } catch (e13) {
@@ -34445,35 +34496,25 @@ var ace$2 = { exports: {} };
       return callback2(e13, hashId, keyCode);
     }
     exports2.addCommandKeyListener = function(el2, callback2, destroyer) {
-      if (useragent.isOldGecko || useragent.isOpera && !("KeyboardEvent" in window)) {
-        var lastKeyDownKeyCode = null;
-        addListener(el2, "keydown", function(e13) {
-          lastKeyDownKeyCode = e13.keyCode;
-        }, destroyer);
-        addListener(el2, "keypress", function(e13) {
-          return normalizeCommandKeys(callback2, e13, lastKeyDownKeyCode);
-        }, destroyer);
-      } else {
-        var lastDefaultPrevented = null;
-        addListener(el2, "keydown", function(e13) {
-          pressedKeys[e13.keyCode] = (pressedKeys[e13.keyCode] || 0) + 1;
-          var result = normalizeCommandKeys(callback2, e13, e13.keyCode);
-          lastDefaultPrevented = e13.defaultPrevented;
-          return result;
-        }, destroyer);
-        addListener(el2, "keypress", function(e13) {
-          if (lastDefaultPrevented && (e13.ctrlKey || e13.altKey || e13.shiftKey || e13.metaKey)) {
-            exports2.stopEvent(e13);
-            lastDefaultPrevented = null;
-          }
-        }, destroyer);
-        addListener(el2, "keyup", function(e13) {
-          pressedKeys[e13.keyCode] = null;
-        }, destroyer);
-        if (!pressedKeys) {
-          resetPressedKeys();
-          addListener(window, "focus", resetPressedKeys);
+      var lastDefaultPrevented = null;
+      addListener(el2, "keydown", function(e13) {
+        pressedKeys[e13.keyCode] = (pressedKeys[e13.keyCode] || 0) + 1;
+        var result = normalizeCommandKeys(callback2, e13, e13.keyCode);
+        lastDefaultPrevented = e13.defaultPrevented;
+        return result;
+      }, destroyer);
+      addListener(el2, "keypress", function(e13) {
+        if (lastDefaultPrevented && (e13.ctrlKey || e13.altKey || e13.shiftKey || e13.metaKey)) {
+          exports2.stopEvent(e13);
+          lastDefaultPrevented = null;
         }
+      }, destroyer);
+      addListener(el2, "keyup", function(e13) {
+        pressedKeys[e13.keyCode] = null;
+      }, destroyer);
+      if (!pressedKeys) {
+        resetPressedKeys();
+        addListener(window, "focus", resetPressedKeys);
       }
     };
     function resetPressedKeys() {
@@ -34514,7 +34555,7 @@ var ace$2 = { exports: {} };
         exports2.$idleBlocked = false;
       }, delay || 100);
     };
-    exports2.nextFrame = typeof window == "object" && (window.requestAnimationFrame || window.mozRequestAnimationFrame || window.webkitRequestAnimationFrame || window.msRequestAnimationFrame || window.oRequestAnimationFrame);
+    exports2.nextFrame = typeof window == "object" && (window.requestAnimationFrame || window["mozRequestAnimationFrame"] || window["webkitRequestAnimationFrame"] || window["msRequestAnimationFrame"] || window["oRequestAnimationFrame"]);
     if (exports2.nextFrame)
       exports2.nextFrame = exports2.nextFrame.bind(window);
     else
@@ -34536,8 +34577,9 @@ var ace$2 = { exports: {} };
       }
     };
   });
-  ace.define("ace/keyboard/textinput", ["require", "exports", "module", "ace/lib/event", "ace/lib/useragent", "ace/lib/dom", "ace/lib/lang", "ace/clipboard", "ace/lib/keys"], function(require2, exports2, module2) {
+  ace.define("ace/keyboard/textinput", ["require", "exports", "module", "ace/lib/event", "ace/config", "ace/lib/useragent", "ace/lib/dom", "ace/lib/lang", "ace/clipboard", "ace/lib/keys"], function(require2, exports2, module2) {
     var event = require2("../lib/event");
+    var nls = require2("../config").nls;
     var useragent = require2("../lib/useragent");
     var dom = require2("../lib/dom");
     var lang = require2("../lib/lang");
@@ -34551,13 +34593,14 @@ var ace$2 = { exports: {} };
     var isIOS = useragent.isIOS;
     var valueResetRegex = isIOS ? /\s/ : /\n/;
     var isMobile = useragent.isMobile;
-    var TextInput = function(parentNode, host) {
+    var TextInput;
+    TextInput = function(parentNode, host) {
       var text = dom.createElement("textarea");
       text.className = "ace_text-input";
       text.setAttribute("wrap", "off");
       text.setAttribute("autocorrect", "off");
       text.setAttribute("autocapitalize", "off");
-      text.setAttribute("spellcheck", false);
+      text.setAttribute("spellcheck", "false");
       text.style.opacity = "0";
       parentNode.insertBefore(text, parentNode.firstChild);
       var copied = false;
@@ -34573,10 +34616,22 @@ var ace$2 = { exports: {} };
       var lastSelectionStart = 0;
       var lastSelectionEnd = 0;
       var lastRestoreEnd = 0;
+      var rowStart = Number.MAX_SAFE_INTEGER;
+      var rowEnd = Number.MIN_SAFE_INTEGER;
+      var numberOfExtraLines = 0;
       try {
         var isFocused = document.activeElement === text;
       } catch (e13) {
       }
+      this.setNumberOfExtraLines = function(number) {
+        rowStart = Number.MAX_SAFE_INTEGER;
+        rowEnd = Number.MIN_SAFE_INTEGER;
+        if (number < 0) {
+          numberOfExtraLines = 0;
+          return;
+        }
+        numberOfExtraLines = number;
+      };
       this.setAriaOptions = function(options) {
         if (options.activeDescendant) {
           text.setAttribute("aria-haspopup", "true");
@@ -34590,6 +34645,13 @@ var ace$2 = { exports: {} };
         if (options.role) {
           text.setAttribute("role", options.role);
         }
+        if (options.setLabel) {
+          text.setAttribute("aria-roledescription", nls("editor"));
+          if (host.session) {
+            var row = host.session.selection.cursor.row;
+            text.setAttribute("aria-label", nls("Cursor at row $0", [row + 1]));
+          }
+        }
       };
       this.setAriaOptions({ role: "textbox" });
       event.addListener(text, "blur", function(e13) {
@@ -34597,8 +34659,6 @@ var ace$2 = { exports: {} };
           return;
         host.onBlur(e13);
         isFocused = false;
-        if (isMobile && !isIOS)
-          document.removeEventListener("selectionchange", detectSelectionChange);
       }, host);
       event.addListener(text, "focus", function(e13) {
         if (ignoreFocusEvents)
@@ -34616,11 +34676,12 @@ var ace$2 = { exports: {} };
           setTimeout(resetSelection);
         else
           resetSelection();
-        if (isMobile && !isIOS)
-          document.addEventListener("selectionchange", detectSelectionChange);
       }, host);
       this.$focusScroll = false;
       this.focus = function() {
+        this.setAriaOptions({
+          setLabel: host.renderer.enableKeyboardAccessibility
+        });
         if (tempStyle || HAS_FOCUS_ARGS || this.$focusScroll == "browser")
           return text.focus({ preventScroll: true });
         var top = text.style.top;
@@ -34636,9 +34697,9 @@ var ace$2 = { exports: {} };
           var t10 = text.parentElement;
           while (t10 && t10.nodeType == 1) {
             ancestors.push(t10);
-            t10.setAttribute("ace_nocontext", true);
+            t10.setAttribute("ace_nocontext", "true");
             if (!t10.parentElement && t10.getRootNode)
-              t10 = t10.getRootNode().host;
+              t10 = t10.getRootNode()["host"];
             else
               t10 = t10.parentElement;
           }
@@ -34673,6 +34734,13 @@ var ace$2 = { exports: {} };
         }
         resetSelection();
       });
+      var positionToSelection = function(row, column) {
+        var selection = column;
+        for (var i10 = 1; i10 <= row - rowStart && i10 < 2 * numberOfExtraLines + 1; i10++) {
+          selection += host.session.getLine(row - i10).length + 1;
+        }
+        return selection;
+      };
       var resetSelection = isIOS ? function(value2) {
         if (!isFocused || copied && !value2 || sendingText)
           return;
@@ -34701,17 +34769,31 @@ var ace$2 = { exports: {} };
           var selection = host.selection;
           var range = selection.getRange();
           var row = selection.cursor.row;
-          selectionStart = range.start.column;
-          selectionEnd = range.end.column;
-          line = host.session.getLine(row);
-          if (range.start.row != row) {
-            var prevLine = host.session.getLine(row - 1);
-            selectionStart = range.start.row < row - 1 ? 0 : selectionStart;
+          if (row === rowEnd + 1) {
+            rowStart = rowEnd + 1;
+            rowEnd = rowStart + 2 * numberOfExtraLines;
+          } else if (row === rowStart - 1) {
+            rowEnd = rowStart - 1;
+            rowStart = rowEnd - 2 * numberOfExtraLines;
+          } else if (row < rowStart - 1 || row > rowEnd + 1) {
+            rowStart = row > numberOfExtraLines ? row - numberOfExtraLines : 0;
+            rowEnd = row > numberOfExtraLines ? row + numberOfExtraLines : 2 * numberOfExtraLines;
+          }
+          var lines = [];
+          for (var i10 = rowStart; i10 <= rowEnd; i10++) {
+            lines.push(host.session.getLine(i10));
+          }
+          line = lines.join("\n");
+          selectionStart = positionToSelection(range.start.row, range.start.column);
+          selectionEnd = positionToSelection(range.end.row, range.end.column);
+          if (range.start.row < rowStart) {
+            var prevLine = host.session.getLine(rowStart - 1);
+            selectionStart = range.start.row < rowStart - 1 ? 0 : selectionStart;
             selectionEnd += prevLine.length + 1;
             line = prevLine + "\n" + line;
-          } else if (range.end.row != row) {
-            var nextLine = host.session.getLine(row + 1);
-            selectionEnd = range.end.row > row + 1 ? nextLine.length : selectionEnd;
+          } else if (range.end.row > rowEnd) {
+            var nextLine = host.session.getLine(rowEnd + 1);
+            selectionEnd = range.end.row > rowEnd + 1 ? nextLine.length : range.end.column;
             selectionEnd += line.length + 1;
             line = line + "\n" + nextLine;
           } else if (isMobile && row > 0) {
@@ -34732,11 +34814,11 @@ var ace$2 = { exports: {} };
               }
             }
           }
-        }
-        var newValue = line + "\n\n";
-        if (newValue != lastValue) {
-          text.value = lastValue = newValue;
-          lastSelectionStart = lastSelectionEnd = newValue.length;
+          var newValue = line + "\n\n";
+          if (newValue != lastValue) {
+            text.value = lastValue = newValue;
+            lastSelectionStart = lastSelectionEnd = newValue.length;
+          }
         }
         if (afterContextMenu) {
           lastSelectionStart = text.selectionStart;
@@ -34770,26 +34852,6 @@ var ace$2 = { exports: {} };
           resetSelection();
         }
       };
-      function detectSelectionChange(e13) {
-        if (!text || !text.parentNode)
-          document.removeEventListener("selectionchange", detectSelectionChange);
-        if (inComposition)
-          return;
-        if (text.selectionStart !== text.selectionEnd)
-          return;
-        var startDiff = text.selectionStart - lastSelectionStart;
-        var oldLenght = lastSelectionEnd - lastSelectionStart;
-        if (startDiff > 0) {
-          startDiff = Math.max(startDiff - oldLenght, 1);
-        } else if (startDiff === 0 && oldLenght) {
-          startDiff = -1;
-        }
-        var repeat = Math.abs(startDiff);
-        var key = startDiff > 0 ? KEYS.right : KEYS.left;
-        for (var i10 = 0; i10 < repeat; i10++) {
-          host.onCommandKey({}, 0, key);
-        }
-      }
       var inputHandler = null;
       this.setInputHandler = function(cb2) {
         inputHandler = cb2;
@@ -34876,7 +34938,7 @@ var ace$2 = { exports: {} };
         }
       };
       var handleClipboardData = function(e13, data2, forceIEMime) {
-        var clipboardData = e13.clipboardData || window.clipboardData;
+        var clipboardData = e13.clipboardData || window["clipboardData"];
         if (!clipboardData || BROKEN_SETDATA)
           return;
         var mime = USE_IE_MIME_TYPE || forceIEMime ? "Text" : "text/plain";
@@ -35204,8 +35266,8 @@ var ace$2 = { exports: {} };
         exports3.forEach(function(x10) {
           mouseHandler[x10] = this[x10];
         }, this);
-        mouseHandler.selectByLines = this.extendSelectionBy.bind(mouseHandler, "getLineRange");
-        mouseHandler.selectByWords = this.extendSelectionBy.bind(mouseHandler, "getWordRange");
+        mouseHandler["selectByLines"] = this.extendSelectionBy.bind(mouseHandler, "getLineRange");
+        mouseHandler["selectByWords"] = this.extendSelectionBy.bind(mouseHandler, "getWordRange");
       }
       DefaultHandlers2.prototype.onMouseDown = function(ev2) {
         var inSelection = ev2.inSelection();
@@ -35412,7 +35474,17 @@ var ace$2 = { exports: {} };
         return { cursor: range.end, anchor: range.start };
     }
   });
-  ace.define("ace/tooltip", ["require", "exports", "module", "ace/lib/dom", "ace/range"], function(require2, exports2, module2) {
+  ace.define("ace/lib/scroll", ["require", "exports", "module"], function(require2, exports2, module2) {
+    exports2.preventParentScroll = function preventParentScroll(event) {
+      event.stopPropagation();
+      var target = event.currentTarget;
+      var contentOverflows = target.scrollHeight > target.clientHeight;
+      if (!contentOverflows) {
+        event.preventDefault();
+      }
+    };
+  });
+  ace.define("ace/tooltip", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/range", "ace/lib/scroll"], function(require2, exports2, module2) {
     var __extends = this && this.__extends || function() {
       var extendStatics = function(d10, b10) {
         extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d11, b11) {
@@ -35449,7 +35521,9 @@ var ace$2 = { exports: {} };
       throw new TypeError(s10 ? "Object is not iterable." : "Symbol.iterator is not defined.");
     };
     var dom = require2("./lib/dom");
+    require2("./lib/event");
     var Range = require2("./range").Range;
+    var preventParentScroll = require2("./lib/scroll").preventParentScroll;
     var CLASSNAME = "ace_tooltip";
     var Tooltip = function() {
       function Tooltip2(parentNode) {
@@ -35493,7 +35567,7 @@ var ace$2 = { exports: {} };
           this.isOpen = true;
         }
       };
-      Tooltip2.prototype.hide = function() {
+      Tooltip2.prototype.hide = function(e13) {
         if (this.isOpen) {
           this.getElement().style.display = "none";
           this.getElement().className = CLASSNAME;
@@ -35588,8 +35662,11 @@ var ace$2 = { exports: {} };
     exports2.Tooltip = Tooltip;
     var HoverTooltip = function(_super) {
       __extends(HoverTooltip2, _super);
-      function HoverTooltip2() {
-        var _this = _super.call(this, document.body) || this;
+      function HoverTooltip2(parentNode) {
+        if (parentNode === void 0) {
+          parentNode = document.body;
+        }
+        var _this = _super.call(this, parentNode) || this;
         _this.timeout = void 0;
         _this.lastT = 0;
         _this.idleTime = 350;
@@ -35604,9 +35681,10 @@ var ace$2 = { exports: {} };
         el2.addEventListener("mouseout", _this.onMouseOut);
         el2.tabIndex = -1;
         el2.addEventListener("blur", function() {
-          if (document.activeElement != el2)
+          if (!el2.contains(document.activeElement))
             this.hide();
         }.bind(_this));
+        el2.addEventListener("wheel", preventParentScroll);
         return _this;
       }
       HoverTooltip2.prototype.addToEditor = function(editor) {
@@ -35668,6 +35746,7 @@ var ace$2 = { exports: {} };
         this.$gatherData = value2;
       };
       HoverTooltip2.prototype.showForRange = function(editor, range, domNode, startingEvent) {
+        var MARGIN = 10;
         if (startingEvent && startingEvent != this.lastEvent)
           return;
         if (this.isOpen && document.activeElement == this.getElement())
@@ -35681,32 +35760,26 @@ var ace$2 = { exports: {} };
         this.isOpen = true;
         this.addMarker(range, editor.session);
         this.range = Range.fromPoints(range.start, range.end);
+        var position = renderer.textToScreenCoordinates(range.start.row, range.start.column);
+        var rect = renderer.scroller.getBoundingClientRect();
+        if (position.pageX < rect.left)
+          position.pageX = rect.left;
         var element = this.getElement();
         element.innerHTML = "";
         element.appendChild(domNode);
+        element.style.maxHeight = "";
         element.style.display = "block";
-        var position = renderer.textToScreenCoordinates(range.start.row, range.start.column);
-        var cursorPos = editor.getCursorPosition();
         var labelHeight = element.clientHeight;
-        var rect = renderer.scroller.getBoundingClientRect();
-        var isTopdown = true;
-        if (this.row > cursorPos.row) {
-          isTopdown = true;
-        } else if (this.row < cursorPos.row) {
-          isTopdown = false;
+        var labelWidth = element.clientWidth;
+        var spaceBelow = window.innerHeight - position.pageY - renderer.lineHeight;
+        var isAbove = true;
+        if (position.pageY - labelHeight < 0 && position.pageY < spaceBelow) {
+          isAbove = false;
         }
-        if (position.pageY - labelHeight + renderer.lineHeight < rect.top) {
-          isTopdown = true;
-        } else if (position.pageY + labelHeight > rect.bottom) {
-          isTopdown = false;
-        }
-        if (!isTopdown) {
-          position.pageY -= labelHeight;
-        } else {
-          position.pageY += renderer.lineHeight;
-        }
-        element.style.maxWidth = rect.width - (position.pageX - rect.left) + "px";
-        this.setPosition(position.pageX, position.pageY);
+        element.style.maxHeight = (isAbove ? position.pageY : spaceBelow) - MARGIN + "px";
+        element.style.top = isAbove ? "" : position.pageY + renderer.lineHeight + "px";
+        element.style.bottom = isAbove ? window.innerHeight - position.pageY + "px" : "";
+        element.style.left = Math.min(position.pageX, window.innerWidth - labelWidth - MARGIN) + "px";
       };
       HoverTooltip2.prototype.addMarker = function(range, session) {
         if (this.marker) {
@@ -35734,12 +35807,12 @@ var ace$2 = { exports: {} };
       };
       HoverTooltip2.prototype.$registerCloseEvents = function() {
         window.addEventListener("keydown", this.hide, true);
-        window.addEventListener("mousewheel", this.hide, true);
+        window.addEventListener("wheel", this.hide, true);
         window.addEventListener("mousedown", this.hide, true);
       };
       HoverTooltip2.prototype.$removeCloseEvents = function() {
         window.removeEventListener("keydown", this.hide, true);
-        window.removeEventListener("mousewheel", this.hide, true);
+        window.removeEventListener("wheel", this.hide, true);
         window.removeEventListener("mousedown", this.hide, true);
       };
       HoverTooltip2.prototype.onMouseOut = function(e13) {
@@ -35750,7 +35823,7 @@ var ace$2 = { exports: {} };
         this.lastEvent = null;
         if (!this.isOpen)
           return;
-        if (!e13.relatedTarget || e13.relatedTarget == this.getElement())
+        if (!e13.relatedTarget || this.getElement().contains(e13.relatedTarget))
           return;
         if (e13 && e13.currentTarget.contains(e13.relatedTarget))
           return;
@@ -35761,7 +35834,7 @@ var ace$2 = { exports: {} };
     }(Tooltip);
     exports2.HoverTooltip = HoverTooltip;
   });
-  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip"], function(require2, exports2, module2) {
+  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config"], function(require2, exports2, module2) {
     var __extends = this && this.__extends || function() {
       var extendStatics = function(d10, b10) {
         extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d11, b11) {
@@ -35800,10 +35873,11 @@ var ace$2 = { exports: {} };
     var dom = require2("../lib/dom");
     var event = require2("../lib/event");
     var Tooltip = require2("../tooltip").Tooltip;
+    var nls = require2("../config").nls;
     function GutterHandler(mouseHandler) {
       var editor = mouseHandler.editor;
       var gutter = editor.renderer.$gutterLayer;
-      var tooltip = new GutterTooltip(editor.container);
+      var tooltip = new GutterTooltip(editor);
       mouseHandler.editor.setDefaultHandler("guttermousedown", function(e13) {
         if (!editor.isFocused() || e13.getButton() != 0)
           return;
@@ -35825,14 +35899,112 @@ var ace$2 = { exports: {} };
         mouseHandler.captureMouse(e13);
         return e13.preventDefault();
       });
-      var tooltipTimeout, mouseEvent, tooltipContent;
-      var annotationLabels = {
-        error: { singular: "error", plural: "errors" },
-        warning: { singular: "warning", plural: "warnings" },
-        info: { singular: "information message", plural: "information messages" }
-      };
+      var tooltipTimeout, mouseEvent;
       function showTooltip() {
         var row = mouseEvent.getDocumentPosition().row;
+        var maxRow = editor.session.getLength();
+        if (row == maxRow) {
+          var screenRow = editor.renderer.pixelToScreenCoordinates(0, mouseEvent.y).row;
+          var pos = mouseEvent.$pos;
+          if (screenRow > editor.session.documentToScreenRow(pos.row, pos.column))
+            return hideTooltip();
+        }
+        tooltip.showTooltip(row);
+        if (!tooltip.isOpen)
+          return;
+        editor.on("mousewheel", hideTooltip);
+        if (mouseHandler.$tooltipFollowsMouse) {
+          moveTooltip(mouseEvent);
+        } else {
+          var gutterRow = mouseEvent.getGutterRow();
+          var gutterCell = gutter.$lines.get(gutterRow);
+          if (gutterCell) {
+            var gutterElement = gutterCell.element.querySelector(".ace_gutter_annotation");
+            var rect = gutterElement.getBoundingClientRect();
+            var style2 = tooltip.getElement().style;
+            style2.left = rect.right + "px";
+            style2.top = rect.bottom + "px";
+          } else {
+            moveTooltip(mouseEvent);
+          }
+        }
+      }
+      function hideTooltip() {
+        if (tooltipTimeout)
+          tooltipTimeout = clearTimeout(tooltipTimeout);
+        if (tooltip.isOpen) {
+          tooltip.hideTooltip();
+          editor.off("mousewheel", hideTooltip);
+        }
+      }
+      function moveTooltip(e13) {
+        tooltip.setPosition(e13.x, e13.y);
+      }
+      mouseHandler.editor.setDefaultHandler("guttermousemove", function(e13) {
+        var target = e13.domEvent.target || e13.domEvent.srcElement;
+        if (dom.hasCssClass(target, "ace_fold-widget"))
+          return hideTooltip();
+        if (tooltip.isOpen && mouseHandler.$tooltipFollowsMouse)
+          moveTooltip(e13);
+        mouseEvent = e13;
+        if (tooltipTimeout)
+          return;
+        tooltipTimeout = setTimeout(function() {
+          tooltipTimeout = null;
+          if (mouseEvent && !mouseHandler.isMousePressed)
+            showTooltip();
+          else
+            hideTooltip();
+        }, 50);
+      });
+      event.addListener(editor.renderer.$gutter, "mouseout", function(e13) {
+        mouseEvent = null;
+        if (!tooltip.isOpen || tooltipTimeout)
+          return;
+        tooltipTimeout = setTimeout(function() {
+          tooltipTimeout = null;
+          hideTooltip();
+        }, 50);
+      }, editor);
+      editor.on("changeSession", hideTooltip);
+      editor.on("input", hideTooltip);
+    }
+    exports2.GutterHandler = GutterHandler;
+    var GutterTooltip = function(_super) {
+      __extends(GutterTooltip2, _super);
+      function GutterTooltip2(editor) {
+        var _this = _super.call(this, editor.container) || this;
+        _this.editor = editor;
+        return _this;
+      }
+      GutterTooltip2.prototype.setPosition = function(x10, y10) {
+        var windowWidth = window.innerWidth || document.documentElement.clientWidth;
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        var width = this.getWidth();
+        var height = this.getHeight();
+        x10 += 15;
+        y10 += 15;
+        if (x10 + width > windowWidth) {
+          x10 -= x10 + width - windowWidth;
+        }
+        if (y10 + height > windowHeight) {
+          y10 -= 20 + height;
+        }
+        Tooltip.prototype.setPosition.call(this, x10, y10);
+      };
+      Object.defineProperty(GutterTooltip2, "annotationLabels", {
+        get: function() {
+          return {
+            error: { singular: nls("error"), plural: nls("errors") },
+            warning: { singular: nls("warning"), plural: nls("warnings") },
+            info: { singular: nls("information message"), plural: nls("information messages") }
+          };
+        },
+        enumerable: false,
+        configurable: true
+      });
+      GutterTooltip2.prototype.showTooltip = function(row) {
+        var gutter = this.editor.renderer.$gutterLayer;
         var annotationsInRow = gutter.$annotations[row];
         var annotation;
         if (annotationsInRow)
@@ -35860,57 +36032,35 @@ var ace$2 = { exports: {} };
             }
           }
           if (mostSevereAnnotationInFoldType === "error_fold" || mostSevereAnnotationInFoldType === "warning_fold") {
-            var summaryFoldedAnnotations = "".concat(annotationsToSummaryString(annotationsInFold), " in folded code.");
+            var summaryFoldedAnnotations = "".concat(GutterTooltip2.annotationsToSummaryString(annotationsInFold), " in folded code.");
             annotation.text.push(summaryFoldedAnnotations);
             annotation.type.push(mostSevereAnnotationInFoldType);
           }
         }
         if (annotation.text.length === 0)
-          return hideTooltip();
-        var maxRow = editor.session.getLength();
-        if (row == maxRow) {
-          var screenRow = editor.renderer.pixelToScreenCoordinates(0, mouseEvent.y).row;
-          var pos = mouseEvent.$pos;
-          if (screenRow > editor.session.documentToScreenRow(pos.row, pos.column))
-            return hideTooltip();
-        }
+          return this.hide();
         var annotationMessages = { error: [], warning: [], info: [] };
         var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
         for (var i10 = 0; i10 < annotation.text.length; i10++) {
-          var line = "<span class='ace_".concat(annotation.type[i10], " ").concat(iconClassName, "' aria-label='").concat(annotationLabels[annotation.type[i10].replace("_fold", "")].singular, "' role=img> </span> ").concat(annotation.text[i10]);
+          var line = "<span class='ace_".concat(annotation.type[i10], " ").concat(iconClassName, "' aria-label='").concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular, "' role=img> </span> ").concat(annotation.text[i10]);
           annotationMessages[annotation.type[i10].replace("_fold", "")].push(line);
         }
-        tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
-        tooltip.setHtml(tooltipContent);
-        tooltip.setClassName("ace_gutter-tooltip");
-        tooltip.$element.setAttribute("aria-live", "polite");
-        if (!tooltip.isOpen) {
-          tooltip.setTheme(editor.renderer.theme);
+        var tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
+        this.setHtml(tooltipContent);
+        this.$element.setAttribute("aria-live", "polite");
+        if (!this.isOpen) {
+          this.setTheme(this.editor.renderer.theme);
+          this.setClassName("ace_gutter-tooltip");
         }
-        tooltip.show();
-        editor._signal("showGutterTooltip", tooltip);
-        editor.on("mousewheel", hideTooltip);
-        if (mouseHandler.$tooltipFollowsMouse) {
-          moveTooltip(mouseEvent);
-        } else {
-          var gutterElement = gutter.$lines.cells[row].element.querySelector("[class*=ace_icon]");
-          var rect = gutterElement.getBoundingClientRect();
-          var style2 = tooltip.getElement().style;
-          style2.left = rect.right + "px";
-          style2.top = rect.bottom + "px";
-        }
-      }
-      function hideTooltip() {
-        if (tooltipTimeout)
-          tooltipTimeout = clearTimeout(tooltipTimeout);
-        if (tooltipContent) {
-          tooltip.hide();
-          tooltipContent = null;
-          editor._signal("hideGutterTooltip", tooltip);
-          editor.off("mousewheel", hideTooltip);
-        }
-      }
-      function annotationsToSummaryString(annotations) {
+        this.show();
+        this.editor._signal("showGutterTooltip", this);
+      };
+      GutterTooltip2.prototype.hideTooltip = function() {
+        this.$element.removeAttribute("aria-live");
+        this.hide();
+        this.editor._signal("hideGutterTooltip", this);
+      };
+      GutterTooltip2.annotationsToSummaryString = function(annotations) {
         var e_1, _a2;
         var summary = [];
         var annotationTypes = ["error", "warning", "info"];
@@ -35919,7 +36069,7 @@ var ace$2 = { exports: {} };
             var annotationType = annotationTypes_1_1.value;
             if (!annotations[annotationType].length)
               continue;
-            var label = annotations[annotationType].length === 1 ? annotationLabels[annotationType].singular : annotationLabels[annotationType].plural;
+            var label = annotations[annotationType].length === 1 ? GutterTooltip2.annotationLabels[annotationType].singular : GutterTooltip2.annotationLabels[annotationType].plural;
             summary.push("".concat(annotations[annotationType].length, " ").concat(label));
           }
         } catch (e_1_1) {
@@ -35934,67 +36084,19 @@ var ace$2 = { exports: {} };
           }
         }
         return summary.join(", ");
-      }
-      function moveTooltip(e13) {
-        tooltip.setPosition(e13.x, e13.y);
-      }
-      mouseHandler.editor.setDefaultHandler("guttermousemove", function(e13) {
-        var target = e13.domEvent.target || e13.domEvent.srcElement;
-        if (dom.hasCssClass(target, "ace_fold-widget"))
-          return hideTooltip();
-        if (tooltipContent && mouseHandler.$tooltipFollowsMouse)
-          moveTooltip(e13);
-        mouseEvent = e13;
-        if (tooltipTimeout)
-          return;
-        tooltipTimeout = setTimeout(function() {
-          tooltipTimeout = null;
-          if (mouseEvent && !mouseHandler.isMousePressed)
-            showTooltip();
-          else
-            hideTooltip();
-        }, 50);
-      });
-      event.addListener(editor.renderer.$gutter, "mouseout", function(e13) {
-        mouseEvent = null;
-        if (!tooltipContent || tooltipTimeout)
-          return;
-        tooltipTimeout = setTimeout(function() {
-          tooltipTimeout = null;
-          hideTooltip();
-        }, 50);
-      }, editor);
-      editor.on("changeSession", hideTooltip);
-    }
-    var GutterTooltip = function(_super) {
-      __extends(GutterTooltip2, _super);
-      function GutterTooltip2() {
-        return _super !== null && _super.apply(this, arguments) || this;
-      }
-      GutterTooltip2.prototype.setPosition = function(x10, y10) {
-        var windowWidth = window.innerWidth || document.documentElement.clientWidth;
-        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
-        var width = this.getWidth();
-        var height = this.getHeight();
-        x10 += 15;
-        y10 += 15;
-        if (x10 + width > windowWidth) {
-          x10 -= x10 + width - windowWidth;
-        }
-        if (y10 + height > windowHeight) {
-          y10 -= 20 + height;
-        }
-        Tooltip.prototype.setPosition.call(this, x10, y10);
       };
       return GutterTooltip2;
     }(Tooltip);
-    exports2.GutterHandler = GutterHandler;
+    exports2.GutterTooltip = GutterTooltip;
   });
   ace.define("ace/mouse/mouse_event", ["require", "exports", "module", "ace/lib/event", "ace/lib/useragent"], function(require2, exports2, module2) {
     var event = require2("../lib/event");
     var useragent = require2("../lib/useragent");
     var MouseEvent2 = function() {
       function MouseEvent3(domEvent, editor) {
+        this.speed;
+        this.wheelX;
+        this.wheelY;
         this.domEvent = domEvent;
         this.editor = editor;
         this.x = this.clientX = domEvent.clientX;
@@ -36021,6 +36123,12 @@ var ace$2 = { exports: {} };
           return this.$pos;
         this.$pos = this.editor.renderer.screenToTextCoordinates(this.clientX, this.clientY);
         return this.$pos;
+      };
+      MouseEvent3.prototype.getGutterRow = function() {
+        var documentRow = this.getDocumentPosition().row;
+        var screenRow = this.editor.session.documentToScreenRow(documentRow, 0);
+        var screenTopRow = this.editor.session.documentToScreenRow(this.editor.renderer.$gutterLayer.$lines.get(0).row, 0);
+        return screenRow - screenTopRow;
       };
       MouseEvent3.prototype.inSelection = function() {
         if (this.$inSelection !== null)
@@ -36412,7 +36520,7 @@ var ace$2 = { exports: {} };
             clipboard2 && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
             hasUndo && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
             ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
-            ["span", { class: "ace_mobile-button", action: "openCommandPallete" }, "Palette"]
+            ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
           ] : ["span"]), contextMenu.firstChild);
         };
         var handleClick = function(e13) {
@@ -36436,7 +36544,7 @@ var ace$2 = { exports: {} };
           }
           contextMenu.firstChild.style.display = "none";
           isOpen = false;
-          if (action != "openCommandPallete")
+          if (action != "openCommandPalette")
             editor.focus();
         };
         contextMenu = dom.buildDom([
@@ -36682,6 +36790,11 @@ var ace$2 = { exports: {} };
     var config = require2("../config");
     var MouseHandler = function() {
       function MouseHandler2(editor) {
+        this.$dragDelay;
+        this.$dragEnabled;
+        this.$mouseMoved;
+        this.mouseEvent;
+        this.$focusTimeout;
         var _self = this;
         this.editor = editor;
         new DefaultHandlers(this);
@@ -36966,7 +37079,7 @@ var ace$2 = { exports: {} };
           } else {
             success = commands.exec(toExecute.command, this.$editor, toExecute.args, e13);
           }
-          if (success && e13 && hashId != -1 && toExecute.passEvent != true && toExecute.command.passEvent != true) {
+          if (success && e13 && hashId != -1 && toExecute["passEvent"] != true && toExecute.command["passEvent"] != true) {
             event.stopEvent(e13);
           }
           if (success)
@@ -37812,81 +37925,78 @@ var ace$2 = { exports: {} };
     var lang = require2("./lib/lang");
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
     var Range = require2("./range").Range;
-    var Selection = function(session) {
-      this.session = session;
-      this.doc = session.getDocument();
-      this.clearSelection();
-      this.cursor = this.lead = this.doc.createAnchor(0, 0);
-      this.anchor = this.doc.createAnchor(0, 0);
-      this.$silent = false;
-      var self2 = this;
-      this.cursor.on("change", function(e13) {
-        self2.$cursorChanged = true;
-        if (!self2.$silent)
-          self2._emit("changeCursor");
-        if (!self2.$isEmpty && !self2.$silent)
-          self2._emit("changeSelection");
-        if (!self2.$keepDesiredColumnOnChange && e13.old.column != e13.value.column)
-          self2.$desiredColumn = null;
-      });
-      this.anchor.on("change", function() {
-        self2.$anchorChanged = true;
-        if (!self2.$isEmpty && !self2.$silent)
-          self2._emit("changeSelection");
-      });
-    };
-    (function() {
-      oop.implement(this, EventEmitter);
-      this.isEmpty = function() {
+    var Selection = function() {
+      function Selection2(session) {
+        this.session = session;
+        this.doc = session.getDocument();
+        this.clearSelection();
+        this.cursor = this.lead = this.doc.createAnchor(0, 0);
+        this.anchor = this.doc.createAnchor(0, 0);
+        this.$silent = false;
+        var self2 = this;
+        this.cursor.on("change", function(e13) {
+          self2.$cursorChanged = true;
+          if (!self2.$silent)
+            self2._emit("changeCursor");
+          if (!self2.$isEmpty && !self2.$silent)
+            self2._emit("changeSelection");
+          if (!self2.$keepDesiredColumnOnChange && e13.old.column != e13.value.column)
+            self2.$desiredColumn = null;
+        });
+        this.anchor.on("change", function() {
+          self2.$anchorChanged = true;
+          if (!self2.$isEmpty && !self2.$silent)
+            self2._emit("changeSelection");
+        });
+      }
+      Selection2.prototype.isEmpty = function() {
         return this.$isEmpty || this.anchor.row == this.lead.row && this.anchor.column == this.lead.column;
       };
-      this.isMultiLine = function() {
+      Selection2.prototype.isMultiLine = function() {
         return !this.$isEmpty && this.anchor.row != this.cursor.row;
       };
-      this.getCursor = function() {
+      Selection2.prototype.getCursor = function() {
         return this.lead.getPosition();
       };
-      this.setAnchor = function(row, column) {
+      Selection2.prototype.setAnchor = function(row, column) {
         this.$isEmpty = false;
         this.anchor.setPosition(row, column);
       };
-      this.setSelectionAnchor = this.setAnchor;
-      this.getAnchor = function() {
+      Selection2.prototype.getAnchor = function() {
         if (this.$isEmpty)
           return this.getSelectionLead();
         return this.anchor.getPosition();
       };
-      this.getSelectionAnchor = this.getAnchor;
-      this.getSelectionLead = function() {
+      Selection2.prototype.getSelectionLead = function() {
         return this.lead.getPosition();
       };
-      this.isBackwards = function() {
+      Selection2.prototype.isBackwards = function() {
         var anchor = this.anchor;
         var lead = this.lead;
         return anchor.row > lead.row || anchor.row == lead.row && anchor.column > lead.column;
       };
-      this.getRange = function() {
+      Selection2.prototype.getRange = function() {
         var anchor = this.anchor;
         var lead = this.lead;
         if (this.$isEmpty)
           return Range.fromPoints(lead, lead);
         return this.isBackwards() ? Range.fromPoints(lead, anchor) : Range.fromPoints(anchor, lead);
       };
-      this.clearSelection = function() {
+      Selection2.prototype.clearSelection = function() {
         if (!this.$isEmpty) {
           this.$isEmpty = true;
           this._emit("changeSelection");
         }
       };
-      this.selectAll = function() {
+      Selection2.prototype.selectAll = function() {
         this.$setSelection(0, 0, Number.MAX_VALUE, Number.MAX_VALUE);
       };
-      this.setRange = this.setSelectionRange = function(range, reverse) {
+      Selection2.prototype.setRange = function(range, reverse) {
         var start = reverse ? range.end : range.start;
         var end = reverse ? range.start : range.end;
         this.$setSelection(start.row, start.column, end.row, end.column);
       };
-      this.$setSelection = function(anchorRow, anchorColumn, cursorRow, cursorColumn) {
+      Selection2.prototype.$setSelection = function(anchorRow, anchorColumn, cursorRow, cursorColumn) {
         if (this.$silent)
           return;
         var wasEmpty = this.$isEmpty;
@@ -37902,61 +38012,61 @@ var ace$2 = { exports: {} };
         if (this.$cursorChanged || this.$anchorChanged || wasEmpty != this.$isEmpty || wasMultiselect)
           this._emit("changeSelection");
       };
-      this.$moveSelection = function(mover) {
+      Selection2.prototype.$moveSelection = function(mover) {
         var lead = this.lead;
         if (this.$isEmpty)
           this.setSelectionAnchor(lead.row, lead.column);
         mover.call(this);
       };
-      this.selectTo = function(row, column) {
+      Selection2.prototype.selectTo = function(row, column) {
         this.$moveSelection(function() {
           this.moveCursorTo(row, column);
         });
       };
-      this.selectToPosition = function(pos) {
+      Selection2.prototype.selectToPosition = function(pos) {
         this.$moveSelection(function() {
           this.moveCursorToPosition(pos);
         });
       };
-      this.moveTo = function(row, column) {
+      Selection2.prototype.moveTo = function(row, column) {
         this.clearSelection();
         this.moveCursorTo(row, column);
       };
-      this.moveToPosition = function(pos) {
+      Selection2.prototype.moveToPosition = function(pos) {
         this.clearSelection();
         this.moveCursorToPosition(pos);
       };
-      this.selectUp = function() {
+      Selection2.prototype.selectUp = function() {
         this.$moveSelection(this.moveCursorUp);
       };
-      this.selectDown = function() {
+      Selection2.prototype.selectDown = function() {
         this.$moveSelection(this.moveCursorDown);
       };
-      this.selectRight = function() {
+      Selection2.prototype.selectRight = function() {
         this.$moveSelection(this.moveCursorRight);
       };
-      this.selectLeft = function() {
+      Selection2.prototype.selectLeft = function() {
         this.$moveSelection(this.moveCursorLeft);
       };
-      this.selectLineStart = function() {
+      Selection2.prototype.selectLineStart = function() {
         this.$moveSelection(this.moveCursorLineStart);
       };
-      this.selectLineEnd = function() {
+      Selection2.prototype.selectLineEnd = function() {
         this.$moveSelection(this.moveCursorLineEnd);
       };
-      this.selectFileEnd = function() {
+      Selection2.prototype.selectFileEnd = function() {
         this.$moveSelection(this.moveCursorFileEnd);
       };
-      this.selectFileStart = function() {
+      Selection2.prototype.selectFileStart = function() {
         this.$moveSelection(this.moveCursorFileStart);
       };
-      this.selectWordRight = function() {
+      Selection2.prototype.selectWordRight = function() {
         this.$moveSelection(this.moveCursorWordRight);
       };
-      this.selectWordLeft = function() {
+      Selection2.prototype.selectWordLeft = function() {
         this.$moveSelection(this.moveCursorWordLeft);
       };
-      this.getWordRange = function(row, column) {
+      Selection2.prototype.getWordRange = function(row, column) {
         if (typeof column == "undefined") {
           var cursor = row || this.lead;
           row = cursor.row;
@@ -37964,15 +38074,15 @@ var ace$2 = { exports: {} };
         }
         return this.session.getWordRange(row, column);
       };
-      this.selectWord = function() {
+      Selection2.prototype.selectWord = function() {
         this.setSelectionRange(this.getWordRange());
       };
-      this.selectAWord = function() {
+      Selection2.prototype.selectAWord = function() {
         var cursor = this.getCursor();
         var range = this.session.getAWordRange(cursor.row, cursor.column);
         this.setSelectionRange(range);
       };
-      this.getLineRange = function(row, excludeLastChar) {
+      Selection2.prototype.getLineRange = function(row, excludeLastChar) {
         var rowStart = typeof row == "number" ? row : this.lead.row;
         var rowEnd;
         var foldLine = this.session.getFoldLine(rowStart);
@@ -37987,16 +38097,16 @@ var ace$2 = { exports: {} };
         else
           return new Range(rowStart, 0, rowEnd + 1, 0);
       };
-      this.selectLine = function() {
+      Selection2.prototype.selectLine = function() {
         this.setSelectionRange(this.getLineRange());
       };
-      this.moveCursorUp = function() {
+      Selection2.prototype.moveCursorUp = function() {
         this.moveCursorBy(-1, 0);
       };
-      this.moveCursorDown = function() {
+      Selection2.prototype.moveCursorDown = function() {
         this.moveCursorBy(1, 0);
       };
-      this.wouldMoveIntoSoftTab = function(cursor, tabSize, direction) {
+      Selection2.prototype.wouldMoveIntoSoftTab = function(cursor, tabSize, direction) {
         var start = cursor.column;
         var end = cursor.column + tabSize;
         if (direction < 0) {
@@ -38005,7 +38115,7 @@ var ace$2 = { exports: {} };
         }
         return this.session.isTabStop(cursor) && this.doc.getLine(cursor.row).slice(start, end).split(" ").length - 1 == tabSize;
       };
-      this.moveCursorLeft = function() {
+      Selection2.prototype.moveCursorLeft = function() {
         var cursor = this.lead.getPosition(), fold;
         if (fold = this.session.getFoldAt(cursor.row, cursor.column, -1)) {
           this.moveCursorTo(fold.start.row, fold.start.column);
@@ -38022,7 +38132,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.moveCursorRight = function() {
+      Selection2.prototype.moveCursorRight = function() {
         var cursor = this.lead.getPosition(), fold;
         if (fold = this.session.getFoldAt(cursor.row, cursor.column, 1)) {
           this.moveCursorTo(fold.end.row, fold.end.column);
@@ -38040,7 +38150,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.moveCursorLineStart = function() {
+      Selection2.prototype.moveCursorLineStart = function() {
         var row = this.lead.row;
         var column = this.lead.column;
         var screenRow = this.session.documentToScreenRow(row, column);
@@ -38051,7 +38161,7 @@ var ace$2 = { exports: {} };
           firstColumnPosition.column += leadingSpace[0].length;
         this.moveCursorToPosition(firstColumnPosition);
       };
-      this.moveCursorLineEnd = function() {
+      Selection2.prototype.moveCursorLineEnd = function() {
         var lead = this.lead;
         var lineEnd = this.session.getDocumentLastRowColumnPosition(lead.row, lead.column);
         if (this.lead.column == lineEnd.column) {
@@ -38064,15 +38174,15 @@ var ace$2 = { exports: {} };
         }
         this.moveCursorTo(lineEnd.row, lineEnd.column);
       };
-      this.moveCursorFileEnd = function() {
+      Selection2.prototype.moveCursorFileEnd = function() {
         var row = this.doc.getLength() - 1;
         var column = this.doc.getLine(row).length;
         this.moveCursorTo(row, column);
       };
-      this.moveCursorFileStart = function() {
+      Selection2.prototype.moveCursorFileStart = function() {
         this.moveCursorTo(0, 0);
       };
-      this.moveCursorLongWordRight = function() {
+      Selection2.prototype.moveCursorLongWordRight = function() {
         var row = this.lead.row;
         var column = this.lead.column;
         var line = this.doc.getLine(row);
@@ -38102,7 +38212,7 @@ var ace$2 = { exports: {} };
         }
         this.moveCursorTo(row, column);
       };
-      this.moveCursorLongWordLeft = function() {
+      Selection2.prototype.moveCursorLongWordLeft = function() {
         var row = this.lead.row;
         var column = this.lead.column;
         var fold;
@@ -38135,7 +38245,7 @@ var ace$2 = { exports: {} };
         }
         this.moveCursorTo(row, column);
       };
-      this.$shortWordEndIndex = function(rightOfCursor) {
+      Selection2.prototype.$shortWordEndIndex = function(rightOfCursor) {
         var index2 = 0, ch2;
         var whitespaceRe = /\s/;
         var tokenRe = this.session.tokenRe;
@@ -38167,7 +38277,7 @@ var ace$2 = { exports: {} };
         tokenRe.lastIndex = 0;
         return index2;
       };
-      this.moveCursorShortWordRight = function() {
+      Selection2.prototype.moveCursorShortWordRight = function() {
         var row = this.lead.row;
         var column = this.lead.column;
         var line = this.doc.getLine(row);
@@ -38188,7 +38298,7 @@ var ace$2 = { exports: {} };
         var index2 = this.$shortWordEndIndex(rightOfCursor);
         this.moveCursorTo(row, column + index2);
       };
-      this.moveCursorShortWordLeft = function() {
+      Selection2.prototype.moveCursorShortWordLeft = function() {
         var row = this.lead.row;
         var column = this.lead.column;
         var fold;
@@ -38208,19 +38318,19 @@ var ace$2 = { exports: {} };
         var index2 = this.$shortWordEndIndex(leftOfCursor);
         return this.moveCursorTo(row, column - index2);
       };
-      this.moveCursorWordRight = function() {
+      Selection2.prototype.moveCursorWordRight = function() {
         if (this.session.$selectLongWords)
           this.moveCursorLongWordRight();
         else
           this.moveCursorShortWordRight();
       };
-      this.moveCursorWordLeft = function() {
+      Selection2.prototype.moveCursorWordLeft = function() {
         if (this.session.$selectLongWords)
           this.moveCursorLongWordLeft();
         else
           this.moveCursorShortWordLeft();
       };
-      this.moveCursorBy = function(rows, chars) {
+      Selection2.prototype.moveCursorBy = function(rows, chars) {
         var screenPos = this.session.documentToScreenPosition(this.lead.row, this.lead.column);
         var offsetX;
         if (chars === 0) {
@@ -38249,10 +38359,10 @@ var ace$2 = { exports: {} };
           ;
         this.moveCursorTo(docPos.row, docPos.column + chars, chars === 0);
       };
-      this.moveCursorToPosition = function(position) {
+      Selection2.prototype.moveCursorToPosition = function(position) {
         this.moveCursorTo(position.row, position.column);
       };
-      this.moveCursorTo = function(row, column, keepDesiredColumn) {
+      Selection2.prototype.moveCursorTo = function(row, column, keepDesiredColumn) {
         var fold = this.session.getFoldAt(row, column, 1);
         if (fold) {
           row = fold.start.row;
@@ -38271,19 +38381,19 @@ var ace$2 = { exports: {} };
         if (!keepDesiredColumn)
           this.$desiredColumn = null;
       };
-      this.moveCursorToScreen = function(row, column, keepDesiredColumn) {
+      Selection2.prototype.moveCursorToScreen = function(row, column, keepDesiredColumn) {
         var pos = this.session.screenToDocumentPosition(row, column);
         this.moveCursorTo(pos.row, pos.column, keepDesiredColumn);
       };
-      this.detach = function() {
+      Selection2.prototype.detach = function() {
         this.lead.detach();
         this.anchor.detach();
       };
-      this.fromOrientedRange = function(range) {
+      Selection2.prototype.fromOrientedRange = function(range) {
         this.setSelectionRange(range, range.cursor == range.start);
         this.$desiredColumn = range.desiredColumn || this.$desiredColumn;
       };
-      this.toOrientedRange = function(range) {
+      Selection2.prototype.toOrientedRange = function(range) {
         var r10 = this.getRange();
         if (range) {
           range.start.column = r10.start.column;
@@ -38297,7 +38407,7 @@ var ace$2 = { exports: {} };
         range.desiredColumn = this.$desiredColumn;
         return range;
       };
-      this.getRangeOfMovements = function(func) {
+      Selection2.prototype.getRangeOfMovements = function(func) {
         var start = this.getCursor();
         try {
           func(this);
@@ -38309,7 +38419,7 @@ var ace$2 = { exports: {} };
           this.moveCursorToPosition(start);
         }
       };
-      this.toJSON = function() {
+      Selection2.prototype.toJSON = function() {
         if (this.rangeCount) {
           var data2 = this.ranges.map(function(r10) {
             var r12 = r10.clone();
@@ -38322,7 +38432,7 @@ var ace$2 = { exports: {} };
         }
         return data2;
       };
-      this.fromJSON = function(data2) {
+      Selection2.prototype.fromJSON = function(data2) {
         if (data2.start == void 0) {
           if (this.rangeList && data2.length > 1) {
             this.toSingleRange(data2[0]);
@@ -38341,7 +38451,7 @@ var ace$2 = { exports: {} };
           this.toSingleRange(data2);
         this.setSelectionRange(data2, data2.isBackwards);
       };
-      this.isEqual = function(data2) {
+      Selection2.prototype.isEqual = function(data2) {
         if ((data2.length || this.rangeCount) && data2.length != this.rangeCount)
           return false;
         if (!data2.length || !this.ranges)
@@ -38352,14 +38462,20 @@ var ace$2 = { exports: {} };
         }
         return true;
       };
-    }).call(Selection.prototype);
+      return Selection2;
+    }();
+    Selection.prototype.setSelectionAnchor = Selection.prototype.setAnchor;
+    Selection.prototype.getSelectionAnchor = Selection.prototype.getAnchor;
+    Selection.prototype.setSelectionRange = Selection.prototype.setRange;
+    oop.implement(Selection.prototype, EventEmitter);
     exports2.Selection = Selection;
   });
-  ace.define("ace/tokenizer", ["require", "exports", "module", "ace/config"], function(require2, exports2, module2) {
-    var config = require2("./config");
+  ace.define("ace/tokenizer", ["require", "exports", "module", "ace/lib/report_error"], function(require2, exports2, module2) {
+    var reportError = require2("./lib/report_error").reportError;
     var MAX_TOKEN_COUNT = 2e3;
     var Tokenizer = function() {
       function Tokenizer2(rules) {
+        this.splitRegex;
         this.states = rules;
         this.regExps = {};
         this.matchMappings = {};
@@ -38627,12 +38743,13 @@ var ace$2 = { exports: {} };
       };
       return Tokenizer2;
     }();
-    Tokenizer.prototype.reportError = config.reportError;
+    Tokenizer.prototype.reportError = reportError;
     exports2.Tokenizer = Tokenizer;
   });
-  ace.define("ace/mode/text_highlight_rules", ["require", "exports", "module", "ace/lib/lang"], function(require2, exports2, module2) {
-    var lang = require2("../lib/lang");
-    var TextHighlightRules = function() {
+  ace.define("ace/mode/text_highlight_rules", ["require", "exports", "module", "ace/lib/deep_copy"], function(require2, exports2, module2) {
+    var deepCopy = require2("../lib/deep_copy").deepCopy;
+    var TextHighlightRules;
+    TextHighlightRules = function() {
       this.$rules = {
         "start": [{
           token: "empty_line",
@@ -38682,7 +38799,7 @@ var ace$2 = { exports: {} };
         if (escapeRules) {
           var addRules = Array.prototype[append ? "push" : "unshift"];
           for (var i10 = 0; i10 < states.length; i10++)
-            addRules.apply(this.$rules[states[i10]], lang.deepCopy(escapeRules));
+            addRules.apply(this.$rules[states[i10]], deepCopy(escapeRules));
         }
         if (!this.$embeds)
           this.$embeds = [];
@@ -38705,7 +38822,7 @@ var ace$2 = { exports: {} };
         var rules = this.$rules;
         function processState(key) {
           var state = rules[key];
-          state.processed = true;
+          state["processed"] = true;
           for (var i10 = 0; i10 < state.length; i10++) {
             var rule2 = state[i10];
             var toInsert = null;
@@ -38814,7 +38931,8 @@ var ace$2 = { exports: {} };
     exports2.TextHighlightRules = TextHighlightRules;
   });
   ace.define("ace/mode/behaviour", ["require", "exports", "module"], function(require2, exports2, module2) {
-    var Behaviour = function() {
+    var Behaviour;
+    Behaviour = function() {
       this.$behaviours = {};
     };
     (function() {
@@ -38974,7 +39092,9 @@ var ace$2 = { exports: {} };
         ]
       };
     };
-    var CstyleBehaviour = function(options) {
+    var CstyleBehaviour;
+    CstyleBehaviour = function(options) {
+      options = options || {};
       this.add("braces", "insertion", function(state, action, editor, session, text) {
         var cursor = editor.getCursorPosition();
         var line = session.doc.getLine(cursor.row);
@@ -38985,7 +39105,7 @@ var ace$2 = { exports: {} };
           if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
             return getWrapped(selection, selected, "{", "}");
           } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
-            if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options && options.braces) {
+            if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options.braces) {
               CstyleBehaviour.recordAutoInsert(editor, session, "}");
               return {
                 text: "{}",
@@ -39208,6 +39328,35 @@ var ace$2 = { exports: {} };
           }
         }
       });
+      if (options.closeDocComment !== false) {
+        this.add("doc comment end", "insertion", function(state, action, editor, session, text) {
+          if (state === "doc-start" && (text === "\n" || text === "\r\n") && editor.selection.isEmpty()) {
+            var cursor = editor.getCursorPosition();
+            var line = session.doc.getLine(cursor.row);
+            var nextLine = session.doc.getLine(cursor.row + 1);
+            var indent = this.$getIndent(line);
+            if (/\s*\*/.test(nextLine)) {
+              if (/^\s*\*/.test(line)) {
+                return {
+                  text: text + indent + "* ",
+                  selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                };
+              } else {
+                return {
+                  text: text + indent + " * ",
+                  selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                };
+              }
+            }
+            if (/\/\*\*/.test(line.substring(0, cursor.column))) {
+              return {
+                text: text + indent + " * " + text + " " + indent + "*/",
+                selection: [1, 4 + indent.length, 1, 4 + indent.length]
+              };
+            }
+          }
+        });
+      }
     };
     CstyleBehaviour.isSaneInsertion = function(editor, session) {
       var cursor = editor.getCursorPosition();
@@ -39222,39 +39371,39 @@ var ace$2 = { exports: {} };
       iterator.stepForward();
       return iterator.getCurrentTokenRow() !== cursor.row || this.$matchTokenType(iterator.getCurrentToken() || "text", SAFE_INSERT_BEFORE_TOKENS);
     };
-    CstyleBehaviour.$matchTokenType = function(token, types) {
+    CstyleBehaviour["$matchTokenType"] = function(token, types) {
       return types.indexOf(token.type || token) > -1;
     };
-    CstyleBehaviour.recordAutoInsert = function(editor, session, bracket) {
+    CstyleBehaviour["recordAutoInsert"] = function(editor, session, bracket) {
       var cursor = editor.getCursorPosition();
       var line = session.doc.getLine(cursor.row);
-      if (!this.isAutoInsertedClosing(cursor, line, context.autoInsertedLineEnd[0]))
+      if (!this["isAutoInsertedClosing"](cursor, line, context.autoInsertedLineEnd[0]))
         context.autoInsertedBrackets = 0;
       context.autoInsertedRow = cursor.row;
       context.autoInsertedLineEnd = bracket + line.substr(cursor.column);
       context.autoInsertedBrackets++;
     };
-    CstyleBehaviour.recordMaybeInsert = function(editor, session, bracket) {
+    CstyleBehaviour["recordMaybeInsert"] = function(editor, session, bracket) {
       var cursor = editor.getCursorPosition();
       var line = session.doc.getLine(cursor.row);
-      if (!this.isMaybeInsertedClosing(cursor, line))
+      if (!this["isMaybeInsertedClosing"](cursor, line))
         context.maybeInsertedBrackets = 0;
       context.maybeInsertedRow = cursor.row;
       context.maybeInsertedLineStart = line.substr(0, cursor.column) + bracket;
       context.maybeInsertedLineEnd = line.substr(cursor.column);
       context.maybeInsertedBrackets++;
     };
-    CstyleBehaviour.isAutoInsertedClosing = function(cursor, line, bracket) {
+    CstyleBehaviour["isAutoInsertedClosing"] = function(cursor, line, bracket) {
       return context.autoInsertedBrackets > 0 && cursor.row === context.autoInsertedRow && bracket === context.autoInsertedLineEnd[0] && line.substr(cursor.column) === context.autoInsertedLineEnd;
     };
-    CstyleBehaviour.isMaybeInsertedClosing = function(cursor, line) {
+    CstyleBehaviour["isMaybeInsertedClosing"] = function(cursor, line) {
       return context.maybeInsertedBrackets > 0 && cursor.row === context.maybeInsertedRow && line.substr(cursor.column) === context.maybeInsertedLineEnd && line.substr(0, cursor.column) == context.maybeInsertedLineStart;
     };
-    CstyleBehaviour.popAutoInsertedClosing = function() {
+    CstyleBehaviour["popAutoInsertedClosing"] = function() {
       context.autoInsertedLineEnd = context.autoInsertedLineEnd.substr(1);
       context.autoInsertedBrackets--;
     };
-    CstyleBehaviour.clearMaybeInsertedClosing = function() {
+    CstyleBehaviour["clearMaybeInsertedClosing"] = function() {
       if (context) {
         context.maybeInsertedBrackets = 0;
         context.maybeInsertedRow = -1;
@@ -39283,7 +39432,8 @@ var ace$2 = { exports: {} };
     var lang = require2("../lib/lang");
     var TokenIterator = require2("../token_iterator").TokenIterator;
     var Range = require2("../range").Range;
-    var Mode = function() {
+    var Mode;
+    Mode = function() {
       this.HighlightRules = TextHighlightRules;
     };
     (function() {
@@ -39501,14 +39651,18 @@ var ace$2 = { exports: {} };
           "transformAction",
           "getCompletions"
         ];
-        for (var i10 = 0; i10 < delegations.length; i10++) {
+        var _loop_1 = function(i11) {
           (function(scope) {
-            var functionName = delegations[i10];
+            var functionName = delegations[i11];
             var defaultHandler = scope[functionName];
-            scope[delegations[i10]] = function() {
+            scope[delegations[i11]] = function() {
               return this.$delegator(functionName, arguments, defaultHandler);
             };
-          })(this);
+          })(this_1);
+        };
+        var this_1 = this;
+        for (var i10 = 0; i10 < delegations.length; i10++) {
+          _loop_1(i10);
         }
       };
       this.$delegator = function(method, args, defaultHandler) {
@@ -39550,7 +39704,7 @@ var ace$2 = { exports: {} };
       };
       this.getKeywords = function(append) {
         if (!this.completionKeywords) {
-          var rules = this.$tokenizer.rules;
+          var rules = this.$tokenizer["rules"];
           var completionKeywords = [];
           for (var rule2 in rules) {
             var ruleItr = rules[rule2];
@@ -39630,7 +39784,7 @@ var ace$2 = { exports: {} };
       function Anchor2(doc, row, column) {
         this.$onChange = this.onChange.bind(this);
         this.attach(doc);
-        if (typeof column == "undefined")
+        if (typeof row != "number")
           this.setPosition(row.row, row.column);
         else
           this.setPosition(row, column);
@@ -40056,7 +40210,7 @@ var ace$2 = { exports: {} };
     var oop = require2("./lib/oop");
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
     var BackgroundTokenizer = function() {
-      function BackgroundTokenizer2(tokenizer, editor) {
+      function BackgroundTokenizer2(tokenizer, session) {
         this.running = false;
         this.lines = [];
         this.states = [];
@@ -40230,6 +40384,420 @@ var ace$2 = { exports: {} };
     }();
     SearchHighlight.prototype.MAX_RANGES = 500;
     exports2.SearchHighlight = SearchHighlight;
+  });
+  ace.define("ace/undomanager", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
+    var UndoManager = function() {
+      function UndoManager2() {
+        this.$keepRedoStack;
+        this.$maxRev = 0;
+        this.$fromUndo = false;
+        this.$undoDepth = Infinity;
+        this.reset();
+      }
+      UndoManager2.prototype.addSession = function(session) {
+        this.$session = session;
+      };
+      UndoManager2.prototype.add = function(delta, allowMerge, session) {
+        if (this.$fromUndo)
+          return;
+        if (delta == this.$lastDelta)
+          return;
+        if (!this.$keepRedoStack)
+          this.$redoStack.length = 0;
+        if (allowMerge === false || !this.lastDeltas) {
+          this.lastDeltas = [];
+          var undoStackLength = this.$undoStack.length;
+          if (undoStackLength > this.$undoDepth - 1) {
+            this.$undoStack.splice(0, undoStackLength - this.$undoDepth + 1);
+          }
+          this.$undoStack.push(this.lastDeltas);
+          delta.id = this.$rev = ++this.$maxRev;
+        }
+        if (delta.action == "remove" || delta.action == "insert")
+          this.$lastDelta = delta;
+        this.lastDeltas.push(delta);
+      };
+      UndoManager2.prototype.addSelection = function(selection, rev) {
+        this.selections.push({
+          value: selection,
+          rev: rev || this.$rev
+        });
+      };
+      UndoManager2.prototype.startNewGroup = function() {
+        this.lastDeltas = null;
+        return this.$rev;
+      };
+      UndoManager2.prototype.markIgnored = function(from, to2) {
+        if (to2 == null)
+          to2 = this.$rev + 1;
+        var stack = this.$undoStack;
+        for (var i10 = stack.length; i10--; ) {
+          var delta = stack[i10][0];
+          if (delta.id <= from)
+            break;
+          if (delta.id < to2)
+            delta.ignore = true;
+        }
+        this.lastDeltas = null;
+      };
+      UndoManager2.prototype.getSelection = function(rev, after) {
+        var stack = this.selections;
+        for (var i10 = stack.length; i10--; ) {
+          var selection = stack[i10];
+          if (selection.rev < rev) {
+            if (after)
+              selection = stack[i10 + 1];
+            return selection;
+          }
+        }
+      };
+      UndoManager2.prototype.getRevision = function() {
+        return this.$rev;
+      };
+      UndoManager2.prototype.getDeltas = function(from, to2) {
+        if (to2 == null)
+          to2 = this.$rev + 1;
+        var stack = this.$undoStack;
+        var end = null, start = 0;
+        for (var i10 = stack.length; i10--; ) {
+          var delta = stack[i10][0];
+          if (delta.id < to2 && !end)
+            end = i10 + 1;
+          if (delta.id <= from) {
+            start = i10 + 1;
+            break;
+          }
+        }
+        return stack.slice(start, end);
+      };
+      UndoManager2.prototype.getChangedRanges = function(from, to2) {
+        if (to2 == null)
+          to2 = this.$rev + 1;
+      };
+      UndoManager2.prototype.getChangedLines = function(from, to2) {
+        if (to2 == null)
+          to2 = this.$rev + 1;
+      };
+      UndoManager2.prototype.undo = function(session, dontSelect) {
+        this.lastDeltas = null;
+        var stack = this.$undoStack;
+        if (!rearrangeUndoStack(stack, stack.length))
+          return;
+        if (!session)
+          session = this.$session;
+        if (this.$redoStackBaseRev !== this.$rev && this.$redoStack.length)
+          this.$redoStack = [];
+        this.$fromUndo = true;
+        var deltaSet = stack.pop();
+        var undoSelectionRange = null;
+        if (deltaSet) {
+          undoSelectionRange = session.undoChanges(deltaSet, dontSelect);
+          this.$redoStack.push(deltaSet);
+          this.$syncRev();
+        }
+        this.$fromUndo = false;
+        return undoSelectionRange;
+      };
+      UndoManager2.prototype.redo = function(session, dontSelect) {
+        this.lastDeltas = null;
+        if (!session)
+          session = this.$session;
+        this.$fromUndo = true;
+        if (this.$redoStackBaseRev != this.$rev) {
+          var diff = this.getDeltas(this.$redoStackBaseRev, this.$rev + 1);
+          rebaseRedoStack(this.$redoStack, diff);
+          this.$redoStackBaseRev = this.$rev;
+          this.$redoStack.forEach(function(x10) {
+            x10[0].id = ++this.$maxRev;
+          }, this);
+        }
+        var deltaSet = this.$redoStack.pop();
+        var redoSelectionRange = null;
+        if (deltaSet) {
+          redoSelectionRange = session.redoChanges(deltaSet, dontSelect);
+          this.$undoStack.push(deltaSet);
+          this.$syncRev();
+        }
+        this.$fromUndo = false;
+        return redoSelectionRange;
+      };
+      UndoManager2.prototype.$syncRev = function() {
+        var stack = this.$undoStack;
+        var nextDelta = stack[stack.length - 1];
+        var id2 = nextDelta && nextDelta[0].id || 0;
+        this.$redoStackBaseRev = id2;
+        this.$rev = id2;
+      };
+      UndoManager2.prototype.reset = function() {
+        this.lastDeltas = null;
+        this.$lastDelta = null;
+        this.$undoStack = [];
+        this.$redoStack = [];
+        this.$rev = 0;
+        this.mark = 0;
+        this.$redoStackBaseRev = this.$rev;
+        this.selections = [];
+      };
+      UndoManager2.prototype.canUndo = function() {
+        return this.$undoStack.length > 0;
+      };
+      UndoManager2.prototype.canRedo = function() {
+        return this.$redoStack.length > 0;
+      };
+      UndoManager2.prototype.bookmark = function(rev) {
+        if (rev == void 0)
+          rev = this.$rev;
+        this.mark = rev;
+      };
+      UndoManager2.prototype.isAtBookmark = function() {
+        return this.$rev === this.mark;
+      };
+      UndoManager2.prototype.toJSON = function() {
+        return {
+          $redoStack: this.$redoStack,
+          $undoStack: this.$undoStack
+        };
+      };
+      UndoManager2.prototype.fromJSON = function(json) {
+        this.reset();
+        this.$undoStack = json.$undoStack;
+        this.$redoStack = json.$redoStack;
+      };
+      UndoManager2.prototype.$prettyPrint = function(delta) {
+        if (delta)
+          return stringifyDelta(delta);
+        return stringifyDelta(this.$undoStack) + "\n---\n" + stringifyDelta(this.$redoStack);
+      };
+      return UndoManager2;
+    }();
+    UndoManager.prototype.hasUndo = UndoManager.prototype.canUndo;
+    UndoManager.prototype.hasRedo = UndoManager.prototype.canRedo;
+    UndoManager.prototype.isClean = UndoManager.prototype.isAtBookmark;
+    UndoManager.prototype.markClean = UndoManager.prototype.bookmark;
+    function rearrangeUndoStack(stack, pos) {
+      for (var i10 = pos; i10--; ) {
+        var deltaSet = stack[i10];
+        if (deltaSet && !deltaSet[0].ignore) {
+          while (i10 < pos - 1) {
+            var swapped = swapGroups(stack[i10], stack[i10 + 1]);
+            stack[i10] = swapped[0];
+            stack[i10 + 1] = swapped[1];
+            i10++;
+          }
+          return true;
+        }
+      }
+    }
+    var Range = require2("./range").Range;
+    var cmp = Range.comparePoints;
+    Range.comparePoints;
+    function clonePos(pos) {
+      return { row: pos.row, column: pos.column };
+    }
+    function cloneDelta(d10) {
+      return {
+        start: clonePos(d10.start),
+        end: clonePos(d10.end),
+        action: d10.action,
+        lines: d10.lines.slice()
+      };
+    }
+    function stringifyDelta(d10) {
+      d10 = d10 || this;
+      if (Array.isArray(d10)) {
+        return d10.map(stringifyDelta).join("\n");
+      }
+      var type = "";
+      if (d10.action) {
+        type = d10.action == "insert" ? "+" : "-";
+        type += "[" + d10.lines + "]";
+      } else if (d10.value) {
+        if (Array.isArray(d10.value)) {
+          type = d10.value.map(stringifyRange).join("\n");
+        } else {
+          type = stringifyRange(d10.value);
+        }
+      }
+      if (d10.start) {
+        type += stringifyRange(d10);
+      }
+      if (d10.id || d10.rev) {
+        type += "	(" + (d10.id || d10.rev) + ")";
+      }
+      return type;
+    }
+    function stringifyRange(r10) {
+      return r10.start.row + ":" + r10.start.column + "=>" + r10.end.row + ":" + r10.end.column;
+    }
+    function swap(d12, d22) {
+      var i12 = d12.action == "insert";
+      var i22 = d22.action == "insert";
+      if (i12 && i22) {
+        if (cmp(d22.start, d12.end) >= 0) {
+          shift(d22, d12, -1);
+        } else if (cmp(d22.start, d12.start) <= 0) {
+          shift(d12, d22, 1);
+        } else {
+          return null;
+        }
+      } else if (i12 && !i22) {
+        if (cmp(d22.start, d12.end) >= 0) {
+          shift(d22, d12, -1);
+        } else if (cmp(d22.end, d12.start) <= 0) {
+          shift(d12, d22, -1);
+        } else {
+          return null;
+        }
+      } else if (!i12 && i22) {
+        if (cmp(d22.start, d12.start) >= 0) {
+          shift(d22, d12, 1);
+        } else if (cmp(d22.start, d12.start) <= 0) {
+          shift(d12, d22, 1);
+        } else {
+          return null;
+        }
+      } else if (!i12 && !i22) {
+        if (cmp(d22.start, d12.start) >= 0) {
+          shift(d22, d12, 1);
+        } else if (cmp(d22.end, d12.start) <= 0) {
+          shift(d12, d22, -1);
+        } else {
+          return null;
+        }
+      }
+      return [d22, d12];
+    }
+    function swapGroups(ds1, ds2) {
+      for (var i10 = ds1.length; i10--; ) {
+        for (var j10 = 0; j10 < ds2.length; j10++) {
+          if (!swap(ds1[i10], ds2[j10])) {
+            while (i10 < ds1.length) {
+              while (j10--) {
+                swap(ds2[j10], ds1[i10]);
+              }
+              j10 = ds2.length;
+              i10++;
+            }
+            return [ds1, ds2];
+          }
+        }
+      }
+      ds1.selectionBefore = ds2.selectionBefore = ds1.selectionAfter = ds2.selectionAfter = null;
+      return [ds2, ds1];
+    }
+    function xform(d12, c12) {
+      var i12 = d12.action == "insert";
+      var i22 = c12.action == "insert";
+      if (i12 && i22) {
+        if (cmp(d12.start, c12.start) < 0) {
+          shift(c12, d12, 1);
+        } else {
+          shift(d12, c12, 1);
+        }
+      } else if (i12 && !i22) {
+        if (cmp(d12.start, c12.end) >= 0) {
+          shift(d12, c12, -1);
+        } else if (cmp(d12.start, c12.start) <= 0) {
+          shift(c12, d12, 1);
+        } else {
+          shift(d12, Range.fromPoints(c12.start, d12.start), -1);
+          shift(c12, d12, 1);
+        }
+      } else if (!i12 && i22) {
+        if (cmp(c12.start, d12.end) >= 0) {
+          shift(c12, d12, -1);
+        } else if (cmp(c12.start, d12.start) <= 0) {
+          shift(d12, c12, 1);
+        } else {
+          shift(c12, Range.fromPoints(d12.start, c12.start), -1);
+          shift(d12, c12, 1);
+        }
+      } else if (!i12 && !i22) {
+        if (cmp(c12.start, d12.end) >= 0) {
+          shift(c12, d12, -1);
+        } else if (cmp(c12.end, d12.start) <= 0) {
+          shift(d12, c12, -1);
+        } else {
+          var before, after;
+          if (cmp(d12.start, c12.start) < 0) {
+            before = d12;
+            d12 = splitDelta(d12, c12.start);
+          }
+          if (cmp(d12.end, c12.end) > 0) {
+            after = splitDelta(d12, c12.end);
+          }
+          shiftPos(c12.end, d12.start, d12.end, -1);
+          if (after && !before) {
+            d12.lines = after.lines;
+            d12.start = after.start;
+            d12.end = after.end;
+            after = d12;
+          }
+          return [c12, before, after].filter(Boolean);
+        }
+      }
+      return [c12, d12];
+    }
+    function shift(d12, d22, dir) {
+      shiftPos(d12.start, d22.start, d22.end, dir);
+      shiftPos(d12.end, d22.start, d22.end, dir);
+    }
+    function shiftPos(pos, start, end, dir) {
+      if (pos.row == (dir == 1 ? start : end).row) {
+        pos.column += dir * (end.column - start.column);
+      }
+      pos.row += dir * (end.row - start.row);
+    }
+    function splitDelta(c10, pos) {
+      var lines = c10.lines;
+      var end = c10.end;
+      c10.end = clonePos(pos);
+      var rowsBefore = c10.end.row - c10.start.row;
+      var otherLines = lines.splice(rowsBefore, lines.length);
+      var col = rowsBefore ? pos.column : pos.column - c10.start.column;
+      lines.push(otherLines[0].substring(0, col));
+      otherLines[0] = otherLines[0].substr(col);
+      var rest = {
+        start: clonePos(pos),
+        end,
+        lines: otherLines,
+        action: c10.action
+      };
+      return rest;
+    }
+    function moveDeltasByOne(redoStack, d10) {
+      d10 = cloneDelta(d10);
+      for (var j10 = redoStack.length; j10--; ) {
+        var deltaSet = redoStack[j10];
+        for (var i10 = 0; i10 < deltaSet.length; i10++) {
+          var x10 = deltaSet[i10];
+          var xformed = xform(x10, d10);
+          d10 = xformed[0];
+          if (xformed.length != 2) {
+            if (xformed[2]) {
+              deltaSet.splice(i10 + 1, 1, xformed[1], xformed[2]);
+              i10++;
+            } else if (!xformed[1]) {
+              deltaSet.splice(i10, 1);
+              i10--;
+            }
+          }
+        }
+        if (!deltaSet.length) {
+          redoStack.splice(j10, 1);
+        }
+      }
+      return redoStack;
+    }
+    function rebaseRedoStack(redoStack, deltaSets) {
+      for (var i10 = 0; i10 < deltaSets.length; i10++) {
+        var deltas = deltaSets[i10];
+        for (var j10 = 0; j10 < deltas.length; j10++) {
+          moveDeltasByOne(redoStack, deltas[j10]);
+        }
+      }
+    }
+    exports2.UndoManager = UndoManager;
   });
   ace.define("ace/edit_session/fold_line", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
     var Range = require2("../range").Range;
@@ -40736,11 +41304,12 @@ var ace$2 = { exports: {} };
     }
     exports2.Fold = Fold;
   });
-  ace.define("ace/edit_session/folding", ["require", "exports", "module", "ace/range", "ace/edit_session/fold_line", "ace/edit_session/fold", "ace/token_iterator"], function(require2, exports2, module2) {
+  ace.define("ace/edit_session/folding", ["require", "exports", "module", "ace/range", "ace/edit_session/fold_line", "ace/edit_session/fold", "ace/token_iterator", "ace/mouse/mouse_event"], function(require2, exports2, module2) {
     var Range = require2("../range").Range;
     var FoldLine = require2("./fold_line").FoldLine;
     var Fold = require2("./fold").Fold;
     var TokenIterator = require2("../token_iterator").TokenIterator;
+    var MouseEvent2 = require2("../mouse/mouse_event").MouseEvent;
     function Folding() {
       this.getFoldAt = function(row, column, side) {
         var foldLine = this.getFoldLine(row);
@@ -41176,7 +41745,7 @@ var ace$2 = { exports: {} };
         if (token && /^comment|string/.test(type)) {
           type = type.match(/comment|string/)[0];
           if (type == "comment")
-            type += "|doc-start";
+            type += "|doc-start|\\.doc";
           var re2 = new RegExp(type);
           var range = new Range();
           if (dir != 1) {
@@ -41314,7 +41883,8 @@ var ace$2 = { exports: {} };
         };
       };
       this.onFoldWidgetClick = function(row, e13) {
-        e13 = e13.domEvent;
+        if (e13 instanceof MouseEvent2)
+          e13 = e13.domEvent;
         var options = {
           children: e13.shiftKey,
           all: e13.ctrlKey || e13.metaKey,
@@ -41734,7 +42304,7 @@ var ace$2 = { exports: {} };
     }
     exports2.BracketMatch = BracketMatch;
   });
-  ace.define("ace/edit_session", ["require", "exports", "module", "ace/lib/oop", "ace/lib/lang", "ace/bidihandler", "ace/config", "ace/lib/event_emitter", "ace/selection", "ace/mode/text", "ace/range", "ace/document", "ace/background_tokenizer", "ace/search_highlight", "ace/edit_session/folding", "ace/edit_session/bracket_match"], function(require2, exports2, module2) {
+  ace.define("ace/edit_session", ["require", "exports", "module", "ace/lib/oop", "ace/lib/lang", "ace/bidihandler", "ace/config", "ace/lib/event_emitter", "ace/selection", "ace/mode/text", "ace/range", "ace/document", "ace/background_tokenizer", "ace/search_highlight", "ace/undomanager", "ace/edit_session/folding", "ace/edit_session/bracket_match"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var lang = require2("./lib/lang");
     var BidiHandler = require2("./bidihandler").BidiHandler;
@@ -41746,8 +42316,10 @@ var ace$2 = { exports: {} };
     var Document2 = require2("./document").Document;
     var BackgroundTokenizer = require2("./background_tokenizer").BackgroundTokenizer;
     var SearchHighlight = require2("./search_highlight").SearchHighlight;
+    var UndoManager = require2("./undomanager").UndoManager;
     var EditSession = function() {
       function EditSession2(text, mode) {
+        this.doc;
         this.$breakpoints = [];
         this.$decorations = [];
         this.$frontMarkers = {};
@@ -41853,6 +42425,42 @@ var ace$2 = { exports: {} };
         this.$resetRowCache(0);
         this.setUndoManager(this.$undoManager);
         this.getUndoManager().reset();
+      };
+      EditSession2.fromJSON = function(session) {
+        if (typeof session == "string")
+          session = JSON.parse(session);
+        var undoManager = new UndoManager();
+        undoManager.$undoStack = session.history.undo;
+        undoManager.$redoStack = session.history.redo;
+        undoManager.mark = session.history.mark;
+        undoManager.$rev = session.history.rev;
+        var editSession = new EditSession2(session.value);
+        session.folds.forEach(function(fold) {
+          editSession.addFold("...", Range.fromPoints(fold.start, fold.end));
+        });
+        editSession.setAnnotations(session.annotations);
+        editSession.setBreakpoints(session.breakpoints);
+        editSession.setMode(session.mode);
+        editSession.setScrollLeft(session.scrollLeft);
+        editSession.setScrollTop(session.scrollTop);
+        editSession.setUndoManager(undoManager);
+        editSession.selection.fromJSON(session.selection);
+        return editSession;
+      };
+      EditSession2.prototype.toJSON = function() {
+        return {
+          annotations: this.$annotations,
+          breakpoints: this.$breakpoints,
+          folds: this.getAllFolds().map(function(fold) {
+            return fold.range;
+          }),
+          history: this.getUndoManager(),
+          mode: this.$mode.$id,
+          scrollLeft: this.$scrollLeft,
+          scrollTop: this.$scrollTop,
+          selection: this.selection.toJSON(),
+          value: this.doc.getValue()
+        };
       };
       EditSession2.prototype.toString = function() {
         return this.doc.getValue();
@@ -42651,7 +43259,7 @@ var ace$2 = { exports: {} };
           this.$updateRowLengthCache(firstRow, lastRow);
         return removedFolds;
       };
-      EditSession2.prototype.$updateRowLengthCache = function(firstRow, lastRow, b10) {
+      EditSession2.prototype.$updateRowLengthCache = function(firstRow, lastRow) {
         this.$rowLengthCache[firstRow] = null;
         this.$rowLengthCache[lastRow] = null;
       };
@@ -43397,9 +44005,16 @@ var ace$2 = { exports: {} };
           return options.re = false;
         if (!options.regExp)
           needle = lang.escapeRegExp(needle);
+        var modifier = options.caseSensitive ? "gm" : "gmi";
+        try {
+          new RegExp(needle, "u");
+          options.$supportsUnicodeFlag = true;
+          modifier += "u";
+        } catch (e13) {
+          options.$supportsUnicodeFlag = false;
+        }
         if (options.wholeWord)
           needle = addWordBoundary(needle, options);
-        var modifier = options.caseSensitive ? "gm" : "gmi";
         options.$isMultiLine = !$disableFakeMultiline && /[\n\r]/.test(needle);
         if (options.$isMultiLine)
           return options.re = this.$assembleMultilineRegExp(needle, modifier);
@@ -43427,6 +44042,7 @@ var ace$2 = { exports: {} };
           return false;
         var backwards = options.backwards == true;
         var skipCurrent = options.skipCurrent != false;
+        var supportsUnicodeFlag = re2.unicode;
         var range = options.range;
         var start = options.start;
         if (!start)
@@ -43497,7 +44113,7 @@ var ace$2 = { exports: {} };
               if (!length) {
                 if (last >= line.length)
                   break;
-                re2.lastIndex = last += 1;
+                re2.lastIndex = last += lang.skipEmptyMatch(line, last, supportsUnicodeFlag);
               }
               if (m10.index + length > endIndex)
                 break;
@@ -43522,7 +44138,7 @@ var ace$2 = { exports: {} };
               if (callback2(row, last, row, last + length))
                 return true;
               if (!length) {
-                re2.lastIndex = last += 1;
+                re2.lastIndex = last += lang.skipEmptyMatch(line, last, supportsUnicodeFlag);
                 if (last >= line.length)
                   return false;
               }
@@ -43534,40 +44150,73 @@ var ace$2 = { exports: {} };
       return Search2;
     }();
     function addWordBoundary(needle, options) {
-      function wordBoundary(c10) {
-        if (/\w/.test(c10) || options.regExp)
+      var supportsLookbehind = lang.supportsLookbehind();
+      function wordBoundary(c10, firstChar2) {
+        if (firstChar2 === void 0) {
+          firstChar2 = true;
+        }
+        var wordRegExp = supportsLookbehind && options.$supportsUnicodeFlag ? new RegExp("[\\p{L}\\p{N}_]", "u") : new RegExp("\\w");
+        if (wordRegExp.test(c10) || options.regExp) {
+          if (supportsLookbehind && options.$supportsUnicodeFlag) {
+            if (firstChar2)
+              return "(?<=^|[^\\p{L}\\p{N}_])";
+            return "(?=[^\\p{L}\\p{N}_]|$)";
+          }
           return "\\b";
+        }
         return "";
       }
-      return wordBoundary(needle[0]) + needle + wordBoundary(needle[needle.length - 1]);
+      var needleArray = Array.from(needle);
+      var firstChar = needleArray[0];
+      var lastChar = needleArray[needleArray.length - 1];
+      return wordBoundary(firstChar) + needle + wordBoundary(lastChar, false);
     }
     exports2.Search = Search;
   });
   ace.define("ace/keyboard/hash_handler", ["require", "exports", "module", "ace/lib/keys", "ace/lib/useragent"], function(require2, exports2, module2) {
+    var __extends = this && this.__extends || function() {
+      var extendStatics = function(d10, b10) {
+        extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d11, b11) {
+          d11.__proto__ = b11;
+        } || function(d11, b11) {
+          for (var p10 in b11)
+            if (Object.prototype.hasOwnProperty.call(b11, p10))
+              d11[p10] = b11[p10];
+        };
+        return extendStatics(d10, b10);
+      };
+      return function(d10, b10) {
+        if (typeof b10 !== "function" && b10 !== null)
+          throw new TypeError("Class extends value " + String(b10) + " is not a constructor or null");
+        extendStatics(d10, b10);
+        function __2() {
+          this.constructor = d10;
+        }
+        d10.prototype = b10 === null ? Object.create(b10) : (__2.prototype = b10.prototype, new __2());
+      };
+    }();
     var keyUtil = require2("../lib/keys");
     var useragent = require2("../lib/useragent");
     var KEY_MODS = keyUtil.KEY_MODS;
-    function HashHandler(config, platform) {
-      this.platform = platform || (useragent.isMac ? "mac" : "win");
-      this.commands = {};
-      this.commandKeyBinding = {};
-      this.addCommands(config);
-      this.$singleCommand = true;
-    }
-    function MultiHashHandler(config, platform) {
-      HashHandler.call(this, config, platform);
-      this.$singleCommand = false;
-    }
-    MultiHashHandler.prototype = HashHandler.prototype;
-    (function() {
-      this.addCommand = function(command) {
+    var MultiHashHandler = function() {
+      function MultiHashHandler2(config, platform) {
+        this.$init(config, platform, false);
+      }
+      MultiHashHandler2.prototype.$init = function(config, platform, $singleCommand) {
+        this.platform = platform || (useragent.isMac ? "mac" : "win");
+        this.commands = {};
+        this.commandKeyBinding = {};
+        this.addCommands(config);
+        this.$singleCommand = $singleCommand;
+      };
+      MultiHashHandler2.prototype.addCommand = function(command) {
         if (this.commands[command.name])
           this.removeCommand(command);
         this.commands[command.name] = command;
         if (command.bindKey)
           this._buildKeyHash(command);
       };
-      this.removeCommand = function(command, keepCommand) {
+      MultiHashHandler2.prototype.removeCommand = function(command, keepCommand) {
         var name = command && (typeof command === "string" ? command : command.name);
         command = this.commands[name];
         if (!keepCommand)
@@ -43587,7 +44236,7 @@ var ace$2 = { exports: {} };
           }
         }
       };
-      this.bindKey = function(key, command, position) {
+      MultiHashHandler2.prototype.bindKey = function(key, command, position) {
         if (typeof key == "object" && key) {
           if (position == void 0)
             position = key.position;
@@ -43615,10 +44264,7 @@ var ace$2 = { exports: {} };
           this._addCommandToBinding(chain + id2, command, position);
         }, this);
       };
-      function getPosition(command) {
-        return typeof command == "object" && command.bindKey && command.bindKey.position || (command.isDefault ? -100 : 0);
-      }
-      this._addCommandToBinding = function(keyId, command, position) {
+      MultiHashHandler2.prototype._addCommandToBinding = function(keyId, command, position) {
         var ckb = this.commandKeyBinding, i10;
         if (!command) {
           delete ckb[keyId];
@@ -43643,7 +44289,7 @@ var ace$2 = { exports: {} };
           commands.splice(i10, 0, command);
         }
       };
-      this.addCommands = function(commands) {
+      MultiHashHandler2.prototype.addCommands = function(commands) {
         commands && Object.keys(commands).forEach(function(name) {
           var command = commands[name];
           if (!command)
@@ -43659,20 +44305,20 @@ var ace$2 = { exports: {} };
           this.addCommand(command);
         }, this);
       };
-      this.removeCommands = function(commands) {
+      MultiHashHandler2.prototype.removeCommands = function(commands) {
         Object.keys(commands).forEach(function(name) {
           this.removeCommand(commands[name]);
         }, this);
       };
-      this.bindKeys = function(keyList) {
+      MultiHashHandler2.prototype.bindKeys = function(keyList) {
         Object.keys(keyList).forEach(function(key) {
           this.bindKey(key, keyList[key]);
         }, this);
       };
-      this._buildKeyHash = function(command) {
+      MultiHashHandler2.prototype._buildKeyHash = function(command) {
         this.bindKey(command.bindKey, command);
       };
-      this.parseKeys = function(keys) {
+      MultiHashHandler2.prototype.parseKeys = function(keys) {
         var parts = keys.toLowerCase().split(/[\-\+]([\-\+])?/).filter(function(x10) {
           return x10;
         });
@@ -43696,11 +44342,11 @@ var ace$2 = { exports: {} };
         }
         return { key, hashId };
       };
-      this.findKeyCommand = function findKeyCommand(hashId, keyString) {
+      MultiHashHandler2.prototype.findKeyCommand = function(hashId, keyString) {
         var key = KEY_MODS[hashId] + keyString;
         return this.commandKeyBinding[key];
       };
-      this.handleKeyboard = function(data2, hashId, keyString, keyCode) {
+      MultiHashHandler2.prototype.handleKeyboard = function(data2, hashId, keyString, keyCode) {
         if (keyCode < 0)
           return;
         var key = KEY_MODS[hashId] + keyString;
@@ -43723,10 +44369,29 @@ var ace$2 = { exports: {} };
         }
         return { command };
       };
-      this.getStatusText = function(editor, data2) {
+      MultiHashHandler2.prototype.getStatusText = function(editor, data2) {
         return data2.$keyChain || "";
       };
-    }).call(HashHandler.prototype);
+      return MultiHashHandler2;
+    }();
+    function getPosition(command) {
+      return typeof command == "object" && command.bindKey && command.bindKey.position || (command.isDefault ? -100 : 0);
+    }
+    var HashHandler = function(_super) {
+      __extends(HashHandler2, _super);
+      function HashHandler2(config, platform) {
+        var _this = _super.call(this, config, platform) || this;
+        _this.$singleCommand = true;
+        return _this;
+      }
+      return HashHandler2;
+    }(MultiHashHandler);
+    HashHandler.call = function(thisArg, config, platform) {
+      MultiHashHandler.prototype.$init.call(thisArg, config, platform, true);
+    };
+    MultiHashHandler.call = function(thisArg, config, platform) {
+      MultiHashHandler.prototype.$init.call(thisArg, config, platform, false);
+    };
     exports2.HashHandler = HashHandler;
     exports2.MultiHashHandler = MultiHashHandler;
   });
@@ -44928,6 +45593,14 @@ var ace$2 = { exports: {} };
       },
       {
         name: "openCommandPallete",
+        exec: function(editor) {
+          console.warn("This is an obsolete command. Please use `openCommandPalette` instead.");
+          editor.prompt({ $type: "commands" });
+        },
+        readOnly: true
+      },
+      {
+        name: "openCommandPalette",
         description: "Open command palette",
         bindKey: bindKey("F1", "F1"),
         exec: function(editor) {
@@ -44981,10 +45654,10 @@ var ace$2 = { exports: {} };
           h10 = this.lineWidgets[row] && this.lineWidgets[row].rowCount || 0;
         else
           h10 = 0;
-        if (!this.$useWrapMode || !this.$wrapData[row]) {
+        if (!this["$useWrapMode"] || !this["$wrapData"][row]) {
           return 1 + h10;
         } else {
-          return this.$wrapData[row].length + 1 + h10;
+          return this["$wrapData"][row].length + 1 + h10;
         }
       };
       LineWidgets2.prototype.$getWidgetScreenLength = function() {
@@ -45132,11 +45805,11 @@ var ace$2 = { exports: {} };
             dom.addCssClass(w10.el, w10.className);
           }
           w10.el.style.position = "absolute";
-          w10.el.style.zIndex = 5;
+          w10.el.style.zIndex = "5";
           renderer.container.appendChild(w10.el);
           w10._inDocument = true;
           if (!w10.coverGutter) {
-            w10.el.style.zIndex = 3;
+            w10.el.style.zIndex = "3";
           }
           if (w10.pixelHeight == null) {
             w10.pixelHeight = w10.el.offsetHeight;
@@ -45290,7 +45963,365 @@ var ace$2 = { exports: {} };
     }();
     exports2.LineWidgets = LineWidgets;
   });
-  ace.define("ace/editor", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/lib/useragent", "ace/keyboard/textinput", "ace/mouse/mouse_handler", "ace/mouse/fold_handler", "ace/keyboard/keybinding", "ace/edit_session", "ace/search", "ace/range", "ace/lib/event_emitter", "ace/commands/command_manager", "ace/commands/default_commands", "ace/config", "ace/token_iterator", "ace/line_widgets", "ace/clipboard", "ace/lib/keys"], function(require2, exports2, module2) {
+  ace.define("ace/keyboard/gutter_handler", ["require", "exports", "module", "ace/lib/keys", "ace/mouse/default_gutter_handler"], function(require2, exports2, module2) {
+    var keys = require2("../lib/keys");
+    var GutterTooltip = require2("../mouse/default_gutter_handler").GutterTooltip;
+    var GutterKeyboardHandler = function() {
+      function GutterKeyboardHandler2(editor) {
+        this.editor = editor;
+        this.gutterLayer = editor.renderer.$gutterLayer;
+        this.element = editor.renderer.$gutter;
+        this.lines = editor.renderer.$gutterLayer.$lines;
+        this.activeRowIndex = null;
+        this.activeLane = null;
+        this.annotationTooltip = new GutterTooltip(this.editor);
+      }
+      GutterKeyboardHandler2.prototype.addListener = function() {
+        this.element.addEventListener("keydown", this.$onGutterKeyDown.bind(this));
+        this.element.addEventListener("focusout", this.$blurGutter.bind(this));
+        this.editor.on("mousewheel", this.$blurGutter.bind(this));
+      };
+      GutterKeyboardHandler2.prototype.removeListener = function() {
+        this.element.removeEventListener("keydown", this.$onGutterKeyDown.bind(this));
+        this.element.removeEventListener("focusout", this.$blurGutter.bind(this));
+        this.editor.off("mousewheel", this.$blurGutter.bind(this));
+      };
+      GutterKeyboardHandler2.prototype.$onGutterKeyDown = function(e13) {
+        if (this.annotationTooltip.isOpen) {
+          e13.preventDefault();
+          if (e13.keyCode === keys["escape"])
+            this.annotationTooltip.hideTooltip();
+          return;
+        }
+        if (e13.target === this.element) {
+          if (e13.keyCode != keys["enter"]) {
+            return;
+          }
+          e13.preventDefault();
+          var row = this.editor.getCursorPosition().row;
+          if (!this.editor.isRowVisible(row))
+            this.editor.scrollToLine(row, true, true);
+          setTimeout(function() {
+            var index2 = this.$rowToRowIndex(this.gutterLayer.$cursorCell.row);
+            var nearestFoldIndex = this.$findNearestFoldWidget(index2);
+            var nearestAnnotationIndex = this.$findNearestAnnotation(index2);
+            if (nearestFoldIndex === null && nearestAnnotationIndex === null)
+              return;
+            if (nearestFoldIndex === null && nearestAnnotationIndex !== null) {
+              this.activeRowIndex = nearestAnnotationIndex;
+              this.activeLane = "annotation";
+              this.$focusAnnotation(this.activeRowIndex);
+              return;
+            }
+            if (nearestFoldIndex !== null && nearestAnnotationIndex === null) {
+              this.activeRowIndex = nearestFoldIndex;
+              this.activeLane = "fold";
+              this.$focusFoldWidget(this.activeRowIndex);
+              return;
+            }
+            if (Math.abs(nearestAnnotationIndex - index2) < Math.abs(nearestFoldIndex - index2)) {
+              this.activeRowIndex = nearestAnnotationIndex;
+              this.activeLane = "annotation";
+              this.$focusAnnotation(this.activeRowIndex);
+              return;
+            } else {
+              this.activeRowIndex = nearestFoldIndex;
+              this.activeLane = "fold";
+              this.$focusFoldWidget(this.activeRowIndex);
+              return;
+            }
+          }.bind(this), 10);
+          return;
+        }
+        this.$handleGutterKeyboardInteraction(e13);
+        setTimeout(function() {
+          this.editor._signal("gutterkeydown", new GutterKeyboardEvent(e13, this));
+        }.bind(this), 10);
+      };
+      GutterKeyboardHandler2.prototype.$handleGutterKeyboardInteraction = function(e13) {
+        if (e13.keyCode === keys["tab"]) {
+          e13.preventDefault();
+          return;
+        }
+        if (e13.keyCode === keys["escape"]) {
+          e13.preventDefault();
+          this.$blurGutter();
+          this.element.focus();
+          this.lane = null;
+          return;
+        }
+        if (e13.keyCode === keys["up"]) {
+          e13.preventDefault();
+          switch (this.activeLane) {
+            case "fold":
+              this.$moveFoldWidgetUp();
+              break;
+            case "annotation":
+              this.$moveAnnotationUp();
+              break;
+          }
+          return;
+        }
+        if (e13.keyCode === keys["down"]) {
+          e13.preventDefault();
+          switch (this.activeLane) {
+            case "fold":
+              this.$moveFoldWidgetDown();
+              break;
+            case "annotation":
+              this.$moveAnnotationDown();
+              break;
+          }
+          return;
+        }
+        if (e13.keyCode === keys["left"]) {
+          e13.preventDefault();
+          this.$switchLane("annotation");
+          return;
+        }
+        if (e13.keyCode === keys["right"]) {
+          e13.preventDefault();
+          this.$switchLane("fold");
+          return;
+        }
+        if (e13.keyCode === keys["enter"] || e13.keyCode === keys["space"]) {
+          e13.preventDefault();
+          switch (this.activeLane) {
+            case "fold":
+              if (this.gutterLayer.session.foldWidgets[this.$rowIndexToRow(this.activeRowIndex)] === "start") {
+                var rowFoldingWidget = this.$rowIndexToRow(this.activeRowIndex);
+                this.editor.session.onFoldWidgetClick(this.$rowIndexToRow(this.activeRowIndex), e13);
+                setTimeout(function() {
+                  if (this.$rowIndexToRow(this.activeRowIndex) !== rowFoldingWidget) {
+                    this.$blurFoldWidget(this.activeRowIndex);
+                    this.activeRowIndex = this.$rowToRowIndex(rowFoldingWidget);
+                    this.$focusFoldWidget(this.activeRowIndex);
+                  }
+                }.bind(this), 10);
+                break;
+              } else if (this.gutterLayer.session.foldWidgets[this.$rowIndexToRow(this.activeRowIndex)] === "end") {
+                break;
+              }
+              return;
+            case "annotation":
+              var gutterElement = this.lines.cells[this.activeRowIndex].element.childNodes[2];
+              var rect = gutterElement.getBoundingClientRect();
+              var style2 = this.annotationTooltip.getElement().style;
+              style2.left = rect.right + "px";
+              style2.top = rect.bottom + "px";
+              this.annotationTooltip.showTooltip(this.$rowIndexToRow(this.activeRowIndex));
+              break;
+          }
+          return;
+        }
+      };
+      GutterKeyboardHandler2.prototype.$blurGutter = function() {
+        if (this.activeRowIndex !== null) {
+          switch (this.activeLane) {
+            case "fold":
+              this.$blurFoldWidget(this.activeRowIndex);
+              break;
+            case "annotation":
+              this.$blurAnnotation(this.activeRowIndex);
+              break;
+          }
+        }
+        if (this.annotationTooltip.isOpen)
+          this.annotationTooltip.hideTooltip();
+        return;
+      };
+      GutterKeyboardHandler2.prototype.$isFoldWidgetVisible = function(index2) {
+        var isRowFullyVisible = this.editor.isRowFullyVisible(this.$rowIndexToRow(index2));
+        var isIconVisible = this.$getFoldWidget(index2).style.display !== "none";
+        return isRowFullyVisible && isIconVisible;
+      };
+      GutterKeyboardHandler2.prototype.$isAnnotationVisible = function(index2) {
+        var isRowFullyVisible = this.editor.isRowFullyVisible(this.$rowIndexToRow(index2));
+        var isIconVisible = this.$getAnnotation(index2).style.display !== "none";
+        return isRowFullyVisible && isIconVisible;
+      };
+      GutterKeyboardHandler2.prototype.$getFoldWidget = function(index2) {
+        var cell = this.lines.get(index2);
+        var element = cell.element;
+        return element.childNodes[1];
+      };
+      GutterKeyboardHandler2.prototype.$getAnnotation = function(index2) {
+        var cell = this.lines.get(index2);
+        var element = cell.element;
+        return element.childNodes[2];
+      };
+      GutterKeyboardHandler2.prototype.$findNearestFoldWidget = function(index2) {
+        if (this.$isFoldWidgetVisible(index2))
+          return index2;
+        var i10 = 0;
+        while (index2 - i10 > 0 || index2 + i10 < this.lines.getLength() - 1) {
+          i10++;
+          if (index2 - i10 >= 0 && this.$isFoldWidgetVisible(index2 - i10))
+            return index2 - i10;
+          if (index2 + i10 <= this.lines.getLength() - 1 && this.$isFoldWidgetVisible(index2 + i10))
+            return index2 + i10;
+        }
+        return null;
+      };
+      GutterKeyboardHandler2.prototype.$findNearestAnnotation = function(index2) {
+        if (this.$isAnnotationVisible(index2))
+          return index2;
+        var i10 = 0;
+        while (index2 - i10 > 0 || index2 + i10 < this.lines.getLength() - 1) {
+          i10++;
+          if (index2 - i10 >= 0 && this.$isAnnotationVisible(index2 - i10))
+            return index2 - i10;
+          if (index2 + i10 <= this.lines.getLength() - 1 && this.$isAnnotationVisible(index2 + i10))
+            return index2 + i10;
+        }
+        return null;
+      };
+      GutterKeyboardHandler2.prototype.$focusFoldWidget = function(index2) {
+        if (index2 == null)
+          return;
+        var foldWidget = this.$getFoldWidget(index2);
+        foldWidget.classList.add(this.editor.renderer.keyboardFocusClassName);
+        foldWidget.focus();
+      };
+      GutterKeyboardHandler2.prototype.$focusAnnotation = function(index2) {
+        if (index2 == null)
+          return;
+        var annotation = this.$getAnnotation(index2);
+        annotation.classList.add(this.editor.renderer.keyboardFocusClassName);
+        annotation.focus();
+      };
+      GutterKeyboardHandler2.prototype.$blurFoldWidget = function(index2) {
+        var foldWidget = this.$getFoldWidget(index2);
+        foldWidget.classList.remove(this.editor.renderer.keyboardFocusClassName);
+        foldWidget.blur();
+      };
+      GutterKeyboardHandler2.prototype.$blurAnnotation = function(index2) {
+        var annotation = this.$getAnnotation(index2);
+        annotation.classList.remove(this.editor.renderer.keyboardFocusClassName);
+        annotation.blur();
+      };
+      GutterKeyboardHandler2.prototype.$moveFoldWidgetUp = function() {
+        var index2 = this.activeRowIndex;
+        while (index2 > 0) {
+          index2--;
+          if (this.$isFoldWidgetVisible(index2)) {
+            this.$blurFoldWidget(this.activeRowIndex);
+            this.activeRowIndex = index2;
+            this.$focusFoldWidget(this.activeRowIndex);
+            return;
+          }
+        }
+        return;
+      };
+      GutterKeyboardHandler2.prototype.$moveFoldWidgetDown = function() {
+        var index2 = this.activeRowIndex;
+        while (index2 < this.lines.getLength() - 1) {
+          index2++;
+          if (this.$isFoldWidgetVisible(index2)) {
+            this.$blurFoldWidget(this.activeRowIndex);
+            this.activeRowIndex = index2;
+            this.$focusFoldWidget(this.activeRowIndex);
+            return;
+          }
+        }
+        return;
+      };
+      GutterKeyboardHandler2.prototype.$moveAnnotationUp = function() {
+        var index2 = this.activeRowIndex;
+        while (index2 > 0) {
+          index2--;
+          if (this.$isAnnotationVisible(index2)) {
+            this.$blurAnnotation(this.activeRowIndex);
+            this.activeRowIndex = index2;
+            this.$focusAnnotation(this.activeRowIndex);
+            return;
+          }
+        }
+        return;
+      };
+      GutterKeyboardHandler2.prototype.$moveAnnotationDown = function() {
+        var index2 = this.activeRowIndex;
+        while (index2 < this.lines.getLength() - 1) {
+          index2++;
+          if (this.$isAnnotationVisible(index2)) {
+            this.$blurAnnotation(this.activeRowIndex);
+            this.activeRowIndex = index2;
+            this.$focusAnnotation(this.activeRowIndex);
+            return;
+          }
+        }
+        return;
+      };
+      GutterKeyboardHandler2.prototype.$switchLane = function(desinationLane) {
+        switch (desinationLane) {
+          case "annotation":
+            if (this.activeLane === "annotation") {
+              break;
+            }
+            var annotationIndex = this.$findNearestAnnotation(this.activeRowIndex);
+            if (annotationIndex == null) {
+              break;
+            }
+            this.activeLane = "annotation";
+            this.$blurFoldWidget(this.activeRowIndex);
+            this.activeRowIndex = annotationIndex;
+            this.$focusAnnotation(this.activeRowIndex);
+            break;
+          case "fold":
+            if (this.activeLane === "fold") {
+              break;
+            }
+            var foldWidgetIndex = this.$findNearestFoldWidget(this.activeRowIndex);
+            if (foldWidgetIndex == null) {
+              break;
+            }
+            this.activeLane = "fold";
+            this.$blurAnnotation(this.activeRowIndex);
+            this.activeRowIndex = foldWidgetIndex;
+            this.$focusFoldWidget(this.activeRowIndex);
+            break;
+        }
+        return;
+      };
+      GutterKeyboardHandler2.prototype.$rowIndexToRow = function(index2) {
+        var cell = this.lines.get(index2);
+        if (cell)
+          return cell.row;
+        return null;
+      };
+      GutterKeyboardHandler2.prototype.$rowToRowIndex = function(row) {
+        for (var i10 = 0; i10 < this.lines.getLength(); i10++) {
+          var cell = this.lines.get(i10);
+          if (cell.row == row)
+            return i10;
+        }
+        return null;
+      };
+      return GutterKeyboardHandler2;
+    }();
+    exports2.GutterKeyboardHandler = GutterKeyboardHandler;
+    var GutterKeyboardEvent = function() {
+      function GutterKeyboardEvent2(domEvent, gutterKeyboardHandler) {
+        this.gutterKeyboardHandler = gutterKeyboardHandler;
+        this.domEvent = domEvent;
+      }
+      GutterKeyboardEvent2.prototype.getKey = function() {
+        return keys.keyCodeToString(this.domEvent.keyCode);
+      };
+      GutterKeyboardEvent2.prototype.getRow = function() {
+        return this.gutterKeyboardHandler.$rowIndexToRow(this.gutterKeyboardHandler.activeRowIndex);
+      };
+      GutterKeyboardEvent2.prototype.isInAnnotationLane = function() {
+        return this.gutterKeyboardHandler.activeLane === "annotation";
+      };
+      GutterKeyboardEvent2.prototype.isInFoldLane = function() {
+        return this.gutterKeyboardHandler.activeLane === "fold";
+      };
+      return GutterKeyboardEvent2;
+    }();
+    exports2.GutterKeyboardEvent = GutterKeyboardEvent;
+  });
+  ace.define("ace/editor", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/lib/useragent", "ace/keyboard/textinput", "ace/mouse/mouse_handler", "ace/mouse/fold_handler", "ace/keyboard/keybinding", "ace/edit_session", "ace/search", "ace/range", "ace/lib/event_emitter", "ace/commands/command_manager", "ace/commands/default_commands", "ace/config", "ace/token_iterator", "ace/line_widgets", "ace/keyboard/gutter_handler", "ace/config", "ace/clipboard", "ace/lib/keys"], function(require2, exports2, module2) {
     var __values = this && this.__values || function(o10) {
       var s10 = typeof Symbol === "function" && Symbol.iterator, m10 = s10 && o10[s10], i10 = 0;
       if (m10)
@@ -45322,10 +46353,13 @@ var ace$2 = { exports: {} };
     var config = require2("./config");
     var TokenIterator = require2("./token_iterator").TokenIterator;
     var LineWidgets = require2("./line_widgets").LineWidgets;
+    var GutterKeyboardHandler = require2("./keyboard/gutter_handler").GutterKeyboardHandler;
+    var nls = require2("./config").nls;
     var clipboard2 = require2("./clipboard");
     var keys = require2("./lib/keys");
     var Editor2 = function() {
       function Editor3(renderer, session, options) {
+        this.session;
         this.$toDestroy = [];
         var container = renderer.getContainerElement();
         this.container = container;
@@ -45891,7 +46925,7 @@ var ace$2 = { exports: {} };
           cursor = this.session.remove(range);
           this.clearSelection();
         } else if (this.session.getOverwrite() && text.indexOf("\n") == -1) {
-          var range = new Range.fromPoints(cursor, cursor);
+          var range = Range.fromPoints(cursor, cursor);
           range.end.column += text.length;
           this.session.remove(range);
         }
@@ -46451,7 +47485,7 @@ var ace$2 = { exports: {} };
           doc.duplicateLines(row, row);
         } else {
           var point = reverse ? range.start : range.end;
-          var endPoint = doc.insert(point, doc.getTextRange(range), false);
+          var endPoint = doc.insert(point, doc.getTextRange(range));
           range.start = point;
           range.end = endPoint;
           sel.setSelectionRange(range, reverse);
@@ -47135,13 +48169,13 @@ var ace$2 = { exports: {} };
         set: function(message) {
           if (!this.$updatePlaceholder) {
             this.$updatePlaceholder = function() {
-              var value2 = this.session && (this.renderer.$composition || this.getValue());
-              if (value2 && this.renderer.placeholderNode) {
+              var hasValue = this.session && (this.renderer.$composition || this.session.getLength() > 1 || this.session.getLine(0).length > 0);
+              if (hasValue && this.renderer.placeholderNode) {
                 this.renderer.off("afterRender", this.$updatePlaceholder);
                 dom.removeCssClass(this.container, "ace_hasPlaceholder");
                 this.renderer.placeholderNode.remove();
                 this.renderer.placeholderNode = null;
-              } else if (!value2 && !this.renderer.placeholderNode) {
+              } else if (!hasValue && !this.renderer.placeholderNode) {
                 this.renderer.on("afterRender", this.$updatePlaceholder);
                 dom.addCssClass(this.container, "ace_hasPlaceholder");
                 var el2 = dom.createElement("div");
@@ -47149,7 +48183,7 @@ var ace$2 = { exports: {} };
                 el2.textContent = this.$placeholder || "";
                 this.renderer.placeholderNode = el2;
                 this.renderer.content.appendChild(this.renderer.placeholderNode);
-              } else if (!value2 && this.renderer.placeholderNode) {
+              } else if (!hasValue && this.renderer.placeholderNode) {
                 this.renderer.placeholderNode.textContent = this.$placeholder || "";
               }
             }.bind(this);
@@ -47166,32 +48200,62 @@ var ace$2 = { exports: {} };
             bindKey: "Esc",
             exec: function(editor) {
               editor.blur();
-              editor.renderer.content.focus();
+              editor.renderer.scroller.focus();
             },
             readOnly: true
           };
           var focusOnEnterKeyup = function(e13) {
-            if (e13.target == this.renderer.content && e13.keyCode === keys["enter"]) {
-              e13.stopPropagation();
+            if (e13.target == this.renderer.scroller && e13.keyCode === keys["enter"]) {
               e13.preventDefault();
+              var row = this.getCursorPosition().row;
+              if (!this.isRowVisible(row))
+                this.scrollToLine(row, true, true);
               this.focus();
             }
           };
-          var keyboardFocusClassName = "ace_keyboard-focus";
+          var gutterKeyboardHandler;
           if (value2) {
+            this.renderer.enableKeyboardAccessibility = true;
+            this.renderer.keyboardFocusClassName = "ace_keyboard-focus";
             this.textInput.getElement().setAttribute("tabindex", -1);
-            this.renderer.content.setAttribute("tabindex", 0);
-            this.renderer.content.classList.add(keyboardFocusClassName);
-            this.renderer.content.setAttribute("aria-label", "Editor, press Enter key to start editing, press Escape key to exit");
-            this.renderer.content.addEventListener("keyup", focusOnEnterKeyup.bind(this));
+            this.textInput.setNumberOfExtraLines(useragent.isWin ? 3 : 0);
+            this.renderer.scroller.setAttribute("tabindex", 0);
+            this.renderer.scroller.setAttribute("role", "group");
+            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor"));
+            this.renderer.scroller.classList.add(this.renderer.keyboardFocusClassName);
+            this.renderer.scroller.setAttribute("aria-label", nls("Editor content, press Enter to start editing, press Escape to exit"));
+            this.renderer.scroller.addEventListener("keyup", focusOnEnterKeyup.bind(this));
             this.commands.addCommand(blurCommand);
+            this.renderer.$gutter.setAttribute("tabindex", 0);
+            this.renderer.$gutter.setAttribute("aria-hidden", false);
+            this.renderer.$gutter.setAttribute("role", "group");
+            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor"));
+            this.renderer.$gutter.setAttribute("aria-label", nls("Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
+            this.renderer.$gutter.classList.add(this.renderer.keyboardFocusClassName);
+            this.renderer.content.setAttribute("aria-hidden", true);
+            if (!gutterKeyboardHandler)
+              gutterKeyboardHandler = new GutterKeyboardHandler(this);
+            gutterKeyboardHandler.addListener();
           } else {
+            this.renderer.enableKeyboardAccessibility = false;
             this.textInput.getElement().setAttribute("tabindex", 0);
-            this.renderer.content.setAttribute("tabindex", -1);
-            this.renderer.content.classList.remove(keyboardFocusClassName);
-            this.renderer.content.setAttribute("aria-label", "");
-            this.renderer.content.removeEventListener("keyup", focusOnEnterKeyup.bind(this));
+            this.textInput.setNumberOfExtraLines(0);
+            this.renderer.scroller.setAttribute("tabindex", -1);
+            this.renderer.scroller.removeAttribute("role");
+            this.renderer.scroller.removeAttribute("aria-roledescription");
+            this.renderer.scroller.classList.remove(this.renderer.keyboardFocusClassName);
+            this.renderer.scroller.removeAttribute("aria-label");
+            this.renderer.scroller.removeEventListener("keyup", focusOnEnterKeyup.bind(this));
             this.commands.removeCommand(blurCommand);
+            this.renderer.content.removeAttribute("aria-hidden");
+            this.renderer.$gutter.setAttribute("tabindex", -1);
+            this.renderer.$gutter.setAttribute("aria-hidden", true);
+            this.renderer.$gutter.removeAttribute("role");
+            this.renderer.$gutter.removeAttribute("aria-roledescription");
+            this.renderer.$gutter.removeAttribute("aria-label");
+            this.renderer.$gutter.classList.remove(this.renderer.keyboardFocusClassName);
+            if (gutterKeyboardHandler)
+              gutterKeyboardHandler.removeListener();
           }
         },
         initialValue: false
@@ -47263,412 +48327,6 @@ var ace$2 = { exports: {} };
       }
     };
     exports2.Editor = Editor2;
-  });
-  ace.define("ace/undomanager", ["require", "exports", "module", "ace/range"], function(require2, exports2, module2) {
-    var UndoManager = function() {
-      function UndoManager2() {
-        this.$maxRev = 0;
-        this.$fromUndo = false;
-        this.$undoDepth = Infinity;
-        this.reset();
-      }
-      UndoManager2.prototype.addSession = function(session) {
-        this.$session = session;
-      };
-      UndoManager2.prototype.add = function(delta, allowMerge, session) {
-        if (this.$fromUndo)
-          return;
-        if (delta == this.$lastDelta)
-          return;
-        if (!this.$keepRedoStack)
-          this.$redoStack.length = 0;
-        if (allowMerge === false || !this.lastDeltas) {
-          this.lastDeltas = [];
-          var undoStackLength = this.$undoStack.length;
-          if (undoStackLength > this.$undoDepth - 1) {
-            this.$undoStack.splice(0, undoStackLength - this.$undoDepth + 1);
-          }
-          this.$undoStack.push(this.lastDeltas);
-          delta.id = this.$rev = ++this.$maxRev;
-        }
-        if (delta.action == "remove" || delta.action == "insert")
-          this.$lastDelta = delta;
-        this.lastDeltas.push(delta);
-      };
-      UndoManager2.prototype.addSelection = function(selection, rev) {
-        this.selections.push({
-          value: selection,
-          rev: rev || this.$rev
-        });
-      };
-      UndoManager2.prototype.startNewGroup = function() {
-        this.lastDeltas = null;
-        return this.$rev;
-      };
-      UndoManager2.prototype.markIgnored = function(from, to2) {
-        if (to2 == null)
-          to2 = this.$rev + 1;
-        var stack = this.$undoStack;
-        for (var i10 = stack.length; i10--; ) {
-          var delta = stack[i10][0];
-          if (delta.id <= from)
-            break;
-          if (delta.id < to2)
-            delta.ignore = true;
-        }
-        this.lastDeltas = null;
-      };
-      UndoManager2.prototype.getSelection = function(rev, after) {
-        var stack = this.selections;
-        for (var i10 = stack.length; i10--; ) {
-          var selection = stack[i10];
-          if (selection.rev < rev) {
-            if (after)
-              selection = stack[i10 + 1];
-            return selection;
-          }
-        }
-      };
-      UndoManager2.prototype.getRevision = function() {
-        return this.$rev;
-      };
-      UndoManager2.prototype.getDeltas = function(from, to2) {
-        if (to2 == null)
-          to2 = this.$rev + 1;
-        var stack = this.$undoStack;
-        var end = null, start = 0;
-        for (var i10 = stack.length; i10--; ) {
-          var delta = stack[i10][0];
-          if (delta.id < to2 && !end)
-            end = i10 + 1;
-          if (delta.id <= from) {
-            start = i10 + 1;
-            break;
-          }
-        }
-        return stack.slice(start, end);
-      };
-      UndoManager2.prototype.getChangedRanges = function(from, to2) {
-        if (to2 == null)
-          to2 = this.$rev + 1;
-      };
-      UndoManager2.prototype.getChangedLines = function(from, to2) {
-        if (to2 == null)
-          to2 = this.$rev + 1;
-      };
-      UndoManager2.prototype.undo = function(session, dontSelect) {
-        this.lastDeltas = null;
-        var stack = this.$undoStack;
-        if (!rearrangeUndoStack(stack, stack.length))
-          return;
-        if (!session)
-          session = this.$session;
-        if (this.$redoStackBaseRev !== this.$rev && this.$redoStack.length)
-          this.$redoStack = [];
-        this.$fromUndo = true;
-        var deltaSet = stack.pop();
-        var undoSelectionRange = null;
-        if (deltaSet) {
-          undoSelectionRange = session.undoChanges(deltaSet, dontSelect);
-          this.$redoStack.push(deltaSet);
-          this.$syncRev();
-        }
-        this.$fromUndo = false;
-        return undoSelectionRange;
-      };
-      UndoManager2.prototype.redo = function(session, dontSelect) {
-        this.lastDeltas = null;
-        if (!session)
-          session = this.$session;
-        this.$fromUndo = true;
-        if (this.$redoStackBaseRev != this.$rev) {
-          var diff = this.getDeltas(this.$redoStackBaseRev, this.$rev + 1);
-          rebaseRedoStack(this.$redoStack, diff);
-          this.$redoStackBaseRev = this.$rev;
-          this.$redoStack.forEach(function(x10) {
-            x10[0].id = ++this.$maxRev;
-          }, this);
-        }
-        var deltaSet = this.$redoStack.pop();
-        var redoSelectionRange = null;
-        if (deltaSet) {
-          redoSelectionRange = session.redoChanges(deltaSet, dontSelect);
-          this.$undoStack.push(deltaSet);
-          this.$syncRev();
-        }
-        this.$fromUndo = false;
-        return redoSelectionRange;
-      };
-      UndoManager2.prototype.$syncRev = function() {
-        var stack = this.$undoStack;
-        var nextDelta = stack[stack.length - 1];
-        var id2 = nextDelta && nextDelta[0].id || 0;
-        this.$redoStackBaseRev = id2;
-        this.$rev = id2;
-      };
-      UndoManager2.prototype.reset = function() {
-        this.lastDeltas = null;
-        this.$lastDelta = null;
-        this.$undoStack = [];
-        this.$redoStack = [];
-        this.$rev = 0;
-        this.mark = 0;
-        this.$redoStackBaseRev = this.$rev;
-        this.selections = [];
-      };
-      UndoManager2.prototype.canUndo = function() {
-        return this.$undoStack.length > 0;
-      };
-      UndoManager2.prototype.canRedo = function() {
-        return this.$redoStack.length > 0;
-      };
-      UndoManager2.prototype.bookmark = function(rev) {
-        if (rev == void 0)
-          rev = this.$rev;
-        this.mark = rev;
-      };
-      UndoManager2.prototype.isAtBookmark = function() {
-        return this.$rev === this.mark;
-      };
-      UndoManager2.prototype.toJSON = function() {
-      };
-      UndoManager2.prototype.fromJSON = function() {
-      };
-      UndoManager2.prototype.$prettyPrint = function(delta) {
-        if (delta)
-          return stringifyDelta(delta);
-        return stringifyDelta(this.$undoStack) + "\n---\n" + stringifyDelta(this.$redoStack);
-      };
-      return UndoManager2;
-    }();
-    UndoManager.prototype.hasUndo = UndoManager.prototype.canUndo;
-    UndoManager.prototype.hasRedo = UndoManager.prototype.canRedo;
-    UndoManager.prototype.isClean = UndoManager.prototype.isAtBookmark;
-    UndoManager.prototype.markClean = UndoManager.prototype.bookmark;
-    function rearrangeUndoStack(stack, pos) {
-      for (var i10 = pos; i10--; ) {
-        var deltaSet = stack[i10];
-        if (deltaSet && !deltaSet[0].ignore) {
-          while (i10 < pos - 1) {
-            var swapped = swapGroups(stack[i10], stack[i10 + 1]);
-            stack[i10] = swapped[0];
-            stack[i10 + 1] = swapped[1];
-            i10++;
-          }
-          return true;
-        }
-      }
-    }
-    var Range = require2("./range").Range;
-    var cmp = Range.comparePoints;
-    Range.comparePoints;
-    function clonePos(pos) {
-      return { row: pos.row, column: pos.column };
-    }
-    function cloneDelta(d10) {
-      return {
-        start: clonePos(d10.start),
-        end: clonePos(d10.end),
-        action: d10.action,
-        lines: d10.lines.slice()
-      };
-    }
-    function stringifyDelta(d10) {
-      d10 = d10 || this;
-      if (Array.isArray(d10)) {
-        return d10.map(stringifyDelta).join("\n");
-      }
-      var type = "";
-      if (d10.action) {
-        type = d10.action == "insert" ? "+" : "-";
-        type += "[" + d10.lines + "]";
-      } else if (d10.value) {
-        if (Array.isArray(d10.value)) {
-          type = d10.value.map(stringifyRange).join("\n");
-        } else {
-          type = stringifyRange(d10.value);
-        }
-      }
-      if (d10.start) {
-        type += stringifyRange(d10);
-      }
-      if (d10.id || d10.rev) {
-        type += "	(" + (d10.id || d10.rev) + ")";
-      }
-      return type;
-    }
-    function stringifyRange(r10) {
-      return r10.start.row + ":" + r10.start.column + "=>" + r10.end.row + ":" + r10.end.column;
-    }
-    function swap(d12, d22) {
-      var i12 = d12.action == "insert";
-      var i22 = d22.action == "insert";
-      if (i12 && i22) {
-        if (cmp(d22.start, d12.end) >= 0) {
-          shift(d22, d12, -1);
-        } else if (cmp(d22.start, d12.start) <= 0) {
-          shift(d12, d22, 1);
-        } else {
-          return null;
-        }
-      } else if (i12 && !i22) {
-        if (cmp(d22.start, d12.end) >= 0) {
-          shift(d22, d12, -1);
-        } else if (cmp(d22.end, d12.start) <= 0) {
-          shift(d12, d22, -1);
-        } else {
-          return null;
-        }
-      } else if (!i12 && i22) {
-        if (cmp(d22.start, d12.start) >= 0) {
-          shift(d22, d12, 1);
-        } else if (cmp(d22.start, d12.start) <= 0) {
-          shift(d12, d22, 1);
-        } else {
-          return null;
-        }
-      } else if (!i12 && !i22) {
-        if (cmp(d22.start, d12.start) >= 0) {
-          shift(d22, d12, 1);
-        } else if (cmp(d22.end, d12.start) <= 0) {
-          shift(d12, d22, -1);
-        } else {
-          return null;
-        }
-      }
-      return [d22, d12];
-    }
-    function swapGroups(ds1, ds2) {
-      for (var i10 = ds1.length; i10--; ) {
-        for (var j10 = 0; j10 < ds2.length; j10++) {
-          if (!swap(ds1[i10], ds2[j10])) {
-            while (i10 < ds1.length) {
-              while (j10--) {
-                swap(ds2[j10], ds1[i10]);
-              }
-              j10 = ds2.length;
-              i10++;
-            }
-            return [ds1, ds2];
-          }
-        }
-      }
-      ds1.selectionBefore = ds2.selectionBefore = ds1.selectionAfter = ds2.selectionAfter = null;
-      return [ds2, ds1];
-    }
-    function xform(d12, c12) {
-      var i12 = d12.action == "insert";
-      var i22 = c12.action == "insert";
-      if (i12 && i22) {
-        if (cmp(d12.start, c12.start) < 0) {
-          shift(c12, d12, 1);
-        } else {
-          shift(d12, c12, 1);
-        }
-      } else if (i12 && !i22) {
-        if (cmp(d12.start, c12.end) >= 0) {
-          shift(d12, c12, -1);
-        } else if (cmp(d12.start, c12.start) <= 0) {
-          shift(c12, d12, 1);
-        } else {
-          shift(d12, Range.fromPoints(c12.start, d12.start), -1);
-          shift(c12, d12, 1);
-        }
-      } else if (!i12 && i22) {
-        if (cmp(c12.start, d12.end) >= 0) {
-          shift(c12, d12, -1);
-        } else if (cmp(c12.start, d12.start) <= 0) {
-          shift(d12, c12, 1);
-        } else {
-          shift(c12, Range.fromPoints(d12.start, c12.start), -1);
-          shift(d12, c12, 1);
-        }
-      } else if (!i12 && !i22) {
-        if (cmp(c12.start, d12.end) >= 0) {
-          shift(c12, d12, -1);
-        } else if (cmp(c12.end, d12.start) <= 0) {
-          shift(d12, c12, -1);
-        } else {
-          var before, after;
-          if (cmp(d12.start, c12.start) < 0) {
-            before = d12;
-            d12 = splitDelta(d12, c12.start);
-          }
-          if (cmp(d12.end, c12.end) > 0) {
-            after = splitDelta(d12, c12.end);
-          }
-          shiftPos(c12.end, d12.start, d12.end, -1);
-          if (after && !before) {
-            d12.lines = after.lines;
-            d12.start = after.start;
-            d12.end = after.end;
-            after = d12;
-          }
-          return [c12, before, after].filter(Boolean);
-        }
-      }
-      return [c12, d12];
-    }
-    function shift(d12, d22, dir) {
-      shiftPos(d12.start, d22.start, d22.end, dir);
-      shiftPos(d12.end, d22.start, d22.end, dir);
-    }
-    function shiftPos(pos, start, end, dir) {
-      if (pos.row == (dir == 1 ? start : end).row) {
-        pos.column += dir * (end.column - start.column);
-      }
-      pos.row += dir * (end.row - start.row);
-    }
-    function splitDelta(c10, pos) {
-      var lines = c10.lines;
-      var end = c10.end;
-      c10.end = clonePos(pos);
-      var rowsBefore = c10.end.row - c10.start.row;
-      var otherLines = lines.splice(rowsBefore, lines.length);
-      var col = rowsBefore ? pos.column : pos.column - c10.start.column;
-      lines.push(otherLines[0].substring(0, col));
-      otherLines[0] = otherLines[0].substr(col);
-      var rest = {
-        start: clonePos(pos),
-        end,
-        lines: otherLines,
-        action: c10.action
-      };
-      return rest;
-    }
-    function moveDeltasByOne(redoStack, d10) {
-      d10 = cloneDelta(d10);
-      for (var j10 = redoStack.length; j10--; ) {
-        var deltaSet = redoStack[j10];
-        for (var i10 = 0; i10 < deltaSet.length; i10++) {
-          var x10 = deltaSet[i10];
-          var xformed = xform(x10, d10);
-          d10 = xformed[0];
-          if (xformed.length != 2) {
-            if (xformed[2]) {
-              deltaSet.splice(i10 + 1, 1, xformed[1], xformed[2]);
-              i10++;
-            } else if (!xformed[1]) {
-              deltaSet.splice(i10, 1);
-              i10--;
-            }
-          }
-        }
-        if (!deltaSet.length) {
-          redoStack.splice(j10, 1);
-        }
-      }
-      return redoStack;
-    }
-    function rebaseRedoStack(redoStack, deltaSets) {
-      for (var i10 = 0; i10 < deltaSets.length; i10++) {
-        var deltas = deltaSets[i10];
-        for (var j10 = 0; j10 < deltas.length; j10++) {
-          moveDeltasByOne(redoStack, deltas[j10]);
-        }
-      }
-    }
-    exports2.UndoManager = UndoManager;
   });
   ace.define("ace/layer/lines", ["require", "exports", "module", "ace/lib/dom"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
@@ -47769,12 +48427,13 @@ var ace$2 = { exports: {} };
     }();
     exports2.Lines = Lines;
   });
-  ace.define("ace/layer/gutter", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/lang", "ace/lib/event_emitter", "ace/layer/lines"], function(require2, exports2, module2) {
+  ace.define("ace/layer/gutter", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/lang", "ace/lib/event_emitter", "ace/layer/lines", "ace/config"], function(require2, exports2, module2) {
     var dom = require2("../lib/dom");
     var oop = require2("../lib/oop");
     var lang = require2("../lib/lang");
     var EventEmitter = require2("../lib/event_emitter").EventEmitter;
     var Lines = require2("./lines").Lines;
+    var nls = require2("../config").nls;
     var Gutter = function() {
       function Gutter2(parentEl2) {
         this.element = dom.createElement("div");
@@ -47990,6 +48649,7 @@ var ace$2 = { exports: {} };
         var textNode = element.childNodes[0];
         var foldWidget = element.childNodes[1];
         var annotationNode = element.childNodes[2];
+        var annotationIconNode = annotationNode.firstChild;
         var firstLineNumber = session.$firstLineNumber;
         var breakpoints = session.$breakpoints;
         var decorations = session.$decorations;
@@ -47999,6 +48659,7 @@ var ace$2 = { exports: {} };
         var lineHeight = config.lineHeight + "px";
         var className = this.$useSvgGutterIcons ? "ace_gutter-cell_svg-icons " : "ace_gutter-cell ";
         var iconClassName = this.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
+        var rowText = (gutterRenderer ? gutterRenderer.getText(session, row) : row + firstLineNumber).toString();
         if (this.$highlightGutterLine) {
           if (row == this.$cursorRow || fold && row < this.$cursorRow && row >= foldStart && this.$cursorRow <= fold.end.row) {
             className += "ace_gutter-active-line ";
@@ -48015,18 +48676,17 @@ var ace$2 = { exports: {} };
           className += decorations[row];
         if (this.$annotations[row] && row !== foldStart)
           className += this.$annotations[row].className;
-        if (element.className != className)
-          element.className = className;
         if (foldWidgets) {
           var c10 = foldWidgets[row];
           if (c10 == null)
             c10 = foldWidgets[row] = session.getFoldWidget(row);
         }
         if (c10) {
-          var className = "ace_fold-widget ace_" + c10;
-          if (c10 == "start" && row == foldStart && row < fold.end.row) {
-            className += " ace_closed";
-            var foldAnnotationClass;
+          var foldClass = "ace_fold-widget ace_" + c10;
+          var isClosedFold = c10 == "start" && row == foldStart && row < fold.end.row;
+          if (isClosedFold) {
+            foldClass += " ace_closed";
+            var foldAnnotationClass = "";
             var annotationInFold = false;
             for (var i10 = row + 1; i10 <= fold.end.row; i10++) {
               if (!this.$annotations[i10])
@@ -48042,41 +48702,80 @@ var ace$2 = { exports: {} };
                 continue;
               }
             }
-            element.className += foldAnnotationClass;
+            className += foldAnnotationClass;
           } else
-            className += " ace_open";
-          if (foldWidget.className != className)
-            foldWidget.className = className;
+            foldClass += " ace_open";
+          if (foldWidget.className != foldClass)
+            foldWidget.className = foldClass;
           dom.setStyle(foldWidget.style, "height", lineHeight);
           dom.setStyle(foldWidget.style, "display", "inline-block");
+          foldWidget.setAttribute("role", "button");
+          foldWidget.setAttribute("tabindex", "-1");
+          var foldRange = session.getFoldWidgetRange(row);
+          if (foldRange)
+            foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
+          else {
+            if (fold)
+              foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
+            else
+              foldWidget.setAttribute("aria-label", nls("Toggle code folding, row $0", [row + 1]));
+          }
+          if (isClosedFold) {
+            foldWidget.setAttribute("aria-expanded", "false");
+            foldWidget.setAttribute("title", nls("Unfold code"));
+          } else {
+            foldWidget.setAttribute("aria-expanded", "true");
+            foldWidget.setAttribute("title", nls("Fold code"));
+          }
         } else {
           if (foldWidget) {
             dom.setStyle(foldWidget.style, "display", "none");
+            foldWidget.setAttribute("tabindex", "0");
+            foldWidget.removeAttribute("role");
+            foldWidget.removeAttribute("aria-label");
           }
         }
         if (annotationInFold && this.$showFoldedAnnotations) {
-          annotationNode.className = iconClassName;
-          annotationNode.className += foldAnnotationClass;
-          dom.setStyle(annotationNode.style, "height", lineHeight);
+          annotationNode.className = "ace_gutter_annotation";
+          annotationIconNode.className = iconClassName;
+          annotationIconNode.className += foldAnnotationClass;
+          dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
+          dom.setStyle(annotationNode.style, "height", lineHeight);
+          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          annotationNode.setAttribute("tabindex", "-1");
+          annotationNode.setAttribute("role", "button");
         } else if (this.$annotations[row]) {
-          annotationNode.className = iconClassName;
+          annotationNode.className = "ace_gutter_annotation";
+          annotationIconNode.className = iconClassName;
           if (this.$useSvgGutterIcons)
-            annotationNode.className += this.$annotations[row].className;
+            annotationIconNode.className += this.$annotations[row].className;
           else
             element.classList.add(this.$annotations[row].className.replace(" ", ""));
-          dom.setStyle(annotationNode.style, "height", lineHeight);
+          dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
+          dom.setStyle(annotationNode.style, "height", lineHeight);
+          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          annotationNode.setAttribute("tabindex", "-1");
+          annotationNode.setAttribute("role", "button");
         } else {
           dom.setStyle(annotationNode.style, "display", "none");
+          annotationNode.removeAttribute("aria-label");
+          annotationNode.removeAttribute("role");
+          annotationNode.setAttribute("tabindex", "0");
         }
-        var text = (gutterRenderer ? gutterRenderer.getText(session, row) : row + firstLineNumber).toString();
-        if (text !== textNode.data) {
-          textNode.data = text;
+        if (rowText !== textNode.data) {
+          textNode.data = rowText;
         }
+        if (element.className != className)
+          element.className = className;
         dom.setStyle(cell.element.style, "height", this.$lines.computeLineHeight(row, config, session) + "px");
         dom.setStyle(cell.element.style, "top", this.$lines.computeLineTop(row, config, session) + "px");
-        cell.text = text;
+        cell.text = rowText;
+        if (annotationNode.style.display === "none" && foldWidget.style.display === "none")
+          cell.element.setAttribute("aria-hidden", true);
+        else
+          cell.element.setAttribute("aria-hidden", false);
         return cell;
       };
       Gutter2.prototype.setHighlightGutterLine = function(highlightGutterLine) {
@@ -48138,6 +48837,8 @@ var ace$2 = { exports: {} };
       element.appendChild(foldWidget);
       var annotationNode = dom.createElement("span");
       element.appendChild(annotationNode);
+      var annotationIconNode = dom.createElement("span");
+      annotationNode.appendChild(annotationIconNode);
       return element;
     }
     exports2.Gutter = Gutter;
@@ -48299,12 +49000,20 @@ var ace$2 = { exports: {} };
     }
     exports2.Marker = Marker;
   });
-  ace.define("ace/layer/text", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/layer/lines", "ace/lib/event_emitter"], function(require2, exports2, module2) {
+  ace.define("ace/layer/text_util", ["require", "exports", "module"], function(require2, exports2, module2) {
+    var textTokens = new Set(["text", "rparen", "lparen"]);
+    exports2.isTextToken = function(tokenType) {
+      return textTokens.has(tokenType);
+    };
+  });
+  ace.define("ace/layer/text", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/layer/lines", "ace/lib/event_emitter", "ace/config", "ace/layer/text_util"], function(require2, exports2, module2) {
     var oop = require2("../lib/oop");
     var dom = require2("../lib/dom");
     var lang = require2("../lib/lang");
     var Lines = require2("./lines").Lines;
     var EventEmitter = require2("../lib/event_emitter").EventEmitter;
+    var nls = require2("../config").nls;
+    var isTextToken = require2("./text_util").isTextToken;
     var Text = function() {
       function Text2(parentEl2) {
         this.dom = dom;
@@ -48562,7 +49271,7 @@ var ace$2 = { exports: {} };
               span.textContent = lang.stringRepeat(self2.SPACE_CHAR, simpleSpace.length);
               valueFragment.appendChild(span);
             } else {
-              valueFragment.appendChild(this.com.createTextNode(simpleSpace, this.element));
+              valueFragment.appendChild(this.dom.createTextNode(simpleSpace, this.element));
             }
           } else if (controlCharacter) {
             var span = this.dom.createElement("span");
@@ -48586,11 +49295,13 @@ var ace$2 = { exports: {} };
           }
         }
         valueFragment.appendChild(this.dom.createTextNode(i10 ? value2.slice(i10) : value2, this.element));
-        if (!this.$textToken[token.type]) {
+        if (!isTextToken(token.type)) {
           var classes = "ace_" + token.type.replace(/\./g, " ace_");
           var span = this.dom.createElement("span");
-          if (token.type == "fold")
+          if (token.type == "fold") {
             span.style.width = token.value.length * this.config.characterWidth + "px";
+            span.setAttribute("title", nls("Unfold code"));
+          }
           span.className = classes;
           span.appendChild(valueFragment);
           parent.appendChild(span);
@@ -48884,11 +49595,6 @@ var ace$2 = { exports: {} };
       };
       return Text2;
     }();
-    Text.prototype.$textToken = {
-      "text": true,
-      "rparen": true,
-      "lparen": true
-    };
     Text.prototype.EOF_CHAR = "\xB6";
     Text.prototype.EOL_CHAR_LF = "\xAC";
     Text.prototype.EOL_CHAR_CRLF = "\xA4";
@@ -49630,7 +50336,7 @@ var ace$2 = { exports: {} };
       FontMetrics2.prototype.$getZoom = function(element) {
         if (!element || !element.parentElement)
           return 1;
-        return (window.getComputedStyle(element).zoom || 1) * this.$getZoom(element.parentElement);
+        return (window.getComputedStyle(element)["zoom"] || 1) * this.$getZoom(element.parentElement);
       };
       FontMetrics2.prototype.$initTransformMeasureNodes = function() {
         var t10 = function(t11, l10) {
@@ -49690,7 +50396,7 @@ var ace$2 = { exports: {} };
     oop.implement(FontMetrics.prototype, EventEmitter);
     exports2.FontMetrics = FontMetrics;
   });
-  ace.define("ace/css/editor.css", ["require", "exports", "module"], function(require2, exports2, module2) {
+  ace.define("ace/css/editor-css", ["require", "exports", "module"], function(require2, exports2, module2) {
     module2.exports = `
 .ace_br1 {border-top-left-radius    : 3px;}
 .ace_br2 {border-top-right-radius   : 3px;}
@@ -49802,13 +50508,13 @@ var ace$2 = { exports: {} };
     background-repeat: no-repeat;
 }
 
-.ace_gutter-cell_svg-icons .ace_icon_svg {
+.ace_gutter-cell_svg-icons .ace_gutter_annotation {
     margin-left: -14px;
     float: left;
 }
 
-.ace_gutter-cell .ace_icon {
-    margin-left: -18px;
+.ace_gutter-cell .ace_gutter_annotation {
+    margin-left: -19px;
     float: left;
 }
 
@@ -50130,13 +50836,19 @@ var ace$2 = { exports: {} };
     z-index: 999999;
     box-sizing: border-box;
     cursor: default;
-    white-space: pre;
+    white-space: pre-wrap;
     word-wrap: break-word;
     line-height: normal;
     font-style: normal;
     font-weight: normal;
     letter-spacing: normal;
     pointer-events: none;
+    overflow: auto;
+    max-width: min(60em, 66vw);
+    overscroll-behavior: contain;
+}
+.ace_tooltip pre {
+    white-space: pre-wrap;
 }
 
 .ace_tooltip.ace_dark {
@@ -50333,6 +51045,15 @@ var ace$2 = { exports: {} };
     opacity: 0.5;
     font-style: italic;
     white-space: pre;
+}
+
+.ace_screenreader-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
 }`;
   });
   ace.define("ace/layer/decorators", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
@@ -50451,7 +51172,7 @@ var ace$2 = { exports: {} };
     oop.implement(Decorator.prototype, EventEmitter);
     exports2.Decorator = Decorator;
   });
-  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor.css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
+  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
     var lang = require2("./lib/lang");
@@ -50467,7 +51188,7 @@ var ace$2 = { exports: {} };
     var RenderLoop = require2("./renderloop").RenderLoop;
     var FontMetrics = require2("./layer/font_metrics").FontMetrics;
     var EventEmitter = require2("./lib/event_emitter").EventEmitter;
-    var editorCss = require2("./css/editor.css");
+    var editorCss = require2("./css/editor-css");
     var Decorator = require2("./layer/decorators").Decorator;
     var useragent = require2("./lib/useragent");
     dom.importCssString(editorCss, "ace_editor.css", false);
@@ -50484,7 +51205,7 @@ var ace$2 = { exports: {} };
         this.$gutter = dom.createElement("div");
         this.$gutter.className = "ace_gutter";
         this.container.appendChild(this.$gutter);
-        this.$gutter.setAttribute("aria-hidden", true);
+        this.$gutter.setAttribute("aria-hidden", "true");
         this.scroller = dom.createElement("div");
         this.scroller.className = "ace_scroller";
         this.container.appendChild(this.scroller);
@@ -50754,7 +51475,7 @@ var ace$2 = { exports: {} };
       VirtualRenderer2.prototype.getShowInvisibles = function() {
         return this.getOption("showInvisibles");
       };
-      VirtualRenderer2.prototype.getDisplayIndentGuide = function() {
+      VirtualRenderer2.prototype.getDisplayIndentGuides = function() {
         return this.getOption("displayIndentGuides");
       };
       VirtualRenderer2.prototype.setDisplayIndentGuides = function(display) {
@@ -50772,8 +51493,8 @@ var ace$2 = { exports: {} };
       VirtualRenderer2.prototype.getShowPrintMargin = function() {
         return this.getOption("showPrintMargin");
       };
-      VirtualRenderer2.prototype.setPrintMarginColumn = function(showPrintMargin) {
-        this.setOption("printMarginColumn", showPrintMargin);
+      VirtualRenderer2.prototype.setPrintMarginColumn = function(printMarginColumn) {
+        this.setOption("printMarginColumn", printMarginColumn);
       };
       VirtualRenderer2.prototype.getPrintMarginColumn = function() {
         return this.getOption("printMarginColumn");
@@ -50991,7 +51712,9 @@ var ace$2 = { exports: {} };
         }
         if (changes & this.CHANGE_H_SCROLL) {
           dom.translate(this.content, -this.scrollLeft, -config2.offset);
-          this.scroller.className = this.scrollLeft <= 0 ? "ace_scroller" : "ace_scroller ace_scroll-left";
+          this.scroller.className = this.scrollLeft <= 0 ? "ace_scroller " : "ace_scroller ace_scroll-left ";
+          if (this.enableKeyboardAccessibility)
+            this.scroller.className += this.keyboardFocusClassName;
         }
         if (changes & this.CHANGE_FULL) {
           this.$changedLines = null;
@@ -51207,6 +51930,7 @@ var ace$2 = { exports: {} };
         this.$gutterLayer.removeGutterDecoration(row, className);
       };
       VirtualRenderer2.prototype.updateBreakpoints = function(rows) {
+        this._rows = rows;
         this.$loop.schedule(this.CHANGE_GUTTER);
       };
       VirtualRenderer2.prototype.setAnnotations = function(annotations) {
@@ -51487,6 +52211,18 @@ var ace$2 = { exports: {} };
             className: "ace_ghost_text"
           };
           this.session.widgetManager.addLineWidget(this.$ghostTextWidget);
+          var pixelPosition = this.$cursorLayer.getPixelPosition(insertPosition, true);
+          var el2 = this.container;
+          var height = el2.getBoundingClientRect().height;
+          var ghostTextHeight = textLines.length * this.lineHeight;
+          var fitsY = ghostTextHeight < height - pixelPosition.top;
+          if (fitsY)
+            return;
+          if (ghostTextHeight < height) {
+            this.scrollBy(0, (textLines.length - 1) * this.lineHeight);
+          } else {
+            this.scrollBy(0, pixelPosition.top);
+          }
         }
       };
       VirtualRenderer2.prototype.removeGhostText = function() {
@@ -51946,6 +52682,9 @@ var ace$2 = { exports: {} };
         this._signal("terminate", {});
         this.deltaQueue = null;
         this.$worker.terminate();
+        this.$worker.onerror = function(e13) {
+          e13.preventDefault();
+        };
         this.$worker = null;
         if (this.$doc)
           this.$doc.off("change", this.changeListener);
@@ -52069,7 +52808,7 @@ var ace$2 = { exports: {} };
           });
         };
         this.$pos = pos;
-        var undoStack = session.getUndoManager().$undoStack || session.getUndoManager().$undostack || { length: -1 };
+        var undoStack = session.getUndoManager().$undoStack || session.getUndoManager()["$undostack"] || { length: -1 };
         this.$undoStackDepth = undoStack.length;
         this.setup();
         session.selection.on("changeCursor", this.$onCursorChange);
@@ -52189,7 +52928,7 @@ var ace$2 = { exports: {} };
         if (this.$undoStackDepth === -1)
           return;
         var undoManager = this.session.getUndoManager();
-        var undosRequired = (undoManager.$undoStack || undoManager.$undostack).length - this.$undoStackDepth;
+        var undosRequired = (undoManager.$undoStack || undoManager["$undostack"]).length - this.$undoStackDepth;
         for (var i10 = 0; i10 < undosRequired; i10++) {
           undoManager.undo(this.session, true);
         }
@@ -52905,11 +53644,11 @@ var ace$2 = { exports: {} };
         for (var i10 = all2.length; i10--; ) {
           var range = all2[i10];
           if (range.isEmpty()) {
-            var tmp = session.getWordRange(range.start.row, range.start.column);
-            range.start.row = tmp.start.row;
-            range.start.column = tmp.start.column;
-            range.end.row = tmp.end.row;
-            range.end.column = tmp.end.column;
+            var tmp_1 = session.getWordRange(range.start.row, range.start.column);
+            range.start.row = tmp_1.start.row;
+            range.start.column = tmp_1.start.column;
+            range.end.row = tmp_1.end.row;
+            range.end.column = tmp_1.end.column;
           }
         }
         sel.mergeOverlappingRanges();
@@ -53144,10 +53883,8 @@ var ace$2 = { exports: {} };
         set: function(val) {
           MultiSelect(this);
           if (val) {
-            this.on("changeSession", this.$multiselectOnSessionChange);
             this.on("mousedown", onMouseDown);
           } else {
-            this.off("changeSession", this.$multiselectOnSessionChange);
             this.off("mousedown", onMouseDown);
           }
         },
@@ -53230,10 +53967,11 @@ var ace$2 = { exports: {} };
       };
     }).call(FoldMode.prototype);
   });
-  ace.define("ace/ext/error_marker", ["require", "exports", "module", "ace/line_widgets", "ace/lib/dom", "ace/range"], function(require2, exports2, module2) {
+  ace.define("ace/ext/error_marker", ["require", "exports", "module", "ace/line_widgets", "ace/lib/dom", "ace/range", "ace/config"], function(require2, exports2, module2) {
     var LineWidgets = require2("../line_widgets").LineWidgets;
     var dom = require2("../lib/dom");
     var Range = require2("../range").Range;
+    var nls = require2("../config").nls;
     function binarySearch(array, needle, comparator) {
       var first = 0;
       var last = array.length - 1;
@@ -53305,7 +54043,7 @@ var ace$2 = { exports: {} };
         return;
       } else {
         gutterAnno = {
-          text: ["Looks good!"],
+          text: [nls("Looks good!")],
           className: "ace_ok"
         };
       }
@@ -53422,14 +54160,21 @@ var ace$2 = { exports: {} };
         a10.config.init(true);
         a10.define = ace.define;
       }
-      if (!window.ace)
-        window.ace = a10;
+      var global2 = function() {
+        return this;
+      }();
+      if (!global2 && typeof window != "undefined")
+        global2 = window;
+      if (!global2 && typeof self != "undefined")
+        global2 = self;
+      if (!global2.ace)
+        global2.ace = a10;
       for (var key in a10)
         if (a10.hasOwnProperty(key))
-          window.ace[key] = a10[key];
-      window.ace["default"] = window.ace;
+          global2.ace[key] = a10[key];
+      global2.ace["default"] = global2.ace;
       if (module) {
-        module.exports = window.ace;
+        module.exports = global2.ace;
       }
     });
   })();
@@ -53437,10 +54182,10 @@ var ace$2 = { exports: {} };
 var ace$1 = ace$2.exports;
 var themeSqlserver = { exports: {} };
 (function(module, exports) {
-  ace.define("ace/theme/sqlserver.css", ["require", "exports", "module"], function(e13, t10, n10) {
+  ace.define("ace/theme/sqlserver-css", ["require", "exports", "module"], function(e13, t10, n10) {
     n10.exports = '.ace-sqlserver .ace_gutter {\n    background: #ebebeb;\n    color: #333;\n    overflow: hidden;\n}\n\n.ace-sqlserver .ace_print-margin {\n    width: 1px;\n    background: #e8e8e8;\n}\n\n.ace-sqlserver {\n    background-color: #FFFFFF;\n    color: black;\n}\n\n.ace-sqlserver .ace_identifier {\n    color: black;\n}\n\n.ace-sqlserver .ace_keyword {\n    color: #0000FF;\n}\n\n.ace-sqlserver .ace_numeric {\n    color: black;\n}\n\n.ace-sqlserver .ace_storage {\n    color: #11B7BE;\n}\n\n.ace-sqlserver .ace_keyword.ace_operator,\n.ace-sqlserver .ace_lparen,\n.ace-sqlserver .ace_rparen,\n.ace-sqlserver .ace_punctuation {\n    color: #808080;\n}\n\n.ace-sqlserver .ace_set.ace_statement {\n    color: #0000FF;\n    text-decoration: underline;\n}\n\n.ace-sqlserver .ace_cursor {\n    color: black;\n}\n\n.ace-sqlserver .ace_invisible {\n    color: rgb(191, 191, 191);\n}\n\n.ace-sqlserver .ace_constant.ace_buildin {\n    color: rgb(88, 72, 246);\n}\n\n.ace-sqlserver .ace_constant.ace_language {\n    color: #979797;\n}\n\n.ace-sqlserver .ace_constant.ace_library {\n    color: rgb(6, 150, 14);\n}\n\n.ace-sqlserver .ace_invalid {\n    background-color: rgb(153, 0, 0);\n    color: white;\n}\n\n.ace-sqlserver .ace_support.ace_function {\n    color: #FF00FF;\n}\n\n.ace-sqlserver .ace_support.ace_constant {\n    color: rgb(6, 150, 14);\n}\n\n.ace-sqlserver .ace_class {\n    color: #008080;\n}\n\n.ace-sqlserver .ace_support.ace_other {\n    color: #6D79DE;\n}\n\n.ace-sqlserver .ace_variable.ace_parameter {\n    font-style: italic;\n    color: #FD971F;\n}\n\n.ace-sqlserver .ace_comment {\n    color: #008000;\n}\n\n.ace-sqlserver .ace_constant.ace_numeric {\n    color: black;\n}\n\n.ace-sqlserver .ace_variable {\n    color: rgb(49, 132, 149);\n}\n\n.ace-sqlserver .ace_xml-pe {\n    color: rgb(104, 104, 91);\n}\n\n.ace-sqlserver .ace_support.ace_storedprocedure {\n    color: #800000;\n}\n\n.ace-sqlserver .ace_heading {\n    color: rgb(12, 7, 255);\n}\n\n.ace-sqlserver .ace_list {\n    color: rgb(185, 6, 144);\n}\n\n.ace-sqlserver .ace_marker-layer .ace_selection {\n    background: rgb(181, 213, 255);\n}\n\n.ace-sqlserver .ace_marker-layer .ace_step {\n    background: rgb(252, 255, 0);\n}\n\n.ace-sqlserver .ace_marker-layer .ace_stack {\n    background: rgb(164, 229, 101);\n}\n\n.ace-sqlserver .ace_marker-layer .ace_bracket {\n    margin: -1px 0 0 -1px;\n    border: 1px solid rgb(192, 192, 192);\n}\n\n.ace-sqlserver .ace_marker-layer .ace_active-line {\n    background: rgba(0, 0, 0, 0.07);\n}\n\n.ace-sqlserver .ace_gutter-active-line {\n    background-color: #dcdcdc;\n}\n\n.ace-sqlserver .ace_marker-layer .ace_selected-word {\n    background: rgb(250, 250, 255);\n    border: 1px solid rgb(200, 200, 250);\n}\n\n.ace-sqlserver .ace_meta.ace_tag {\n    color: #0000FF;\n}\n\n.ace-sqlserver .ace_string.ace_regex {\n    color: #FF0000;\n}\n\n.ace-sqlserver .ace_string {\n    color: #FF0000;\n}\n\n.ace-sqlserver .ace_entity.ace_other.ace_attribute-name {\n    color: #994409;\n}\n\n.ace-sqlserver .ace_indent-guide {\n    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;\n}\n\n.ace-sqlserver .ace_indent-guide-active {\n  background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1MAAA6mAAADqYAAAXb5JfxUYAAAAZSURBVHjaYvj///9/hivKyv8BAAAA//8DACLqBhbvk+/eAAAAAElFTkSuQmCC") right repeat-y;\n} \n';
-  }), ace.define("ace/theme/sqlserver", ["require", "exports", "module", "ace/theme/sqlserver.css", "ace/lib/dom"], function(e13, t10, n10) {
-    t10.isDark = false, t10.cssClass = "ace-sqlserver", t10.cssText = e13("./sqlserver.css");
+  }), ace.define("ace/theme/sqlserver", ["require", "exports", "module", "ace/theme/sqlserver-css", "ace/lib/dom"], function(e13, t10, n10) {
+    t10.isDark = false, t10.cssClass = "ace-sqlserver", t10.cssText = e13("./sqlserver-css");
     var r10 = e13("../lib/dom");
     r10.importCssString(t10.cssText, t10.cssClass, false);
   });
@@ -53454,9 +54199,9 @@ var themeSqlserver = { exports: {} };
 })(themeSqlserver);
 var modeJavascript = { exports: {} };
 (function(module, exports) {
-  ace.define("ace/mode/doc_comment_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(e13, t10, n10) {
+  ace.define("ace/mode/jsdoc_comment_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(e13, t10, n10) {
     var r10 = e13("../lib/oop"), i10 = e13("./text_highlight_rules").TextHighlightRules, s10 = function() {
-      this.$rules = { start: [{ token: "comment.doc.tag", regex: "@[\\w\\d_]+" }, s10.getTagRule(), { defaultToken: "comment.doc", caseInsensitive: true }] };
+      this.$rules = { start: [{ token: ["comment.doc.tag", "comment.doc.text", "lparen.doc"], regex: "(@(?:param|member|typedef|property|namespace|var|const|callback))(\\s*)({)", push: [{ token: "lparen.doc", regex: "{", push: [{ include: "doc-syntax" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }] }, { token: ["rparen.doc", "text.doc", "variable.parameter.doc", "lparen.doc", "variable.parameter.doc", "rparen.doc"], regex: /(})(\s*)(?:([\w=:\/\.]+)|(?:(\[)([\w=:\/\.]+)(\])))/, next: "pop" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }, { include: "doc-syntax" }, { defaultToken: "text.doc" }] }, { token: ["comment.doc.tag", "text.doc", "lparen.doc"], regex: "(@(?:returns?|yields|type|this|suppress|public|protected|private|package|modifies|implements|external|exception|throws|enum|define|extends))(\\s*)({)", push: [{ token: "lparen.doc", regex: "{", push: [{ include: "doc-syntax" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }] }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }, { include: "doc-syntax" }, { defaultToken: "text.doc" }] }, { token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"], regex: '(@(?:alias|memberof|instance|module|name|lends|namespace|external|this|template|requires|param|implements|function|extends|typedef|mixes|constructor|var|memberof\\!|event|listens|exports|class|constructs|interface|emits|fires|throws|const|callback|borrows|augments))(\\s+)(\\w[\\w#.:/~"\\-]*)?' }, { token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"], regex: "(@method)(\\s+)(\\w[\\w.\\(\\)]*)" }, { token: "comment.doc.tag", regex: "@access\\s+(?:private|public|protected)" }, { token: "comment.doc.tag", regex: "@kind\\s+(?:class|constant|event|external|file|function|member|mixin|module|namespace|typedef)" }, { token: "comment.doc.tag", regex: "@\\w+(?=\\s|$)" }, s10.getTagRule(), { defaultToken: "comment.doc", caseInsensitive: true }], "doc-syntax": [{ token: "operator.doc", regex: /[|:]/ }, { token: "paren.doc", regex: /[\[\]]/ }] }, this.normalizeRules();
     };
     r10.inherits(s10, i10), s10.getTagRule = function(e14) {
       return { token: "comment.doc.tag.storage.type", regex: "\\b(?:TODO|FIXME|XXX|HACK)\\b" };
@@ -53464,8 +54209,8 @@ var modeJavascript = { exports: {} };
       return { token: "comment.doc", regex: "\\/\\*(?=\\*)", next: e14 };
     }, s10.getEndRule = function(e14) {
       return { token: "comment.doc", regex: "\\*\\/", next: e14 };
-    }, t10.DocCommentHighlightRules = s10;
-  }), ace.define("ace/mode/javascript_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/doc_comment_highlight_rules", "ace/mode/text_highlight_rules"], function(e13, t10, n10) {
+    }, t10.JsDocCommentHighlightRules = s10;
+  }), ace.define("ace/mode/javascript_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/jsdoc_comment_highlight_rules", "ace/mode/text_highlight_rules"], function(e13, t10, n10) {
     function a10() {
       var e14 = o10.replace("\\d", "\\d\\-"), t11 = { onMatch: function(e15, t12, n12) {
         var r11 = e15.charAt(1) == "/" ? 2 : 1;
@@ -53487,9 +54232,9 @@ var modeJavascript = { exports: {} };
     function f10(e14) {
       return [{ token: "comment", regex: /\/\*/, next: [i10.getTagRule(), { token: "comment", regex: "\\*\\/", next: e14 || "pop" }, { defaultToken: "comment", caseInsensitive: true }] }, { token: "comment", regex: "\\/\\/", next: [i10.getTagRule(), { token: "comment", regex: "$|^", next: e14 || "pop" }, { defaultToken: "comment", caseInsensitive: true }] }];
     }
-    var r10 = e13("../lib/oop"), i10 = e13("./doc_comment_highlight_rules").DocCommentHighlightRules, s10 = e13("./text_highlight_rules").TextHighlightRules, o10 = "[a-zA-Z\\$_\xA1-\uFFFF][a-zA-Z\\d\\$_\xA1-\uFFFF]*", u10 = function(e14) {
+    var r10 = e13("../lib/oop"), i10 = e13("./jsdoc_comment_highlight_rules").JsDocCommentHighlightRules, s10 = e13("./text_highlight_rules").TextHighlightRules, o10 = "[a-zA-Z\\$_\xA1-\uFFFF][a-zA-Z\\d\\$_\xA1-\uFFFF]*", u10 = function(e14) {
       var t11 = this.createKeywordMapper({ "variable.language": "Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|Symbol|Namespace|QName|XML|XMLList|ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|SyntaxError|TypeError|URIError|decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|isNaN|parseFloat|parseInt|JSON|Math|this|arguments|prototype|window|document", keyword: "const|yield|import|get|set|async|await|break|case|catch|continue|default|delete|do|else|finally|for|function|if|in|of|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|__parent__|__count__|escape|unescape|with|__proto__|class|enum|extends|super|export|implements|private|public|interface|package|protected|static|constructor", "storage.type": "const|let|var|function", "constant.language": "null|Infinity|NaN|undefined", "support.function": "alert", "constant.language.boolean": "true|false" }, "identifier"), n11 = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield|void", r11 = "\\\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|u{[0-9a-fA-F]{1,6}}|[0-2][0-7]{0,2}|3[0-7][0-7]?|[4-7][0-7]?|.)";
-      this.$rules = { no_regex: [i10.getStartRule("doc-start"), f10("no_regex"), { token: "string", regex: "'(?=.)", next: "qstring" }, { token: "string", regex: '"(?=.)', next: "qqstring" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: ["storage.type", "punctuation.operator", "support.function", "punctuation.operator", "entity.name.function", "text", "keyword.operator"], regex: "(" + o10 + ")(\\.)(prototype)(\\.)(" + o10 + ")(\\s*)(=)", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s+)(\\w+)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function\\*?)(\\s+)(" + o10 + ")(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "punctuation.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(:)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["text", "text", "storage.type", "text", "paren.lparen"], regex: "(:)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: "keyword", regex: `from(?=\\s*('|"))` }, { token: "keyword", regex: "(?:" + n11 + ")\\b", next: "start" }, { token: "support.constant", regex: /that\b/ }, { token: ["storage.type", "punctuation.operator", "support.function.firebug"], regex: /(console)(\.)(warn|info|log|error|time|trace|timeEnd|assert)\b/ }, { token: t11, regex: o10 }, { token: "punctuation.operator", regex: /[.](?![.])/, next: "property" }, { token: "storage.type", regex: /=>/, next: "start" }, { token: "keyword.operator", regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/, next: "start" }, { token: "punctuation.operator", regex: /[?:,;.]/, next: "start" }, { token: "paren.lparen", regex: /[\[({]/, next: "start" }, { token: "paren.rparen", regex: /[\])}]/ }, { token: "comment", regex: /^#!.*$/ }], property: [{ token: "text", regex: "\\s+" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(?:(\\s+)(\\w+))?(\\s*)(\\()", next: "function_arguments" }, { token: "punctuation.operator", regex: /[.](?![.])/ }, { token: "support.function", regex: /(s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|lter|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward|rEach)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\b(?=\()/ }, { token: "support.function.dom", regex: /(s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName|ClassName)|ById)|Attribute(?:Node)?)|blur)\b(?=\()/ }, { token: "support.constant", regex: /(s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\b/ }, { token: "identifier", regex: o10 }, { regex: "", token: "empty", next: "no_regex" }], start: [i10.getStartRule("doc-start"), f10("start"), { token: "string.regexp", regex: "\\/", next: "regex" }, { token: "text", regex: "\\s+|^$", next: "start" }, { token: "empty", regex: "", next: "no_regex" }], regex: [{ token: "regexp.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "string.regexp", regex: "/[sxngimy]*", next: "no_regex" }, { token: "invalid", regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/ }, { token: "constant.language.escape", regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/ }, { token: "constant.language.delimiter", regex: /\|/ }, { token: "constant.language.escape", regex: /\[\^?/, next: "regex_character_class" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp" }], regex_character_class: [{ token: "regexp.charclass.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "constant.language.escape", regex: "]", next: "regex" }, { token: "constant.language.escape", regex: "-" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp.charachterclass" }], default_parameter: [{ token: "string", regex: "'(?=.)", push: [{ token: "string", regex: "'|$", next: "pop" }, { include: "qstring" }] }, { token: "string", regex: '"(?=.)', push: [{ token: "string", regex: '"|$', next: "pop" }, { include: "qqstring" }] }, { token: "constant.language", regex: "null|Infinity|NaN|undefined" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: "punctuation.operator", regex: ",", next: "function_arguments" }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], function_arguments: [f10("function_arguments"), { token: "variable.parameter", regex: o10 }, { token: "punctuation.operator", regex: "," }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], qqstring: [{ token: "constant.language.escape", regex: r11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: '"|$', next: "no_regex" }, { defaultToken: "string" }], qstring: [{ token: "constant.language.escape", regex: r11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: "'|$", next: "no_regex" }, { defaultToken: "string" }] };
+      this.$rules = { no_regex: [i10.getStartRule("doc-start"), f10("no_regex"), { token: "string", regex: "'(?=.)", next: "qstring" }, { token: "string", regex: '"(?=.)', next: "qqstring" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: ["storage.type", "punctuation.operator", "support.function", "punctuation.operator", "entity.name.function", "text", "keyword.operator"], regex: "(" + o10 + ")(\\.)(prototype)(\\.)(" + o10 + ")(\\s*)(=)", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s+)(\\w+)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function\\*?)(\\s+)(" + o10 + ")(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "punctuation.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(:)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["text", "text", "storage.type", "text", "paren.lparen"], regex: "(:)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: "keyword", regex: `from(?=\\s*('|"))` }, { token: "keyword", regex: "(?:" + n11 + ")\\b", next: "start" }, { token: "support.constant", regex: /that\b/ }, { token: ["storage.type", "punctuation.operator", "support.function.firebug"], regex: /(console)(\.)(warn|info|log|error|debug|time|trace|timeEnd|assert)\b/ }, { token: t11, regex: o10 }, { token: "punctuation.operator", regex: /[.](?![.])/, next: "property" }, { token: "storage.type", regex: /=>/, next: "start" }, { token: "keyword.operator", regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/, next: "start" }, { token: "punctuation.operator", regex: /[?:,;.]/, next: "start" }, { token: "paren.lparen", regex: /[\[({]/, next: "start" }, { token: "paren.rparen", regex: /[\])}]/ }, { token: "comment", regex: /^#!.*$/ }], property: [{ token: "text", regex: "\\s+" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(?:(\\s+)(\\w+))?(\\s*)(\\()", next: "function_arguments" }, { token: "punctuation.operator", regex: /[.](?![.])/ }, { token: "support.function", regex: /(s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|lter|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward|rEach)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\b(?=\()/ }, { token: "support.function.dom", regex: /(s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName|ClassName)|ById)|Attribute(?:Node)?)|blur)\b(?=\()/ }, { token: "support.constant", regex: /(s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\b/ }, { token: "identifier", regex: o10 }, { regex: "", token: "empty", next: "no_regex" }], start: [i10.getStartRule("doc-start"), f10("start"), { token: "string.regexp", regex: "\\/", next: "regex" }, { token: "text", regex: "\\s+|^$", next: "start" }, { token: "empty", regex: "", next: "no_regex" }], regex: [{ token: "regexp.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "string.regexp", regex: "/[sxngimy]*", next: "no_regex" }, { token: "invalid", regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/ }, { token: "constant.language.escape", regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/ }, { token: "constant.language.delimiter", regex: /\|/ }, { token: "constant.language.escape", regex: /\[\^?/, next: "regex_character_class" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp" }], regex_character_class: [{ token: "regexp.charclass.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "constant.language.escape", regex: "]", next: "regex" }, { token: "constant.language.escape", regex: "-" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp.charachterclass" }], default_parameter: [{ token: "string", regex: "'(?=.)", push: [{ token: "string", regex: "'|$", next: "pop" }, { include: "qstring" }] }, { token: "string", regex: '"(?=.)', push: [{ token: "string", regex: '"|$', next: "pop" }, { include: "qqstring" }] }, { token: "constant.language", regex: "null|Infinity|NaN|undefined" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: "punctuation.operator", regex: ",", next: "function_arguments" }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], function_arguments: [f10("function_arguments"), { token: "variable.parameter", regex: o10 }, { token: "punctuation.operator", regex: "," }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], qqstring: [{ token: "constant.language.escape", regex: r11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: '"|$', next: "no_regex" }, { defaultToken: "string" }], qstring: [{ token: "constant.language.escape", regex: r11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: "'|$", next: "no_regex" }, { defaultToken: "string" }] };
       if (!e14 || !e14.noES6)
         this.$rules.no_regex.unshift({ regex: "[{}]", onMatch: function(e15, t12, n12) {
           this.next = e15 == "{" ? this.nextState : "";
@@ -53729,11 +54474,11 @@ var modeJson = { exports: {} };
           return new i10(o11, r11, l10, t11.length);
       };
     }.call(o10.prototype);
-  }), ace.define("ace/mode/json", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/json_highlight_rules", "ace/mode/matching_brace_outdent", "ace/mode/behaviour/cstyle", "ace/mode/folding/cstyle", "ace/worker/worker_client"], function(e13, t10, n10) {
-    var r10 = e13("../lib/oop"), i10 = e13("./text").Mode, s10 = e13("./json_highlight_rules").JsonHighlightRules, o10 = e13("./matching_brace_outdent").MatchingBraceOutdent, u10 = e13("./behaviour/cstyle").CstyleBehaviour, a10 = e13("./folding/cstyle").FoldMode, f10 = e13("../worker/worker_client").WorkerClient, l10 = function() {
-      this.HighlightRules = s10, this.$outdent = new o10(), this.$behaviour = new u10(), this.foldingRules = new a10();
+  }), ace.define("ace/mode/json", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/json_highlight_rules", "ace/mode/matching_brace_outdent", "ace/mode/folding/cstyle", "ace/worker/worker_client"], function(e13, t10, n10) {
+    var r10 = e13("../lib/oop"), i10 = e13("./text").Mode, s10 = e13("./json_highlight_rules").JsonHighlightRules, o10 = e13("./matching_brace_outdent").MatchingBraceOutdent, u10 = e13("./folding/cstyle").FoldMode, a10 = e13("../worker/worker_client").WorkerClient, f10 = function() {
+      this.HighlightRules = s10, this.$outdent = new o10(), this.$behaviour = this.$defaultBehaviour, this.foldingRules = new u10();
     };
-    r10.inherits(l10, i10), function() {
+    r10.inherits(f10, i10), function() {
       this.lineCommentStart = "//", this.blockComment = { start: "/*", end: "*/" }, this.getNextLineIndent = function(e14, t11, n11) {
         var r11 = this.$getIndent(t11);
         if (e14 == "start") {
@@ -53746,14 +54491,14 @@ var modeJson = { exports: {} };
       }, this.autoOutdent = function(e14, t11, n11) {
         this.$outdent.autoOutdent(t11, n11);
       }, this.createWorker = function(e14) {
-        var t11 = new f10(["ace"], "ace/mode/json_worker", "JsonWorker");
+        var t11 = new a10(["ace"], "ace/mode/json_worker", "JsonWorker");
         return t11.attachToDocument(e14.getDocument()), t11.on("annotate", function(t12) {
           e14.setAnnotations(t12.data);
         }), t11.on("terminate", function() {
           e14.clearAnnotations();
         }), t11;
       }, this.$id = "ace/mode/json";
-    }.call(l10.prototype), t10.Mode = l10;
+    }.call(f10.prototype), t10.Mode = f10;
   });
   (function() {
     ace.require(["ace/mode/json"], function(m10) {
@@ -54028,64 +54773,64 @@ var extLanguage_tools = { exports: {} };
     }, CURRENT_YEAR: p10.bind(null, { year: "numeric" }), CURRENT_YEAR_SHORT: p10.bind(null, { year: "2-digit" }), CURRENT_MONTH: p10.bind(null, { month: "numeric" }), CURRENT_MONTH_NAME: p10.bind(null, { month: "long" }), CURRENT_MONTH_NAME_SHORT: p10.bind(null, { month: "short" }), CURRENT_DATE: p10.bind(null, { day: "2-digit" }), CURRENT_DAY_NAME: p10.bind(null, { weekday: "long" }), CURRENT_DAY_NAME_SHORT: p10.bind(null, { weekday: "short" }), CURRENT_HOUR: p10.bind(null, { hour: "2-digit", hour12: false }), CURRENT_MINUTE: p10.bind(null, { minute: "2-digit" }), CURRENT_SECOND: p10.bind(null, { second: "2-digit" }) };
     h10.SELECTED_TEXT = h10.SELECTION;
     var d10 = function() {
-      this.snippetMap = {}, this.snippetNameMap = {};
-    };
-    (function() {
-      i10.implement(this, s10), this.getTokenizer = function() {
-        return d10.$tokenizer || this.createTokenizer();
-      }, this.createTokenizer = function() {
-        function e15(e16) {
-          return e16 = e16.substr(1), /^\d+$/.test(e16) ? [{ tabstopId: parseInt(e16, 10) }] : [{ text: e16 }];
+      function e14() {
+        this.snippetMap = {}, this.snippetNameMap = {}, this.variables = h10;
+      }
+      return e14.prototype.getTokenizer = function() {
+        return e14.$tokenizer || this.createTokenizer();
+      }, e14.prototype.createTokenizer = function() {
+        function t11(e15) {
+          return e15 = e15.substr(1), /^\d+$/.test(e15) ? [{ tabstopId: parseInt(e15, 10) }] : [{ text: e15 }];
         }
-        function t11(e16) {
-          return "(?:[^\\\\" + e16 + "]|\\\\.)";
+        function n11(e15) {
+          return "(?:[^\\\\" + e15 + "]|\\\\.)";
         }
-        var n11 = { regex: "/(" + t11("/") + "+)/", onMatch: function(e16, t12, n12) {
-          var r11 = n12[0];
-          return r11.fmtString = true, r11.guard = e16.slice(1, -1), r11.flag = "", "";
+        var r11 = { regex: "/(" + n11("/") + "+)/", onMatch: function(e15, t12, n12) {
+          var r12 = n12[0];
+          return r12.fmtString = true, r12.guard = e15.slice(1, -1), r12.flag = "", "";
         }, next: "formatString" };
-        return d10.$tokenizer = new l10({ start: [{ regex: /\\./, onMatch: function(e16, t12, n12) {
-          var r11 = e16[1];
-          return r11 == "}" && n12.length ? e16 = r11 : "`$\\".indexOf(r11) != -1 && (e16 = r11), [e16];
-        } }, { regex: /}/, onMatch: function(e16, t12, n12) {
-          return [n12.length ? n12.shift() : e16];
-        } }, { regex: /\$(?:\d+|\w+)/, onMatch: e15 }, { regex: /\$\{[\dA-Z_a-z]+/, onMatch: function(t12, n12, r11) {
-          var i11 = e15(t12.substr(1));
-          return r11.unshift(i11[0]), i11;
-        }, next: "snippetVar" }, { regex: /\n/, token: "newline", merge: false }], snippetVar: [{ regex: "\\|" + t11("\\|") + "*\\|", onMatch: function(e16, t12, n12) {
-          var r11 = e16.slice(1, -1).replace(/\\[,|\\]|,/g, function(e17) {
-            return e17.length == 2 ? e17[1] : "\0";
-          }).split("\0").map(function(e17) {
-            return { value: e17 };
+        return e14.$tokenizer = new l10({ start: [{ regex: /\\./, onMatch: function(e15, t12, n12) {
+          var r12 = e15[1];
+          return r12 == "}" && n12.length ? e15 = r12 : "`$\\".indexOf(r12) != -1 && (e15 = r12), [e15];
+        } }, { regex: /}/, onMatch: function(e15, t12, n12) {
+          return [n12.length ? n12.shift() : e15];
+        } }, { regex: /\$(?:\d+|\w+)/, onMatch: t11 }, { regex: /\$\{[\dA-Z_a-z]+/, onMatch: function(e15, n12, r12) {
+          var i11 = t11(e15.substr(1));
+          return r12.unshift(i11[0]), i11;
+        }, next: "snippetVar" }, { regex: /\n/, token: "newline", merge: false }], snippetVar: [{ regex: "\\|" + n11("\\|") + "*\\|", onMatch: function(e15, t12, n12) {
+          var r12 = e15.slice(1, -1).replace(/\\[,|\\]|,/g, function(e16) {
+            return e16.length == 2 ? e16[1] : "\0";
+          }).split("\0").map(function(e16) {
+            return { value: e16 };
           });
-          return n12[0].choices = r11, [r11[0]];
-        }, next: "start" }, n11, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "start" }], formatString: [{ regex: /:/, onMatch: function(e16, t12, n12) {
+          return n12[0].choices = r12, [r12[0]];
+        }, next: "start" }, r11, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "start" }], formatString: [{ regex: /:/, onMatch: function(e15, t12, n12) {
           return n12.length && n12[0].expectElse ? (n12[0].expectElse = false, n12[0].ifEnd = { elseEnd: n12[0] }, [n12[0].ifEnd]) : ":";
-        } }, { regex: /\\./, onMatch: function(e16, t12, n12) {
-          var r11 = e16[1];
-          return r11 == "}" && n12.length ? e16 = r11 : "`$\\".indexOf(r11) != -1 ? e16 = r11 : r11 == "n" ? e16 = "\n" : r11 == "t" ? e16 = "	" : "ulULE".indexOf(r11) != -1 && (e16 = { changeCase: r11, local: r11 > "a" }), [e16];
-        } }, { regex: "/\\w*}", onMatch: function(e16, t12, n12) {
-          var r11 = n12.shift();
-          return r11 && (r11.flag = e16.slice(1, -1)), this.next = r11 && r11.tabstopId ? "start" : "", [r11 || e16];
-        }, next: "start" }, { regex: /\$(?:\d+|\w+)/, onMatch: function(e16, t12, n12) {
-          return [{ text: e16.slice(1) }];
-        } }, { regex: /\${\w+/, onMatch: function(e16, t12, n12) {
-          var r11 = { text: e16.slice(2) };
-          return n12.unshift(r11), [r11];
-        }, next: "formatStringVar" }, { regex: /\n/, token: "newline", merge: false }, { regex: /}/, onMatch: function(e16, t12, n12) {
-          var r11 = n12.shift();
-          return this.next = r11 && r11.tabstopId ? "start" : "", [r11 || e16];
-        }, next: "start" }], formatStringVar: [{ regex: /:\/\w+}/, onMatch: function(e16, t12, n12) {
-          var r11 = n12[0];
-          return r11.formatFunction = e16.slice(2, -1), [n12.shift()];
-        }, next: "formatString" }, n11, { regex: /:[\?\-+]?/, onMatch: function(e16, t12, n12) {
-          e16[1] == "+" && (n12[0].ifEnd = n12[0]), e16[1] == "?" && (n12[0].expectElse = true);
-        }, next: "formatString" }, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "formatString" }] }), d10.$tokenizer;
-      }, this.tokenizeTmSnippet = function(e15, t11) {
+        } }, { regex: /\\./, onMatch: function(e15, t12, n12) {
+          var r12 = e15[1];
+          return r12 == "}" && n12.length ? e15 = r12 : "`$\\".indexOf(r12) != -1 ? e15 = r12 : r12 == "n" ? e15 = "\n" : r12 == "t" ? e15 = "	" : "ulULE".indexOf(r12) != -1 && (e15 = { changeCase: r12, local: r12 > "a" }), [e15];
+        } }, { regex: "/\\w*}", onMatch: function(e15, t12, n12) {
+          var r12 = n12.shift();
+          return r12 && (r12.flag = e15.slice(1, -1)), this.next = r12 && r12.tabstopId ? "start" : "", [r12 || e15];
+        }, next: "start" }, { regex: /\$(?:\d+|\w+)/, onMatch: function(e15, t12, n12) {
+          return [{ text: e15.slice(1) }];
+        } }, { regex: /\${\w+/, onMatch: function(e15, t12, n12) {
+          var r12 = { text: e15.slice(2) };
+          return n12.unshift(r12), [r12];
+        }, next: "formatStringVar" }, { regex: /\n/, token: "newline", merge: false }, { regex: /}/, onMatch: function(e15, t12, n12) {
+          var r12 = n12.shift();
+          return this.next = r12 && r12.tabstopId ? "start" : "", [r12 || e15];
+        }, next: "start" }], formatStringVar: [{ regex: /:\/\w+}/, onMatch: function(e15, t12, n12) {
+          var r12 = n12[0];
+          return r12.formatFunction = e15.slice(2, -1), [n12.shift()];
+        }, next: "formatString" }, r11, { regex: /:[\?\-+]?/, onMatch: function(e15, t12, n12) {
+          e15[1] == "+" && (n12[0].ifEnd = n12[0]), e15[1] == "?" && (n12[0].expectElse = true);
+        }, next: "formatString" }, { regex: "([^:}\\\\]|\\\\.)*:?", token: "", next: "formatString" }] }), e14.$tokenizer;
+      }, e14.prototype.tokenizeTmSnippet = function(e15, t11) {
         return this.getTokenizer().getLineTokens(e15, t11).tokens.map(function(e16) {
           return e16.value || e16;
         });
-      }, this.getVariableValue = function(e15, t11, n11) {
+      }, e14.prototype.getVariableValue = function(e15, t11, n11) {
         if (/^\d+$/.test(t11))
           return (this.variables.__ || {})[t11] || "";
         if (/^[A-Z]\d+$/.test(t11))
@@ -54095,7 +54840,7 @@ var extLanguage_tools = { exports: {} };
           return "";
         var r11 = this.variables[t11];
         return typeof r11 == "function" && (r11 = this.variables[t11](e15, t11, n11)), r11 == null ? "" : r11;
-      }, this.variables = h10, this.tmStrFormat = function(e15, t11, n11) {
+      }, e14.prototype.tmStrFormat = function(e15, t11, n11) {
         if (!t11.fmt)
           return e15;
         var r11 = t11.flag || "", i11 = t11.guard;
@@ -54119,9 +54864,9 @@ var extLanguage_tools = { exports: {} };
           return o11.variables.__ = e16, t12.join("");
         });
         return u11;
-      }, this.tmFormatFunction = function(e15, t11, n11) {
+      }, e14.prototype.tmFormatFunction = function(e15, t11, n11) {
         return t11.formatFunction == "upcase" ? e15.toUpperCase() : t11.formatFunction == "downcase" ? e15.toLowerCase() : e15;
-      }, this.resolveVariables = function(e15, t11) {
+      }, e14.prototype.resolveVariables = function(e15, t11) {
         function f11(t12) {
           var n12 = e15.indexOf(t12, s11 + 1);
           n12 != -1 && (s11 = n12);
@@ -54147,89 +54892,22 @@ var extLanguage_tools = { exports: {} };
             o11.elseEnd ? f11(o11.elseEnd) : o11.tabstopId != null ? n11.push(o11) : o11.changeCase != null && n11.push(o11);
         }
         return n11;
-      };
-      var e14 = function(e15, t11, n11) {
-        function l11(e16) {
-          var t12 = [];
-          for (var n12 = 0; n12 < e16.length; n12++) {
-            var r12 = e16[n12];
-            if (typeof r12 == "object") {
-              if (f11[r12.tabstopId])
-                continue;
-              var i12 = e16.lastIndexOf(r12, n12 - 1);
-              r12 = t12[i12] || { tabstopId: r12.tabstopId };
-            }
-            t12[n12] = r12;
-          }
-          return t12;
-        }
-        var r11 = e15.getCursorPosition(), i11 = e15.session.getLine(r11.row), s11 = e15.session.getTabString(), o11 = i11.match(/^\s*/)[0];
-        r11.column < o11.length && (o11 = o11.slice(0, r11.column)), t11 = t11.replace(/\r/g, "");
-        var u11 = this.tokenizeTmSnippet(t11);
-        u11 = this.resolveVariables(u11, e15), u11 = u11.map(function(e16) {
-          return e16 == "\n" ? e16 + o11 : typeof e16 == "string" ? e16.replace(/\t/g, s11) : e16;
-        });
-        var a11 = [];
-        u11.forEach(function(e16, t12) {
-          if (typeof e16 != "object")
-            return;
-          var n12 = e16.tabstopId, r12 = a11[n12];
-          r12 || (r12 = a11[n12] = [], r12.index = n12, r12.value = "", r12.parents = {});
-          if (r12.indexOf(e16) !== -1)
-            return;
-          e16.choices && !r12.choices && (r12.choices = e16.choices), r12.push(e16);
-          var i12 = u11.indexOf(e16, t12 + 1);
-          if (i12 === -1)
-            return;
-          var s12 = u11.slice(t12 + 1, i12), o12 = s12.some(function(e17) {
-            return typeof e17 == "object";
-          });
-          o12 && !r12.value ? r12.value = s12 : s12.length && (!r12.value || typeof r12.value != "string") && (r12.value = s12.join(""));
-        }), a11.forEach(function(e16) {
-          e16.length = 0;
-        });
-        var f11 = {};
-        for (var c11 = 0; c11 < u11.length; c11++) {
-          var h11 = u11[c11];
-          if (typeof h11 != "object")
-            continue;
-          var p11 = h11.tabstopId, d11 = a11[p11], v11 = u11.indexOf(h11, c11 + 1);
-          if (f11[p11]) {
-            f11[p11] === h11 && (delete f11[p11], Object.keys(f11).forEach(function(e16) {
-              d11.parents[e16] = true;
-            }));
-            continue;
-          }
-          f11[p11] = h11;
-          var m11 = d11.value;
-          typeof m11 != "string" ? m11 = l11(m11) : h11.fmt && (m11 = this.tmStrFormat(m11, h11, e15)), u11.splice.apply(u11, [c11 + 1, Math.max(0, v11 - c11)].concat(m11, h11)), d11.indexOf(h11) === -1 && d11.push(h11);
-        }
-        var g11 = 0, y11 = 0, b10 = "";
-        return u11.forEach(function(e16) {
-          if (typeof e16 == "string") {
-            var t12 = e16.split("\n");
-            t12.length > 1 ? (y11 = t12[t12.length - 1].length, g11 += t12.length - 1) : y11 += e16.length, b10 += e16;
-          } else
-            e16 && (e16.start ? e16.end = { row: g11, column: y11 } : e16.start = { row: g11, column: y11 });
-        }), { text: b10, tabstops: a11, tokens: u11 };
-      };
-      this.getDisplayTextForSnippet = function(t11, n11) {
-        var r11 = e14.call(this, t11, n11);
-        return r11.text;
-      }, this.insertSnippetForSelection = function(t11, n11, r11) {
-        var i11 = e14.call(this, t11, n11), s11 = t11.getSelectionRange();
-        r11 && r11.compareRange(s11) === 0 && (s11 = r11);
-        var o11 = t11.session.replace(s11, i11.text), u11 = new v10(t11), a11 = t11.inVirtualSelectionMode && t11.selection.index;
-        u11.addTabstops(i11.tabstops, s11.start, o11, a11);
-      }, this.insertSnippet = function(e15, t11, n11) {
+      }, e14.prototype.getDisplayTextForSnippet = function(e15, t11) {
+        var n11 = v10.call(this, e15, t11);
+        return n11.text;
+      }, e14.prototype.insertSnippetForSelection = function(e15, t11, n11) {
+        n11 === void 0 && (n11 = {});
+        var r11 = v10.call(this, e15, t11, n11), i11 = e15.getSelectionRange(), s11 = e15.session.replace(i11, r11.text), o11 = new m10(e15), u11 = e15.inVirtualSelectionMode && e15.selection.index;
+        o11.addTabstops(r11.tabstops, i11.start, s11, u11);
+      }, e14.prototype.insertSnippet = function(e15, t11, n11) {
+        n11 === void 0 && (n11 = {});
         var r11 = this;
-        n11 && !(n11 instanceof u10) && (n11 = u10.fromPoints(n11.start, n11.end));
         if (e15.inVirtualSelectionMode)
           return r11.insertSnippetForSelection(e15, t11, n11);
         e15.forEachSelection(function() {
           r11.insertSnippetForSelection(e15, t11, n11);
         }, null, { keepOrder: true }), e15.tabstopManager && e15.tabstopManager.tabNext();
-      }, this.$getScope = function(e15) {
+      }, e14.prototype.$getScope = function(e15) {
         var t11 = e15.session.$mode.$id || "";
         t11 = t11.split("/").pop();
         if (t11 === "html" || t11 === "php") {
@@ -54238,21 +54916,21 @@ var extLanguage_tools = { exports: {} };
           typeof r11 == "object" && (r11 = r11[0]), r11.substring && (r11.substring(0, 3) == "js-" ? t11 = "javascript" : r11.substring(0, 4) == "css-" ? t11 = "css" : r11.substring(0, 4) == "php-" && (t11 = "php"));
         }
         return t11;
-      }, this.getActiveScopes = function(e15) {
+      }, e14.prototype.getActiveScopes = function(e15) {
         var t11 = this.$getScope(e15), n11 = [t11], r11 = this.snippetMap;
         return r11[t11] && r11[t11].includeScopes && n11.push.apply(n11, r11[t11].includeScopes), n11.push("_"), n11;
-      }, this.expandWithTab = function(e15, t11) {
+      }, e14.prototype.expandWithTab = function(e15, t11) {
         var n11 = this, r11 = e15.forEachSelection(function() {
           return n11.expandSnippetForSelection(e15, t11);
         }, null, { keepOrder: true });
         return r11 && e15.tabstopManager && e15.tabstopManager.tabNext(), r11;
-      }, this.expandSnippetForSelection = function(e15, t11) {
+      }, e14.prototype.expandSnippetForSelection = function(e15, t11) {
         var n11 = e15.getCursorPosition(), r11 = e15.session.getLine(n11.row), i11 = r11.substring(0, n11.column), s11 = r11.substr(n11.column), o11 = this.snippetMap, u11;
         return this.getActiveScopes(e15).some(function(e16) {
           var t12 = o11[e16];
           return t12 && (u11 = this.findMatchingSnippet(t12, i11, s11)), !!u11;
         }, this), u11 ? t11 && t11.dryRun ? true : (e15.session.doc.removeInLine(n11.row, n11.column - u11.replaceBefore.length, n11.column + u11.replaceAfter.length), this.variables.M__ = u11.matchBefore, this.variables.T__ = u11.matchAfter, this.insertSnippetForSelection(e15, u11.content), this.variables.M__ = this.variables.T__ = null, true) : false;
-      }, this.findMatchingSnippet = function(e15, t11, n11) {
+      }, e14.prototype.findMatchingSnippet = function(e15, t11, n11) {
         for (var r11 = e15.length; r11--; ) {
           var i11 = e15[r11];
           if (i11.startRe && !i11.startRe.test(t11))
@@ -54263,7 +54941,7 @@ var extLanguage_tools = { exports: {} };
             continue;
           return i11.matchBefore = i11.startRe ? i11.startRe.exec(t11) : [""], i11.matchAfter = i11.endRe ? i11.endRe.exec(n11) : [""], i11.replaceBefore = i11.triggerRe ? i11.triggerRe.exec(t11)[0] : "", i11.replaceAfter = i11.endTriggerRe ? i11.endTriggerRe.exec(n11)[0] : "", i11;
         }
-      }, this.snippetMap = {}, this.snippetNameMap = {}, this.register = function(e15, t11) {
+      }, e14.prototype.register = function(e15, t11) {
         function s11(e16) {
           return e16 && !/^\^?\(.*\)\$?$|^\\b$/.test(e16) && (e16 = "(?:" + e16 + ")"), e16 || "";
         }
@@ -54286,7 +54964,7 @@ var extLanguage_tools = { exports: {} };
         e15 || (e15 = []), Array.isArray(e15) ? e15.forEach(a11) : Object.keys(e15).forEach(function(t12) {
           a11(e15[t12]);
         }), this._signal("registerSnippets", { scope: t11 });
-      }, this.unregister = function(e15, t11) {
+      }, e14.prototype.unregister = function(e15, t11) {
         function i11(e16) {
           var i12 = r11[e16.scope || t11];
           if (i12 && i12[e16.name]) {
@@ -54297,7 +54975,7 @@ var extLanguage_tools = { exports: {} };
         }
         var n11 = this.snippetMap, r11 = this.snippetNameMap;
         e15.content ? i11(e15) : Array.isArray(e15) && e15.forEach(i11);
-      }, this.parseSnippetFile = function(e15) {
+      }, e14.prototype.parseSnippetFile = function(e15) {
         e15 = e15.replace(/\r/g, "");
         var t11 = [], n11 = {}, r11 = /^#.*|^({[\s\S]*})\s*$|^(\S+) (.*)$|^((?:\n*\t.*)+)/gm, i11;
         while (i11 = r11.exec(e15)) {
@@ -54318,79 +54996,146 @@ var extLanguage_tools = { exports: {} };
           }
         }
         return t11;
-      }, this.getSnippetByName = function(e15, t11) {
+      }, e14.prototype.getSnippetByName = function(e15, t11) {
         var n11 = this.snippetNameMap, r11;
         return this.getActiveScopes(t11).some(function(t12) {
           var i11 = n11[t12];
           return i11 && (r11 = i11[e15]), !!r11;
         }, this), r11;
-      };
-    }).call(d10.prototype);
-    var v10 = function(e14) {
-      if (e14.tabstopManager)
-        return e14.tabstopManager;
-      e14.tabstopManager = this, this.$onChange = this.onChange.bind(this), this.$onChangeSelection = o10.delayedCall(this.onChangeSelection.bind(this)).schedule, this.$onChangeSession = this.onChangeSession.bind(this), this.$onAfterExec = this.onAfterExec.bind(this), this.attach(e14);
-    };
-    (function() {
-      this.attach = function(e14) {
-        this.index = 0, this.ranges = [], this.tabstops = [], this.$openTabstops = null, this.selectedTabstop = null, this.editor = e14, this.editor.on("change", this.$onChange), this.editor.on("changeSelection", this.$onChangeSelection), this.editor.on("changeSession", this.$onChangeSession), this.editor.commands.on("afterExec", this.$onAfterExec), this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
-      }, this.detach = function() {
-        this.tabstops.forEach(this.removeTabstopMarkers, this), this.ranges = null, this.tabstops = null, this.selectedTabstop = null, this.editor.removeListener("change", this.$onChange), this.editor.removeListener("changeSelection", this.$onChangeSelection), this.editor.removeListener("changeSession", this.$onChangeSession), this.editor.commands.removeListener("afterExec", this.$onAfterExec), this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.tabstopManager = null, this.editor = null;
-      }, this.onChange = function(e14) {
-        var t11 = e14.action[0] == "r", n11 = this.selectedTabstop || {}, r11 = n11.parents || {}, i11 = (this.tabstops || []).slice();
+      }, e14;
+    }();
+    i10.implement(d10.prototype, s10);
+    var v10 = function(e14, t11, n11) {
+      function l11(e15) {
+        var t12 = [];
+        for (var n12 = 0; n12 < e15.length; n12++) {
+          var r12 = e15[n12];
+          if (typeof r12 == "object") {
+            if (f11[r12.tabstopId])
+              continue;
+            var i12 = e15.lastIndexOf(r12, n12 - 1);
+            r12 = t12[i12] || { tabstopId: r12.tabstopId };
+          }
+          t12[n12] = r12;
+        }
+        return t12;
+      }
+      n11 === void 0 && (n11 = {});
+      var r11 = e14.getCursorPosition(), i11 = e14.session.getLine(r11.row), s11 = e14.session.getTabString(), o11 = i11.match(/^\s*/)[0];
+      r11.column < o11.length && (o11 = o11.slice(0, r11.column)), t11 = t11.replace(/\r/g, "");
+      var u11 = this.tokenizeTmSnippet(t11);
+      u11 = this.resolveVariables(u11, e14), u11 = u11.map(function(e15) {
+        return e15 == "\n" && !n11.excludeExtraIndent ? e15 + o11 : typeof e15 == "string" ? e15.replace(/\t/g, s11) : e15;
+      });
+      var a11 = [];
+      u11.forEach(function(e15, t12) {
+        if (typeof e15 != "object")
+          return;
+        var n12 = e15.tabstopId, r12 = a11[n12];
+        r12 || (r12 = a11[n12] = [], r12.index = n12, r12.value = "", r12.parents = {});
+        if (r12.indexOf(e15) !== -1)
+          return;
+        e15.choices && !r12.choices && (r12.choices = e15.choices), r12.push(e15);
+        var i12 = u11.indexOf(e15, t12 + 1);
+        if (i12 === -1)
+          return;
+        var s12 = u11.slice(t12 + 1, i12), o12 = s12.some(function(e16) {
+          return typeof e16 == "object";
+        });
+        o12 && !r12.value ? r12.value = s12 : s12.length && (!r12.value || typeof r12.value != "string") && (r12.value = s12.join(""));
+      }), a11.forEach(function(e15) {
+        e15.length = 0;
+      });
+      var f11 = {};
+      for (var c11 = 0; c11 < u11.length; c11++) {
+        var h11 = u11[c11];
+        if (typeof h11 != "object")
+          continue;
+        var p11 = h11.tabstopId, d11 = a11[p11], v11 = u11.indexOf(h11, c11 + 1);
+        if (f11[p11]) {
+          f11[p11] === h11 && (delete f11[p11], Object.keys(f11).forEach(function(e15) {
+            d11.parents[e15] = true;
+          }));
+          continue;
+        }
+        f11[p11] = h11;
+        var m11 = d11.value;
+        typeof m11 != "string" ? m11 = l11(m11) : h11.fmt && (m11 = this.tmStrFormat(m11, h11, e14)), u11.splice.apply(u11, [c11 + 1, Math.max(0, v11 - c11)].concat(m11, h11)), d11.indexOf(h11) === -1 && d11.push(h11);
+      }
+      var g11 = 0, y11 = 0, b11 = "";
+      return u11.forEach(function(e15) {
+        if (typeof e15 == "string") {
+          var t12 = e15.split("\n");
+          t12.length > 1 ? (y11 = t12[t12.length - 1].length, g11 += t12.length - 1) : y11 += e15.length, b11 += e15;
+        } else
+          e15 && (e15.start ? e15.end = { row: g11, column: y11 } : e15.start = { row: g11, column: y11 });
+      }), { text: b11, tabstops: a11, tokens: u11 };
+    }, m10 = function() {
+      function e14(e15) {
+        this.index = 0, this.ranges = [], this.tabstops = [];
+        if (e15.tabstopManager)
+          return e15.tabstopManager;
+        e15.tabstopManager = this, this.$onChange = this.onChange.bind(this), this.$onChangeSelection = o10.delayedCall(this.onChangeSelection.bind(this)).schedule, this.$onChangeSession = this.onChangeSession.bind(this), this.$onAfterExec = this.onAfterExec.bind(this), this.attach(e15);
+      }
+      return e14.prototype.attach = function(e15) {
+        this.$openTabstops = null, this.selectedTabstop = null, this.editor = e15, this.session = e15.session, this.editor.on("change", this.$onChange), this.editor.on("changeSelection", this.$onChangeSelection), this.editor.on("changeSession", this.$onChangeSession), this.editor.commands.on("afterExec", this.$onAfterExec), this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler);
+      }, e14.prototype.detach = function() {
+        this.tabstops.forEach(this.removeTabstopMarkers, this), this.ranges.length = 0, this.tabstops.length = 0, this.selectedTabstop = null, this.editor.off("change", this.$onChange), this.editor.off("changeSelection", this.$onChangeSelection), this.editor.off("changeSession", this.$onChangeSession), this.editor.commands.off("afterExec", this.$onAfterExec), this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.tabstopManager = null, this.session = null, this.editor = null;
+      }, e14.prototype.onChange = function(e15) {
+        var t11 = e15.action[0] == "r", n11 = this.selectedTabstop || {}, r11 = n11.parents || {}, i11 = this.tabstops.slice();
         for (var s11 = 0; s11 < i11.length; s11++) {
           var o11 = i11[s11], u11 = o11 == n11 || r11[o11.index];
           o11.rangeList.$bias = u11 ? 0 : 1;
-          if (e14.action == "remove" && o11 !== n11) {
-            var a11 = o11.parents && o11.parents[n11.index], f11 = o11.rangeList.pointIndex(e14.start, a11);
+          if (e15.action == "remove" && o11 !== n11) {
+            var a11 = o11.parents && o11.parents[n11.index], f11 = o11.rangeList.pointIndex(e15.start, a11);
             f11 = f11 < 0 ? -f11 - 1 : f11 + 1;
-            var l11 = o11.rangeList.pointIndex(e14.end, a11);
+            var l11 = o11.rangeList.pointIndex(e15.end, a11);
             l11 = l11 < 0 ? -l11 - 1 : l11 - 1;
             var c11 = o11.rangeList.ranges.slice(f11, l11);
             for (var h11 = 0; h11 < c11.length; h11++)
               this.removeRange(c11[h11]);
           }
-          o11.rangeList.$onChange(e14);
+          o11.rangeList.$onChange(e15);
         }
-        var p11 = this.editor.session;
+        var p11 = this.session;
         !this.$inChange && t11 && p11.getLength() == 1 && !p11.getValue() && this.detach();
-      }, this.updateLinkedFields = function() {
-        var e14 = this.selectedTabstop;
-        if (!e14 || !e14.hasLinkedRanges || !e14.firstNonLinked)
+      }, e14.prototype.updateLinkedFields = function() {
+        var e15 = this.selectedTabstop;
+        if (!e15 || !e15.hasLinkedRanges || !e15.firstNonLinked)
           return;
         this.$inChange = true;
-        var n11 = this.editor.session, r11 = n11.getTextRange(e14.firstNonLinked);
-        for (var i11 = 0; i11 < e14.length; i11++) {
-          var s11 = e14[i11];
+        var n11 = this.session, r11 = n11.getTextRange(e15.firstNonLinked);
+        for (var i11 = 0; i11 < e15.length; i11++) {
+          var s11 = e15[i11];
           if (!s11.linked)
             continue;
           var o11 = s11.original, u11 = t10.snippetManager.tmStrFormat(r11, o11, this.editor);
           n11.replace(s11, u11);
         }
         this.$inChange = false;
-      }, this.onAfterExec = function(e14) {
-        e14.command && !e14.command.readOnly && this.updateLinkedFields();
-      }, this.onChangeSelection = function() {
+      }, e14.prototype.onAfterExec = function(e15) {
+        e15.command && !e15.command.readOnly && this.updateLinkedFields();
+      }, e14.prototype.onChangeSelection = function() {
         if (!this.editor)
           return;
-        var e14 = this.editor.selection.lead, t11 = this.editor.selection.anchor, n11 = this.editor.selection.isEmpty();
+        var e15 = this.editor.selection.lead, t11 = this.editor.selection.anchor, n11 = this.editor.selection.isEmpty();
         for (var r11 = 0; r11 < this.ranges.length; r11++) {
           if (this.ranges[r11].linked)
             continue;
-          var i11 = this.ranges[r11].contains(e14.row, e14.column), s11 = n11 || this.ranges[r11].contains(t11.row, t11.column);
+          var i11 = this.ranges[r11].contains(e15.row, e15.column), s11 = n11 || this.ranges[r11].contains(t11.row, t11.column);
           if (i11 && s11)
             return;
         }
         this.detach();
-      }, this.onChangeSession = function() {
+      }, e14.prototype.onChangeSession = function() {
         this.detach();
-      }, this.tabNext = function(e14) {
-        var t11 = this.tabstops.length, n11 = this.index + (e14 || 1);
+      }, e14.prototype.tabNext = function(e15) {
+        var t11 = this.tabstops.length, n11 = this.index + (e15 || 1);
         n11 = Math.min(Math.max(n11, 1), t11), n11 == t11 && (n11 = 0), this.selectTabstop(n11), n11 === 0 && this.detach();
-      }, this.selectTabstop = function(e14) {
+      }, e14.prototype.selectTabstop = function(e15) {
         this.$openTabstops = null;
         var t11 = this.tabstops[this.index];
-        t11 && this.addTabstopMarkers(t11), this.index = e14, t11 = this.tabstops[this.index];
+        t11 && this.addTabstopMarkers(t11), this.index = e15, t11 = this.tabstops[this.index];
         if (!t11 || !t11.length)
           return;
         this.selectedTabstop = t11;
@@ -54407,80 +55152,81 @@ var extLanguage_tools = { exports: {} };
         } else
           this.editor.selection.fromOrientedRange(n11);
         this.editor.keyBinding.addKeyboardHandler(this.keyboardHandler), this.selectedTabstop && this.selectedTabstop.choices && this.editor.execCommand("startAutocomplete", { matches: this.selectedTabstop.choices });
-      }, this.addTabstops = function(e14, t11, n11) {
+      }, e14.prototype.addTabstops = function(e15, t11, n11) {
         var r11 = this.useLink || !this.editor.getOption("enableMultiselect");
         this.$openTabstops || (this.$openTabstops = []);
-        if (!e14[0]) {
+        if (!e15[0]) {
           var i11 = u10.fromPoints(n11, n11);
-          g10(i11.start, t11), g10(i11.end, t11), e14[0] = [i11], e14[0].index = 0;
+          y10(i11.start, t11), y10(i11.end, t11), e15[0] = [i11], e15[0].index = 0;
         }
         var s11 = this.index, o11 = [s11 + 1, 0], f11 = this.ranges;
-        e14.forEach(function(e15, n12) {
-          var i12 = this.$openTabstops[n12] || e15;
-          for (var s12 = 0; s12 < e15.length; s12++) {
-            var l11 = e15[s12], c11 = u10.fromPoints(l11.start, l11.end || l11.start);
-            m10(c11.start, t11), m10(c11.end, t11), c11.original = l11, c11.tabstop = i12, f11.push(c11), i12 != e15 ? i12.unshift(c11) : i12[s12] = c11, l11.fmtString || i12.firstNonLinked && r11 ? (c11.linked = true, i12.hasLinkedRanges = true) : i12.firstNonLinked || (i12.firstNonLinked = c11);
+        e15.forEach(function(e16, n12) {
+          var i12 = this.$openTabstops[n12] || e16;
+          for (var s12 = 0; s12 < e16.length; s12++) {
+            var l11 = e16[s12], c11 = u10.fromPoints(l11.start, l11.end || l11.start);
+            g10(c11.start, t11), g10(c11.end, t11), c11.original = l11, c11.tabstop = i12, f11.push(c11), i12 != e16 ? i12.unshift(c11) : i12[s12] = c11, l11.fmtString || i12.firstNonLinked && r11 ? (c11.linked = true, i12.hasLinkedRanges = true) : i12.firstNonLinked || (i12.firstNonLinked = c11);
           }
-          i12.firstNonLinked || (i12.hasLinkedRanges = false), i12 === e15 && (o11.push(i12), this.$openTabstops[n12] = i12), this.addTabstopMarkers(i12), i12.rangeList = i12.rangeList || new a10(), i12.rangeList.$bias = 0, i12.rangeList.addList(i12);
+          i12.firstNonLinked || (i12.hasLinkedRanges = false), i12 === e16 && (o11.push(i12), this.$openTabstops[n12] = i12), this.addTabstopMarkers(i12), i12.rangeList = i12.rangeList || new a10(), i12.rangeList.$bias = 0, i12.rangeList.addList(i12);
         }, this), o11.length > 2 && (this.tabstops.length && o11.push(o11.splice(2, 1)[0]), this.tabstops.splice.apply(this.tabstops, o11));
-      }, this.addTabstopMarkers = function(e14) {
-        var t11 = this.editor.session;
-        e14.forEach(function(e15) {
-          e15.markerId || (e15.markerId = t11.addMarker(e15, "ace_snippet-marker", "text"));
+      }, e14.prototype.addTabstopMarkers = function(e15) {
+        var t11 = this.session;
+        e15.forEach(function(e16) {
+          e16.markerId || (e16.markerId = t11.addMarker(e16, "ace_snippet-marker", "text"));
         });
-      }, this.removeTabstopMarkers = function(e14) {
-        var t11 = this.editor.session;
-        e14.forEach(function(e15) {
-          t11.removeMarker(e15.markerId), e15.markerId = null;
+      }, e14.prototype.removeTabstopMarkers = function(e15) {
+        var t11 = this.session;
+        e15.forEach(function(e16) {
+          t11.removeMarker(e16.markerId), e16.markerId = null;
         });
-      }, this.removeRange = function(e14) {
-        var t11 = e14.tabstop.indexOf(e14);
-        t11 != -1 && e14.tabstop.splice(t11, 1), t11 = this.ranges.indexOf(e14), t11 != -1 && this.ranges.splice(t11, 1), t11 = e14.tabstop.rangeList.ranges.indexOf(e14), t11 != -1 && e14.tabstop.splice(t11, 1), this.editor.session.removeMarker(e14.markerId), e14.tabstop.length || (t11 = this.tabstops.indexOf(e14.tabstop), t11 != -1 && this.tabstops.splice(t11, 1), this.tabstops.length || this.detach());
-      }, this.keyboardHandler = new f10(), this.keyboardHandler.bindKeys({ Tab: function(e14) {
-        if (t10.snippetManager && t10.snippetManager.expandWithTab(e14))
-          return;
-        e14.tabstopManager.tabNext(1), e14.renderer.scrollCursorIntoView();
-      }, "Shift-Tab": function(e14) {
-        e14.tabstopManager.tabNext(-1), e14.renderer.scrollCursorIntoView();
-      }, Esc: function(e14) {
-        e14.tabstopManager.detach();
-      } });
-    }).call(v10.prototype);
-    var m10 = function(e14, t11) {
+      }, e14.prototype.removeRange = function(e15) {
+        var t11 = e15.tabstop.indexOf(e15);
+        t11 != -1 && e15.tabstop.splice(t11, 1), t11 = this.ranges.indexOf(e15), t11 != -1 && this.ranges.splice(t11, 1), t11 = e15.tabstop.rangeList.ranges.indexOf(e15), t11 != -1 && e15.tabstop.splice(t11, 1), this.session.removeMarker(e15.markerId), e15.tabstop.length || (t11 = this.tabstops.indexOf(e15.tabstop), t11 != -1 && this.tabstops.splice(t11, 1), this.tabstops.length || this.detach());
+      }, e14;
+    }();
+    m10.prototype.keyboardHandler = new f10(), m10.prototype.keyboardHandler.bindKeys({ Tab: function(e14) {
+      if (t10.snippetManager && t10.snippetManager.expandWithTab(e14))
+        return;
+      e14.tabstopManager.tabNext(1), e14.renderer.scrollCursorIntoView();
+    }, "Shift-Tab": function(e14) {
+      e14.tabstopManager.tabNext(-1), e14.renderer.scrollCursorIntoView();
+    }, Esc: function(e14) {
+      e14.tabstopManager.detach();
+    } });
+    var g10 = function(e14, t11) {
       e14.row == 0 && (e14.column += t11.column), e14.row += t11.row;
-    }, g10 = function(e14, t11) {
+    }, y10 = function(e14, t11) {
       e14.row == t11.row && (e14.column -= t11.column), e14.row -= t11.row;
     };
     r10.importCssString("\n.ace_snippet-marker {\n    -moz-box-sizing: border-box;\n    box-sizing: border-box;\n    background: rgba(194, 193, 208, 0.09);\n    border: 1px dotted rgba(211, 208, 235, 0.62);\n    position: absolute;\n}", "snippets.css", false), t10.snippetManager = new d10();
-    var y10 = e13("./editor").Editor;
+    var b10 = e13("./editor").Editor;
     (function() {
       this.insertSnippet = function(e14, n11) {
         return t10.snippetManager.insertSnippet(this, e14, n11);
       }, this.expandSnippet = function(e14) {
         return t10.snippetManager.expandWithTab(this, e14);
       };
-    }).call(y10.prototype);
-  }), ace.define("ace/autocomplete/popup", ["require", "exports", "module", "ace/virtual_renderer", "ace/editor", "ace/range", "ace/lib/event", "ace/lib/lang", "ace/lib/dom"], function(e13, t10, n10) {
-    var r10 = e13("../virtual_renderer").VirtualRenderer, i10 = e13("../editor").Editor, s10 = e13("../range").Range, o10 = e13("../lib/event"), u10 = e13("../lib/lang"), a10 = e13("../lib/dom"), f10 = function(e14) {
+    }).call(b10.prototype);
+  }), ace.define("ace/autocomplete/popup", ["require", "exports", "module", "ace/virtual_renderer", "ace/editor", "ace/range", "ace/lib/event", "ace/lib/lang", "ace/lib/dom", "ace/config", "ace/lib/useragent"], function(e13, t10, n10) {
+    var r10 = e13("../virtual_renderer").VirtualRenderer, i10 = e13("../editor").Editor, s10 = e13("../range").Range, o10 = e13("../lib/event"), u10 = e13("../lib/lang"), a10 = e13("../lib/dom"), f10 = e13("../config").nls, l10 = e13("./../lib/useragent"), c10 = function(e14) {
       return "suggest-aria-id:".concat(e14);
-    }, l10 = function(e14) {
+    }, h10 = l10.isSafari ? "menu" : "listbox", p10 = l10.isSafari ? "menuitem" : "option", d10 = l10.isSafari ? "aria-current" : "aria-selected", v10 = function(e14) {
       var t11 = new r10(e14);
       t11.$maxLines = 4;
       var n11 = new i10(t11);
       return n11.setHighlightActiveLine(false), n11.setShowPrintMargin(false), n11.renderer.setShowGutter(false), n11.renderer.setHighlightGutterLine(false), n11.$mouseHandler.$focusTimeout = 0, n11.$highlightTagPending = true, n11;
-    }, c10 = function() {
+    }, m10 = function() {
       function e14(e15) {
-        var t11 = a10.createElement("div"), n11 = new l10(t11);
-        e15 && e15.appendChild(t11), t11.style.display = "none", n11.renderer.content.style.cursor = "default", n11.renderer.setStyle("ace_autocomplete"), n11.renderer.container.setAttribute("role", "listbox"), n11.renderer.container.setAttribute("aria-label", "Autocomplete suggestions"), n11.setOption("displayIndentGuides", false), n11.setOption("dragDelay", 150);
+        var t11 = a10.createElement("div"), n11 = v10(t11);
+        e15 && e15.appendChild(t11), t11.style.display = "none", n11.renderer.content.style.cursor = "default", n11.renderer.setStyle("ace_autocomplete"), n11.renderer.$textLayer.element.setAttribute("role", h10), n11.renderer.$textLayer.element.setAttribute("aria-roledescription", f10("Autocomplete suggestions")), n11.renderer.$textLayer.element.setAttribute("aria-label", f10("Autocomplete suggestions")), n11.renderer.textarea.setAttribute("aria-hidden", "true"), n11.setOption("displayIndentGuides", false), n11.setOption("dragDelay", 150);
         var r11 = function() {
         };
-        n11.focus = r11, n11.$isFocused = true, n11.renderer.$cursorLayer.restartTimer = r11, n11.renderer.$cursorLayer.element.style.opacity = 0, n11.renderer.$maxLines = 8, n11.renderer.$keepTextAreaAtCursor = false, n11.setHighlightActiveLine(false), n11.session.highlight(""), n11.session.$searchHighlight.clazz = "ace_highlight-marker", n11.on("mousedown", function(e16) {
+        n11.focus = r11, n11.$isFocused = true, n11.renderer.$cursorLayer.restartTimer = r11, n11.renderer.$cursorLayer.element.style.opacity = "0", n11.renderer.$maxLines = 8, n11.renderer.$keepTextAreaAtCursor = false, n11.setHighlightActiveLine(false), n11.session.highlight(""), n11.session.$searchHighlight.clazz = "ace_highlight-marker", n11.on("mousedown", function(e16) {
           var t12 = e16.getDocumentPosition();
-          n11.selection.moveToPosition(t12), h10.start.row = h10.end.row = t12.row, e16.stop();
+          n11.selection.moveToPosition(t12), m11.start.row = m11.end.row = t12.row, e16.stop();
         });
-        var i11, c11 = new s10(-1, 0, -1, Infinity), h10 = new s10(-1, 0, -1, Infinity);
-        h10.id = n11.session.addMarker(h10, "ace_active-line", "fullLine"), n11.setSelectOnHover = function(e16) {
-          e16 ? c11.id && (n11.session.removeMarker(c11.id), c11.id = null) : c11.id = n11.session.addMarker(c11, "ace_line-hover", "fullLine");
+        var i11, l11 = new s10(-1, 0, -1, Infinity), m11 = new s10(-1, 0, -1, Infinity);
+        m11.id = n11.session.addMarker(m11, "ace_active-line", "fullLine"), n11.setSelectOnHover = function(e16) {
+          e16 ? l11.id && (n11.session.removeMarker(l11.id), l11.id = null) : l11.id = n11.session.addMarker(l11, "ace_line-hover", "fullLine");
         }, n11.setSelectOnHover(false), n11.on("mousemove", function(e16) {
           if (!i11) {
             i11 = e16;
@@ -54488,39 +55234,41 @@ var extLanguage_tools = { exports: {} };
           }
           if (i11.x == e16.x && i11.y == e16.y)
             return;
-          i11 = e16, i11.scrollTop = n11.renderer.scrollTop;
+          i11 = e16, i11.scrollTop = n11.renderer.scrollTop, n11.isMouseOver = true;
           var t12 = i11.getDocumentPosition().row;
-          c11.start.row != t12 && (c11.id || n11.setRow(t12), d10(t12));
+          l11.start.row != t12 && (l11.id || n11.setRow(t12), y10(t12));
         }), n11.renderer.on("beforeRender", function() {
-          if (i11 && c11.start.row != -1) {
+          if (i11 && l11.start.row != -1) {
             i11.$pos = null;
             var e16 = i11.getDocumentPosition().row;
-            c11.id || n11.setRow(e16), d10(e16, true);
+            l11.id || n11.setRow(e16), y10(e16, true);
           }
         }), n11.renderer.on("afterRender", function() {
           var e16 = n11.getRow(), t12 = n11.renderer.$textLayer, r12 = t12.element.childNodes[e16 - t12.config.firstRow], i12 = document.activeElement;
-          r12 !== t12.selectedNode && t12.selectedNode && (a10.removeCssClass(t12.selectedNode, "ace_selected"), i12.removeAttribute("aria-activedescendant"), t12.selectedNode.removeAttribute("id")), t12.selectedNode = r12;
+          r12 !== n11.selectedNode && n11.selectedNode && (a10.removeCssClass(n11.selectedNode, "ace_selected"), i12.removeAttribute("aria-activedescendant"), n11.selectedNode.removeAttribute(d10), n11.selectedNode.removeAttribute("id")), n11.selectedNode = r12;
           if (r12) {
             a10.addCssClass(r12, "ace_selected");
-            var s11 = f10(e16);
-            r12.id = s11, n11.renderer.container.setAttribute("aria-activedescendant", s11), i12.setAttribute("aria-activedescendant", s11), r12.setAttribute("role", "option"), r12.setAttribute("aria-label", n11.getData(e16).value), r12.setAttribute("aria-setsize", n11.data.length), r12.setAttribute("aria-posinset", e16);
+            var s11 = c10(e16);
+            r12.id = s11, t12.element.setAttribute("aria-activedescendant", s11), i12.setAttribute("aria-activedescendant", s11), r12.setAttribute("role", p10), r12.setAttribute("aria-roledescription", f10("item")), r12.setAttribute("aria-label", n11.getData(e16).value), r12.setAttribute("aria-setsize", n11.data.length), r12.setAttribute("aria-posinset", e16 + 1), r12.setAttribute("aria-describedby", "doc-tooltip"), r12.setAttribute(d10, "true");
           }
         });
-        var p10 = function() {
-          d10(-1);
-        }, d10 = function(e16, t12) {
-          e16 !== c11.start.row && (c11.start.row = c11.end.row = e16, t12 || n11.session._emit("changeBackMarker"), n11._emit("changeHoverMarker"));
+        var g10 = function() {
+          y10(-1);
+        }, y10 = function(e16, t12) {
+          e16 !== l11.start.row && (l11.start.row = l11.end.row = e16, t12 || n11.session._emit("changeBackMarker"), n11._emit("changeHoverMarker"));
         };
         n11.getHoveredRow = function() {
-          return c11.start.row;
-        }, o10.addListener(n11.container, "mouseout", p10), n11.on("hide", p10), n11.on("changeSelection", p10), n11.session.doc.getLength = function() {
+          return l11.start.row;
+        }, o10.addListener(n11.container, "mouseout", function() {
+          n11.isMouseOver = false, g10();
+        }), n11.on("hide", g10), n11.on("changeSelection", g10), n11.session.doc.getLength = function() {
           return n11.data.length;
         }, n11.session.doc.getLine = function(e16) {
           var t12 = n11.data[e16];
           return typeof t12 == "string" ? t12 : t12 && t12.value || "";
         };
-        var v10 = n11.session.bgTokenizer;
-        return v10.$tokenizeRow = function(e16) {
+        var b10 = n11.session.bgTokenizer;
+        return b10.$tokenizeRow = function(e16) {
           function s11(e17, n12) {
             e17 && r12.push({ type: (t12.className || "") + (n12 || ""), value: e17 });
           }
@@ -54529,26 +55277,26 @@ var extLanguage_tools = { exports: {} };
             return r12;
           typeof t12 == "string" && (t12 = { value: t12 });
           var i12 = t12.caption || t12.value || t12.name, o11 = i12.toLowerCase(), u11 = (n11.filterText || "").toLowerCase(), a11 = 0, f11 = 0;
-          for (var l11 = 0; l11 <= u11.length; l11++)
-            if (l11 != f11 && (t12.matchMask & 1 << l11 || l11 == u11.length)) {
-              var c12 = u11.slice(f11, l11);
-              f11 = l11;
-              var h11 = o11.indexOf(c12, a11);
+          for (var l12 = 0; l12 <= u11.length; l12++)
+            if (l12 != f11 && (t12.matchMask & 1 << l12 || l12 == u11.length)) {
+              var c11 = u11.slice(f11, l12);
+              f11 = l12;
+              var h11 = o11.indexOf(c11, a11);
               if (h11 == -1)
                 continue;
-              s11(i12.slice(a11, h11), ""), a11 = h11 + c12.length, s11(i12.slice(h11, a11), "completion-highlight");
+              s11(i12.slice(a11, h11), ""), a11 = h11 + c11.length, s11(i12.slice(h11, a11), "completion-highlight");
             }
-          return s11(i12.slice(a11, i12.length), ""), t12.meta && r12.push({ type: "completion-meta", value: t12.meta }), t12.message && r12.push({ type: "completion-message", value: t12.message }), r12;
-        }, v10.$updateOnChange = r11, v10.start = r11, n11.session.$computeWidth = function() {
+          return s11(i12.slice(a11, i12.length), ""), r12.push({ type: "completion-spacer", value: " " }), t12.meta && r12.push({ type: "completion-meta", value: t12.meta }), t12.message && r12.push({ type: "completion-message", value: t12.message }), r12;
+        }, b10.$updateOnChange = r11, b10.start = r11, n11.session.$computeWidth = function() {
           return this.screenWidth = 0;
-        }, n11.isOpen = false, n11.isTopdown = false, n11.autoSelect = true, n11.filterText = "", n11.data = [], n11.setData = function(e16, t12) {
+        }, n11.isOpen = false, n11.isTopdown = false, n11.autoSelect = true, n11.filterText = "", n11.isMouseOver = false, n11.data = [], n11.setData = function(e16, t12) {
           n11.filterText = t12 || "", n11.setValue(u10.stringRepeat("\n", e16.length), -1), n11.data = e16 || [], n11.setRow(0);
         }, n11.getData = function(e16) {
           return n11.data[e16];
         }, n11.getRow = function() {
-          return h10.start.row;
+          return m11.start.row;
         }, n11.setRow = function(e16) {
-          e16 = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length, e16)), h10.start.row != e16 && (n11.selection.clearSelection(), h10.start.row = h10.end.row = e16 || 0, n11.session._emit("changeBackMarker"), n11.moveCursorTo(e16 || 0, 0), n11.isOpen && n11._signal("select"));
+          e16 = Math.max(this.autoSelect ? 0 : -1, Math.min(this.data.length - 1, e16)), m11.start.row != e16 && (n11.selection.clearSelection(), m11.start.row = m11.end.row = e16 || 0, n11.session._emit("changeBackMarker"), n11.moveCursorTo(e16 || 0, 0), n11.isOpen && n11._signal("select"));
         }, n11.on("changeSelection", function() {
           n11.isOpen && n11.setRow(n11.selection.lead.row), n11.renderer.scrollCursorIntoView();
         }), n11.hide = function() {
@@ -54556,12 +55304,12 @@ var extLanguage_tools = { exports: {} };
         }, n11.tryShow = function(e16, t12, r12, s11) {
           if (!s11 && n11.isOpen && n11.anchorPos && n11.anchor && n11.anchorPos.top === e16.top && n11.anchorPos.left === e16.left && n11.anchor === r12)
             return true;
-          var o11 = this.container, u11 = window.innerHeight, a11 = window.innerWidth, f11 = this.renderer, l11 = f11.$maxLines * t12 * 1.4, c12 = { top: 0, bottom: 0, left: 0 }, h11 = u11 - e16.top - 3 * this.$borderSize - t12, p11 = e16.top - 3 * this.$borderSize;
-          r12 || (p11 <= h11 || h11 >= l11 ? r12 = "bottom" : r12 = "top"), r12 === "top" ? (c12.bottom = e16.top - this.$borderSize, c12.top = c12.bottom - l11) : r12 === "bottom" && (c12.top = e16.top + t12 + this.$borderSize, c12.bottom = c12.top + l11);
-          var d11 = c12.top >= 0 && c12.bottom <= u11;
+          var o11 = this.container, u11 = window.innerHeight, a11 = window.innerWidth, f11 = this.renderer, l12 = f11.$maxLines * t12 * 1.4, c11 = { top: 0, bottom: 0, left: 0 }, h11 = u11 - e16.top - 3 * this.$borderSize - t12, p11 = e16.top - 3 * this.$borderSize;
+          r12 || (p11 <= h11 || h11 >= l12 ? r12 = "bottom" : r12 = "top"), r12 === "top" ? (c11.bottom = e16.top - this.$borderSize, c11.top = c11.bottom - l12) : r12 === "bottom" && (c11.top = e16.top + t12 + this.$borderSize, c11.bottom = c11.top + l12);
+          var d11 = c11.top >= 0 && c11.bottom <= u11;
           if (!s11 && !d11)
             return false;
-          d11 ? f11.$maxPixelHeight = null : r12 === "top" ? f11.$maxPixelHeight = p11 : f11.$maxPixelHeight = h11, r12 === "top" ? (o11.style.top = "", o11.style.bottom = u11 - c12.bottom + "px", n11.isTopdown = false) : (o11.style.top = c12.top + "px", o11.style.bottom = "", n11.isTopdown = true), o11.style.display = "";
+          d11 ? f11.$maxPixelHeight = null : r12 === "top" ? f11.$maxPixelHeight = p11 : f11.$maxPixelHeight = h11, r12 === "top" ? (o11.style.top = "", o11.style.bottom = u11 - c11.bottom + "px", n11.isTopdown = false) : (o11.style.top = c11.top + "px", o11.style.bottom = "", n11.isTopdown = true), o11.style.display = "";
           var v11 = e16.left;
           return v11 + o11.offsetWidth > a11 && (v11 = a11 - o11.offsetWidth), o11.style.left = v11 + "px", o11.style.right = "", n11.isOpen || (n11.isOpen = true, this._signal("show"), i11 = null), n11.anchorPos = e16, n11.anchor = r12, true;
         }, n11.show = function(e16, t12, n12) {
@@ -54588,27 +55336,63 @@ var extLanguage_tools = { exports: {} };
       }
       return e14;
     }();
-    a10.importCssString("\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin: 0 0.9em;\n}\n.ace_completion-message {\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete_right .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete_right .ace_line {\n    display: flex;\n}\n.ace_autocomplete_right .ace_completion-meta {\n    flex: 1;\n    text-align: right;\n}\n", "autocompletion.css", false), t10.AcePopup = c10, t10.$singleLineEditor = l10, t10.getAriaId = f10;
-  }), ace.define("ace/autocomplete/inline", ["require", "exports", "module", "ace/snippets"], function(e13, t10, n10) {
-    var r10 = e13("../snippets").snippetManager, i10 = function() {
+    a10.importCssString('\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin-left: 0.9em;\n}\n.ace_completion-message {\n    margin-left: 0.9em;\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete .ace_line {\n    display: flex;\n    align-items: center;\n}\n.ace_autocomplete .ace_line > * {\n    min-width: 0;\n    flex: 0 0 auto;\n}\n.ace_autocomplete .ace_line .ace_ {\n    flex: 0 1 auto;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n.ace_autocomplete .ace_completion-spacer {\n    flex: 1;\n}\n.ace_autocomplete.ace_loading:after  {\n    content: "";\n    position: absolute;\n    top: 0px;\n    height: 2px;\n    width: 8%;\n    background: blue;\n    z-index: 100;\n    animation: ace_progress 3s infinite linear;\n    animation-delay: 300ms;\n    transform: translateX(-100%) scaleX(1);\n}\n@keyframes ace_progress {\n    0% { transform: translateX(-100%) scaleX(1) }\n    50% { transform: translateX(625%) scaleX(2) } \n    100% { transform: translateX(1500%) scaleX(3) } \n}\n@media (prefers-reduced-motion) {\n    .ace_autocomplete.ace_loading:after {\n        transform: translateX(625%) scaleX(2);\n        animation: none;\n     }\n}\n', "autocompletion.css", false), t10.AcePopup = m10, t10.$singleLineEditor = v10, t10.getAriaId = c10;
+  }), ace.define("ace/autocomplete/inline_screenreader", ["require", "exports", "module"], function(e13, t10, n10) {
+    var r10 = function() {
+      function e14(e15) {
+        this.editor = e15, this.screenReaderDiv = document.createElement("div"), this.screenReaderDiv.classList.add("ace_screenreader-only"), this.editor.container.appendChild(this.screenReaderDiv);
+      }
+      return e14.prototype.setScreenReaderContent = function(e15) {
+        !this.popup && this.editor.completer && this.editor.completer.popup && (this.popup = this.editor.completer.popup, this.popup.renderer.on("afterRender", function() {
+          var e16 = this.popup.getRow(), t12 = this.popup.renderer.$textLayer, n11 = t12.element.childNodes[e16 - t12.config.firstRow];
+          if (n11) {
+            var r11 = "doc-tooltip ";
+            for (var i10 = 0; i10 < this._lines.length; i10++)
+              r11 += "ace-inline-screenreader-line-".concat(i10, " ");
+            n11.setAttribute("aria-describedby", r11);
+          }
+        }.bind(this)));
+        while (this.screenReaderDiv.firstChild)
+          this.screenReaderDiv.removeChild(this.screenReaderDiv.firstChild);
+        this._lines = e15.split(/\r\n|\r|\n/);
+        var t11 = this.createCodeBlock();
+        this.screenReaderDiv.appendChild(t11);
+      }, e14.prototype.destroy = function() {
+        this.screenReaderDiv.remove();
+      }, e14.prototype.createCodeBlock = function() {
+        var e15 = document.createElement("pre");
+        e15.setAttribute("id", "ace-inline-screenreader");
+        for (var t11 = 0; t11 < this._lines.length; t11++) {
+          var n11 = document.createElement("code");
+          n11.setAttribute("id", "ace-inline-screenreader-line-".concat(t11));
+          var r11 = document.createTextNode(this._lines[t11]);
+          n11.appendChild(r11), e15.appendChild(n11);
+        }
+        return e15;
+      }, e14;
+    }();
+    t10.AceInlineScreenReader = r10;
+  }), ace.define("ace/autocomplete/inline", ["require", "exports", "module", "ace/snippets", "ace/autocomplete/inline_screenreader"], function(e13, t10, n10) {
+    var r10 = e13("../snippets").snippetManager, i10 = e13("./inline_screenreader").AceInlineScreenReader, s10 = function() {
       function e14() {
         this.editor = null;
       }
       return e14.prototype.show = function(e15, t11, n11) {
-        n11 = n11 || "", e15 && this.editor && this.editor !== e15 && (this.hide(), this.editor = null);
+        n11 = n11 || "", e15 && this.editor && this.editor !== e15 && (this.hide(), this.editor = null, this.inlineScreenReader = null);
         if (!e15 || !t11)
           return false;
-        var i11 = t11.snippet ? r10.getDisplayTextForSnippet(e15, t11.snippet) : t11.value;
-        return !i11 || !i11.startsWith(n11) ? false : (this.editor = e15, i11 = i11.slice(n11.length), i11 === "" ? e15.removeGhostText() : e15.setGhostText(i11), true);
+        this.inlineScreenReader || (this.inlineScreenReader = new i10(e15));
+        var s11 = t11.snippet ? r10.getDisplayTextForSnippet(e15, t11.snippet) : t11.value;
+        return t11.hideInlinePreview || !s11 || !s11.startsWith(n11) ? false : (this.editor = e15, this.inlineScreenReader.setScreenReaderContent(s11), s11 = s11.slice(n11.length), s11 === "" ? e15.removeGhostText() : e15.setGhostText(s11), true);
       }, e14.prototype.isOpen = function() {
         return this.editor ? !!this.editor.renderer.$ghostText : false;
       }, e14.prototype.hide = function() {
         return this.editor ? (this.editor.removeGhostText(), true) : false;
       }, e14.prototype.destroy = function() {
-        this.hide(), this.editor = null;
+        this.hide(), this.editor = null, this.inlineScreenReader && (this.inlineScreenReader.destroy(), this.inlineScreenReader = null);
       }, e14;
     }();
-    t10.AceInline = i10;
+    t10.AceInline = s10;
   }), ace.define("ace/autocomplete/util", ["require", "exports", "module"], function(e13, t10, n10) {
     t10.parForEach = function(e14, t11, n11) {
       var r11 = 0, i10 = e14.length;
@@ -54644,20 +55428,35 @@ var extLanguage_tools = { exports: {} };
           !r11 && e16 && (r11 = this.retrievePrecedingIdentifier(n11, t11.column, e16));
         }.bind(this));
       }.bind(this)), r11 || this.retrievePrecedingIdentifier(n11, t11.column);
+    }, t10.triggerAutocomplete = function(e14) {
+      var t11 = e14.getCursorPosition(), n11 = e14.session.getLine(t11.row), r11 = t11.column === 0 ? 0 : t11.column - 1, i10 = n11[r11];
+      return e14.completers.some(function(e15) {
+        if (e15.triggerCharacters && Array.isArray(e15.triggerCharacters))
+          return e15.triggerCharacters.includes(i10);
+      });
     };
-  }), ace.define("ace/autocomplete", ["require", "exports", "module", "ace/keyboard/hash_handler", "ace/autocomplete/popup", "ace/autocomplete/inline", "ace/autocomplete/popup", "ace/autocomplete/util", "ace/lib/lang", "ace/lib/dom", "ace/snippets", "ace/config"], function(e13, t10, n10) {
-    var r10 = e13("./keyboard/hash_handler").HashHandler, i10 = e13("./autocomplete/popup").AcePopup, s10 = e13("./autocomplete/inline").AceInline, o10 = e13("./autocomplete/popup").getAriaId, u10 = e13("./autocomplete/util"), a10 = e13("./lib/lang"), f10 = e13("./lib/dom"), l10 = e13("./snippets").snippetManager, c10 = e13("./config"), h10 = function(e14, t11) {
+  }), ace.define("ace/autocomplete", ["require", "exports", "module", "ace/keyboard/hash_handler", "ace/autocomplete/popup", "ace/autocomplete/inline", "ace/autocomplete/popup", "ace/autocomplete/util", "ace/lib/lang", "ace/lib/dom", "ace/snippets", "ace/config", "ace/lib/event", "ace/lib/scroll"], function(e13, t10, n10) {
+    var r10 = e13("./keyboard/hash_handler").HashHandler, i10 = e13("./autocomplete/popup").AcePopup, s10 = e13("./autocomplete/inline").AceInline, o10 = e13("./autocomplete/popup").getAriaId, u10 = e13("./autocomplete/util"), a10 = e13("./lib/lang"), f10 = e13("./lib/dom"), l10 = e13("./snippets").snippetManager, c10 = e13("./config"), h10 = e13("./lib/event"), p10 = e13("./lib/scroll").preventParentScroll, d10 = function(e14, t11) {
       t11.completer && t11.completer.destroy();
-    }, p10 = function() {
+    }, v10 = function() {
       function e14() {
-        this.autoInsert = false, this.autoSelect = true, this.exactMatch = false, this.inlineEnabled = false, this.keyboardHandler = new r10(), this.keyboardHandler.bindKeys(this.commands), this.blurListener = this.blurListener.bind(this), this.changeListener = this.changeListener.bind(this), this.mousedownListener = this.mousedownListener.bind(this), this.mousewheelListener = this.mousewheelListener.bind(this), this.changeTimer = a10.delayedCall(function() {
+        this.autoInsert = false, this.autoSelect = true, this.autoShown = false, this.exactMatch = false, this.inlineEnabled = false, this.keyboardHandler = new r10(), this.keyboardHandler.bindKeys(this.commands), this.parentNode = null, this.setSelectOnHover = false, this.hasSeen = new Set(), this.showLoadingState = false, this.stickySelectionDelay = 500, this.blurListener = this.blurListener.bind(this), this.changeListener = this.changeListener.bind(this), this.mousedownListener = this.mousedownListener.bind(this), this.mousewheelListener = this.mousewheelListener.bind(this), this.onLayoutChange = this.onLayoutChange.bind(this), this.changeTimer = a10.delayedCall(function() {
           this.updateCompletions(true);
-        }.bind(this)), this.tooltipTimer = a10.delayedCall(this.updateDocTooltip.bind(this), 50);
+        }.bind(this)), this.tooltipTimer = a10.delayedCall(this.updateDocTooltip.bind(this), 50), this.popupTimer = a10.delayedCall(this.$updatePopupPosition.bind(this), 50), this.stickySelectionTimer = a10.delayedCall(function() {
+          this.stickySelection = true;
+        }.bind(this), this.stickySelectionDelay), this.$firstOpenTimer = a10.delayedCall(function() {
+          var t11 = this.completionProvider && this.completionProvider.initialPosition;
+          if (this.autoShown || this.popup && this.popup.isOpen || !t11 || this.editor.completers.length === 0)
+            return;
+          this.completions = new g10(e14.completionsForLoading), this.openPopup(this.editor, t11.prefix, false), this.popup.renderer.setStyle("ace_loading", true);
+        }.bind(this), this.stickySelectionDelay);
       }
-      return e14.prototype.$init = function() {
-        return this.popup = new i10(document.body || document.documentElement), this.popup.on("click", function(e15) {
+      return Object.defineProperty(e14, "completionsForLoading", { get: function() {
+        return [{ caption: c10.nls("Loading..."), value: "" }];
+      }, enumerable: false, configurable: true }), e14.prototype.$init = function() {
+        return this.popup = new i10(this.parentNode || document.body || document.documentElement), this.popup.on("click", function(e15) {
           this.insertMatch(), e15.stop();
-        }.bind(this)), this.popup.focus = this.editor.focus.bind(this.editor), this.popup.on("show", this.$onPopupChange.bind(this)), this.popup.on("hide", this.$onHidePopup.bind(this)), this.popup.on("select", this.$onPopupChange.bind(this)), this.popup.on("changeHoverMarker", this.tooltipTimer.bind(null, null)), this.popup;
+        }.bind(this)), this.popup.focus = this.editor.focus.bind(this.editor), this.popup.on("show", this.$onPopupShow.bind(this)), this.popup.on("hide", this.$onHidePopup.bind(this)), this.popup.on("select", this.$onPopupChange.bind(this)), h10.addListener(this.popup.container, "mouseout", this.mouseOutListener.bind(this)), this.popup.on("changeHoverMarker", this.tooltipTimer.bind(null, null)), this.popup.renderer.on("afterRender", this.$onPopupRender.bind(this)), this.popup;
       }, e14.prototype.$initInline = function() {
         if (!this.inlineEnabled || this.inlineRenderer)
           return;
@@ -54665,13 +55464,46 @@ var extLanguage_tools = { exports: {} };
       }, e14.prototype.getPopup = function() {
         return this.popup || this.$init();
       }, e14.prototype.$onHidePopup = function() {
-        this.inlineRenderer && this.inlineRenderer.hide(), this.hideDocTooltip();
+        this.inlineRenderer && this.inlineRenderer.hide(), this.hideDocTooltip(), this.stickySelectionTimer.cancel(), this.popupTimer.cancel(), this.stickySelection = false;
+      }, e14.prototype.$seen = function(e15) {
+        !this.hasSeen.has(e15) && e15 && e15.completer && e15.completer.onSeen && typeof e15.completer.onSeen == "function" && (e15.completer.onSeen(this.editor, e15), this.hasSeen.add(e15));
       }, e14.prototype.$onPopupChange = function(e15) {
         if (this.inlineRenderer && this.inlineEnabled) {
           var t11 = e15 ? null : this.popup.getData(this.popup.getRow()), n11 = u10.getCompletionPrefix(this.editor);
-          this.inlineRenderer.show(this.editor, t11, n11) || this.inlineRenderer.hide(), this.$updatePopupPosition();
-        }
-        this.tooltipTimer.call(null, null);
+          this.inlineRenderer.show(this.editor, t11, n11) ? this.$seen(t11) : this.inlineRenderer.hide();
+          if (this.popup.isMouseOver && this.setSelectOnHover) {
+            this.tooltipTimer.call(null, null);
+            return;
+          }
+          this.popupTimer.schedule(), this.tooltipTimer.schedule();
+        } else
+          this.popupTimer.call(null, null), this.tooltipTimer.call(null, null);
+      }, e14.prototype.$onPopupRender = function() {
+        var e15 = this.inlineRenderer && this.inlineEnabled;
+        if (this.completions && this.completions.filtered && this.completions.filtered.length > 0)
+          for (var t11 = this.popup.getFirstVisibleRow(); t11 <= this.popup.getLastVisibleRow(); t11++) {
+            var n11 = this.popup.getData(t11);
+            n11 && (!e15 || n11.hideInlinePreview) && this.$seen(n11);
+          }
+      }, e14.prototype.$onPopupShow = function(e15) {
+        this.$onPopupChange(e15), this.stickySelection = false, this.stickySelectionDelay >= 0 && this.stickySelectionTimer.schedule(this.stickySelectionDelay);
+      }, e14.prototype.observeLayoutChanges = function() {
+        if (this.$elements || !this.editor)
+          return;
+        window.addEventListener("resize", this.onLayoutChange, { passive: true }), window.addEventListener("wheel", this.mousewheelListener);
+        var e15 = this.editor.container.parentNode, t11 = [];
+        while (e15)
+          t11.push(e15), e15.addEventListener("scroll", this.onLayoutChange, { passive: true }), e15 = e15.parentNode;
+        this.$elements = t11;
+      }, e14.prototype.unObserveLayoutChanges = function() {
+        var e15 = this;
+        window.removeEventListener("resize", this.onLayoutChange, { passive: true }), window.removeEventListener("wheel", this.mousewheelListener), this.$elements && this.$elements.forEach(function(t11) {
+          t11.removeEventListener("scroll", e15.onLayoutChange, { passive: true });
+        }), this.$elements = null;
+      }, e14.prototype.onLayoutChange = function() {
+        if (!this.popup.isOpen)
+          return this.unObserveLayoutChanges();
+        this.$updatePopupPosition(), this.updateDocTooltip();
       }, e14.prototype.$updatePopupPosition = function() {
         var e15 = this.editor, t11 = e15.renderer, n11 = t11.layerConfig.lineHeight, r11 = t11.$cursorLayer.getPixelPosition(this.base, true);
         r11.left -= this.popup.getTextLeftOffset();
@@ -54679,15 +55511,23 @@ var extLanguage_tools = { exports: {} };
         r11.top += i11.top - t11.layerConfig.offset, r11.left += i11.left - e15.renderer.scrollLeft, r11.left += t11.gutterWidth;
         var s11 = { top: r11.top, left: r11.left };
         t11.$ghostText && t11.$ghostTextWidget && this.base.row === t11.$ghostText.position.row && (s11.top += t11.$ghostTextWidget.el.offsetHeight);
-        if (this.popup.tryShow(s11, n11, "bottom"))
+        var o11 = e15.container.getBoundingClientRect().bottom - n11, u11 = o11 < s11.top ? { top: o11, left: s11.left } : s11;
+        if (this.popup.tryShow(u11, n11, "bottom"))
           return;
         if (this.popup.tryShow(r11, n11, "top"))
           return;
         this.popup.show(r11, n11);
       }, e14.prototype.openPopup = function(e15, t11, n11) {
-        this.popup || this.$init(), this.inlineEnabled && !this.inlineRenderer && this.$initInline(), this.popup.autoSelect = this.autoSelect, this.popup.setData(this.completions.filtered, this.completions.filterText), this.editor.textInput.setAriaOptions && this.editor.textInput.setAriaOptions({ activeDescendant: o10(this.popup.getRow()), inline: this.inlineEnabled }), e15.keyBinding.addKeyboardHandler(this.keyboardHandler), this.popup.setRow(this.autoSelect ? 0 : -1), n11 ? n11 && !t11 && this.detach() : (this.popup.setTheme(e15.getTheme()), this.popup.setFontSize(e15.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel();
+        this.$firstOpenTimer.cancel(), this.popup || this.$init(), this.inlineEnabled && !this.inlineRenderer && this.$initInline(), this.popup.autoSelect = this.autoSelect, this.popup.setSelectOnHover(this.setSelectOnHover);
+        var r11 = this.popup.getRow(), i11 = this.popup.data[r11];
+        this.popup.setData(this.completions.filtered, this.completions.filterText), this.editor.textInput.setAriaOptions && this.editor.textInput.setAriaOptions({ activeDescendant: o10(this.popup.getRow()), inline: this.inlineEnabled }), e15.keyBinding.addKeyboardHandler(this.keyboardHandler);
+        var s11;
+        this.stickySelection && (s11 = this.popup.data.indexOf(i11));
+        if (!s11 || s11 === -1)
+          s11 = 0;
+        this.popup.setRow(this.autoSelect ? s11 : -1), s11 === r11 && i11 !== this.completions.filtered[s11] && this.$onPopupChange(), n11 ? n11 && !t11 && this.detach() : (this.popup.setTheme(e15.getTheme()), this.popup.setFontSize(e15.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel(), this.observeLayoutChanges();
       }, e14.prototype.detach = function() {
-        this.editor && (this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.off("changeSelection", this.changeListener), this.editor.off("blur", this.blurListener), this.editor.off("mousedown", this.mousedownListener), this.editor.off("mousewheel", this.mousewheelListener)), this.changeTimer.cancel(), this.hideDocTooltip(), this.completionProvider && this.completionProvider.detach(), this.popup && this.popup.isOpen && this.popup.hide(), this.base && this.base.detach(), this.activated = false, this.completionProvider = this.completions = this.base = null;
+        this.editor && (this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.off("changeSelection", this.changeListener), this.editor.off("blur", this.blurListener), this.editor.off("mousedown", this.mousedownListener), this.editor.off("mousewheel", this.mousewheelListener)), this.$firstOpenTimer.cancel(), this.changeTimer.cancel(), this.hideDocTooltip(), this.completionProvider && this.completionProvider.detach(), this.popup && this.popup.isOpen && this.popup.hide(), this.popup && this.popup.renderer && this.popup.renderer.off("afterRender", this.$onPopupRender), this.base && this.base.detach(), this.activated = false, this.completionProvider = this.completions = this.base = null, this.unObserveLayoutChanges();
       }, e14.prototype.changeListener = function(e15) {
         var t11 = this.editor.selection.lead;
         (t11.row != this.base.row || t11.column < this.base.column) && this.detach(), this.activated ? this.changeTimer.schedule() : this.detach();
@@ -54697,57 +55537,70 @@ var extLanguage_tools = { exports: {} };
       }, e14.prototype.mousedownListener = function(e15) {
         this.detach();
       }, e14.prototype.mousewheelListener = function(e15) {
-        this.detach();
+        this.popup.isMouseOver || this.detach();
+      }, e14.prototype.mouseOutListener = function(e15) {
+        this.popup.isOpen && this.$updatePopupPosition();
       }, e14.prototype.goTo = function(e15) {
         this.popup.goTo(e15);
       }, e14.prototype.insertMatch = function(e15, t11) {
         e15 || (e15 = this.popup.getData(this.popup.getRow()));
         if (!e15)
           return false;
+        if (e15.value === "")
+          return this.detach();
         var n11 = this.completions, r11 = this.getCompletionProvider().insertMatch(this.editor, e15, n11.filterText, t11);
         return this.completions == n11 && this.detach(), r11;
       }, e14.prototype.showPopup = function(e15, t11) {
         this.editor && this.detach(), this.activated = true, this.editor = e15, e15.completer != this && (e15.completer && e15.completer.detach(), e15.completer = this), e15.on("changeSelection", this.changeListener), e15.on("blur", this.blurListener), e15.on("mousedown", this.mousedownListener), e15.on("mousewheel", this.mousewheelListener), this.updateCompletions(false, t11);
-      }, e14.prototype.getCompletionProvider = function() {
-        return this.completionProvider || (this.completionProvider = new d10()), this.completionProvider;
+      }, e14.prototype.getCompletionProvider = function(e15) {
+        return this.completionProvider || (this.completionProvider = new m10(e15)), this.completionProvider;
       }, e14.prototype.gatherCompletions = function(e15, t11) {
         return this.getCompletionProvider().gatherCompletions(e15, t11);
-      }, e14.prototype.updateCompletions = function(e15, t11) {
-        if (e15 && this.base && this.completions) {
-          var n11 = this.editor.getCursorPosition(), r11 = this.editor.session.getTextRange({ start: this.base, end: n11 });
-          if (r11 == this.completions.filterText)
+      }, e14.prototype.updateCompletions = function(t11, n11) {
+        if (t11 && this.base && this.completions) {
+          var r11 = this.editor.getCursorPosition(), i11 = this.editor.session.getTextRange({ start: this.base, end: r11 });
+          if (i11 == this.completions.filterText)
             return;
-          this.completions.setFilter(r11);
+          this.completions.setFilter(i11);
           if (!this.completions.filtered.length)
             return this.detach();
-          if (this.completions.filtered.length == 1 && this.completions.filtered[0].value == r11 && !this.completions.filtered[0].snippet)
+          if (this.completions.filtered.length == 1 && this.completions.filtered[0].value == i11 && !this.completions.filtered[0].snippet)
             return this.detach();
-          this.openPopup(this.editor, r11, e15);
+          this.openPopup(this.editor, i11, t11);
           return;
         }
-        if (t11 && t11.matches) {
-          var n11 = this.editor.getSelectionRange().start;
-          return this.base = this.editor.session.doc.createAnchor(n11.row, n11.column), this.base.$insertRight = true, this.completions = new v10(t11.matches), this.openPopup(this.editor, "", e15);
+        if (n11 && n11.matches) {
+          var r11 = this.editor.getSelectionRange().start;
+          return this.base = this.editor.session.doc.createAnchor(r11.row, r11.column), this.base.$insertRight = true, this.completions = new g10(n11.matches), this.openPopup(this.editor, "", t11);
         }
-        var i11 = this.editor.getSession(), n11 = this.editor.getCursorPosition(), r11 = u10.getCompletionPrefix(this.editor);
-        this.base = i11.doc.createAnchor(n11.row, n11.column - r11.length), this.base.$insertRight = true;
-        var s11 = { exactMatch: this.exactMatch };
-        this.getCompletionProvider().provideCompletions(this.editor, s11, function(t12, n12, r12) {
-          var i12 = n12.filtered, s12 = u10.getCompletionPrefix(this.editor);
-          if (r12) {
-            if (!i12.length)
+        var s11 = this.editor.getSession(), r11 = this.editor.getCursorPosition(), i11 = u10.getCompletionPrefix(this.editor);
+        this.base = s11.doc.createAnchor(r11.row, r11.column - i11.length), this.base.$insertRight = true;
+        var o11 = { exactMatch: this.exactMatch, ignoreCaption: this.ignoreCaption };
+        this.getCompletionProvider({ prefix: i11, pos: r11 }).provideCompletions(this.editor, o11, function(n12, r12, i12) {
+          var s12 = r12.filtered, o12 = u10.getCompletionPrefix(this.editor);
+          this.$firstOpenTimer.cancel();
+          if (i12) {
+            if (!s12.length) {
+              var a11 = !this.autoShown && this.emptyMessage;
+              typeof a11 == "function" && (a11 = this.emptyMessage(o12));
+              if (a11) {
+                var f11 = [{ caption: a11, value: "" }];
+                this.completions = new g10(f11), this.openPopup(this.editor, o12, t11), this.popup.renderer.setStyle("ace_loading", false);
+                return;
+              }
               return this.detach();
-            if (i12.length == 1 && i12[0].value == s12 && !i12[0].snippet)
+            }
+            if (s12.length == 1 && s12[0].value == o12 && !s12[0].snippet)
               return this.detach();
-            if (this.autoInsert && i12.length == 1)
-              return this.insertMatch(i12[0]);
+            if (this.autoInsert && !this.autoShown && s12.length == 1)
+              return this.insertMatch(s12[0]);
           }
-          this.completions = n12, this.openPopup(this.editor, s12, e15);
-        }.bind(this));
+          this.completions = !i12 && this.showLoadingState ? new g10(e14.completionsForLoading.concat(s12), r12.filterText) : r12, this.openPopup(this.editor, o12, t11), this.popup.renderer.setStyle("ace_loading", !i12);
+        }.bind(this)), this.showLoadingState && !this.autoShown && (!this.popup || !this.popup.isOpen) && this.$firstOpenTimer.delay(this.stickySelectionDelay / 2);
       }, e14.prototype.cancelContextMenu = function() {
         this.editor.$mouseHandler.cancelContextMenu();
       }, e14.prototype.updateDocTooltip = function() {
-        var e15 = this.popup, t11 = e15.data, n11 = t11 && (t11[e15.getHoveredRow()] || t11[e15.getRow()]), r11 = null;
+        var e15 = this.popup, t11 = this.completions.filtered, n11 = t11 && (t11[e15.getHoveredRow()] || t11[e15.getRow()]), r11 = null;
         if (!n11 || !this.editor || !this.popup.isOpen)
           return this.hideDocTooltip();
         var i11 = this.editor.completers.length;
@@ -54763,11 +55616,11 @@ var extLanguage_tools = { exports: {} };
           return this.hideDocTooltip();
         this.showDocTooltip(r11);
       }, e14.prototype.showDocTooltip = function(e15) {
-        this.tooltipNode || (this.tooltipNode = f10.createElement("div"), this.tooltipNode.style.margin = 0, this.tooltipNode.style.pointerEvents = "auto", this.tooltipNode.tabIndex = -1, this.tooltipNode.onblur = this.blurListener.bind(this), this.tooltipNode.onclick = this.onTooltipClick.bind(this));
+        this.tooltipNode || (this.tooltipNode = f10.createElement("div"), this.tooltipNode.style.margin = "0", this.tooltipNode.style.pointerEvents = "auto", this.tooltipNode.style.overscrollBehavior = "contain", this.tooltipNode.tabIndex = -1, this.tooltipNode.onblur = this.blurListener.bind(this), this.tooltipNode.onclick = this.onTooltipClick.bind(this), this.tooltipNode.id = "doc-tooltip", this.tooltipNode.setAttribute("role", "tooltip"), this.tooltipNode.addEventListener("wheel", p10));
         var t11 = this.editor.renderer.theme;
         this.tooltipNode.className = "ace_tooltip ace_doc-tooltip " + (t11.isDark ? "ace_dark " : "") + (t11.cssClass || "");
         var n11 = this.tooltipNode;
-        e15.docHTML ? n11.innerHTML = e15.docHTML : e15.docText && (n11.textContent = e15.docText), n11.parentNode || document.body.appendChild(n11);
+        e15.docHTML ? n11.innerHTML = e15.docHTML : e15.docText && (n11.textContent = e15.docText), n11.parentNode || this.popup.container.appendChild(this.tooltipNode);
         var r11 = this.popup, i11 = r11.container.getBoundingClientRect();
         n11.style.top = r11.container.style.top, n11.style.bottom = r11.container.style.bottom, n11.style.display = "block", window.innerWidth - i11.right < 320 ? i11.left < 320 ? r11.isTopdown ? (n11.style.top = i11.bottom + "px", n11.style.left = i11.left + "px", n11.style.right = "", n11.style.bottom = "") : (n11.style.top = r11.container.offsetTop - n11.offsetHeight + "px", n11.style.left = i11.left + "px", n11.style.right = "", n11.style.bottom = "") : (n11.style.right = window.innerWidth - i11.left + "px", n11.style.left = "") : (n11.style.left = i11.right + 1 + "px", n11.style.right = "");
       }, e14.prototype.hideDocTooltip = function() {
@@ -54792,10 +55645,10 @@ var extLanguage_tools = { exports: {} };
           var e15 = this.popup.container;
           e15 && e15.parentNode && e15.parentNode.removeChild(e15);
         }
-        this.editor && this.editor.completer == this && (this.editor.off("destroy", h10), this.editor.completer = null), this.inlineRenderer = this.popup = this.editor = null;
+        this.editor && this.editor.completer == this && (this.editor.off("destroy", d10), this.editor.completer = null), this.inlineRenderer = this.popup = this.editor = null;
       }, e14;
     }();
-    p10.prototype.commands = { Up: function(e14) {
+    v10.prototype.commands = { Up: function(e14) {
       e14.completer.goTo("up");
     }, Down: function(e14) {
       e14.completer.goTo("down");
@@ -54818,15 +55671,15 @@ var extLanguage_tools = { exports: {} };
       e14.completer.popup.gotoPageUp();
     }, PageDown: function(e14) {
       e14.completer.popup.gotoPageDown();
-    } }, p10.for = function(e14) {
-      return e14.completer instanceof p10 ? e14.completer : (e14.completer && (e14.completer.destroy(), e14.completer = null), c10.get("sharedPopups") ? (p10.$sharedInstance || (p10.$sharedInstance = new p10()), e14.completer = p10.$sharedInstance) : (e14.completer = new p10(), e14.once("destroy", h10)), e14.completer);
-    }, p10.startCommand = { name: "startAutocomplete", exec: function(e14, t11) {
-      var n11 = p10.for(e14);
-      n11.autoInsert = false, n11.autoSelect = true, n11.showPopup(e14, t11), n11.cancelContextMenu();
+    } }, v10.for = function(e14) {
+      return e14.completer instanceof v10 ? e14.completer : (e14.completer && (e14.completer.destroy(), e14.completer = null), c10.get("sharedPopups") ? (v10.$sharedInstance || (v10.$sharedInstance = new v10()), e14.completer = v10.$sharedInstance) : (e14.completer = new v10(), e14.once("destroy", d10)), e14.completer);
+    }, v10.startCommand = { name: "startAutocomplete", exec: function(e14, t11) {
+      var n11 = v10.for(e14);
+      n11.autoInsert = false, n11.autoSelect = true, n11.autoShown = false, n11.showPopup(e14, t11), n11.cancelContextMenu();
     }, bindKey: "Ctrl-Space|Ctrl-Shift-Space|Alt-Space" };
-    var d10 = function() {
-      function e14() {
-        this.active = true;
+    var m10 = function() {
+      function e14(e15) {
+        this.initialPosition = e15, this.active = true;
       }
       return e14.prototype.insertByIndex = function(e15, t11, n11) {
         return !this.completions || !this.completions.filtered ? false : this.insertMatch(e15, this.completions.filtered[t11], n11);
@@ -54839,36 +55692,35 @@ var extLanguage_tools = { exports: {} };
         else {
           if (!this.completions)
             return false;
-          if (this.completions.filterText) {
-            var r11 = e15.selection.getAllRanges();
-            for (var i11 = 0, s11; s11 = r11[i11]; i11++)
-              s11.start.column -= this.completions.filterText.length, e15.session.remove(s11);
+          var r11 = this.completions.filterText.length, i11 = 0;
+          t11.range && t11.range.start.row === t11.range.end.row && (r11 -= this.initialPosition.prefix.length, r11 += this.initialPosition.pos.column - t11.range.start.column, i11 += t11.range.end.column - this.initialPosition.pos.column);
+          if (r11 || i11) {
+            var s11;
+            e15.selection.getAllRanges ? s11 = e15.selection.getAllRanges() : s11 = [e15.getSelectionRange()];
+            for (var o11 = 0, u11; u11 = s11[o11]; o11++)
+              u11.start.column -= r11, u11.end.column += i11, e15.session.remove(u11);
           }
-          t11.snippet ? l10.insertSnippet(e15, t11.snippet, t11.range) : this.$insertString(e15, t11), t11.command && t11.command === "startAutocomplete" && e15.execCommand(t11.command);
+          t11.snippet ? l10.insertSnippet(e15, t11.snippet) : this.$insertString(e15, t11), t11.completer && t11.completer.onInsert && typeof t11.completer.onInsert == "function" && t11.completer.onInsert(e15, t11), t11.command && t11.command === "startAutocomplete" && e15.execCommand(t11.command);
         }
         return e15.endOperation(), true;
       }, e14.prototype.$insertString = function(e15, t11) {
         var n11 = t11.value || t11;
-        if (t11.range) {
-          if (e15.inVirtualSelectionMode)
-            return e15.session.replace(t11.range, n11);
-          e15.forEachSelection(function() {
-            var r11 = e15.getSelectionRange();
-            t11.range.compareRange(r11) === 0 ? e15.session.replace(t11.range, n11) : e15.insert(n11);
-          }, null, { keepOrder: true });
-        } else
-          e15.execCommand("insertstring", n11);
+        e15.execCommand("insertstring", n11);
       }, e14.prototype.gatherCompletions = function(e15, t11) {
-        var n11 = e15.getSession(), r11 = e15.getCursorPosition(), i11 = u10.getCompletionPrefix(e15), s11 = [], o11 = e15.completers.length;
+        var n11 = e15.getSession(), r11 = e15.getCursorPosition(), i11 = u10.getCompletionPrefix(e15), s11 = [];
+        this.completers = e15.completers;
+        var o11 = e15.completers.length;
         return e15.completers.forEach(function(a11, f11) {
           a11.getCompletions(e15, n11, r11, i11, function(n12, r12) {
-            !n12 && r12 && (s11 = s11.concat(r12)), t11(null, { prefix: u10.getCompletionPrefix(e15), matches: s11, finished: --o11 === 0 });
+            a11.hideInlinePreview && (r12 = r12.map(function(e16) {
+              return Object.assign(e16, { hideInlinePreview: a11.hideInlinePreview });
+            })), !n12 && r12 && (s11 = s11.concat(r12)), t11(null, { prefix: u10.getCompletionPrefix(e15), matches: s11, finished: --o11 === 0 });
           });
         }), true;
       }, e14.prototype.provideCompletions = function(e15, t11, n11) {
         var r11 = function(e16) {
           var r12 = e16.prefix, i12 = e16.matches;
-          this.completions = new v10(i12), t11.exactMatch && (this.completions.exactMatch = true), t11.ignoreCaption && (this.completions.ignoreCaption = true), this.completions.setFilter(r12), (e16.finished || this.completions.filtered.length) && n11(null, this.completions, e16.finished);
+          this.completions = new g10(i12), t11.exactMatch && (this.completions.exactMatch = true), t11.ignoreCaption && (this.completions.ignoreCaption = true), this.completions.setFilter(r12), (e16.finished || this.completions.filtered.length) && n11(null, this.completions, e16.finished);
         }.bind(this), i11 = true, s11 = null;
         this.gatherCompletions(e15, function(e16, t12) {
           if (!this.active)
@@ -54888,9 +55740,11 @@ var extLanguage_tools = { exports: {} };
           s11 = null, r11(o11);
         }
       }, e14.prototype.detach = function() {
-        this.active = false;
+        this.active = false, this.completers && this.completers.forEach(function(e15) {
+          typeof e15.cancel == "function" && e15.cancel();
+        });
       }, e14;
-    }(), v10 = function() {
+    }(), g10 = function() {
       function e14(e15, t11) {
         this.all = e15, this.filtered = e15, this.filterText = t11 || "", this.exactMatch = false, this.ignoreCaption = false;
       }
@@ -54924,8 +55778,8 @@ var extLanguage_tools = { exports: {} };
                 l11 = p11;
               else
                 for (var d11 = 0; d11 < t11.length; d11++) {
-                  var v11 = u11.indexOf(i11[d11], a11 + 1), m10 = u11.indexOf(r11[d11], a11 + 1);
-                  c11 = v11 >= 0 ? m10 < 0 || v11 < m10 ? v11 : m10 : m10;
+                  var v11 = u11.indexOf(i11[d11], a11 + 1), m11 = u11.indexOf(r11[d11], a11 + 1);
+                  c11 = v11 >= 0 ? m11 < 0 || v11 < m11 ? v11 : m11 : m11;
                   if (c11 < 0)
                     continue e;
                   h11 = c11 - a11 - 1, h11 > 0 && (a11 === -1 && (l11 += 10), l11 += h11, f11 |= 1 << d11), a11 = c11;
@@ -54936,7 +55790,7 @@ var extLanguage_tools = { exports: {} };
         return n11;
       }, e14;
     }();
-    t10.Autocomplete = p10, t10.CompletionProvider = d10, t10.FilteredList = v10;
+    t10.Autocomplete = v10, t10.CompletionProvider = m10, t10.FilteredList = g10;
   }), ace.define("ace/autocomplete/text_completer", ["require", "exports", "module", "ace/range"], function(e13, t10, n10) {
     function s10(e14, t11) {
       var n11 = e14.getTextRange(r10.fromPoints({ row: 0, column: 0 }, t11));
@@ -55017,19 +55871,25 @@ var extLanguage_tools = { exports: {} };
       var t11 = e14.editor, n11 = t11.completer && t11.completer.activated;
       if (e14.command.name === "backspace")
         n11 && !u10.getCompletionPrefix(t11) && t11.completer.detach();
-      else if (e14.command.name === "insertstring") {
-        var r11 = u10.getCompletionPrefix(t11);
-        if (r11 && !n11) {
-          var s11 = i10.for(t11);
-          s11.autoInsert = false, s11.showPopup(t11);
-        }
+      else if (e14.command.name === "insertstring" && !n11) {
+        y10 = e14;
+        var r11 = e14.editor.$liveAutocompletionDelay;
+        r11 ? b10.delay(r11) : w10(e14);
       }
-    }, y10 = e13("../editor").Editor;
-    e13("../config").defineOptions(y10.prototype, "editor", { enableBasicAutocompletion: { set: function(e14) {
+    }, y10, b10 = o10.delayedCall(function() {
+      w10(y10);
+    }, 0), w10 = function(e14) {
+      var t11 = e14.editor, n11 = u10.getCompletionPrefix(t11), r11 = u10.triggerAutocomplete(t11);
+      if (n11 && n11.length >= t11.$liveAutocompletionThreshold || r11) {
+        var s11 = i10.for(t11);
+        s11.autoShown = true, s11.showPopup(t11);
+      }
+    }, E10 = e13("../editor").Editor;
+    e13("../config").defineOptions(E10.prototype, "editor", { enableBasicAutocompletion: { set: function(e14) {
       e14 ? (this.completers || (this.completers = Array.isArray(e14) ? e14 : h10), this.commands.addCommand(i10.startCommand)) : this.commands.removeCommand(i10.startCommand);
     }, value: false }, enableLiveAutocompletion: { set: function(e14) {
-      e14 ? (this.completers || (this.completers = Array.isArray(e14) ? e14 : h10), this.commands.on("afterExec", g10)) : this.commands.removeListener("afterExec", g10);
-    }, value: false }, enableSnippets: { set: function(e14) {
+      e14 ? (this.completers || (this.completers = Array.isArray(e14) ? e14 : h10), this.commands.on("afterExec", g10)) : this.commands.off("afterExec", g10);
+    }, value: false }, liveAutocompletionDelay: { initialValue: 0 }, liveAutocompletionThreshold: { initialValue: 0 }, enableSnippets: { set: function(e14) {
       e14 ? (this.commands.addCommand(p10), this.on("changeMode", d10), d10(null, this)) : (this.commands.removeCommand(p10), this.off("changeMode", d10));
     }, value: false } });
   });
@@ -55046,7 +55906,7 @@ const MOCK_CASE_URL = "https://ks3-cn-beijing.ksyuncs.com/vform-static/vcase/";
 const ACE_BASE_PATH = "https://ks3-cn-beijing.ksyun.com/vform2021/ace-mini";
 const BEAUTIFIER_PATH = "https://ks3-cn-beijing.ksyun.com/vform2021/js-beautify/1.14.0/beautifier.min.js";
 var index_vue_vue_type_style_index_0_scoped_true_lang$4 = "";
-const _sfc_main$2Q = {
+const _sfc_main$2R = {
   name: "CodeEditor",
   props: {
     modelValue: {
@@ -55142,12 +56002,12 @@ const _hoisted_2$k = {
   class: "ace-editor",
   ref: "ace"
 };
-function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$S, [
     createElementVNode("div", _hoisted_2$k, null, 512)
   ]);
 }
-var CodeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Q, [["render", _sfc_render$2Q], ["__scopeId", "data-v-35f2b510"]]);
+var CodeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-335e1214"]]);
 const generateCode = function(formJson, codeType = "vue") {
   let formJsonStr = JSON.stringify(formJson);
   if (codeType === "html") {
@@ -56170,7 +57030,7 @@ var FileSaver_min = { exports: {} };
   });
 })(FileSaver_min);
 var index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
-const _sfc_main$2P = {
+const _sfc_main$2Q = {
   name: "ToolbarPanel",
   mixins: [i18n$1],
   components: {
@@ -56596,7 +57456,7 @@ const _hoisted_15 = {
   class: ""
 };
 const _hoisted_16 = { class: "dialog-footer" };
-function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_button_group = resolveComponent("el-button-group");
@@ -57256,8 +58116,8 @@ function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$2P, [["render", _sfc_render$2P], ["__scopeId", "data-v-27112323"]]);
-const _sfc_main$2O = {
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Q, [["render", _sfc_render$2Q], ["__scopeId", "data-v-24aa1d72"]]);
+const _sfc_main$2P = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
   props: {
@@ -57266,7 +58126,7 @@ const _sfc_main$2O = {
     optionModel: Object
   }
 };
-function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57281,12 +58141,12 @@ function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var allowCreateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2O, [["render", _sfc_render$2O]]);
+var allowCreateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2P, [["render", _sfc_render$2P]]);
 var __glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": allowCreateEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2N = {
+const _sfc_main$2O = {
   name: "appendButton-editor",
   mixins: [i18n$1],
   props: {
@@ -57295,7 +58155,7 @@ const _sfc_main$2N = {
     optionModel: Object
   }
 };
-function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_switch = resolveComponent("el-switch");
@@ -57324,12 +58184,12 @@ function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var appendButtonEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2N, [["render", _sfc_render$2N]]);
+var appendButtonEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2O, [["render", _sfc_render$2O]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2M = {
+const _sfc_main$2N = {
   name: "appendButtonDisabled-editor",
   mixins: [i18n$1],
   props: {
@@ -57338,7 +58198,7 @@ const _sfc_main$2M = {
     optionModel: Object
   }
 };
-function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57353,12 +58213,12 @@ function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var appendButtonDisabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2M, [["render", _sfc_render$2M]]);
+var appendButtonDisabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2N, [["render", _sfc_render$2N]]);
 var __glob_0_2$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonDisabledEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2L = {
+const _sfc_main$2M = {
   name: "appendButtonText-editor",
   mixins: [i18n$1],
   props: {
@@ -57367,7 +58227,7 @@ const _sfc_main$2L = {
     optionModel: Object
   }
 };
-function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57383,12 +58243,12 @@ function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var appendButtonTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2L, [["render", _sfc_render$2L]]);
+var appendButtonTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2M, [["render", _sfc_render$2M]]);
 var __glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": appendButtonTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2K = {
+const _sfc_main$2L = {
   name: "autoFullWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -57397,7 +58257,7 @@ const _sfc_main$2K = {
     optionModel: Object
   }
 };
-function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57412,12 +58272,12 @@ function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var autoFullWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2K, [["render", _sfc_render$2K]]);
+var autoFullWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2L, [["render", _sfc_render$2L]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": autoFullWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2J = {
+const _sfc_main$2K = {
   name: "automaticDropdown-editor",
   mixins: [i18n$1],
   props: {
@@ -57426,7 +58286,7 @@ const _sfc_main$2J = {
     optionModel: Object
   }
 };
-function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57441,12 +58301,12 @@ function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var automaticDropdownEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2J, [["render", _sfc_render$2J]]);
+var automaticDropdownEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2K, [["render", _sfc_render$2K]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": automaticDropdownEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2I = {
+const _sfc_main$2J = {
   name: "border-editor",
   mixins: [i18n$1],
   props: {
@@ -57455,7 +58315,7 @@ const _sfc_main$2I = {
     optionModel: Object
   }
 };
-function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57470,12 +58330,12 @@ function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var borderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2I, [["render", _sfc_render$2I]]);
+var borderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2J, [["render", _sfc_render$2J]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": borderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2H = {
+const _sfc_main$2I = {
   name: "buttonIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -57484,7 +58344,7 @@ const _sfc_main$2H = {
     optionModel: Object
   }
 };
-function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57500,12 +58360,12 @@ function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2H, [["render", _sfc_render$2H]]);
+var buttonIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2I, [["render", _sfc_render$2I]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2G = {
+const _sfc_main$2H = {
   name: "buttonStyle-editor",
   mixins: [i18n$1],
   props: {
@@ -57514,7 +58374,7 @@ const _sfc_main$2G = {
     optionModel: Object
   }
 };
-function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57529,12 +58389,12 @@ function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2G, [["render", _sfc_render$2G]]);
+var buttonStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2H, [["render", _sfc_render$2H]]);
 var __glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonStyleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2F = {
+const _sfc_main$2G = {
   name: "clearable-editor",
   mixins: [i18n$1],
   props: {
@@ -57543,7 +58403,7 @@ const _sfc_main$2F = {
     optionModel: Object
   }
 };
-function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57558,12 +58418,12 @@ function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var clearableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2F, [["render", _sfc_render$2F]]);
+var clearableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2G, [["render", _sfc_render$2G]]);
 var __glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": clearableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2E = {
+const _sfc_main$2F = {
   name: "columnWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -57584,7 +58444,7 @@ const _sfc_main$2E = {
     });
   }
 };
-function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -57604,12 +58464,12 @@ function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var columnWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2E, [["render", _sfc_render$2E]]);
+var columnWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2F, [["render", _sfc_render$2F]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": columnWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2D = {
+const _sfc_main$2E = {
   name: "customClass-editor",
   componentName: "PropertyEditor",
   mixins: [i18n$1],
@@ -57620,7 +58480,8 @@ const _sfc_main$2D = {
   },
   data() {
     return {
-      cssClassList: []
+      cssClassList: [],
+      defaultClass: ["align-left", "align-right"]
     };
   },
   created() {
@@ -57628,9 +58489,10 @@ const _sfc_main$2D = {
     this.designer.handleEvent("form-css-updated", (cssClassList) => {
       this.cssClassList = cssClassList;
     });
+    this.cssClassList.push(...this.defaultClass);
   }
 };
-function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -57661,7 +58523,7 @@ function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var customClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2D, [["render", _sfc_render$2D]]);
+var customClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2E, [["render", _sfc_render$2E]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": customClassEditor
@@ -57706,7 +58568,7 @@ var propertyMixin = {
     }
   }
 };
-const _sfc_main$2C = {
+const _sfc_main$2D = {
   name: "defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -57715,7 +58577,7 @@ const _sfc_main$2C = {
     optionModel: Object
   }
 };
-function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return !_ctx.hasConfig("optionItems") ? (openBlock(), createBlock(_component_el_form_item, {
@@ -57734,12 +58596,12 @@ function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var defaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2C, [["render", _sfc_render$2C]]);
+var defaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2D, [["render", _sfc_render$2D]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": defaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2B = {
+const _sfc_main$2C = {
   name: "disabled-editor",
   mixins: [i18n$1],
   props: {
@@ -57748,7 +58610,7 @@ const _sfc_main$2B = {
     optionModel: Object
   }
 };
-function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57763,12 +58625,12 @@ function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var disabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2B, [["render", _sfc_render$2B]]);
+var disabledEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2C, [["render", _sfc_render$2C]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": disabledEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2A = {
+const _sfc_main$2B = {
   name: "displayStyle-editor",
   mixins: [i18n$1],
   props: {
@@ -57777,7 +58639,7 @@ const _sfc_main$2A = {
     optionModel: Object
   }
 };
-function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -57809,12 +58671,12 @@ function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var displayStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2A, [["render", _sfc_render$2A]]);
+var displayStyleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2B, [["render", _sfc_render$2B]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": displayStyleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2z = {
+const _sfc_main$2A = {
   name: "editable-editor",
   mixins: [i18n$1],
   props: {
@@ -57823,7 +58685,7 @@ const _sfc_main$2z = {
     optionModel: Object
   }
 };
-function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57838,12 +58700,12 @@ function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var editableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2z, [["render", _sfc_render$2z]]);
+var editableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2A, [["render", _sfc_render$2A]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": editableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2y = {
+const _sfc_main$2z = {
   name: "endPlaceholder-editor",
   mixins: [i18n$1],
   props: {
@@ -57852,7 +58714,7 @@ const _sfc_main$2y = {
     optionModel: Object
   }
 };
-function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57868,13 +58730,13 @@ function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var endPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2y, [["render", _sfc_render$2y]]);
+var endPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2z, [["render", _sfc_render$2z]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": endPlaceholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var expandTriggerEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2x = {
+const _sfc_main$2y = {
   name: "expandTrigger-editor",
   mixins: [i18n$1],
   props: {
@@ -57883,7 +58745,7 @@ const _sfc_main$2x = {
     optionModel: Object
   }
 };
-function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -57916,12 +58778,12 @@ function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var expandTriggerEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2x, [["render", _sfc_render$2x], ["__scopeId", "data-v-7aa053cb"]]);
+var expandTriggerEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2y, [["render", _sfc_render$2y], ["__scopeId", "data-v-517e79fc"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": expandTriggerEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2w = {
+const _sfc_main$2x = {
   name: "fileMaxSize-editor",
   mixins: [i18n$1],
   props: {
@@ -57930,7 +58792,7 @@ const _sfc_main$2w = {
     optionModel: Object
   }
 };
-function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57948,12 +58810,12 @@ function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var fileMaxSizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2w, [["render", _sfc_render$2w]]);
+var fileMaxSizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2x, [["render", _sfc_render$2x]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileMaxSizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2v = {
+const _sfc_main$2w = {
   name: "filterable-editor",
   mixins: [i18n$1],
   props: {
@@ -57962,7 +58824,7 @@ const _sfc_main$2v = {
     optionModel: Object
   }
 };
-function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -57977,12 +58839,12 @@ function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var filterableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2v, [["render", _sfc_render$2v]]);
+var filterableEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2w, [["render", _sfc_render$2w]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": filterableEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2u = {
+const _sfc_main$2v = {
   name: "hidden-editor",
   mixins: [i18n$1],
   props: {
@@ -57991,7 +58853,7 @@ const _sfc_main$2u = {
     optionModel: Object
   }
 };
-function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58006,12 +58868,12 @@ function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var hiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2u, [["render", _sfc_render$2u]]);
+var hiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2v, [["render", _sfc_render$2v]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": hiddenEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2t = {
+const _sfc_main$2u = {
   name: "label-editor",
   mixins: [i18n$1],
   props: {
@@ -58025,7 +58887,7 @@ const _sfc_main$2t = {
     }
   }
 };
-function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return !$options.noLabelSetting ? (openBlock(), createBlock(_component_el_form_item, {
@@ -58042,13 +58904,13 @@ function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var labelEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2t, [["render", _sfc_render$2t]]);
+var labelEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2u, [["render", _sfc_render$2u]]);
 var __glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var labelAlignEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2s = {
+const _sfc_main$2t = {
   name: "labelAlign-editor",
   mixins: [i18n$1],
   props: {
@@ -58062,7 +58924,7 @@ const _sfc_main$2s = {
     }
   }
 };
-function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -58102,12 +58964,12 @@ function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var labelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2s, [["render", _sfc_render$2s], ["__scopeId", "data-v-1cf9ee3e"]]);
+var labelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2t, [["render", _sfc_render$2t], ["__scopeId", "data-v-66e82e59"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2r = {
+const _sfc_main$2s = {
   name: "labelHidden-editor",
   mixins: [i18n$1],
   props: {
@@ -58116,7 +58978,7 @@ const _sfc_main$2r = {
     optionModel: Object
   }
 };
-function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58131,12 +58993,12 @@ function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelHiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2r, [["render", _sfc_render$2r]]);
+var labelHiddenEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2s, [["render", _sfc_render$2s]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelHiddenEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2q = {
+const _sfc_main$2r = {
   name: "labelIconClass-editor",
   mixins: [i18n$1],
   props: {
@@ -58145,7 +59007,7 @@ const _sfc_main$2q = {
     optionModel: Object
   }
 };
-function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
@@ -58175,12 +59037,12 @@ function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var labelIconClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2q, [["render", _sfc_render$2q]]);
+var labelIconClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2r, [["render", _sfc_render$2r]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelIconClassEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2p = {
+const _sfc_main$2q = {
   name: "labelIconPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -58197,7 +59059,7 @@ const _sfc_main$2p = {
     };
   }
 };
-function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -58224,12 +59086,12 @@ function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelIconPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2p, [["render", _sfc_render$2p]]);
+var labelIconPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2q, [["render", _sfc_render$2q]]);
 var __glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelIconPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2o = {
+const _sfc_main$2p = {
   name: "labelTooltip-editor",
   mixins: [i18n$1],
   props: {
@@ -58238,7 +59100,7 @@ const _sfc_main$2o = {
     optionModel: Object
   }
 };
-function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58254,12 +59116,12 @@ function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelTooltipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2o, [["render", _sfc_render$2o]]);
+var labelTooltipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2p, [["render", _sfc_render$2p]]);
 var __glob_0_26 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelTooltipEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2n = {
+const _sfc_main$2o = {
   name: "labelWidth-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58268,7 +59130,7 @@ const _sfc_main$2n = {
     optionModel: Object
   }
 };
-function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58287,12 +59149,12 @@ function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var labelWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2n, [["render", _sfc_render$2n]]);
+var labelWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2o, [["render", _sfc_render$2o]]);
 var __glob_0_27 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": labelWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2m = {
+const _sfc_main$2n = {
   name: "lazy-editor",
   mixins: [i18n$1],
   props: {
@@ -58301,7 +59163,7 @@ const _sfc_main$2m = {
     optionModel: Object
   }
 };
-function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58316,12 +59178,12 @@ function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var lazyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2m, [["render", _sfc_render$2m]]);
+var lazyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2n, [["render", _sfc_render$2n]]);
 var __glob_0_28 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": lazyEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2l = {
+const _sfc_main$2m = {
   name: "limit-editor",
   mixins: [i18n$1],
   props: {
@@ -58330,7 +59192,7 @@ const _sfc_main$2l = {
     optionModel: Object
   }
 };
-function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58348,12 +59210,12 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var limitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l]]);
+var limitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2m, [["render", _sfc_render$2m]]);
 var __glob_0_29 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": limitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2k = {
+const _sfc_main$2l = {
   name: "max-editor",
   mixins: [i18n$1],
   props: {
@@ -58376,7 +59238,7 @@ const _sfc_main$2k = {
     }
   }
 };
-function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58393,12 +59255,12 @@ function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var maxEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2k, [["render", _sfc_render$2k]]);
+var maxEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l]]);
 var __glob_0_30 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": maxEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2j = {
+const _sfc_main$2k = {
   name: "maxLength-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58421,7 +59283,7 @@ const _sfc_main$2j = {
     }
   }
 };
-function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58441,12 +59303,12 @@ function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var maxLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2j, [["render", _sfc_render$2j]]);
+var maxLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2k, [["render", _sfc_render$2k]]);
 var __glob_0_31 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": maxLengthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2i = {
+const _sfc_main$2j = {
   name: "min-editor",
   mixins: [i18n$1],
   props: {
@@ -58469,7 +59331,7 @@ const _sfc_main$2i = {
     }
   }
 };
-function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58486,12 +59348,12 @@ function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var minEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2i, [["render", _sfc_render$2i]]);
+var minEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2j, [["render", _sfc_render$2j]]);
 var __glob_0_32 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": minEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2h = {
+const _sfc_main$2i = {
   name: "minLength-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58514,7 +59376,7 @@ const _sfc_main$2h = {
     }
   }
 };
-function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58534,12 +59396,12 @@ function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var minLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2h, [["render", _sfc_render$2h]]);
+var minLengthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2i, [["render", _sfc_render$2i]]);
 var __glob_0_33 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": minLengthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2g = {
+const _sfc_main$2h = {
   name: "multiple-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -58548,7 +59410,7 @@ const _sfc_main$2g = {
     optionModel: Object
   }
 };
-function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58564,12 +59426,12 @@ function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2g, [["render", _sfc_render$2g]]);
+var multipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2h, [["render", _sfc_render$2h]]);
 var __glob_0_34 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2f = {
+const _sfc_main$2g = {
   name: "multipleLimit-editor",
   mixins: [i18n$1],
   props: {
@@ -58578,7 +59440,7 @@ const _sfc_main$2f = {
     optionModel: Object
   }
 };
-function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58596,12 +59458,12 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2f, [["render", _sfc_render$2f]]);
+var multipleLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2g, [["render", _sfc_render$2g]]);
 var __glob_0_35 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleLimitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2e = {
+const _sfc_main$2f = {
   name: "multipleSelect-editor",
   mixins: [i18n$1],
   props: {
@@ -58610,7 +59472,7 @@ const _sfc_main$2e = {
     optionModel: Object
   }
 };
-function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -58625,12 +59487,12 @@ function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var multipleSelectEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2e, [["render", _sfc_render$2e]]);
+var multipleSelectEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2f, [["render", _sfc_render$2f]]);
 var __glob_0_36 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": multipleSelectEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2d = {
+const _sfc_main$2e = {
   name: "name-editor",
   mixins: [i18n$1],
   components: {
@@ -58688,7 +59550,7 @@ const _sfc_main$2d = {
     }
   }
 };
-function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_input = resolveComponent("el-input");
@@ -58746,13 +59608,13 @@ function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["rules"]);
 }
-var nameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2d, [["render", _sfc_render$2d]]);
+var nameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2e, [["render", _sfc_render$2e]]);
 var __glob_0_37 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": nameEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var optionItemsSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2c = {
+const _sfc_main$2d = {
   name: "OptionItemsSetting",
   mixins: [i18n$1],
   components: {
@@ -58862,7 +59724,7 @@ const _sfc_main$2c = {
     }
   }
 };
-const _withScopeId$3 = (n10) => (pushScopeId("data-v-84ea73fa"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$3 = (n10) => (pushScopeId("data-v-76a08b79"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$Q = { class: "option-items-pane" };
 const _hoisted_2$i = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
 const _hoisted_3$f = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
@@ -58882,7 +59744,7 @@ const _hoisted_9$3 = {
   class: ""
 };
 const _hoisted_10$3 = { class: "dialog-footer" };
-function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_radio = resolveComponent("el-radio");
@@ -59160,8 +60022,8 @@ function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2c, [["render", _sfc_render$2c], ["__scopeId", "data-v-84ea73fa"]]);
-const _sfc_main$2b = {
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2d, [["render", _sfc_render$2d], ["__scopeId", "data-v-76a08b79"]]);
+const _sfc_main$2c = {
   name: "optionItems-editor",
   mixins: [i18n$1],
   props: {
@@ -59173,7 +60035,7 @@ const _sfc_main$2b = {
     OptionItemsSetting
   }
 };
-function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_option_items_setting = resolveComponent("option-items-setting");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -59193,12 +60055,12 @@ function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var optionItemsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2b, [["render", _sfc_render$2b]]);
+var optionItemsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2c, [["render", _sfc_render$2c]]);
 var __glob_0_38 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": optionItemsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$2a = {
+const _sfc_main$2b = {
   name: "placeholder-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -59207,7 +60069,7 @@ const _sfc_main$2a = {
     optionModel: Object
   }
 };
-function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59223,12 +60085,12 @@ function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var placeholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2a, [["render", _sfc_render$2a]]);
+var placeholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2b, [["render", _sfc_render$2b]]);
 var __glob_0_39 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": placeholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$29 = {
+const _sfc_main$2a = {
   name: "precision-editor",
   mixins: [i18n$1],
   props: {
@@ -59237,7 +60099,7 @@ const _sfc_main$29 = {
     optionModel: Object
   }
 };
-function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$2a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59255,12 +60117,12 @@ function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var precisionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$29, [["render", _sfc_render$29]]);
+var precisionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2a, [["render", _sfc_render$2a]]);
 var __glob_0_40 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": precisionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$28 = {
+const _sfc_main$29 = {
   name: "prefixIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -59269,7 +60131,7 @@ const _sfc_main$28 = {
     optionModel: Object
   }
 };
-function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$29(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59285,12 +60147,12 @@ function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var prefixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$28, [["render", _sfc_render$28]]);
+var prefixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$29, [["render", _sfc_render$29]]);
 var __glob_0_41 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": prefixIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$27 = {
+const _sfc_main$28 = {
   name: "prependText-editor",
   mixins: [i18n$1],
   props: {
@@ -59299,7 +60161,7 @@ const _sfc_main$27 = {
     optionModel: Object
   }
 };
-function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$28(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59315,12 +60177,12 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var prependTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$27, [["render", _sfc_render$27]]);
+var prependTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$28, [["render", _sfc_render$28]]);
 var __glob_0_42 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": prependTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$26 = {
+const _sfc_main$27 = {
   name: "readonly-editor",
   mixins: [i18n$1],
   props: {
@@ -59329,7 +60191,7 @@ const _sfc_main$26 = {
     optionModel: Object
   }
 };
-function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59344,12 +60206,12 @@ function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var readonlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$26, [["render", _sfc_render$26]]);
+var readonlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$27, [["render", _sfc_render$27]]);
 var __glob_0_43 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": readonlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$25 = {
+const _sfc_main$26 = {
   name: "remote-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -59358,7 +60220,7 @@ const _sfc_main$25 = {
     optionModel: Object
   }
 };
-function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$26(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59374,12 +60236,12 @@ function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var remoteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$25, [["render", _sfc_render$25]]);
+var remoteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$26, [["render", _sfc_render$26]]);
 var __glob_0_44 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": remoteEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$24 = {
+const _sfc_main$25 = {
   name: "required-editor",
   mixins: [i18n$1],
   props: {
@@ -59388,7 +60250,7 @@ const _sfc_main$24 = {
     optionModel: Object
   }
 };
-function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$25(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59403,12 +60265,12 @@ function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var requiredEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$24, [["render", _sfc_render$24]]);
+var requiredEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$25, [["render", _sfc_render$25]]);
 var __glob_0_45 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": requiredEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$23 = {
+const _sfc_main$24 = {
   name: "requiredHint-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -59417,7 +60279,7 @@ const _sfc_main$23 = {
     optionModel: Object
   }
 };
-function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$24(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59433,12 +60295,12 @@ function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var requiredHintEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$23, [["render", _sfc_render$23]]);
+var requiredHintEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$24, [["render", _sfc_render$24]]);
 var __glob_0_46 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": requiredHintEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$22 = {
+const _sfc_main$23 = {
   name: "rows-editor",
   mixins: [i18n$1],
   props: {
@@ -59447,7 +60309,7 @@ const _sfc_main$22 = {
     optionModel: Object
   }
 };
-function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$23(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59463,12 +60325,12 @@ function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var rowsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$22, [["render", _sfc_render$22]]);
+var rowsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$23, [["render", _sfc_render$23]]);
 var __glob_0_47 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rowsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$21 = {
+const _sfc_main$22 = {
   name: "showFileList-editor",
   mixins: [i18n$1],
   props: {
@@ -59477,7 +60339,7 @@ const _sfc_main$21 = {
     optionModel: Object
   }
 };
-function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59492,12 +60354,12 @@ function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showFileListEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$21, [["render", _sfc_render$21]]);
+var showFileListEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$22, [["render", _sfc_render$22]]);
 var __glob_0_48 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showFileListEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$20 = {
+const _sfc_main$21 = {
   name: "showPassword-editor",
   mixins: [i18n$1],
   props: {
@@ -59506,7 +60368,7 @@ const _sfc_main$20 = {
     optionModel: Object
   }
 };
-function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return $props.optionModel.type === "password" ? (openBlock(), createBlock(_component_el_form_item, {
@@ -59522,12 +60384,12 @@ function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var showPasswordEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$20, [["render", _sfc_render$20]]);
+var showPasswordEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$21, [["render", _sfc_render$21]]);
 var __glob_0_49 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showPasswordEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1$ = {
+const _sfc_main$20 = {
   name: "showWordLimit-editor",
   mixins: [i18n$1],
   props: {
@@ -59536,7 +60398,7 @@ const _sfc_main$1$ = {
     optionModel: Object
   }
 };
-function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$20(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59551,12 +60413,12 @@ function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showWordLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1$, [["render", _sfc_render$1$]]);
+var showWordLimitEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$20, [["render", _sfc_render$20]]);
 var __glob_0_50 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showWordLimitEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1_ = {
+const _sfc_main$1$ = {
   name: "size-editor",
   mixins: [i18n$1],
   props: {
@@ -59574,7 +60436,7 @@ const _sfc_main$1_ = {
     };
   }
 };
-function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -59601,12 +60463,12 @@ function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var sizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1_, [["render", _sfc_render$1_]]);
+var sizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1$, [["render", _sfc_render$1$]]);
 var __glob_0_51 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1Z = {
+const _sfc_main$1_ = {
   name: "startPlaceholder-editor",
   mixins: [i18n$1],
   props: {
@@ -59615,7 +60477,7 @@ const _sfc_main$1Z = {
     optionModel: Object
   }
 };
-function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59631,12 +60493,12 @@ function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var startPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Z, [["render", _sfc_render$1Z]]);
+var startPlaceholderEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1_, [["render", _sfc_render$1_]]);
 var __glob_0_52 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": startPlaceholderEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1Y = {
+const _sfc_main$1Z = {
   name: "step-editor",
   mixins: [i18n$1],
   props: {
@@ -59645,7 +60507,7 @@ const _sfc_main$1Y = {
     optionModel: Object
   }
 };
-function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59662,12 +60524,12 @@ function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var stepEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Y, [["render", _sfc_render$1Y]]);
+var stepEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Z, [["render", _sfc_render$1Z]]);
 var __glob_0_53 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": stepEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1X = {
+const _sfc_main$1Y = {
   name: "suffixIcon-editor",
   mixins: [i18n$1],
   props: {
@@ -59676,7 +60538,7 @@ const _sfc_main$1X = {
     optionModel: Object
   }
 };
-function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59692,13 +60554,13 @@ function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var suffixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1X, [["render", _sfc_render$1X]]);
+var suffixIconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Y, [["render", _sfc_render$1Y]]);
 var __glob_0_54 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": suffixIconEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var textAlignEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1W = {
+const _sfc_main$1X = {
   name: "textAlign-editor",
   mixins: [i18n$1],
   props: {
@@ -59707,7 +60569,7 @@ const _sfc_main$1W = {
     optionModel: Object
   }
 };
-function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -59747,12 +60609,12 @@ function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var textAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1W, [["render", _sfc_render$1W], ["__scopeId", "data-v-7454a9b8"]]);
+var textAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1X, [["render", _sfc_render$1X], ["__scopeId", "data-v-a8b6d272"]]);
 var __glob_0_55 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1V = {
+const _sfc_main$1W = {
   name: "type-editor",
   mixins: [i18n$1],
   props: {
@@ -59762,7 +60624,7 @@ const _sfc_main$1V = {
   },
   computed: {}
 };
-function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -59791,12 +60653,12 @@ function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"])) : createCommentVNode("", true);
 }
-var typeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1V, [["render", _sfc_render$1V]]);
+var typeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1W, [["render", _sfc_render$1W]]);
 var __glob_0_56 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": typeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1U = {
+const _sfc_main$1V = {
   name: "uploadName-editor",
   mixins: [i18n$1],
   props: {
@@ -59805,7 +60667,7 @@ const _sfc_main$1U = {
     optionModel: Object
   }
 };
-function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59821,12 +60683,12 @@ function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var uploadNameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1U, [["render", _sfc_render$1U]]);
+var uploadNameEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1V, [["render", _sfc_render$1V]]);
 var __glob_0_57 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadNameEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1T = {
+const _sfc_main$1U = {
   name: "uploadTip-editor",
   mixins: [i18n$1],
   props: {
@@ -59835,7 +60697,7 @@ const _sfc_main$1T = {
     optionModel: Object
   }
 };
-function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -59851,12 +60713,12 @@ function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var uploadTipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1T, [["render", _sfc_render$1T]]);
+var uploadTipEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1U, [["render", _sfc_render$1U]]);
 var __glob_0_58 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadTipEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1S = {
+const _sfc_main$1T = {
   name: "uploadURL-editor",
   mixins: [i18n$1],
   props: {
@@ -59865,7 +60727,7 @@ const _sfc_main$1S = {
     optionModel: Object
   }
 };
-function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
@@ -59895,12 +60757,12 @@ function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var uploadURLEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1S, [["render", _sfc_render$1S]]);
+var uploadURLEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1T, [["render", _sfc_render$1T]]);
 var __glob_0_59 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": uploadURLEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1R = {
+const _sfc_main$1S = {
   name: "validation-editor",
   mixins: [i18n$1],
   components: {
@@ -59926,7 +60788,7 @@ const _sfc_main$1R = {
     };
   }
 };
-function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_option = resolveComponent("el-option");
@@ -59971,12 +60833,12 @@ function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var validationEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1R, [["render", _sfc_render$1R]]);
+var validationEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1S, [["render", _sfc_render$1S]]);
 var __glob_0_60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": validationEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1Q = {
+const _sfc_main$1R = {
   name: "validationHint-editor",
   mixins: [i18n$1],
   props: {
@@ -59985,7 +60847,7 @@ const _sfc_main$1Q = {
     optionModel: Object
   }
 };
-function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60001,12 +60863,12 @@ function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var validationHintEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
+var validationHintEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1R, [["render", _sfc_render$1R]]);
 var __glob_0_61 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": validationHintEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1P = {
+const _sfc_main$1Q = {
   name: "withCredentials-editor",
   mixins: [i18n$1],
   props: {
@@ -60015,7 +60877,7 @@ const _sfc_main$1P = {
     optionModel: Object
   }
 };
-function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60030,12 +60892,12 @@ function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var withCredentialsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1P, [["render", _sfc_render$1P]]);
+var withCredentialsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1Q, [["render", _sfc_render$1Q]]);
 var __glob_0_62 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": withCredentialsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1O = {
+const _sfc_main$1P = {
   name: "colHeight-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -60044,7 +60906,7 @@ const _sfc_main$1O = {
     optionModel: Object
   }
 };
-function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -60065,13 +60927,13 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])
   ]);
 }
-var colHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1O, [["render", _sfc_render$1O]]);
+var colHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1P, [["render", _sfc_render$1P]]);
 var __glob_0_63 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var gutterEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1N = {
+const _sfc_main$1O = {
   name: "gutter-editor",
   mixins: [i18n$1],
   props: {
@@ -60101,7 +60963,7 @@ const _sfc_main$1N = {
   }
 };
 const _hoisted_1$P = { class: "col-span-title" };
-function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input_number = resolveComponent("el-input-number");
@@ -60178,12 +61040,12 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var gutterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-a1c95c20"]]);
+var gutterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1O, [["render", _sfc_render$1O], ["__scopeId", "data-v-7e22782e"]]);
 var __glob_0_64 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gutterEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1M = {
+const _sfc_main$1N = {
   name: "grid-col-offset-editor",
   mixins: [i18n$1],
   props: {
@@ -60192,7 +61054,7 @@ const _sfc_main$1M = {
     optionModel: Object
   }
 };
-function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60211,12 +61073,12 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColOffsetEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M]]);
+var gridColOffsetEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N]]);
 var __glob_0_65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColOffsetEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1L = {
+const _sfc_main$1M = {
   name: "grid-col-pull-editor",
   mixins: [i18n$1],
   props: {
@@ -60225,7 +61087,7 @@ const _sfc_main$1L = {
     optionModel: Object
   }
 };
-function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60244,12 +61106,12 @@ function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColPullEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1L, [["render", _sfc_render$1L]]);
+var gridColPullEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M]]);
 var __glob_0_66 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColPullEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1K = {
+const _sfc_main$1L = {
   name: "grid-col-push-editor",
   mixins: [i18n$1],
   props: {
@@ -60258,7 +61120,7 @@ const _sfc_main$1K = {
     optionModel: Object
   }
 };
-function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60277,12 +61139,12 @@ function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColPushEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1K, [["render", _sfc_render$1K]]);
+var gridColPushEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1L, [["render", _sfc_render$1L]]);
 var __glob_0_67 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColPushEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1J = {
+const _sfc_main$1K = {
   name: "grid-col-responsive-editor",
   mixins: [i18n$1],
   props: {
@@ -60291,7 +61153,7 @@ const _sfc_main$1J = {
     optionModel: Object
   }
 };
-function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60306,12 +61168,12 @@ function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var gridColResponsiveEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1J, [["render", _sfc_render$1J]]);
+var gridColResponsiveEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1K, [["render", _sfc_render$1K]]);
 var __glob_0_68 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColResponsiveEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1I = {
+const _sfc_main$1J = {
   name: "grid-col-span-editor",
   mixins: [i18n$1],
   props: {
@@ -60325,7 +61187,7 @@ const _sfc_main$1I = {
     }
   }
 };
-function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createElementBlock("div", null, [
@@ -60395,12 +61257,12 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label"])) : createCommentVNode("", true)
   ]);
 }
-var gridColSpanEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I]]);
+var gridColSpanEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1J, [["render", _sfc_render$1J]]);
 var __glob_0_69 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridColSpanEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1H = {
+const _sfc_main$1I = {
   name: "showBlankRow-editor",
   mixins: [i18n$1],
   props: {
@@ -60409,7 +61271,7 @@ const _sfc_main$1H = {
     optionModel: Object
   }
 };
-function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60424,12 +61286,12 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showBlankRowEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H]]);
+var showBlankRowEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I]]);
 var __glob_0_70 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showBlankRowEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1G = {
+const _sfc_main$1H = {
   name: "showRowNumber-editor",
   mixins: [i18n$1],
   props: {
@@ -60438,7 +61300,7 @@ const _sfc_main$1G = {
     optionModel: Object
   }
 };
-function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60453,13 +61315,13 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showRowNumberEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1G, [["render", _sfc_render$1G]]);
+var showRowNumberEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H]]);
 var __glob_0_71 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showRowNumberEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormLabelAlignEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1F = {
+const _sfc_main$1G = {
   name: "sub-form-labelAlign-editor",
   mixins: [i18n$1],
   props: {
@@ -60468,7 +61330,7 @@ const _sfc_main$1F = {
     optionModel: Object
   }
 };
-function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -60507,13 +61369,13 @@ function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var subFormLabelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1F, [["render", _sfc_render$1F], ["__scopeId", "data-v-752e869a"]]);
+var subFormLabelAlignEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1G, [["render", _sfc_render$1G], ["__scopeId", "data-v-549a9580"]]);
 var __glob_0_72 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormLabelAlignEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var tabCustomClassEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$1E = {
+const _sfc_main$1F = {
   name: "tab-customClass-editor",
   componentName: "PropertyEditor",
   mixins: [i18n$1],
@@ -60551,10 +61413,10 @@ const _sfc_main$1E = {
     }
   }
 };
-const _withScopeId$2 = (n10) => (pushScopeId("data-v-0a7851ed"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$2 = (n10) => (pushScopeId("data-v-e5b4856e"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$O = { class: "col-item" };
 const _hoisted_2$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
-function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -60654,12 +61516,12 @@ function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var tabCustomClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1E, [["render", _sfc_render$1E], ["__scopeId", "data-v-0a7851ed"]]);
+var tabCustomClassEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1F, [["render", _sfc_render$1F], ["__scopeId", "data-v-e5b4856e"]]);
 var __glob_0_73 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabCustomClassEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1D = {
+const _sfc_main$1E = {
   name: "cellHeight-editor",
   mixins: [i18n$1],
   props: {
@@ -60668,7 +61530,7 @@ const _sfc_main$1D = {
     optionModel: Object
   }
 };
-function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60684,12 +61546,12 @@ function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var cellHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1D, [["render", _sfc_render$1D]]);
+var cellHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1E, [["render", _sfc_render$1E]]);
 var __glob_0_74 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cellHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1C = {
+const _sfc_main$1D = {
   name: "cellWidth-editor",
   mixins: [i18n$1],
   props: {
@@ -60698,7 +61560,7 @@ const _sfc_main$1C = {
     optionModel: Object
   }
 };
-function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60714,12 +61576,12 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var cellWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C]]);
+var cellWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1D, [["render", _sfc_render$1D]]);
 var __glob_0_75 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cellWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1B = {
+const _sfc_main$1C = {
   name: "table-cell-wordBreak-editor",
   mixins: [i18n$1],
   props: {
@@ -60728,7 +61590,7 @@ const _sfc_main$1B = {
     optionModel: Object
   }
 };
-function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -60743,7 +61605,7 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var wordBreakEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1B, [["render", _sfc_render$1B]]);
+var wordBreakEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C]]);
 var __glob_0_76 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": wordBreakEditor
@@ -60758,7 +61620,7 @@ var eventMixin = {
     }
   }
 };
-const _sfc_main$1A = {
+const _sfc_main$1B = {
   name: "onAppendButtonClick-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -60773,7 +61635,7 @@ const _sfc_main$1A = {
   }
 };
 const _hoisted_1$N = /* @__PURE__ */ createElementVNode("div", null, "onAppendButtonClick", -1);
-function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -60800,12 +61662,12 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onAppendButtonClickEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1A, [["render", _sfc_render$1A]]);
+var onAppendButtonClickEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1B, [["render", _sfc_render$1B]]);
 var __glob_0_77 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onAppendButtonClickEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1z = {
+const _sfc_main$1A = {
   name: "onBeforeUpload-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -60820,7 +61682,7 @@ const _sfc_main$1z = {
   }
 };
 const _hoisted_1$M = /* @__PURE__ */ createElementVNode("div", null, "onBeforeUpload", -1);
-function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -60847,12 +61709,12 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onBeforeUploadEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z]]);
+var onBeforeUploadEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1A, [["render", _sfc_render$1A]]);
 var __glob_0_78 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onBeforeUploadEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1y = {
+const _sfc_main$1z = {
   name: "onBlur-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -60867,7 +61729,7 @@ const _sfc_main$1y = {
   }
 };
 const _hoisted_1$L = /* @__PURE__ */ createElementVNode("div", null, "onBlur", -1);
-function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -60894,12 +61756,12 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onBlurEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1y, [["render", _sfc_render$1y]]);
+var onBlurEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z]]);
 var __glob_0_79 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onBlurEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1x = {
+const _sfc_main$1y = {
   name: "onChange-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -60914,7 +61776,7 @@ const _sfc_main$1x = {
   }
 };
 const _hoisted_1$K = /* @__PURE__ */ createElementVNode("div", null, "onChange", -1);
-function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -60941,12 +61803,12 @@ function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onChangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1x, [["render", _sfc_render$1x]]);
+var onChangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1y, [["render", _sfc_render$1y]]);
 var __glob_0_80 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1w = {
+const _sfc_main$1x = {
   name: "onClick-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -60961,7 +61823,7 @@ const _sfc_main$1w = {
   }
 };
 const _hoisted_1$J = /* @__PURE__ */ createElementVNode("div", null, "onClick", -1);
-function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -60988,12 +61850,12 @@ function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onClickEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1w, [["render", _sfc_render$1w]]);
+var onClickEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1x, [["render", _sfc_render$1x]]);
 var __glob_0_81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onClickEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1v = {
+const _sfc_main$1w = {
   name: "onCreated-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61008,7 +61870,7 @@ const _sfc_main$1v = {
   }
 };
 const _hoisted_1$I = /* @__PURE__ */ createElementVNode("div", null, "onCreated", -1);
-function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61035,12 +61897,12 @@ function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onCreatedEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1v, [["render", _sfc_render$1v]]);
+var onCreatedEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1w, [["render", _sfc_render$1w]]);
 var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onCreatedEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1u = {
+const _sfc_main$1v = {
   name: "onDisabledDate-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61055,7 +61917,7 @@ const _sfc_main$1u = {
   }
 };
 const _hoisted_1$H = /* @__PURE__ */ createElementVNode("div", null, "onDisabledDate", -1);
-function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61082,12 +61944,12 @@ function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onDisabledDateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1u, [["render", _sfc_render$1u]]);
+var onDisabledDateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1v, [["render", _sfc_render$1v]]);
 var __glob_0_83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onDisabledDateEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1t = {
+const _sfc_main$1u = {
   name: "onDisabledHour-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61102,7 +61964,7 @@ const _sfc_main$1t = {
   }
 };
 const _hoisted_1$G = /* @__PURE__ */ createElementVNode("div", null, "onDisabledHour", -1);
-function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61129,12 +61991,12 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onDisabledHourEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1t, [["render", _sfc_render$1t]]);
+var onDisabledHourEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1u, [["render", _sfc_render$1u]]);
 var __glob_0_84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onDisabledHourEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1s = {
+const _sfc_main$1t = {
   name: "onDisabledMinute-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61149,7 +62011,7 @@ const _sfc_main$1s = {
   }
 };
 const _hoisted_1$F = /* @__PURE__ */ createElementVNode("div", null, "onDisabledMinute", -1);
-function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61176,12 +62038,12 @@ function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onDisabledMinuteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1s, [["render", _sfc_render$1s]]);
+var onDisabledMinuteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1t, [["render", _sfc_render$1t]]);
 var __glob_0_85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onDisabledMinuteEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1r = {
+const _sfc_main$1s = {
   name: "onBlur-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61196,7 +62058,7 @@ const _sfc_main$1r = {
   }
 };
 const _hoisted_1$E = /* @__PURE__ */ createElementVNode("div", null, "onEnter", -1);
-function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61223,12 +62085,12 @@ function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onEnterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1r, [["render", _sfc_render$1r]]);
+var onEnterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1s, [["render", _sfc_render$1s]]);
 var __glob_0_86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onEnterEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1q = {
+const _sfc_main$1r = {
   name: "onFileRemove-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61243,7 +62105,7 @@ const _sfc_main$1q = {
   }
 };
 const _hoisted_1$D = /* @__PURE__ */ createElementVNode("div", null, "onFileRemove", -1);
-function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61270,12 +62132,12 @@ function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onFileRemove = /* @__PURE__ */ _export_sfc$2(_sfc_main$1q, [["render", _sfc_render$1q]]);
+var onFileRemove = /* @__PURE__ */ _export_sfc$2(_sfc_main$1r, [["render", _sfc_render$1r]]);
 var __glob_0_87 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onFileRemove
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1p = {
+const _sfc_main$1q = {
   name: "onFocus-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61290,7 +62152,7 @@ const _sfc_main$1p = {
   }
 };
 const _hoisted_1$C = /* @__PURE__ */ createElementVNode("div", null, "onFocus", -1);
-function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61317,12 +62179,12 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onFocusEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1p, [["render", _sfc_render$1p]]);
+var onFocusEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1q, [["render", _sfc_render$1q]]);
 var __glob_0_88 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onFocusEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1o = {
+const _sfc_main$1p = {
   name: "onInput-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61337,7 +62199,7 @@ const _sfc_main$1o = {
   }
 };
 const _hoisted_1$B = /* @__PURE__ */ createElementVNode("div", null, "onInput", -1);
-function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61364,12 +62226,12 @@ function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onInputEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1o, [["render", _sfc_render$1o]]);
+var onInputEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1p, [["render", _sfc_render$1p]]);
 var __glob_0_89 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onInputEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1n = {
+const _sfc_main$1o = {
   name: "onLazyLoad-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61384,7 +62246,7 @@ const _sfc_main$1n = {
   }
 };
 const _hoisted_1$A = /* @__PURE__ */ createElementVNode("div", null, "onLazyLoad", -1);
-function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return $props.optionModel.lazy ? (openBlock(), createBlock(_component_el_form_item, {
@@ -61414,12 +62276,12 @@ function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   })) : createCommentVNode("", true);
 }
-var onLazyLoadEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1n, [["render", _sfc_render$1n]]);
+var onLazyLoadEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1o, [["render", _sfc_render$1o]]);
 var __glob_0_90 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onLazyLoadEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1m = {
+const _sfc_main$1n = {
   name: "onMounted-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61434,7 +62296,7 @@ const _sfc_main$1m = {
   }
 };
 const _hoisted_1$z = /* @__PURE__ */ createElementVNode("div", null, "onMounted", -1);
-function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61461,12 +62323,12 @@ function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onMountedEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1m, [["render", _sfc_render$1m]]);
+var onMountedEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1n, [["render", _sfc_render$1n]]);
 var __glob_0_91 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onMountedEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1l = {
+const _sfc_main$1m = {
   name: "onQuerySearchAsync-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61481,7 +62343,7 @@ const _sfc_main$1l = {
   }
 };
 const _hoisted_1$y = /* @__PURE__ */ createElementVNode("div", null, "onQuerySearchAsync", -1);
-function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61508,12 +62370,12 @@ function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onQuerySearchAsyncEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1l, [["render", _sfc_render$1l]]);
+var onQuerySearchAsyncEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1m, [["render", _sfc_render$1m]]);
 var __glob_0_92 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onQuerySearchAsyncEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1k = {
+const _sfc_main$1l = {
   name: "onRemoteQuery-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61528,7 +62390,7 @@ const _sfc_main$1k = {
   }
 };
 const _hoisted_1$x = /* @__PURE__ */ createElementVNode("div", null, "onRemoteQuery", -1);
-function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61555,12 +62417,12 @@ function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onRemoteQueryEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1k, [["render", _sfc_render$1k]]);
+var onRemoteQueryEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1l, [["render", _sfc_render$1l]]);
 var __glob_0_93 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onRemoteQueryEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1j = {
+const _sfc_main$1k = {
   name: "onShortcuts-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61575,7 +62437,7 @@ const _sfc_main$1j = {
   }
 };
 const _hoisted_1$w = /* @__PURE__ */ createElementVNode("div", null, "onShortcuts", -1);
-function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61602,12 +62464,12 @@ function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onShortcutsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1j, [["render", _sfc_render$1j]]);
+var onShortcutsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1k, [["render", _sfc_render$1k]]);
 var __glob_0_94 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onShortcutsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1i = {
+const _sfc_main$1j = {
   name: "onSubFormRowAdd-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61622,7 +62484,7 @@ const _sfc_main$1i = {
   }
 };
 const _hoisted_1$v = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowAdd", -1);
-function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61649,12 +62511,12 @@ function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowAddEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1i, [["render", _sfc_render$1i]]);
+var onSubFormRowAddEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1j, [["render", _sfc_render$1j]]);
 var __glob_0_95 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowAddEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1h = {
+const _sfc_main$1i = {
   name: "onSubFormRowChange-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61669,7 +62531,7 @@ const _sfc_main$1h = {
   }
 };
 const _hoisted_1$u = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowChange", -1);
-function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61696,12 +62558,12 @@ function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowChangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1h, [["render", _sfc_render$1h]]);
+var onSubFormRowChangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1i, [["render", _sfc_render$1i]]);
 var __glob_0_96 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1g = {
+const _sfc_main$1h = {
   name: "onSubFormRowDelete-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61716,7 +62578,7 @@ const _sfc_main$1g = {
   }
 };
 const _hoisted_1$t = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowDelete", -1);
-function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61743,12 +62605,12 @@ function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowDeleteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1g, [["render", _sfc_render$1g]]);
+var onSubFormRowDeleteEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1h, [["render", _sfc_render$1h]]);
 var __glob_0_97 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowDeleteEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1f = {
+const _sfc_main$1g = {
   name: "onSubFormRowInsert-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61763,7 +62625,7 @@ const _sfc_main$1f = {
   }
 };
 const _hoisted_1$s = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowInsert", -1);
-function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61790,12 +62652,12 @@ function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onSubFormRowInsertEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1f, [["render", _sfc_render$1f]]);
+var onSubFormRowInsertEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1g, [["render", _sfc_render$1g]]);
 var __glob_0_98 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onSubFormRowInsertEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1e = {
+const _sfc_main$1f = {
   name: "onUploadError-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61810,7 +62672,7 @@ const _sfc_main$1e = {
   }
 };
 const _hoisted_1$r = /* @__PURE__ */ createElementVNode("div", null, "onUploadError", -1);
-function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61837,12 +62699,12 @@ function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onUploadErrorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1e, [["render", _sfc_render$1e]]);
+var onUploadErrorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1f, [["render", _sfc_render$1f]]);
 var __glob_0_99 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onUploadErrorEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1d = {
+const _sfc_main$1e = {
   name: "onUploadSuccess-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61857,7 +62719,7 @@ const _sfc_main$1d = {
   }
 };
 const _hoisted_1$q = /* @__PURE__ */ createElementVNode("div", null, "onUploadSuccess", -1);
-function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61884,12 +62746,12 @@ function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onUploadSuccessEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1d, [["render", _sfc_render$1d]]);
+var onUploadSuccessEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1e, [["render", _sfc_render$1e]]);
 var __glob_0_100 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onUploadSuccessEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1c = {
+const _sfc_main$1d = {
   name: "onValidate-editor",
   mixins: [i18n$1, eventMixin],
   props: {
@@ -61904,7 +62766,7 @@ const _sfc_main$1c = {
   }
 };
 const _hoisted_1$p = /* @__PURE__ */ createElementVNode("div", null, "onValidate", -1);
-function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1d(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
@@ -61931,12 +62793,12 @@ function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var onValidateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1c, [["render", _sfc_render$1c]]);
+var onValidateEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1d, [["render", _sfc_render$1d]]);
 var __glob_0_101 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onValidateEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1b = {
+const _sfc_main$1c = {
   name: "button-type-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -61945,7 +62807,7 @@ const _sfc_main$1b = {
     optionModel: Object
   }
 };
-function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1c(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -61993,12 +62855,12 @@ function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var buttonTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1b, [["render", _sfc_render$1b]]);
+var buttonTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1c, [["render", _sfc_render$1c]]);
 var __glob_0_102 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$1a = {
+const _sfc_main$1b = {
   name: "circle-editor",
   mixins: [i18n$1],
   props: {
@@ -62007,7 +62869,7 @@ const _sfc_main$1a = {
     optionModel: Object
   }
 };
-function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62022,12 +62884,12 @@ function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var circleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1a, [["render", _sfc_render$1a]]);
+var circleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1b, [["render", _sfc_render$1b]]);
 var __glob_0_103 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": circleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$19 = {
+const _sfc_main$1a = {
   name: "icon-editor",
   mixins: [i18n$1],
   props: {
@@ -62036,7 +62898,7 @@ const _sfc_main$19 = {
     optionModel: Object
   }
 };
-function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$1a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62052,12 +62914,12 @@ function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var iconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$19, [["render", _sfc_render$19]]);
+var iconEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1a, [["render", _sfc_render$1a]]);
 var __glob_0_104 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": iconEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$18 = {
+const _sfc_main$19 = {
   name: "plain-editor",
   mixins: [i18n$1],
   props: {
@@ -62066,7 +62928,7 @@ const _sfc_main$18 = {
     optionModel: Object
   }
 };
-function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$19(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62081,12 +62943,12 @@ function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var plainEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$18, [["render", _sfc_render$18]]);
+var plainEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$19, [["render", _sfc_render$19]]);
 var __glob_0_105 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": plainEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$17 = {
+const _sfc_main$18 = {
   name: "round-editor",
   mixins: [i18n$1],
   props: {
@@ -62095,7 +62957,7 @@ const _sfc_main$17 = {
     optionModel: Object
   }
 };
-function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$18(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62110,12 +62972,12 @@ function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var roundEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$17, [["render", _sfc_render$17]]);
+var roundEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$18, [["render", _sfc_render$18]]);
 var __glob_0_106 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": roundEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$16 = {
+const _sfc_main$17 = {
   name: "cascader-defaultValue-editor",
   props: {
     designer: Object,
@@ -62124,15 +62986,15 @@ const _sfc_main$16 = {
   }
 };
 const _hoisted_1$o = { style: { "display": "none" } };
-function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$17(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$o);
 }
-var cascaderDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$16, [["render", _sfc_render$16]]);
+var cascaderDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$17, [["render", _sfc_render$17]]);
 var __glob_0_107 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$15 = {
+const _sfc_main$16 = {
   name: "cascader-multiple-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -62141,7 +63003,7 @@ const _sfc_main$15 = {
     optionModel: Object
   }
 };
-function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$16(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62156,12 +63018,12 @@ function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var cascaderMultipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$15, [["render", _sfc_render$15]]);
+var cascaderMultipleEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$16, [["render", _sfc_render$16]]);
 var __glob_0_108 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderMultipleEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$14 = {
+const _sfc_main$15 = {
   name: "checkStrictly-editor",
   mixins: [i18n$1],
   props: {
@@ -62170,7 +63032,7 @@ const _sfc_main$14 = {
     optionModel: Object
   }
 };
-function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$15(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62185,12 +63047,12 @@ function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var checkStrictlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$14, [["render", _sfc_render$14]]);
+var checkStrictlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$15, [["render", _sfc_render$15]]);
 var __glob_0_109 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkStrictlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$13 = {
+const _sfc_main$14 = {
   name: "showAllLevels-editor",
   mixins: [i18n$1],
   props: {
@@ -62199,7 +63061,7 @@ const _sfc_main$13 = {
     optionModel: Object
   }
 };
-function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$14(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62214,12 +63076,12 @@ function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var showAllLevelsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$13, [["render", _sfc_render$13]]);
+var showAllLevelsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$14, [["render", _sfc_render$14]]);
 var __glob_0_110 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showAllLevelsEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$12 = {
+const _sfc_main$13 = {
   name: "checkbox-defaultValue-editor",
   props: {
     designer: Object,
@@ -62228,15 +63090,15 @@ const _sfc_main$12 = {
   }
 };
 const _hoisted_1$n = { style: { "display": "none" } };
-function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$13(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$n);
 }
-var checkboxDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$12, [["render", _sfc_render$12]]);
+var checkboxDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$13, [["render", _sfc_render$13]]);
 var __glob_0_111 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$11 = {
+const _sfc_main$12 = {
   name: "color-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -62245,7 +63107,7 @@ const _sfc_main$11 = {
     optionModel: Object
   }
 };
-function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$12(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62261,12 +63123,12 @@ function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var colorDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$11, [["render", _sfc_render$11]]);
+var colorDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$12, [["render", _sfc_render$12]]);
 var __glob_0_112 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$10 = {
+const _sfc_main$11 = {
   name: "date-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -62275,7 +63137,7 @@ const _sfc_main$10 = {
     optionModel: Object
   }
 };
-function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$11(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62295,12 +63157,12 @@ function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$10, [["render", _sfc_render$10]]);
+var dateDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$11, [["render", _sfc_render$11]]);
 var __glob_0_113 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$$ = {
+const _sfc_main$10 = {
   name: "date-format-editor",
   mixins: [i18n$1],
   props: {
@@ -62309,7 +63171,7 @@ const _sfc_main$$ = {
     optionModel: Object
   }
 };
-function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$10(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62351,12 +63213,12 @@ function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$$, [["render", _sfc_render$$]]);
+var dateFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$10, [["render", _sfc_render$10]]);
 var __glob_0_114 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$_ = {
+const _sfc_main$$ = {
   name: "date-type-editor",
   mixins: [i18n$1],
   props: {
@@ -62365,7 +63227,7 @@ const _sfc_main$_ = {
     optionModel: Object
   }
 };
-function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$$(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62409,12 +63271,12 @@ function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$_, [["render", _sfc_render$_]]);
+var dateTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$$, [["render", _sfc_render$$]]);
 var __glob_0_115 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Z = {
+const _sfc_main$_ = {
   name: "date-valueFormat-editor",
   mixins: [i18n$1],
   props: {
@@ -62423,7 +63285,7 @@ const _sfc_main$Z = {
     optionModel: Object
   }
 };
-function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62457,12 +63319,12 @@ function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateValueFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Z, [["render", _sfc_render$Z]]);
+var dateValueFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$_, [["render", _sfc_render$_]]);
 var __glob_0_116 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Y = {
+const _sfc_main$Z = {
   name: "date-range-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -62471,7 +63333,7 @@ const _sfc_main$Y = {
     optionModel: Object
   }
 };
-function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62491,12 +63353,12 @@ function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Y, [["render", _sfc_render$Y]]);
+var dateRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Z, [["render", _sfc_render$Z]]);
 var __glob_0_117 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$X = {
+const _sfc_main$Y = {
   name: "date-range-format-editor",
   mixins: [i18n$1],
   props: {
@@ -62505,7 +63367,7 @@ const _sfc_main$X = {
     optionModel: Object
   }
 };
-function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62547,12 +63409,12 @@ function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$X, [["render", _sfc_render$X]]);
+var dateRangeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Y, [["render", _sfc_render$Y]]);
 var __glob_0_118 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$W = {
+const _sfc_main$X = {
   name: "date-range-type-editor",
   mixins: [i18n$1],
   props: {
@@ -62561,7 +63423,7 @@ const _sfc_main$W = {
     optionModel: Object
   }
 };
-function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$X(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62593,12 +63455,12 @@ function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$W, [["render", _sfc_render$W]]);
+var dateRangeTypeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$X, [["render", _sfc_render$X]]);
 var __glob_0_119 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeTypeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$V = {
+const _sfc_main$W = {
   name: "date-range-valueFormat-editor",
   mixins: [i18n$1],
   props: {
@@ -62607,7 +63469,7 @@ const _sfc_main$V = {
     optionModel: Object
   }
 };
-function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$W(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62637,12 +63499,12 @@ function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var dateRangeValueFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$V, [["render", _sfc_render$V]]);
+var dateRangeValueFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$W, [["render", _sfc_render$W]]);
 var __glob_0_120 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dateRangeValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$U = {
+const _sfc_main$V = {
   name: "contentPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -62651,7 +63513,7 @@ const _sfc_main$U = {
     optionModel: Object
   }
 };
-function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62683,12 +63545,12 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var contentPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U]]);
+var contentPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$V, [["render", _sfc_render$V]]);
 var __glob_0_121 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": contentPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$T = {
+const _sfc_main$U = {
   name: "file-upload-fileTypes-editor",
   mixins: [i18n$1],
   components: {
@@ -62710,7 +63572,7 @@ const _sfc_main$T = {
     };
   }
 };
-function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_option = resolveComponent("el-option");
@@ -62756,13 +63618,13 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var fileUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T]]);
+var fileUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U]]);
 var __glob_0_122 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadFileTypesEditor
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlContentEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$S = {
+const _sfc_main$T = {
   name: "htmlContent-editor",
   mixins: [i18n$1],
   props: {
@@ -62771,7 +63633,7 @@ const _sfc_main$S = {
     optionModel: Object
   }
 };
-function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_input = resolveComponent("el-input");
   return openBlock(), createElementBlock("div", null, [
@@ -62792,12 +63654,12 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var htmlContentEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-a185d9d2"]]);
+var htmlContentEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-2b623a52"]]);
 var __glob_0_123 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlContentEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$R = {
+const _sfc_main$S = {
   name: "controlsPosition-editor",
   mixins: [i18n$1],
   props: {
@@ -62806,7 +63668,7 @@ const _sfc_main$R = {
     optionModel: Object
   }
 };
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62834,12 +63696,12 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var controlsPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R]]);
+var controlsPositionEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S]]);
 var __glob_0_124 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": controlsPositionEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$Q = {
+const _sfc_main$R = {
   name: "number-defaultValue-editor",
   mixins: [i18n$1, propertyMixin],
   props: {
@@ -62848,7 +63710,7 @@ const _sfc_main$Q = {
     optionModel: Object
   }
 };
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
@@ -62867,10 +63729,39 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["label"]);
 }
-var numberDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var numberDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R]]);
 var __glob_0_125 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": numberDefaultValueEditor
+}, Symbol.toStringTag, { value: "Module" }));
+const _sfc_main$Q = {
+  name: "step-strictly-editor",
+  mixins: [i18n$1],
+  props: {
+    designer: Object,
+    selectedWidget: Object,
+    optionModel: Object
+  }
+};
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_switch = resolveComponent("el-switch");
+  const _component_el_form_item = resolveComponent("el-form-item");
+  return openBlock(), createBlock(_component_el_form_item, {
+    label: _ctx.$t("designer.setting.stepStrictly")
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_el_switch, {
+        modelValue: $props.optionModel.stepStrictly,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.stepStrictly = $event)
+      }, null, 8, ["modelValue"])
+    ]),
+    _: 1
+  }, 8, ["label"]);
+}
+var stepStrictlyEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$Q, [["render", _sfc_render$Q]]);
+var __glob_0_126 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+  __proto__: null,
+  "default": stepStrictlyEditor
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$P = {
   name: "picture-upload-fileTypes-editor",
@@ -62941,7 +63832,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var pictureUploadFileTypesEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P]]);
-var __glob_0_126 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_127 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadFileTypesEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62958,7 +63849,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$m);
 }
 var radioDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O]]);
-var __glob_0_127 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_128 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -62987,7 +63878,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var allowHalfEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N]]);
-var __glob_0_128 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_129 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": allowHalfEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63020,7 +63911,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var highThresholdEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M]]);
-var __glob_0_129 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_130 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": highThresholdEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63053,7 +63944,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var lowThresholdEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L]]);
-var __glob_0_130 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_131 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": lowThresholdEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63086,7 +63977,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rateDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K]]);
-var __glob_0_131 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_132 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63119,7 +64010,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rateMaxEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J]]);
-var __glob_0_132 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_133 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateMaxEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63148,7 +64039,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showScoreEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I]]);
-var __glob_0_133 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_134 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showScoreEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63177,7 +64068,7 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H]]);
-var __glob_0_134 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_135 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63209,7 +64100,7 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   ]);
 }
 var richEditorContentHeightEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$G, [["render", _sfc_render$G]]);
-var __glob_0_135 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_136 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorContentHeightEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63226,7 +64117,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$l);
 }
 var selectDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F]]);
-var __glob_0_136 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_137 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63255,7 +64146,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var rangeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E]]);
-var __glob_0_137 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_138 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63284,7 +64175,7 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var showStopsEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$D, [["render", _sfc_render$D]]);
-var __glob_0_138 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_139 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": showStopsEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63313,7 +64204,7 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var verticalEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$C, [["render", _sfc_render$C]]);
-var __glob_0_139 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_140 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": verticalEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63342,7 +64233,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var fontSizeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B]]);
-var __glob_0_140 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_141 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fontSizeEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63371,7 +64262,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var preWrapEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A]]);
-var __glob_0_141 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_142 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": preWrapEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63402,7 +64293,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var textContentEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z]]);
-var __glob_0_142 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_143 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": textContentEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63431,7 +64322,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var activeColorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y]]);
-var __glob_0_143 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_144 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": activeColorEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63460,7 +64351,7 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var activeTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x]]);
-var __glob_0_144 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_145 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": activeTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63489,7 +64380,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var inactiveColorEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w]]);
-var __glob_0_145 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_146 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inactiveColorEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63518,7 +64409,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var inactiveTextEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v]]);
-var __glob_0_146 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_147 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": inactiveTextEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63550,7 +64441,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var switchDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u]]);
-var __glob_0_147 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_148 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63580,7 +64471,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var switchWidthEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t]]);
-var __glob_0_148 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_149 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidthEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63613,7 +64504,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s]]);
-var __glob_0_149 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_150 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63661,7 +64552,7 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r]]);
-var __glob_0_150 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_151 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63695,7 +64586,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeRangeDefaultValueEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q]]);
-var __glob_0_151 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_152 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeDefaultValueEditor
 }, Symbol.toStringTag, { value: "Module" }));
@@ -63743,12 +64634,12 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   }, 8, ["label"]);
 }
 var timeRangeFormatEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$p, [["render", _sfc_render$p]]);
-var __glob_0_152 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
+var __glob_0_153 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
 let comps = {};
-const modules$1 = { "./allowCreate-editor.vue": __glob_0_0$1, "./appendButton-editor.vue": __glob_0_1$1, "./appendButtonDisabled-editor.vue": __glob_0_2$1, "./appendButtonText-editor.vue": __glob_0_3$1, "./autoFullWidth-editor.vue": __glob_0_4$1, "./automaticDropdown-editor.vue": __glob_0_5$1, "./border-editor.vue": __glob_0_6$1, "./buttonIcon-editor.vue": __glob_0_7, "./buttonStyle-editor.vue": __glob_0_8, "./clearable-editor.vue": __glob_0_9, "./columnWidth-editor.vue": __glob_0_10, "./customClass-editor.vue": __glob_0_11, "./defaultValue-editor.vue": __glob_0_12, "./disabled-editor.vue": __glob_0_13, "./displayStyle-editor.vue": __glob_0_14, "./editable-editor.vue": __glob_0_15, "./endPlaceholder-editor.vue": __glob_0_16, "./expandTrigger-editor.vue": __glob_0_17, "./fileMaxSize-editor.vue": __glob_0_18, "./filterable-editor.vue": __glob_0_19, "./hidden-editor.vue": __glob_0_20, "./label-editor.vue": __glob_0_21, "./labelAlign-editor.vue": __glob_0_22, "./labelHidden-editor.vue": __glob_0_23, "./labelIconClass-editor.vue": __glob_0_24, "./labelIconPosition-editor.vue": __glob_0_25, "./labelTooltip-editor.vue": __glob_0_26, "./labelWidth-editor.vue": __glob_0_27, "./lazy-editor.vue": __glob_0_28, "./limit-editor.vue": __glob_0_29, "./max-editor.vue": __glob_0_30, "./maxLength-editor.vue": __glob_0_31, "./min-editor.vue": __glob_0_32, "./minLength-editor.vue": __glob_0_33, "./multiple-editor.vue": __glob_0_34, "./multipleLimit-editor.vue": __glob_0_35, "./multipleSelect-editor.vue": __glob_0_36, "./name-editor.vue": __glob_0_37, "./optionItems-editor.vue": __glob_0_38, "./placeholder-editor.vue": __glob_0_39, "./precision-editor.vue": __glob_0_40, "./prefixIcon-editor.vue": __glob_0_41, "./prependText-editor.vue": __glob_0_42, "./readonly-editor.vue": __glob_0_43, "./remote-editor.vue": __glob_0_44, "./required-editor.vue": __glob_0_45, "./requiredHint-editor.vue": __glob_0_46, "./rows-editor.vue": __glob_0_47, "./showFileList-editor.vue": __glob_0_48, "./showPassword-editor.vue": __glob_0_49, "./showWordLimit-editor.vue": __glob_0_50, "./size-editor.vue": __glob_0_51, "./startPlaceholder-editor.vue": __glob_0_52, "./step-editor.vue": __glob_0_53, "./suffixIcon-editor.vue": __glob_0_54, "./textAlign-editor.vue": __glob_0_55, "./type-editor.vue": __glob_0_56, "./uploadName-editor.vue": __glob_0_57, "./uploadTip-editor.vue": __glob_0_58, "./uploadURL-editor.vue": __glob_0_59, "./validation-editor.vue": __glob_0_60, "./validationHint-editor.vue": __glob_0_61, "./withCredentials-editor.vue": __glob_0_62, "./container-grid/colHeight-editor.vue": __glob_0_63, "./container-grid/gutter-editor.vue": __glob_0_64, "./container-grid-col/grid-col-offset-editor.vue": __glob_0_65, "./container-grid-col/grid-col-pull-editor.vue": __glob_0_66, "./container-grid-col/grid-col-push-editor.vue": __glob_0_67, "./container-grid-col/grid-col-responsive-editor.vue": __glob_0_68, "./container-grid-col/grid-col-span-editor.vue": __glob_0_69, "./container-sub-form/showBlankRow-editor.vue": __glob_0_70, "./container-sub-form/showRowNumber-editor.vue": __glob_0_71, "./container-sub-form/sub-form-labelAlign-editor.vue": __glob_0_72, "./container-tab/tab-customClass-editor.vue": __glob_0_73, "./container-table-cell/cellHeight-editor.vue": __glob_0_74, "./container-table-cell/cellWidth-editor.vue": __glob_0_75, "./container-table-cell/wordBreak-editor.vue": __glob_0_76, "./event-handler/onAppendButtonClick-editor.vue": __glob_0_77, "./event-handler/onBeforeUpload-editor.vue": __glob_0_78, "./event-handler/onBlur-editor.vue": __glob_0_79, "./event-handler/onChange-editor.vue": __glob_0_80, "./event-handler/onClick-editor.vue": __glob_0_81, "./event-handler/onCreated-editor.vue": __glob_0_82, "./event-handler/onDisabledDate-editor.vue": __glob_0_83, "./event-handler/onDisabledHour-editor.vue": __glob_0_84, "./event-handler/onDisabledMinute-editor.vue": __glob_0_85, "./event-handler/onEnter-editor.vue": __glob_0_86, "./event-handler/onFileRemove.vue": __glob_0_87, "./event-handler/onFocus-editor.vue": __glob_0_88, "./event-handler/onInput-editor.vue": __glob_0_89, "./event-handler/onLazyLoad-editor.vue": __glob_0_90, "./event-handler/onMounted-editor.vue": __glob_0_91, "./event-handler/onQuerySearchAsync-editor.vue": __glob_0_92, "./event-handler/onRemoteQuery-editor.vue": __glob_0_93, "./event-handler/onShortcuts-editor.vue": __glob_0_94, "./event-handler/onSubFormRowAdd-editor.vue": __glob_0_95, "./event-handler/onSubFormRowChange-editor.vue": __glob_0_96, "./event-handler/onSubFormRowDelete-editor.vue": __glob_0_97, "./event-handler/onSubFormRowInsert-editor.vue": __glob_0_98, "./event-handler/onUploadError-editor.vue": __glob_0_99, "./event-handler/onUploadSuccess-editor.vue": __glob_0_100, "./event-handler/onValidate-editor.vue": __glob_0_101, "./field-button/button-type-editor.vue": __glob_0_102, "./field-button/circle-editor.vue": __glob_0_103, "./field-button/icon-editor.vue": __glob_0_104, "./field-button/plain-editor.vue": __glob_0_105, "./field-button/round-editor.vue": __glob_0_106, "./field-cascader/cascader-defaultValue-editor.vue": __glob_0_107, "./field-cascader/cascader-multiple-editor.vue": __glob_0_108, "./field-cascader/checkStrictly-editor.vue": __glob_0_109, "./field-cascader/showAllLevels-editor.vue": __glob_0_110, "./field-checkbox/checkbox-defaultValue-editor.vue": __glob_0_111, "./field-color/color-defaultValue-editor.vue": __glob_0_112, "./field-date/date-defaultValue-editor.vue": __glob_0_113, "./field-date/date-format-editor.vue": __glob_0_114, "./field-date/date-type-editor.vue": __glob_0_115, "./field-date/date-valueFormat-editor.vue": __glob_0_116, "./field-date-range/date-range-defaultValue-editor.vue": __glob_0_117, "./field-date-range/date-range-format-editor.vue": __glob_0_118, "./field-date-range/date-range-type-editor.vue": __glob_0_119, "./field-date-range/date-range-valueFormat-editor.vue": __glob_0_120, "./field-divider/contentPosition-editor.vue": __glob_0_121, "./field-file-upload/file-upload-fileTypes-editor.vue": __glob_0_122, "./field-html-text/htmlContent-editor.vue": __glob_0_123, "./field-number/controlsPosition-editor.vue": __glob_0_124, "./field-number/number-defaultValue-editor.vue": __glob_0_125, "./field-picture-upload/picture-upload-fileTypes-editor.vue": __glob_0_126, "./field-radio/radio-defaultValue-editor.vue": __glob_0_127, "./field-rate/allowHalf-editor.vue": __glob_0_128, "./field-rate/highThreshold-editor.vue": __glob_0_129, "./field-rate/lowThreshold-editor.vue": __glob_0_130, "./field-rate/rate-defaultValue-editor.vue": __glob_0_131, "./field-rate/rate-max-editor.vue": __glob_0_132, "./field-rate/showScore-editor.vue": __glob_0_133, "./field-rate/showText-editor.vue": __glob_0_134, "./field-rich-editor/rich-editor-contentHeight-editor.vue": __glob_0_135, "./field-select/select-defaultValue-editor.vue": __glob_0_136, "./field-slider/range-editor.vue": __glob_0_137, "./field-slider/showStops-editor.vue": __glob_0_138, "./field-slider/vertical-editor.vue": __glob_0_139, "./field-static-text/fontSize-editor.vue": __glob_0_140, "./field-static-text/preWrap-editor.vue": __glob_0_141, "./field-static-text/textContent-editor.vue": __glob_0_142, "./field-switch/activeColor-editor.vue": __glob_0_143, "./field-switch/activeText-editor.vue": __glob_0_144, "./field-switch/inactiveColor-editor.vue": __glob_0_145, "./field-switch/inactiveText-editor.vue": __glob_0_146, "./field-switch/switch-defaultValue-editor.vue": __glob_0_147, "./field-switch/switchWidth-editor.vue": __glob_0_148, "./field-time/time-defaultValue-editor.vue": __glob_0_149, "./field-time/time-format-editor.vue": __glob_0_150, "./field-time-range/time-range-defaultValue-editor.vue": __glob_0_151, "./field-time-range/time-range-format-editor.vue": __glob_0_152 };
+const modules$1 = { "./allowCreate-editor.vue": __glob_0_0$1, "./appendButton-editor.vue": __glob_0_1$1, "./appendButtonDisabled-editor.vue": __glob_0_2$1, "./appendButtonText-editor.vue": __glob_0_3$1, "./autoFullWidth-editor.vue": __glob_0_4$1, "./automaticDropdown-editor.vue": __glob_0_5$1, "./border-editor.vue": __glob_0_6$1, "./buttonIcon-editor.vue": __glob_0_7, "./buttonStyle-editor.vue": __glob_0_8, "./clearable-editor.vue": __glob_0_9, "./columnWidth-editor.vue": __glob_0_10, "./customClass-editor.vue": __glob_0_11, "./defaultValue-editor.vue": __glob_0_12, "./disabled-editor.vue": __glob_0_13, "./displayStyle-editor.vue": __glob_0_14, "./editable-editor.vue": __glob_0_15, "./endPlaceholder-editor.vue": __glob_0_16, "./expandTrigger-editor.vue": __glob_0_17, "./fileMaxSize-editor.vue": __glob_0_18, "./filterable-editor.vue": __glob_0_19, "./hidden-editor.vue": __glob_0_20, "./label-editor.vue": __glob_0_21, "./labelAlign-editor.vue": __glob_0_22, "./labelHidden-editor.vue": __glob_0_23, "./labelIconClass-editor.vue": __glob_0_24, "./labelIconPosition-editor.vue": __glob_0_25, "./labelTooltip-editor.vue": __glob_0_26, "./labelWidth-editor.vue": __glob_0_27, "./lazy-editor.vue": __glob_0_28, "./limit-editor.vue": __glob_0_29, "./max-editor.vue": __glob_0_30, "./maxLength-editor.vue": __glob_0_31, "./min-editor.vue": __glob_0_32, "./minLength-editor.vue": __glob_0_33, "./multiple-editor.vue": __glob_0_34, "./multipleLimit-editor.vue": __glob_0_35, "./multipleSelect-editor.vue": __glob_0_36, "./name-editor.vue": __glob_0_37, "./optionItems-editor.vue": __glob_0_38, "./placeholder-editor.vue": __glob_0_39, "./precision-editor.vue": __glob_0_40, "./prefixIcon-editor.vue": __glob_0_41, "./prependText-editor.vue": __glob_0_42, "./readonly-editor.vue": __glob_0_43, "./remote-editor.vue": __glob_0_44, "./required-editor.vue": __glob_0_45, "./requiredHint-editor.vue": __glob_0_46, "./rows-editor.vue": __glob_0_47, "./showFileList-editor.vue": __glob_0_48, "./showPassword-editor.vue": __glob_0_49, "./showWordLimit-editor.vue": __glob_0_50, "./size-editor.vue": __glob_0_51, "./startPlaceholder-editor.vue": __glob_0_52, "./step-editor.vue": __glob_0_53, "./suffixIcon-editor.vue": __glob_0_54, "./textAlign-editor.vue": __glob_0_55, "./type-editor.vue": __glob_0_56, "./uploadName-editor.vue": __glob_0_57, "./uploadTip-editor.vue": __glob_0_58, "./uploadURL-editor.vue": __glob_0_59, "./validation-editor.vue": __glob_0_60, "./validationHint-editor.vue": __glob_0_61, "./withCredentials-editor.vue": __glob_0_62, "./container-grid/colHeight-editor.vue": __glob_0_63, "./container-grid/gutter-editor.vue": __glob_0_64, "./container-grid-col/grid-col-offset-editor.vue": __glob_0_65, "./container-grid-col/grid-col-pull-editor.vue": __glob_0_66, "./container-grid-col/grid-col-push-editor.vue": __glob_0_67, "./container-grid-col/grid-col-responsive-editor.vue": __glob_0_68, "./container-grid-col/grid-col-span-editor.vue": __glob_0_69, "./container-sub-form/showBlankRow-editor.vue": __glob_0_70, "./container-sub-form/showRowNumber-editor.vue": __glob_0_71, "./container-sub-form/sub-form-labelAlign-editor.vue": __glob_0_72, "./container-tab/tab-customClass-editor.vue": __glob_0_73, "./container-table-cell/cellHeight-editor.vue": __glob_0_74, "./container-table-cell/cellWidth-editor.vue": __glob_0_75, "./container-table-cell/wordBreak-editor.vue": __glob_0_76, "./event-handler/onAppendButtonClick-editor.vue": __glob_0_77, "./event-handler/onBeforeUpload-editor.vue": __glob_0_78, "./event-handler/onBlur-editor.vue": __glob_0_79, "./event-handler/onChange-editor.vue": __glob_0_80, "./event-handler/onClick-editor.vue": __glob_0_81, "./event-handler/onCreated-editor.vue": __glob_0_82, "./event-handler/onDisabledDate-editor.vue": __glob_0_83, "./event-handler/onDisabledHour-editor.vue": __glob_0_84, "./event-handler/onDisabledMinute-editor.vue": __glob_0_85, "./event-handler/onEnter-editor.vue": __glob_0_86, "./event-handler/onFileRemove.vue": __glob_0_87, "./event-handler/onFocus-editor.vue": __glob_0_88, "./event-handler/onInput-editor.vue": __glob_0_89, "./event-handler/onLazyLoad-editor.vue": __glob_0_90, "./event-handler/onMounted-editor.vue": __glob_0_91, "./event-handler/onQuerySearchAsync-editor.vue": __glob_0_92, "./event-handler/onRemoteQuery-editor.vue": __glob_0_93, "./event-handler/onShortcuts-editor.vue": __glob_0_94, "./event-handler/onSubFormRowAdd-editor.vue": __glob_0_95, "./event-handler/onSubFormRowChange-editor.vue": __glob_0_96, "./event-handler/onSubFormRowDelete-editor.vue": __glob_0_97, "./event-handler/onSubFormRowInsert-editor.vue": __glob_0_98, "./event-handler/onUploadError-editor.vue": __glob_0_99, "./event-handler/onUploadSuccess-editor.vue": __glob_0_100, "./event-handler/onValidate-editor.vue": __glob_0_101, "./field-button/button-type-editor.vue": __glob_0_102, "./field-button/circle-editor.vue": __glob_0_103, "./field-button/icon-editor.vue": __glob_0_104, "./field-button/plain-editor.vue": __glob_0_105, "./field-button/round-editor.vue": __glob_0_106, "./field-cascader/cascader-defaultValue-editor.vue": __glob_0_107, "./field-cascader/cascader-multiple-editor.vue": __glob_0_108, "./field-cascader/checkStrictly-editor.vue": __glob_0_109, "./field-cascader/showAllLevels-editor.vue": __glob_0_110, "./field-checkbox/checkbox-defaultValue-editor.vue": __glob_0_111, "./field-color/color-defaultValue-editor.vue": __glob_0_112, "./field-date/date-defaultValue-editor.vue": __glob_0_113, "./field-date/date-format-editor.vue": __glob_0_114, "./field-date/date-type-editor.vue": __glob_0_115, "./field-date/date-valueFormat-editor.vue": __glob_0_116, "./field-date-range/date-range-defaultValue-editor.vue": __glob_0_117, "./field-date-range/date-range-format-editor.vue": __glob_0_118, "./field-date-range/date-range-type-editor.vue": __glob_0_119, "./field-date-range/date-range-valueFormat-editor.vue": __glob_0_120, "./field-divider/contentPosition-editor.vue": __glob_0_121, "./field-file-upload/file-upload-fileTypes-editor.vue": __glob_0_122, "./field-html-text/htmlContent-editor.vue": __glob_0_123, "./field-number/controlsPosition-editor.vue": __glob_0_124, "./field-number/number-defaultValue-editor.vue": __glob_0_125, "./field-number/step-strictly-editor.vue": __glob_0_126, "./field-picture-upload/picture-upload-fileTypes-editor.vue": __glob_0_127, "./field-radio/radio-defaultValue-editor.vue": __glob_0_128, "./field-rate/allowHalf-editor.vue": __glob_0_129, "./field-rate/highThreshold-editor.vue": __glob_0_130, "./field-rate/lowThreshold-editor.vue": __glob_0_131, "./field-rate/rate-defaultValue-editor.vue": __glob_0_132, "./field-rate/rate-max-editor.vue": __glob_0_133, "./field-rate/showScore-editor.vue": __glob_0_134, "./field-rate/showText-editor.vue": __glob_0_135, "./field-rich-editor/rich-editor-contentHeight-editor.vue": __glob_0_136, "./field-select/select-defaultValue-editor.vue": __glob_0_137, "./field-slider/range-editor.vue": __glob_0_138, "./field-slider/showStops-editor.vue": __glob_0_139, "./field-slider/vertical-editor.vue": __glob_0_140, "./field-static-text/fontSize-editor.vue": __glob_0_141, "./field-static-text/preWrap-editor.vue": __glob_0_142, "./field-static-text/textContent-editor.vue": __glob_0_143, "./field-switch/activeColor-editor.vue": __glob_0_144, "./field-switch/activeText-editor.vue": __glob_0_145, "./field-switch/inactiveColor-editor.vue": __glob_0_146, "./field-switch/inactiveText-editor.vue": __glob_0_147, "./field-switch/switch-defaultValue-editor.vue": __glob_0_148, "./field-switch/switchWidth-editor.vue": __glob_0_149, "./field-time/time-defaultValue-editor.vue": __glob_0_150, "./field-time/time-format-editor.vue": __glob_0_151, "./field-time-range/time-range-defaultValue-editor.vue": __glob_0_152, "./field-time-range/time-range-format-editor.vue": __glob_0_153 };
 for (const path in modules$1) {
   let cname = modules$1[path].default.name;
   comps[cname] = modules$1[path].default;
@@ -63905,7 +64796,7 @@ const _sfc_main$o = {
     }
   }
 };
-const _withScopeId$1 = (n10) => (pushScopeId("data-v-1bcc72a7"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$1 = (n10) => (pushScopeId("data-v-29f83a26"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$k = { style: { "height": "100%" } };
 const _hoisted_2$g = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormCreated", -1));
 const _hoisted_3$e = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormMounted", -1));
@@ -64414,7 +65305,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-1bcc72a7"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-29f83a26"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -64492,6 +65383,7 @@ const ADVANCED_PROPERTIES$1 = {
   "precision": "precision-editor",
   "step": "step-editor",
   "controlsPosition": "controlsPosition-editor",
+  "stepStrictly": "step-strictly-editor",
   "minLength": "minLength-editor",
   "maxLength": "maxLength-editor",
   "showWordLimit": "showWordLimit-editor",
@@ -64997,7 +65889,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-8e7e4706"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-dc530b82"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -65184,7 +66076,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-49d9fa1c"]]);
+var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-b1a0dbfc"]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerWrapper
@@ -65500,7 +66392,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 16, ["class", "style"])) : createCommentVNode("", true);
 }
-var GridColWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-05af479d"]]);
+var GridColWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-39454e23"]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColWidget
@@ -65575,7 +66467,7 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var gridWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-0786fd36"]]);
+var gridWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-2b4f7bb7"]]);
 var __glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridWidget
@@ -65684,7 +66576,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var subFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-c339c292"]]);
+var subFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-6701ea02"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormWidget
@@ -65812,7 +66704,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var tabWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-0e77dc48"]]);
+var tabWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-2c29f864"]]);
 var __glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabWidget
@@ -66194,7 +67086,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 14, _hoisted_1$e);
 }
-var TableCellWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-8052690e"]]);
+var TableCellWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-6294d9df"]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellWidget
@@ -66281,7 +67173,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var tableWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-e9069e7e"]]);
+var tableWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-2fde56df"]]);
 var __glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableWidget
@@ -66484,7 +67376,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label-position", "class", "size"])
   ]);
 }
-var VFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-5d25fe48"]]);
+var VFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-25cb6e1f"]]);
 function createDesigner(vueInstance) {
   let defaultFormConfig = deepClone(getDefaultFormConfig());
   return {
@@ -67495,7 +68387,7 @@ const _sfc_main$e = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-fb9e1f7c"), n10 = n10(), popScopeId(), n10);
+const _withScopeId = (n10) => (pushScopeId("data-v-46b72de4"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$b = { class: "main-container" };
 const _hoisted_2$a = { class: "main-header" };
 const _hoisted_3$9 = { class: "float-left main-title" };
@@ -67659,7 +68551,7 @@ function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-fb9e1f7c"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$e, [["render", _sfc_render$e], ["__scopeId", "data-v-46b72de4"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -73583,13 +74475,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1700710794652__");
+    var svgDom = document.getElementById("__svg__icons__dom__1702953332471__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1700710794652__";
+      svgDom.id = "__svg__icons__dom__1702953332471__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -74073,7 +74965,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-78104555"]]);
+var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-06588696"]]);
 var cardItem_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$3 = {
   name: "card-item",
@@ -74190,7 +75082,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-1999fb0d"]]);
+var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-52275f84"]]);
 const cardTemplateGenerator = function(cw2, formConfig2) {
   const wop = cw2.options;
   const classAttr = buildClassAttr(cw2);
@@ -74367,7 +75259,7 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-2d8f78ae"]]);
+var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-5af6ecf1"]]);
 const _sfc_main$1 = {
   name: "alert-widget",
   componentName: "FieldWidget",
@@ -74562,7 +75454,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-6373b197"]]);
+var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-75ce707c"]]);
 const loadExtension = function(app) {
   loadCard(app);
   loadAlertWidget(app);
