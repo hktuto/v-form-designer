@@ -48,6 +48,7 @@ export const containers = [
       showRowNumber: true,
       labelAlign: 'label-center-align',
       hidden: false,
+      maxLength: null,
       customClass: '',  //自定义css类名
       onSubFormRowAdd: '',
       onSubFormRowInsert: '',

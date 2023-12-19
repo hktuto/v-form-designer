@@ -1,13 +1,13 @@
 {
   "name": "v-form",
-  "version": "3.0.26",
+  "version": "3.0.27",
   "private": false,
   "main": "dist/designer.umd.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --port 3555",
     "build": "vite build --config vite-lib.config.js && vite build --config vite-lib-render.config.js",
     "lib": "vite build --config vite-lib.config.js",
     "lib-render": "vite build --config vite-lib-render.config.js",

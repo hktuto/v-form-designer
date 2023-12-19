@@ -6,9 +6,9 @@
       <el-row class="header-row">
         <div class="action-header-column">
           <span class="action-label">{{$t('render.hint.subFormAction')}}</span>
-          <el-button :disabled="actionDisabled" round type="primary" size="small" class="action-button" @click="addSubFormRow"
+          <el-button :disabled="addDisabled" round type="primary" size="small" class="action-button" @click="addSubFormRow"
                      :title="$t('render.hint.subFormAddActionHint')">
-            {{$t('render.hint.subFormAddAction')}}<svg-icon icon-class="el-plus" /></el-button>
+            <svg-icon icon-class="el-plus" /></el-button>
         </div>
         <template v-for="(subWidget) in widget.widgetList" :key="subWidget.id + 'thc'">
           <div class="field-header-column"
@@ -38,7 +38,7 @@
       <el-row v-for="(subFormRowId, sfrIdx) in rowIdData" class="sub-form-row" :key="subFormRowId">
         <div class="sub-form-action-column hide-label">
           <div class="action-button-column">
-            <el-button :disabled="actionDisabled" circle @click="insertSubFormRow(sfrIdx)"
+            <el-button :disabled="addDisabled" circle @click="insertSubFormRow(sfrIdx)"
                        :title="$t('render.hint.insertSubFormRow')"><svg-icon icon-class="el-plus" /></el-button>
             <el-button :disabled="actionDisabled" circle @click="deleteSubFormRow(sfrIdx)"
                        :title="$t('render.hint.deleteSubFormRow')"><svg-icon icon-class="el-delete" /></el-button>
@@ -90,6 +90,15 @@
         rowIdData: [],
         fieldSchemaData: [],
         actionDisabled: false,
+      }
+    },
+    computed: {
+      addDisabled() {
+        const maxLen = this.widget.options.maxLength
+        if (!!maxLen && this.rowIdData.length >= maxLen) {
+          return true
+        }
+        return false
       }
     },
     created() {

@@ -29994,6 +29994,15 @@ const _sfc_main$j = {
       actionDisabled: false
     };
   },
+  computed: {
+    addDisabled() {
+      const maxLen = this.widget.options.maxLength;
+      if (!!maxLen && this.rowIdData.length >= maxLen) {
+        return true;
+      }
+      return false;
+    }
+  },
   created() {
     this.initRefList();
     this.registerSubFormToRefList();
@@ -30205,7 +30214,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
             createElementVNode("div", _hoisted_1$d, [
               createElementVNode("span", _hoisted_2$b, toDisplayString(_ctx.$t("render.hint.subFormAction")), 1),
               createVNode(_component_el_button, {
-                disabled: $data.actionDisabled,
+                disabled: $options.addDisabled,
                 round: "",
                 type: "primary",
                 size: "small",
@@ -30214,7 +30223,6 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
                 title: _ctx.$t("render.hint.subFormAddActionHint")
               }, {
                 default: withCtx(() => [
-                  createTextVNode(toDisplayString(_ctx.$t("render.hint.subFormAddAction")), 1),
                   createVNode(_component_svg_icon, { "icon-class": "el-plus" })
                 ]),
                 _: 1
@@ -30286,7 +30294,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
               createElementVNode("div", _hoisted_5$2, [
                 createElementVNode("div", _hoisted_6$1, [
                   createVNode(_component_el_button, {
-                    disabled: $data.actionDisabled,
+                    disabled: $options.addDisabled,
                     circle: "",
                     onClick: ($event) => $options.insertSubFormRow(sfrIdx),
                     title: _ctx.$t("render.hint.insertSubFormRow")
@@ -30339,7 +30347,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-605581bd"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-0e6b0002"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -31446,13 +31454,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1702953351100__");
+    var svgDom = document.getElementById("__svg__icons__dom__1702967842141__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1702953351100__";
+      svgDom.id = "__svg__icons__dom__1702967842141__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
