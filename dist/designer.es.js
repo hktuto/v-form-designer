@@ -819,8 +819,8 @@ const advancedFields = [
       onMounted: "",
       onBeforeUpload: "",
       onUploadSuccess: "",
-      onUploadError: "",
-      onFileRemove: "",
+      onUploadError: "const tips = localStorage.getItem('v_form_locale') === 'zh-CN' ? '\u4E0A\u4F20\u5931\u8D25' : 'Upload Failed'\nconst message = JSON.parse(error.message).message\nthis.$message({\n  message: `${ tips }\uFF1A${ message }`,\n  duration: 3000,\n  type: 'error'\n})",
+      onFileRemove: "const id = file.id || file.response[0].contentId\nif (!id) return\n$api.delete(`/docpal/workflow/task/attachment?attachmentId=${id}`).then(res => {\n  this.getFormRef().$emit('handleSave')\n}).catch(err => {\n})",
       onValidate: ""
     }
   },
@@ -858,8 +858,8 @@ const advancedFields = [
       onMounted: "",
       onBeforeUpload: "",
       onUploadSuccess: "",
-      onUploadError: "",
-      onFileRemove: "",
+      onUploadError: "const tips = localStorage.getItem('v_form_locale') === 'zh-CN' ? '\u4E0A\u4F20\u5931\u8D25' : 'Upload Failed'\nconst message = JSON.parse(error.message).message\nthis.$message({\n  message: `${ tips }\uFF1A${ message }`,\n  duration: 3000,\n  type: 'error'\n})",
+      onFileRemove: "const id = file.id || file.response.data[0].contentId\nif (!id) return\n$api.delete(`/docpal/workflow/task/attachment?attachmentId=${id}`).then(res => {\n  this.getFormRef().$emit('handleSave')\n}).catch(err => {\n})",
       onValidate: ""
     }
   },
@@ -33843,7 +33843,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.32.2";
+    exports2.version = "1.32.3";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -55478,8 +55478,8 @@ var extLanguage_tools = { exports: {} };
         !this.hasSeen.has(e15) && e15 && e15.completer && e15.completer.onSeen && typeof e15.completer.onSeen == "function" && (e15.completer.onSeen(this.editor, e15), this.hasSeen.add(e15));
       }, e14.prototype.$onPopupChange = function(e15) {
         if (this.inlineRenderer && this.inlineEnabled) {
-          var t11 = e15 ? null : this.popup.getData(this.popup.getRow()), n11 = u10.getCompletionPrefix(this.editor);
-          this.inlineRenderer.show(this.editor, t11, n11) ? this.$seen(t11) : this.inlineRenderer.hide();
+          var t11 = e15 ? null : this.popup.getData(this.popup.getRow());
+          this.$updateGhostText(t11);
           if (this.popup.isMouseOver && this.setSelectOnHover) {
             this.tooltipTimer.call(null, null);
             return;
@@ -55487,6 +55487,9 @@ var extLanguage_tools = { exports: {} };
           this.popupTimer.schedule(), this.tooltipTimer.schedule();
         } else
           this.popupTimer.call(null, null), this.tooltipTimer.call(null, null);
+      }, e14.prototype.$updateGhostText = function(e15) {
+        var t11 = this.base.row, n11 = this.base.column, r11 = this.editor.getCursorPosition().column, i11 = this.editor.session.getLine(t11).slice(n11, r11);
+        this.inlineRenderer.show(this.editor, e15, i11) ? this.$seen(e15) : this.inlineRenderer.hide();
       }, e14.prototype.$onPopupRender = function() {
         var e15 = this.inlineRenderer && this.inlineEnabled;
         if (this.completions && this.completions.filtered && this.completions.filtered.length > 0)
@@ -55534,7 +55537,13 @@ var extLanguage_tools = { exports: {} };
         this.stickySelection && (s11 = this.popup.data.indexOf(i11));
         if (!s11 || s11 === -1)
           s11 = 0;
-        this.popup.setRow(this.autoSelect ? s11 : -1), s11 === r11 && i11 !== this.completions.filtered[s11] && this.$onPopupChange(), n11 ? n11 && !t11 && this.detach() : (this.popup.setTheme(e15.getTheme()), this.popup.setFontSize(e15.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel(), this.observeLayoutChanges();
+        this.popup.setRow(this.autoSelect ? s11 : -1), s11 === r11 && i11 !== this.completions.filtered[s11] && this.$onPopupChange();
+        var u11 = this.inlineRenderer && this.inlineEnabled;
+        if (s11 === r11 && u11) {
+          var a11 = this.popup.getData(this.popup.getRow());
+          this.$updateGhostText(a11);
+        }
+        n11 ? n11 && !t11 && this.detach() : (this.popup.setTheme(e15.getTheme()), this.popup.setFontSize(e15.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel(), this.observeLayoutChanges();
       }, e14.prototype.detach = function() {
         this.editor && (this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.off("changeSelection", this.changeListener), this.editor.off("blur", this.blurListener), this.editor.off("mousedown", this.mousedownListener), this.editor.off("mousewheel", this.mousewheelListener)), this.$firstOpenTimer.cancel(), this.changeTimer.cancel(), this.hideDocTooltip(), this.completionProvider && this.completionProvider.detach(), this.popup && this.popup.isOpen && this.popup.hide(), this.popup && this.popup.renderer && this.popup.renderer.off("afterRender", this.$onPopupRender), this.base && this.base.detach(), this.activated = false, this.completionProvider = this.completions = this.base = null, this.unObserveLayoutChanges();
       }, e14.prototype.changeListener = function(e15) {
@@ -74484,13 +74493,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1702967825831__");
+    var svgDom = document.getElementById("__svg__icons__dom__1709695296459__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1702967825831__";
+      svgDom.id = "__svg__icons__dom__1709695296459__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
