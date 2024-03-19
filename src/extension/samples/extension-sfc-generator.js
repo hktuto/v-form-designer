@@ -56,4 +56,6 @@ export const selectGroupGenerator= function(fw, formConfig) {
 export const autoCompleteTemplateGenerator= function(fw, formConfig) {
   return ''
 }
-
+export const nullTemplateGenerator= function(fw, formConfig) {
+  return ''
+}

@@ -346,7 +346,7 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      filterable: false,
+      filterable: true,
       allowCreate: false,
       remote: false,
       automaticDropdown: false,  //自动下拉
@@ -393,7 +393,7 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      filterable: false,
+      filterable: true,
       allowCreate: false,
       remote: false,
       automaticDropdown: false,  //自动下拉
@@ -443,7 +443,7 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      editable: false,
+      editable: true,
       format: 'HH:mm:ss',  //时间格式
       required: false,
       requiredHint: '',
@@ -484,7 +484,7 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      editable: false,
+      editable: true,
       format: 'HH:mm:ss',  //时间格式
       required: false,
       requiredHint: '',
@@ -525,7 +525,7 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      editable: false,
+      editable: true,
       format: 'YYYY-MM-DD HH:mm',  //日期显示格式
       valueFormat: 'YYYY-MM-DD HH:mm',  //日期对象格式
       defaultTime: '2000-01-01 00:00:00',
@@ -575,7 +575,7 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      editable: false,
+      editable: true,
       format: 'YYYY-MM-DD',  //日期显示格式
       valueFormat: 'YYYY-MM-DD HH:mm',  //日期对象格式
       defaultTime: ['2000-01-01 00:00:00','2000-01-01 23:59:00'],
@@ -978,7 +978,7 @@ export const advancedFields = [
       disabled: false,
       hidden: false,
       clearable: true,
-      filterable: false,
+      filterable: true,
       multiple: false,
       checkStrictly: false,  //可选择任意一级选项，默认不开启
       showAllLevels: true,  //显示完整路径

@@ -80,7 +80,29 @@ export const selectGroupSchema = {
     onValidate: '',
   }
 }
-
+export const jsonEditorSchema = {
+  type: 'json-editor',
+  icon: 'json-editor-field',
+  formItemFlag: true,
+  options: {
+    name: '',
+    label: '',
+    labelAlign: '',
+    size: '',
+    labelWidth: null,
+    labelHidden: false,
+    readonly: false,
+    disabled: false,
+    hidden: false,
+    required: false,
+    requiredHint: '',
+    //-------------------
+    customClass: '',  //自定义css类名
+    //-------------------
+    onCreated: '',
+    onMounted: '',
+  },
+}
 export const autoCompleteSchema = {
   type: 'auto-complete',
   icon: 'autocomplete',

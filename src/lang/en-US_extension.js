@@ -5,6 +5,7 @@ export default {
       alert: 'Alert',
       'select-group': 'Select Group',
       'auto-complete': 'Auto Complete',
+      'json-editor': 'code-editor',
     },
 
     setting: {
