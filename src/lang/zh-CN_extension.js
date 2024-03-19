@@ -5,6 +5,7 @@ export default {
       alert: '提示',
       'select-group': '分组选项',
       'auto-complete': '自动填充',
+      'json-editor': 'code-editor',
     },
 
     setting: {

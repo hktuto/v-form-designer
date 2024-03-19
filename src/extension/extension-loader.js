@@ -15,7 +15,10 @@ import {cardTemplateGenerator} from '@/extension/samples/extension-sfc-generator
 
 import { selectGroupSchema } from "@/extension/samples/extension-schema"
 import SelectGroupWidget from '@/extension/samples/selectGroup/select-group-widget'
-import {selectGroupGenerator} from '@/extension/samples/extension-sfc-generator'
+
+import { jsonEditorSchema } from "@/extension/samples/extension-schema"
+import JsonEditorWidget from '@/extension/samples/jsonEditor/json-editor-widget'
+import { nullTemplateGenerator } from '@/extension/samples/extension-sfc-generator'
 
 import {alertSchema} from "@/extension/samples/extension-schema"
 import AlertWidget from '@/extension/samples/alert/alert-widget'
@@ -30,6 +33,20 @@ export const loadExtension = function (app) {
     loadAlertWidget(app)
     loadSelectGroupWidget(app)
     loadAutoCompleteWidget(app)
+    loadjsonEditorWidget(app)
+}
+const loadjsonEditorWidget = (app) => {
+    /**
+   * 加载字段组件步骤：
+   * 1. 加载组件Json Schema;
+   * 2. 全局注册字段组件，字段组件设计期和运行期共用，故需要仅需注册一个组件；
+   * 3. 全局注册属性编辑器组件（基本属性、高级属性、事件属性）；
+   * 4. 注册字段组件的代码生成器；
+   * 5. 加载完毕。
+   */
+    addCustomWidgetSchema(jsonEditorSchema)  //加载组件Json Schema
+    app.component(JsonEditorWidget.name, JsonEditorWidget)  //注册组件
+    registerFWGenerator('jsonEditor', nullTemplateGenerator)  //注册字段组件的代码生成器
 }
 const loadAutoCompleteWidget = (app) => {
     /**
@@ -55,7 +72,7 @@ const loadSelectGroupWidget = (app) => {
    */
     addCustomWidgetSchema(selectGroupSchema)  //加载组件Json Schema
     app.component(SelectGroupWidget.name, SelectGroupWidget)  //注册组件
-    registerFWGenerator('selectGroup', selectGroupGenerator)  //注册字段组件的代码生成器
+    registerFWGenerator('selectGroup', nullTemplateGenerator)  //注册字段组件的代码生成器
 }
 const loadCard = (app) => {
   /**

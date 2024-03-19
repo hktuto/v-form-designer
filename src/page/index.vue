@@ -35,8 +35,8 @@
 <script>
 import VFormDesigner from '../components/form-designer/index.vue'
 import VFormRender from '@/components/form-render/index'
-import zhCNLang from 'element-plus/lib/locale/lang/zh-cn'
-import enUSLang from 'element-plus/lib/locale/lang/en'
+import zhCNLang from 'element-plus/es/locale/lang/zh-cn'
+import enUSLang from 'element-plus/es/locale/lang/en'
 import demoJson from './test'
 export default {
   name: 'App',
