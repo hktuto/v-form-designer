@@ -4697,7 +4697,7 @@ var fieldMixin = {
             validator: FormValidators[vldName2],
             trigger: ["blur", "change"],
             label: this.field.options.label,
-            errorMsg: this.field.options.validationHint
+            errorMsg: $t(this.field.options.validationHint)
           });
         } else {
           this.rules.push({
@@ -4705,7 +4705,7 @@ var fieldMixin = {
             trigger: ["blur", "change"],
             regExp: vldName2,
             label: this.field.options.label,
-            errorMsg: this.field.options.validationHint
+            errorMsg: $t(this.field.options.validationHint)
           });
         }
       }
@@ -74495,13 +74495,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1710834543592__");
+    var svgDom = document.getElementById("__svg__icons__dom__1711676456448__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1710834543592__";
+      svgDom.id = "__svg__icons__dom__1711676456448__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
