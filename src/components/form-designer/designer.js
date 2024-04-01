@@ -728,6 +728,7 @@ export function createDesigner(vueInstance) {
     copyNewFieldWidget(origin) {
       let newWidget = deepClone(origin)
       let tempId = generateId()
+      console.log({tempId});
       newWidget.id = newWidget.type.replace(/-/g, '') + tempId
       newWidget.options.name = newWidget.id
       newWidget.options.label = newWidget.options.label || newWidget.type.toLowerCase()

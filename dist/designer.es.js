@@ -585,7 +585,7 @@ const basicFields = [
       name: "",
       label: "",
       labelAlign: "",
-      defaultValue: null,
+      defaultValue: false,
       columnWidth: "200px",
       labelWidth: null,
       labelHidden: false,
@@ -67985,6 +67985,7 @@ function createDesigner(vueInstance) {
     copyNewFieldWidget(origin) {
       let newWidget = deepClone(origin);
       let tempId = generateId();
+      console.log({ tempId });
       newWidget.id = newWidget.type.replace(/-/g, "") + tempId;
       newWidget.options.name = newWidget.id;
       newWidget.options.label = newWidget.options.label || newWidget.type.toLowerCase();
@@ -74495,13 +74496,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1711676456448__");
+    var svgDom = document.getElementById("__svg__icons__dom__1711959320082__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1711676456448__";
+      svgDom.id = "__svg__icons__dom__1711959320082__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -608,7 +608,7 @@ export const basicFields = [
       name: '',
       label: '',
       labelAlign: '',
-      defaultValue: null,
+      defaultValue: false,
       columnWidth: '200px',
       labelWidth: null,
       labelHidden: false,
