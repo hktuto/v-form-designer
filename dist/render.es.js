@@ -4662,8 +4662,10 @@ const _sfc_main$E = {
       }
       if (this.field.options.uploadURL === "/api/docpal/workflow/upload/file") {
         const params = {
-          "dc:title": file.name,
-          "dpa:docpalType": "File"
+          properties: {
+            "dc:title": file.name
+          },
+          type: "File"
         };
         this.uploadData = {
           document: JSON.stringify(params)
@@ -4786,7 +4788,7 @@ const _sfc_main$E = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-68f050a0"), n10 = n10(), popScopeId(), n10);
+const _withScopeId = (n10) => (pushScopeId("data-v-4bbf02d2"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$l = {
   key: 0,
   class: "el-upload__tip"
@@ -4861,7 +4863,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-68f050a0"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-4bbf02d2"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -31469,13 +31471,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1712643303695__");
+    var svgDom = document.getElementById("__svg__icons__dom__1712643522019__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1712643303695__";
+      svgDom.id = "__svg__icons__dom__1712643522019__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

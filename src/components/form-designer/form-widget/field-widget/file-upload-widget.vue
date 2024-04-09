@@ -175,8 +175,10 @@
         }
         if (this.field.options.uploadURL === '/api/docpal/workflow/upload/file') {
           const params = {
+            properties: {
               'dc:title': file.name,
-              'dpa:docpalType': 'File'
+            },
+            type:"File"
           }
           this.uploadData = {
             document: JSON.stringify(params)
