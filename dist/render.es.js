@@ -4635,6 +4635,7 @@ const _sfc_main$E = {
       this.$message.warning(this.$t("render.hint.uploadExceed").replace("${uploadLimit}", uploadLimit));
     },
     beforeFileUpload(file) {
+      console.log(this.field.options.uploadURL, this.field.options.uploadURL === "/api/docpal/workflow/upload/file");
       if (!!this.field.options && !!this.field.options.fileTypes && this.field.options.fileTypes.length > 0) {
         let fileTypeCheckResult = false;
         let extFileName = file.name.substring(file.name.lastIndexOf(".") + 1);
@@ -4659,7 +4660,19 @@ const _sfc_main$E = {
           return false;
         }
       }
-      this.uploadData.key = file.name;
+      if (this.field.options.uploadURL === "/api/docpal/workflow/upload/file") {
+        const params = {
+          "dc:title": file.name,
+          "dpa:docpalType": "File"
+        };
+        this.uploadData = {
+          document: JSON.stringify(params)
+        };
+      } else {
+        this.uploadData = {
+          key: file.name
+        };
+      }
       return this.handleOnBeforeUpload(file);
     },
     handleOnBeforeUpload(file) {
@@ -4752,8 +4765,8 @@ const _sfc_main$E = {
       }
     },
     handlePreview(file) {
-      this.emit$("filePreview", file);
-      this.dispatch("VFormRender", "filePreview", file);
+      this.emit$("filePreview", file, this.field.options);
+      this.dispatch("VFormRender", "filePreview", file, this.field.options);
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
@@ -4773,7 +4786,7 @@ const _sfc_main$E = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-41b76cb4"), n10 = n10(), popScopeId(), n10);
+const _withScopeId = (n10) => (pushScopeId("data-v-68f050a0"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$l = {
   key: 0,
   class: "el-upload__tip"
@@ -4802,10 +4815,10 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_upload, {
         ref: "fieldEditor",
         disabled: $props.field.options.disabled,
-        name: "files",
         style: normalizeStyle($data.styleVariables),
         class: normalizeClass(["dynamicPseudoAfter", { "hideUploadDiv": $data.uploadBtnHidden }]),
         action: $options.realUploadURL,
+        name: $props.field.options.uploadName,
         headers: $data.uploadHeaders,
         data: $data.uploadData,
         "with-credentials": $props.field.options.withCredentials,
@@ -4819,7 +4832,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
-          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$l, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
+          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$l, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
@@ -4848,7 +4861,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-41b76cb4"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-68f050a0"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -31456,13 +31469,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1711959337444__");
+    var svgDom = document.getElementById("__svg__icons__dom__1712643303695__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1711959337444__";
+      svgDom.id = "__svg__icons__dom__1712643303695__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

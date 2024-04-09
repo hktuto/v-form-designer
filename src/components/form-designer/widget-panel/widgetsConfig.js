@@ -853,8 +853,8 @@ export const advancedFields = [
       customRule: '',
       customRuleHint: '',
       //-------------------
-      uploadURL: '/api/docpal/workflow/files/upload',
-      uploadName: 'files',
+      uploadURL: '/api/docpal/workflow/upload/file',
+      uploadName: 'file',
       uploadTip: '',
       withCredentials: false,
       multipleSelect: false,
@@ -899,8 +899,8 @@ export const advancedFields = [
       customRule: '',
       customRuleHint: '',
       //-------------------
-      uploadURL: '/api/docpal/workflow/files/upload',
-      uploadName: 'files',
+      uploadURL: '/api/docpal/workflow/upload/file',
+      uploadName: 'file',
       uploadTip: '',
       withCredentials: false,
       multipleSelect: false,

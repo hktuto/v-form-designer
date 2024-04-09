@@ -802,8 +802,8 @@ const advancedFields = [
       requiredHint: "",
       customRule: "",
       customRuleHint: "",
-      uploadURL: "/api/docpal/workflow/files/upload",
-      uploadName: "files",
+      uploadURL: "/api/docpal/workflow/upload/file",
+      uploadName: "file",
       uploadTip: "",
       withCredentials: false,
       multipleSelect: false,
@@ -841,8 +841,8 @@ const advancedFields = [
       requiredHint: "",
       customRule: "",
       customRuleHint: "",
-      uploadURL: "/api/docpal/workflow/files/upload",
-      uploadName: "files",
+      uploadURL: "/api/docpal/workflow/upload/file",
+      uploadName: "file",
       uploadTip: "",
       withCredentials: false,
       multipleSelect: false,
@@ -6105,6 +6105,7 @@ const _sfc_main$3f = {
       this.$message.warning(this.$t("render.hint.uploadExceed").replace("${uploadLimit}", uploadLimit));
     },
     beforeFileUpload(file) {
+      console.log(this.field.options.uploadURL, this.field.options.uploadURL === "/api/docpal/workflow/upload/file");
       if (!!this.field.options && !!this.field.options.fileTypes && this.field.options.fileTypes.length > 0) {
         let fileTypeCheckResult = false;
         let extFileName = file.name.substring(file.name.lastIndexOf(".") + 1);
@@ -6129,7 +6130,19 @@ const _sfc_main$3f = {
           return false;
         }
       }
-      this.uploadData.key = file.name;
+      if (this.field.options.uploadURL === "/api/docpal/workflow/upload/file") {
+        const params = {
+          "dc:title": file.name,
+          "dpa:docpalType": "File"
+        };
+        this.uploadData = {
+          document: JSON.stringify(params)
+        };
+      } else {
+        this.uploadData = {
+          key: file.name
+        };
+      }
       return this.handleOnBeforeUpload(file);
     },
     handleOnBeforeUpload(file) {
@@ -6222,8 +6235,8 @@ const _sfc_main$3f = {
       }
     },
     handlePreview(file) {
-      this.emit$("filePreview", file);
-      this.dispatch("VFormRender", "filePreview", file);
+      this.emit$("filePreview", file, this.field.options);
+      this.dispatch("VFormRender", "filePreview", file, this.field.options);
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
@@ -6243,7 +6256,7 @@ const _sfc_main$3f = {
     }
   }
 };
-const _withScopeId$4 = (n10) => (pushScopeId("data-v-41b76cb4"), n10 = n10(), popScopeId(), n10);
+const _withScopeId$4 = (n10) => (pushScopeId("data-v-68f050a0"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$10 = {
   key: 0,
   class: "el-upload__tip"
@@ -6272,10 +6285,10 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_upload, {
         ref: "fieldEditor",
         disabled: $props.field.options.disabled,
-        name: "files",
         style: normalizeStyle($data.styleVariables),
         class: normalizeClass(["dynamicPseudoAfter", { "hideUploadDiv": $data.uploadBtnHidden }]),
         action: $options.realUploadURL,
+        name: $props.field.options.uploadName,
         headers: $data.uploadHeaders,
         data: $data.uploadData,
         "with-credentials": $props.field.options.withCredentials,
@@ -6289,7 +6302,7 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
-          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$10, toDisplayString($props.field.options.uploadTip), 1)) : createCommentVNode("", true)
+          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$10, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
@@ -6318,7 +6331,7 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-41b76cb4"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3f, [["render", _sfc_render$3f], ["__scopeId", "data-v-68f050a0"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -60745,12 +60758,27 @@ const _sfc_main$1U = {
     designer: Object,
     selectedWidget: Object,
     optionModel: Object
+  },
+  data() {
+    return {
+      urls: [
+        "/api/docpal/workflow/upload/file",
+        "/api/docpal/workflow/upload/files",
+        "/api/docpal/workflow/files/upload"
+      ]
+    };
+  },
+  methods: {
+    handleChange(value2) {
+      this.optionModel.uploadName = value2 === "/api/docpal/workflow/upload/file" ? "file" : "files";
+    }
   }
 };
 function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
-  const _component_el_input = resolveComponent("el-input");
+  const _component_el_option = resolveComponent("el-option");
+  const _component_el_select = resolveComponent("el-select");
   return openBlock(), createElementBlock("div", null, [
     createVNode(_component_el_form_item, { "label-width": "0" }, {
       default: withCtx(() => [
@@ -60767,11 +60795,26 @@ function _sfc_render$1U(_ctx, _cache, $props, $setup, $data, $options) {
       label: _ctx.$t("designer.setting.uploadURL")
     }, {
       default: withCtx(() => [
-        createVNode(_component_el_input, {
-          type: "text",
+        createVNode(_component_el_select, {
           modelValue: $props.optionModel.uploadURL,
-          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.uploadURL = $event)
-        }, null, 8, ["modelValue"])
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.uploadURL = $event),
+          filterable: "",
+          clearable: "",
+          "allow-create": "",
+          "default-first-option": "",
+          onChange: $options.handleChange
+        }, {
+          default: withCtx(() => [
+            (openBlock(true), createElementBlock(Fragment, null, renderList($data.urls, (item, index2) => {
+              return openBlock(), createBlock(_component_el_option, {
+                key: index2,
+                label: item,
+                value: item
+              }, null, 8, ["label", "value"]);
+            }), 128))
+          ]),
+          _: 1
+        }, 8, ["modelValue", "onChange"])
       ]),
       _: 1
     }, 8, ["label"])
@@ -74496,13 +74539,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1711959320082__");
+    var svgDom = document.getElementById("__svg__icons__dom__1712643277910__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1711959320082__";
+      svgDom.id = "__svg__icons__dom__1712643277910__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

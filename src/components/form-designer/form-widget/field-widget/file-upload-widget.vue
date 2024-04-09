@@ -3,7 +3,7 @@
                      :parent-widget="parentWidget" :parent-list="parentList" :index-of-parent-list="indexOfParentList"
                      :sub-form-row-index="subFormRowIndex" :sub-form-col-index="subFormColIndex" :sub-form-row-id="subFormRowId">
     <!-- el-upload增加:name="field.options.name"后，会导致又拍云上传失败！故删除之！！ -->
-    <el-upload ref="fieldEditor" :disabled="field.options.disabled" name="files"
+    <el-upload ref="fieldEditor" :disabled="field.options.disabled" 
                :style="styleVariables" class="dynamicPseudoAfter"
                :action="realUploadURL"
                :name="field.options.uploadName"
@@ -15,7 +15,7 @@
                :on-success="handleFileUpload" :on-error="handleUploadError">
       <template #tip>
         <div class="el-upload__tip"
-             v-if="!!field.options.uploadTip">{{field.options.uploadTip}}</div>
+             v-if="!!field.options.uploadTip">{{$t(field.options.uploadTip)}}</div>
       </template>
       <template #default>
         <svg-icon icon-class="el-plus" /><i class="el-icon-plus avatar-uploader-icon"></i>
@@ -146,6 +146,8 @@
       },
 
       beforeFileUpload(file) {
+        console.log(this.field.options.uploadURL,this.field.options.uploadURL === '/api/docpal/workflow/upload/file')
+
         if (!!this.field.options && !!this.field.options.fileTypes && this.field.options.fileTypes.length > 0) {
           let fileTypeCheckResult = false
           let extFileName = file.name.substring(file.name.lastIndexOf('.') + 1)
@@ -171,8 +173,20 @@
             return false;
           }
         }
-
-        this.uploadData.key = file.name
+        if (this.field.options.uploadURL === '/api/docpal/workflow/upload/file') {
+          const params = {
+              'dc:title': file.name,
+              'dpa:docpalType': 'File'
+          }
+          this.uploadData = {
+            document: JSON.stringify(params)
+          }
+        }
+        else {
+          this.uploadData ={
+            key: file.name
+          }
+        }
         return this.handleOnBeforeUpload(file)
       },
 
@@ -276,8 +290,8 @@
         }
       },
       handlePreview(file) {
-        this.emit$('filePreview', file)
-        this.dispatch('VFormRender', 'filePreview', file)
+        this.emit$('filePreview', file, this.field.options)
+        this.dispatch('VFormRender', 'filePreview', file, this.field.options)
       },
       handleUploadHeaders() {
         const cookieToken = localStorage.getItem('token')
