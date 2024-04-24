@@ -292,8 +292,8 @@
         }
       },
       handlePreview(file) {
-        this.emit$('filePreview', file, this.field.options)
-        this.dispatch('VFormRender', 'filePreview', file, this.field.options)
+        this.emit$('filePreview', { file, options: this.field.options })
+        this.dispatch('VFormRender', 'filePreview', { file, options: this.field.options })
       },
       handleUploadHeaders() {
         const cookieToken = localStorage.getItem('token')
