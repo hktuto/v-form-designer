@@ -31,7 +31,7 @@
       return {
         urls: [
           '/api/docpal/workflow/upload/file',
-          '/api/docpal/workflow/upload/files',
+          // '/api/docpal/workflow/upload/files',
           '/api/docpal/workflow/files/upload',
         ],
       }

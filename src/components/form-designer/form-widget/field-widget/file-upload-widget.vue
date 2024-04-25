@@ -178,7 +178,8 @@
             properties: {
               'dc:title': file.name,
             },
-            type:"File"
+            type:"File",
+            nonPermission: true
           }
           this.uploadData = {
             document: JSON.stringify(params)
