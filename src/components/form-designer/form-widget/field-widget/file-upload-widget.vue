@@ -181,7 +181,7 @@
             type:"File",
           }
           this.uploadData = {
-            document: JSON.stringify(params)
+            document: JSON.stringify(params),
             nonPermission: true
           }
         }
