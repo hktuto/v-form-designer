@@ -179,10 +179,10 @@
               'dc:title': file.name,
             },
             type:"File",
-            nonPermission: true
           }
           this.uploadData = {
             document: JSON.stringify(params)
+            nonPermission: true
           }
         }
         else {
