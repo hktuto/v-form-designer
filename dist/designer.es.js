@@ -4656,7 +4656,7 @@ var fieldMixin = {
       if (this.designState) {
         return;
       }
-      if (this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader") {
+      if (this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader" || this.field.type === "select-v2") {
         const newOptionItems = this.getOptionData();
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
           if (!!keepSelected) {
@@ -58154,7 +58154,7 @@ function _sfc_render$2R(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-24aa1d72"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$2R, [["render", _sfc_render$2R], ["__scopeId", "data-v-27112323"]]);
 const _sfc_main$2Q = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -74543,13 +74543,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1714121026413__");
+    var svgDom = document.getElementById("__svg__icons__dom__1726040751202__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1714121026413__";
+      svgDom.id = "__svg__icons__dom__1726040751202__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
