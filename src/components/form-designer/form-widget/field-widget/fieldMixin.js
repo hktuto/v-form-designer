@@ -198,7 +198,6 @@ export default {
     },
 
     buildFieldRules() {
-      setTimeout(() => {
         if (!this.field.formItemFlag && this.field.options.hidden) {
           return
         }
@@ -244,7 +243,6 @@ export default {
             label: this.field.options.label
           })
         }
-      }, 1000)
     },
 
     /**
