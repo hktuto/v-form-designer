@@ -4680,47 +4680,49 @@ var fieldMixin = {
       this.rules.splice(0, this.rules.length);
     },
     buildFieldRules() {
-      if (!this.field.formItemFlag && this.field.options.hidden) {
-        return;
-      }
-      this.rules.splice(0, this.rules.length);
-      if (!!this.field.options.required) {
-        this.rules.push({
-          required: true,
-          trigger: ["blur"],
-          message: this.field.options.requiredHint || this.i18nt("render.hint.fieldRequired")
-        });
-      }
-      if (!!this.field.options.validation) {
-        let vldName2 = this.field.options.validation;
-        if (!!FormValidators[vldName2]) {
+      setTimeout(() => {
+        if (!this.field.formItemFlag && this.field.options.hidden) {
+          return;
+        }
+        this.rules.splice(0, this.rules.length);
+        if (!!this.field.options.required) {
           this.rules.push({
-            validator: FormValidators[vldName2],
-            trigger: ["blur", "change"],
-            label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
-          });
-        } else {
-          this.rules.push({
-            validator: FormValidators["regExp"],
-            trigger: ["blur", "change"],
-            regExp: vldName2,
-            label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            required: true,
+            trigger: ["blur"],
+            message: this.field.options.requiredHint || this.i18nt("render.hint.fieldRequired")
           });
         }
-      }
-      if (!!this.field.options.onValidate) {
-        let customFn = (rule2, value2, callback2) => {
-          let tmpFunc = new Function("rule", "value", "callback", this.field.options.onValidate);
-          return tmpFunc.call(this, rule2, value2, callback2);
-        };
-        this.rules.push({
-          validator: customFn,
-          trigger: ["blur", "change"],
-          label: this.field.options.label
-        });
-      }
+        if (!!this.field.options.validation) {
+          let vldName2 = this.field.options.validation;
+          if (!!FormValidators[vldName2]) {
+            this.rules.push({
+              validator: FormValidators[vldName2],
+              trigger: ["blur", "change"],
+              label: this.field.options.label,
+              errorMsg: $t(this.field.options.validationHint)
+            });
+          } else {
+            this.rules.push({
+              validator: FormValidators["regExp"],
+              trigger: ["blur", "change"],
+              regExp: vldName2,
+              label: this.field.options.label,
+              errorMsg: $t(this.field.options.validationHint)
+            });
+          }
+        }
+        if (!!this.field.options.onValidate) {
+          let customFn = (rule2, value2, callback2) => {
+            let tmpFunc = new Function("rule", "value", "callback", this.field.options.onValidate);
+            return tmpFunc.call(this, rule2, value2, callback2);
+          };
+          this.rules.push({
+            validator: customFn,
+            trigger: ["blur", "change"],
+            label: this.field.options.label
+          });
+        }
+      }, 1e3);
     },
     disableChangeValidate() {
       if (!this.rules) {
@@ -74544,13 +74546,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1727161010611__");
+    var svgDom = document.getElementById("__svg__icons__dom__1727162450377__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1727161010611__";
+      svgDom.id = "__svg__icons__dom__1727162450377__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

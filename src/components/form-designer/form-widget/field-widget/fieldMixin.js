@@ -198,51 +198,53 @@ export default {
     },
 
     buildFieldRules() {
-      if (!this.field.formItemFlag && this.field.options.hidden) {
-        return
-      }
+      setTimeout(() => {
+        if (!this.field.formItemFlag && this.field.options.hidden) {
+          return
+        }
 
-      this.rules.splice(0, this.rules.length)  //清空已有
-      if (!!this.field.options.required) {
-        this.rules.push({
-          required: true,
-          //trigger: ['blur', 'change'],
-          trigger: ['blur'],  /* 去掉change事件触发校验，change事件触发时formModel数据尚未更新，导致radio/checkbox必填校验出错！！ */
-          message: this.field.options.requiredHint || this.i18nt('render.hint.fieldRequired'),
-        })
-      }
-
-      if (!!this.field.options.validation) {
-        let vldName = this.field.options.validation
-        if (!!FormValidators[vldName]) {
+        this.rules.splice(0, this.rules.length)  //清空已有
+        if (!!this.field.options.required) {
           this.rules.push({
-            validator: FormValidators[vldName],
-            trigger: ['blur', 'change'],
-            label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
-          })
-        } else {
-          this.rules.push({
-            validator: FormValidators['regExp'],
-            trigger: ['blur', 'change'],
-            regExp: vldName,
-            label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            required: true,
+            //trigger: ['blur', 'change'],
+            trigger: ['blur'],  /* 去掉change事件触发校验，change事件触发时formModel数据尚未更新，导致radio/checkbox必填校验出错！！ */
+            message: this.field.options.requiredHint || this.i18nt('render.hint.fieldRequired'),
           })
         }
-      }
 
-      if (!!this.field.options.onValidate) {
-        let customFn = (rule, value, callback) => {
-          let tmpFunc =  new Function('rule', 'value', 'callback', this.field.options.onValidate)
-          return tmpFunc.call(this, rule, value, callback)
+        if (!!this.field.options.validation) {
+          let vldName = this.field.options.validation
+          if (!!FormValidators[vldName]) {
+            this.rules.push({
+              validator: FormValidators[vldName],
+              trigger: ['blur', 'change'],
+              label: this.field.options.label,
+              errorMsg: $t(this.field.options.validationHint)
+            })
+          } else {
+            this.rules.push({
+              validator: FormValidators['regExp'],
+              trigger: ['blur', 'change'],
+              regExp: vldName,
+              label: this.field.options.label,
+              errorMsg: $t(this.field.options.validationHint)
+            })
+          }
         }
-        this.rules.push({
-          validator: customFn,
-          trigger: ['blur', 'change'],
-          label: this.field.options.label
-        })
-      }
+
+        if (!!this.field.options.onValidate) {
+          let customFn = (rule, value, callback) => {
+            let tmpFunc =  new Function('rule', 'value', 'callback', this.field.options.onValidate)
+            return tmpFunc.call(this, rule, value, callback)
+          }
+          this.rules.push({
+            validator: customFn,
+            trigger: ['blur', 'change'],
+            label: this.field.options.label
+          })
+        }
+      }, 1000)
     },
 
     /**
