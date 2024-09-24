@@ -2656,6 +2656,8 @@ const changeLocale = function(langName) {
   localStorage.setItem("v_form_locale", langName);
 };
 const translate = function(key) {
+  if (window.$t)
+    console.log(i18n.$st(key), window.$t(key), key);
   if (window.$t && window.$t(key) !== key) {
     return window.$t(key);
   }
@@ -74544,13 +74546,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1727164260692__");
+    var svgDom = document.getElementById("__svg__icons__dom__1727165317242__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1727164260692__";
+      svgDom.id = "__svg__icons__dom__1727165317242__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
