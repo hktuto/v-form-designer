@@ -1506,6 +1506,7 @@ var enLocale = {
       formCss: "Form CSS",
       addCss: "Edit",
       customClass: "Custom Class",
+      popperClass: "Popper Class",
       globalFunctions: "Global Functions",
       addEventHandler: "Edit",
       editWidgetEventHandler: "Edit Widget Event Handler",
@@ -1821,6 +1822,7 @@ var zhLocale = {
       formCss: "\u8868\u5355\u5168\u5C40CSS",
       addCss: "\u7F16\u5199CSS",
       customClass: "\u81EA\u5B9A\u4E49CSS\u6837\u5F0F",
+      popperClass: "\u81EA\u5B9A\u4E49\u5F39\u6846\u6837\u5F0F",
       globalFunctions: "\u8868\u5355\u5168\u5C40\u51FD\u6570",
       addEventHandler: "\u7F16\u5199\u4EE3\u7801",
       editWidgetEventHandler: "\u7EC4\u4EF6\u4E8B\u4EF6\u5904\u7406",
@@ -28953,6 +28955,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
         filterable: $props.field.options.filterable,
         defaultFirstOption: "",
         "allow-create": $props.field.options.allowCreate,
+        "popper-class": $props.field.options.popperClass,
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
@@ -28974,12 +28977,12 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 1
-      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
+      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "popper-class", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-e8a33dd0"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-2410e87e"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -31477,13 +31480,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1727165334933__");
+    var svgDom = document.getElementById("__svg__icons__dom__1727421713880__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1727165334933__";
+      svgDom.id = "__svg__icons__dom__1727421713880__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

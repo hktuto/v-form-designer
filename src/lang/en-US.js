@@ -320,6 +320,7 @@ export default {
       formCss: 'Form CSS',
       addCss: 'Edit',
       customClass: 'Custom Class',
+      popperClass: 'Popper Class',
       globalFunctions: 'Global Functions',
       addEventHandler: 'Edit',
       editWidgetEventHandler: 'Edit Widget Event Handler',

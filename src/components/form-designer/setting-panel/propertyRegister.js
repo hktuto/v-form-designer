@@ -57,6 +57,8 @@ const COMMON_PROPERTIES = {
   'uploadTip'         :            'uploadTip-editor',
   'withCredentials'   :            'withCredentials-editor',
   'multipleSelect'    :            'multipleSelect-editor',
+  'popperClass'       :            'popperClass-editor',
+
   'limit'             :            'limit-editor',
   'fileMaxSize'       :            'fileMaxSize-editor',
   'fileTypes'         :            'fileTypes-editor',

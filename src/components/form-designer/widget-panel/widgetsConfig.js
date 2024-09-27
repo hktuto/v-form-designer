@@ -348,6 +348,7 @@ export const basicFields = [
       clearable: true,
       filterable: true,
       allowCreate: false,
+      popperClass: '',
       remote: false,
       automaticDropdown: false,  //自动下拉
       multiple: false,
