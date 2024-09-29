@@ -62177,7 +62177,7 @@ var __glob_0_86 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   "default": onDisabledMinuteEditor
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$1t = {
-  name: "onBlur-editor",
+  name: "onEnter-editor",
   mixins: [i18n$1, eventMixin],
   props: {
     designer: Object,
@@ -62198,7 +62198,7 @@ function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
     label: withCtx(() => [
       _hoisted_1$E,
       createElementVNode("div", {
-        class: normalizeClass({ "redPoint": $props.optionModel.onEnter })
+        class: normalizeClass({ redPoint: $props.optionModel.onEnter })
       }, null, 2)
     ]),
     default: withCtx(() => [
@@ -74610,13 +74610,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1727421696229__");
+    var svgDom = document.getElementById("__svg__icons__dom__1727599188835__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1727421696229__";
+      svgDom.id = "__svg__icons__dom__1727599188835__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
