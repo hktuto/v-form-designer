@@ -17,7 +17,7 @@ var __spreadValues2 = (a10, b10) => {
   return a10;
 };
 var __spreadProps2 = (a10, b10) => __defProps2(a10, __getOwnPropDescs2(b10));
-import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, pushScopeId, popScopeId, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, isVNode, h as h$1, markRaw, capitalize } from "vue";
+import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, isVNode, h as h$1, markRaw, capitalize } from "vue";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var axios$2 = { exports: {} };
 var bind$2 = function bind2(fn2, thisArg) {
@@ -2151,7 +2151,7 @@ const _hoisted_1$o = {
 const _hoisted_2$g = ["title"];
 const _hoisted_3$e = ["title"];
 const _hoisted_4$7 = ["title"];
-const _hoisted_5$6 = ["title"];
+const _hoisted_5$5 = ["title"];
 const _hoisted_6$4 = {
   key: 1,
   class: "drag-handler background-opacity"
@@ -2199,7 +2199,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[4] || (_cache[4] = withModifiers((...args) => $options.removeFieldWidget && $options.removeFieldWidget(...args), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-        ], 8, _hoisted_5$6)
+        ], 8, _hoisted_5$5)
       ])) : createCommentVNode("", true),
       $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_6$4, [
         createElementVNode("i", {
@@ -3791,7 +3791,7 @@ const _hoisted_2$f = {
 };
 const _hoisted_3$d = ["title"];
 const _hoisted_4$6 = ["title"];
-const _hoisted_5$5 = ["title"];
+const _hoisted_5$4 = ["title"];
 const _hoisted_6$3 = ["title"];
 const _hoisted_7$3 = {
   key: 1,
@@ -3888,7 +3888,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $options.moveDownWidget($props.field), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-move-down" })
-        ], 8, _hoisted_5$5)) : createCommentVNode("", true),
+        ], 8, _hoisted_5$4)) : createCommentVNode("", true),
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.remove"),
           onClick: _cache[4] || (_cache[4] = withModifiers((...args) => $options.removeFieldWidget && $options.removeFieldWidget(...args), ["stop"]))
@@ -4796,15 +4796,13 @@ const _sfc_main$E = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-fc065ade"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$l = {
   key: 0,
   class: "el-upload__tip"
 };
-const _hoisted_2$e = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1));
-const _hoisted_3$c = { class: "upload-file-list" };
+const _hoisted_2$e = { class: "upload-file-list" };
+const _hoisted_3$c = ["title", "onClick"];
 const _hoisted_4$5 = ["title", "onClick"];
-const _hoisted_5$4 = ["title", "onClick"];
 function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -4846,15 +4844,15 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
-          _hoisted_2$e
+          _cache[0] || (_cache[0] = createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1))
         ]),
         file: withCtx(({ file }) => [
-          createElementVNode("div", _hoisted_3$c, [
+          createElementVNode("div", _hoisted_2$e, [
             createElementVNode("span", {
               class: "upload-file-name",
               title: file.name,
               onClick: ($event) => $options.handlePreview(file)
-            }, toDisplayString(file.name), 9, _hoisted_4$5),
+            }, toDisplayString(file.name), 9, _hoisted_3$c),
             !$props.field.options.disabled ? (openBlock(), createElementBlock("span", {
               key: 0,
               class: "file-action",
@@ -4862,7 +4860,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: ($event) => $options.removeUploadFile(file.name, file.url, file.uid)
             }, [
               createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-            ], 8, _hoisted_5$4)) : createCommentVNode("", true)
+            ], 8, _hoisted_4$5)) : createCommentVNode("", true)
           ])
         ]),
         _: 1
@@ -28897,33 +28895,18 @@ const _sfc_main$u = {
   },
   mounted() {
     this.handleOnMounted();
-    this.$nextTick(() => {
-      this.handleInput();
-    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
   methods: {
-    handleInput() {
+    handleInput(value2) {
       const fieldEditor = this.$refs.fieldEditor;
-      if (!fieldEditor)
-        return;
-      const input = fieldEditor.input;
-      if (!input)
-        return;
-      input.onkeyup = (event) => {
-        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
-          const value2 = event.target.value;
-          if (!value2)
-            return;
-          fieldEditor.handleOptionSelect({
-            label: value2,
-            value: value2,
-            created: true
-          });
-        }
-      };
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
     }
   }
 };
@@ -28964,7 +28947,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput
       }, {
         default: withCtx(() => [
           (openBlock(true), createElementBlock(Fragment, null, renderList($props.field.options.optionItems, (item) => {
@@ -28982,7 +28965,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-2410e87e"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-6329be75"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -29734,7 +29717,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -29750,7 +29733,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -29979,7 +29962,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
                 return {
                   name: slot,
                   fn: withCtx((scope) => [
-                    renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                    renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                   ])
                 };
               })
@@ -30464,7 +30447,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
                           return {
                             name: slot,
                             fn: withCtx((scope) => [
-                              renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                              renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                             ])
                           };
                         })
@@ -30479,7 +30462,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
                           return {
                             name: slot,
                             fn: withCtx((scope) => [
-                              renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                              renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                             ])
                           };
                         })
@@ -30547,7 +30530,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
             return {
               name: slot,
               fn: withCtx((scope) => [
-                renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
               ])
             };
           })
@@ -30562,7 +30545,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
             return {
               name: slot,
               fn: withCtx((scope) => [
-                renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
               ])
             };
           })
@@ -30631,7 +30614,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
                         return {
                           name: slot,
                           fn: withCtx((scope) => [
-                            renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                            renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                           ])
                         };
                       })
@@ -31226,7 +31209,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -31243,7 +31226,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -31480,13 +31463,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1727599206569__");
+    var svgDom = document.getElementById("__svg__icons__dom__1729575386388__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1727599206569__";
+      svgDom.id = "__svg__icons__dom__1729575386388__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -32050,7 +32033,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                   return {
                     name: slot,
                     fn: withCtx((scope) => [
-                      renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                      renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                     ])
                   };
                 })
@@ -32066,7 +32049,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                   return {
                     name: slot,
                     fn: withCtx((scope) => [
-                      renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                      renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                     ])
                   };
                 })
@@ -33079,11 +33062,63 @@ var ace$2 = { exports: {} };
       });
     };
   });
-  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error"], function(require2, exports2, module2) {
+  ace.define("ace/lib/default_english_messages", ["require", "exports", "module"], function(require2, exports2, module2) {
+    var defaultEnglishMessages = {
+      "autocomplete.popup.aria-roledescription": "Autocomplete suggestions",
+      "autocomplete.popup.aria-label": "Autocomplete suggestions",
+      "autocomplete.popup.item.aria-roledescription": "item",
+      "autocomplete.loading": "Loading...",
+      "editor.scroller.aria-roledescription": "editor",
+      "editor.scroller.aria-label": "Editor content, press Enter to start editing, press Escape to exit",
+      "editor.gutter.aria-roledescription": "editor",
+      "editor.gutter.aria-label": "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit",
+      "error-marker.good-state": "Looks good!",
+      "prompt.recently-used": "Recently used",
+      "prompt.other-commands": "Other commands",
+      "prompt.no-matching-commands": "No matching commands",
+      "search-box.find.placeholder": "Search for",
+      "search-box.find-all.text": "All",
+      "search-box.replace.placeholder": "Replace with",
+      "search-box.replace-next.text": "Replace",
+      "search-box.replace-all.text": "All",
+      "search-box.toggle-replace.title": "Toggle Replace mode",
+      "search-box.toggle-regexp.title": "RegExp Search",
+      "search-box.toggle-case.title": "CaseSensitive Search",
+      "search-box.toggle-whole-word.title": "Whole Word Search",
+      "search-box.toggle-in-selection.title": "Search In Selection",
+      "search-box.search-counter": "$0 of $1",
+      "text-input.aria-roledescription": "editor",
+      "text-input.aria-label": "Cursor at row $0",
+      "gutter.code-folding.range.aria-label": "Toggle code folding, rows $0 through $1",
+      "gutter.code-folding.closed.aria-label": "Toggle code folding, rows $0 through $1",
+      "gutter.code-folding.open.aria-label": "Toggle code folding, row $0",
+      "gutter.code-folding.closed.title": "Unfold code",
+      "gutter.code-folding.open.title": "Fold code",
+      "gutter.annotation.aria-label.error": "Error, read annotations row $0",
+      "gutter.annotation.aria-label.warning": "Warning, read annotations row $0",
+      "gutter.annotation.aria-label.info": "Info, read annotations row $0",
+      "inline-fold.closed.title": "Unfold code",
+      "gutter-tooltip.aria-label.error.singular": "error",
+      "gutter-tooltip.aria-label.error.plural": "errors",
+      "gutter-tooltip.aria-label.warning.singular": "warning",
+      "gutter-tooltip.aria-label.warning.plural": "warnings",
+      "gutter-tooltip.aria-label.info.singular": "information message",
+      "gutter-tooltip.aria-label.info.plural": "information messages",
+      "gutter.annotation.aria-label.security": "Security finding, read annotations row $0",
+      "gutter.annotation.aria-label.hint": "Suggestion, read annotations row $0",
+      "gutter-tooltip.aria-label.security.singular": "security finding",
+      "gutter-tooltip.aria-label.security.plural": "security findings",
+      "gutter-tooltip.aria-label.hint.singular": "suggestion",
+      "gutter-tooltip.aria-label.hint.plural": "suggestions"
+    };
+    exports2.defaultEnglishMessages = defaultEnglishMessages;
+  });
+  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error", "ace/lib/default_english_messages"], function(require2, exports2, module2) {
     "no use strict";
     var oop = require2("./oop");
     var EventEmitter = require2("./event_emitter").EventEmitter;
     var reportError = require2("./report_error").reportError;
+    var defaultEnglishMessages = require2("./default_english_messages").defaultEnglishMessages;
     var optionsProvider = {
       setOptions: function(optList) {
         Object.keys(optList).forEach(function(key) {
@@ -33135,9 +33170,12 @@ var ace$2 = { exports: {} };
         console.warn.apply(console, arguments);
     }
     var messages;
+    var nlsPlaceholders;
     var AppConfig = function() {
       function AppConfig2() {
         this.$defaultOptions = {};
+        messages = defaultEnglishMessages;
+        nlsPlaceholders = "dollarSigns";
       }
       AppConfig2.prototype.defineOptions = function(obj, path, options) {
         if (!obj.$options)
@@ -33182,20 +33220,33 @@ var ace$2 = { exports: {} };
           this.setDefaultValue(path, key, optionHash[key]);
         }, this);
       };
-      AppConfig2.prototype.setMessages = function(value2) {
+      AppConfig2.prototype.setMessages = function(value2, options) {
         messages = value2;
-      };
-      AppConfig2.prototype.nls = function(string, params) {
-        if (messages && !messages[string]) {
-          warn("No message found for '" + string + "' in the provided messages, falling back to default English message.");
+        if (options && options.placeholders) {
+          nlsPlaceholders = options.placeholders;
         }
-        var translated = messages && messages[string] || string;
+      };
+      AppConfig2.prototype.nls = function(key, defaultString, params) {
+        if (!messages[key]) {
+          warn("No message found for the key '" + key + "' in the provided messages, trying to find a translation for the default string '" + defaultString + "'.");
+          if (!messages[defaultString]) {
+            warn("No message found for the default string '" + defaultString + "' in the provided messages. Falling back to the default English message.");
+          }
+        }
+        var translated = messages[key] || messages[defaultString] || defaultString;
         if (params) {
-          translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, name) {
-            if (name == "$")
-              return "$";
-            return params[name];
-          });
+          if (nlsPlaceholders === "dollarSigns") {
+            translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, dollarMatch) {
+              if (dollarMatch == "$")
+                return "$";
+              return params[dollarMatch];
+            });
+          }
+          if (nlsPlaceholders === "curlyBrackets") {
+            translated = translated.replace(/\{([^\}]+)\}/g, function(_10, curlyBracketMatch) {
+              return params[curlyBracketMatch];
+            });
+          }
         }
         return translated;
       };
@@ -33358,7 +33409,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.32.3";
+    exports2.version = "1.36.3";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -33631,189 +33682,158 @@ var ace$2 = { exports: {} };
     exports2.Range = Range;
   });
   ace.define("ace/lib/keys", ["require", "exports", "module", "ace/lib/oop"], function(require2, exports2, module2) {
-    /*! @license
-    ==========================================================================
-    SproutCore -- JavaScript Application Framework
-    copyright 2006-2009, Sprout Systems Inc., Apple Inc. and contributors.
-    
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the "Software"),
-    to deal in the Software without restriction, including without limitation
-    the rights to use, copy, modify, merge, publish, distribute, sublicense,
-    and/or sell copies of the Software, and to permit persons to whom the
-    Software is furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-    DEALINGS IN THE SOFTWARE.
-    
-    SproutCore and the SproutCore logo are trademarks of Sprout Systems, Inc.
-    
-    For more information about SproutCore, visit http://www.sproutcore.com
-    
-    
-    ==========================================================================
-    @license */
     var oop = require2("./oop");
-    var Keys = function() {
-      var ret = {
-        MODIFIER_KEYS: {
-          16: "Shift",
-          17: "Ctrl",
-          18: "Alt",
-          224: "Meta",
-          91: "MetaLeft",
-          92: "MetaRight",
-          93: "ContextMenu"
-        },
-        KEY_MODS: {
-          "ctrl": 1,
-          "alt": 2,
-          "option": 2,
-          "shift": 4,
-          "super": 8,
-          "meta": 8,
-          "command": 8,
-          "cmd": 8,
-          "control": 1
-        },
-        FUNCTION_KEYS: {
-          8: "Backspace",
-          9: "Tab",
-          13: "Return",
-          19: "Pause",
-          27: "Esc",
-          32: "Space",
-          33: "PageUp",
-          34: "PageDown",
-          35: "End",
-          36: "Home",
-          37: "Left",
-          38: "Up",
-          39: "Right",
-          40: "Down",
-          44: "Print",
-          45: "Insert",
-          46: "Delete",
-          96: "Numpad0",
-          97: "Numpad1",
-          98: "Numpad2",
-          99: "Numpad3",
-          100: "Numpad4",
-          101: "Numpad5",
-          102: "Numpad6",
-          103: "Numpad7",
-          104: "Numpad8",
-          105: "Numpad9",
-          "-13": "NumpadEnter",
-          112: "F1",
-          113: "F2",
-          114: "F3",
-          115: "F4",
-          116: "F5",
-          117: "F6",
-          118: "F7",
-          119: "F8",
-          120: "F9",
-          121: "F10",
-          122: "F11",
-          123: "F12",
-          144: "Numlock",
-          145: "Scrolllock"
-        },
-        PRINTABLE_KEYS: {
-          32: " ",
-          48: "0",
-          49: "1",
-          50: "2",
-          51: "3",
-          52: "4",
-          53: "5",
-          54: "6",
-          55: "7",
-          56: "8",
-          57: "9",
-          59: ";",
-          61: "=",
-          65: "a",
-          66: "b",
-          67: "c",
-          68: "d",
-          69: "e",
-          70: "f",
-          71: "g",
-          72: "h",
-          73: "i",
-          74: "j",
-          75: "k",
-          76: "l",
-          77: "m",
-          78: "n",
-          79: "o",
-          80: "p",
-          81: "q",
-          82: "r",
-          83: "s",
-          84: "t",
-          85: "u",
-          86: "v",
-          87: "w",
-          88: "x",
-          89: "y",
-          90: "z",
-          107: "+",
-          109: "-",
-          110: ".",
-          186: ";",
-          187: "=",
-          188: ",",
-          189: "-",
-          190: ".",
-          191: "/",
-          192: "`",
-          219: "[",
-          220: "\\",
-          221: "]",
-          222: "'",
-          111: "/",
-          106: "*"
-        }
-      };
-      ret.PRINTABLE_KEYS[173] = "-";
-      var name, i10;
-      for (i10 in ret.FUNCTION_KEYS) {
-        name = ret.FUNCTION_KEYS[i10].toLowerCase();
-        ret[name] = parseInt(i10, 10);
+    var Keys = {
+      MODIFIER_KEYS: {
+        16: "Shift",
+        17: "Ctrl",
+        18: "Alt",
+        224: "Meta",
+        91: "MetaLeft",
+        92: "MetaRight",
+        93: "ContextMenu"
+      },
+      KEY_MODS: {
+        "ctrl": 1,
+        "alt": 2,
+        "option": 2,
+        "shift": 4,
+        "super": 8,
+        "meta": 8,
+        "command": 8,
+        "cmd": 8,
+        "control": 1
+      },
+      FUNCTION_KEYS: {
+        8: "Backspace",
+        9: "Tab",
+        13: "Return",
+        19: "Pause",
+        27: "Esc",
+        32: "Space",
+        33: "PageUp",
+        34: "PageDown",
+        35: "End",
+        36: "Home",
+        37: "Left",
+        38: "Up",
+        39: "Right",
+        40: "Down",
+        44: "Print",
+        45: "Insert",
+        46: "Delete",
+        "-13": "NumpadEnter",
+        144: "Numlock",
+        145: "Scrolllock"
+      },
+      PRINTABLE_KEYS: {
+        32: " ",
+        59: ";",
+        61: "=",
+        107: "+",
+        109: "-",
+        110: ".",
+        186: ";",
+        187: "=",
+        188: ",",
+        189: "-",
+        190: ".",
+        191: "/",
+        192: "`",
+        219: "[",
+        220: "\\",
+        221: "]",
+        222: "'",
+        111: "/",
+        106: "*"
       }
-      for (i10 in ret.PRINTABLE_KEYS) {
-        name = ret.PRINTABLE_KEYS[i10].toLowerCase();
-        ret[name] = parseInt(i10, 10);
+    };
+    var codeToKeyCode = {
+      Command: 224,
+      Backspace: 8,
+      Tab: 9,
+      Return: 13,
+      Enter: 13,
+      Pause: 19,
+      Escape: 27,
+      PageUp: 33,
+      PageDown: 34,
+      End: 35,
+      Home: 36,
+      Insert: 45,
+      Delete: 46,
+      ArrowLeft: 37,
+      ArrowUp: 38,
+      ArrowRight: 39,
+      ArrowDown: 40,
+      Backquote: 192,
+      Minus: 189,
+      Equal: 187,
+      BracketLeft: 219,
+      Backslash: 220,
+      BracketRight: 221,
+      Semicolon: 186,
+      Quote: 222,
+      Comma: 188,
+      Period: 190,
+      Slash: 191,
+      Space: 32,
+      NumpadAdd: 107,
+      NumpadDecimal: 110,
+      NumpadSubtract: 109,
+      NumpadDivide: 111,
+      NumpadMultiply: 106
+    };
+    for (var i10 = 0; i10 < 10; i10++) {
+      codeToKeyCode["Digit" + i10] = 48 + i10;
+      codeToKeyCode["Numpad" + i10] = 96 + i10;
+      Keys.PRINTABLE_KEYS[48 + i10] = "" + i10;
+      Keys.FUNCTION_KEYS[96 + i10] = "Numpad" + i10;
+    }
+    for (var i10 = 65; i10 < 91; i10++) {
+      var chr = String.fromCharCode(i10 + 32);
+      codeToKeyCode["Key" + chr.toUpperCase()] = i10;
+      Keys.PRINTABLE_KEYS[i10] = chr;
+    }
+    for (var i10 = 1; i10 < 13; i10++) {
+      codeToKeyCode["F" + i10] = 111 + i10;
+      Keys.FUNCTION_KEYS[111 + i10] = "F" + i10;
+    }
+    var modifiers = {
+      Shift: 16,
+      Control: 17,
+      Alt: 18,
+      Meta: 224
+    };
+    for (var mod in modifiers) {
+      codeToKeyCode[mod] = codeToKeyCode[mod + "Left"] = codeToKeyCode[mod + "Right"] = modifiers[mod];
+    }
+    exports2.$codeToKeyCode = codeToKeyCode;
+    Keys.PRINTABLE_KEYS[173] = "-";
+    for (var j10 in Keys.FUNCTION_KEYS) {
+      var name = Keys.FUNCTION_KEYS[j10].toLowerCase();
+      Keys[name] = parseInt(j10, 10);
+    }
+    for (var j10 in Keys.PRINTABLE_KEYS) {
+      var name = Keys.PRINTABLE_KEYS[j10].toLowerCase();
+      Keys[name] = parseInt(j10, 10);
+    }
+    oop.mixin(Keys, Keys.MODIFIER_KEYS);
+    oop.mixin(Keys, Keys.PRINTABLE_KEYS);
+    oop.mixin(Keys, Keys.FUNCTION_KEYS);
+    Keys.enter = Keys["return"];
+    Keys.escape = Keys.esc;
+    Keys.del = Keys["delete"];
+    (function() {
+      var mods = ["cmd", "ctrl", "alt", "shift"];
+      for (var i11 = Math.pow(2, mods.length); i11--; ) {
+        Keys.KEY_MODS[i11] = mods.filter(function(x10) {
+          return i11 & Keys.KEY_MODS[x10];
+        }).join("-") + "-";
       }
-      oop.mixin(ret, ret.MODIFIER_KEYS);
-      oop.mixin(ret, ret.PRINTABLE_KEYS);
-      oop.mixin(ret, ret.FUNCTION_KEYS);
-      ret.enter = ret["return"];
-      ret.escape = ret.esc;
-      ret.del = ret["delete"];
-      (function() {
-        var mods = ["cmd", "ctrl", "alt", "shift"];
-        for (var i11 = Math.pow(2, mods.length); i11--; ) {
-          ret.KEY_MODS[i11] = mods.filter(function(x10) {
-            return i11 & ret.KEY_MODS[x10];
-          }).join("-") + "-";
-        }
-      })();
-      ret.KEY_MODS[0] = "";
-      ret.KEY_MODS[-1] = "input-";
-      return ret;
-    }();
+    })();
+    Keys.KEY_MODS[0] = "";
+    Keys.KEY_MODS[-1] = "input-";
     oop.mixin(exports2, Keys);
     exports2.default = exports2;
     exports2.keyCodeToString = function(keyCode) {
@@ -33967,14 +33987,17 @@ var ace$2 = { exports: {} };
         addListener(el2, "mousedown", onMousedown, destroyer);
       });
     };
-    var getModifierHash = function(e13) {
+    function getModifierHash(e13) {
       return 0 | (e13.ctrlKey ? 1 : 0) | (e13.altKey ? 2 : 0) | (e13.shiftKey ? 4 : 0) | (e13.metaKey ? 8 : 0);
-    };
+    }
     exports2.getModifierString = function(e13) {
       return keys.KEY_MODS[getModifierHash(e13)];
     };
     function normalizeCommandKeys(callback2, e13, keyCode) {
       var hashId = getModifierHash(e13);
+      if (!keyCode && e13.code) {
+        keyCode = keys.$codeToKeyCode[e13.code] || keyCode;
+      }
       if (!useragent.isMac && pressedKeys) {
         if (e13.getModifierState && (e13.getModifierState("OS") || e13.getModifierState("Win")))
           hashId |= 8;
@@ -33985,7 +34008,7 @@ var ace$2 = { exports: {} };
             return;
         }
         if (keyCode === 18 || keyCode === 17) {
-          var location = "location" in e13 ? e13.location : e13.keyLocation;
+          var location = e13.location;
           if (keyCode === 17 && location === 1) {
             if (pressedKeys[keyCode] == 1)
               ts2 = e13.timeStamp;
@@ -34000,8 +34023,7 @@ var ace$2 = { exports: {} };
         keyCode = -1;
       }
       if (!hashId && keyCode === 13) {
-        var location = "location" in e13 ? e13.location : e13.keyLocation;
-        if (location === 3) {
+        if (e13.location === 3) {
           callback2(e13, hashId, -keyCode);
           if (e13.defaultPrevented)
             return;
@@ -34170,11 +34192,16 @@ var ace$2 = { exports: {} };
           text.setAttribute("role", options.role);
         }
         if (options.setLabel) {
-          text.setAttribute("aria-roledescription", nls("editor"));
+          text.setAttribute("aria-roledescription", nls("text-input.aria-roledescription", "editor"));
+          var arialLabel = "";
+          if (host.$textInputAriaLabel) {
+            arialLabel += "".concat(host.$textInputAriaLabel, ", ");
+          }
           if (host.session) {
             var row = host.session.selection.cursor.row;
-            text.setAttribute("aria-label", nls("Cursor at row $0", [row + 1]));
+            arialLabel += nls("text-input.aria-label", "Cursor at row $0", [row + 1]);
           }
+          text.setAttribute("aria-label", arialLabel);
         }
       };
       this.setAriaOptions({ role: "textbox" });
@@ -34523,7 +34550,11 @@ var ace$2 = { exports: {} };
           pasted = true;
         }
       };
-      event.addCommandKeyListener(text, host.onCommandKey.bind(host), host);
+      event.addCommandKeyListener(text, function(e13, hashId, keyCode) {
+        if (inComposition)
+          return;
+        return host.onCommandKey(e13, hashId, keyCode);
+      }, host);
       event.addListener(text, "select", onSelect, host);
       event.addListener(text, "input", onInput, host);
       event.addListener(text, "cut", onCut, host);
@@ -35358,7 +35389,7 @@ var ace$2 = { exports: {} };
     }(Tooltip);
     exports2.HoverTooltip = HoverTooltip;
   });
-  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config"], function(require2, exports2, module2) {
+  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config", "ace/lib/lang"], function(require2, exports2, module2) {
     var __extends = this && this.__extends || function() {
       var extendStatics = function(d10, b10) {
         extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d11, b11) {
@@ -35398,6 +35429,7 @@ var ace$2 = { exports: {} };
     var event = require2("../lib/event");
     var Tooltip = require2("../tooltip").Tooltip;
     var nls = require2("../config").nls;
+    require2("../lib/lang");
     function GutterHandler(mouseHandler) {
       var editor = mouseHandler.editor;
       var gutter = editor.renderer.$gutterLayer;
@@ -35519,59 +35551,99 @@ var ace$2 = { exports: {} };
       Object.defineProperty(GutterTooltip2, "annotationLabels", {
         get: function() {
           return {
-            error: { singular: nls("error"), plural: nls("errors") },
-            warning: { singular: nls("warning"), plural: nls("warnings") },
-            info: { singular: nls("information message"), plural: nls("information messages") }
+            error: {
+              singular: nls("gutter-tooltip.aria-label.error.singular", "error"),
+              plural: nls("gutter-tooltip.aria-label.error.plural", "errors")
+            },
+            security: {
+              singular: nls("gutter-tooltip.aria-label.security.singular", "security finding"),
+              plural: nls("gutter-tooltip.aria-label.security.plural", "security findings")
+            },
+            warning: {
+              singular: nls("gutter-tooltip.aria-label.warning.singular", "warning"),
+              plural: nls("gutter-tooltip.aria-label.warning.plural", "warnings")
+            },
+            info: {
+              singular: nls("gutter-tooltip.aria-label.info.singular", "information message"),
+              plural: nls("gutter-tooltip.aria-label.info.plural", "information messages")
+            },
+            hint: {
+              singular: nls("gutter-tooltip.aria-label.hint.singular", "suggestion"),
+              plural: nls("gutter-tooltip.aria-label.hint.plural", "suggestions")
+            }
           };
         },
         enumerable: false,
         configurable: true
       });
       GutterTooltip2.prototype.showTooltip = function(row) {
+        var _a2;
         var gutter = this.editor.renderer.$gutterLayer;
         var annotationsInRow = gutter.$annotations[row];
         var annotation;
         if (annotationsInRow)
-          annotation = { text: Array.from(annotationsInRow.text), type: Array.from(annotationsInRow.type) };
+          annotation = {
+            displayText: Array.from(annotationsInRow.displayText),
+            type: Array.from(annotationsInRow.type)
+          };
         else
-          annotation = { text: [], type: [] };
+          annotation = { displayText: [], type: [] };
         var fold = gutter.session.getFoldLine(row);
         if (fold && gutter.$showFoldedAnnotations) {
-          var annotationsInFold = { error: [], warning: [], info: [] };
-          var mostSevereAnnotationInFoldType;
+          var annotationsInFold = { error: [], security: [], warning: [], info: [], hint: [] };
+          var severityRank = { error: 1, security: 2, warning: 3, info: 4, hint: 5 };
+          var mostSevereAnnotationTypeInFold;
           for (var i10 = row + 1; i10 <= fold.end.row; i10++) {
             if (!gutter.$annotations[i10])
               continue;
             for (var j10 = 0; j10 < gutter.$annotations[i10].text.length; j10++) {
               var annotationType = gutter.$annotations[i10].type[j10];
               annotationsInFold[annotationType].push(gutter.$annotations[i10].text[j10]);
-              if (annotationType === "error") {
-                mostSevereAnnotationInFoldType = "error_fold";
-                continue;
-              }
-              if (annotationType === "warning") {
-                mostSevereAnnotationInFoldType = "warning_fold";
-                continue;
+              if (!mostSevereAnnotationTypeInFold || severityRank[annotationType] < severityRank[mostSevereAnnotationTypeInFold]) {
+                mostSevereAnnotationTypeInFold = annotationType;
               }
             }
           }
-          if (mostSevereAnnotationInFoldType === "error_fold" || mostSevereAnnotationInFoldType === "warning_fold") {
+          if (["error", "security", "warning"].includes(mostSevereAnnotationTypeInFold)) {
             var summaryFoldedAnnotations = "".concat(GutterTooltip2.annotationsToSummaryString(annotationsInFold), " in folded code.");
-            annotation.text.push(summaryFoldedAnnotations);
-            annotation.type.push(mostSevereAnnotationInFoldType);
+            annotation.displayText.push(summaryFoldedAnnotations);
+            annotation.type.push(mostSevereAnnotationTypeInFold + "_fold");
           }
         }
-        if (annotation.text.length === 0)
+        if (annotation.displayText.length === 0)
           return this.hide();
-        var annotationMessages = { error: [], warning: [], info: [] };
+        var annotationMessages = { error: [], security: [], warning: [], info: [], hint: [] };
         var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
-        for (var i10 = 0; i10 < annotation.text.length; i10++) {
-          var line = "<span class='ace_".concat(annotation.type[i10], " ").concat(iconClassName, "' aria-label='").concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular, "' role=img> </span> ").concat(annotation.text[i10]);
-          annotationMessages[annotation.type[i10].replace("_fold", "")].push(line);
+        for (var i10 = 0; i10 < annotation.displayText.length; i10++) {
+          var lineElement = dom.createElement("span");
+          var iconElement = dom.createElement("span");
+          (_a2 = iconElement.classList).add.apply(_a2, ["ace_".concat(annotation.type[i10]), iconClassName]);
+          iconElement.setAttribute("aria-label", "".concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular));
+          iconElement.setAttribute("role", "img");
+          iconElement.appendChild(dom.createTextNode(" "));
+          lineElement.appendChild(iconElement);
+          lineElement.appendChild(dom.createTextNode(annotation.displayText[i10]));
+          lineElement.appendChild(dom.createElement("br"));
+          annotationMessages[annotation.type[i10].replace("_fold", "")].push(lineElement);
         }
-        var tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
-        this.setHtml(tooltipContent);
-        this.$element.setAttribute("aria-live", "polite");
+        var tooltipElement = this.getElement();
+        dom.removeChildren(tooltipElement);
+        annotationMessages.error.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.security.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.warning.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.info.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.hint.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        tooltipElement.setAttribute("aria-live", "polite");
         if (!this.isOpen) {
           this.setTheme(this.editor.renderer.theme);
           this.setClassName("ace_gutter-tooltip");
@@ -35587,7 +35659,7 @@ var ace$2 = { exports: {} };
       GutterTooltip2.annotationsToSummaryString = function(annotations) {
         var e_1, _a2;
         var summary = [];
-        var annotationTypes = ["error", "warning", "info"];
+        var annotationTypes = ["error", "security", "warning", "info", "hint"];
         try {
           for (var annotationTypes_1 = __values(annotationTypes), annotationTypes_1_1 = annotationTypes_1.next(); !annotationTypes_1_1.done; annotationTypes_1_1 = annotationTypes_1.next()) {
             var annotationType = annotationTypes_1_1.value;
@@ -36038,14 +36110,17 @@ var ace$2 = { exports: {} };
           var hasUndo = editor.session.getUndoManager().hasUndo();
           contextMenu.replaceChild(dom.buildDom(isOpen ? [
             "span",
-            !selected && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
-            selected && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
-            selected && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
-            clipboard2 && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
-            hasUndo && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
-            ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
-            ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
+            !selected && canExecuteCommand("selectall") && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
+            selected && canExecuteCommand("copy") && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
+            selected && canExecuteCommand("cut") && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
+            clipboard2 && canExecuteCommand("paste") && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
+            hasUndo && canExecuteCommand("undo") && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
+            canExecuteCommand("find") && ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
+            canExecuteCommand("openCommandPalette") && ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
           ] : ["span"]), contextMenu.firstChild);
+        };
+        var canExecuteCommand = function(cmd) {
+          return editor.commands.canExecute(cmd, editor);
         };
         var handleClick = function(e13) {
           var action = e13.target.getAttribute("action");
@@ -36093,6 +36168,12 @@ var ace$2 = { exports: {} };
         ], editor.container);
       }
       function showContextMenu() {
+        if (!editor.getOption("enableMobileMenu")) {
+          if (contextMenu) {
+            hideContextMenu();
+          }
+          return;
+        }
         if (!contextMenu)
           createContextMenu();
         var cursor = editor.selection.cursor;
@@ -38626,8 +38707,23 @@ var ace$2 = { exports: {} };
           initContext(editor);
           var selection = editor.getSelectionRange();
           var selected = session.doc.getTextRange(selection);
+          var token = session.getTokenAt(cursor.row, cursor.column);
           if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
             return getWrapped(selection, selected, "{", "}");
+          } else if (token && /(?:string)\.quasi|\.xml/.test(token.type)) {
+            var excludeTokens = [
+              /tag\-(?:open|name)/,
+              /attribute\-name/
+            ];
+            if (excludeTokens.some(function(el2) {
+              return el2.test(token.type);
+            }) || /(string)\.quasi/.test(token.type) && token.value[cursor.column - token.start - 1] !== "$")
+              return;
+            CstyleBehaviour.recordAutoInsert(editor, session, "}");
+            return {
+              text: "{}",
+              selection: [1, 1]
+            };
           } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
             if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options.braces) {
               CstyleBehaviour.recordAutoInsert(editor, session, "}");
@@ -38856,14 +38952,46 @@ var ace$2 = { exports: {} };
         this.add("doc comment end", "insertion", function(state, action, editor, session, text) {
           if (state === "doc-start" && (text === "\n" || text === "\r\n") && editor.selection.isEmpty()) {
             var cursor = editor.getCursorPosition();
+            if (cursor.column === 0) {
+              return;
+            }
             var line = session.doc.getLine(cursor.row);
             var nextLine = session.doc.getLine(cursor.row + 1);
+            var tokens = session.getTokens(cursor.row);
+            var index2 = 0;
+            for (var i10 = 0; i10 < tokens.length; i10++) {
+              index2 += tokens[i10].value.length;
+              var currentToken = tokens[i10];
+              if (index2 >= cursor.column) {
+                if (index2 === cursor.column) {
+                  if (!/\.doc/.test(currentToken.type)) {
+                    return;
+                  }
+                  if (/\*\//.test(currentToken.value)) {
+                    var nextToken = tokens[i10 + 1];
+                    if (!nextToken || !/\.doc/.test(nextToken.type)) {
+                      return;
+                    }
+                  }
+                }
+                var cursorPosInToken = cursor.column - (index2 - currentToken.value.length);
+                var closeDocPos = currentToken.value.indexOf("*/");
+                var openDocPos = currentToken.value.indexOf("/**", closeDocPos > -1 ? closeDocPos + 2 : 0);
+                if (openDocPos !== -1 && cursorPosInToken > openDocPos && cursorPosInToken < openDocPos + 3) {
+                  return;
+                }
+                if (closeDocPos !== -1 && openDocPos !== -1 && cursorPosInToken >= closeDocPos && cursorPosInToken <= openDocPos || !/\.doc/.test(currentToken.type)) {
+                  return;
+                }
+                break;
+              }
+            }
             var indent = this.$getIndent(line);
             if (/\s*\*/.test(nextLine)) {
               if (/^\s*\*/.test(line)) {
                 return {
                   text: text + indent + "* ",
-                  selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                  selection: [1, 2 + indent.length, 1, 2 + indent.length]
                 };
               } else {
                 return {
@@ -41275,32 +41403,30 @@ var ace$2 = { exports: {} };
           if (dir != 1) {
             do {
               token = iterator.stepBackward();
-            } while (token && re2.test(token.type) && !/^comment.end/.test(token.type));
+            } while (token && re2.test(token.type));
             token = iterator.stepForward();
           }
           range.start.row = iterator.getCurrentTokenRow();
-          range.start.column = iterator.getCurrentTokenColumn() + (/^comment.start/.test(token.type) ? token.value.length : 2);
+          range.start.column = iterator.getCurrentTokenColumn() + token.value.length;
           iterator = new TokenIterator(this, row, column);
+          var initState = this.getState(iterator.$row);
           if (dir != -1) {
             var lastRow = -1;
             do {
               token = iterator.stepForward();
               if (lastRow == -1) {
                 var state = this.getState(iterator.$row);
-                if (!re2.test(state))
+                if (initState.toString() !== state.toString())
                   lastRow = iterator.$row;
               } else if (iterator.$row > lastRow) {
                 break;
               }
-            } while (token && re2.test(token.type) && !/^comment.start/.test(token.type));
+            } while (token && re2.test(token.type));
             token = iterator.stepBackward();
           } else
             token = iterator.getCurrentToken();
           range.end.row = iterator.getCurrentTokenRow();
           range.end.column = iterator.getCurrentTokenColumn();
-          if (!/^comment.end/.test(token.type)) {
-            range.end.column += token.value.length - 2;
-          }
           return range;
         }
       };
@@ -41711,6 +41837,10 @@ var ace$2 = { exports: {} };
         var foundOpenTagEnd = false;
         do {
           prevToken = token;
+          if (prevToken.type.indexOf("tag-close") !== -1 && !foundOpenTagEnd) {
+            var openTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
+            foundOpenTagEnd = true;
+          }
           token = iterator.stepForward();
           if (token) {
             if (token.value === ">" && !foundOpenTagEnd) {
@@ -41729,7 +41859,9 @@ var ace$2 = { exports: {} };
                     var closeTagStart = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 2);
                     token = iterator.stepForward();
                     var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length);
-                    token = iterator.stepForward();
+                    if (token.type.indexOf("tag-close") === -1) {
+                      token = iterator.stepForward();
+                    }
                     if (token && token.value === ">") {
                       var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
                     } else {
@@ -41768,7 +41900,9 @@ var ace$2 = { exports: {} };
         var closeTagStart = new Range(startRow, startColumn, startRow, endColumn);
         iterator.stepForward();
         var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length);
-        token = iterator.stepForward();
+        if (token.type.indexOf("tag-close") === -1) {
+          token = iterator.stepForward();
+        }
         if (!token || token.value !== ">")
           return;
         var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
@@ -41850,6 +41984,7 @@ var ace$2 = { exports: {} };
         this.$backMarkers = {};
         this.$markerId = 1;
         this.$undoSelect = true;
+        this.prevOp = {};
         this.$foldData = [];
         this.id = "session" + ++EditSession2.$uid;
         this.$foldData.toString = function() {
@@ -41866,12 +42001,73 @@ var ace$2 = { exports: {} };
           text = new Document2(text);
         this.setDocument(text);
         this.selection = new Selection(this);
+        this.$onSelectionChange = this.onSelectionChange.bind(this);
+        this.selection.on("changeSelection", this.$onSelectionChange);
+        this.selection.on("changeCursor", this.$onSelectionChange);
         this.$bidiHandler = new BidiHandler(this);
         config.resetOptions(this);
         this.setMode(mode);
         config._signal("session", this);
         this.destroyed = false;
+        this.$initOperationListeners();
       }
+      EditSession2.prototype.$initOperationListeners = function() {
+        var _this = this;
+        this.curOp = null;
+        this.on("change", function() {
+          if (!_this.curOp) {
+            _this.startOperation();
+            _this.curOp.selectionBefore = _this.$lastSel;
+          }
+          _this.curOp.docChanged = true;
+        }, true);
+        this.on("changeSelection", function() {
+          if (!_this.curOp) {
+            _this.startOperation();
+            _this.curOp.selectionBefore = _this.$lastSel;
+          }
+          _this.curOp.selectionChanged = true;
+        }, true);
+        this.$operationResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
+      };
+      EditSession2.prototype.startOperation = function(commandEvent) {
+        if (this.curOp) {
+          if (!commandEvent || this.curOp.command) {
+            return;
+          }
+          this.prevOp = this.curOp;
+        }
+        if (!commandEvent) {
+          commandEvent = {};
+        }
+        this.$operationResetTimer.schedule();
+        this.curOp = {
+          command: commandEvent.command || {},
+          args: commandEvent.args
+        };
+        this.curOp.selectionBefore = this.selection.toJSON();
+        this._signal("startOperation", commandEvent);
+      };
+      EditSession2.prototype.endOperation = function(e13) {
+        if (this.curOp) {
+          if (e13 && e13.returnValue === false) {
+            this.curOp = null;
+            this._signal("endOperation", e13);
+            return;
+          }
+          if (e13 == true && this.curOp.command && this.curOp.command.name == "mouse") {
+            return;
+          }
+          var currentSelection = this.selection.toJSON();
+          this.curOp.selectionAfter = currentSelection;
+          this.$lastSel = this.selection.toJSON();
+          this.getUndoManager().addSelection(currentSelection);
+          this._signal("beforeEndOperation");
+          this.prevOp = this.curOp;
+          this.curOp = null;
+          this._signal("endOperation", e13);
+        }
+      };
       EditSession2.prototype.setDocument = function(doc) {
         if (this.doc)
           this.doc.off("change", this.$onChange);
@@ -41942,6 +42138,9 @@ var ace$2 = { exports: {} };
         }
         this.bgTokenizer.$updateOnChange(delta);
         this._signal("change", delta);
+      };
+      EditSession2.prototype.onSelectionChange = function() {
+        this._signal("changeSelection");
       };
       EditSession2.prototype.setValue = function(text) {
         this.doc.setValue(text);
@@ -43229,16 +43428,29 @@ var ace$2 = { exports: {} };
           return [screenColumn, column];
         };
       };
+      EditSession2.prototype.getPrecedingCharacter = function() {
+        var pos = this.selection.getCursor();
+        if (pos.column === 0) {
+          return pos.row === 0 ? "" : this.doc.getNewLineCharacter();
+        }
+        var currentLine = this.getLine(pos.row);
+        return currentLine[pos.column - 1];
+      };
       EditSession2.prototype.destroy = function() {
         if (!this.destroyed) {
           this.bgTokenizer.setDocument(null);
           this.bgTokenizer.cleanup();
           this.destroyed = true;
         }
+        this.endOperation();
         this.$stopWorker();
         this.removeAllListeners();
         if (this.doc) {
           this.doc.off("change", this.$onChange);
+        }
+        if (this.selection) {
+          this.selection.off("changeCursor", this.$onSelectionChange);
+          this.selection.off("changeSelection", this.$onSelectionChange);
         }
         this.selection.detach();
       };
@@ -43507,6 +43719,9 @@ var ace$2 = { exports: {} };
         var match = re2.exec(input);
         if (!match || match[0].length != input.length)
           return null;
+        if (!options.regExp) {
+          replacement = replacement.replace(/\$/g, "$$$$");
+        }
         replacement = input.replace(re2, replacement);
         if (options.preserveCase) {
           replacement = replacement.split("");
@@ -43967,16 +44182,24 @@ var ace$2 = { exports: {} };
         }
         if (typeof command === "string")
           command = this.commands[command];
+        if (!this.canExecute(command, editor)) {
+          return false;
+        }
+        var e13 = { editor, command, args };
+        e13.returnValue = this._emit("exec", e13);
+        this._signal("afterExec", e13);
+        return e13.returnValue === false ? false : true;
+      };
+      CommandManager2.prototype.canExecute = function(command, editor) {
+        if (typeof command === "string")
+          command = this.commands[command];
         if (!command)
           return false;
         if (editor && editor.$readOnly && !command.readOnly)
           return false;
         if (this.$checkCommandState != false && command.isAvailable && !command.isAvailable(editor))
           return false;
-        var e13 = { editor, command, args };
-        e13.returnValue = this._emit("exec", e13);
-        this._signal("afterExec", e13);
-        return e13.returnValue === false ? false : true;
+        return true;
       };
       CommandManager2.prototype.toggleRecording = function(editor) {
         if (this.$inReplay)
@@ -44996,7 +45219,6 @@ var ace$2 = { exports: {} };
         exec: function(editor) {
           editor.autoIndent();
         },
-        multiSelectAction: "forEachLine",
         scrollIntoView: "animate"
       },
       {
@@ -45920,46 +46142,27 @@ var ace$2 = { exports: {} };
       Editor3.prototype.$initOperationListeners = function() {
         this.commands.on("exec", this.startOperation.bind(this), true);
         this.commands.on("afterExec", this.endOperation.bind(this), true);
-        this.$opResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
-        this.on("change", function() {
-          if (!this.curOp) {
-            this.startOperation();
-            this.curOp.selectionBefore = this.$lastSel;
-          }
-          this.curOp.docChanged = true;
-        }.bind(this), true);
-        this.on("changeSelection", function() {
-          if (!this.curOp) {
-            this.startOperation();
-            this.curOp.selectionBefore = this.$lastSel;
-          }
-          this.curOp.selectionChanged = true;
-        }.bind(this), true);
       };
       Editor3.prototype.startOperation = function(commandEvent) {
-        if (this.curOp) {
-          if (!commandEvent || this.curOp.command)
-            return;
-          this.prevOp = this.curOp;
-        }
-        if (!commandEvent) {
-          this.previousCommand = null;
-          commandEvent = {};
-        }
-        this.$opResetTimer.schedule();
-        this.curOp = this.session.curOp = {
-          command: commandEvent.command || {},
-          args: commandEvent.args,
-          scrollTop: this.renderer.scrollTop
-        };
-        this.curOp.selectionBefore = this.selection.toJSON();
+        this.session.startOperation(commandEvent);
       };
       Editor3.prototype.endOperation = function(e13) {
+        this.session.endOperation(e13);
+      };
+      Editor3.prototype.onStartOperation = function(commandEvent) {
+        this.curOp = this.session.curOp;
+        this.curOp.scrollTop = this.renderer.scrollTop;
+        this.prevOp = this.session.prevOp;
+        if (!commandEvent) {
+          this.previousCommand = null;
+        }
+      };
+      Editor3.prototype.onEndOperation = function(e13) {
         if (this.curOp && this.session) {
-          if (e13 && e13.returnValue === false || !this.session)
-            return this.curOp = null;
-          if (e13 == true && this.curOp.command && this.curOp.command.name == "mouse")
+          if (e13 && e13.returnValue === false) {
+            this.curOp = null;
             return;
+          }
           this._signal("beforeEndOperation");
           if (!this.curOp)
             return;
@@ -45987,10 +46190,7 @@ var ace$2 = { exports: {} };
             if (scrollIntoView == "animate")
               this.renderer.animateScrolling(this.curOp.scrollTop);
           }
-          var sel = this.selection.toJSON();
-          this.curOp.selectionAfter = sel;
-          this.$lastSel = this.selection.toJSON();
-          this.session.getUndoManager().addSelection(sel);
+          this.$lastSel = this.session.selection.toJSON();
           this.prevOp = this.curOp;
           this.curOp = null;
         }
@@ -46058,6 +46258,8 @@ var ace$2 = { exports: {} };
           this.session.off("changeOverwrite", this.$onCursorChange);
           this.session.off("changeScrollTop", this.$onScrollTopChange);
           this.session.off("changeScrollLeft", this.$onScrollLeftChange);
+          this.session.off("startOperation", this.$onStartOperation);
+          this.session.off("endOperation", this.$onEndOperation);
           var selection = this.session.getSelection();
           selection.off("changeCursor", this.$onCursorChange);
           selection.off("changeSelection", this.$onSelectionChange);
@@ -46097,6 +46299,10 @@ var ace$2 = { exports: {} };
           this.selection.on("changeCursor", this.$onCursorChange);
           this.$onSelectionChange = this.onSelectionChange.bind(this);
           this.selection.on("changeSelection", this.$onSelectionChange);
+          this.$onStartOperation = this.onStartOperation.bind(this);
+          this.session.on("startOperation", this.$onStartOperation);
+          this.$onEndOperation = this.onEndOperation.bind(this);
+          this.session.on("endOperation", this.$onEndOperation);
           this.onChangeMode();
           this.onCursorChange();
           this.onScrollTopChange();
@@ -46188,8 +46394,12 @@ var ace$2 = { exports: {} };
             var token = iterator.getCurrentToken();
             if (token && /\b(?:tag-open|tag-name)/.test(token.type)) {
               var tagNamesRanges = session.getMatchingTags(pos);
-              if (tagNamesRanges)
-                ranges = [tagNamesRanges.openTagName, tagNamesRanges.closeTagName];
+              if (tagNamesRanges) {
+                ranges = [
+                  tagNamesRanges.openTagName.isEmpty() ? tagNamesRanges.openTag : tagNamesRanges.openTagName,
+                  tagNamesRanges.closeTagName.isEmpty() ? tagNamesRanges.closeTag : tagNamesRanges.closeTagName
+                ];
+              }
             }
           }
           if (!ranges && session.$mode.getMatching)
@@ -46485,38 +46695,33 @@ var ace$2 = { exports: {} };
       Editor3.prototype.autoIndent = function() {
         var session = this.session;
         var mode = session.getMode();
-        var startRow, endRow;
-        if (this.selection.isEmpty()) {
-          startRow = 0;
-          endRow = session.doc.getLength() - 1;
-        } else {
-          var selectedRange = this.getSelectionRange();
-          startRow = selectedRange.start.row;
-          endRow = selectedRange.end.row;
-        }
+        var ranges = this.selection.isEmpty() ? [new Range(0, 0, session.doc.getLength() - 1, 0)] : this.selection.getAllRanges();
         var prevLineState = "";
         var prevLine = "";
         var lineIndent = "";
-        var line, currIndent, range;
         var tab = session.getTabString();
-        for (var row = startRow; row <= endRow; row++) {
-          if (row > 0) {
-            prevLineState = session.getState(row - 1);
-            prevLine = session.getLine(row - 1);
-            lineIndent = mode.getNextLineIndent(prevLineState, prevLine, tab);
-          }
-          line = session.getLine(row);
-          currIndent = mode.$getIndent(line);
-          if (lineIndent !== currIndent) {
-            if (currIndent.length > 0) {
-              range = new Range(row, 0, row, currIndent.length);
-              session.remove(range);
+        for (var i10 = 0; i10 < ranges.length; i10++) {
+          var startRow = ranges[i10].start.row;
+          var endRow = ranges[i10].end.row;
+          for (var row = startRow; row <= endRow; row++) {
+            if (row > 0) {
+              prevLineState = session.getState(row - 1);
+              prevLine = session.getLine(row - 1);
+              lineIndent = mode.getNextLineIndent(prevLineState, prevLine, tab);
             }
-            if (lineIndent.length > 0) {
-              session.insert({ row, column: 0 }, lineIndent);
+            var line = session.getLine(row);
+            var currIndent = mode.$getIndent(line);
+            if (lineIndent !== currIndent) {
+              if (currIndent.length > 0) {
+                var range = new Range(row, 0, row, currIndent.length);
+                session.remove(range);
+              }
+              if (lineIndent.length > 0) {
+                session.insert({ row, column: 0 }, lineIndent);
+              }
             }
+            mode.autoOutdent(prevLineState, session, row);
           }
-          mode.autoOutdent(prevLineState, session, row);
         }
       };
       Editor3.prototype.onTextInput = function(text, composition) {
@@ -47745,21 +47950,24 @@ var ace$2 = { exports: {} };
             this.textInput.setNumberOfExtraLines(useragent.isWin ? 3 : 0);
             this.renderer.scroller.setAttribute("tabindex", 0);
             this.renderer.scroller.setAttribute("role", "group");
-            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor"));
+            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor.scroller.aria-roledescription", "editor"));
             this.renderer.scroller.classList.add(this.renderer.keyboardFocusClassName);
-            this.renderer.scroller.setAttribute("aria-label", nls("Editor content, press Enter to start editing, press Escape to exit"));
+            this.renderer.scroller.setAttribute("aria-label", nls("editor.scroller.aria-label", "Editor content, press Enter to start editing, press Escape to exit"));
             this.renderer.scroller.addEventListener("keyup", focusOnEnterKeyup.bind(this));
             this.commands.addCommand(blurCommand);
             this.renderer.$gutter.setAttribute("tabindex", 0);
             this.renderer.$gutter.setAttribute("aria-hidden", false);
             this.renderer.$gutter.setAttribute("role", "group");
-            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor"));
-            this.renderer.$gutter.setAttribute("aria-label", nls("Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
+            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor.gutter.aria-roledescription", "editor"));
+            this.renderer.$gutter.setAttribute("aria-label", nls("editor.gutter.aria-label", "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
             this.renderer.$gutter.classList.add(this.renderer.keyboardFocusClassName);
             this.renderer.content.setAttribute("aria-hidden", true);
             if (!gutterKeyboardHandler)
               gutterKeyboardHandler = new GutterKeyboardHandler(this);
             gutterKeyboardHandler.addListener();
+            this.textInput.setAriaOptions({
+              setLabel: true
+            });
           } else {
             this.renderer.enableKeyboardAccessibility = false;
             this.textInput.getElement().setAttribute("tabindex", 0);
@@ -47783,6 +47991,18 @@ var ace$2 = { exports: {} };
           }
         },
         initialValue: false
+      },
+      textInputAriaLabel: {
+        set: function(val) {
+          this.$textInputAriaLabel = val;
+        },
+        initialValue: ""
+      },
+      enableMobileMenu: {
+        set: function(val) {
+          this.$enableMobileMenu = val;
+        },
+        initialValue: true
       },
       customScrollbar: "renderer",
       hScrollBarAlwaysVisible: "renderer",
@@ -47994,23 +48214,31 @@ var ace$2 = { exports: {} };
           var row = annotation.row;
           var rowInfo = this.$annotations[row];
           if (!rowInfo)
-            rowInfo = this.$annotations[row] = { text: [], type: [] };
+            rowInfo = this.$annotations[row] = { text: [], type: [], displayText: [] };
           var annoText = annotation.text;
+          var displayAnnoText = annotation.text;
           var annoType = annotation.type;
           annoText = annoText ? lang.escapeHTML(annoText) : annotation.html || "";
+          displayAnnoText = displayAnnoText ? displayAnnoText : annotation.html || "";
           if (rowInfo.text.indexOf(annoText) === -1) {
             rowInfo.text.push(annoText);
             rowInfo.type.push(annoType);
+            rowInfo.displayText.push(displayAnnoText);
           }
           var className = annotation.className;
-          if (className)
+          if (className) {
             rowInfo.className = className;
-          else if (annoType == "error")
+          } else if (annoType === "error") {
             rowInfo.className = " ace_error";
-          else if (annoType == "warning" && rowInfo.className != " ace_error")
+          } else if (annoType === "security" && !/\bace_error\b/.test(rowInfo.className)) {
+            rowInfo.className = " ace_security";
+          } else if (annoType === "warning" && !/\bace_(error|security)\b/.test(rowInfo.className)) {
             rowInfo.className = " ace_warning";
-          else if (annoType == "info" && !rowInfo.className)
+          } else if (annoType === "info" && !rowInfo.className) {
             rowInfo.className = " ace_info";
+          } else if (annoType === "hint" && !rowInfo.className) {
+            rowInfo.className = " ace_hint";
+          }
         }
       };
       Gutter2.prototype.$updateAnnotations = function(delta) {
@@ -48220,10 +48448,12 @@ var ace$2 = { exports: {} };
                 foldAnnotationClass = " ace_error_fold";
                 break;
               }
-              if (this.$annotations[i10].className === " ace_warning") {
+              if (this.$annotations[i10].className === " ace_security") {
+                annotationInFold = true;
+                foldAnnotationClass = " ace_security_fold";
+              } else if (this.$annotations[i10].className === " ace_warning" && foldAnnotationClass !== " ace_security_fold") {
                 annotationInFold = true;
                 foldAnnotationClass = " ace_warning_fold";
-                continue;
               }
             }
             className += foldAnnotationClass;
@@ -48237,19 +48467,25 @@ var ace$2 = { exports: {} };
           foldWidget.setAttribute("tabindex", "-1");
           var foldRange = session.getFoldWidgetRange(row);
           if (foldRange)
-            foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
+            foldWidget.setAttribute("aria-label", nls("gutter.code-folding.range.aria-label", "Toggle code folding, rows $0 through $1", [
+              foldRange.start.row + 1,
+              foldRange.end.row + 1
+            ]));
           else {
             if (fold)
-              foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
+              foldWidget.setAttribute("aria-label", nls("gutter.code-folding.closed.aria-label", "Toggle code folding, rows $0 through $1", [
+                fold.start.row + 1,
+                fold.end.row + 1
+              ]));
             else
-              foldWidget.setAttribute("aria-label", nls("Toggle code folding, row $0", [row + 1]));
+              foldWidget.setAttribute("aria-label", nls("gutter.code-folding.open.aria-label", "Toggle code folding, row $0", [row + 1]));
           }
           if (isClosedFold) {
             foldWidget.setAttribute("aria-expanded", "false");
-            foldWidget.setAttribute("title", nls("Unfold code"));
+            foldWidget.setAttribute("title", nls("gutter.code-folding.closed.title", "Unfold code"));
           } else {
             foldWidget.setAttribute("aria-expanded", "true");
-            foldWidget.setAttribute("title", nls("Fold code"));
+            foldWidget.setAttribute("title", nls("gutter.code-folding.open.title", "Fold code"));
           }
         } else {
           if (foldWidget) {
@@ -48266,7 +48502,19 @@ var ace$2 = { exports: {} };
           dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
           dom.setStyle(annotationNode.style, "height", lineHeight);
-          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          var ariaLabel;
+          switch (foldAnnotationClass) {
+            case " ace_error_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.error", "Error, read annotations row $0", [rowText]);
+              break;
+            case " ace_security_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.security", "Security finding, read annotations row $0", [rowText]);
+              break;
+            case " ace_warning_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.warning", "Warning, read annotations row $0", [rowText]);
+              break;
+          }
+          annotationNode.setAttribute("aria-label", ariaLabel);
           annotationNode.setAttribute("tabindex", "-1");
           annotationNode.setAttribute("role", "button");
         } else if (this.$annotations[row]) {
@@ -48279,7 +48527,25 @@ var ace$2 = { exports: {} };
           dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
           dom.setStyle(annotationNode.style, "height", lineHeight);
-          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          var ariaLabel;
+          switch (this.$annotations[row].className) {
+            case " ace_error":
+              ariaLabel = nls("gutter.annotation.aria-label.error", "Error, read annotations row $0", [rowText]);
+              break;
+            case " ace_security":
+              ariaLabel = nls("gutter.annotation.aria-label.security", "Security finding, read annotations row $0", [rowText]);
+              break;
+            case " ace_warning":
+              ariaLabel = nls("gutter.annotation.aria-label.warning", "Warning, read annotations row $0", [rowText]);
+              break;
+            case " ace_info":
+              ariaLabel = nls("gutter.annotation.aria-label.info", "Info, read annotations row $0", [rowText]);
+              break;
+            case " ace_hint":
+              ariaLabel = nls("gutter.annotation.aria-label.hint", "Suggestion, read annotations row $0", [rowText]);
+              break;
+          }
+          annotationNode.setAttribute("aria-label", ariaLabel);
           annotationNode.setAttribute("tabindex", "-1");
           annotationNode.setAttribute("role", "button");
         } else {
@@ -48469,7 +48735,7 @@ var ace$2 = { exports: {} };
           range1.end.column = this.session.getLine(range1.start.row).length;
           this.drawBidiSingleLineMarker(stringBuilder, range1, clazz + " ace_br1 ace_start", config, null, extraStyle);
         } else {
-          this.elt(clazz + " ace_br1 ace_start", "height:" + height + "px;right:0;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
+          this.elt(clazz + " ace_br1 ace_start", "height:" + height + "px;right:" + padding + "px;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
         }
         if (this.session.$bidiHandler.isBidiRow(range.end.row)) {
           var range1 = range.clone();
@@ -48486,7 +48752,7 @@ var ace$2 = { exports: {} };
           return;
         top = this.$getTop(range.start.row + 1, config);
         var radiusClass = (range.start.column ? 1 : 0) | (range.end.column ? 0 : 8);
-        this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:0;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
+        this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:" + padding + "px;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
       };
       Marker2.prototype.drawSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
         if (this.session.$bidiHandler.isBidiRow(range.start.row))
@@ -48824,7 +49090,7 @@ var ace$2 = { exports: {} };
           var span = this.dom.createElement("span");
           if (token.type == "fold") {
             span.style.width = token.value.length * this.config.characterWidth + "px";
-            span.setAttribute("title", nls("Unfold code"));
+            span.setAttribute("title", nls("inline-fold.closed.title", "Unfold code"));
           }
           span.className = classes;
           span.appendChild(valueFragment);
@@ -49860,7 +50126,7 @@ var ace$2 = { exports: {} };
       FontMetrics2.prototype.$getZoom = function(element) {
         if (!element || !element.parentElement)
           return 1;
-        return (window.getComputedStyle(element)["zoom"] || 1) * this.$getZoom(element.parentElement);
+        return (Number(window.getComputedStyle(element)["zoom"]) || 1) * this.$getZoom(element.parentElement);
       };
       FontMetrics2.prototype.$initTransformMeasureNodes = function() {
         var t10 = function(t11, l10) {
@@ -49947,6 +50213,7 @@ var ace$2 = { exports: {} };
     direction: ltr;
     text-align: left;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    forced-color-adjust: none;
 }
 
 .ace_scroller {
@@ -50042,7 +50309,7 @@ var ace$2 = { exports: {} };
     float: left;
 }
 
-.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold {
+.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold, .ace_gutter-cell.ace_security, .ace_icon.ace_security, .ace_icon.ace_security_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");
     background-repeat: no-repeat;
     background-position: 2px center;
@@ -50054,17 +50321,22 @@ var ace$2 = { exports: {} };
     background-position: 2px center;
 }
 
-.ace_gutter-cell.ace_info, .ace_icon.ace_info {
+.ace_gutter-cell.ace_info, .ace_icon.ace_info, .ace_gutter-cell.ace_hint, .ace_icon.ace_hint {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");
     background-repeat: no-repeat;
     background-position: 2px center;
 }
-.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info {
+
+.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info, .ace_dark .ace_gutter-cell.ace_hint, .ace_dark .ace_icon.ace_hint {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");
 }
 
 .ace_icon_svg.ace_error {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJyZWQiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgY3k9IjgiIHI9IjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjExIiB5MT0iNSIgeDI9IjUiIHkyPSIxMSIvPgo8bGluZSB4MT0iMTEiIHkxPSIxMSIgeDI9IjUiIHkyPSI1Ii8+CjwvZz4KPC9zdmc+");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_security {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iZGFya29yYW5nZSIgZmlsbD0ibm9uZSIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdHJva2UtbGluZWpvaW4tcm91bmQiIGQ9Ik04IDE0LjgzMDdDOCAxNC44MzA3IDIgMTIuOTA0NyAyIDguMDg5OTJWMy4yNjU0OEM1LjMxIDMuMjY1NDggNy45ODk5OSAxLjM0OTE4IDcuOTg5OTkgMS4zNDkxOEM3Ljk4OTk5IDEuMzQ5MTggMTAuNjkgMy4yNjU0OCAxNCAzLjI2NTQ4VjguMDg5OTJDMTQgMTIuOTA0NyA4IDE0LjgzMDcgOCAxNC44MzA3WiIvPgogICAgICAgIDxwYXRoIGQ9Ik0yIDguMDg5OTJWMy4yNjU0OEM1LjMxIDMuMjY1NDggNy45ODk5OSAxLjM0OTE4IDcuOTg5OTkgMS4zNDkxOCIvPgogICAgICAgIDxwYXRoIGQ9Ik0xMy45OSA4LjA4OTkyVjMuMjY1NDhDMTAuNjggMy4yNjU0OCA4IDEuMzQ5MTggOCAxLjM0OTE4Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTggNFY5Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTggMTBWMTIiLz4KICAgIDwvZz4KPC9zdmc+");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning {
@@ -50075,9 +50347,17 @@ var ace$2 = { exports: {} };
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJibHVlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CjxjaXJjbGUgZmlsbD0ibm9uZSIgY3g9IjgiIGN5PSI4IiByPSI3IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjxwb2x5bGluZSBwb2ludHM9IjggMTEgOCA4Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjkgOCA2IDgiLz4KPGxpbmUgeDE9IjEwIiB5MT0iMTEiIHgyPSI2IiB5Mj0iMTEiLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjAuMDEiIGhlaWdodD0iMC4wMSIvPgo8L2c+Cjwvc3ZnPg==");
     background-color: royalblue;
 }
+.ace_icon_svg.ace_hint {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0ic2lsdmVyIiBmaWxsPSJub25lIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTYgMTRIMTAiLz4KICAgICAgICA8cGF0aCBkPSJNOCAxMUg5QzkgOS40NzAwMiAxMiA4LjU0MDAyIDEyIDUuNzYwMDJDMTIuMDIgNC40MDAwMiAxMS4zOSAzLjM2MDAyIDEwLjQzIDIuNjcwMDJDOSAxLjY0MDAyIDcuMDAwMDEgMS42NDAwMiA1LjU3MDAxIDIuNjcwMDJDNC42MTAwMSAzLjM2MDAyIDMuOTggNC40MDAwMiA0IDUuNzYwMDJDNCA4LjU0MDAyIDcuMDAwMDEgOS40NzAwMiA3LjAwMDAxIDExSDhaIi8+CiAgICA8L2c+Cjwvc3ZnPg==");
+    background-color: silver;
+}
 
 .ace_icon_svg.ace_error_fold {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0ibSAxOC45Mjk4NTEsNy44Mjk4MDc2IGMgMC4xNDYzNTMsNi4zMzc0NjA0IC02LjMyMzE0Nyw3Ljc3Nzg0NDQgLTcuNDc3OTEyLDcuNzc3ODQ0NCAtMi4xMDcyNzI2LC0wLjEyODc1IDUuMTE3Njc4LDAuMzU2MjQ5IDUuMDUxNjk4LC03Ljg3MDA2MTggLTAuNjA0NjcyLC04LjAwMzk3MzQ5IC03LjA3NzI3MDYsLTcuNTYzMTE4OSAtNC44NTczLC03LjQzMDM5NTU2IDEuNjA2LC0wLjExNTE0MjI1IDYuODk3NDg1LDEuMjYyNTQ1OTYgNy4yODM1MTQsNy41MjI2MTI5NiB6IiBmaWxsPSJjcmltc29uIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0ibSA4LjExNDc1NjIsMi4wNTI5ODI4IGMgMy4zNDkxNjk4LDAgNi4wNjQxMzI4LDIuNjc2ODYyNyA2LjA2NDEzMjgsNS45Nzg5NTMgMCwzLjMwMjExMjIgLTIuNzE0OTYzLDUuOTc4OTIwMiAtNi4wNjQxMzI4LDUuOTc4OTIwMiAtMy4zNDkxNDczLDAgLTYuMDY0MTc3MiwtMi42NzY4MDggLTYuMDY0MTc3MiwtNS45Nzg5MjAyIDAuMDA1MzksLTMuMjk5ODg2MSAyLjcxNzI2NTYsLTUuOTczNjQwOCA2LjA2NDE3NzIsLTUuOTc4OTUzIHogbSAwLC0xLjczNTgyNzE5IGMgLTQuMzIxNDgzNiwwIC03LjgyNDc0MDM4LDMuNDU0MDE4NDkgLTcuODI0NzQwMzgsNy43MTQ3ODAxOSAwLDQuMjYwNzI4MiAzLjUwMzI1Njc4LDcuNzE0NzQ1MiA3LjgyNDc0MDM4LDcuNzE0NzQ1MiA0LjMyMTQ0OTgsMCA3LjgyNDY5OTgsLTMuNDU0MDE3IDcuODI0Njk5OCwtNy43MTQ3NDUyIDAsLTIuMDQ2MDkxNCAtMC44MjQzOTIsLTQuMDA4MzY3MiAtMi4yOTE3NTYsLTUuNDU1MTc0NiBDIDEyLjE4MDIyNSwxLjEyOTk2NDggMTAuMTkwMDEzLDAuMzE3MTU1NjEgOC4xMTQ3NTYyLDAuMzE3MTU1NjEgWiBNIDYuOTM3NDU2Myw4LjI0MDU5ODUgNC42NzE4Njg1LDEwLjQ4NTg1MiA2LjAwODY4MTQsMTEuODc2NzI4IDguMzE3MDAzNSw5LjYwMDc5MTEgMTAuNjI1MzM3LDExLjg3NjcyOCAxMS45NjIxMzgsMTAuNDg1ODUyIDkuNjk2NTUwOCw4LjI0MDU5ODUgMTEuOTYyMTM4LDYuMDA2ODA2NiAxMC41NzMyNDYsNC42Mzc0MzM1IDguMzE3MDAzNSw2Ljg3MzQyOTcgNi4wNjA3NjA3LDQuNjM3NDMzNSA0LjY3MTg2ODUsNi4wMDY4MDY2IFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_security_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcgMTQiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTEwLjAwMDEgMTMuNjk5MkMxMC4wMDAxIDEzLjY5OTIgMTEuOTI0MSAxMy40NzYzIDEzIDEyLjY5OTJDMTQuNDEzOSAxMS42NzgxIDE2IDEwLjUgMTYuMTI1MSA2LjgxMTI2VjIuNTg5ODdDMTYuMTI1MSAyLjU0NzY4IDE2LjEyMjEgMi41MDYxOSAxNi4xMTY0IDIuNDY1NTlWMS43MTQ4NUgxNS4yNDE0TDE1LjIzMDcgMS43MTQ4NEwxNC42MjUxIDEuNjk5MjJWNi44MTEyM0MxNC42MjUxIDguNTEwNjEgMTQuNjI1MSA5LjQ2NDYxIDEyLjc4MjQgMTEuNzIxQzEyLjE1ODYgMTIuNDg0OCAxMC4wMDAxIDEzLjY5OTIgMTAuMDAwMSAxMy42OTkyWiIgZmlsbD0iY3JpbXNvbiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTcuMzM2MDkgMC4zNjc0NzVDNy4wMzIxNCAwLjE1MjY1MiA2LjYyNTQ4IDAuMTUzNjE0IDYuMzIyNTMgMC4zNjk5OTdMNi4zMDg2OSAwLjM3OTU1NEM2LjI5NTUzIDAuMzg4NTg4IDYuMjczODggMC40MDMyNjYgNi4yNDQxNyAwLjQyMjc4OUM2LjE4NDcxIDAuNDYxODYgNi4wOTMyMSAwLjUyMDE3MSA1Ljk3MzEzIDAuNTkxMzczQzUuNzMyNTEgMC43MzQwNTkgNS4zNzk5IDAuOTI2ODY0IDQuOTQyNzkgMS4xMjAwOUM0LjA2MTQ0IDEuNTA5NyAyLjg3NTQxIDEuODgzNzcgMS41ODk4NCAxLjg4Mzc3SDAuNzE0ODQ0VjIuNzU4NzdWNi45ODAxNUMwLjcxNDg0NCA5LjQ5Mzc0IDIuMjg4NjYgMTEuMTk3MyAzLjcwMjU0IDEyLjIxODVDNC40MTg0NSAxMi43MzU1IDUuMTI4NzQgMTMuMTA1MyA1LjY1NzMzIDEzLjM0NTdDNS45MjI4NCAxMy40NjY0IDYuMTQ1NjYgMTMuNTU1OSA2LjMwNDY1IDEzLjYxNjFDNi4zODQyMyAxMy42NDYyIDYuNDQ4MDUgMTMuNjY5IDYuNDkzNDkgMTMuNjg0OEM2LjUxNjIyIDEzLjY5MjcgNi41MzQzOCAxMy42OTg5IDYuNTQ3NjQgMTMuNzAzM0w2LjU2MzgyIDEzLjcwODdMNi41NjkwOCAxMy43MTA0TDYuNTcwOTkgMTMuNzExTDYuODM5ODQgMTMuNzUzM0w2LjU3MjQyIDEzLjcxMTVDNi43NDYzMyAxMy43NjczIDYuOTMzMzUgMTMuNzY3MyA3LjEwNzI3IDEzLjcxMTVMNy4xMDg3IDEzLjcxMUw3LjExMDYxIDEzLjcxMDRMNy4xMTU4NyAxMy43MDg3TDcuMTMyMDUgMTMuNzAzM0M3LjE0NTMxIDEzLjY5ODkgNy4xNjM0NiAxMy42OTI3IDcuMTg2MTkgMTMuNjg0OEM3LjIzMTY0IDEzLjY2OSA3LjI5NTQ2IDEzLjY0NjIgNy4zNzUwMyAxMy42MTYxQzcuNTM0MDMgMTMuNTU1OSA3Ljc1Njg1IDEzLjQ2NjQgOC4wMjIzNiAxMy4zNDU3QzguNTUwOTUgMTMuMTA1MyA5LjI2MTIzIDEyLjczNTUgOS45NzcxNSAxMi4yMTg1QzExLjM5MSAxMS4xOTczIDEyLjk2NDggOS40OTM3NyAxMi45NjQ4IDYuOTgwMThWMi43NTg4QzEyLjk2NDggMi43MTY2IDEyLjk2MTkgMi42NzUxMSAxMi45NTYxIDIuNjM0NTFWMS44ODM3N0gxMi4wODExQzEyLjA3NzUgMS44ODM3NyAxMi4wNzQgMS44ODM3NyAxMi4wNzA0IDEuODgzNzdDMTAuNzk3OSAxLjg4MDA0IDkuNjE5NjIgMS41MTEwMiA4LjczODk0IDEuMTI0ODZDOC43MzUzNCAxLjEyMzI3IDguNzMxNzQgMS4xMjE2OCA4LjcyODE0IDEuMTIwMDlDOC4yOTEwMyAwLjkyNjg2NCA3LjkzODQyIDAuNzM0MDU5IDcuNjk3NzkgMC41OTEzNzNDNy41Nzc3MiAwLjUyMDE3MSA3LjQ4NjIyIDAuNDYxODYgNy40MjY3NiAwLjQyMjc4OUM3LjM5NzA1IDAuNDAzMjY2IDcuMzc1MzkgMC4zODg1ODggNy4zNjIyNCAwLjM3OTU1NEw3LjM0ODk2IDAuMzcwMzVDNy4zNDg5NiAwLjM3MDM1IDcuMzQ4NDcgMC4zNzAwMiA3LjM0NTYzIDAuMzc0MDU0TDcuMzM3NzkgMC4zNjg2NTlMNy4zMzYwOSAwLjM2NzQ3NVpNOC4wMzQ3MSAyLjcyNjkxQzguODYwNCAzLjA5MDYzIDkuOTYwNjYgMy40NjMwOSAxMS4yMDYxIDMuNTg5MDdWNi45ODAxNUgxMS4yMTQ4QzExLjIxNDggOC42Nzk1MyAxMC4xNjM3IDkuOTI1MDcgOC45NTI1NCAxMC43OTk4QzguMzU1OTUgMTEuMjMwNiA3Ljc1Mzc0IDExLjU0NTQgNy4yOTc5NiAxMS43NTI3QzcuMTE2NzEgMTEuODM1MSA2Ljk2MDYyIDExLjg5OTYgNi44Mzk4NCAxMS45NDY5QzYuNzE5MDYgMTEuODk5NiA2LjU2Mjk3IDExLjgzNTEgNi4zODE3MyAxMS43NTI3QzUuOTI1OTUgMTEuNTQ1NCA1LjMyMzczIDExLjIzMDYgNC43MjcxNSAxMC43OTk4QzMuNTE2MDMgOS45MjUwNyAyLjQ2NDg0IDguNjc5NTUgMi40NjQ4NCA2Ljk4MDE4VjMuNTg5MDlDMy43MTczOCAzLjQ2MjM5IDQuODIzMDggMy4wODYzOSA1LjY1MDMzIDIuNzIwNzFDNi4xNDIyOCAyLjUwMzI0IDYuNTQ0ODUgMi4yODUzNyA2LjgzMjU0IDIuMTE2MjRDNy4xMjE4MSAyLjI4NTM1IDcuNTI3IDIuNTAzNTIgOC4wMjE5NiAyLjcyMTMxQzguMDI2MiAyLjcyMzE3IDguMDMwNDUgMi43MjUwNCA4LjAzNDcxIDIuNzI2OTFaTTUuOTY0ODQgMy40MDE0N1Y3Ljc3NjQ3SDcuNzE0ODRWMy40MDE0N0g1Ljk2NDg0Wk01Ljk2NDg0IDEwLjQwMTVWOC42NTE0N0g3LjcxNDg0VjEwLjQwMTVINS45NjQ4NFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning_fold {
@@ -50557,18 +50837,32 @@ var ace$2 = { exports: {} };
 }
 
 .ace_placeholder {
+    position: relative;
     font-family: arial;
     transform: scale(0.9);
     transform-origin: left;
     white-space: pre;
     opacity: 0.7;
     margin: 0 10px;
+    z-index: 1;
 }
 
 .ace_ghost_text {
     opacity: 0.5;
     font-style: italic;
+}
+
+.ace_ghost_text_container > div {
     white-space: pre;
+}
+
+.ghost_text_line_wrapped::after {
+    content: "\u21A9";
+    position: absolute;
+}
+
+.ace_lineWidgetContainer.ace_ghost_text {
+    margin: 0px 4px
 }
 
 .ace_screenreader-only {
@@ -50578,6 +50872,10 @@ var ace$2 = { exports: {} };
     width:1px;
     height:1px;
     overflow:hidden;
+}
+
+.ace_hidden_token {
+    display: none;
 }`;
   });
   ace.define("ace/layer/decorators", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
@@ -50696,7 +50994,7 @@ var ace$2 = { exports: {} };
     oop.implement(Decorator.prototype, EventEmitter);
     exports2.Decorator = Decorator;
   });
-  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
+  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent", "ace/layer/text_util"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
     var lang = require2("./lib/lang");
@@ -50715,6 +51013,7 @@ var ace$2 = { exports: {} };
     var editorCss = require2("./css/editor-css");
     var Decorator = require2("./layer/decorators").Decorator;
     var useragent = require2("./lib/useragent");
+    var isTextToken = require2("./layer/text_util").isTextToken;
     dom.importCssString(editorCss, "ace_editor.css", false);
     var VirtualRenderer = function() {
       function VirtualRenderer2(container, theme) {
@@ -50905,6 +51204,12 @@ var ace$2 = { exports: {} };
         var el2 = this.container;
         if (!height)
           height = el2.clientHeight || el2.scrollHeight;
+        if (!height && this.$maxLines && this.lineHeight > 1) {
+          if (!el2.style.height || el2.style.height == "0px") {
+            el2.style.height = "1px";
+            height = el2.clientHeight || el2.scrollHeight;
+          }
+        }
         if (!width)
           width = el2.clientWidth || el2.scrollWidth;
         var changes = this.$updateCachedSize(force, gutterWidth, width, height);
@@ -51718,8 +52023,8 @@ var ace$2 = { exports: {} };
         var cursor = this.session.selection.cursor;
         var insertPosition = position || { row: cursor.row, column: cursor.column };
         this.removeGhostText();
-        var textLines = text.split("\n");
-        this.addToken(textLines[0], "ghost_text", insertPosition.row, insertPosition.column);
+        var textChunks = this.$calculateWrappedTextChunks(text, insertPosition);
+        this.addToken(textChunks[0].text, "ghost_text", insertPosition.row, insertPosition.column);
         this.$ghostText = {
           text,
           position: {
@@ -51727,27 +52032,73 @@ var ace$2 = { exports: {} };
             column: insertPosition.column
           }
         };
-        if (textLines.length > 1) {
+        var widgetDiv = dom.createElement("div");
+        if (textChunks.length > 1) {
+          var hiddenTokens = this.hideTokensAfterPosition(insertPosition.row, insertPosition.column);
+          var lastLineDiv;
+          textChunks.slice(1).forEach(function(el3) {
+            var chunkDiv = dom.createElement("div");
+            var chunkSpan = dom.createElement("span");
+            chunkSpan.className = "ace_ghost_text";
+            if (el3.wrapped)
+              chunkDiv.className = "ghost_text_line_wrapped";
+            if (el3.text.length === 0)
+              el3.text = " ";
+            chunkSpan.appendChild(dom.createTextNode(el3.text));
+            chunkDiv.appendChild(chunkSpan);
+            widgetDiv.appendChild(chunkDiv);
+            lastLineDiv = chunkDiv;
+          });
+          hiddenTokens.forEach(function(token) {
+            var element = dom.createElement("span");
+            if (!isTextToken(token.type))
+              element.className = "ace_" + token.type.replace(/\./g, " ace_");
+            element.appendChild(dom.createTextNode(token.value));
+            lastLineDiv.appendChild(element);
+          });
           this.$ghostTextWidget = {
-            text: textLines.slice(1).join("\n"),
+            el: widgetDiv,
             row: insertPosition.row,
             column: insertPosition.column,
-            className: "ace_ghost_text"
+            className: "ace_ghost_text_container"
           };
           this.session.widgetManager.addLineWidget(this.$ghostTextWidget);
           var pixelPosition = this.$cursorLayer.getPixelPosition(insertPosition, true);
           var el2 = this.container;
           var height = el2.getBoundingClientRect().height;
-          var ghostTextHeight = textLines.length * this.lineHeight;
+          var ghostTextHeight = textChunks.length * this.lineHeight;
           var fitsY = ghostTextHeight < height - pixelPosition.top;
           if (fitsY)
             return;
           if (ghostTextHeight < height) {
-            this.scrollBy(0, (textLines.length - 1) * this.lineHeight);
+            this.scrollBy(0, (textChunks.length - 1) * this.lineHeight);
           } else {
-            this.scrollBy(0, pixelPosition.top);
+            this.scrollToRow(insertPosition.row);
           }
         }
+      };
+      VirtualRenderer2.prototype.$calculateWrappedTextChunks = function(text, position) {
+        var availableWidth = this.$size.scrollerWidth - this.$padding * 2;
+        var limit = Math.floor(availableWidth / this.characterWidth) - 2;
+        limit = limit <= 0 ? 60 : limit;
+        var textLines = text.split(/\r?\n/);
+        var textChunks = [];
+        for (var i10 = 0; i10 < textLines.length; i10++) {
+          var displayTokens = this.session.$getDisplayTokens(textLines[i10], position.column);
+          var wrapSplits = this.session.$computeWrapSplits(displayTokens, limit, this.session.$tabSize);
+          if (wrapSplits.length > 0) {
+            var start = 0;
+            wrapSplits.push(textLines[i10].length);
+            for (var j10 = 0; j10 < wrapSplits.length; j10++) {
+              var textSlice = textLines[i10].slice(start, wrapSplits[j10]);
+              textChunks.push({ text: textSlice, wrapped: true });
+              start = wrapSplits[j10];
+            }
+          } else {
+            textChunks.push({ text: textLines[i10], wrapped: false });
+          }
+        }
+        return textChunks;
       };
       VirtualRenderer2.prototype.removeGhostText = function() {
         if (!this.$ghostText)
@@ -51782,6 +52133,28 @@ var ace$2 = { exports: {} };
           }
         }
         this.updateLines(row, row);
+      };
+      VirtualRenderer2.prototype.hideTokensAfterPosition = function(row, column) {
+        var tokens = this.session.getTokens(row);
+        var l10 = 0;
+        var hasPassedCursor = false;
+        var hiddenTokens = [];
+        for (var i10 = 0; i10 < tokens.length; i10++) {
+          var token = tokens[i10];
+          l10 += token.value.length;
+          if (token.type === "ghost_text")
+            continue;
+          if (hasPassedCursor) {
+            hiddenTokens.push({ type: token.type, value: token.value });
+            token.type = "hidden_token";
+            continue;
+          }
+          if (l10 === column) {
+            hasPassedCursor = true;
+          }
+        }
+        this.updateLines(row, row);
+        return hiddenTokens;
       };
       VirtualRenderer2.prototype.removeExtraToken = function(row, column) {
         this.session.bgTokenizer.lines[row] = null;
@@ -51820,6 +52193,10 @@ var ace$2 = { exports: {} };
           }
           _self._dispatchEvent("themeLoaded", { theme: module3 });
           cb2 && cb2();
+          if (useragent.isSafari && _self.scroller) {
+            _self.scroller.style.background = "red";
+            _self.scroller.style.background = "";
+          }
         }
       };
       VirtualRenderer2.prototype.getTheme = function() {
@@ -53567,7 +53944,7 @@ var ace$2 = { exports: {} };
         return;
       } else {
         gutterAnno = {
-          text: [nls("Looks good!")],
+          displayText: [nls("error-marker.good-state", "Looks good!")],
           className: "ace_ok"
         };
       }
@@ -53587,7 +53964,12 @@ var ace$2 = { exports: {} };
       arrow.style.left = left + editor.renderer.gutterWidth - 5 + "px";
       w10.el.className = "error_widget_wrapper";
       el2.className = "error_widget " + gutterAnno.className;
-      el2.innerHTML = gutterAnno.text.join("<br>");
+      gutterAnno.displayText.forEach(function(annoTextLine, i10) {
+        el2.appendChild(dom.createTextNode(annoTextLine));
+        if (i10 < gutterAnno.displayText.length - 1) {
+          el2.appendChild(dom.createElement("br"));
+        }
+      });
       el2.appendChild(dom.createElement("div"));
       var kb2 = function(_10, hashId, keyString) {
         if (hashId === 0 && (keyString === "esc" || keyString === "return")) {

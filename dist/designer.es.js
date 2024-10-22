@@ -17,7 +17,7 @@ var __spreadValues2 = (a10, b10) => {
   return a10;
 };
 var __spreadProps2 = (a10, b10) => __defProps2(a10, __getOwnPropDescs2(b10));
-import require$$0$1, { reactive, openBlock, createElementBlock, normalizeClass, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, createBlock, withCtx, createVNode, createTextVNode, Fragment, renderList, renderSlot, normalizeStyle, withModifiers, pushScopeId, popScopeId, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, resolveDirective, isVNode, h as h$1, markRaw, capitalize } from "vue";
+import require$$0$1, { reactive, openBlock, createElementBlock, normalizeClass, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, createBlock, withCtx, createVNode, createTextVNode, Fragment, renderList, renderSlot, normalizeStyle, withModifiers, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, resolveDirective, isVNode, h as h$1, markRaw, capitalize } from "vue";
 const containers = [
   {
     type: "grid",
@@ -3759,15 +3759,15 @@ const _sfc_main$3s = {
     }
   }
 };
-const _hoisted_1$15 = ["xlink:href"];
-const _hoisted_2$s = { key: 0 };
+const _hoisted_1$I = ["xlink:href"];
+const _hoisted_2$r = { key: 0 };
 function _sfc_render$3s(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
   }, [
-    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$15),
-    !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$s, toDisplayString($props.title), 1)) : createCommentVNode("", true)
+    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$I),
+    !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$r, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
 var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$3s, [["render", _sfc_render$3s], ["__scopeId", "data-v-8002b89a"]]);
@@ -3900,14 +3900,14 @@ const _sfc_main$3r = {
     }
   }
 };
-const _hoisted_1$14 = ["title", "onDblclick"];
-const _hoisted_2$r = ["title", "onDblclick"];
+const _hoisted_1$H = ["title", "onDblclick"];
+const _hoisted_2$q = ["title", "onDblclick"];
 const _hoisted_3$m = ["title", "onDblclick"];
 const _hoisted_4$f = ["title", "onDblclick"];
-const _hoisted_5$d = ["src"];
+const _hoisted_5$c = ["src"];
 const _hoisted_6$b = ["src"];
 const _hoisted_7$a = { class: "bottom clear-fix" };
-const _hoisted_8$8 = { class: "ft-title" };
+const _hoisted_8$7 = { class: "ft-title" };
 function _sfc_render$3r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_draggable = resolveComponent("draggable");
@@ -3966,7 +3966,7 @@ function _sfc_render$3r(_ctx, _cache, $props, $setup, $data, $options) {
                           }, null, 8, ["icon-class"]),
                           createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${ctn.type}`, `extension.widgetLabel.${ctn.type}`)), 1)
                         ])
-                      ], 40, _hoisted_1$14)
+                      ], 40, _hoisted_1$H)
                     ]),
                     _: 1
                   }, 8, ["list", "clone", "move", "onEnd"])
@@ -4001,7 +4001,7 @@ function _sfc_render$3r(_ctx, _cache, $props, $setup, $data, $options) {
                           }, null, 8, ["icon-class"]),
                           createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
                         ])
-                      ], 40, _hoisted_2$r)
+                      ], 40, _hoisted_2$q)
                     ]),
                     _: 1
                   }, 8, ["list", "move", "clone"])
@@ -4111,7 +4111,7 @@ function _sfc_render$3r(_ctx, _cache, $props, $setup, $data, $options) {
                     createElementVNode("img", {
                       src: ft2.imgUrl,
                       style: { "width": "200px" }
-                    }, null, 8, _hoisted_5$d)
+                    }, null, 8, _hoisted_5$c)
                   ]),
                   default: withCtx(() => [
                     createElementVNode("img", {
@@ -4122,7 +4122,7 @@ function _sfc_render$3r(_ctx, _cache, $props, $setup, $data, $options) {
                   _: 2
                 }, 1024),
                 createElementVNode("div", _hoisted_7$a, [
-                  createElementVNode("span", _hoisted_8$8, "#" + toDisplayString(idx + 1) + " " + toDisplayString(ft2.title), 1),
+                  createElementVNode("span", _hoisted_8$7, "#" + toDisplayString(idx + 1) + " " + toDisplayString(ft2.title), 1),
                   createVNode(_component_el_button, {
                     link: "",
                     type: "primary",
@@ -4357,20 +4357,20 @@ const _sfc_main$3p = {
     }
   }
 };
-const _hoisted_1$13 = {
+const _hoisted_1$G = {
   key: 0,
   class: "field-action"
 };
-const _hoisted_2$q = ["title"];
+const _hoisted_2$p = ["title"];
 const _hoisted_3$l = ["title"];
 const _hoisted_4$e = ["title"];
-const _hoisted_5$c = ["title"];
+const _hoisted_5$b = ["title"];
 const _hoisted_6$a = {
   key: 1,
   class: "drag-handler background-opacity"
 };
 const _hoisted_7$9 = ["title"];
-const _hoisted_8$7 = { key: 0 };
+const _hoisted_8$6 = { key: 0 };
 function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
@@ -4386,13 +4386,13 @@ function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
       renderSlot(_ctx.$slots, "default", {}, void 0, true)
     ], 6)) : createCommentVNode("", true),
     !!this.designer ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$13, [
+      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$G, [
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.selectParentWidget"),
           onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $options.selectParentWidget($props.field), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-back" })
-        ], 8, _hoisted_2$q),
+        ], 8, _hoisted_2$p),
         !!$props.parentList && $props.parentList.length > 1 ? (openBlock(), createElementBlock("i", {
           key: 0,
           title: _ctx.$t("designer.hint.moveUpWidget"),
@@ -4412,7 +4412,7 @@ function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[4] || (_cache[4] = withModifiers((...args) => $options.removeFieldWidget && $options.removeFieldWidget(...args), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-        ], 8, _hoisted_5$c)
+        ], 8, _hoisted_5$b)
       ])) : createCommentVNode("", true),
       $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_6$a, [
         createElementVNode("i", {
@@ -4421,7 +4421,7 @@ function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
           createVNode(_component_svg_icon, { "icon-class": "el-drag-move" })
         ], 8, _hoisted_7$9),
         createElementVNode("i", null, toDisplayString(_ctx.$t(`designer.widgetLabel.${$props.field.type}`, `extension.widgetLabel.${$props.field.type}`)), 1),
-        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_8$7, [
+        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_8$6, [
           createVNode(_component_svg_icon, { "icon-class": "el-hide" })
         ])) : createCommentVNode("", true)
       ])) : createCommentVNode("", true)
@@ -5252,24 +5252,24 @@ const _sfc_main$3n = {
     }
   }
 };
-const _hoisted_1$12 = {
+const _hoisted_1$F = {
   key: 0,
   class: "custom-label"
 };
-const _hoisted_2$p = {
+const _hoisted_2$o = {
   key: 0,
   class: "field-action"
 };
 const _hoisted_3$k = ["title"];
 const _hoisted_4$d = ["title"];
-const _hoisted_5$b = ["title"];
+const _hoisted_5$a = ["title"];
 const _hoisted_6$9 = ["title"];
 const _hoisted_7$8 = {
   key: 1,
   class: "drag-handler background-opacity"
 };
-const _hoisted_8$6 = ["title"];
-const _hoisted_9$5 = { key: 0 };
+const _hoisted_8$5 = ["title"];
+const _hoisted_9$2 = { key: 0 };
 function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -5289,7 +5289,7 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $options.selectField($props.field), ["stop"]))
     }, {
       label: withCtx(() => [
-        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$12, [
+        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$F, [
           $props.field.options.labelIconPosition === "front" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
             !!$props.field.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
               createVNode(_component_el_tooltip, {
@@ -5339,7 +5339,7 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
       _: 3
     }, 8, ["id", "label", "label-width", "title", "rules", "prop", "class"])) : createCommentVNode("", true),
     !!this.designer ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_2$p, [
+      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_2$o, [
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.selectParentWidget"),
           onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $options.selectParentWidget($props.field), ["stop"]))
@@ -5359,7 +5359,7 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $options.moveDownWidget($props.field), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-move-down" })
-        ], 8, _hoisted_5$b)) : createCommentVNode("", true),
+        ], 8, _hoisted_5$a)) : createCommentVNode("", true),
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.remove"),
           onClick: _cache[4] || (_cache[4] = withModifiers((...args) => $options.removeFieldWidget && $options.removeFieldWidget(...args), ["stop"]))
@@ -5372,9 +5372,9 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
           title: _ctx.$t("designer.hint.dragHandler")
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-drag-move" })
-        ], 8, _hoisted_8$6),
+        ], 8, _hoisted_8$5),
         createElementVNode("i", null, toDisplayString(_ctx.$t(`designer.widgetLabel.${$props.field.type}`, `extension.widgetLabel.${$props.field.type}`)), 1),
-        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_9$5, [
+        $props.field.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_9$2, [
           createVNode(_component_svg_icon, { "icon-class": "el-hide" })
         ])) : createCommentVNode("", true)
       ])) : createCommentVNode("", true)
@@ -5447,7 +5447,7 @@ const _sfc_main$3m = {
   },
   methods: {}
 };
-const _hoisted_1$11 = { class: "full-width-input" };
+const _hoisted_1$E = { class: "full-width-input" };
 function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -5464,7 +5464,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$11, [
+      createElementVNode("div", _hoisted_1$E, [
         createVNode(_component_el_cascader, {
           ref: "fieldEditor",
           options: $props.field.options.optionItems,
@@ -6267,15 +6267,13 @@ const _sfc_main$3g = {
     }
   }
 };
-const _withScopeId$4 = (n10) => (pushScopeId("data-v-fc065ade"), n10 = n10(), popScopeId(), n10);
-const _hoisted_1$10 = {
+const _hoisted_1$D = {
   key: 0,
   class: "el-upload__tip"
 };
-const _hoisted_2$o = /* @__PURE__ */ _withScopeId$4(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1));
-const _hoisted_3$j = { class: "upload-file-list" };
+const _hoisted_2$n = { class: "upload-file-list" };
+const _hoisted_3$j = ["title", "onClick"];
 const _hoisted_4$c = ["title", "onClick"];
-const _hoisted_5$a = ["title", "onClick"];
 function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -6313,19 +6311,19 @@ function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
-          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$10, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
+          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$D, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
-          _hoisted_2$o
+          _cache[0] || (_cache[0] = createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1))
         ]),
         file: withCtx(({ file }) => [
-          createElementVNode("div", _hoisted_3$j, [
+          createElementVNode("div", _hoisted_2$n, [
             createElementVNode("span", {
               class: "upload-file-name",
               title: file.name,
               onClick: ($event) => $options.handlePreview(file)
-            }, toDisplayString(file.name), 9, _hoisted_4$c),
+            }, toDisplayString(file.name), 9, _hoisted_3$j),
             !$props.field.options.disabled ? (openBlock(), createElementBlock("span", {
               key: 0,
               class: "file-action",
@@ -6333,7 +6331,7 @@ function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: ($event) => $options.removeUploadFile(file.name, file.url, file.uid)
             }, [
               createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-            ], 8, _hoisted_5$a)) : createCommentVNode("", true)
+            ], 8, _hoisted_4$c)) : createCommentVNode("", true)
           ])
         ]),
         _: 1
@@ -6394,7 +6392,7 @@ const _sfc_main$3f = {
   },
   methods: {}
 };
-const _hoisted_1$$ = ["innerHTML"];
+const _hoisted_1$C = ["innerHTML"];
 function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -6412,7 +6410,7 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         ref: "fieldEditor",
         innerHTML: $props.field.options.htmlContent
-      }, null, 8, _hoisted_1$$)
+      }, null, 8, _hoisted_1$C)
     ]),
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
@@ -6489,7 +6487,7 @@ const _sfc_main$3e = {
     }
   }
 };
-const _hoisted_1$_ = { key: 1 };
+const _hoisted_1$B = { key: 1 };
 function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
@@ -6550,7 +6548,7 @@ function _sfc_render$3e(_ctx, _cache, $props, $setup, $data, $options) {
                   key: 0,
                   "icon-class": $props.field.options.buttonIcon
                 }, null, 8, ["icon-class"])) : createCommentVNode("", true),
-                $props.field.options.appendButtonText ? (openBlock(), createElementBlock("span", _hoisted_1$_, toDisplayString(_ctx.$t($props.field.options.appendButtonText)), 1)) : createCommentVNode("", true)
+                $props.field.options.appendButtonText ? (openBlock(), createElementBlock("span", _hoisted_1$B, toDisplayString(_ctx.$t($props.field.options.appendButtonText)), 1)) : createCommentVNode("", true)
               ]),
               _: 1
             }, 8, ["disabled", "onClick"])
@@ -6881,8 +6879,8 @@ const _sfc_main$3c = {
     }
   }
 };
-const _hoisted_1$Z = { class: "el-upload-list__item-status-label" };
-const _hoisted_2$n = {
+const _hoisted_1$A = { class: "el-upload-list__item-status-label" };
+const _hoisted_2$m = {
   class: "el-icon--upload-success",
   style: { "color": "#FFF" }
 };
@@ -6942,8 +6940,8 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
             fit: "cover",
             "preview-teleported": ""
           }, null, 8, ["src", "preview-src-list", "initial-index"]),
-          createElementVNode("label", _hoisted_1$Z, [
-            createElementVNode("i", _hoisted_2$n, [
+          createElementVNode("label", _hoisted_1$A, [
+            createElementVNode("i", _hoisted_2$m, [
               createVNode(_component_svg_icon, {
                 class: "",
                 "icon-class": "el-check"
@@ -30015,9 +30013,9 @@ const _sfc_main$39 = defineComponent({
     };
   }
 });
-const _hoisted_1$Y = { ref: "selector" };
+const _hoisted_1$z = { ref: "selector" };
 function _sfc_render$39(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$Y, null, 512);
+  return openBlock(), createElementBlock("div", _hoisted_1$z, null, 512);
 }
 var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$39, [["render", _sfc_render$39]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
@@ -30124,7 +30122,7 @@ const _sfc_main$38 = {
     }
   }
 };
-const _hoisted_1$X = { style: { "border": "1px solid #ccc" } };
+const _hoisted_1$y = { style: { "border": "1px solid #ccc" } };
 function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
@@ -30142,7 +30140,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$X, [
+      createElementVNode("div", _hoisted_1$y, [
         createVNode(_component_Toolbar, {
           style: { "border-bottom": "1px solid #ccc" },
           editor: $data.editorRef,
@@ -30368,33 +30366,18 @@ const _sfc_main$36 = {
   },
   mounted() {
     this.handleOnMounted();
-    this.$nextTick(() => {
-      this.handleInput();
-    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
   methods: {
-    handleInput() {
+    handleInput(value2) {
       const fieldEditor = this.$refs.fieldEditor;
-      if (!fieldEditor)
-        return;
-      const input = fieldEditor.input;
-      if (!input)
-        return;
-      input.onkeyup = (event) => {
-        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
-          const value2 = event.target.value;
-          if (!value2)
-            return;
-          fieldEditor.handleOptionSelect({
-            label: value2,
-            value: value2,
-            created: true
-          });
-        }
-      };
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
     }
   }
 };
@@ -30435,7 +30418,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput
       }, {
         default: withCtx(() => [
           (openBlock(true), createElementBlock(Fragment, null, renderList($props.field.options.optionItems, (item) => {
@@ -30453,7 +30436,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-2410e87e"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-6329be75"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -30599,7 +30582,7 @@ const _sfc_main$34 = {
   },
   methods: {}
 };
-const _hoisted_1$W = {
+const _hoisted_1$x = {
   key: 0,
   class: "slot-title"
 };
@@ -30621,7 +30604,7 @@ function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
         class: normalizeClass([!!$props.designState ? "slot-wrapper-design" : "slot-wrapper-render"])
       }, [
         renderSlot(_ctx.$slots, $props.field.options.name, { formModel: _ctx.formModel }, void 0, true),
-        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1$W, toDisplayString($props.field.options.label), 1)) : createCommentVNode("", true)
+        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1$x, toDisplayString($props.field.options.label), 1)) : createCommentVNode("", true)
       ], 2)
     ]),
     _: 3
@@ -31181,8 +31164,8 @@ const _sfc_main$2_ = {
     }
   }
 };
-const _hoisted_1$V = { class: "blank-cell" };
-const _hoisted_2$m = { class: "invisible-content" };
+const _hoisted_1$w = { class: "blank-cell" };
+const _hoisted_2$l = { class: "invisible-content" };
 function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
   return withDirectives((openBlock(), createBlock(_component_el_col, mergeProps({
@@ -31205,7 +31188,7 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -31221,7 +31204,7 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -31229,8 +31212,8 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
         ], 64);
       }), 256)) : (openBlock(), createBlock(_component_el_col, { key: 1 }, {
         default: withCtx(() => [
-          createElementVNode("div", _hoisted_1$V, [
-            createElementVNode("span", _hoisted_2$m, toDisplayString(_ctx.$t("render.hint.blankCellContent")), 1)
+          createElementVNode("div", _hoisted_1$w, [
+            createElementVNode("span", _hoisted_2$l, toDisplayString(_ctx.$t("render.hint.blankCellContent")), 1)
           ])
         ]),
         _: 1
@@ -31450,7 +31433,7 @@ function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
                 return {
                   name: slot,
                   fn: withCtx((scope) => [
-                    renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                    renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                   ])
                 };
               })
@@ -31681,8 +31664,8 @@ const _sfc_main$2Y = {
     }
   }
 };
-const _hoisted_1$U = { class: "action-header-column" };
-const _hoisted_2$l = { class: "action-label" };
+const _hoisted_1$v = { class: "action-header-column" };
+const _hoisted_2$k = { class: "action-label" };
 const _hoisted_3$h = {
   key: 0,
   class: "custom-label"
@@ -31708,8 +31691,8 @@ function _sfc_render$2Y(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createVNode(_component_el_row, { class: "header-row" }, {
           default: withCtx(() => [
-            createElementVNode("div", _hoisted_1$U, [
-              createElementVNode("span", _hoisted_2$l, toDisplayString(_ctx.$t("render.hint.subFormAction")), 1),
+            createElementVNode("div", _hoisted_1$v, [
+              createElementVNode("span", _hoisted_2$k, toDisplayString(_ctx.$t("render.hint.subFormAction")), 1),
               createVNode(_component_el_button, {
                 disabled: $options.addDisabled,
                 round: "",
@@ -31935,7 +31918,7 @@ function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
                           return {
                             name: slot,
                             fn: withCtx((scope) => [
-                              renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                              renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                             ])
                           };
                         })
@@ -31950,7 +31933,7 @@ function _sfc_render$2X(_ctx, _cache, $props, $setup, $data, $options) {
                           return {
                             name: slot,
                             fn: withCtx((scope) => [
-                              renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                              renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                             ])
                           };
                         })
@@ -31997,7 +31980,7 @@ const _sfc_main$2W = {
   },
   methods: {}
 };
-const _hoisted_1$T = ["colspan", "rowspan"];
+const _hoisted_1$u = ["colspan", "rowspan"];
 function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
@@ -32018,7 +32001,7 @@ function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
             return {
               name: slot,
               fn: withCtx((scope) => [
-                renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
               ])
             };
           })
@@ -32033,14 +32016,14 @@ function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
             return {
               name: slot,
               fn: withCtx((scope) => [
-                renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
               ])
             };
           })
         ]), 1032, ["field", "parent-list", "index-of-parent-list", "parent-widget"]))
       ], 64);
     }), 256))
-  ], 14, _hoisted_1$T);
+  ], 14, _hoisted_1$u);
 }
 var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2W, [["render", _sfc_render$2W], ["__scopeId", "data-v-3e48ee34"]]);
 var __glob_0_5$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -32102,7 +32085,7 @@ function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
                         return {
                           name: slot,
                           fn: withCtx((scope) => [
-                            renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                            renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                           ])
                         };
                       })
@@ -32697,7 +32680,7 @@ function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -32714,7 +32697,7 @@ function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -33591,11 +33574,63 @@ var ace$2 = { exports: {} };
       });
     };
   });
-  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error"], function(require2, exports2, module2) {
+  ace.define("ace/lib/default_english_messages", ["require", "exports", "module"], function(require2, exports2, module2) {
+    var defaultEnglishMessages = {
+      "autocomplete.popup.aria-roledescription": "Autocomplete suggestions",
+      "autocomplete.popup.aria-label": "Autocomplete suggestions",
+      "autocomplete.popup.item.aria-roledescription": "item",
+      "autocomplete.loading": "Loading...",
+      "editor.scroller.aria-roledescription": "editor",
+      "editor.scroller.aria-label": "Editor content, press Enter to start editing, press Escape to exit",
+      "editor.gutter.aria-roledescription": "editor",
+      "editor.gutter.aria-label": "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit",
+      "error-marker.good-state": "Looks good!",
+      "prompt.recently-used": "Recently used",
+      "prompt.other-commands": "Other commands",
+      "prompt.no-matching-commands": "No matching commands",
+      "search-box.find.placeholder": "Search for",
+      "search-box.find-all.text": "All",
+      "search-box.replace.placeholder": "Replace with",
+      "search-box.replace-next.text": "Replace",
+      "search-box.replace-all.text": "All",
+      "search-box.toggle-replace.title": "Toggle Replace mode",
+      "search-box.toggle-regexp.title": "RegExp Search",
+      "search-box.toggle-case.title": "CaseSensitive Search",
+      "search-box.toggle-whole-word.title": "Whole Word Search",
+      "search-box.toggle-in-selection.title": "Search In Selection",
+      "search-box.search-counter": "$0 of $1",
+      "text-input.aria-roledescription": "editor",
+      "text-input.aria-label": "Cursor at row $0",
+      "gutter.code-folding.range.aria-label": "Toggle code folding, rows $0 through $1",
+      "gutter.code-folding.closed.aria-label": "Toggle code folding, rows $0 through $1",
+      "gutter.code-folding.open.aria-label": "Toggle code folding, row $0",
+      "gutter.code-folding.closed.title": "Unfold code",
+      "gutter.code-folding.open.title": "Fold code",
+      "gutter.annotation.aria-label.error": "Error, read annotations row $0",
+      "gutter.annotation.aria-label.warning": "Warning, read annotations row $0",
+      "gutter.annotation.aria-label.info": "Info, read annotations row $0",
+      "inline-fold.closed.title": "Unfold code",
+      "gutter-tooltip.aria-label.error.singular": "error",
+      "gutter-tooltip.aria-label.error.plural": "errors",
+      "gutter-tooltip.aria-label.warning.singular": "warning",
+      "gutter-tooltip.aria-label.warning.plural": "warnings",
+      "gutter-tooltip.aria-label.info.singular": "information message",
+      "gutter-tooltip.aria-label.info.plural": "information messages",
+      "gutter.annotation.aria-label.security": "Security finding, read annotations row $0",
+      "gutter.annotation.aria-label.hint": "Suggestion, read annotations row $0",
+      "gutter-tooltip.aria-label.security.singular": "security finding",
+      "gutter-tooltip.aria-label.security.plural": "security findings",
+      "gutter-tooltip.aria-label.hint.singular": "suggestion",
+      "gutter-tooltip.aria-label.hint.plural": "suggestions"
+    };
+    exports2.defaultEnglishMessages = defaultEnglishMessages;
+  });
+  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error", "ace/lib/default_english_messages"], function(require2, exports2, module2) {
     "no use strict";
     var oop = require2("./oop");
     var EventEmitter = require2("./event_emitter").EventEmitter;
     var reportError = require2("./report_error").reportError;
+    var defaultEnglishMessages = require2("./default_english_messages").defaultEnglishMessages;
     var optionsProvider = {
       setOptions: function(optList) {
         Object.keys(optList).forEach(function(key) {
@@ -33647,9 +33682,12 @@ var ace$2 = { exports: {} };
         console.warn.apply(console, arguments);
     }
     var messages;
+    var nlsPlaceholders;
     var AppConfig = function() {
       function AppConfig2() {
         this.$defaultOptions = {};
+        messages = defaultEnglishMessages;
+        nlsPlaceholders = "dollarSigns";
       }
       AppConfig2.prototype.defineOptions = function(obj, path, options) {
         if (!obj.$options)
@@ -33694,20 +33732,33 @@ var ace$2 = { exports: {} };
           this.setDefaultValue(path, key, optionHash[key]);
         }, this);
       };
-      AppConfig2.prototype.setMessages = function(value2) {
+      AppConfig2.prototype.setMessages = function(value2, options) {
         messages = value2;
-      };
-      AppConfig2.prototype.nls = function(string, params) {
-        if (messages && !messages[string]) {
-          warn("No message found for '" + string + "' in the provided messages, falling back to default English message.");
+        if (options && options.placeholders) {
+          nlsPlaceholders = options.placeholders;
         }
-        var translated = messages && messages[string] || string;
+      };
+      AppConfig2.prototype.nls = function(key, defaultString, params) {
+        if (!messages[key]) {
+          warn("No message found for the key '" + key + "' in the provided messages, trying to find a translation for the default string '" + defaultString + "'.");
+          if (!messages[defaultString]) {
+            warn("No message found for the default string '" + defaultString + "' in the provided messages. Falling back to the default English message.");
+          }
+        }
+        var translated = messages[key] || messages[defaultString] || defaultString;
         if (params) {
-          translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, name) {
-            if (name == "$")
-              return "$";
-            return params[name];
-          });
+          if (nlsPlaceholders === "dollarSigns") {
+            translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, dollarMatch) {
+              if (dollarMatch == "$")
+                return "$";
+              return params[dollarMatch];
+            });
+          }
+          if (nlsPlaceholders === "curlyBrackets") {
+            translated = translated.replace(/\{([^\}]+)\}/g, function(_10, curlyBracketMatch) {
+              return params[curlyBracketMatch];
+            });
+          }
         }
         return translated;
       };
@@ -33870,7 +33921,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.32.3";
+    exports2.version = "1.36.3";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -34143,189 +34194,158 @@ var ace$2 = { exports: {} };
     exports2.Range = Range;
   });
   ace.define("ace/lib/keys", ["require", "exports", "module", "ace/lib/oop"], function(require2, exports2, module2) {
-    /*! @license
-    ==========================================================================
-    SproutCore -- JavaScript Application Framework
-    copyright 2006-2009, Sprout Systems Inc., Apple Inc. and contributors.
-    
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the "Software"),
-    to deal in the Software without restriction, including without limitation
-    the rights to use, copy, modify, merge, publish, distribute, sublicense,
-    and/or sell copies of the Software, and to permit persons to whom the
-    Software is furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-    DEALINGS IN THE SOFTWARE.
-    
-    SproutCore and the SproutCore logo are trademarks of Sprout Systems, Inc.
-    
-    For more information about SproutCore, visit http://www.sproutcore.com
-    
-    
-    ==========================================================================
-    @license */
     var oop = require2("./oop");
-    var Keys = function() {
-      var ret = {
-        MODIFIER_KEYS: {
-          16: "Shift",
-          17: "Ctrl",
-          18: "Alt",
-          224: "Meta",
-          91: "MetaLeft",
-          92: "MetaRight",
-          93: "ContextMenu"
-        },
-        KEY_MODS: {
-          "ctrl": 1,
-          "alt": 2,
-          "option": 2,
-          "shift": 4,
-          "super": 8,
-          "meta": 8,
-          "command": 8,
-          "cmd": 8,
-          "control": 1
-        },
-        FUNCTION_KEYS: {
-          8: "Backspace",
-          9: "Tab",
-          13: "Return",
-          19: "Pause",
-          27: "Esc",
-          32: "Space",
-          33: "PageUp",
-          34: "PageDown",
-          35: "End",
-          36: "Home",
-          37: "Left",
-          38: "Up",
-          39: "Right",
-          40: "Down",
-          44: "Print",
-          45: "Insert",
-          46: "Delete",
-          96: "Numpad0",
-          97: "Numpad1",
-          98: "Numpad2",
-          99: "Numpad3",
-          100: "Numpad4",
-          101: "Numpad5",
-          102: "Numpad6",
-          103: "Numpad7",
-          104: "Numpad8",
-          105: "Numpad9",
-          "-13": "NumpadEnter",
-          112: "F1",
-          113: "F2",
-          114: "F3",
-          115: "F4",
-          116: "F5",
-          117: "F6",
-          118: "F7",
-          119: "F8",
-          120: "F9",
-          121: "F10",
-          122: "F11",
-          123: "F12",
-          144: "Numlock",
-          145: "Scrolllock"
-        },
-        PRINTABLE_KEYS: {
-          32: " ",
-          48: "0",
-          49: "1",
-          50: "2",
-          51: "3",
-          52: "4",
-          53: "5",
-          54: "6",
-          55: "7",
-          56: "8",
-          57: "9",
-          59: ";",
-          61: "=",
-          65: "a",
-          66: "b",
-          67: "c",
-          68: "d",
-          69: "e",
-          70: "f",
-          71: "g",
-          72: "h",
-          73: "i",
-          74: "j",
-          75: "k",
-          76: "l",
-          77: "m",
-          78: "n",
-          79: "o",
-          80: "p",
-          81: "q",
-          82: "r",
-          83: "s",
-          84: "t",
-          85: "u",
-          86: "v",
-          87: "w",
-          88: "x",
-          89: "y",
-          90: "z",
-          107: "+",
-          109: "-",
-          110: ".",
-          186: ";",
-          187: "=",
-          188: ",",
-          189: "-",
-          190: ".",
-          191: "/",
-          192: "`",
-          219: "[",
-          220: "\\",
-          221: "]",
-          222: "'",
-          111: "/",
-          106: "*"
-        }
-      };
-      ret.PRINTABLE_KEYS[173] = "-";
-      var name, i10;
-      for (i10 in ret.FUNCTION_KEYS) {
-        name = ret.FUNCTION_KEYS[i10].toLowerCase();
-        ret[name] = parseInt(i10, 10);
+    var Keys = {
+      MODIFIER_KEYS: {
+        16: "Shift",
+        17: "Ctrl",
+        18: "Alt",
+        224: "Meta",
+        91: "MetaLeft",
+        92: "MetaRight",
+        93: "ContextMenu"
+      },
+      KEY_MODS: {
+        "ctrl": 1,
+        "alt": 2,
+        "option": 2,
+        "shift": 4,
+        "super": 8,
+        "meta": 8,
+        "command": 8,
+        "cmd": 8,
+        "control": 1
+      },
+      FUNCTION_KEYS: {
+        8: "Backspace",
+        9: "Tab",
+        13: "Return",
+        19: "Pause",
+        27: "Esc",
+        32: "Space",
+        33: "PageUp",
+        34: "PageDown",
+        35: "End",
+        36: "Home",
+        37: "Left",
+        38: "Up",
+        39: "Right",
+        40: "Down",
+        44: "Print",
+        45: "Insert",
+        46: "Delete",
+        "-13": "NumpadEnter",
+        144: "Numlock",
+        145: "Scrolllock"
+      },
+      PRINTABLE_KEYS: {
+        32: " ",
+        59: ";",
+        61: "=",
+        107: "+",
+        109: "-",
+        110: ".",
+        186: ";",
+        187: "=",
+        188: ",",
+        189: "-",
+        190: ".",
+        191: "/",
+        192: "`",
+        219: "[",
+        220: "\\",
+        221: "]",
+        222: "'",
+        111: "/",
+        106: "*"
       }
-      for (i10 in ret.PRINTABLE_KEYS) {
-        name = ret.PRINTABLE_KEYS[i10].toLowerCase();
-        ret[name] = parseInt(i10, 10);
+    };
+    var codeToKeyCode = {
+      Command: 224,
+      Backspace: 8,
+      Tab: 9,
+      Return: 13,
+      Enter: 13,
+      Pause: 19,
+      Escape: 27,
+      PageUp: 33,
+      PageDown: 34,
+      End: 35,
+      Home: 36,
+      Insert: 45,
+      Delete: 46,
+      ArrowLeft: 37,
+      ArrowUp: 38,
+      ArrowRight: 39,
+      ArrowDown: 40,
+      Backquote: 192,
+      Minus: 189,
+      Equal: 187,
+      BracketLeft: 219,
+      Backslash: 220,
+      BracketRight: 221,
+      Semicolon: 186,
+      Quote: 222,
+      Comma: 188,
+      Period: 190,
+      Slash: 191,
+      Space: 32,
+      NumpadAdd: 107,
+      NumpadDecimal: 110,
+      NumpadSubtract: 109,
+      NumpadDivide: 111,
+      NumpadMultiply: 106
+    };
+    for (var i10 = 0; i10 < 10; i10++) {
+      codeToKeyCode["Digit" + i10] = 48 + i10;
+      codeToKeyCode["Numpad" + i10] = 96 + i10;
+      Keys.PRINTABLE_KEYS[48 + i10] = "" + i10;
+      Keys.FUNCTION_KEYS[96 + i10] = "Numpad" + i10;
+    }
+    for (var i10 = 65; i10 < 91; i10++) {
+      var chr = String.fromCharCode(i10 + 32);
+      codeToKeyCode["Key" + chr.toUpperCase()] = i10;
+      Keys.PRINTABLE_KEYS[i10] = chr;
+    }
+    for (var i10 = 1; i10 < 13; i10++) {
+      codeToKeyCode["F" + i10] = 111 + i10;
+      Keys.FUNCTION_KEYS[111 + i10] = "F" + i10;
+    }
+    var modifiers = {
+      Shift: 16,
+      Control: 17,
+      Alt: 18,
+      Meta: 224
+    };
+    for (var mod in modifiers) {
+      codeToKeyCode[mod] = codeToKeyCode[mod + "Left"] = codeToKeyCode[mod + "Right"] = modifiers[mod];
+    }
+    exports2.$codeToKeyCode = codeToKeyCode;
+    Keys.PRINTABLE_KEYS[173] = "-";
+    for (var j10 in Keys.FUNCTION_KEYS) {
+      var name = Keys.FUNCTION_KEYS[j10].toLowerCase();
+      Keys[name] = parseInt(j10, 10);
+    }
+    for (var j10 in Keys.PRINTABLE_KEYS) {
+      var name = Keys.PRINTABLE_KEYS[j10].toLowerCase();
+      Keys[name] = parseInt(j10, 10);
+    }
+    oop.mixin(Keys, Keys.MODIFIER_KEYS);
+    oop.mixin(Keys, Keys.PRINTABLE_KEYS);
+    oop.mixin(Keys, Keys.FUNCTION_KEYS);
+    Keys.enter = Keys["return"];
+    Keys.escape = Keys.esc;
+    Keys.del = Keys["delete"];
+    (function() {
+      var mods = ["cmd", "ctrl", "alt", "shift"];
+      for (var i11 = Math.pow(2, mods.length); i11--; ) {
+        Keys.KEY_MODS[i11] = mods.filter(function(x10) {
+          return i11 & Keys.KEY_MODS[x10];
+        }).join("-") + "-";
       }
-      oop.mixin(ret, ret.MODIFIER_KEYS);
-      oop.mixin(ret, ret.PRINTABLE_KEYS);
-      oop.mixin(ret, ret.FUNCTION_KEYS);
-      ret.enter = ret["return"];
-      ret.escape = ret.esc;
-      ret.del = ret["delete"];
-      (function() {
-        var mods = ["cmd", "ctrl", "alt", "shift"];
-        for (var i11 = Math.pow(2, mods.length); i11--; ) {
-          ret.KEY_MODS[i11] = mods.filter(function(x10) {
-            return i11 & ret.KEY_MODS[x10];
-          }).join("-") + "-";
-        }
-      })();
-      ret.KEY_MODS[0] = "";
-      ret.KEY_MODS[-1] = "input-";
-      return ret;
-    }();
+    })();
+    Keys.KEY_MODS[0] = "";
+    Keys.KEY_MODS[-1] = "input-";
     oop.mixin(exports2, Keys);
     exports2.default = exports2;
     exports2.keyCodeToString = function(keyCode) {
@@ -34479,14 +34499,17 @@ var ace$2 = { exports: {} };
         addListener(el2, "mousedown", onMousedown, destroyer);
       });
     };
-    var getModifierHash = function(e13) {
+    function getModifierHash(e13) {
       return 0 | (e13.ctrlKey ? 1 : 0) | (e13.altKey ? 2 : 0) | (e13.shiftKey ? 4 : 0) | (e13.metaKey ? 8 : 0);
-    };
+    }
     exports2.getModifierString = function(e13) {
       return keys.KEY_MODS[getModifierHash(e13)];
     };
     function normalizeCommandKeys(callback2, e13, keyCode) {
       var hashId = getModifierHash(e13);
+      if (!keyCode && e13.code) {
+        keyCode = keys.$codeToKeyCode[e13.code] || keyCode;
+      }
       if (!useragent.isMac && pressedKeys) {
         if (e13.getModifierState && (e13.getModifierState("OS") || e13.getModifierState("Win")))
           hashId |= 8;
@@ -34497,7 +34520,7 @@ var ace$2 = { exports: {} };
             return;
         }
         if (keyCode === 18 || keyCode === 17) {
-          var location2 = "location" in e13 ? e13.location : e13.keyLocation;
+          var location2 = e13.location;
           if (keyCode === 17 && location2 === 1) {
             if (pressedKeys[keyCode] == 1)
               ts2 = e13.timeStamp;
@@ -34512,8 +34535,7 @@ var ace$2 = { exports: {} };
         keyCode = -1;
       }
       if (!hashId && keyCode === 13) {
-        var location2 = "location" in e13 ? e13.location : e13.keyLocation;
-        if (location2 === 3) {
+        if (e13.location === 3) {
           callback2(e13, hashId, -keyCode);
           if (e13.defaultPrevented)
             return;
@@ -34682,11 +34704,16 @@ var ace$2 = { exports: {} };
           text.setAttribute("role", options.role);
         }
         if (options.setLabel) {
-          text.setAttribute("aria-roledescription", nls("editor"));
+          text.setAttribute("aria-roledescription", nls("text-input.aria-roledescription", "editor"));
+          var arialLabel = "";
+          if (host.$textInputAriaLabel) {
+            arialLabel += "".concat(host.$textInputAriaLabel, ", ");
+          }
           if (host.session) {
             var row = host.session.selection.cursor.row;
-            text.setAttribute("aria-label", nls("Cursor at row $0", [row + 1]));
+            arialLabel += nls("text-input.aria-label", "Cursor at row $0", [row + 1]);
           }
+          text.setAttribute("aria-label", arialLabel);
         }
       };
       this.setAriaOptions({ role: "textbox" });
@@ -35035,7 +35062,11 @@ var ace$2 = { exports: {} };
           pasted = true;
         }
       };
-      event.addCommandKeyListener(text, host.onCommandKey.bind(host), host);
+      event.addCommandKeyListener(text, function(e13, hashId, keyCode) {
+        if (inComposition)
+          return;
+        return host.onCommandKey(e13, hashId, keyCode);
+      }, host);
       event.addListener(text, "select", onSelect, host);
       event.addListener(text, "input", onInput, host);
       event.addListener(text, "cut", onCut, host);
@@ -35870,7 +35901,7 @@ var ace$2 = { exports: {} };
     }(Tooltip);
     exports2.HoverTooltip = HoverTooltip;
   });
-  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config"], function(require2, exports2, module2) {
+  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config", "ace/lib/lang"], function(require2, exports2, module2) {
     var __extends = this && this.__extends || function() {
       var extendStatics = function(d10, b10) {
         extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d11, b11) {
@@ -35910,6 +35941,7 @@ var ace$2 = { exports: {} };
     var event = require2("../lib/event");
     var Tooltip = require2("../tooltip").Tooltip;
     var nls = require2("../config").nls;
+    require2("../lib/lang");
     function GutterHandler(mouseHandler) {
       var editor = mouseHandler.editor;
       var gutter = editor.renderer.$gutterLayer;
@@ -36031,59 +36063,99 @@ var ace$2 = { exports: {} };
       Object.defineProperty(GutterTooltip2, "annotationLabels", {
         get: function() {
           return {
-            error: { singular: nls("error"), plural: nls("errors") },
-            warning: { singular: nls("warning"), plural: nls("warnings") },
-            info: { singular: nls("information message"), plural: nls("information messages") }
+            error: {
+              singular: nls("gutter-tooltip.aria-label.error.singular", "error"),
+              plural: nls("gutter-tooltip.aria-label.error.plural", "errors")
+            },
+            security: {
+              singular: nls("gutter-tooltip.aria-label.security.singular", "security finding"),
+              plural: nls("gutter-tooltip.aria-label.security.plural", "security findings")
+            },
+            warning: {
+              singular: nls("gutter-tooltip.aria-label.warning.singular", "warning"),
+              plural: nls("gutter-tooltip.aria-label.warning.plural", "warnings")
+            },
+            info: {
+              singular: nls("gutter-tooltip.aria-label.info.singular", "information message"),
+              plural: nls("gutter-tooltip.aria-label.info.plural", "information messages")
+            },
+            hint: {
+              singular: nls("gutter-tooltip.aria-label.hint.singular", "suggestion"),
+              plural: nls("gutter-tooltip.aria-label.hint.plural", "suggestions")
+            }
           };
         },
         enumerable: false,
         configurable: true
       });
       GutterTooltip2.prototype.showTooltip = function(row) {
+        var _a2;
         var gutter = this.editor.renderer.$gutterLayer;
         var annotationsInRow = gutter.$annotations[row];
         var annotation;
         if (annotationsInRow)
-          annotation = { text: Array.from(annotationsInRow.text), type: Array.from(annotationsInRow.type) };
+          annotation = {
+            displayText: Array.from(annotationsInRow.displayText),
+            type: Array.from(annotationsInRow.type)
+          };
         else
-          annotation = { text: [], type: [] };
+          annotation = { displayText: [], type: [] };
         var fold = gutter.session.getFoldLine(row);
         if (fold && gutter.$showFoldedAnnotations) {
-          var annotationsInFold = { error: [], warning: [], info: [] };
-          var mostSevereAnnotationInFoldType;
+          var annotationsInFold = { error: [], security: [], warning: [], info: [], hint: [] };
+          var severityRank = { error: 1, security: 2, warning: 3, info: 4, hint: 5 };
+          var mostSevereAnnotationTypeInFold;
           for (var i10 = row + 1; i10 <= fold.end.row; i10++) {
             if (!gutter.$annotations[i10])
               continue;
             for (var j10 = 0; j10 < gutter.$annotations[i10].text.length; j10++) {
               var annotationType = gutter.$annotations[i10].type[j10];
               annotationsInFold[annotationType].push(gutter.$annotations[i10].text[j10]);
-              if (annotationType === "error") {
-                mostSevereAnnotationInFoldType = "error_fold";
-                continue;
-              }
-              if (annotationType === "warning") {
-                mostSevereAnnotationInFoldType = "warning_fold";
-                continue;
+              if (!mostSevereAnnotationTypeInFold || severityRank[annotationType] < severityRank[mostSevereAnnotationTypeInFold]) {
+                mostSevereAnnotationTypeInFold = annotationType;
               }
             }
           }
-          if (mostSevereAnnotationInFoldType === "error_fold" || mostSevereAnnotationInFoldType === "warning_fold") {
+          if (["error", "security", "warning"].includes(mostSevereAnnotationTypeInFold)) {
             var summaryFoldedAnnotations = "".concat(GutterTooltip2.annotationsToSummaryString(annotationsInFold), " in folded code.");
-            annotation.text.push(summaryFoldedAnnotations);
-            annotation.type.push(mostSevereAnnotationInFoldType);
+            annotation.displayText.push(summaryFoldedAnnotations);
+            annotation.type.push(mostSevereAnnotationTypeInFold + "_fold");
           }
         }
-        if (annotation.text.length === 0)
+        if (annotation.displayText.length === 0)
           return this.hide();
-        var annotationMessages = { error: [], warning: [], info: [] };
+        var annotationMessages = { error: [], security: [], warning: [], info: [], hint: [] };
         var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
-        for (var i10 = 0; i10 < annotation.text.length; i10++) {
-          var line = "<span class='ace_".concat(annotation.type[i10], " ").concat(iconClassName, "' aria-label='").concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular, "' role=img> </span> ").concat(annotation.text[i10]);
-          annotationMessages[annotation.type[i10].replace("_fold", "")].push(line);
+        for (var i10 = 0; i10 < annotation.displayText.length; i10++) {
+          var lineElement = dom.createElement("span");
+          var iconElement = dom.createElement("span");
+          (_a2 = iconElement.classList).add.apply(_a2, ["ace_".concat(annotation.type[i10]), iconClassName]);
+          iconElement.setAttribute("aria-label", "".concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular));
+          iconElement.setAttribute("role", "img");
+          iconElement.appendChild(dom.createTextNode(" "));
+          lineElement.appendChild(iconElement);
+          lineElement.appendChild(dom.createTextNode(annotation.displayText[i10]));
+          lineElement.appendChild(dom.createElement("br"));
+          annotationMessages[annotation.type[i10].replace("_fold", "")].push(lineElement);
         }
-        var tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
-        this.setHtml(tooltipContent);
-        this.$element.setAttribute("aria-live", "polite");
+        var tooltipElement = this.getElement();
+        dom.removeChildren(tooltipElement);
+        annotationMessages.error.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.security.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.warning.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.info.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.hint.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        tooltipElement.setAttribute("aria-live", "polite");
         if (!this.isOpen) {
           this.setTheme(this.editor.renderer.theme);
           this.setClassName("ace_gutter-tooltip");
@@ -36099,7 +36171,7 @@ var ace$2 = { exports: {} };
       GutterTooltip2.annotationsToSummaryString = function(annotations) {
         var e_1, _a2;
         var summary = [];
-        var annotationTypes = ["error", "warning", "info"];
+        var annotationTypes = ["error", "security", "warning", "info", "hint"];
         try {
           for (var annotationTypes_1 = __values(annotationTypes), annotationTypes_1_1 = annotationTypes_1.next(); !annotationTypes_1_1.done; annotationTypes_1_1 = annotationTypes_1.next()) {
             var annotationType = annotationTypes_1_1.value;
@@ -36550,14 +36622,17 @@ var ace$2 = { exports: {} };
           var hasUndo = editor.session.getUndoManager().hasUndo();
           contextMenu.replaceChild(dom.buildDom(isOpen ? [
             "span",
-            !selected && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
-            selected && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
-            selected && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
-            clipboard2 && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
-            hasUndo && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
-            ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
-            ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
+            !selected && canExecuteCommand("selectall") && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
+            selected && canExecuteCommand("copy") && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
+            selected && canExecuteCommand("cut") && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
+            clipboard2 && canExecuteCommand("paste") && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
+            hasUndo && canExecuteCommand("undo") && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
+            canExecuteCommand("find") && ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
+            canExecuteCommand("openCommandPalette") && ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
           ] : ["span"]), contextMenu.firstChild);
+        };
+        var canExecuteCommand = function(cmd) {
+          return editor.commands.canExecute(cmd, editor);
         };
         var handleClick = function(e13) {
           var action = e13.target.getAttribute("action");
@@ -36605,6 +36680,12 @@ var ace$2 = { exports: {} };
         ], editor.container);
       }
       function showContextMenu() {
+        if (!editor.getOption("enableMobileMenu")) {
+          if (contextMenu) {
+            hideContextMenu();
+          }
+          return;
+        }
         if (!contextMenu)
           createContextMenu();
         var cursor = editor.selection.cursor;
@@ -39138,8 +39219,23 @@ var ace$2 = { exports: {} };
           initContext(editor);
           var selection = editor.getSelectionRange();
           var selected = session.doc.getTextRange(selection);
+          var token = session.getTokenAt(cursor.row, cursor.column);
           if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
             return getWrapped(selection, selected, "{", "}");
+          } else if (token && /(?:string)\.quasi|\.xml/.test(token.type)) {
+            var excludeTokens = [
+              /tag\-(?:open|name)/,
+              /attribute\-name/
+            ];
+            if (excludeTokens.some(function(el2) {
+              return el2.test(token.type);
+            }) || /(string)\.quasi/.test(token.type) && token.value[cursor.column - token.start - 1] !== "$")
+              return;
+            CstyleBehaviour.recordAutoInsert(editor, session, "}");
+            return {
+              text: "{}",
+              selection: [1, 1]
+            };
           } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
             if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options.braces) {
               CstyleBehaviour.recordAutoInsert(editor, session, "}");
@@ -39368,14 +39464,46 @@ var ace$2 = { exports: {} };
         this.add("doc comment end", "insertion", function(state, action, editor, session, text) {
           if (state === "doc-start" && (text === "\n" || text === "\r\n") && editor.selection.isEmpty()) {
             var cursor = editor.getCursorPosition();
+            if (cursor.column === 0) {
+              return;
+            }
             var line = session.doc.getLine(cursor.row);
             var nextLine = session.doc.getLine(cursor.row + 1);
+            var tokens = session.getTokens(cursor.row);
+            var index2 = 0;
+            for (var i10 = 0; i10 < tokens.length; i10++) {
+              index2 += tokens[i10].value.length;
+              var currentToken = tokens[i10];
+              if (index2 >= cursor.column) {
+                if (index2 === cursor.column) {
+                  if (!/\.doc/.test(currentToken.type)) {
+                    return;
+                  }
+                  if (/\*\//.test(currentToken.value)) {
+                    var nextToken = tokens[i10 + 1];
+                    if (!nextToken || !/\.doc/.test(nextToken.type)) {
+                      return;
+                    }
+                  }
+                }
+                var cursorPosInToken = cursor.column - (index2 - currentToken.value.length);
+                var closeDocPos = currentToken.value.indexOf("*/");
+                var openDocPos = currentToken.value.indexOf("/**", closeDocPos > -1 ? closeDocPos + 2 : 0);
+                if (openDocPos !== -1 && cursorPosInToken > openDocPos && cursorPosInToken < openDocPos + 3) {
+                  return;
+                }
+                if (closeDocPos !== -1 && openDocPos !== -1 && cursorPosInToken >= closeDocPos && cursorPosInToken <= openDocPos || !/\.doc/.test(currentToken.type)) {
+                  return;
+                }
+                break;
+              }
+            }
             var indent = this.$getIndent(line);
             if (/\s*\*/.test(nextLine)) {
               if (/^\s*\*/.test(line)) {
                 return {
                   text: text + indent + "* ",
-                  selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                  selection: [1, 2 + indent.length, 1, 2 + indent.length]
                 };
               } else {
                 return {
@@ -41787,32 +41915,30 @@ var ace$2 = { exports: {} };
           if (dir != 1) {
             do {
               token = iterator.stepBackward();
-            } while (token && re2.test(token.type) && !/^comment.end/.test(token.type));
+            } while (token && re2.test(token.type));
             token = iterator.stepForward();
           }
           range.start.row = iterator.getCurrentTokenRow();
-          range.start.column = iterator.getCurrentTokenColumn() + (/^comment.start/.test(token.type) ? token.value.length : 2);
+          range.start.column = iterator.getCurrentTokenColumn() + token.value.length;
           iterator = new TokenIterator(this, row, column);
+          var initState = this.getState(iterator.$row);
           if (dir != -1) {
             var lastRow = -1;
             do {
               token = iterator.stepForward();
               if (lastRow == -1) {
                 var state = this.getState(iterator.$row);
-                if (!re2.test(state))
+                if (initState.toString() !== state.toString())
                   lastRow = iterator.$row;
               } else if (iterator.$row > lastRow) {
                 break;
               }
-            } while (token && re2.test(token.type) && !/^comment.start/.test(token.type));
+            } while (token && re2.test(token.type));
             token = iterator.stepBackward();
           } else
             token = iterator.getCurrentToken();
           range.end.row = iterator.getCurrentTokenRow();
           range.end.column = iterator.getCurrentTokenColumn();
-          if (!/^comment.end/.test(token.type)) {
-            range.end.column += token.value.length - 2;
-          }
           return range;
         }
       };
@@ -42223,6 +42349,10 @@ var ace$2 = { exports: {} };
         var foundOpenTagEnd = false;
         do {
           prevToken = token;
+          if (prevToken.type.indexOf("tag-close") !== -1 && !foundOpenTagEnd) {
+            var openTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
+            foundOpenTagEnd = true;
+          }
           token = iterator.stepForward();
           if (token) {
             if (token.value === ">" && !foundOpenTagEnd) {
@@ -42241,7 +42371,9 @@ var ace$2 = { exports: {} };
                     var closeTagStart = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 2);
                     token = iterator.stepForward();
                     var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length);
-                    token = iterator.stepForward();
+                    if (token.type.indexOf("tag-close") === -1) {
+                      token = iterator.stepForward();
+                    }
                     if (token && token.value === ">") {
                       var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
                     } else {
@@ -42280,7 +42412,9 @@ var ace$2 = { exports: {} };
         var closeTagStart = new Range(startRow, startColumn, startRow, endColumn);
         iterator.stepForward();
         var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length);
-        token = iterator.stepForward();
+        if (token.type.indexOf("tag-close") === -1) {
+          token = iterator.stepForward();
+        }
         if (!token || token.value !== ">")
           return;
         var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
@@ -42362,6 +42496,7 @@ var ace$2 = { exports: {} };
         this.$backMarkers = {};
         this.$markerId = 1;
         this.$undoSelect = true;
+        this.prevOp = {};
         this.$foldData = [];
         this.id = "session" + ++EditSession2.$uid;
         this.$foldData.toString = function() {
@@ -42378,12 +42513,73 @@ var ace$2 = { exports: {} };
           text = new Document2(text);
         this.setDocument(text);
         this.selection = new Selection(this);
+        this.$onSelectionChange = this.onSelectionChange.bind(this);
+        this.selection.on("changeSelection", this.$onSelectionChange);
+        this.selection.on("changeCursor", this.$onSelectionChange);
         this.$bidiHandler = new BidiHandler(this);
         config.resetOptions(this);
         this.setMode(mode);
         config._signal("session", this);
         this.destroyed = false;
+        this.$initOperationListeners();
       }
+      EditSession2.prototype.$initOperationListeners = function() {
+        var _this = this;
+        this.curOp = null;
+        this.on("change", function() {
+          if (!_this.curOp) {
+            _this.startOperation();
+            _this.curOp.selectionBefore = _this.$lastSel;
+          }
+          _this.curOp.docChanged = true;
+        }, true);
+        this.on("changeSelection", function() {
+          if (!_this.curOp) {
+            _this.startOperation();
+            _this.curOp.selectionBefore = _this.$lastSel;
+          }
+          _this.curOp.selectionChanged = true;
+        }, true);
+        this.$operationResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
+      };
+      EditSession2.prototype.startOperation = function(commandEvent) {
+        if (this.curOp) {
+          if (!commandEvent || this.curOp.command) {
+            return;
+          }
+          this.prevOp = this.curOp;
+        }
+        if (!commandEvent) {
+          commandEvent = {};
+        }
+        this.$operationResetTimer.schedule();
+        this.curOp = {
+          command: commandEvent.command || {},
+          args: commandEvent.args
+        };
+        this.curOp.selectionBefore = this.selection.toJSON();
+        this._signal("startOperation", commandEvent);
+      };
+      EditSession2.prototype.endOperation = function(e13) {
+        if (this.curOp) {
+          if (e13 && e13.returnValue === false) {
+            this.curOp = null;
+            this._signal("endOperation", e13);
+            return;
+          }
+          if (e13 == true && this.curOp.command && this.curOp.command.name == "mouse") {
+            return;
+          }
+          var currentSelection = this.selection.toJSON();
+          this.curOp.selectionAfter = currentSelection;
+          this.$lastSel = this.selection.toJSON();
+          this.getUndoManager().addSelection(currentSelection);
+          this._signal("beforeEndOperation");
+          this.prevOp = this.curOp;
+          this.curOp = null;
+          this._signal("endOperation", e13);
+        }
+      };
       EditSession2.prototype.setDocument = function(doc) {
         if (this.doc)
           this.doc.off("change", this.$onChange);
@@ -42454,6 +42650,9 @@ var ace$2 = { exports: {} };
         }
         this.bgTokenizer.$updateOnChange(delta);
         this._signal("change", delta);
+      };
+      EditSession2.prototype.onSelectionChange = function() {
+        this._signal("changeSelection");
       };
       EditSession2.prototype.setValue = function(text) {
         this.doc.setValue(text);
@@ -43741,16 +43940,29 @@ var ace$2 = { exports: {} };
           return [screenColumn, column];
         };
       };
+      EditSession2.prototype.getPrecedingCharacter = function() {
+        var pos = this.selection.getCursor();
+        if (pos.column === 0) {
+          return pos.row === 0 ? "" : this.doc.getNewLineCharacter();
+        }
+        var currentLine = this.getLine(pos.row);
+        return currentLine[pos.column - 1];
+      };
       EditSession2.prototype.destroy = function() {
         if (!this.destroyed) {
           this.bgTokenizer.setDocument(null);
           this.bgTokenizer.cleanup();
           this.destroyed = true;
         }
+        this.endOperation();
         this.$stopWorker();
         this.removeAllListeners();
         if (this.doc) {
           this.doc.off("change", this.$onChange);
+        }
+        if (this.selection) {
+          this.selection.off("changeCursor", this.$onSelectionChange);
+          this.selection.off("changeSelection", this.$onSelectionChange);
         }
         this.selection.detach();
       };
@@ -44019,6 +44231,9 @@ var ace$2 = { exports: {} };
         var match = re2.exec(input);
         if (!match || match[0].length != input.length)
           return null;
+        if (!options.regExp) {
+          replacement = replacement.replace(/\$/g, "$$$$");
+        }
         replacement = input.replace(re2, replacement);
         if (options.preserveCase) {
           replacement = replacement.split("");
@@ -44479,16 +44694,24 @@ var ace$2 = { exports: {} };
         }
         if (typeof command === "string")
           command = this.commands[command];
+        if (!this.canExecute(command, editor)) {
+          return false;
+        }
+        var e13 = { editor, command, args };
+        e13.returnValue = this._emit("exec", e13);
+        this._signal("afterExec", e13);
+        return e13.returnValue === false ? false : true;
+      };
+      CommandManager2.prototype.canExecute = function(command, editor) {
+        if (typeof command === "string")
+          command = this.commands[command];
         if (!command)
           return false;
         if (editor && editor.$readOnly && !command.readOnly)
           return false;
         if (this.$checkCommandState != false && command.isAvailable && !command.isAvailable(editor))
           return false;
-        var e13 = { editor, command, args };
-        e13.returnValue = this._emit("exec", e13);
-        this._signal("afterExec", e13);
-        return e13.returnValue === false ? false : true;
+        return true;
       };
       CommandManager2.prototype.toggleRecording = function(editor) {
         if (this.$inReplay)
@@ -45508,7 +45731,6 @@ var ace$2 = { exports: {} };
         exec: function(editor) {
           editor.autoIndent();
         },
-        multiSelectAction: "forEachLine",
         scrollIntoView: "animate"
       },
       {
@@ -46432,46 +46654,27 @@ var ace$2 = { exports: {} };
       Editor3.prototype.$initOperationListeners = function() {
         this.commands.on("exec", this.startOperation.bind(this), true);
         this.commands.on("afterExec", this.endOperation.bind(this), true);
-        this.$opResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
-        this.on("change", function() {
-          if (!this.curOp) {
-            this.startOperation();
-            this.curOp.selectionBefore = this.$lastSel;
-          }
-          this.curOp.docChanged = true;
-        }.bind(this), true);
-        this.on("changeSelection", function() {
-          if (!this.curOp) {
-            this.startOperation();
-            this.curOp.selectionBefore = this.$lastSel;
-          }
-          this.curOp.selectionChanged = true;
-        }.bind(this), true);
       };
       Editor3.prototype.startOperation = function(commandEvent) {
-        if (this.curOp) {
-          if (!commandEvent || this.curOp.command)
-            return;
-          this.prevOp = this.curOp;
-        }
-        if (!commandEvent) {
-          this.previousCommand = null;
-          commandEvent = {};
-        }
-        this.$opResetTimer.schedule();
-        this.curOp = this.session.curOp = {
-          command: commandEvent.command || {},
-          args: commandEvent.args,
-          scrollTop: this.renderer.scrollTop
-        };
-        this.curOp.selectionBefore = this.selection.toJSON();
+        this.session.startOperation(commandEvent);
       };
       Editor3.prototype.endOperation = function(e13) {
+        this.session.endOperation(e13);
+      };
+      Editor3.prototype.onStartOperation = function(commandEvent) {
+        this.curOp = this.session.curOp;
+        this.curOp.scrollTop = this.renderer.scrollTop;
+        this.prevOp = this.session.prevOp;
+        if (!commandEvent) {
+          this.previousCommand = null;
+        }
+      };
+      Editor3.prototype.onEndOperation = function(e13) {
         if (this.curOp && this.session) {
-          if (e13 && e13.returnValue === false || !this.session)
-            return this.curOp = null;
-          if (e13 == true && this.curOp.command && this.curOp.command.name == "mouse")
+          if (e13 && e13.returnValue === false) {
+            this.curOp = null;
             return;
+          }
           this._signal("beforeEndOperation");
           if (!this.curOp)
             return;
@@ -46499,10 +46702,7 @@ var ace$2 = { exports: {} };
             if (scrollIntoView == "animate")
               this.renderer.animateScrolling(this.curOp.scrollTop);
           }
-          var sel = this.selection.toJSON();
-          this.curOp.selectionAfter = sel;
-          this.$lastSel = this.selection.toJSON();
-          this.session.getUndoManager().addSelection(sel);
+          this.$lastSel = this.session.selection.toJSON();
           this.prevOp = this.curOp;
           this.curOp = null;
         }
@@ -46570,6 +46770,8 @@ var ace$2 = { exports: {} };
           this.session.off("changeOverwrite", this.$onCursorChange);
           this.session.off("changeScrollTop", this.$onScrollTopChange);
           this.session.off("changeScrollLeft", this.$onScrollLeftChange);
+          this.session.off("startOperation", this.$onStartOperation);
+          this.session.off("endOperation", this.$onEndOperation);
           var selection = this.session.getSelection();
           selection.off("changeCursor", this.$onCursorChange);
           selection.off("changeSelection", this.$onSelectionChange);
@@ -46609,6 +46811,10 @@ var ace$2 = { exports: {} };
           this.selection.on("changeCursor", this.$onCursorChange);
           this.$onSelectionChange = this.onSelectionChange.bind(this);
           this.selection.on("changeSelection", this.$onSelectionChange);
+          this.$onStartOperation = this.onStartOperation.bind(this);
+          this.session.on("startOperation", this.$onStartOperation);
+          this.$onEndOperation = this.onEndOperation.bind(this);
+          this.session.on("endOperation", this.$onEndOperation);
           this.onChangeMode();
           this.onCursorChange();
           this.onScrollTopChange();
@@ -46700,8 +46906,12 @@ var ace$2 = { exports: {} };
             var token = iterator.getCurrentToken();
             if (token && /\b(?:tag-open|tag-name)/.test(token.type)) {
               var tagNamesRanges = session.getMatchingTags(pos);
-              if (tagNamesRanges)
-                ranges = [tagNamesRanges.openTagName, tagNamesRanges.closeTagName];
+              if (tagNamesRanges) {
+                ranges = [
+                  tagNamesRanges.openTagName.isEmpty() ? tagNamesRanges.openTag : tagNamesRanges.openTagName,
+                  tagNamesRanges.closeTagName.isEmpty() ? tagNamesRanges.closeTag : tagNamesRanges.closeTagName
+                ];
+              }
             }
           }
           if (!ranges && session.$mode.getMatching)
@@ -46997,38 +47207,33 @@ var ace$2 = { exports: {} };
       Editor3.prototype.autoIndent = function() {
         var session = this.session;
         var mode = session.getMode();
-        var startRow, endRow;
-        if (this.selection.isEmpty()) {
-          startRow = 0;
-          endRow = session.doc.getLength() - 1;
-        } else {
-          var selectedRange = this.getSelectionRange();
-          startRow = selectedRange.start.row;
-          endRow = selectedRange.end.row;
-        }
+        var ranges = this.selection.isEmpty() ? [new Range(0, 0, session.doc.getLength() - 1, 0)] : this.selection.getAllRanges();
         var prevLineState = "";
         var prevLine = "";
         var lineIndent = "";
-        var line, currIndent, range;
         var tab = session.getTabString();
-        for (var row = startRow; row <= endRow; row++) {
-          if (row > 0) {
-            prevLineState = session.getState(row - 1);
-            prevLine = session.getLine(row - 1);
-            lineIndent = mode.getNextLineIndent(prevLineState, prevLine, tab);
-          }
-          line = session.getLine(row);
-          currIndent = mode.$getIndent(line);
-          if (lineIndent !== currIndent) {
-            if (currIndent.length > 0) {
-              range = new Range(row, 0, row, currIndent.length);
-              session.remove(range);
+        for (var i10 = 0; i10 < ranges.length; i10++) {
+          var startRow = ranges[i10].start.row;
+          var endRow = ranges[i10].end.row;
+          for (var row = startRow; row <= endRow; row++) {
+            if (row > 0) {
+              prevLineState = session.getState(row - 1);
+              prevLine = session.getLine(row - 1);
+              lineIndent = mode.getNextLineIndent(prevLineState, prevLine, tab);
             }
-            if (lineIndent.length > 0) {
-              session.insert({ row, column: 0 }, lineIndent);
+            var line = session.getLine(row);
+            var currIndent = mode.$getIndent(line);
+            if (lineIndent !== currIndent) {
+              if (currIndent.length > 0) {
+                var range = new Range(row, 0, row, currIndent.length);
+                session.remove(range);
+              }
+              if (lineIndent.length > 0) {
+                session.insert({ row, column: 0 }, lineIndent);
+              }
             }
+            mode.autoOutdent(prevLineState, session, row);
           }
-          mode.autoOutdent(prevLineState, session, row);
         }
       };
       Editor3.prototype.onTextInput = function(text, composition) {
@@ -48257,21 +48462,24 @@ var ace$2 = { exports: {} };
             this.textInput.setNumberOfExtraLines(useragent.isWin ? 3 : 0);
             this.renderer.scroller.setAttribute("tabindex", 0);
             this.renderer.scroller.setAttribute("role", "group");
-            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor"));
+            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor.scroller.aria-roledescription", "editor"));
             this.renderer.scroller.classList.add(this.renderer.keyboardFocusClassName);
-            this.renderer.scroller.setAttribute("aria-label", nls("Editor content, press Enter to start editing, press Escape to exit"));
+            this.renderer.scroller.setAttribute("aria-label", nls("editor.scroller.aria-label", "Editor content, press Enter to start editing, press Escape to exit"));
             this.renderer.scroller.addEventListener("keyup", focusOnEnterKeyup.bind(this));
             this.commands.addCommand(blurCommand);
             this.renderer.$gutter.setAttribute("tabindex", 0);
             this.renderer.$gutter.setAttribute("aria-hidden", false);
             this.renderer.$gutter.setAttribute("role", "group");
-            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor"));
-            this.renderer.$gutter.setAttribute("aria-label", nls("Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
+            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor.gutter.aria-roledescription", "editor"));
+            this.renderer.$gutter.setAttribute("aria-label", nls("editor.gutter.aria-label", "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
             this.renderer.$gutter.classList.add(this.renderer.keyboardFocusClassName);
             this.renderer.content.setAttribute("aria-hidden", true);
             if (!gutterKeyboardHandler)
               gutterKeyboardHandler = new GutterKeyboardHandler(this);
             gutterKeyboardHandler.addListener();
+            this.textInput.setAriaOptions({
+              setLabel: true
+            });
           } else {
             this.renderer.enableKeyboardAccessibility = false;
             this.textInput.getElement().setAttribute("tabindex", 0);
@@ -48295,6 +48503,18 @@ var ace$2 = { exports: {} };
           }
         },
         initialValue: false
+      },
+      textInputAriaLabel: {
+        set: function(val) {
+          this.$textInputAriaLabel = val;
+        },
+        initialValue: ""
+      },
+      enableMobileMenu: {
+        set: function(val) {
+          this.$enableMobileMenu = val;
+        },
+        initialValue: true
       },
       customScrollbar: "renderer",
       hScrollBarAlwaysVisible: "renderer",
@@ -48506,23 +48726,31 @@ var ace$2 = { exports: {} };
           var row = annotation.row;
           var rowInfo = this.$annotations[row];
           if (!rowInfo)
-            rowInfo = this.$annotations[row] = { text: [], type: [] };
+            rowInfo = this.$annotations[row] = { text: [], type: [], displayText: [] };
           var annoText = annotation.text;
+          var displayAnnoText = annotation.text;
           var annoType = annotation.type;
           annoText = annoText ? lang.escapeHTML(annoText) : annotation.html || "";
+          displayAnnoText = displayAnnoText ? displayAnnoText : annotation.html || "";
           if (rowInfo.text.indexOf(annoText) === -1) {
             rowInfo.text.push(annoText);
             rowInfo.type.push(annoType);
+            rowInfo.displayText.push(displayAnnoText);
           }
           var className = annotation.className;
-          if (className)
+          if (className) {
             rowInfo.className = className;
-          else if (annoType == "error")
+          } else if (annoType === "error") {
             rowInfo.className = " ace_error";
-          else if (annoType == "warning" && rowInfo.className != " ace_error")
+          } else if (annoType === "security" && !/\bace_error\b/.test(rowInfo.className)) {
+            rowInfo.className = " ace_security";
+          } else if (annoType === "warning" && !/\bace_(error|security)\b/.test(rowInfo.className)) {
             rowInfo.className = " ace_warning";
-          else if (annoType == "info" && !rowInfo.className)
+          } else if (annoType === "info" && !rowInfo.className) {
             rowInfo.className = " ace_info";
+          } else if (annoType === "hint" && !rowInfo.className) {
+            rowInfo.className = " ace_hint";
+          }
         }
       };
       Gutter2.prototype.$updateAnnotations = function(delta) {
@@ -48732,10 +48960,12 @@ var ace$2 = { exports: {} };
                 foldAnnotationClass = " ace_error_fold";
                 break;
               }
-              if (this.$annotations[i10].className === " ace_warning") {
+              if (this.$annotations[i10].className === " ace_security") {
+                annotationInFold = true;
+                foldAnnotationClass = " ace_security_fold";
+              } else if (this.$annotations[i10].className === " ace_warning" && foldAnnotationClass !== " ace_security_fold") {
                 annotationInFold = true;
                 foldAnnotationClass = " ace_warning_fold";
-                continue;
               }
             }
             className += foldAnnotationClass;
@@ -48749,19 +48979,25 @@ var ace$2 = { exports: {} };
           foldWidget.setAttribute("tabindex", "-1");
           var foldRange = session.getFoldWidgetRange(row);
           if (foldRange)
-            foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
+            foldWidget.setAttribute("aria-label", nls("gutter.code-folding.range.aria-label", "Toggle code folding, rows $0 through $1", [
+              foldRange.start.row + 1,
+              foldRange.end.row + 1
+            ]));
           else {
             if (fold)
-              foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
+              foldWidget.setAttribute("aria-label", nls("gutter.code-folding.closed.aria-label", "Toggle code folding, rows $0 through $1", [
+                fold.start.row + 1,
+                fold.end.row + 1
+              ]));
             else
-              foldWidget.setAttribute("aria-label", nls("Toggle code folding, row $0", [row + 1]));
+              foldWidget.setAttribute("aria-label", nls("gutter.code-folding.open.aria-label", "Toggle code folding, row $0", [row + 1]));
           }
           if (isClosedFold) {
             foldWidget.setAttribute("aria-expanded", "false");
-            foldWidget.setAttribute("title", nls("Unfold code"));
+            foldWidget.setAttribute("title", nls("gutter.code-folding.closed.title", "Unfold code"));
           } else {
             foldWidget.setAttribute("aria-expanded", "true");
-            foldWidget.setAttribute("title", nls("Fold code"));
+            foldWidget.setAttribute("title", nls("gutter.code-folding.open.title", "Fold code"));
           }
         } else {
           if (foldWidget) {
@@ -48778,7 +49014,19 @@ var ace$2 = { exports: {} };
           dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
           dom.setStyle(annotationNode.style, "height", lineHeight);
-          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          var ariaLabel;
+          switch (foldAnnotationClass) {
+            case " ace_error_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.error", "Error, read annotations row $0", [rowText]);
+              break;
+            case " ace_security_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.security", "Security finding, read annotations row $0", [rowText]);
+              break;
+            case " ace_warning_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.warning", "Warning, read annotations row $0", [rowText]);
+              break;
+          }
+          annotationNode.setAttribute("aria-label", ariaLabel);
           annotationNode.setAttribute("tabindex", "-1");
           annotationNode.setAttribute("role", "button");
         } else if (this.$annotations[row]) {
@@ -48791,7 +49039,25 @@ var ace$2 = { exports: {} };
           dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
           dom.setStyle(annotationNode.style, "height", lineHeight);
-          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          var ariaLabel;
+          switch (this.$annotations[row].className) {
+            case " ace_error":
+              ariaLabel = nls("gutter.annotation.aria-label.error", "Error, read annotations row $0", [rowText]);
+              break;
+            case " ace_security":
+              ariaLabel = nls("gutter.annotation.aria-label.security", "Security finding, read annotations row $0", [rowText]);
+              break;
+            case " ace_warning":
+              ariaLabel = nls("gutter.annotation.aria-label.warning", "Warning, read annotations row $0", [rowText]);
+              break;
+            case " ace_info":
+              ariaLabel = nls("gutter.annotation.aria-label.info", "Info, read annotations row $0", [rowText]);
+              break;
+            case " ace_hint":
+              ariaLabel = nls("gutter.annotation.aria-label.hint", "Suggestion, read annotations row $0", [rowText]);
+              break;
+          }
+          annotationNode.setAttribute("aria-label", ariaLabel);
           annotationNode.setAttribute("tabindex", "-1");
           annotationNode.setAttribute("role", "button");
         } else {
@@ -48981,7 +49247,7 @@ var ace$2 = { exports: {} };
           range1.end.column = this.session.getLine(range1.start.row).length;
           this.drawBidiSingleLineMarker(stringBuilder, range1, clazz + " ace_br1 ace_start", config, null, extraStyle);
         } else {
-          this.elt(clazz + " ace_br1 ace_start", "height:" + height + "px;right:0;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
+          this.elt(clazz + " ace_br1 ace_start", "height:" + height + "px;right:" + padding + "px;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
         }
         if (this.session.$bidiHandler.isBidiRow(range.end.row)) {
           var range1 = range.clone();
@@ -48998,7 +49264,7 @@ var ace$2 = { exports: {} };
           return;
         top = this.$getTop(range.start.row + 1, config);
         var radiusClass = (range.start.column ? 1 : 0) | (range.end.column ? 0 : 8);
-        this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:0;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
+        this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:" + padding + "px;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
       };
       Marker2.prototype.drawSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
         if (this.session.$bidiHandler.isBidiRow(range.start.row))
@@ -49336,7 +49602,7 @@ var ace$2 = { exports: {} };
           var span = this.dom.createElement("span");
           if (token.type == "fold") {
             span.style.width = token.value.length * this.config.characterWidth + "px";
-            span.setAttribute("title", nls("Unfold code"));
+            span.setAttribute("title", nls("inline-fold.closed.title", "Unfold code"));
           }
           span.className = classes;
           span.appendChild(valueFragment);
@@ -50372,7 +50638,7 @@ var ace$2 = { exports: {} };
       FontMetrics2.prototype.$getZoom = function(element) {
         if (!element || !element.parentElement)
           return 1;
-        return (window.getComputedStyle(element)["zoom"] || 1) * this.$getZoom(element.parentElement);
+        return (Number(window.getComputedStyle(element)["zoom"]) || 1) * this.$getZoom(element.parentElement);
       };
       FontMetrics2.prototype.$initTransformMeasureNodes = function() {
         var t10 = function(t11, l10) {
@@ -50459,6 +50725,7 @@ var ace$2 = { exports: {} };
     direction: ltr;
     text-align: left;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    forced-color-adjust: none;
 }
 
 .ace_scroller {
@@ -50554,7 +50821,7 @@ var ace$2 = { exports: {} };
     float: left;
 }
 
-.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold {
+.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold, .ace_gutter-cell.ace_security, .ace_icon.ace_security, .ace_icon.ace_security_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");
     background-repeat: no-repeat;
     background-position: 2px center;
@@ -50566,17 +50833,22 @@ var ace$2 = { exports: {} };
     background-position: 2px center;
 }
 
-.ace_gutter-cell.ace_info, .ace_icon.ace_info {
+.ace_gutter-cell.ace_info, .ace_icon.ace_info, .ace_gutter-cell.ace_hint, .ace_icon.ace_hint {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");
     background-repeat: no-repeat;
     background-position: 2px center;
 }
-.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info {
+
+.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info, .ace_dark .ace_gutter-cell.ace_hint, .ace_dark .ace_icon.ace_hint {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");
 }
 
 .ace_icon_svg.ace_error {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJyZWQiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgY3k9IjgiIHI9IjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjExIiB5MT0iNSIgeDI9IjUiIHkyPSIxMSIvPgo8bGluZSB4MT0iMTEiIHkxPSIxMSIgeDI9IjUiIHkyPSI1Ii8+CjwvZz4KPC9zdmc+");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_security {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iZGFya29yYW5nZSIgZmlsbD0ibm9uZSIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdHJva2UtbGluZWpvaW4tcm91bmQiIGQ9Ik04IDE0LjgzMDdDOCAxNC44MzA3IDIgMTIuOTA0NyAyIDguMDg5OTJWMy4yNjU0OEM1LjMxIDMuMjY1NDggNy45ODk5OSAxLjM0OTE4IDcuOTg5OTkgMS4zNDkxOEM3Ljk4OTk5IDEuMzQ5MTggMTAuNjkgMy4yNjU0OCAxNCAzLjI2NTQ4VjguMDg5OTJDMTQgMTIuOTA0NyA4IDE0LjgzMDcgOCAxNC44MzA3WiIvPgogICAgICAgIDxwYXRoIGQ9Ik0yIDguMDg5OTJWMy4yNjU0OEM1LjMxIDMuMjY1NDggNy45ODk5OSAxLjM0OTE4IDcuOTg5OTkgMS4zNDkxOCIvPgogICAgICAgIDxwYXRoIGQ9Ik0xMy45OSA4LjA4OTkyVjMuMjY1NDhDMTAuNjggMy4yNjU0OCA4IDEuMzQ5MTggOCAxLjM0OTE4Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTggNFY5Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTggMTBWMTIiLz4KICAgIDwvZz4KPC9zdmc+");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning {
@@ -50587,9 +50859,17 @@ var ace$2 = { exports: {} };
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJibHVlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CjxjaXJjbGUgZmlsbD0ibm9uZSIgY3g9IjgiIGN5PSI4IiByPSI3IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjxwb2x5bGluZSBwb2ludHM9IjggMTEgOCA4Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjkgOCA2IDgiLz4KPGxpbmUgeDE9IjEwIiB5MT0iMTEiIHgyPSI2IiB5Mj0iMTEiLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjAuMDEiIGhlaWdodD0iMC4wMSIvPgo8L2c+Cjwvc3ZnPg==");
     background-color: royalblue;
 }
+.ace_icon_svg.ace_hint {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0ic2lsdmVyIiBmaWxsPSJub25lIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTYgMTRIMTAiLz4KICAgICAgICA8cGF0aCBkPSJNOCAxMUg5QzkgOS40NzAwMiAxMiA4LjU0MDAyIDEyIDUuNzYwMDJDMTIuMDIgNC40MDAwMiAxMS4zOSAzLjM2MDAyIDEwLjQzIDIuNjcwMDJDOSAxLjY0MDAyIDcuMDAwMDEgMS42NDAwMiA1LjU3MDAxIDIuNjcwMDJDNC42MTAwMSAzLjM2MDAyIDMuOTggNC40MDAwMiA0IDUuNzYwMDJDNCA4LjU0MDAyIDcuMDAwMDEgOS40NzAwMiA3LjAwMDAxIDExSDhaIi8+CiAgICA8L2c+Cjwvc3ZnPg==");
+    background-color: silver;
+}
 
 .ace_icon_svg.ace_error_fold {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0ibSAxOC45Mjk4NTEsNy44Mjk4MDc2IGMgMC4xNDYzNTMsNi4zMzc0NjA0IC02LjMyMzE0Nyw3Ljc3Nzg0NDQgLTcuNDc3OTEyLDcuNzc3ODQ0NCAtMi4xMDcyNzI2LC0wLjEyODc1IDUuMTE3Njc4LDAuMzU2MjQ5IDUuMDUxNjk4LC03Ljg3MDA2MTggLTAuNjA0NjcyLC04LjAwMzk3MzQ5IC03LjA3NzI3MDYsLTcuNTYzMTE4OSAtNC44NTczLC03LjQzMDM5NTU2IDEuNjA2LC0wLjExNTE0MjI1IDYuODk3NDg1LDEuMjYyNTQ1OTYgNy4yODM1MTQsNy41MjI2MTI5NiB6IiBmaWxsPSJjcmltc29uIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0ibSA4LjExNDc1NjIsMi4wNTI5ODI4IGMgMy4zNDkxNjk4LDAgNi4wNjQxMzI4LDIuNjc2ODYyNyA2LjA2NDEzMjgsNS45Nzg5NTMgMCwzLjMwMjExMjIgLTIuNzE0OTYzLDUuOTc4OTIwMiAtNi4wNjQxMzI4LDUuOTc4OTIwMiAtMy4zNDkxNDczLDAgLTYuMDY0MTc3MiwtMi42NzY4MDggLTYuMDY0MTc3MiwtNS45Nzg5MjAyIDAuMDA1MzksLTMuMjk5ODg2MSAyLjcxNzI2NTYsLTUuOTczNjQwOCA2LjA2NDE3NzIsLTUuOTc4OTUzIHogbSAwLC0xLjczNTgyNzE5IGMgLTQuMzIxNDgzNiwwIC03LjgyNDc0MDM4LDMuNDU0MDE4NDkgLTcuODI0NzQwMzgsNy43MTQ3ODAxOSAwLDQuMjYwNzI4MiAzLjUwMzI1Njc4LDcuNzE0NzQ1MiA3LjgyNDc0MDM4LDcuNzE0NzQ1MiA0LjMyMTQ0OTgsMCA3LjgyNDY5OTgsLTMuNDU0MDE3IDcuODI0Njk5OCwtNy43MTQ3NDUyIDAsLTIuMDQ2MDkxNCAtMC44MjQzOTIsLTQuMDA4MzY3MiAtMi4yOTE3NTYsLTUuNDU1MTc0NiBDIDEyLjE4MDIyNSwxLjEyOTk2NDggMTAuMTkwMDEzLDAuMzE3MTU1NjEgOC4xMTQ3NTYyLDAuMzE3MTU1NjEgWiBNIDYuOTM3NDU2Myw4LjI0MDU5ODUgNC42NzE4Njg1LDEwLjQ4NTg1MiA2LjAwODY4MTQsMTEuODc2NzI4IDguMzE3MDAzNSw5LjYwMDc5MTEgMTAuNjI1MzM3LDExLjg3NjcyOCAxMS45NjIxMzgsMTAuNDg1ODUyIDkuNjk2NTUwOCw4LjI0MDU5ODUgMTEuOTYyMTM4LDYuMDA2ODA2NiAxMC41NzMyNDYsNC42Mzc0MzM1IDguMzE3MDAzNSw2Ljg3MzQyOTcgNi4wNjA3NjA3LDQuNjM3NDMzNSA0LjY3MTg2ODUsNi4wMDY4MDY2IFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_security_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcgMTQiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTEwLjAwMDEgMTMuNjk5MkMxMC4wMDAxIDEzLjY5OTIgMTEuOTI0MSAxMy40NzYzIDEzIDEyLjY5OTJDMTQuNDEzOSAxMS42NzgxIDE2IDEwLjUgMTYuMTI1MSA2LjgxMTI2VjIuNTg5ODdDMTYuMTI1MSAyLjU0NzY4IDE2LjEyMjEgMi41MDYxOSAxNi4xMTY0IDIuNDY1NTlWMS43MTQ4NUgxNS4yNDE0TDE1LjIzMDcgMS43MTQ4NEwxNC42MjUxIDEuNjk5MjJWNi44MTEyM0MxNC42MjUxIDguNTEwNjEgMTQuNjI1MSA5LjQ2NDYxIDEyLjc4MjQgMTEuNzIxQzEyLjE1ODYgMTIuNDg0OCAxMC4wMDAxIDEzLjY5OTIgMTAuMDAwMSAxMy42OTkyWiIgZmlsbD0iY3JpbXNvbiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTcuMzM2MDkgMC4zNjc0NzVDNy4wMzIxNCAwLjE1MjY1MiA2LjYyNTQ4IDAuMTUzNjE0IDYuMzIyNTMgMC4zNjk5OTdMNi4zMDg2OSAwLjM3OTU1NEM2LjI5NTUzIDAuMzg4NTg4IDYuMjczODggMC40MDMyNjYgNi4yNDQxNyAwLjQyMjc4OUM2LjE4NDcxIDAuNDYxODYgNi4wOTMyMSAwLjUyMDE3MSA1Ljk3MzEzIDAuNTkxMzczQzUuNzMyNTEgMC43MzQwNTkgNS4zNzk5IDAuOTI2ODY0IDQuOTQyNzkgMS4xMjAwOUM0LjA2MTQ0IDEuNTA5NyAyLjg3NTQxIDEuODgzNzcgMS41ODk4NCAxLjg4Mzc3SDAuNzE0ODQ0VjIuNzU4NzdWNi45ODAxNUMwLjcxNDg0NCA5LjQ5Mzc0IDIuMjg4NjYgMTEuMTk3MyAzLjcwMjU0IDEyLjIxODVDNC40MTg0NSAxMi43MzU1IDUuMTI4NzQgMTMuMTA1MyA1LjY1NzMzIDEzLjM0NTdDNS45MjI4NCAxMy40NjY0IDYuMTQ1NjYgMTMuNTU1OSA2LjMwNDY1IDEzLjYxNjFDNi4zODQyMyAxMy42NDYyIDYuNDQ4MDUgMTMuNjY5IDYuNDkzNDkgMTMuNjg0OEM2LjUxNjIyIDEzLjY5MjcgNi41MzQzOCAxMy42OTg5IDYuNTQ3NjQgMTMuNzAzM0w2LjU2MzgyIDEzLjcwODdMNi41NjkwOCAxMy43MTA0TDYuNTcwOTkgMTMuNzExTDYuODM5ODQgMTMuNzUzM0w2LjU3MjQyIDEzLjcxMTVDNi43NDYzMyAxMy43NjczIDYuOTMzMzUgMTMuNzY3MyA3LjEwNzI3IDEzLjcxMTVMNy4xMDg3IDEzLjcxMUw3LjExMDYxIDEzLjcxMDRMNy4xMTU4NyAxMy43MDg3TDcuMTMyMDUgMTMuNzAzM0M3LjE0NTMxIDEzLjY5ODkgNy4xNjM0NiAxMy42OTI3IDcuMTg2MTkgMTMuNjg0OEM3LjIzMTY0IDEzLjY2OSA3LjI5NTQ2IDEzLjY0NjIgNy4zNzUwMyAxMy42MTYxQzcuNTM0MDMgMTMuNTU1OSA3Ljc1Njg1IDEzLjQ2NjQgOC4wMjIzNiAxMy4zNDU3QzguNTUwOTUgMTMuMTA1MyA5LjI2MTIzIDEyLjczNTUgOS45NzcxNSAxMi4yMTg1QzExLjM5MSAxMS4xOTczIDEyLjk2NDggOS40OTM3NyAxMi45NjQ4IDYuOTgwMThWMi43NTg4QzEyLjk2NDggMi43MTY2IDEyLjk2MTkgMi42NzUxMSAxMi45NTYxIDIuNjM0NTFWMS44ODM3N0gxMi4wODExQzEyLjA3NzUgMS44ODM3NyAxMi4wNzQgMS44ODM3NyAxMi4wNzA0IDEuODgzNzdDMTAuNzk3OSAxLjg4MDA0IDkuNjE5NjIgMS41MTEwMiA4LjczODk0IDEuMTI0ODZDOC43MzUzNCAxLjEyMzI3IDguNzMxNzQgMS4xMjE2OCA4LjcyODE0IDEuMTIwMDlDOC4yOTEwMyAwLjkyNjg2NCA3LjkzODQyIDAuNzM0MDU5IDcuNjk3NzkgMC41OTEzNzNDNy41Nzc3MiAwLjUyMDE3MSA3LjQ4NjIyIDAuNDYxODYgNy40MjY3NiAwLjQyMjc4OUM3LjM5NzA1IDAuNDAzMjY2IDcuMzc1MzkgMC4zODg1ODggNy4zNjIyNCAwLjM3OTU1NEw3LjM0ODk2IDAuMzcwMzVDNy4zNDg5NiAwLjM3MDM1IDcuMzQ4NDcgMC4zNzAwMiA3LjM0NTYzIDAuMzc0MDU0TDcuMzM3NzkgMC4zNjg2NTlMNy4zMzYwOSAwLjM2NzQ3NVpNOC4wMzQ3MSAyLjcyNjkxQzguODYwNCAzLjA5MDYzIDkuOTYwNjYgMy40NjMwOSAxMS4yMDYxIDMuNTg5MDdWNi45ODAxNUgxMS4yMTQ4QzExLjIxNDggOC42Nzk1MyAxMC4xNjM3IDkuOTI1MDcgOC45NTI1NCAxMC43OTk4QzguMzU1OTUgMTEuMjMwNiA3Ljc1Mzc0IDExLjU0NTQgNy4yOTc5NiAxMS43NTI3QzcuMTE2NzEgMTEuODM1MSA2Ljk2MDYyIDExLjg5OTYgNi44Mzk4NCAxMS45NDY5QzYuNzE5MDYgMTEuODk5NiA2LjU2Mjk3IDExLjgzNTEgNi4zODE3MyAxMS43NTI3QzUuOTI1OTUgMTEuNTQ1NCA1LjMyMzczIDExLjIzMDYgNC43MjcxNSAxMC43OTk4QzMuNTE2MDMgOS45MjUwNyAyLjQ2NDg0IDguNjc5NTUgMi40NjQ4NCA2Ljk4MDE4VjMuNTg5MDlDMy43MTczOCAzLjQ2MjM5IDQuODIzMDggMy4wODYzOSA1LjY1MDMzIDIuNzIwNzFDNi4xNDIyOCAyLjUwMzI0IDYuNTQ0ODUgMi4yODUzNyA2LjgzMjU0IDIuMTE2MjRDNy4xMjE4MSAyLjI4NTM1IDcuNTI3IDIuNTAzNTIgOC4wMjE5NiAyLjcyMTMxQzguMDI2MiAyLjcyMzE3IDguMDMwNDUgMi43MjUwNCA4LjAzNDcxIDIuNzI2OTFaTTUuOTY0ODQgMy40MDE0N1Y3Ljc3NjQ3SDcuNzE0ODRWMy40MDE0N0g1Ljk2NDg0Wk01Ljk2NDg0IDEwLjQwMTVWOC42NTE0N0g3LjcxNDg0VjEwLjQwMTVINS45NjQ4NFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning_fold {
@@ -51069,18 +51349,32 @@ var ace$2 = { exports: {} };
 }
 
 .ace_placeholder {
+    position: relative;
     font-family: arial;
     transform: scale(0.9);
     transform-origin: left;
     white-space: pre;
     opacity: 0.7;
     margin: 0 10px;
+    z-index: 1;
 }
 
 .ace_ghost_text {
     opacity: 0.5;
     font-style: italic;
+}
+
+.ace_ghost_text_container > div {
     white-space: pre;
+}
+
+.ghost_text_line_wrapped::after {
+    content: "\u21A9";
+    position: absolute;
+}
+
+.ace_lineWidgetContainer.ace_ghost_text {
+    margin: 0px 4px
 }
 
 .ace_screenreader-only {
@@ -51090,6 +51384,10 @@ var ace$2 = { exports: {} };
     width:1px;
     height:1px;
     overflow:hidden;
+}
+
+.ace_hidden_token {
+    display: none;
 }`;
   });
   ace.define("ace/layer/decorators", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
@@ -51208,7 +51506,7 @@ var ace$2 = { exports: {} };
     oop.implement(Decorator.prototype, EventEmitter);
     exports2.Decorator = Decorator;
   });
-  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
+  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent", "ace/layer/text_util"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
     var lang = require2("./lib/lang");
@@ -51227,6 +51525,7 @@ var ace$2 = { exports: {} };
     var editorCss = require2("./css/editor-css");
     var Decorator = require2("./layer/decorators").Decorator;
     var useragent = require2("./lib/useragent");
+    var isTextToken = require2("./layer/text_util").isTextToken;
     dom.importCssString(editorCss, "ace_editor.css", false);
     var VirtualRenderer = function() {
       function VirtualRenderer2(container, theme) {
@@ -51417,6 +51716,12 @@ var ace$2 = { exports: {} };
         var el2 = this.container;
         if (!height)
           height = el2.clientHeight || el2.scrollHeight;
+        if (!height && this.$maxLines && this.lineHeight > 1) {
+          if (!el2.style.height || el2.style.height == "0px") {
+            el2.style.height = "1px";
+            height = el2.clientHeight || el2.scrollHeight;
+          }
+        }
         if (!width)
           width = el2.clientWidth || el2.scrollWidth;
         var changes = this.$updateCachedSize(force, gutterWidth, width, height);
@@ -52230,8 +52535,8 @@ var ace$2 = { exports: {} };
         var cursor = this.session.selection.cursor;
         var insertPosition = position || { row: cursor.row, column: cursor.column };
         this.removeGhostText();
-        var textLines = text.split("\n");
-        this.addToken(textLines[0], "ghost_text", insertPosition.row, insertPosition.column);
+        var textChunks = this.$calculateWrappedTextChunks(text, insertPosition);
+        this.addToken(textChunks[0].text, "ghost_text", insertPosition.row, insertPosition.column);
         this.$ghostText = {
           text,
           position: {
@@ -52239,27 +52544,73 @@ var ace$2 = { exports: {} };
             column: insertPosition.column
           }
         };
-        if (textLines.length > 1) {
+        var widgetDiv = dom.createElement("div");
+        if (textChunks.length > 1) {
+          var hiddenTokens = this.hideTokensAfterPosition(insertPosition.row, insertPosition.column);
+          var lastLineDiv;
+          textChunks.slice(1).forEach(function(el3) {
+            var chunkDiv = dom.createElement("div");
+            var chunkSpan = dom.createElement("span");
+            chunkSpan.className = "ace_ghost_text";
+            if (el3.wrapped)
+              chunkDiv.className = "ghost_text_line_wrapped";
+            if (el3.text.length === 0)
+              el3.text = " ";
+            chunkSpan.appendChild(dom.createTextNode(el3.text));
+            chunkDiv.appendChild(chunkSpan);
+            widgetDiv.appendChild(chunkDiv);
+            lastLineDiv = chunkDiv;
+          });
+          hiddenTokens.forEach(function(token) {
+            var element = dom.createElement("span");
+            if (!isTextToken(token.type))
+              element.className = "ace_" + token.type.replace(/\./g, " ace_");
+            element.appendChild(dom.createTextNode(token.value));
+            lastLineDiv.appendChild(element);
+          });
           this.$ghostTextWidget = {
-            text: textLines.slice(1).join("\n"),
+            el: widgetDiv,
             row: insertPosition.row,
             column: insertPosition.column,
-            className: "ace_ghost_text"
+            className: "ace_ghost_text_container"
           };
           this.session.widgetManager.addLineWidget(this.$ghostTextWidget);
           var pixelPosition = this.$cursorLayer.getPixelPosition(insertPosition, true);
           var el2 = this.container;
           var height = el2.getBoundingClientRect().height;
-          var ghostTextHeight = textLines.length * this.lineHeight;
+          var ghostTextHeight = textChunks.length * this.lineHeight;
           var fitsY = ghostTextHeight < height - pixelPosition.top;
           if (fitsY)
             return;
           if (ghostTextHeight < height) {
-            this.scrollBy(0, (textLines.length - 1) * this.lineHeight);
+            this.scrollBy(0, (textChunks.length - 1) * this.lineHeight);
           } else {
-            this.scrollBy(0, pixelPosition.top);
+            this.scrollToRow(insertPosition.row);
           }
         }
+      };
+      VirtualRenderer2.prototype.$calculateWrappedTextChunks = function(text, position) {
+        var availableWidth = this.$size.scrollerWidth - this.$padding * 2;
+        var limit = Math.floor(availableWidth / this.characterWidth) - 2;
+        limit = limit <= 0 ? 60 : limit;
+        var textLines = text.split(/\r?\n/);
+        var textChunks = [];
+        for (var i10 = 0; i10 < textLines.length; i10++) {
+          var displayTokens = this.session.$getDisplayTokens(textLines[i10], position.column);
+          var wrapSplits = this.session.$computeWrapSplits(displayTokens, limit, this.session.$tabSize);
+          if (wrapSplits.length > 0) {
+            var start = 0;
+            wrapSplits.push(textLines[i10].length);
+            for (var j10 = 0; j10 < wrapSplits.length; j10++) {
+              var textSlice = textLines[i10].slice(start, wrapSplits[j10]);
+              textChunks.push({ text: textSlice, wrapped: true });
+              start = wrapSplits[j10];
+            }
+          } else {
+            textChunks.push({ text: textLines[i10], wrapped: false });
+          }
+        }
+        return textChunks;
       };
       VirtualRenderer2.prototype.removeGhostText = function() {
         if (!this.$ghostText)
@@ -52294,6 +52645,28 @@ var ace$2 = { exports: {} };
           }
         }
         this.updateLines(row, row);
+      };
+      VirtualRenderer2.prototype.hideTokensAfterPosition = function(row, column) {
+        var tokens = this.session.getTokens(row);
+        var l10 = 0;
+        var hasPassedCursor = false;
+        var hiddenTokens = [];
+        for (var i10 = 0; i10 < tokens.length; i10++) {
+          var token = tokens[i10];
+          l10 += token.value.length;
+          if (token.type === "ghost_text")
+            continue;
+          if (hasPassedCursor) {
+            hiddenTokens.push({ type: token.type, value: token.value });
+            token.type = "hidden_token";
+            continue;
+          }
+          if (l10 === column) {
+            hasPassedCursor = true;
+          }
+        }
+        this.updateLines(row, row);
+        return hiddenTokens;
       };
       VirtualRenderer2.prototype.removeExtraToken = function(row, column) {
         this.session.bgTokenizer.lines[row] = null;
@@ -52332,6 +52705,10 @@ var ace$2 = { exports: {} };
           }
           _self._dispatchEvent("themeLoaded", { theme: module3 });
           cb2 && cb2();
+          if (useragent.isSafari && _self.scroller) {
+            _self.scroller.style.background = "red";
+            _self.scroller.style.background = "";
+          }
         }
       };
       VirtualRenderer2.prototype.getTheme = function() {
@@ -54079,7 +54456,7 @@ var ace$2 = { exports: {} };
         return;
       } else {
         gutterAnno = {
-          text: [nls("Looks good!")],
+          displayText: [nls("error-marker.good-state", "Looks good!")],
           className: "ace_ok"
         };
       }
@@ -54099,7 +54476,12 @@ var ace$2 = { exports: {} };
       arrow.style.left = left + editor.renderer.gutterWidth - 5 + "px";
       w10.el.className = "error_widget_wrapper";
       el2.className = "error_widget " + gutterAnno.className;
-      el2.innerHTML = gutterAnno.text.join("<br>");
+      gutterAnno.displayText.forEach(function(annoTextLine, i10) {
+        el2.appendChild(dom.createTextNode(annoTextLine));
+        if (i10 < gutterAnno.displayText.length - 1) {
+          el2.appendChild(dom.createElement("br"));
+        }
+      });
       el2.appendChild(dom.createElement("div"));
       var kb2 = function(_10, hashId, keyString) {
         if (hashId === 0 && (keyString === "esc" || keyString === "return")) {
@@ -54237,12 +54619,12 @@ var modeJavascript = { exports: {} };
 (function(module, exports) {
   ace.define("ace/mode/jsdoc_comment_highlight_rules", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text_highlight_rules"], function(e13, t10, n10) {
     var r10 = e13("../lib/oop"), i10 = e13("./text_highlight_rules").TextHighlightRules, s10 = function() {
-      this.$rules = { start: [{ token: ["comment.doc.tag", "comment.doc.text", "lparen.doc"], regex: "(@(?:param|member|typedef|property|namespace|var|const|callback))(\\s*)({)", push: [{ token: "lparen.doc", regex: "{", push: [{ include: "doc-syntax" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }] }, { token: ["rparen.doc", "text.doc", "variable.parameter.doc", "lparen.doc", "variable.parameter.doc", "rparen.doc"], regex: /(})(\s*)(?:([\w=:\/\.]+)|(?:(\[)([\w=:\/\.]+)(\])))/, next: "pop" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }, { include: "doc-syntax" }, { defaultToken: "text.doc" }] }, { token: ["comment.doc.tag", "text.doc", "lparen.doc"], regex: "(@(?:returns?|yields|type|this|suppress|public|protected|private|package|modifies|implements|external|exception|throws|enum|define|extends))(\\s*)({)", push: [{ token: "lparen.doc", regex: "{", push: [{ include: "doc-syntax" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }] }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }, { include: "doc-syntax" }, { defaultToken: "text.doc" }] }, { token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"], regex: '(@(?:alias|memberof|instance|module|name|lends|namespace|external|this|template|requires|param|implements|function|extends|typedef|mixes|constructor|var|memberof\\!|event|listens|exports|class|constructs|interface|emits|fires|throws|const|callback|borrows|augments))(\\s+)(\\w[\\w#.:/~"\\-]*)?' }, { token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"], regex: "(@method)(\\s+)(\\w[\\w.\\(\\)]*)" }, { token: "comment.doc.tag", regex: "@access\\s+(?:private|public|protected)" }, { token: "comment.doc.tag", regex: "@kind\\s+(?:class|constant|event|external|file|function|member|mixin|module|namespace|typedef)" }, { token: "comment.doc.tag", regex: "@\\w+(?=\\s|$)" }, s10.getTagRule(), { defaultToken: "comment.doc", caseInsensitive: true }], "doc-syntax": [{ token: "operator.doc", regex: /[|:]/ }, { token: "paren.doc", regex: /[\[\]]/ }] }, this.normalizeRules();
+      this.$rules = { start: [{ token: ["comment.doc.tag", "comment.doc.text", "lparen.doc"], regex: "(@(?:param|member|typedef|property|namespace|var|const|callback))(\\s*)({)", push: [{ token: "lparen.doc", regex: "{", push: [{ include: "doc-syntax" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }] }, { token: ["rparen.doc", "text.doc", "variable.parameter.doc", "lparen.doc", "variable.parameter.doc", "rparen.doc"], regex: /(})(\s*)(?:([\w=:\/\.]+)|(?:(\[)([\w=:\/\.\-\'\" ]+)(\])))/, next: "pop" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }, { include: "doc-syntax" }, { defaultToken: "text.doc" }] }, { token: ["comment.doc.tag", "text.doc", "lparen.doc"], regex: "(@(?:returns?|yields|type|this|suppress|public|protected|private|package|modifies|implements|external|exception|throws|enum|define|extends))(\\s*)({)", push: [{ token: "lparen.doc", regex: "{", push: [{ include: "doc-syntax" }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }] }, { token: "rparen.doc", regex: "}|(?=$)", next: "pop" }, { include: "doc-syntax" }, { defaultToken: "text.doc" }] }, { token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"], regex: '(@(?:alias|memberof|instance|module|name|lends|namespace|external|this|template|requires|param|implements|function|extends|typedef|mixes|constructor|var|memberof\\!|event|listens|exports|class|constructs|interface|emits|fires|throws|const|callback|borrows|augments))(\\s+)(\\w[\\w#.:/~"\\-]*)?' }, { token: ["comment.doc.tag", "text.doc", "variable.parameter.doc"], regex: "(@method)(\\s+)(\\w[\\w.\\(\\)]*)" }, { token: "comment.doc.tag", regex: "@access\\s+(?:private|public|protected)" }, { token: "comment.doc.tag", regex: "@kind\\s+(?:class|constant|event|external|file|function|member|mixin|module|namespace|typedef)" }, { token: "comment.doc.tag", regex: "@\\w+(?=\\s|$)" }, s10.getTagRule(), { defaultToken: "comment.doc.body", caseInsensitive: true }], "doc-syntax": [{ token: "operator.doc", regex: /[|:]/ }, { token: "paren.doc", regex: /[\[\]]/ }] }, this.normalizeRules();
     };
     r10.inherits(s10, i10), s10.getTagRule = function(e14) {
       return { token: "comment.doc.tag.storage.type", regex: "\\b(?:TODO|FIXME|XXX|HACK)\\b" };
     }, s10.getStartRule = function(e14) {
-      return { token: "comment.doc", regex: "\\/\\*(?=\\*)", next: e14 };
+      return { token: "comment.doc", regex: /\/\*\*(?!\/)/, next: e14 };
     }, s10.getEndRule = function(e14) {
       return { token: "comment.doc", regex: "\\*\\/", next: e14 };
     }, t10.JsDocCommentHighlightRules = s10;
@@ -54258,10 +54640,10 @@ var modeJavascript = { exports: {} };
             n12.shift(), n12.shift();
         }
         return [{ type: "meta.tag.punctuation." + (r11 == 1 ? "" : "end-") + "tag-open.xml", value: e15.slice(0, r11) }, { type: "meta.tag.tag-name.xml", value: e15.substr(r11) }];
-      }, regex: "</?" + e14 + "", next: "jsxAttributes", nextState: "jsx" };
+      }, regex: "</?(?:" + e14 + "|(?=>))", next: "jsxAttributes", nextState: "jsx" };
       this.$rules.start.unshift(t11);
       var n11 = { regex: "{", token: "paren.quasi.start", push: "start" };
-      this.$rules.jsx = [n11, t11, { include: "reference" }, { defaultToken: "string" }], this.$rules.jsxAttributes = [{ token: "meta.tag.punctuation.tag-close.xml", regex: "/?>", onMatch: function(e15, t12, n12) {
+      this.$rules.jsx = [n11, t11, { include: "reference" }, { defaultToken: "string.xml" }], this.$rules.jsxAttributes = [{ token: "meta.tag.punctuation.tag-close.xml", regex: "/?>", onMatch: function(e15, t12, n12) {
         return t12 == n12[0] && n12.shift(), e15.length == 2 && (n12[0] == this.nextState && n12[1]--, (!n12[1] || n12[1] < 0) && n12.splice(0, 2)), this.next = n12[0] || "start", [{ type: this.token, value: e15 }];
       }, nextState: "jsx" }, n11, f10("jsxAttributes"), { token: "entity.other.attribute-name.xml", regex: e14 }, { token: "keyword.operator.attribute-equals.xml", regex: "=" }, { token: "text.tag-whitespace.xml", regex: "\\s+" }, { token: "string.attribute-value.xml", regex: "'", stateName: "jsx_attr_q", push: [{ token: "string.attribute-value.xml", regex: "'", next: "pop" }, { include: "reference" }, { defaultToken: "string.attribute-value.xml" }] }, { token: "string.attribute-value.xml", regex: '"', stateName: "jsx_attr_qq", push: [{ token: "string.attribute-value.xml", regex: '"', next: "pop" }, { include: "reference" }, { defaultToken: "string.attribute-value.xml" }] }, t11], this.$rules.reference = [{ token: "constant.language.escape.reference.xml", regex: "(?:&#[0-9]+;)|(?:&#x[0-9a-fA-F]+;)|(?:&[a-zA-Z0-9_:\\.-]+;)" }];
     }
@@ -54269,8 +54651,8 @@ var modeJavascript = { exports: {} };
       return [{ token: "comment", regex: /\/\*/, next: [i10.getTagRule(), { token: "comment", regex: "\\*\\/", next: e14 || "pop" }, { defaultToken: "comment", caseInsensitive: true }] }, { token: "comment", regex: "\\/\\/", next: [i10.getTagRule(), { token: "comment", regex: "$|^", next: e14 || "pop" }, { defaultToken: "comment", caseInsensitive: true }] }];
     }
     var r10 = e13("../lib/oop"), i10 = e13("./jsdoc_comment_highlight_rules").JsDocCommentHighlightRules, s10 = e13("./text_highlight_rules").TextHighlightRules, o10 = "[a-zA-Z\\$_\xA1-\uFFFF][a-zA-Z\\d\\$_\xA1-\uFFFF]*", u10 = function(e14) {
-      var t11 = this.createKeywordMapper({ "variable.language": "Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|Symbol|Namespace|QName|XML|XMLList|ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|SyntaxError|TypeError|URIError|decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|isNaN|parseFloat|parseInt|JSON|Math|this|arguments|prototype|window|document", keyword: "const|yield|import|get|set|async|await|break|case|catch|continue|default|delete|do|else|finally|for|function|if|in|of|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|__parent__|__count__|escape|unescape|with|__proto__|class|enum|extends|super|export|implements|private|public|interface|package|protected|static|constructor", "storage.type": "const|let|var|function", "constant.language": "null|Infinity|NaN|undefined", "support.function": "alert", "constant.language.boolean": "true|false" }, "identifier"), n11 = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield|void", r11 = "\\\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|u{[0-9a-fA-F]{1,6}}|[0-2][0-7]{0,2}|3[0-7][0-7]?|[4-7][0-7]?|.)";
-      this.$rules = { no_regex: [i10.getStartRule("doc-start"), f10("no_regex"), { token: "string", regex: "'(?=.)", next: "qstring" }, { token: "string", regex: '"(?=.)', next: "qqstring" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: ["storage.type", "punctuation.operator", "support.function", "punctuation.operator", "entity.name.function", "text", "keyword.operator"], regex: "(" + o10 + ")(\\.)(prototype)(\\.)(" + o10 + ")(\\s*)(=)", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(\\s+)(\\w+)(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function\\*?)(\\s+)(" + o10 + ")(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "punctuation.operator", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(:)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: ["text", "text", "storage.type", "text", "paren.lparen"], regex: "(:)(\\s*)(function\\*?)(\\s*)(\\()", next: "function_arguments" }, { token: "keyword", regex: `from(?=\\s*('|"))` }, { token: "keyword", regex: "(?:" + n11 + ")\\b", next: "start" }, { token: "support.constant", regex: /that\b/ }, { token: ["storage.type", "punctuation.operator", "support.function.firebug"], regex: /(console)(\.)(warn|info|log|error|debug|time|trace|timeEnd|assert)\b/ }, { token: t11, regex: o10 }, { token: "punctuation.operator", regex: /[.](?![.])/, next: "property" }, { token: "storage.type", regex: /=>/, next: "start" }, { token: "keyword.operator", regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/, next: "start" }, { token: "punctuation.operator", regex: /[?:,;.]/, next: "start" }, { token: "paren.lparen", regex: /[\[({]/, next: "start" }, { token: "paren.rparen", regex: /[\])}]/ }, { token: "comment", regex: /^#!.*$/ }], property: [{ token: "text", regex: "\\s+" }, { token: ["storage.type", "punctuation.operator", "entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "entity.name.function", "text", "paren.lparen"], regex: "(" + o10 + ")(\\.)(" + o10 + ")(\\s*)(=)(\\s*)(function\\*?)(?:(\\s+)(\\w+))?(\\s*)(\\()", next: "function_arguments" }, { token: "punctuation.operator", regex: /[.](?![.])/ }, { token: "support.function", regex: /(s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|lter|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward|rEach)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\b(?=\()/ }, { token: "support.function.dom", regex: /(s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName|ClassName)|ById)|Attribute(?:Node)?)|blur)\b(?=\()/ }, { token: "support.constant", regex: /(s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\b/ }, { token: "identifier", regex: o10 }, { regex: "", token: "empty", next: "no_regex" }], start: [i10.getStartRule("doc-start"), f10("start"), { token: "string.regexp", regex: "\\/", next: "regex" }, { token: "text", regex: "\\s+|^$", next: "start" }, { token: "empty", regex: "", next: "no_regex" }], regex: [{ token: "regexp.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "string.regexp", regex: "/[sxngimy]*", next: "no_regex" }, { token: "invalid", regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/ }, { token: "constant.language.escape", regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/ }, { token: "constant.language.delimiter", regex: /\|/ }, { token: "constant.language.escape", regex: /\[\^?/, next: "regex_character_class" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp" }], regex_character_class: [{ token: "regexp.charclass.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "constant.language.escape", regex: "]", next: "regex" }, { token: "constant.language.escape", regex: "-" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp.charachterclass" }], default_parameter: [{ token: "string", regex: "'(?=.)", push: [{ token: "string", regex: "'|$", next: "pop" }, { include: "qstring" }] }, { token: "string", regex: '"(?=.)', push: [{ token: "string", regex: '"|$', next: "pop" }, { include: "qqstring" }] }, { token: "constant.language", regex: "null|Infinity|NaN|undefined" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: "punctuation.operator", regex: ",", next: "function_arguments" }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], function_arguments: [f10("function_arguments"), { token: "variable.parameter", regex: o10 }, { token: "punctuation.operator", regex: "," }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], qqstring: [{ token: "constant.language.escape", regex: r11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: '"|$', next: "no_regex" }, { defaultToken: "string" }], qstring: [{ token: "constant.language.escape", regex: r11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: "'|$", next: "no_regex" }, { defaultToken: "string" }] };
+      var t11 = { "variable.language": "Array|Boolean|Date|Function|Iterator|Number|Object|RegExp|String|Proxy|Symbol|Namespace|QName|XML|XMLList|ArrayBuffer|Float32Array|Float64Array|Int16Array|Int32Array|Int8Array|Uint16Array|Uint32Array|Uint8Array|Uint8ClampedArray|Error|EvalError|InternalError|RangeError|ReferenceError|StopIteration|SyntaxError|TypeError|URIError|decodeURI|decodeURIComponent|encodeURI|encodeURIComponent|eval|isFinite|isNaN|parseFloat|parseInt|JSON|Math|this|arguments|prototype|window|document", keyword: "const|yield|import|get|set|async|await|break|case|catch|continue|default|delete|do|else|finally|for|if|in|of|instanceof|new|return|switch|throw|try|typeof|let|var|while|with|debugger|__parent__|__count__|escape|unescape|with|__proto__|class|enum|extends|super|export|implements|private|public|interface|package|protected|static|constructor", "storage.type": "const|let|var|function", "constant.language": "null|Infinity|NaN|undefined", "support.function": "alert", "constant.language.boolean": "true|false" }, n11 = this.createKeywordMapper(t11, "identifier"), r11 = "case|do|else|finally|in|instanceof|return|throw|try|typeof|yield|void", s11 = "\\\\(?:x[0-9a-fA-F]{2}|u[0-9a-fA-F]{4}|u{[0-9a-fA-F]{1,6}}|[0-2][0-7]{0,2}|3[0-7][0-7]?|[4-7][0-7]?|.)", u11 = "(function)(\\s*)(\\*?)", l10 = { token: ["identifier", "text", "paren.lparen"], regex: "(\\b(?!" + Object.values(t11).join("|") + "\\b)" + o10 + ")(\\s*)(\\()" };
+      this.$rules = { no_regex: [i10.getStartRule("doc-start"), f10("no_regex"), l10, { token: "string", regex: "'(?=.)", next: "qstring" }, { token: "string", regex: '"(?=.)', next: "qqstring" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: ["entity.name.function", "text", "keyword.operator", "text", "storage.type", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(=)(\\s*)" + u11 + "(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "storage.type", "text", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function)(?:(?:(\\s*)(\\*)(\\s*))|(\\s+))(" + o10 + ")(\\s*)(\\()", next: "function_arguments" }, { token: ["entity.name.function", "text", "punctuation.operator", "text", "storage.type", "text", "storage.type", "text", "paren.lparen"], regex: "(" + o10 + ")(\\s*)(:)(\\s*)" + u11 + "(\\s*)(\\()", next: "function_arguments" }, { token: ["text", "text", "storage.type", "text", "storage.type", "text", "paren.lparen"], regex: "(:)(\\s*)" + u11 + "(\\s*)(\\()", next: "function_arguments" }, { token: "keyword", regex: `from(?=\\s*('|"))` }, { token: "keyword", regex: "(?:" + r11 + ")\\b", next: "start" }, { token: "support.constant", regex: /that\b/ }, { token: ["storage.type", "punctuation.operator", "support.function.firebug"], regex: /(console)(\.)(warn|info|log|error|debug|time|trace|timeEnd|assert)\b/ }, { token: n11, regex: o10 }, { token: "punctuation.operator", regex: /[.](?![.])/, next: "property" }, { token: "storage.type", regex: /=>/, next: "start" }, { token: "keyword.operator", regex: /--|\+\+|\.{3}|===|==|=|!=|!==|<+=?|>+=?|!|&&|\|\||\?:|[!$%&*+\-~\/^]=?/, next: "start" }, { token: "punctuation.operator", regex: /[?:,;.]/, next: "start" }, { token: "paren.lparen", regex: /[\[({]/, next: "start" }, { token: "paren.rparen", regex: /[\])}]/ }, { token: "comment", regex: /^#!.*$/ }], property: [{ token: "text", regex: "\\s+" }, { token: "keyword.operator", regex: /=/ }, { token: ["storage.type", "text", "storage.type", "text", "paren.lparen"], regex: u11 + "(\\s*)(\\()", next: "function_arguments" }, { token: ["storage.type", "text", "storage.type", "text", "text", "entity.name.function", "text", "paren.lparen"], regex: "(function)(?:(?:(\\s*)(\\*)(\\s*))|(\\s+))(\\w+)(\\s*)(\\()", next: "function_arguments" }, { token: "punctuation.operator", regex: /[.](?![.])/ }, { token: "support.function", regex: "prototype" }, { token: "support.function", regex: /(s(?:h(?:ift|ow(?:Mod(?:elessDialog|alDialog)|Help))|croll(?:X|By(?:Pages|Lines)?|Y|To)?|t(?:op|rike)|i(?:n|zeToContent|debar|gnText)|ort|u(?:p|b(?:str(?:ing)?)?)|pli(?:ce|t)|e(?:nd|t(?:Re(?:sizable|questHeader)|M(?:i(?:nutes|lliseconds)|onth)|Seconds|Ho(?:tKeys|urs)|Year|Cursor|Time(?:out)?|Interval|ZOptions|Date|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Date|FullYear)|FullYear|Active)|arch)|qrt|lice|avePreferences|mall)|h(?:ome|andleEvent)|navigate|c(?:har(?:CodeAt|At)|o(?:s|n(?:cat|textual|firm)|mpile)|eil|lear(?:Timeout|Interval)?|a(?:ptureEvents|ll)|reate(?:StyleSheet|Popup|EventObject))|t(?:o(?:GMTString|S(?:tring|ource)|U(?:TCString|pperCase)|Lo(?:caleString|werCase))|est|a(?:n|int(?:Enabled)?))|i(?:s(?:NaN|Finite)|ndexOf|talics)|d(?:isableExternalCapture|ump|etachEvent)|u(?:n(?:shift|taint|escape|watch)|pdateCommands)|j(?:oin|avaEnabled)|p(?:o(?:p|w)|ush|lugins.refresh|a(?:ddings|rse(?:Int|Float)?)|r(?:int|ompt|eference))|e(?:scape|nableExternalCapture|val|lementFromPoint|x(?:p|ec(?:Script|Command)?))|valueOf|UTC|queryCommand(?:State|Indeterm|Enabled|Value)|f(?:i(?:nd|lter|le(?:ModifiedDate|Size|CreatedDate|UpdatedDate)|xed)|o(?:nt(?:size|color)|rward|rEach)|loor|romCharCode)|watch|l(?:ink|o(?:ad|g)|astIndexOf)|a(?:sin|nchor|cos|t(?:tachEvent|ob|an(?:2)?)|pply|lert|b(?:s|ort))|r(?:ou(?:nd|teEvents)|e(?:size(?:By|To)|calc|turnValue|place|verse|l(?:oad|ease(?:Capture|Events)))|andom)|g(?:o|et(?:ResponseHeader|M(?:i(?:nutes|lliseconds)|onth)|Se(?:conds|lection)|Hours|Year|Time(?:zoneOffset)?|Da(?:y|te)|UTC(?:M(?:i(?:nutes|lliseconds)|onth)|Seconds|Hours|Da(?:y|te)|FullYear)|FullYear|A(?:ttention|llResponseHeaders)))|m(?:in|ove(?:B(?:y|elow)|To(?:Absolute)?|Above)|ergeAttributes|a(?:tch|rgins|x))|b(?:toa|ig|o(?:ld|rderWidths)|link|ack))\b(?=\()/ }, { token: "support.function.dom", regex: /(s(?:ub(?:stringData|mit)|plitText|e(?:t(?:NamedItem|Attribute(?:Node)?)|lect))|has(?:ChildNodes|Feature)|namedItem|c(?:l(?:ick|o(?:se|neNode))|reate(?:C(?:omment|DATASection|aption)|T(?:Head|extNode|Foot)|DocumentFragment|ProcessingInstruction|E(?:ntityReference|lement)|Attribute))|tabIndex|i(?:nsert(?:Row|Before|Cell|Data)|tem)|open|delete(?:Row|C(?:ell|aption)|T(?:Head|Foot)|Data)|focus|write(?:ln)?|a(?:dd|ppend(?:Child|Data))|re(?:set|place(?:Child|Data)|move(?:NamedItem|Child|Attribute(?:Node)?)?)|get(?:NamedItem|Element(?:sBy(?:Name|TagName|ClassName)|ById)|Attribute(?:Node)?)|blur)\b(?=\()/ }, { token: "support.constant", regex: /(s(?:ystemLanguage|cr(?:ipts|ollbars|een(?:X|Y|Top|Left))|t(?:yle(?:Sheets)?|atus(?:Text|bar)?)|ibling(?:Below|Above)|ource|uffixes|e(?:curity(?:Policy)?|l(?:ection|f)))|h(?:istory|ost(?:name)?|as(?:h|Focus))|y|X(?:MLDocument|SLDocument)|n(?:ext|ame(?:space(?:s|URI)|Prop))|M(?:IN_VALUE|AX_VALUE)|c(?:haracterSet|o(?:n(?:structor|trollers)|okieEnabled|lorDepth|mp(?:onents|lete))|urrent|puClass|l(?:i(?:p(?:boardData)?|entInformation)|osed|asses)|alle(?:e|r)|rypto)|t(?:o(?:olbar|p)|ext(?:Transform|Indent|Decoration|Align)|ags)|SQRT(?:1_2|2)|i(?:n(?:ner(?:Height|Width)|put)|ds|gnoreCase)|zIndex|o(?:scpu|n(?:readystatechange|Line)|uter(?:Height|Width)|p(?:sProfile|ener)|ffscreenBuffering)|NEGATIVE_INFINITY|d(?:i(?:splay|alog(?:Height|Top|Width|Left|Arguments)|rectories)|e(?:scription|fault(?:Status|Ch(?:ecked|arset)|View)))|u(?:ser(?:Profile|Language|Agent)|n(?:iqueID|defined)|pdateInterval)|_content|p(?:ixelDepth|ort|ersonalbar|kcs11|l(?:ugins|atform)|a(?:thname|dding(?:Right|Bottom|Top|Left)|rent(?:Window|Layer)?|ge(?:X(?:Offset)?|Y(?:Offset)?))|r(?:o(?:to(?:col|type)|duct(?:Sub)?|mpter)|e(?:vious|fix)))|e(?:n(?:coding|abledPlugin)|x(?:ternal|pando)|mbeds)|v(?:isibility|endor(?:Sub)?|Linkcolor)|URLUnencoded|P(?:I|OSITIVE_INFINITY)|f(?:ilename|o(?:nt(?:Size|Family|Weight)|rmName)|rame(?:s|Element)|gColor)|E|whiteSpace|l(?:i(?:stStyleType|n(?:eHeight|kColor))|o(?:ca(?:tion(?:bar)?|lName)|wsrc)|e(?:ngth|ft(?:Context)?)|a(?:st(?:M(?:odified|atch)|Index|Paren)|yer(?:s|X)|nguage))|a(?:pp(?:MinorVersion|Name|Co(?:deName|re)|Version)|vail(?:Height|Top|Width|Left)|ll|r(?:ity|guments)|Linkcolor|bove)|r(?:ight(?:Context)?|e(?:sponse(?:XML|Text)|adyState))|global|x|m(?:imeTypes|ultiline|enubar|argin(?:Right|Bottom|Top|Left))|L(?:N(?:10|2)|OG(?:10E|2E))|b(?:o(?:ttom|rder(?:Width|RightWidth|BottomWidth|Style|Color|TopWidth|LeftWidth))|ufferDepth|elow|ackground(?:Color|Image)))\b/ }, { token: "identifier", regex: o10 }, { regex: "", token: "empty", next: "no_regex" }], start: [i10.getStartRule("doc-start"), f10("start"), { token: "string.regexp", regex: "\\/", next: "regex" }, { token: "text", regex: "\\s+|^$", next: "start" }, { token: "empty", regex: "", next: "no_regex" }], regex: [{ token: "regexp.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "string.regexp", regex: "/[sxngimy]*", next: "no_regex" }, { token: "invalid", regex: /\{\d+\b,?\d*\}[+*]|[+*$^?][+*]|[$^][?]|\?{3,}/ }, { token: "constant.language.escape", regex: /\(\?[:=!]|\)|\{\d+\b,?\d*\}|[+*]\?|[()$^+*?.]/ }, { token: "constant.language.delimiter", regex: /\|/ }, { token: "constant.language.escape", regex: /\[\^?/, next: "regex_character_class" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp" }], regex_character_class: [{ token: "regexp.charclass.keyword.operator", regex: "\\\\(?:u[\\da-fA-F]{4}|x[\\da-fA-F]{2}|.)" }, { token: "constant.language.escape", regex: "]", next: "regex" }, { token: "constant.language.escape", regex: "-" }, { token: "empty", regex: "$", next: "no_regex" }, { defaultToken: "string.regexp.charachterclass" }], default_parameter: [{ token: "string", regex: "'(?=.)", push: [{ token: "string", regex: "'|$", next: "pop" }, { include: "qstring" }] }, { token: "string", regex: '"(?=.)', push: [{ token: "string", regex: '"|$', next: "pop" }, { include: "qqstring" }] }, { token: "constant.language", regex: "null|Infinity|NaN|undefined" }, { token: "constant.numeric", regex: /0(?:[xX][0-9a-fA-F]+|[oO][0-7]+|[bB][01]+)\b/ }, { token: "constant.numeric", regex: /(?:\d\d*(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+\b)?/ }, { token: "punctuation.operator", regex: ",", next: "function_arguments" }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], function_arguments: [f10("function_arguments"), { token: "variable.parameter", regex: o10 }, { token: "punctuation.operator", regex: "," }, { token: "text", regex: "\\s+" }, { token: "punctuation.operator", regex: "$" }, { token: "empty", regex: "", next: "no_regex" }], qqstring: [{ token: "constant.language.escape", regex: s11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: '"|$', next: "no_regex" }, { defaultToken: "string" }], qstring: [{ token: "constant.language.escape", regex: s11 }, { token: "string", regex: "\\\\$", consumeLineEnd: true }, { token: "string", regex: "'|$", next: "no_regex" }, { defaultToken: "string" }] };
       if (!e14 || !e14.noES6)
         this.$rules.no_regex.unshift({ regex: "[{}]", onMatch: function(e15, t12, n12) {
           this.next = e15 == "{" ? this.nextState : "";
@@ -54282,7 +54664,7 @@ var modeJavascript = { exports: {} };
               return "paren.quasi.end";
           }
           return e15 == "{" ? "paren.lparen" : "paren.rparen";
-        }, nextState: "start" }, { token: "string.quasi.start", regex: /`/, push: [{ token: "constant.language.escape", regex: r11 }, { token: "paren.quasi.start", regex: /\${/, push: "start" }, { token: "string.quasi.end", regex: /`/, next: "pop" }, { defaultToken: "string.quasi" }] }, { token: ["variable.parameter", "text"], regex: "(" + o10 + ")(\\s*)(?=\\=>)" }, { token: "paren.lparen", regex: "(\\()(?=.+\\s*=>)", next: "function_arguments" }, { token: "variable.language", regex: "(?:(?:(?:Weak)?(?:Set|Map))|Promise)\\b" }), this.$rules.function_arguments.unshift({ token: "keyword.operator", regex: "=", next: "default_parameter" }, { token: "keyword.operator", regex: "\\.{3}" }), this.$rules.property.unshift({ token: "support.function", regex: "(findIndex|repeat|startsWith|endsWith|includes|isSafeInteger|trunc|cbrt|log2|log10|sign|then|catch|finally|resolve|reject|race|any|all|allSettled|keys|entries|isInteger)\\b(?=\\()" }, { token: "constant.language", regex: "(?:MAX_SAFE_INTEGER|MIN_SAFE_INTEGER|EPSILON)\\b" }), (!e14 || e14.jsx != 0) && a10.call(this);
+        }, nextState: "start" }, { token: "string.quasi.start", regex: /`/, push: [{ token: "constant.language.escape", regex: s11 }, { token: "paren.quasi.start", regex: /\${/, push: "start" }, { token: "string.quasi.end", regex: /`/, next: "pop" }, { defaultToken: "string.quasi" }] }, { token: ["variable.parameter", "text"], regex: "(" + o10 + ")(\\s*)(?=\\=>)" }, { token: "paren.lparen", regex: "(\\()(?=[^\\(]+\\s*=>)", next: "function_arguments" }, { token: "variable.language", regex: "(?:(?:(?:Weak)?(?:Set|Map))|Promise)\\b" }), this.$rules.function_arguments.unshift({ token: "keyword.operator", regex: "=", next: "default_parameter" }, { token: "keyword.operator", regex: "\\.{3}" }), this.$rules.property.unshift({ token: "support.function", regex: "(findIndex|repeat|startsWith|endsWith|includes|isSafeInteger|trunc|cbrt|log2|log10|sign|then|catch|finally|resolve|reject|race|any|all|allSettled|keys|entries|isInteger)\\b(?=\\()" }, { token: "constant.language", regex: "(?:MAX_SAFE_INTEGER|MIN_SAFE_INTEGER|EPSILON)\\b" }), (!e14 || e14.jsx != 0) && a10.call(this);
       this.embedRules(i10, "doc-", [i10.getEndRule("no_regex")]), this.normalizeRules();
     };
     r10.inherits(u10, s10), t10.JavaScriptHighlightRules = u10;
@@ -54305,6 +54687,178 @@ var modeJavascript = { exports: {} };
         return e14.match(/^\s*/)[0];
       };
     }).call(i10.prototype), t10.MatchingBraceOutdent = i10;
+  }), ace.define("ace/mode/behaviour/xml", ["require", "exports", "module", "ace/lib/oop", "ace/mode/behaviour", "ace/token_iterator"], function(e13, t10, n10) {
+    function o10(e14, t11) {
+      return e14 && e14.type.lastIndexOf(t11 + ".xml") > -1;
+    }
+    var r10 = e13("../../lib/oop"), i10 = e13("../behaviour").Behaviour, s10 = e13("../../token_iterator").TokenIterator, u10 = function() {
+      this.add("string_dquotes", "insertion", function(e14, t11, n11, r11, i11) {
+        if (i11 == '"' || i11 == "'") {
+          var u11 = i11, a10 = r11.doc.getTextRange(n11.getSelectionRange());
+          if (a10 !== "" && a10 !== "'" && a10 != '"' && n11.getWrapBehavioursEnabled())
+            return { text: u11 + a10 + u11, selection: false };
+          var f10 = n11.getCursorPosition(), l10 = r11.doc.getLine(f10.row), c10 = l10.substring(f10.column, f10.column + 1), h10 = new s10(r11, f10.row, f10.column), p10 = h10.getCurrentToken();
+          if (c10 == u11 && (o10(p10, "attribute-value") || o10(p10, "string")))
+            return { text: "", selection: [1, 1] };
+          p10 || (p10 = h10.stepBackward());
+          if (!p10)
+            return;
+          while (o10(p10, "tag-whitespace") || o10(p10, "whitespace"))
+            p10 = h10.stepBackward();
+          var d10 = !c10 || c10.match(/\s/);
+          if (o10(p10, "attribute-equals") && (d10 || c10 == ">") || o10(p10, "decl-attribute-equals") && (d10 || c10 == "?"))
+            return { text: u11 + u11, selection: [1, 1] };
+        }
+      }), this.add("string_dquotes", "deletion", function(e14, t11, n11, r11, i11) {
+        var s11 = r11.doc.getTextRange(i11);
+        if (!i11.isMultiLine() && (s11 == '"' || s11 == "'")) {
+          var o11 = r11.doc.getLine(i11.start.row), u11 = o11.substring(i11.start.column + 1, i11.start.column + 2);
+          if (u11 == s11)
+            return i11.end.column++, i11;
+        }
+      }), this.add("autoclosing", "insertion", function(e14, t11, n11, r11, i11) {
+        if (i11 == ">") {
+          var u11 = n11.getSelectionRange().start, a10 = new s10(r11, u11.row, u11.column), f10 = a10.getCurrentToken() || a10.stepBackward();
+          if (!f10 || !(o10(f10, "tag-name") || o10(f10, "tag-whitespace") || o10(f10, "attribute-name") || o10(f10, "attribute-equals") || o10(f10, "attribute-value")))
+            return;
+          if (o10(f10, "reference.attribute-value"))
+            return;
+          if (o10(f10, "attribute-value")) {
+            var l10 = a10.getCurrentTokenColumn() + f10.value.length;
+            if (u11.column < l10)
+              return;
+            if (u11.column == l10) {
+              var c10 = a10.stepForward();
+              if (c10 && o10(c10, "attribute-value"))
+                return;
+              a10.stepBackward();
+            }
+          }
+          if (/^\s*>/.test(r11.getLine(u11.row).slice(u11.column)))
+            return;
+          while (!o10(f10, "tag-name")) {
+            f10 = a10.stepBackward();
+            if (f10.value == "<") {
+              f10 = a10.stepForward();
+              break;
+            }
+          }
+          var h10 = a10.getCurrentTokenRow(), p10 = a10.getCurrentTokenColumn();
+          if (o10(a10.stepBackward(), "end-tag-open"))
+            return;
+          var d10 = f10.value;
+          h10 == u11.row && (d10 = d10.substring(0, u11.column - p10));
+          if (this.voidElements && this.voidElements.hasOwnProperty(d10.toLowerCase()))
+            return;
+          return { text: "></" + d10 + ">", selection: [1, 1] };
+        }
+      }), this.add("autoindent", "insertion", function(e14, t11, n11, r11, i11) {
+        if (i11 == "\n") {
+          var u11 = n11.getCursorPosition(), a10 = r11.getLine(u11.row), f10 = new s10(r11, u11.row, u11.column), l10 = f10.getCurrentToken();
+          if (o10(l10, "") && l10.type.indexOf("tag-close") !== -1) {
+            if (l10.value == "/>")
+              return;
+            while (l10 && l10.type.indexOf("tag-name") === -1)
+              l10 = f10.stepBackward();
+            if (!l10)
+              return;
+            var c10 = l10.value, h10 = f10.getCurrentTokenRow();
+            l10 = f10.stepBackward();
+            if (!l10 || l10.type.indexOf("end-tag") !== -1)
+              return;
+            if (this.voidElements && !this.voidElements[c10] || !this.voidElements) {
+              var p10 = r11.getTokenAt(u11.row, u11.column + 1), a10 = r11.getLine(h10), d10 = this.$getIndent(a10), v10 = d10 + r11.getTabString();
+              return p10 && p10.value === "</" ? { text: "\n" + v10 + "\n" + d10, selection: [1, v10.length, 1, v10.length] } : { text: "\n" + v10 };
+            }
+          }
+        }
+      });
+    };
+    r10.inherits(u10, i10), t10.XmlBehaviour = u10;
+  }), ace.define("ace/mode/behaviour/javascript", ["require", "exports", "module", "ace/lib/oop", "ace/token_iterator", "ace/mode/behaviour/cstyle", "ace/mode/behaviour/xml"], function(e13, t10, n10) {
+    var r10 = e13("../../lib/oop"), i10 = e13("../../token_iterator").TokenIterator, s10 = e13("../behaviour/cstyle").CstyleBehaviour, o10 = e13("../behaviour/xml").XmlBehaviour, u10 = function() {
+      var e14 = new o10({ closeCurlyBraces: true }).getBehaviours();
+      this.addBehaviours(e14), this.inherit(s10), this.add("autoclosing-fragment", "insertion", function(e15, t11, n11, r11, s11) {
+        if (s11 == ">") {
+          var o11 = n11.getSelectionRange().start, u11 = new i10(r11, o11.row, o11.column), a10 = u11.getCurrentToken() || u11.stepBackward();
+          if (!a10)
+            return;
+          if (a10.value == "<")
+            return { text: "></>", selection: [1, 1] };
+        }
+      });
+    };
+    r10.inherits(u10, s10), t10.JavaScriptBehaviour = u10;
+  }), ace.define("ace/mode/folding/xml", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(e13, t10, n10) {
+    function a10(e14, t11) {
+      return e14.type.lastIndexOf(t11 + ".xml") > -1;
+    }
+    var r10 = e13("../../lib/oop"), i10 = e13("../../range").Range, s10 = e13("./fold_mode").FoldMode, o10 = t10.FoldMode = function(e14, t11) {
+      s10.call(this), this.voidElements = e14 || {}, this.optionalEndTags = r10.mixin({}, this.voidElements), t11 && r10.mixin(this.optionalEndTags, t11);
+    };
+    r10.inherits(o10, s10);
+    var u10 = function() {
+      this.tagName = "", this.closing = false, this.selfClosing = false, this.start = { row: 0, column: 0 }, this.end = { row: 0, column: 0 };
+    };
+    (function() {
+      this.getFoldWidget = function(e14, t11, n11) {
+        var r11 = this._getFirstTagInLine(e14, n11);
+        return r11 ? r11.closing || !r11.tagName && r11.selfClosing ? t11 === "markbeginend" ? "end" : "" : !r11.tagName || r11.selfClosing || this.voidElements.hasOwnProperty(r11.tagName.toLowerCase()) ? "" : this._findEndTagInLine(e14, n11, r11.tagName, r11.end.column) ? "" : "start" : this.getCommentFoldWidget(e14, n11);
+      }, this.getCommentFoldWidget = function(e14, t11) {
+        return /comment/.test(e14.getState(t11)) && /<!-/.test(e14.getLine(t11)) ? "start" : "";
+      }, this._getFirstTagInLine = function(e14, t11) {
+        var n11 = e14.getTokens(t11), r11 = new u10();
+        for (var i11 = 0; i11 < n11.length; i11++) {
+          var s11 = n11[i11];
+          if (a10(s11, "tag-open")) {
+            r11.end.column = r11.start.column + s11.value.length, r11.closing = a10(s11, "end-tag-open"), s11 = n11[++i11];
+            if (!s11)
+              return null;
+            r11.tagName = s11.value;
+            if (s11.value === "") {
+              s11 = n11[++i11];
+              if (!s11)
+                return null;
+              r11.tagName = s11.value;
+            }
+            r11.end.column += s11.value.length;
+            for (i11++; i11 < n11.length; i11++) {
+              s11 = n11[i11], r11.end.column += s11.value.length;
+              if (a10(s11, "tag-close")) {
+                r11.selfClosing = s11.value == "/>";
+                break;
+              }
+            }
+            return r11;
+          }
+          if (a10(s11, "tag-close"))
+            return r11.selfClosing = s11.value == "/>", r11;
+          r11.start.column += s11.value.length;
+        }
+        return null;
+      }, this._findEndTagInLine = function(e14, t11, n11, r11) {
+        var i11 = e14.getTokens(t11), s11 = 0;
+        for (var o11 = 0; o11 < i11.length; o11++) {
+          var u11 = i11[o11];
+          s11 += u11.value.length;
+          if (s11 < r11 - 1)
+            continue;
+          if (a10(u11, "end-tag-open")) {
+            u11 = i11[o11 + 1], a10(u11, "tag-name") && u11.value === "" && (u11 = i11[o11 + 2]);
+            if (u11 && u11.value == n11)
+              return true;
+          }
+        }
+        return false;
+      }, this.getFoldWidgetRange = function(e14, t11, n11) {
+        var r11 = this._getFirstTagInLine(e14, n11);
+        if (!r11)
+          return this.getCommentFoldWidget(e14, n11) && e14.getCommentFoldRange(n11, e14.getLine(n11).length);
+        var s11 = e14.getMatchingTags({ row: n11, column: 0 });
+        if (s11)
+          return new i10(s11.openTag.end.row, s11.openTag.end.column, s11.closeTag.start.row, s11.closeTag.start.column);
+      };
+    }).call(o10.prototype);
   }), ace.define("ace/mode/folding/cstyle", ["require", "exports", "module", "ace/lib/oop", "ace/range", "ace/mode/folding/fold_mode"], function(e13, t10, n10) {
     var r10 = e13("../../lib/oop"), i10 = e13("../../range").Range, s10 = e13("./fold_mode").FoldMode, o10 = t10.FoldMode = function(e14) {
       e14 && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + e14.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + e14.end)));
@@ -54374,8 +54928,21 @@ var modeJavascript = { exports: {} };
           return new i10(o11, r11, l10, t11.length);
       };
     }.call(o10.prototype);
-  }), ace.define("ace/mode/javascript", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/javascript_highlight_rules", "ace/mode/matching_brace_outdent", "ace/worker/worker_client", "ace/mode/behaviour/cstyle", "ace/mode/folding/cstyle"], function(e13, t10, n10) {
-    var r10 = e13("../lib/oop"), i10 = e13("./text").Mode, s10 = e13("./javascript_highlight_rules").JavaScriptHighlightRules, o10 = e13("./matching_brace_outdent").MatchingBraceOutdent, u10 = e13("../worker/worker_client").WorkerClient, a10 = e13("./behaviour/cstyle").CstyleBehaviour, f10 = e13("./folding/cstyle").FoldMode, l10 = function() {
+  }), ace.define("ace/mode/folding/javascript", ["require", "exports", "module", "ace/lib/oop", "ace/mode/folding/xml", "ace/mode/folding/cstyle"], function(e13, t10, n10) {
+    var r10 = e13("../../lib/oop"), i10 = e13("./xml").FoldMode, s10 = e13("./cstyle").FoldMode, o10 = t10.FoldMode = function(e14) {
+      e14 && (this.foldingStartMarker = new RegExp(this.foldingStartMarker.source.replace(/\|[^|]*?$/, "|" + e14.start)), this.foldingStopMarker = new RegExp(this.foldingStopMarker.source.replace(/\|[^|]*?$/, "|" + e14.end))), this.xmlFoldMode = new i10();
+    };
+    r10.inherits(o10, s10), function() {
+      this.getFoldWidgetRangeBase = this.getFoldWidgetRange, this.getFoldWidgetBase = this.getFoldWidget, this.getFoldWidget = function(e14, t11, n11) {
+        var r11 = this.getFoldWidgetBase(e14, t11, n11);
+        return r11 ? r11 : this.xmlFoldMode.getFoldWidget(e14, t11, n11);
+      }, this.getFoldWidgetRange = function(e14, t11, n11, r11) {
+        var i11 = this.getFoldWidgetRangeBase(e14, t11, n11, r11);
+        return i11 ? i11 : this.xmlFoldMode.getFoldWidgetRange(e14, t11, n11);
+      };
+    }.call(o10.prototype);
+  }), ace.define("ace/mode/javascript", ["require", "exports", "module", "ace/lib/oop", "ace/mode/text", "ace/mode/javascript_highlight_rules", "ace/mode/matching_brace_outdent", "ace/worker/worker_client", "ace/mode/behaviour/javascript", "ace/mode/folding/javascript"], function(e13, t10, n10) {
+    var r10 = e13("../lib/oop"), i10 = e13("./text").Mode, s10 = e13("./javascript_highlight_rules").JavaScriptHighlightRules, o10 = e13("./matching_brace_outdent").MatchingBraceOutdent, u10 = e13("../worker/worker_client").WorkerClient, a10 = e13("./behaviour/javascript").JavaScriptBehaviour, f10 = e13("./folding/javascript").FoldMode, l10 = function() {
       this.HighlightRules = s10, this.$outdent = new o10(), this.$behaviour = new a10(), this.foldingRules = new f10();
     };
     r10.inherits(l10, i10), function() {
@@ -54389,8 +54956,6 @@ var modeJavascript = { exports: {} };
         } else if (e14 == "doc-start") {
           if (o11 == "start" || o11 == "no_regex")
             return "";
-          var u11 = t11.match(/^\s*(\/?)\*/);
-          u11 && (u11[1] && (r11 += " "), r11 += "* ");
         }
         return r11;
       }, this.checkOutdent = function(e14, t11, n11) {
@@ -54551,7 +55116,7 @@ var modeCss = { exports: {} };
     e13("../lib/lang");
     var s10 = e13("./text_highlight_rules").TextHighlightRules, o10 = t10.supportType = "align-content|align-items|align-self|all|animation|animation-delay|animation-direction|animation-duration|animation-fill-mode|animation-iteration-count|animation-name|animation-play-state|animation-timing-function|backface-visibility|background|background-attachment|background-blend-mode|background-clip|background-color|background-image|background-origin|background-position|background-repeat|background-size|border|border-bottom|border-bottom-color|border-bottom-left-radius|border-bottom-right-radius|border-bottom-style|border-bottom-width|border-collapse|border-color|border-image|border-image-outset|border-image-repeat|border-image-slice|border-image-source|border-image-width|border-left|border-left-color|border-left-style|border-left-width|border-radius|border-right|border-right-color|border-right-style|border-right-width|border-spacing|border-style|border-top|border-top-color|border-top-left-radius|border-top-right-radius|border-top-style|border-top-width|border-width|bottom|box-shadow|box-sizing|caption-side|clear|clip|color|column-count|column-fill|column-gap|column-rule|column-rule-color|column-rule-style|column-rule-width|column-span|column-width|columns|content|counter-increment|counter-reset|cursor|direction|display|empty-cells|filter|flex|flex-basis|flex-direction|flex-flow|flex-grow|flex-shrink|flex-wrap|float|font|font-family|font-size|font-size-adjust|font-stretch|font-style|font-variant|font-weight|hanging-punctuation|height|justify-content|left|letter-spacing|line-height|list-style|list-style-image|list-style-position|list-style-type|margin|margin-bottom|margin-left|margin-right|margin-top|max-height|max-width|max-zoom|min-height|min-width|min-zoom|nav-down|nav-index|nav-left|nav-right|nav-up|opacity|order|outline|outline-color|outline-offset|outline-style|outline-width|overflow|overflow-x|overflow-y|padding|padding-bottom|padding-left|padding-right|padding-top|page-break-after|page-break-before|page-break-inside|perspective|perspective-origin|position|quotes|resize|right|tab-size|table-layout|text-align|text-align-last|text-decoration|text-decoration-color|text-decoration-line|text-decoration-style|text-indent|text-justify|text-overflow|text-shadow|text-transform|top|transform|transform-origin|transform-style|transition|transition-delay|transition-duration|transition-property|transition-timing-function|unicode-bidi|user-select|user-zoom|vertical-align|visibility|white-space|width|word-break|word-spacing|word-wrap|z-index", u10 = t10.supportFunction = "rgb|rgba|url|attr|counter|counters", a10 = t10.supportConstant = "absolute|after-edge|after|all-scroll|all|alphabetic|always|antialiased|armenian|auto|avoid-column|avoid-page|avoid|balance|baseline|before-edge|before|below|bidi-override|block-line-height|block|bold|bolder|border-box|both|bottom|box|break-all|break-word|capitalize|caps-height|caption|center|central|char|circle|cjk-ideographic|clone|close-quote|col-resize|collapse|column|consider-shifts|contain|content-box|cover|crosshair|cubic-bezier|dashed|decimal-leading-zero|decimal|default|disabled|disc|disregard-shifts|distribute-all-lines|distribute-letter|distribute-space|distribute|dotted|double|e-resize|ease-in|ease-in-out|ease-out|ease|ellipsis|end|exclude-ruby|flex-end|flex-start|fill|fixed|georgian|glyphs|grid-height|groove|hand|hanging|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|icon|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|ideographic|inactive|include-ruby|inherit|initial|inline-block|inline-box|inline-line-height|inline-table|inline|inset|inside|inter-ideograph|inter-word|invert|italic|justify|katakana-iroha|katakana|keep-all|last|left|lighter|line-edge|line-through|line|linear|list-item|local|loose|lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|mathematical|max-height|max-size|medium|menu|message-box|middle|move|n-resize|ne-resize|newspaper|no-change|no-close-quote|no-drop|no-open-quote|no-repeat|none|normal|not-allowed|nowrap|nw-resize|oblique|open-quote|outset|outside|overline|padding-box|page|pointer|pre-line|pre-wrap|pre|preserve-3d|progress|relative|repeat-x|repeat-y|repeat|replaced|reset-size|ridge|right|round|row-resize|rtl|s-resize|scroll|se-resize|separate|slice|small-caps|small-caption|solid|space|square|start|static|status-bar|step-end|step-start|steps|stretch|strict|sub|super|sw-resize|table-caption|table-cell|table-column-group|table-column|table-footer-group|table-header-group|table-row-group|table-row|table|tb-rl|text-after-edge|text-before-edge|text-bottom|text-size|text-top|text|thick|thin|transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|use-script|vertical-ideographic|vertical-text|visible|w-resize|wait|whitespace|z-index|zero|zoom", f10 = t10.supportConstantColor = "aliceblue|antiquewhite|aqua|aquamarine|azure|beige|bisque|black|blanchedalmond|blue|blueviolet|brown|burlywood|cadetblue|chartreuse|chocolate|coral|cornflowerblue|cornsilk|crimson|cyan|darkblue|darkcyan|darkgoldenrod|darkgray|darkgreen|darkgrey|darkkhaki|darkmagenta|darkolivegreen|darkorange|darkorchid|darkred|darksalmon|darkseagreen|darkslateblue|darkslategray|darkslategrey|darkturquoise|darkviolet|deeppink|deepskyblue|dimgray|dimgrey|dodgerblue|firebrick|floralwhite|forestgreen|fuchsia|gainsboro|ghostwhite|gold|goldenrod|gray|green|greenyellow|grey|honeydew|hotpink|indianred|indigo|ivory|khaki|lavender|lavenderblush|lawngreen|lemonchiffon|lightblue|lightcoral|lightcyan|lightgoldenrodyellow|lightgray|lightgreen|lightgrey|lightpink|lightsalmon|lightseagreen|lightskyblue|lightslategray|lightslategrey|lightsteelblue|lightyellow|lime|limegreen|linen|magenta|maroon|mediumaquamarine|mediumblue|mediumorchid|mediumpurple|mediumseagreen|mediumslateblue|mediumspringgreen|mediumturquoise|mediumvioletred|midnightblue|mintcream|mistyrose|moccasin|navajowhite|navy|oldlace|olive|olivedrab|orange|orangered|orchid|palegoldenrod|palegreen|paleturquoise|palevioletred|papayawhip|peachpuff|peru|pink|plum|powderblue|purple|rebeccapurple|red|rosybrown|royalblue|saddlebrown|salmon|sandybrown|seagreen|seashell|sienna|silver|skyblue|slateblue|slategray|slategrey|snow|springgreen|steelblue|tan|teal|thistle|tomato|turquoise|violet|wheat|white|whitesmoke|yellow|yellowgreen", l10 = t10.supportConstantFonts = "arial|century|comic|courier|cursive|fantasy|garamond|georgia|helvetica|impact|lucida|symbol|system|tahoma|times|trebuchet|utopia|verdana|webdings|sans-serif|serif|monospace", c10 = t10.numRe = "\\-?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))", h10 = t10.pseudoElements = "(\\:+)\\b(after|before|first-letter|first-line|moz-selection|selection)\\b", p10 = t10.pseudoClasses = "(:)\\b(active|checked|disabled|empty|enabled|first-child|first-of-type|focus|hover|indeterminate|invalid|last-child|last-of-type|link|not|nth-child|nth-last-child|nth-last-of-type|nth-of-type|only-child|only-of-type|required|root|target|valid|visited)\\b", d10 = function() {
       var e14 = this.createKeywordMapper({ "support.function": u10, "support.constant": a10, "support.type": o10, "support.constant.color": f10, "support.constant.fonts": l10 }, "text", true);
-      this.$rules = { start: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "ruleset" }, { token: "paren.rparen", regex: "\\}" }, { token: "string", regex: "@(?!viewport)", next: "media" }, { token: "keyword", regex: "#[a-z0-9-_]+" }, { token: "keyword", regex: "%" }, { token: "variable", regex: "\\.[a-z0-9-_]+" }, { token: "string", regex: ":[a-z0-9-_]+" }, { token: "constant.numeric", regex: c10 }, { token: "constant", regex: "[a-z0-9-_]+" }, { caseInsensitive: true }], media: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "start" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { token: "string", regex: ";", next: "start" }, { token: "keyword", regex: "(?:media|supports|document|charset|import|namespace|media|supports|document|page|font|keyframes|viewport|counter-style|font-feature-values|swash|ornaments|annotation|stylistic|styleset|character-variant)" }], comments: [{ token: "comment", regex: "\\/\\*", push: [{ token: "comment", regex: "\\*\\/", next: "pop" }, { defaultToken: "comment" }] }], ruleset: [{ regex: "-(webkit|ms|moz|o)-", token: "text" }, { token: "punctuation.operator", regex: "[:;]" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { include: ["strings", "url", "comments"] }, { token: ["constant.numeric", "keyword"], regex: "(" + c10 + ")(ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vmax|vmin|vm|vw|%)" }, { token: "constant.numeric", regex: c10 }, { token: "constant.numeric", regex: "#[a-f0-9]{6}" }, { token: "constant.numeric", regex: "#[a-f0-9]{3}" }, { token: ["punctuation", "entity.other.attribute-name.pseudo-element.css"], regex: h10 }, { token: ["punctuation", "entity.other.attribute-name.pseudo-class.css"], regex: p10 }, { include: "url" }, { token: e14, regex: "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*" }, { caseInsensitive: true }], url: [{ token: "support.function", regex: "(?:url(:?-prefix)?|domain|regexp)\\(", push: [{ token: "support.function", regex: "\\)", next: "pop" }, { defaultToken: "string" }] }], strings: [{ token: "string.start", regex: "'", push: [{ token: "string.end", regex: "'|$", next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: true }, { defaultToken: "string" }] }, { token: "string.start", regex: '"', push: [{ token: "string.end", regex: '"|$', next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: true }, { defaultToken: "string" }] }], escapes: [{ token: "constant.language.escape", regex: /\\([a-fA-F\d]{1,6}|[^a-fA-F\d])/ }] }, this.normalizeRules();
+      this.$rules = { start: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "ruleset" }, { token: "paren.rparen", regex: "\\}" }, { token: "string", regex: "@(?!viewport)", next: "media" }, { token: "keyword", regex: "#[a-z0-9-_]+" }, { token: "keyword", regex: "%" }, { token: "variable", regex: "\\.[a-z0-9-_]+" }, { token: "string", regex: ":[a-z0-9-_]+" }, { token: "constant.numeric", regex: c10 }, { token: "constant", regex: "[a-z0-9-_]+" }, { caseInsensitive: true }], media: [{ include: ["strings", "url", "comments"] }, { token: "paren.lparen", regex: "\\{", next: "start" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { token: "string", regex: ";", next: "start" }, { token: "keyword", regex: "(?:media|supports|document|charset|import|namespace|media|supports|document|page|font|keyframes|viewport|counter-style|font-feature-values|swash|ornaments|annotation|stylistic|styleset|character-variant)" }], comments: [{ token: "comment", regex: "\\/\\*", push: [{ token: "comment", regex: "\\*\\/", next: "pop" }, { defaultToken: "comment" }] }], ruleset: [{ regex: "-(webkit|ms|moz|o)-", token: "text" }, { token: "punctuation.operator", regex: "[:;]" }, { token: "paren.rparen", regex: "\\}", next: "start" }, { include: ["strings", "url", "comments"] }, { token: ["constant.numeric", "keyword"], regex: "(" + c10 + ")(ch|cm|deg|em|ex|fr|gd|grad|Hz|in|kHz|mm|ms|pc|pt|px|rad|rem|s|turn|vh|vmax|vmin|vm|vw|%)" }, { token: "constant.numeric", regex: c10 }, { token: "constant.numeric", regex: "#[a-f0-9]{6}" }, { token: "constant.numeric", regex: "#[a-f0-9]{3}" }, { token: ["punctuation", "entity.other.attribute-name.pseudo-element.css"], regex: h10 }, { token: ["punctuation", "entity.other.attribute-name.pseudo-class.css"], regex: p10 }, { include: "url" }, { token: e14, regex: "\\-?[a-zA-Z_][a-zA-Z0-9_\\-]*" }, { token: "paren.lparen", regex: "\\{" }, { caseInsensitive: true }], url: [{ token: "support.function", regex: "(?:url(:?-prefix)?|domain|regexp)\\(", push: [{ token: "support.function", regex: "\\)", next: "pop" }, { defaultToken: "string" }] }], strings: [{ token: "string.start", regex: "'", push: [{ token: "string.end", regex: "'|$", next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: true }, { defaultToken: "string" }] }, { token: "string.start", regex: '"', push: [{ token: "string.end", regex: '"|$', next: "pop" }, { include: "escapes" }, { token: "constant.language.escape", regex: /\\$/, consumeLineEnd: true }, { defaultToken: "string" }] }], escapes: [{ token: "constant.language.escape", regex: /\\([a-fA-F\d]{1,6}|[^a-fA-F\d])/ }] }, this.normalizeRules();
     };
     r10.inherits(d10, s10), t10.CssHighlightRules = d10;
   }), ace.define("ace/mode/matching_brace_outdent", ["require", "exports", "module", "ace/range"], function(e13, t10, n10) {
@@ -55167,7 +55732,7 @@ var extLanguage_tools = { exports: {} };
         this.detach();
       }, e14.prototype.tabNext = function(e15) {
         var t11 = this.tabstops.length, n11 = this.index + (e15 || 1);
-        n11 = Math.min(Math.max(n11, 1), t11), n11 == t11 && (n11 = 0), this.selectTabstop(n11), n11 === 0 && this.detach();
+        n11 = Math.min(Math.max(n11, 1), t11), n11 == t11 && (n11 = 0), this.selectTabstop(n11), this.updateTabstopMarkers(), n11 === 0 && this.detach();
       }, e14.prototype.selectTabstop = function(e15) {
         this.$openTabstops = null;
         var t11 = this.tabstops[this.index];
@@ -55195,12 +55760,13 @@ var extLanguage_tools = { exports: {} };
           var i11 = u10.fromPoints(n11, n11);
           y10(i11.start, t11), y10(i11.end, t11), e15[0] = [i11], e15[0].index = 0;
         }
-        var s11 = this.index, o11 = [s11 + 1, 0], f11 = this.ranges;
+        var s11 = this.index, o11 = [s11 + 1, 0], f11 = this.ranges, l11 = this.snippetId = (this.snippetId || 0) + 1;
         e15.forEach(function(e16, n12) {
           var i12 = this.$openTabstops[n12] || e16;
+          i12.snippetId = l11;
           for (var s12 = 0; s12 < e16.length; s12++) {
-            var l11 = e16[s12], c11 = u10.fromPoints(l11.start, l11.end || l11.start);
-            g10(c11.start, t11), g10(c11.end, t11), c11.original = l11, c11.tabstop = i12, f11.push(c11), i12 != e16 ? i12.unshift(c11) : i12[s12] = c11, l11.fmtString || i12.firstNonLinked && r11 ? (c11.linked = true, i12.hasLinkedRanges = true) : i12.firstNonLinked || (i12.firstNonLinked = c11);
+            var c11 = e16[s12], h11 = u10.fromPoints(c11.start, c11.end || c11.start);
+            g10(h11.start, t11), g10(h11.end, t11), h11.original = c11, h11.tabstop = i12, f11.push(h11), i12 != e16 ? i12.unshift(h11) : i12[s12] = h11, c11.fmtString || i12.firstNonLinked && r11 ? (h11.linked = true, i12.hasLinkedRanges = true) : i12.firstNonLinked || (i12.firstNonLinked = h11);
           }
           i12.firstNonLinked || (i12.hasLinkedRanges = false), i12 === e16 && (o11.push(i12), this.$openTabstops[n12] = i12), this.addTabstopMarkers(i12), i12.rangeList = i12.rangeList || new a10(), i12.rangeList.$bias = 0, i12.rangeList.addList(i12);
         }, this), o11.length > 2 && (this.tabstops.length && o11.push(o11.splice(2, 1)[0]), this.tabstops.splice.apply(this.tabstops, o11));
@@ -55214,6 +55780,13 @@ var extLanguage_tools = { exports: {} };
         e15.forEach(function(e16) {
           t11.removeMarker(e16.markerId), e16.markerId = null;
         });
+      }, e14.prototype.updateTabstopMarkers = function() {
+        if (!this.selectedTabstop)
+          return;
+        var e15 = this.selectedTabstop.snippetId;
+        this.selectedTabstop.index === 0 && e15--, this.tabstops.forEach(function(t11) {
+          t11.snippetId === e15 ? this.addTabstopMarkers(t11) : this.removeTabstopMarkers(t11);
+        }, this);
       }, e14.prototype.removeRange = function(e15) {
         var t11 = e15.tabstop.indexOf(e15);
         t11 != -1 && e15.tabstop.splice(t11, 1), t11 = this.ranges.indexOf(e15), t11 != -1 && this.ranges.splice(t11, 1), t11 = e15.tabstop.rangeList.ranges.indexOf(e15), t11 != -1 && e15.tabstop.splice(t11, 1), this.session.removeMarker(e15.markerId), e15.tabstop.length || (t11 = this.tabstops.indexOf(e15.tabstop), t11 != -1 && this.tabstops.splice(t11, 1), this.tabstops.length || this.detach());
@@ -55253,7 +55826,7 @@ var extLanguage_tools = { exports: {} };
     }, m10 = function() {
       function e14(e15) {
         var t11 = a10.createElement("div"), n11 = v10(t11);
-        e15 && e15.appendChild(t11), t11.style.display = "none", n11.renderer.content.style.cursor = "default", n11.renderer.setStyle("ace_autocomplete"), n11.renderer.$textLayer.element.setAttribute("role", h10), n11.renderer.$textLayer.element.setAttribute("aria-roledescription", f10("Autocomplete suggestions")), n11.renderer.$textLayer.element.setAttribute("aria-label", f10("Autocomplete suggestions")), n11.renderer.textarea.setAttribute("aria-hidden", "true"), n11.setOption("displayIndentGuides", false), n11.setOption("dragDelay", 150);
+        e15 && e15.appendChild(t11), t11.style.display = "none", n11.renderer.content.style.cursor = "default", n11.renderer.setStyle("ace_autocomplete"), n11.renderer.$textLayer.element.setAttribute("role", h10), n11.renderer.$textLayer.element.setAttribute("aria-roledescription", f10("autocomplete.popup.aria-roledescription", "Autocomplete suggestions")), n11.renderer.$textLayer.element.setAttribute("aria-label", f10("autocomplete.popup.aria-label", "Autocomplete suggestions")), n11.renderer.textarea.setAttribute("aria-hidden", "true"), n11.setOption("displayIndentGuides", false), n11.setOption("dragDelay", 150);
         var r11 = function() {
         };
         n11.focus = r11, n11.$isFocused = true, n11.renderer.$cursorLayer.restartTimer = r11, n11.renderer.$cursorLayer.element.style.opacity = "0", n11.renderer.$maxLines = 8, n11.renderer.$keepTextAreaAtCursor = false, n11.setHighlightActiveLine(false), n11.session.highlight(""), n11.session.$searchHighlight.clazz = "ace_highlight-marker", n11.on("mousedown", function(e16) {
@@ -55285,7 +55858,7 @@ var extLanguage_tools = { exports: {} };
           if (r12) {
             a10.addCssClass(r12, "ace_selected");
             var s11 = c10(e16);
-            r12.id = s11, t12.element.setAttribute("aria-activedescendant", s11), i12.setAttribute("aria-activedescendant", s11), r12.setAttribute("role", p10), r12.setAttribute("aria-roledescription", f10("item")), r12.setAttribute("aria-label", n11.getData(e16).value), r12.setAttribute("aria-setsize", n11.data.length), r12.setAttribute("aria-posinset", e16 + 1), r12.setAttribute("aria-describedby", "doc-tooltip"), r12.setAttribute(d10, "true");
+            r12.id = s11, t12.element.setAttribute("aria-activedescendant", s11), i12.setAttribute("aria-activedescendant", s11), r12.setAttribute("role", p10), r12.setAttribute("aria-roledescription", f10("autocomplete.popup.item.aria-roledescription", "item")), r12.setAttribute("aria-label", n11.getData(e16).caption || n11.getData(e16).value), r12.setAttribute("aria-setsize", n11.data.length), r12.setAttribute("aria-posinset", e16 + 1), r12.setAttribute("aria-describedby", "doc-tooltip"), r12.setAttribute(d10, "true");
           }
         });
         var g10 = function() {
@@ -55372,7 +55945,7 @@ var extLanguage_tools = { exports: {} };
       }
       return e14;
     }();
-    a10.importCssString('\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin-left: 0.9em;\n}\n.ace_completion-message {\n    margin-left: 0.9em;\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete .ace_line {\n    display: flex;\n    align-items: center;\n}\n.ace_autocomplete .ace_line > * {\n    min-width: 0;\n    flex: 0 0 auto;\n}\n.ace_autocomplete .ace_line .ace_ {\n    flex: 0 1 auto;\n    overflow: hidden;\n    white-space: nowrap;\n    text-overflow: ellipsis;\n}\n.ace_autocomplete .ace_completion-spacer {\n    flex: 1;\n}\n.ace_autocomplete.ace_loading:after  {\n    content: "";\n    position: absolute;\n    top: 0px;\n    height: 2px;\n    width: 8%;\n    background: blue;\n    z-index: 100;\n    animation: ace_progress 3s infinite linear;\n    animation-delay: 300ms;\n    transform: translateX(-100%) scaleX(1);\n}\n@keyframes ace_progress {\n    0% { transform: translateX(-100%) scaleX(1) }\n    50% { transform: translateX(625%) scaleX(2) } \n    100% { transform: translateX(1500%) scaleX(3) } \n}\n@media (prefers-reduced-motion) {\n    .ace_autocomplete.ace_loading:after {\n        transform: translateX(625%) scaleX(2);\n        animation: none;\n     }\n}\n', "autocompletion.css", false), t10.AcePopup = m10, t10.$singleLineEditor = v10, t10.getAriaId = c10;
+    a10.importCssString('\n.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #CAD6FA;\n    z-index: 1;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_marker-layer .ace_active-line {\n    background-color: #3a674e;\n}\n.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid #abbffe;\n    margin-top: -1px;\n    background: rgba(233,233,253,0.4);\n    position: absolute;\n    z-index: 2;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_line-hover {\n    border: 1px solid rgba(109, 150, 13, 0.8);\n    background: rgba(58, 103, 78, 0.62);\n}\n.ace_completion-meta {\n    opacity: 0.5;\n    margin-left: 0.9em;\n}\n.ace_completion-message {\n    margin-left: 0.9em;\n    color: blue;\n}\n.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #2d69c7;\n}\n.ace_dark.ace_editor.ace_autocomplete .ace_completion-highlight{\n    color: #93ca12;\n}\n.ace_editor.ace_autocomplete {\n    width: 300px;\n    z-index: 200000;\n    border: 1px lightgray solid;\n    position: fixed;\n    box-shadow: 2px 3px 5px rgba(0,0,0,.2);\n    line-height: 1.4;\n    background: #fefefe;\n    color: #111;\n}\n.ace_dark.ace_editor.ace_autocomplete {\n    border: 1px #484747 solid;\n    box-shadow: 2px 3px 5px rgba(0, 0, 0, 0.51);\n    line-height: 1.4;\n    background: #25282c;\n    color: #c1c1c1;\n}\n.ace_autocomplete .ace_text-layer  {\n    width: calc(100% - 8px);\n}\n.ace_autocomplete .ace_line {\n    display: flex;\n    align-items: center;\n}\n.ace_autocomplete .ace_line > * {\n    min-width: 0;\n    flex: 0 0 auto;\n}\n.ace_autocomplete .ace_line .ace_ {\n    flex: 0 1 auto;\n    overflow: hidden;\n    text-overflow: ellipsis;\n}\n.ace_autocomplete .ace_completion-spacer {\n    flex: 1;\n}\n.ace_autocomplete.ace_loading:after  {\n    content: "";\n    position: absolute;\n    top: 0px;\n    height: 2px;\n    width: 8%;\n    background: blue;\n    z-index: 100;\n    animation: ace_progress 3s infinite linear;\n    animation-delay: 300ms;\n    transform: translateX(-100%) scaleX(1);\n}\n@keyframes ace_progress {\n    0% { transform: translateX(-100%) scaleX(1) }\n    50% { transform: translateX(625%) scaleX(2) } \n    100% { transform: translateX(1500%) scaleX(3) } \n}\n@media (prefers-reduced-motion) {\n    .ace_autocomplete.ace_loading:after {\n        transform: translateX(625%) scaleX(2);\n        animation: none;\n     }\n}\n', "autocompletion.css", false), t10.AcePopup = m10, t10.$singleLineEditor = v10, t10.getAriaId = c10;
   }), ace.define("ace/autocomplete/inline_screenreader", ["require", "exports", "module"], function(e13, t10, n10) {
     var r10 = function() {
       function e14(e15) {
@@ -55464,11 +56037,11 @@ var extLanguage_tools = { exports: {} };
           !r11 && e16 && (r11 = this.retrievePrecedingIdentifier(n11, t11.column, e16));
         }.bind(this));
       }.bind(this)), r11 || this.retrievePrecedingIdentifier(n11, t11.column);
-    }, t10.triggerAutocomplete = function(e14) {
-      var t11 = e14.getCursorPosition(), n11 = e14.session.getLine(t11.row), r11 = t11.column === 0 ? 0 : t11.column - 1, i10 = n11[r11];
+    }, t10.triggerAutocomplete = function(e14, t11) {
+      var t11 = t11 == null ? e14.session.getPrecedingCharacter() : t11;
       return e14.completers.some(function(e15) {
         if (e15.triggerCharacters && Array.isArray(e15.triggerCharacters))
-          return e15.triggerCharacters.includes(i10);
+          return e15.triggerCharacters.includes(t11);
       });
     };
   }), ace.define("ace/autocomplete", ["require", "exports", "module", "ace/keyboard/hash_handler", "ace/autocomplete/popup", "ace/autocomplete/inline", "ace/autocomplete/popup", "ace/autocomplete/util", "ace/lib/lang", "ace/lib/dom", "ace/snippets", "ace/config", "ace/lib/event", "ace/lib/scroll"], function(e13, t10, n10) {
@@ -55488,7 +56061,7 @@ var extLanguage_tools = { exports: {} };
         }.bind(this), this.stickySelectionDelay);
       }
       return Object.defineProperty(e14, "completionsForLoading", { get: function() {
-        return [{ caption: c10.nls("Loading..."), value: "" }];
+        return [{ caption: c10.nls("autocomplete.loading", "Loading..."), value: "" }];
       }, enumerable: false, configurable: true }), e14.prototype.$init = function() {
         return this.popup = new i10(this.parentNode || document.body || document.documentElement), this.popup.on("click", function(e15) {
           this.insertMatch(), e15.stop();
@@ -55570,7 +56143,7 @@ var extLanguage_tools = { exports: {} };
           var a11 = this.popup.getData(this.popup.getRow());
           this.$updateGhostText(a11);
         }
-        n11 ? n11 && !t11 && this.detach() : (this.popup.setTheme(e15.getTheme()), this.popup.setFontSize(e15.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel(), this.observeLayoutChanges();
+        n11 || (this.popup.setTheme(e15.getTheme()), this.popup.setFontSize(e15.getFontSize()), this.$updatePopupPosition(), this.tooltipNode && this.updateDocTooltip()), this.changeTimer.cancel(), this.observeLayoutChanges();
       }, e14.prototype.detach = function() {
         this.editor && (this.editor.keyBinding.removeKeyboardHandler(this.keyboardHandler), this.editor.off("changeSelection", this.changeListener), this.editor.off("blur", this.blurListener), this.editor.off("mousedown", this.mousedownListener), this.editor.off("mousewheel", this.mousewheelListener)), this.$firstOpenTimer.cancel(), this.changeTimer.cancel(), this.hideDocTooltip(), this.completionProvider && this.completionProvider.detach(), this.popup && this.popup.isOpen && this.popup.hide(), this.popup && this.popup.renderer && this.popup.renderer.off("afterRender", this.$onPopupRender), this.base && this.base.detach(), this.activated = false, this.completionProvider = this.completions = this.base = null, this.unObserveLayoutChanges();
       }, e14.prototype.changeListener = function(e15) {
@@ -55582,7 +56155,7 @@ var extLanguage_tools = { exports: {} };
       }, e14.prototype.mousedownListener = function(e15) {
         this.detach();
       }, e14.prototype.mousewheelListener = function(e15) {
-        this.popup.isMouseOver || this.detach();
+        this.popup && !this.popup.isMouseOver && this.detach();
       }, e14.prototype.mouseOutListener = function(e15) {
         this.popup.isOpen && this.$updatePopupPosition();
       }, e14.prototype.goTo = function(e15) {
@@ -55616,7 +56189,7 @@ var extLanguage_tools = { exports: {} };
         }
         if (n11 && n11.matches) {
           var r11 = this.editor.getSelectionRange().start;
-          return this.base = this.editor.session.doc.createAnchor(r11.row, r11.column), this.base.$insertRight = true, this.completions = new g10(n11.matches), this.openPopup(this.editor, "", t11);
+          return this.base = this.editor.session.doc.createAnchor(r11.row, r11.column), this.base.$insertRight = true, this.completions = new g10(n11.matches), this.getCompletionProvider().completions = this.completions, this.openPopup(this.editor, "", t11);
         }
         var s11 = this.editor.getSession(), r11 = this.editor.getCursorPosition(), i11 = u10.getCompletionPrefix(this.editor);
         this.base = s11.doc.createAnchor(r11.row, r11.column - i11.length), this.base.$insertRight = true;
@@ -55630,7 +56203,7 @@ var extLanguage_tools = { exports: {} };
               typeof a11 == "function" && (a11 = this.emptyMessage(o12));
               if (a11) {
                 var f11 = [{ caption: a11, value: "" }];
-                this.completions = new g10(f11), this.openPopup(this.editor, o12, t11), this.popup.renderer.setStyle("ace_loading", false);
+                this.completions = new g10(f11), this.openPopup(this.editor, o12, t11), this.popup.renderer.setStyle("ace_loading", false), this.popup.renderer.setStyle("ace_empty-message", true);
                 return;
               }
               return this.detach();
@@ -55640,7 +56213,7 @@ var extLanguage_tools = { exports: {} };
             if (this.autoInsert && !this.autoShown && s12.length == 1)
               return this.insertMatch(s12[0]);
           }
-          this.completions = !i12 && this.showLoadingState ? new g10(e14.completionsForLoading.concat(s12), r12.filterText) : r12, this.openPopup(this.editor, o12, t11), this.popup.renderer.setStyle("ace_loading", !i12);
+          this.completions = !i12 && this.showLoadingState ? new g10(e14.completionsForLoading.concat(s12), r12.filterText) : r12, this.openPopup(this.editor, o12, t11), this.popup.renderer.setStyle("ace_empty-message", false), this.popup.renderer.setStyle("ace_loading", !i12);
         }.bind(this)), this.showLoadingState && !this.autoShown && (!this.popup || !this.popup.isOpen) && this.$firstOpenTimer.delay(this.stickySelectionDelay / 2);
       }, e14.prototype.cancelContextMenu = function() {
         this.editor.$mouseHandler.cancelContextMenu();
@@ -55712,6 +56285,10 @@ var extLanguage_tools = { exports: {} };
       if (!!t11 || !!e14.tabstopManager)
         return t11;
       e14.completer.goTo("down");
+    }, Backspace: function(e14) {
+      e14.execCommand("backspace");
+      var t11 = u10.getCompletionPrefix(e14);
+      !t11 && e14.completer && e14.completer.detach();
     }, PageUp: function(e14) {
       e14.completer.popup.gotoPageUp();
     }, PageDown: function(e14) {
@@ -55924,10 +56501,10 @@ var extLanguage_tools = { exports: {} };
     }, y10, b10 = o10.delayedCall(function() {
       w10(y10);
     }, 0), w10 = function(e14) {
-      var t11 = e14.editor, n11 = u10.getCompletionPrefix(t11), r11 = u10.triggerAutocomplete(t11);
-      if (n11 && n11.length >= t11.$liveAutocompletionThreshold || r11) {
-        var s11 = i10.for(t11);
-        s11.autoShown = true, s11.showPopup(t11);
+      var t11 = e14.editor, n11 = u10.getCompletionPrefix(t11), r11 = e14.args, s11 = u10.triggerAutocomplete(t11, r11);
+      if (n11 && n11.length >= t11.$liveAutocompletionThreshold || s11) {
+        var o11 = i10.for(t11);
+        o11.autoShown = true, o11.showPopup(t11);
       }
     }, E10 = e13("../editor").Editor;
     e13("../config").defineOptions(E10.prototype, "editor", { enableBasicAutocompletion: { set: function(e14) {
@@ -56042,14 +56619,14 @@ const _sfc_main$2T = {
     }
   }
 };
-const _hoisted_1$S = { class: "ace-container" };
-const _hoisted_2$k = {
+const _hoisted_1$t = { class: "ace-container" };
+const _hoisted_2$j = {
   class: "ace-editor",
   ref: "ace"
 };
 function _sfc_render$2T(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$S, [
-    createElementVNode("div", _hoisted_2$k, null, 512)
+  return openBlock(), createElementBlock("div", _hoisted_1$t, [
+    createElementVNode("div", _hoisted_2$j, null, 512)
   ]);
 }
 var CodeEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$2T, [["render", _sfc_render$2T], ["__scopeId", "data-v-335e1214"]]);
@@ -57467,8 +58044,8 @@ const _sfc_main$2S = {
     }
   }
 };
-const _hoisted_1$R = { class: "toolbar-container" };
-const _hoisted_2$j = { class: "left-toolbar" };
+const _hoisted_1$s = { class: "toolbar-container" };
+const _hoisted_2$i = { class: "left-toolbar" };
 const _hoisted_3$g = { class: "right-toolbar" };
 const _hoisted_4$9 = {
   key: 0,
@@ -57480,12 +58057,12 @@ const _hoisted_6$6 = {
   class: ""
 };
 const _hoisted_7$5 = { class: "dialog-footer" };
-const _hoisted_8$5 = {
+const _hoisted_8$4 = {
   key: 2,
   class: ""
 };
-const _hoisted_9$4 = { class: "dialog-footer" };
-const _hoisted_10$4 = {
+const _hoisted_9$1 = { class: "dialog-footer" };
+const _hoisted_10$1 = {
   key: 3,
   class: ""
 };
@@ -57515,10 +58092,10 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", _hoisted_1$R, [
+  return openBlock(), createElementBlock("div", _hoisted_1$s, [
     createVNode(_component_dir, { class: "toolbar-content" }, {
       default: withCtx(() => [
-        createElementVNode("div", _hoisted_2$j, [
+        createElementVNode("div", _hoisted_2$i, [
           createVNode(_component_el_button, {
             link: "",
             type: "primary",
@@ -57832,7 +58409,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showExportJsonDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_8$5, [
+    $data.showExportJsonDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_8$4, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.exportJson"),
         modelValue: $data.showExportJsonDialogFlag,
@@ -57846,7 +58423,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_9$4, [
+          createElementVNode("div", _hoisted_9$1, [
             createVNode(_component_el_button, {
               type: "primary",
               class: "copy-json-btn",
@@ -57887,7 +58464,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showExportCodeDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_10$4, [
+    $data.showExportCodeDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_10$1, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.toolbar.exportCode"),
         modelValue: $data.showExportCodeDialogFlag,
@@ -59769,26 +60346,23 @@ const _sfc_main$2f = {
     }
   }
 };
-const _withScopeId$3 = (n10) => (pushScopeId("data-v-76a08b79"), n10 = n10(), popScopeId(), n10);
-const _hoisted_1$Q = { class: "option-items-pane" };
-const _hoisted_2$i = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
-const _hoisted_3$f = /* @__PURE__ */ _withScopeId$3(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
-const _hoisted_4$8 = {
+const _hoisted_1$r = { class: "option-items-pane" };
+const _hoisted_2$h = {
   key: 2,
   class: "full-width-input"
 };
-const _hoisted_5$6 = { key: 3 };
-const _hoisted_6$5 = { key: 4 };
-const _hoisted_7$4 = {
+const _hoisted_3$f = { key: 3 };
+const _hoisted_4$8 = { key: 4 };
+const _hoisted_5$6 = {
   key: 5,
   class: ""
 };
-const _hoisted_8$4 = { class: "dialog-footer" };
-const _hoisted_9$3 = {
+const _hoisted_6$5 = { class: "dialog-footer" };
+const _hoisted_7$4 = {
   key: 6,
   class: ""
 };
-const _hoisted_10$3 = { class: "dialog-footer" };
+const _hoisted_8$3 = { class: "dialog-footer" };
 function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_el_button = resolveComponent("el-button");
@@ -59802,7 +60376,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_dialog = resolveComponent("el-dialog");
   const _component_code_editor = resolveComponent("code-editor");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", _hoisted_1$Q, [
+  return openBlock(), createElementBlock("div", _hoisted_1$r, [
     $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select-v2" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
       key: 0,
       modelValue: $options.optionModel.defaultValue,
@@ -59833,7 +60407,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
                     size: "small",
                     style: { "width": "100px" }
                   }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-                  _hoisted_2$i,
+                  _cache[9] || (_cache[9] = createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1)),
                   createVNode(_component_el_button, {
                     circle: "",
                     plain: "",
@@ -59882,7 +60456,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
                     size: "small",
                     style: { "width": "100px" }
                   }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-                  _hoisted_3$f,
+                  _cache[10] || (_cache[10] = createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1)),
                   createVNode(_component_el_button, {
                     circle: "",
                     plain: "",
@@ -59901,7 +60475,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
         }, 16, ["list"])
       ]),
       _: 1
-    }, 8, ["modelValue", "onChange"])) : $props.selectedWidget.type === "cascader" ? (openBlock(), createElementBlock("div", _hoisted_4$8, [
+    }, 8, ["modelValue", "onChange"])) : $props.selectedWidget.type === "cascader" ? (openBlock(), createElementBlock("div", _hoisted_2$h, [
       createVNode(_component_el_cascader, {
         modelValue: $options.optionModel.defaultValue,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $options.optionModel.defaultValue = $event),
@@ -59910,7 +60484,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
         placeholder: _ctx.$t("render.hint.selectPlaceholder")
       }, null, 8, ["modelValue", "options", "onChange", "placeholder"])
     ])) : createCommentVNode("", true),
-    $props.selectedWidget.type === "cascader" ? (openBlock(), createElementBlock("div", _hoisted_5$6, [
+    $props.selectedWidget.type === "cascader" ? (openBlock(), createElementBlock("div", _hoisted_3$f, [
       createVNode(_component_el_button, {
         link: "",
         type: "primary",
@@ -59932,7 +60506,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["onClick"])
     ])) : createCommentVNode("", true),
-    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" || $props.selectedWidget.type === "select-v2" ? (openBlock(), createElementBlock("div", _hoisted_6$5, [
+    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" || $props.selectedWidget.type === "select-v2" ? (openBlock(), createElementBlock("div", _hoisted_4$8, [
       createVNode(_component_el_button, {
         link: "",
         type: "primary",
@@ -59964,7 +60538,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["onClick"])
     ])) : createCommentVNode("", true),
-    $data.showImportDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_7$4, [
+    $data.showImportDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_5$6, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.importOptions"),
         modelValue: $data.showImportDialogFlag,
@@ -59977,7 +60551,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_8$4, [
+          createElementVNode("div", _hoisted_6$5, [
             createVNode(_component_el_button, {
               size: "large",
               type: "primary",
@@ -60017,7 +60591,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showImportCascaderDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_9$3, [
+    $data.showImportCascaderDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_7$4, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.importOptions"),
         modelValue: $data.showImportCascaderDialogFlag,
@@ -60030,7 +60604,7 @@ function _sfc_render$2f(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_10$3, [
+          createElementVNode("div", _hoisted_8$3, [
             createVNode(_component_el_button, {
               size: "large",
               type: "primary",
@@ -61095,7 +61669,7 @@ const _sfc_main$1P = {
     }
   }
 };
-const _hoisted_1$P = { class: "col-span-title" };
+const _hoisted_1$q = { class: "col-span-title" };
 function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -61135,7 +61709,7 @@ function _sfc_render$1P(_ctx, _cache, $props, $setup, $data, $options) {
             key: colIdx,
             class: "col-item"
           }, [
-            createElementVNode("span", _hoisted_1$P, toDisplayString(_ctx.$t("designer.setting.colSpanTitle")) + toDisplayString(colIdx + 1), 1),
+            createElementVNode("span", _hoisted_1$q, toDisplayString(_ctx.$t("designer.setting.colSpanTitle")) + toDisplayString(colIdx + 1), 1),
             createVNode(_component_el_input_number, {
               modelValue: colItem.options.span,
               "onUpdate:modelValue": ($event) => colItem.options.span = $event,
@@ -61546,9 +62120,7 @@ const _sfc_main$1G = {
     }
   }
 };
-const _withScopeId$2 = (n10) => (pushScopeId("data-v-e5b4856e"), n10 = n10(), popScopeId(), n10);
-const _hoisted_1$O = { class: "col-item" };
-const _hoisted_2$h = /* @__PURE__ */ _withScopeId$2(() => /* @__PURE__ */ createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1));
+const _hoisted_1$p = { class: "col-item" };
 function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
@@ -61598,7 +62170,7 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
           "item-key": "id"
         }, { group: "panesGroup", ghostClass: "ghost", handle: ".drag-option" }), {
           item: withCtx(({ element: tpItem, index: tpIdx }) => [
-            createElementVNode("li", _hoisted_1$O, [
+            createElementVNode("li", _hoisted_1$p, [
               createVNode(_component_el_checkbox, {
                 modelValue: tpItem.options.active,
                 "onUpdate:modelValue": ($event) => tpItem.options.active = $event,
@@ -61618,7 +62190,7 @@ function _sfc_render$1G(_ctx, _cache, $props, $setup, $data, $options) {
                 "onUpdate:modelValue": ($event) => tpItem.options.label = $event,
                 style: { "width": "155px" }
               }, null, 8, ["modelValue", "onUpdate:modelValue"]),
-              _hoisted_2$h,
+              _cache[2] || (_cache[2] = createElementVNode("i", { class: "iconfont icon-drag drag-option" }, null, -1)),
               createVNode(_component_el_button, {
                 circle: "",
                 plain: "",
@@ -61767,13 +62339,12 @@ const _sfc_main$1C = {
     };
   }
 };
-const _hoisted_1$N = /* @__PURE__ */ createElementVNode("div", null, "onAppendButtonClick", -1);
 function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$N,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onAppendButtonClick", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onAppendButtonClick })
       }, null, 2)
@@ -61814,13 +62385,12 @@ const _sfc_main$1B = {
     };
   }
 };
-const _hoisted_1$M = /* @__PURE__ */ createElementVNode("div", null, "onBeforeUpload", -1);
 function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$M,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onBeforeUpload", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onBeforeUpload })
       }, null, 2)
@@ -61861,13 +62431,12 @@ const _sfc_main$1A = {
     };
   }
 };
-const _hoisted_1$L = /* @__PURE__ */ createElementVNode("div", null, "onBlur", -1);
 function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$L,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onBlur", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onBlur })
       }, null, 2)
@@ -61908,13 +62477,12 @@ const _sfc_main$1z = {
     };
   }
 };
-const _hoisted_1$K = /* @__PURE__ */ createElementVNode("div", null, "onChange", -1);
 function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$K,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onChange", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onChange })
       }, null, 2)
@@ -61955,13 +62523,12 @@ const _sfc_main$1y = {
     };
   }
 };
-const _hoisted_1$J = /* @__PURE__ */ createElementVNode("div", null, "onClick", -1);
 function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$J,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onClick", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onClick })
       }, null, 2)
@@ -62002,13 +62569,12 @@ const _sfc_main$1x = {
     };
   }
 };
-const _hoisted_1$I = /* @__PURE__ */ createElementVNode("div", null, "onCreated", -1);
 function _sfc_render$1x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$I,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onCreated", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onCreated })
       }, null, 2)
@@ -62049,13 +62615,12 @@ const _sfc_main$1w = {
     };
   }
 };
-const _hoisted_1$H = /* @__PURE__ */ createElementVNode("div", null, "onDisabledDate", -1);
 function _sfc_render$1w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$H,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onDisabledDate", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onDisabledDate })
       }, null, 2)
@@ -62096,13 +62661,12 @@ const _sfc_main$1v = {
     };
   }
 };
-const _hoisted_1$G = /* @__PURE__ */ createElementVNode("div", null, "onDisabledHour", -1);
 function _sfc_render$1v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$G,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onDisabledHour", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onDisabledHour })
       }, null, 2)
@@ -62143,13 +62707,12 @@ const _sfc_main$1u = {
     };
   }
 };
-const _hoisted_1$F = /* @__PURE__ */ createElementVNode("div", null, "onDisabledMinute", -1);
 function _sfc_render$1u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$F,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onDisabledMinute", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onDisabledMinute })
       }, null, 2)
@@ -62190,13 +62753,12 @@ const _sfc_main$1t = {
     };
   }
 };
-const _hoisted_1$E = /* @__PURE__ */ createElementVNode("div", null, "onEnter", -1);
 function _sfc_render$1t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$E,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onEnter", -1)),
       createElementVNode("div", {
         class: normalizeClass({ redPoint: $props.optionModel.onEnter })
       }, null, 2)
@@ -62237,13 +62799,12 @@ const _sfc_main$1s = {
     };
   }
 };
-const _hoisted_1$D = /* @__PURE__ */ createElementVNode("div", null, "onFileRemove", -1);
 function _sfc_render$1s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$D,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onFileRemove", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onFileRemove })
       }, null, 2)
@@ -62284,13 +62845,12 @@ const _sfc_main$1r = {
     };
   }
 };
-const _hoisted_1$C = /* @__PURE__ */ createElementVNode("div", null, "onFocus", -1);
 function _sfc_render$1r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$C,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onFocus", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onFocus })
       }, null, 2)
@@ -62331,13 +62891,12 @@ const _sfc_main$1q = {
     };
   }
 };
-const _hoisted_1$B = /* @__PURE__ */ createElementVNode("div", null, "onInput", -1);
 function _sfc_render$1q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$B,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onInput", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onInput })
       }, null, 2)
@@ -62378,7 +62937,6 @@ const _sfc_main$1p = {
     };
   }
 };
-const _hoisted_1$A = /* @__PURE__ */ createElementVNode("div", null, "onLazyLoad", -1);
 function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -62387,7 +62945,7 @@ function _sfc_render$1p(_ctx, _cache, $props, $setup, $data, $options) {
     "label-width": "150px"
   }, {
     label: withCtx(() => [
-      _hoisted_1$A,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onLazyLoad", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onLazyLoad })
       }, null, 2)
@@ -62428,13 +62986,12 @@ const _sfc_main$1o = {
     };
   }
 };
-const _hoisted_1$z = /* @__PURE__ */ createElementVNode("div", null, "onMounted", -1);
 function _sfc_render$1o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$z,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onMounted", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onMounted })
       }, null, 2)
@@ -62475,13 +63032,12 @@ const _sfc_main$1n = {
     };
   }
 };
-const _hoisted_1$y = /* @__PURE__ */ createElementVNode("div", null, "onQuerySearchAsync", -1);
 function _sfc_render$1n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$y,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onQuerySearchAsync", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onQuerySearchAsync })
       }, null, 2)
@@ -62522,13 +63078,12 @@ const _sfc_main$1m = {
     };
   }
 };
-const _hoisted_1$x = /* @__PURE__ */ createElementVNode("div", null, "onRemoteQuery", -1);
 function _sfc_render$1m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$x,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onRemoteQuery", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onRemoteQuery })
       }, null, 2)
@@ -62569,13 +63124,12 @@ const _sfc_main$1l = {
     };
   }
 };
-const _hoisted_1$w = /* @__PURE__ */ createElementVNode("div", null, "onShortcuts", -1);
 function _sfc_render$1l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$w,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onShortcuts", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onShortcuts })
       }, null, 2)
@@ -62616,13 +63170,12 @@ const _sfc_main$1k = {
     };
   }
 };
-const _hoisted_1$v = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowAdd", -1);
 function _sfc_render$1k(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$v,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onSubFormRowAdd", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowAdd })
       }, null, 2)
@@ -62663,13 +63216,12 @@ const _sfc_main$1j = {
     };
   }
 };
-const _hoisted_1$u = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowChange", -1);
 function _sfc_render$1j(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$u,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onSubFormRowChange", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowChange })
       }, null, 2)
@@ -62710,13 +63262,12 @@ const _sfc_main$1i = {
     };
   }
 };
-const _hoisted_1$t = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowDelete", -1);
 function _sfc_render$1i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$t,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onSubFormRowDelete", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowDelete })
       }, null, 2)
@@ -62757,13 +63308,12 @@ const _sfc_main$1h = {
     };
   }
 };
-const _hoisted_1$s = /* @__PURE__ */ createElementVNode("div", null, "onSubFormRowInsert", -1);
 function _sfc_render$1h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$s,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onSubFormRowInsert", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onSubFormRowInsert })
       }, null, 2)
@@ -62804,13 +63354,12 @@ const _sfc_main$1g = {
     };
   }
 };
-const _hoisted_1$r = /* @__PURE__ */ createElementVNode("div", null, "onUploadError", -1);
 function _sfc_render$1g(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$r,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onUploadError", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onUploadError })
       }, null, 2)
@@ -62851,13 +63400,12 @@ const _sfc_main$1f = {
     };
   }
 };
-const _hoisted_1$q = /* @__PURE__ */ createElementVNode("div", null, "onUploadSuccess", -1);
 function _sfc_render$1f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$q,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onUploadSuccess", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onUploadSuccess })
       }, null, 2)
@@ -62898,13 +63446,12 @@ const _sfc_main$1e = {
     };
   }
 };
-const _hoisted_1$p = /* @__PURE__ */ createElementVNode("div", null, "onValidate", -1);
 function _sfc_render$1e(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
     label: withCtx(() => [
-      _hoisted_1$p,
+      _cache[1] || (_cache[1] = createElementVNode("div", null, "onValidate", -1)),
       createElementVNode("div", {
         class: normalizeClass({ "redPoint": $props.optionModel.onValidate })
       }, null, 2)
@@ -64929,26 +65476,22 @@ const _sfc_main$p = {
     }
   }
 };
-const _withScopeId$1 = (n10) => (pushScopeId("data-v-29f83a26"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$k = { style: { "height": "100%" } };
-const _hoisted_2$g = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormCreated", -1));
-const _hoisted_3$e = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormMounted", -1));
-const _hoisted_4$7 = /* @__PURE__ */ _withScopeId$1(() => /* @__PURE__ */ createElementVNode("div", null, "onFormDataChange", -1));
-const _hoisted_5$5 = {
+const _hoisted_2$g = {
   key: 0,
   class: ""
 };
-const _hoisted_6$4 = { class: "dialog-footer" };
-const _hoisted_7$3 = {
+const _hoisted_3$e = { class: "dialog-footer" };
+const _hoisted_4$7 = {
   key: 1,
   class: ""
 };
-const _hoisted_8$3 = { class: "dialog-footer" };
-const _hoisted_9$2 = {
+const _hoisted_5$5 = { class: "dialog-footer" };
+const _hoisted_6$4 = {
   key: 2,
   class: ""
 };
-const _hoisted_10$2 = { class: "dialog-footer" };
+const _hoisted_7$3 = { class: "dialog-footer" };
 function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
@@ -65207,7 +65750,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
               default: withCtx(() => [
                 createVNode(_component_el_form_item, { "label-width": "150px" }, {
                   label: withCtx(() => [
-                    _hoisted_2$g,
+                    _cache[22] || (_cache[22] = createElementVNode("div", null, "onFormCreated", -1)),
                     createElementVNode("div", {
                       class: normalizeClass({ "redPoint": $props.formConfig.onFormCreated })
                     }, null, 2)
@@ -65233,7 +65776,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
                   "label-width": "150px"
                 }, {
                   label: withCtx(() => [
-                    _hoisted_3$e,
+                    _cache[23] || (_cache[23] = createElementVNode("div", null, "onFormMounted", -1)),
                     createElementVNode("div", {
                       class: normalizeClass({ "redPoint": $props.formConfig.onFormMounted })
                     }, null, 2)
@@ -65256,7 +65799,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
                 }),
                 createVNode(_component_el_form_item, { "label-width": "150px" }, {
                   label: withCtx(() => [
-                    _hoisted_4$7,
+                    _cache[24] || (_cache[24] = createElementVNode("div", null, "onFormDataChange", -1)),
                     createElementVNode("div", {
                       class: normalizeClass({ "redPoint": $props.formConfig.onFormDataChange })
                     }, null, 2)
@@ -65286,7 +65829,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 1
     }, 8, ["model"]),
-    $data.showFormEventDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_5$5, [
+    $data.showFormEventDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_2$g, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.editFormEventHandler"),
         modelValue: $data.showFormEventDialogFlag,
@@ -65299,7 +65842,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_6$4, [
+          createElementVNode("div", _hoisted_3$e, [
             createVNode(_component_el_button, {
               onClick: _cache[14] || (_cache[14] = ($event) => $data.showFormEventDialogFlag = false)
             }, {
@@ -65343,7 +65886,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showEditFormCssDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_7$3, [
+    $data.showEditFormCssDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_4$7, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.formCss"),
         modelValue: $data.showEditFormCssDialogFlag,
@@ -65356,7 +65899,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_8$3, [
+          createElementVNode("div", _hoisted_5$5, [
             createVNode(_component_el_button, {
               onClick: _cache[17] || (_cache[17] = ($event) => $data.showEditFormCssDialogFlag = false)
             }, {
@@ -65389,7 +65932,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     ])), [
       [_directive_drag, [".drag-dialog.el-dialog", ".drag-dialog .el-dialog__header"]]
     ]) : createCommentVNode("", true),
-    $data.showEditFunctionsDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_9$2, [
+    $data.showEditFunctionsDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_6$4, [
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.globalFunctions"),
         modelValue: $data.showEditFunctionsDialogFlag,
@@ -65402,7 +65945,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_10$2, [
+          createElementVNode("div", _hoisted_7$3, [
             createVNode(_component_el_button, {
               onClick: _cache[20] || (_cache[20] = ($event) => $data.showEditFunctionsDialogFlag = false)
             }, {
@@ -66136,11 +66679,11 @@ const _hoisted_5$4 = ["title"];
 const _hoisted_6$3 = ["title"];
 const _hoisted_7$2 = ["title"];
 const _hoisted_8$2 = ["title"];
-const _hoisted_9$1 = {
+const _hoisted_9 = {
   key: 1,
   class: "drag-handler"
 };
-const _hoisted_10$1 = ["title"];
+const _hoisted_10 = ["title"];
 const _hoisted_11 = { key: 0 };
 function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
@@ -66197,12 +66740,12 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
         createVNode(_component_svg_icon, { "icon-class": "el-delete" })
       ], 8, _hoisted_8$2)
     ])) : createCommentVNode("", true),
-    $props.designer.selectedId === $props.widget.id && !$props.widget.internal ? (openBlock(), createElementBlock("div", _hoisted_9$1, [
+    $props.designer.selectedId === $props.widget.id && !$props.widget.internal ? (openBlock(), createElementBlock("div", _hoisted_9, [
       createElementVNode("i", {
         title: _ctx.$t("designer.hint.dragHandler")
       }, [
         createVNode(_component_svg_icon, { "icon-class": "el-drag-move" })
-      ], 8, _hoisted_10$1),
+      ], 8, _hoisted_10),
       createElementVNode("i", null, toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${$props.widget.type}`, `extension.widgetLabel.${$props.widget.type}`)), 1),
       $props.widget.options.hidden === true ? (openBlock(), createElementBlock("i", _hoisted_11, [
         createVNode(_component_svg_icon, { "icon-class": "el-hide" })
@@ -66795,7 +67338,8 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
                 default: withCtx(() => [
                   createVNode(_component_draggable, mergeProps({
                     list: tab.widgetList,
-                    "item-key": "id"
+                    "item-key": "id",
+                    ref_for: true
                   }, { group: "dragGroup", ghostClass: "ghost", animation: 200 }, {
                     handle: ".drag-handler",
                     tag: "transition-group",
@@ -68522,17 +69066,14 @@ const _sfc_main$f = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-46b72de4"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$b = { class: "main-container" };
 const _hoisted_2$a = { class: "main-header" };
 const _hoisted_3$9 = { class: "float-left main-title" };
-const _hoisted_4$2 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("span", { class: "bold" }, "VForm 3", -1));
-const _hoisted_5$1 = { class: "version-span" };
-const _hoisted_6 = { class: "float-right external-link" };
-const _hoisted_7 = { class: "el-dropdown-link" };
-const _hoisted_8 = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-top-right" }, null, -1));
-const _hoisted_9 = { class: "v-form-container" };
-const _hoisted_10 = { class: "center-layout-container" };
+const _hoisted_4$2 = { class: "version-span" };
+const _hoisted_5$1 = { class: "float-right external-link" };
+const _hoisted_6 = { class: "el-dropdown-link" };
+const _hoisted_7 = { class: "v-form-container" };
+const _hoisted_8 = { class: "center-layout-container" };
 function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_dropdown_item = resolveComponent("el-dropdown-item");
@@ -68553,11 +69094,11 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
           src: _imports_0,
           onClick: _cache[0] || (_cache[0] = (...args) => $options.openHome && $options.openHome(...args))
         }),
-        _hoisted_4$2,
+        _cache[5] || (_cache[5] = createElementVNode("span", { class: "bold" }, "VForm 3", -1)),
         createTextVNode(" " + toDisplayString(_ctx.$t("application.productTitle")) + " ", 1),
-        createElementVNode("span", _hoisted_5$1, "Ver " + toDisplayString($data.vFormVersion), 1)
+        createElementVNode("span", _hoisted_4$2, "Ver " + toDisplayString($data.vFormVersion), 1)
       ]),
-      createElementVNode("div", _hoisted_6, [
+      createElementVNode("div", _hoisted_5$1, [
         $options.showLink("languageMenu") ? (openBlock(), createBlock(_component_el_dropdown, {
           key: 0,
           "hide-timeout": 2e3,
@@ -68583,7 +69124,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
             })
           ]),
           default: withCtx(() => [
-            createElementVNode("span", _hoisted_7, [
+            createElementVNode("span", _hoisted_6, [
               createTextVNode(toDisplayString($data.curLangName), 1),
               createVNode(_component_svg_icon, { "icon-class": "el-arrow-down" })
             ])
@@ -68621,17 +69162,17 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
           target: "_blank"
         }, [
           createTextVNode(toDisplayString(_ctx.$t("application.subscription")), 1),
-          _hoisted_8
+          _cache[6] || (_cache[6] = createElementVNode("i", { class: "el-icon-top-right" }, null, -1))
         ])) : createCommentVNode("", true)
       ])
     ]),
-    createElementVNode("div", _hoisted_9, [
+    createElementVNode("div", _hoisted_7, [
       createVNode(_component_widget_panel, {
         class: "v-form-panel",
         designer: $data.designer,
         style: { "--el-aside-width": "285px" }
       }, null, 8, ["designer"]),
-      createElementVNode("div", _hoisted_10, [
+      createElementVNode("div", _hoisted_8, [
         createVNode(_component_el_header, { class: "toolbar-header" }, {
           default: withCtx(() => [
             createVNode(_component_toolbar_panel, {
@@ -74610,13 +75151,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1727599188835__");
+    var svgDom = document.getElementById("__svg__icons__dom__1729575364585__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1727599188835__";
+      svgDom.id = "__svg__icons__dom__1729575364585__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -75206,7 +75747,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                   return {
                     name: slot,
                     fn: withCtx((scope) => [
-                      renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                      renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                     ])
                   };
                 })
@@ -75222,7 +75763,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                   return {
                     name: slot,
                     fn: withCtx((scope) => [
-                      renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                      renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                     ])
                   };
                 })

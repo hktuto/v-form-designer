@@ -1,6 +1,6 @@
 {
   "name": "v-form",
-  "version": "3.0.37",
+  "version": "3.0.38",
   "private": false,
   "main": "dist/designer.umd.js",
   "files": [
@@ -20,7 +20,7 @@
     "axios": "^0.24.0",
     "clipboard": "^2.0.8",
     "core-js": "^3.6.5",
-    "element-plus": "^2.2.22",
+    "element-plus": "^2.8.6",
     "file-saver": "^2.0.5",
     "mitt": "^3.0.0",
     "sortablejs": "1.14.0",

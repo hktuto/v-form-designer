@@ -34,7 +34,7 @@
       :remote-method="remoteMethod"
       @focus="handleFocusCustomEvent"
       @blur="handleBlurCustomEvent"
-      @change="handleChangeEvent"
+      @change="handleInput"
     >
       <el-option
         v-for="item in field.options.optionItems"
@@ -124,9 +124,6 @@ export default {
 
   mounted() {
     this.handleOnMounted();
-    this.$nextTick(() => {
-      this.handleInput();
-    });
   },
 
   beforeUnmount() {
@@ -134,26 +131,13 @@ export default {
   },
 
   methods: {
-    handleInput() {
+    handleInput(value) {
       const fieldEditor = this.$refs.fieldEditor;
-      if (!fieldEditor) return;
-      const input = fieldEditor.input;
-      if (!input) return;
-      input.onkeyup = (event) => {
-        if (
-          this.allowDefaultFirstOption &&
-          event.key === "Enter" &&
-          fieldEditor.hoverIndex === -1
-        ) {
-          const value = event.target.value;
-          if (!value) return;
-          fieldEditor.handleOptionSelect({
-            label: value,
-            value,
-            created: true,
-          });
-        }
-      };
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value);
     },
   },
 };
