@@ -30228,33 +30228,18 @@ const _sfc_main$37 = {
   },
   mounted() {
     this.handleOnMounted();
-    this.$nextTick(() => {
-      this.handleInput();
-    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
   methods: {
-    handleInput() {
+    handleInput(value2) {
       const fieldEditor = this.$refs.fieldEditor;
-      if (!fieldEditor)
-        return;
-      const input = fieldEditor.input;
-      if (!input)
-        return;
-      input.onkeyup = (event) => {
-        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
-          const value2 = event.target.value;
-          if (!value2)
-            return;
-          fieldEditor.handleOptionSelect({
-            label: value2,
-            value: value2,
-            created: true
-          });
-        }
-      };
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
     }
   }
 };
@@ -30293,13 +30278,13 @@ function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
         placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput
       }, null, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "multiple", "multiple-limit", "remote", "remote-method", "allow-create", "automatic-dropdown", "options", "placeholder", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-b20e3dc4"]]);
+var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$37, [["render", _sfc_render$37], ["__scopeId", "data-v-63aaa7c2"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectV2Widget
@@ -69227,7 +69212,7 @@ function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-46b72de4"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$f, [["render", _sfc_render$f], ["__scopeId", "data-v-32aed17c"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -75151,13 +75136,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1729575364585__");
+    var svgDom = document.getElementById("__svg__icons__dom__1729579835313__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1729575364585__";
+      svgDom.id = "__svg__icons__dom__1729579835313__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -75885,7 +75870,16 @@ const _sfc_main$3 = {
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    handleInput(value2) {
+      const fieldEditor = this.$refs.fieldEditor;
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
+    }
+  }
 };
 function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
@@ -75924,7 +75918,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
         "remote-method": _ctx.remoteQuery,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput
       }, {
         default: withCtx(() => [
           $props.field.options.prefixIcon ? (openBlock(), createElementBlock("i", {
@@ -75956,7 +75950,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-5af6ecf1"]]);
+var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-733dff56"]]);
 var MapShim = function() {
   if (typeof Map !== "undefined") {
     return Map;
