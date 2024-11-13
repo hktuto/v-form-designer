@@ -62645,7 +62645,7 @@ const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission
 const MASTER_TABLE_API = "/docpal/master/tables?type=all";
 const selectApis = {
   masterTableColumn: {
-    method: "get",
+    method: "post",
     api: MASTER_TABLE_COLUMN_API,
     paramSettings: [
       {
@@ -62809,8 +62809,8 @@ async function getList() {
   const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)
 
   return data.map(item => ({
-    value: item.id,
-    label: item.label
+    value: item.${apiSetting.valueKey},
+    label: item.${apiSetting.labelKey}
   })).sort((a,b)=> (a.label.localeCompare(b.label) ))
 }
 async function init() {
@@ -63090,7 +63090,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"]);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-73224ce5"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-1eeacaef"]]);
 const _sfc_main$1y = {
   name: "onCreatedSetting-editor",
   components: {
@@ -75699,13 +75699,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731478371688__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731481426480__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731478371688__";
+      svgDom.id = "__svg__icons__dom__1731481426480__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

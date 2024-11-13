@@ -4,7 +4,7 @@ const MASTER_TABLE_COLUMN_API = '/docpal/master/tables/record/page/nonPermission
 const MASTER_TABLE_API = '/docpal/master/tables?type=all'
 export const selectApis = {
   masterTableColumn: {
-    method: 'get',
+    method: 'post',
     api: MASTER_TABLE_COLUMN_API,
     paramSettings: [
       {

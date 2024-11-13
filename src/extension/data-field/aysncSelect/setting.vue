@@ -245,7 +245,7 @@ export default {
       });
       if (!apiSetting.method) apiSetting.method = "post";
       const paramsStr = this.getObjStr(params, apiSetting.method);
-      const onCreated = `const _this = this\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n\n  return data.map(item => ({\n    value: item.id,\n    label: item.label\n  })).sort((a,b)=> (a.label.localeCompare(b.label) ))\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
+      const onCreated = `const _this = this\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n\n  return data.map(item => ({\n    value: item.${apiSetting.valueKey},\n    label: item.${apiSetting.labelKey}\n  })).sort((a,b)=> (a.label.localeCompare(b.label) ))\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },
