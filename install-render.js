@@ -9,11 +9,11 @@ import '@/iconfont/iconfont.css'
 
 import { installI18n } from '@/utils/i18n'
 import { loadExtension } from '@/extension/extension-loader'
-
+import { loadDataExtension } from '@/extension/dataField-loader'
 VFormRender.install = function (app) {
   installI18n(app)
   loadExtension(app)
-
+  loadDataExtension(app)
   app.use(ContainerItems)
   registerIcon(app)
   app.component(VFormRender.name, VFormRender)
@@ -26,7 +26,7 @@ const components = [
 const install = (app) => {
   installI18n(app)
   loadExtension(app)
-
+  loadDataExtension(app)
   app.use(ContainerItems)
   registerIcon(app)
   components.forEach(component => {

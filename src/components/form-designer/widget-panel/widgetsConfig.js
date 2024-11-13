@@ -1010,7 +1010,9 @@ export const advancedFields = [
 export const customFields = [
 
 ]
+export const dataFields = [
 
+]
 export function addContainerWidgetSchema(containerSchema) {
   containers.push(containerSchema)
 }
@@ -1026,3 +1028,7 @@ export function addAdvancedFieldSchema(fieldSchema) {
 export function addCustomWidgetSchema(widgetSchema) {
   customFields.push(widgetSchema)
 }
+export function addDataFieldsWidgetSchema(widgetSchema) {
+  dataFields.push(widgetSchema)
+}
+

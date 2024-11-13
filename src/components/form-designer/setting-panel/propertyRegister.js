@@ -121,6 +121,7 @@ const ADVANCED_PROPERTIES = {
 
 const EVENT_PROPERTIES = {
   //字段
+  'onCreatedSetting'  :            'onCreatedSetting-editor',
   'onCreated'         :            'onCreated-editor',
   'onMounted'         :            'onMounted-editor',
   'onClick'           :            'onClick-editor',
