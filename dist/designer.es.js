@@ -62649,18 +62649,19 @@ const selectApis = {
     api: MASTER_TABLE_COLUMN_API,
     paramSettings: [
       {
-        key: "where",
-        type: "object"
-      },
-      {
         key: "name",
         type: "string",
+        isGetKeyList: true,
         apiSetting: {
           api: MASTER_TABLE_API,
           method: "get",
           labelKey: "name",
-          valueKey: "id"
+          valueKey: "name"
         }
+      },
+      {
+        key: "where",
+        type: "object"
       }
     ],
     valueKey: "id",
@@ -62682,10 +62683,10 @@ const selectApis = {
   },
   user: {
     api: USER_API,
-    valueKeyList: ["id"],
-    labelKeyList: ["name", "id"],
-    valueKey: "id",
-    labelKey: "name",
+    valueKeyList: ["userId"],
+    labelKeyList: ["username", "userId"],
+    valueKey: "userId",
+    labelKey: "username",
     paramSettings: [{
       key: "groupName",
       type: "string",
@@ -62745,7 +62746,7 @@ const _sfc_main$1z = {
       this.dialogVisible = true;
     },
     handleTypeChange(value2, init = false) {
-      this.selectType = this.apiOptions[value2];
+      this.selectType = __spreadValues2({}, this.apiOptions[value2]);
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
         this.form.valueKey = this.selectType.valueKey;
@@ -62774,6 +62775,11 @@ const _sfc_main$1z = {
           this.form.params[item.key] = [];
         }
       });
+    },
+    async handleParamChange(value2, apiSetting) {
+      if (apiSetting.isGetKeyList) {
+        console.log("labelKeyList", "valueKeyList");
+      }
     },
     handleSubmit() {
       this.setting.selectSetting = this.form;
@@ -62818,6 +62824,7 @@ async function init() {
   _this.loadOptions(options)
 }
 init()`;
+      console.log(onCreated);
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },
@@ -62857,10 +62864,10 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form_item = resolveComponent("el-form-item");
   const _component_el_col = resolveComponent("el-col");
   const _component_el_row = resolveComponent("el-row");
-  const _component_el_form = resolveComponent("el-form");
   const _component_el_divider = resolveComponent("el-divider");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_input = resolveComponent("el-input");
+  const _component_el_form = resolveComponent("el-form");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_dialog = resolveComponent("el-dialog");
   return openBlock(), createBlock(_component_el_dialog, {
@@ -63000,97 +63007,97 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
               })
             ]),
             _: 1
-          })
-        ]),
-        _: 1
-      }, 8, ["model", "rules"]),
-      createVNode(_component_el_divider, { "content-position": "left" }, {
-        default: withCtx(() => [
-          createTextVNode(toDisplayString(_ctx.$t("dataField.params")), 1)
-        ]),
-        _: 1
-      }),
-      (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.paramSettings, (item, index2) => {
-        return openBlock(), createElementBlock("div", { key: _ctx.key }, [
-          createElementVNode("h4", _hoisted_1$p, [
-            createTextVNode(toDisplayString(item.key) + " ", 1),
-            item.type !== "string" ? (openBlock(), createBlock(_component_svg_icon, {
-              key: 0,
-              class: "el-delete el-icon--right",
-              "icon-class": "el-plus",
-              onClick: ($event) => $options.handleAddParams(item)
-            }, null, 8, ["onClick"])) : createCommentVNode("", true)
-          ]),
-          item.type === "string" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-            !item.apiSetting ? (openBlock(), createBlock(_component_el_input, {
-              key: 0,
-              modelValue: $data.form.params[item.key],
-              "onUpdate:modelValue": ($event) => $data.form.params[item.key] = $event,
-              size: "default",
-              clearable: ""
-            }, null, 8, ["modelValue", "onUpdate:modelValue"])) : (openBlock(), createBlock(_component_el_select, {
-              key: 1,
-              size: "default",
-              modelValue: $data.form.params[item.key],
-              "onUpdate:modelValue": ($event) => $data.form.params[item.key] = $event,
-              filterable: ""
-            }, {
-              default: withCtx(() => [
-                (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2, index3) => {
-                  return openBlock(), createBlock(_component_el_option, {
-                    key: item2,
-                    label: item2.label,
-                    value: item2.value
-                  }, null, 8, ["label", "value"]);
-                }), 128))
+          }),
+          createVNode(_component_el_divider, { "content-position": "left" }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("dataField.params")), 1)
+            ]),
+            _: 1
+          }),
+          (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.paramSettings, (item, index2) => {
+            return openBlock(), createElementBlock("div", { key: _ctx.key }, [
+              createElementVNode("h4", _hoisted_1$p, [
+                createTextVNode(toDisplayString(item.key) + " ", 1),
+                item.type !== "string" ? (openBlock(), createBlock(_component_svg_icon, {
+                  key: 0,
+                  class: "el-delete el-icon--right",
+                  "icon-class": "el-plus",
+                  onClick: ($event) => $options.handleAddParams(item)
+                }, null, 8, ["onClick"])) : createCommentVNode("", true)
               ]),
-              _: 2
-            }, 1032, ["modelValue", "onUpdate:modelValue"]))
-          ], 64)) : (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList($data.form.params[item.key], (param, paramIndex) => {
-            return openBlock(), createBlock(_component_el_row, {
-              gutter: 20,
-              key: index2
-            }, {
-              default: withCtx(() => [
-                createVNode(_component_el_col, { span: 6 }, {
+              item.type === "string" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
+                !item.apiSetting ? (openBlock(), createBlock(_component_el_input, {
+                  key: 0,
+                  modelValue: $data.form.params[item.key],
+                  "onUpdate:modelValue": ($event) => $data.form.params[item.key] = $event,
+                  size: "default",
+                  clearable: ""
+                }, null, 8, ["modelValue", "onUpdate:modelValue"])) : (openBlock(), createBlock(_component_el_select, {
+                  key: 1,
+                  size: "default",
+                  modelValue: $data.form.params[item.key],
+                  "onUpdate:modelValue": ($event) => $data.form.params[item.key] = $event,
+                  filterable: "",
+                  onChange: (value2) => $options.handleParamChange(value2, item)
+                }, {
                   default: withCtx(() => [
-                    createVNode(_component_el_input, {
-                      modelValue: $data.form.params[item.key][paramIndex].key,
-                      "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].key = $event,
-                      size: "default",
-                      clearable: ""
-                    }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                    (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2, index3) => {
+                      return openBlock(), createBlock(_component_el_option, {
+                        key: item2,
+                        label: item2.label,
+                        value: item2.value
+                      }, null, 8, ["label", "value"]);
+                    }), 128))
                   ]),
                   _: 2
-                }, 1024),
-                createVNode(_component_el_col, { span: 6 }, {
+                }, 1032, ["modelValue", "onUpdate:modelValue", "onChange"]))
+              ], 64)) : (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList($data.form.params[item.key], (param, paramIndex) => {
+                return openBlock(), createBlock(_component_el_row, {
+                  gutter: 20,
+                  key: index2
+                }, {
                   default: withCtx(() => [
-                    createVNode(_component_el_input, {
-                      modelValue: $data.form.params[item.key][paramIndex].value,
-                      "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].value = $event,
-                      size: "default",
-                      clearable: ""
-                    }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                    createVNode(_component_el_col, { span: 6 }, {
+                      default: withCtx(() => [
+                        createVNode(_component_el_input, {
+                          modelValue: $data.form.params[item.key][paramIndex].key,
+                          "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].key = $event,
+                          size: "default",
+                          clearable: ""
+                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                      ]),
+                      _: 2
+                    }, 1024),
+                    createVNode(_component_el_col, { span: 6 }, {
+                      default: withCtx(() => [
+                        createVNode(_component_el_input, {
+                          modelValue: $data.form.params[item.key][paramIndex].value,
+                          "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].value = $event,
+                          size: "default",
+                          clearable: ""
+                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                      ]),
+                      _: 2
+                    }, 1024),
+                    createVNode(_component_svg_icon, {
+                      class: "el-delete",
+                      "icon-class": "el-delete",
+                      onClick: ($event) => $options.handleDeleteParam(item.key, paramIndex)
+                    }, null, 8, ["onClick"])
                   ]),
                   _: 2
-                }, 1024),
-                createVNode(_component_svg_icon, {
-                  class: "el-delete",
-                  "icon-class": "el-delete",
-                  onClick: ($event) => $options.handleDeleteParam(item.key, paramIndex)
-                }, null, 8, ["onClick"])
-              ]),
-              _: 2
-            }, 1024);
+                }, 1024);
+              }), 128))
+            ]);
           }), 128))
-        ]);
-      }), 128)),
-      createTextVNode(" " + toDisplayString($data.selectType) + " ", 1)
+        ]),
+        _: 1
+      }, 8, ["model", "rules"])
     ]),
     _: 1
   }, 8, ["modelValue", "title", "before-close"]);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-1eeacaef"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-c35f5c14"]]);
 const _sfc_main$1y = {
   name: "onCreatedSetting-editor",
   components: {
@@ -75699,13 +75706,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731481426480__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731487661422__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731481426480__";
+      svgDom.id = "__svg__icons__dom__1731487661422__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -77803,7 +77810,6 @@ const asyncSelectSchema = {
     labelIconClass: null,
     labelIconPosition: "rear",
     labelTooltip: null,
-    noCreatedEvent: true,
     onCreatedSetting: "",
     onCreated: "",
     onMounted: "",

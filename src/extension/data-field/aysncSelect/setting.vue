@@ -69,63 +69,68 @@
           </el-form-item>
         </el-col>
       </el-row>
-    </el-form>
-    <el-divider content-position="left">{{ $t("dataField.params") }}</el-divider>
-    <div v-for="(item, index) in selectType.paramSettings" :key="key">
-      <h4 class="params-header">
-        {{ item.key }}
-        <svg-icon
-          v-if="item.type !== 'string'"
-          class="el-delete el-icon--right"
-          icon-class="el-plus"
-          @click="handleAddParams(item)"
-        />
-      </h4>
-      <template v-if="item.type === 'string'">
-        <el-input
-          v-if="!item.apiSetting"
-          v-model="form.params[item.key]"
-          size="default"
-          clearable
-        />
-        <el-select v-else size="default" v-model="form.params[item.key]" filterable>
-          <el-option
-            v-for="(item, index) in item.options"
-            :key="item"
-            :label="item.label"
-            :value="item.value"
-          />
-        </el-select>
-      </template>
-      <template v-else>
-        <el-row
-          :gutter="20"
-          v-for="(param, paramIndex) in form.params[item.key]"
-          :key="index"
-        >
-          <el-col :span="6">
-            <el-input
-              v-model="form.params[item.key][paramIndex].key"
-              size="default"
-              clearable
-            />
-          </el-col>
-          <el-col :span="6">
-            <el-input
-              v-model="form.params[item.key][paramIndex].value"
-              size="default"
-              clearable
-            />
-          </el-col>
+      <el-divider content-position="left">{{ $t("dataField.params") }}</el-divider>
+      <div v-for="(item, index) in selectType.paramSettings" :key="key">
+        <h4 class="params-header">
+          {{ item.key }}
           <svg-icon
-            class="el-delete"
-            icon-class="el-delete"
-            @click="handleDeleteParam(item.key, paramIndex)"
+            v-if="item.type !== 'string'"
+            class="el-delete el-icon--right"
+            icon-class="el-plus"
+            @click="handleAddParams(item)"
           />
-        </el-row>
-      </template>
-    </div>
-    {{ selectType }}
+        </h4>
+        <template v-if="item.type === 'string'">
+          <el-input
+            v-if="!item.apiSetting"
+            v-model="form.params[item.key]"
+            size="default"
+            clearable
+          />
+          <el-select
+            v-else
+            size="default"
+            v-model="form.params[item.key]"
+            filterable
+            @change="(value) => handleParamChange(value, item)"
+          >
+            <el-option
+              v-for="(item, index) in item.options"
+              :key="item"
+              :label="item.label"
+              :value="item.value"
+            />
+          </el-select>
+        </template>
+        <template v-else>
+          <el-row
+            :gutter="20"
+            v-for="(param, paramIndex) in form.params[item.key]"
+            :key="index"
+          >
+            <el-col :span="6">
+              <el-input
+                v-model="form.params[item.key][paramIndex].key"
+                size="default"
+                clearable
+              />
+            </el-col>
+            <el-col :span="6">
+              <el-input
+                v-model="form.params[item.key][paramIndex].value"
+                size="default"
+                clearable
+              />
+            </el-col>
+            <svg-icon
+              class="el-delete"
+              icon-class="el-delete"
+              @click="handleDeleteParam(item.key, paramIndex)"
+            />
+          </el-row>
+        </template>
+      </div>
+    </el-form>
     <template #footer>
       <div class="dialog-footer">
         <el-button size="default" @click="dialogVisible = false">{{
@@ -189,7 +194,7 @@ export default {
       this.dialogVisible = true;
     },
     handleTypeChange(value, init = false) {
-      this.selectType = this.apiOptions[value];
+      this.selectType = { ...this.apiOptions[value] };
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
         this.form.valueKey = this.selectType.valueKey;
@@ -215,6 +220,13 @@ export default {
           this.form.params[item.key] = [];
         }
       });
+    },
+    async handleParamChange(value, apiSetting) {
+      if (apiSetting.isGetKeyList) {
+        console.log("labelKeyList", "valueKeyList");
+        // this.selectType.labelKeyList = value.map((item) => item.label);
+        // this.selectType.valueKeyList = value.map((item) => item.value);
+      }
     },
     handleSubmit() {
       this.setting.selectSetting = this.form;
@@ -246,6 +258,7 @@ export default {
       if (!apiSetting.method) apiSetting.method = "post";
       const paramsStr = this.getObjStr(params, apiSetting.method);
       const onCreated = `const _this = this\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n\n  return data.map(item => ({\n    value: item.${apiSetting.valueKey},\n    label: item.${apiSetting.labelKey}\n  })).sort((a,b)=> (a.label.localeCompare(b.label) ))\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
+      console.log(onCreated);
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },

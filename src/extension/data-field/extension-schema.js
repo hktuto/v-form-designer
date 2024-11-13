@@ -38,7 +38,7 @@ export const asyncSelectSchema = {
     labelIconPosition: 'rear',
     labelTooltip: null,
     //-------------------
-    noCreatedEvent: true,
+    // noCreatedEvent: true,
     onCreatedSetting: '',
     onCreated: '',
     onMounted: '',

@@ -8,19 +8,20 @@ export const selectApis = {
     api: MASTER_TABLE_COLUMN_API,
     paramSettings: [
       {
-        key: 'where',
-        type: 'object'
-      },
-      {
         key: 'name',
         type: 'string',
+        isGetKeyList: true,
         apiSetting: {
           api: MASTER_TABLE_API,
           method: 'get',
           labelKey: 'name',
-          valueKey: 'id',
+          valueKey: 'name',
         }
-      }
+      },
+      {
+        key: 'where',
+        type: 'object'
+      },
     ],
     valueKey: 'id',
     labelKey: 'name',
@@ -41,10 +42,10 @@ export const selectApis = {
   },
   user: {
     api: USER_API,
-    valueKeyList: ['id'],
-    labelKeyList: ['name', 'id'],
-    valueKey: 'id',
-    labelKey: 'name',
+    valueKeyList: ['userId'],
+    labelKeyList: ['username', 'userId'],
+    valueKey: 'userId',
+    labelKey: 'username',
     paramSettings: [{
       key: 'groupName',
       type: 'string',
