@@ -10,7 +10,7 @@ export const selectApis = {
       {
         key: 'name',
         type: 'string',
-        isGetKeyList: true,
+        changeKey: 'masterTable',
         apiSetting: {
           api: MASTER_TABLE_API,
           method: 'get',
@@ -28,18 +28,19 @@ export const selectApis = {
   },
   masterTable: {
     api: MASTER_TABLE_API,
+    method: 'get',
     valueKeyList: ['id'],
     labelKeyList: ['name', 'id'],
     valueKey: 'id',
     labelKey: 'name',
   },
-  documentTable: {
-    api: 'documentTable',
-    valueKeyList: ['id'],
-    labelKeyList: ['name', 'id'],
-    valueKey: 'id',
-    labelKey: 'name',
-  },
+  // documentTable: {
+  //   api: 'documentTable',
+  //   valueKeyList: ['id'],
+  //   labelKeyList: ['name', 'id'],
+  //   valueKey: 'id',
+  //   labelKey: 'name',
+  // },
   user: {
     api: USER_API,
     valueKeyList: ['userId'],
@@ -56,5 +57,13 @@ export const selectApis = {
         valueKey: 'id',
       },
     }]
+  },
+  group: {
+    api: GROUP_API,
+    method: 'post',
+    valueKeyList: ['id'],
+    labelKeyList: ['name'],
+    valueKey: 'id',
+    labelKey: 'name',
   }
 }

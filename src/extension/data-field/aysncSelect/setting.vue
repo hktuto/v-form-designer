@@ -1,12 +1,12 @@
 <template>
   <el-dialog
+    v-if="dialogVisible"
     v-model="dialogVisible"
     :title="$t('dataField.setting')"
     :before-close="handleClose"
   >
     <el-form
       ref="formRef"
-      style="max-width: 600px"
       label-position="top"
       :model="form"
       :rules="rules"
@@ -73,10 +73,11 @@
       <div v-for="(item, index) in selectType.paramSettings" :key="key">
         <h4 class="params-header">
           {{ item.key }}
-          <svg-icon
+          <el-button
             v-if="item.type !== 'string'"
-            class="el-delete el-icon--right"
-            icon-class="el-plus"
+            type="info"
+            icon="el-icon-plus"
+            circle
             @click="handleAddParams(item)"
           />
         </h4>
@@ -188,8 +189,17 @@ export default {
 
   methods: {
     handleOpen(setting) {
+      const initForm = {
+        api: "",
+        method: "get",
+        params: {},
+        valueKey: "value",
+        labelKey: "label",
+      };
+      this.selectType = {};
+      this.form = initForm;
       this.setting = setting;
-      this.form = setting.selectSetting ? setting.selectSetting : {};
+      this.form = setting.selectSetting ? setting.selectSetting : form;
       if (this.form.api) this.handleTypeChange(this.form.api, true);
       this.dialogVisible = true;
     },
@@ -222,10 +232,19 @@ export default {
       });
     },
     async handleParamChange(value, apiSetting) {
-      if (apiSetting.isGetKeyList) {
-        console.log("labelKeyList", "valueKeyList");
-        // this.selectType.labelKeyList = value.map((item) => item.label);
-        // this.selectType.valueKeyList = value.map((item) => item.value);
+      switch (apiSetting.changeKey) {
+        case value:
+          const tableDetail = await this.GetMasterTablesDetailApi(value);
+          this.selectType.labelKeyList = tableDetail.fields.map(
+            (item) => item.columnName
+          );
+          this.selectType.valueKeyList = tableDetail.fields.map(
+            (item) => item.columnName
+          );
+          break;
+
+        default:
+          break;
       }
     },
     handleSubmit() {
@@ -289,6 +308,18 @@ export default {
         }))
         .sort((a, b) => a.label.localeCompare(b.label));
     },
+    async GetMasterTablesDetailApi(id) {
+      try {
+        const res = await api
+          .get(`/docpal/master/tables/${id}`)
+          .then((res) => res.data.data);
+        return res;
+      } catch (error) {
+        return {
+          fields: [],
+        };
+      }
+    },
   },
 };
 </script>
@@ -302,6 +333,7 @@ export default {
 }
 .params-header {
   display: flex;
+  align-items: center;
   gap: 0.5rem;
 }
 </style>
