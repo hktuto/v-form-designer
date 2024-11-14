@@ -39,7 +39,7 @@ export const asyncSelectSchema = {
     labelTooltip: null,
     //-------------------
     // noCreatedEvent: true,
-    onCreatedSetting: '',
+    onCreatedSetting: 'async-select',
     onCreated: '',
     onMounted: '',
     onRemoteQuery: '',

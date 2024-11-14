@@ -93,6 +93,8 @@
             size="default"
             v-model="form.params[item.key]"
             filterable
+            clearable
+            allow-create
             @change="(value) => handleParamChange(value, item)"
           >
             <el-option
@@ -149,6 +151,13 @@
 import { selectApis } from "@/extension/data-field/aysncSelect/dataFieldApis";
 import SvgIcon from "@/components/svg-icon/index";
 import i18n, { translate } from "@/utils/i18n";
+const initForm = {
+  api: "",
+  method: "get",
+  params: {},
+  valueKey: "value",
+  labelKey: "label",
+};
 export default {
   components: { SvgIcon },
   data() {
@@ -189,13 +198,6 @@ export default {
 
   methods: {
     handleOpen(setting) {
-      const initForm = {
-        api: "",
-        method: "get",
-        params: {},
-        valueKey: "value",
-        labelKey: "label",
-      };
       this.selectType = {};
       this.form = initForm;
       this.setting = setting;
@@ -204,6 +206,7 @@ export default {
       this.dialogVisible = true;
     },
     handleTypeChange(value, init = false) {
+      this.form = initForm;
       this.selectType = { ...this.apiOptions[value] };
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
@@ -233,7 +236,7 @@ export default {
     },
     async handleParamChange(value, apiSetting) {
       switch (apiSetting.changeKey) {
-        case value:
+        case "masterTable":
           const tableDetail = await this.GetMasterTablesDetailApi(value);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName

@@ -5,7 +5,7 @@
       <div :class="{ redPoint: optionModel.onCreatedSetting }"></div>
     </template>
     <el-button type="info" icon="el-icon-edit" plain round @click="handleClick">
-      {{ $t("designer.setting.addEventHandler") }}</el-button
+      {{ $t("designer.setting.onCreatedSetting") }}</el-button
     >
     <AsyncSelectSetting ref="settingRef"></AsyncSelectSetting>
   </el-form-item>
@@ -34,8 +34,13 @@ export default {
   },
   methods: {
     handleClick() {
-      console.log("clicsk", this.$refs);
-      this.$refs.settingRef.handleOpen(this.optionModel);
+      switch (this.optionModel.onCreatedSetting) {
+        case "async-select":
+          this.$refs.settingRef.handleOpen(this.optionModel);
+          break;
+        default:
+          break;
+      }
     },
   },
 };
