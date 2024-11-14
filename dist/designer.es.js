@@ -62791,7 +62791,8 @@ const _sfc_main$1z = {
     async handleParamChange(value2, apiSetting) {
       switch (apiSetting.changeKey) {
         case "masterTable":
-          const tableDetail = await this.GetMasterTablesDetailApi(value2);
+          const tableItem2 = apiSetting.options.find((item) => item.value === value2);
+          const tableDetail = await this.GetMasterTablesDetailApi(tableItem2.id);
           this.selectType.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.valueKeyList = tableDetail.fields.map((item) => item.columnName);
           break;
@@ -63130,7 +63131,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-7cb40e0b"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-2d6f4834"]]);
 const _sfc_main$1y = {
   name: "onCreatedSetting-editor",
   components: {
@@ -75733,13 +75734,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731568542204__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731569840524__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731568542204__";
+      svgDom.id = "__svg__icons__dom__1731569840524__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

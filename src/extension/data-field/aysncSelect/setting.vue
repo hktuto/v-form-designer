@@ -238,7 +238,8 @@ export default {
     async handleParamChange(value, apiSetting) {
       switch (apiSetting.changeKey) {
         case "masterTable":
-          const tableDetail = await this.GetMasterTablesDetailApi(value);
+          const tableItem = apiSetting.options.find((item) => item.value === value);
+          const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
