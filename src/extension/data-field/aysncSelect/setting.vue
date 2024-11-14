@@ -24,7 +24,7 @@
           <el-option
             v-for="(item, key) in apiOptions"
             :key="key"
-            :label="`dataField.type.${key}`"
+            :label="$t(`dataField.type.${key}`)"
             :value="key"
           />
         </el-select>
@@ -316,7 +316,7 @@ export default {
     },
     async GetMasterTablesDetailApi(id) {
       try {
-        const res = await api
+        const res = await $api
           .get(`/docpal/master/tables/${id}`)
           .then((res) => res.data.data);
         return res;

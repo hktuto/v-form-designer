@@ -62875,7 +62875,7 @@ init()`;
     },
     async GetMasterTablesDetailApi(id2) {
       try {
-        const res = await api.get(`/docpal/master/tables/${id2}`).then((res2) => res2.data.data);
+        const res = await $api.get(`/docpal/master/tables/${id2}`).then((res2) => res2.data.data);
         return res;
       } catch (error) {
         return {
@@ -62956,7 +62956,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
                   (openBlock(true), createElementBlock(Fragment, null, renderList($data.apiOptions, (item, key) => {
                     return openBlock(), createBlock(_component_el_option, {
                       key,
-                      label: `dataField.type.${key}`,
+                      label: _ctx.$t(`dataField.type.${key}`),
                       value: key
                     }, null, 8, ["label", "value"]);
                   }), 128))
@@ -63130,7 +63130,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-17ea389c"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-7cb40e0b"]]);
 const _sfc_main$1y = {
   name: "onCreatedSetting-editor",
   components: {
@@ -75733,13 +75733,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731566569395__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731568542204__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731566569395__";
+      svgDom.id = "__svg__icons__dom__1731568542204__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
