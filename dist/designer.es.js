@@ -62670,14 +62670,14 @@ const selectApis = {
   masterTable: {
     api: MASTER_TABLE_API,
     method: "get",
-    valueKeyList: ["id"],
+    valueKeyList: ["name", "id"],
     labelKeyList: ["name", "id"],
     valueKey: "id",
     labelKey: "name"
   },
   user: {
     api: USER_API,
-    valueKeyList: ["userId"],
+    valueKeyList: ["username", "userId"],
     labelKeyList: ["username", "userId"],
     valueKey: "userId",
     labelKey: "username",
@@ -62695,13 +62695,20 @@ const selectApis = {
   group: {
     api: GROUP_API,
     method: "post",
-    valueKeyList: ["id"],
-    labelKeyList: ["name"],
+    valueKeyList: ["id", "name"],
+    labelKeyList: ["id", "name"],
     valueKey: "id",
     labelKey: "name"
   }
 };
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
+const initForm = {
+  api: "",
+  method: "get",
+  params: {},
+  valueKey: "value",
+  labelKey: "label"
+};
 const _sfc_main$1z = {
   components: { SvgIcon },
   data() {
@@ -62741,13 +62748,6 @@ const _sfc_main$1z = {
   },
   methods: {
     handleOpen(setting) {
-      const initForm = {
-        api: "",
-        method: "get",
-        params: {},
-        valueKey: "value",
-        labelKey: "label"
-      };
       this.selectType = {};
       this.form = initForm;
       this.setting = setting;
@@ -62757,6 +62757,7 @@ const _sfc_main$1z = {
       this.dialogVisible = true;
     },
     handleTypeChange(value2, init = false) {
+      this.form = initForm;
       this.selectType = __spreadValues2({}, this.apiOptions[value2]);
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
@@ -62789,7 +62790,7 @@ const _sfc_main$1z = {
     },
     async handleParamChange(value2, apiSetting) {
       switch (apiSetting.changeKey) {
-        case value2:
+        case "masterTable":
           const tableDetail = await this.GetMasterTablesDetailApi(value2);
           this.selectType.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.valueKeyList = tableDetail.fields.map((item) => item.columnName);
@@ -63064,6 +63065,8 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
                   modelValue: $data.form.params[item.key],
                   "onUpdate:modelValue": ($event) => $data.form.params[item.key] = $event,
                   filterable: "",
+                  clearable: "",
+                  "allow-create": "",
                   onChange: (value2) => $options.handleParamChange(value2, item)
                 }, {
                   default: withCtx(() => [
@@ -63123,7 +63126,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-d16c2190"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-44254eeb"]]);
 const _sfc_main$1y = {
   name: "onCreatedSetting-editor",
   components: {
@@ -63142,8 +63145,11 @@ const _sfc_main$1y = {
   },
   methods: {
     handleClick() {
-      console.log("clicsk", this.$refs);
-      this.$refs.settingRef.handleOpen(this.optionModel);
+      switch (this.optionModel.onCreatedSetting) {
+        case "async-select":
+          this.$refs.settingRef.handleOpen(this.optionModel);
+          break;
+      }
     }
   }
 };
@@ -63167,7 +63173,7 @@ function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
         onClick: $options.handleClick
       }, {
         default: withCtx(() => [
-          createTextVNode(toDisplayString(_ctx.$t("designer.setting.addEventHandler")), 1)
+          createTextVNode(toDisplayString(_ctx.$t("designer.setting.onCreatedSetting")), 1)
         ]),
         _: 1
       }, 8, ["onClick"]),
@@ -75732,13 +75738,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731551877589__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731563369045__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731551877589__";
+      svgDom.id = "__svg__icons__dom__1731563369045__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -77836,7 +77842,7 @@ const asyncSelectSchema = {
     labelIconClass: null,
     labelIconPosition: "rear",
     labelTooltip: null,
-    onCreatedSetting: "",
+    onCreatedSetting: "async-select",
     onCreated: "",
     onMounted: "",
     onRemoteQuery: "",
