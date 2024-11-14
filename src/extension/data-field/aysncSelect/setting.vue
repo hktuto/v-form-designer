@@ -74,6 +74,7 @@
         <h4 class="params-header">
           {{ item.key }}
           <el-button
+            size="small"
             v-if="item.type !== 'string'"
             type="info"
             icon="el-icon-plus"
@@ -199,14 +200,14 @@ export default {
   methods: {
     handleOpen(setting) {
       this.selectType = {};
-      this.form = initForm;
+      this.form = { ...JSON.parse(JSON.stringify(initForm)) };
       this.setting = setting;
       this.form = setting.selectSetting ? setting.selectSetting : form;
       if (this.form.api) this.handleTypeChange(this.form.api, true);
       this.dialogVisible = true;
     },
     handleTypeChange(value, init = false) {
-      this.form = initForm;
+      this.form = { ...JSON.parse(JSON.stringify(initForm)), api: value };
       this.selectType = { ...this.apiOptions[value] };
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
@@ -252,7 +253,6 @@ export default {
     },
     handleSubmit() {
       this.setting.selectSetting = this.form;
-      const message = "message111";
       const apiSetting = this.apiOptions[this.form.api];
       let params = {
         ...this.form.params,
@@ -280,7 +280,6 @@ export default {
       if (!apiSetting.method) apiSetting.method = "post";
       const paramsStr = this.getObjStr(params, apiSetting.method);
       const onCreated = `const _this = this\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n\n  return data.map(item => ({\n    value: item.${apiSetting.valueKey},\n    label: item.${apiSetting.labelKey}\n  })).sort((a,b)=> (a.label.localeCompare(b.label) ))\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
-      console.log(onCreated);
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },
@@ -300,16 +299,20 @@ export default {
       else return str;
     },
     async getOptions(apiSetting) {
-      // const data = await axios[apiSetting.method](apiSetting.api).then(
-      const data = await $api[apiSetting.method](apiSetting.api).then(
-        (res) => res.data.data
-      );
-      return data
-        .map((item) => ({
-          value: item[apiSetting.valueKey],
-          label: item[apiSetting.labelKey],
-        }))
-        .sort((a, b) => a.label.localeCompare(b.label));
+      try {
+        // const data = await axios[apiSetting.method](apiSetting.api).then(
+        const data = await $api[apiSetting.method](apiSetting.api).then(
+          (res) => res.data.data
+        );
+        return data
+          .map((item) => ({
+            value: item[apiSetting.valueKey],
+            label: item[apiSetting.labelKey],
+          }))
+          .sort((a, b) => a.label.localeCompare(b.label));
+      } catch (error) {
+        return [];
+      }
     },
     async GetMasterTablesDetailApi(id) {
       try {

@@ -1,14 +1,14 @@
 <template>
-  <el-form-item label-width="150px">
-    <template #label>
+  <div style="margin-bottom: 0.3rem">
+    <!-- <template #label>
       <div>onCreatedSetting</div>
       <div :class="{ redPoint: optionModel.onCreatedSetting }"></div>
-    </template>
-    <el-button type="info" icon="el-icon-edit" plain round @click="handleClick">
+    </template> -->
+    <el-button type="primary" icon="el-icon-edit" plain round @click="handleClick">
       {{ $t("designer.setting.onCreatedSetting") }}</el-button
     >
     <AsyncSelectSetting ref="settingRef"></AsyncSelectSetting>
-  </el-form-item>
+  </div>
 </template>
 
 <script>

@@ -3763,14 +3763,14 @@ const _sfc_main$3v = {
     }
   }
 };
-const _hoisted_1$J = ["xlink:href"];
+const _hoisted_1$K = ["xlink:href"];
 const _hoisted_2$s = { key: 0 };
 function _sfc_render$3v(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
   }, [
-    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$J),
+    createElementVNode("use", { "xlink:href": $options.iconName }, null, 8, _hoisted_1$K),
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$s, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
@@ -3914,7 +3914,7 @@ const _sfc_main$3u = {
     }
   }
 };
-const _hoisted_1$I = ["title", "onDblclick"];
+const _hoisted_1$J = ["title", "onDblclick"];
 const _hoisted_2$r = ["title", "onDblclick"];
 const _hoisted_3$m = ["title", "onDblclick"];
 const _hoisted_4$f = ["title", "onDblclick"];
@@ -3981,7 +3981,7 @@ function _sfc_render$3u(_ctx, _cache, $props, $setup, $data, $options) {
                           }, null, 8, ["icon-class"]),
                           createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${ctn.type}`, `extension.widgetLabel.${ctn.type}`)), 1)
                         ])
-                      ], 40, _hoisted_1$I)
+                      ], 40, _hoisted_1$J)
                     ]),
                     _: 1
                   }, 8, ["list", "clone", "move", "onEnd"])
@@ -4407,7 +4407,7 @@ const _sfc_main$3s = {
     }
   }
 };
-const _hoisted_1$H = {
+const _hoisted_1$I = {
   key: 0,
   class: "field-action"
 };
@@ -4436,7 +4436,7 @@ function _sfc_render$3s(_ctx, _cache, $props, $setup, $data, $options) {
       renderSlot(_ctx.$slots, "default", {}, void 0, true)
     ], 6)) : createCommentVNode("", true),
     !!this.designer ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$H, [
+      $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_1$I, [
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.selectParentWidget"),
           onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $options.selectParentWidget($props.field), ["stop"]))
@@ -5302,7 +5302,7 @@ const _sfc_main$3q = {
     }
   }
 };
-const _hoisted_1$G = {
+const _hoisted_1$H = {
   key: 0,
   class: "custom-label"
 };
@@ -5339,7 +5339,7 @@ function _sfc_render$3q(_ctx, _cache, $props, $setup, $data, $options) {
       onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $options.selectField($props.field), ["stop"]))
     }, {
       label: withCtx(() => [
-        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$G, [
+        !!$props.field.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_1$H, [
           $props.field.options.labelIconPosition === "front" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
             !!$props.field.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
               createVNode(_component_el_tooltip, {
@@ -5497,7 +5497,7 @@ const _sfc_main$3p = {
   },
   methods: {}
 };
-const _hoisted_1$F = { class: "full-width-input" };
+const _hoisted_1$G = { class: "full-width-input" };
 function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -5514,7 +5514,7 @@ function _sfc_render$3p(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$F, [
+      createElementVNode("div", _hoisted_1$G, [
         createVNode(_component_el_cascader, {
           ref: "fieldEditor",
           options: $props.field.options.optionItems,
@@ -6317,7 +6317,7 @@ const _sfc_main$3j = {
     }
   }
 };
-const _hoisted_1$E = {
+const _hoisted_1$F = {
   key: 0,
   class: "el-upload__tip"
 };
@@ -6361,7 +6361,7 @@ function _sfc_render$3j(_ctx, _cache, $props, $setup, $data, $options) {
         "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
-          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$E, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
+          !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$F, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
@@ -6442,7 +6442,7 @@ const _sfc_main$3i = {
   },
   methods: {}
 };
-const _hoisted_1$D = ["innerHTML"];
+const _hoisted_1$E = ["innerHTML"];
 function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -6460,7 +6460,7 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         ref: "fieldEditor",
         innerHTML: $props.field.options.htmlContent
-      }, null, 8, _hoisted_1$D)
+      }, null, 8, _hoisted_1$E)
     ]),
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
@@ -6537,7 +6537,7 @@ const _sfc_main$3h = {
     }
   }
 };
-const _hoisted_1$C = { key: 1 };
+const _hoisted_1$D = { key: 1 };
 function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
@@ -6598,7 +6598,7 @@ function _sfc_render$3h(_ctx, _cache, $props, $setup, $data, $options) {
                   key: 0,
                   "icon-class": $props.field.options.buttonIcon
                 }, null, 8, ["icon-class"])) : createCommentVNode("", true),
-                $props.field.options.appendButtonText ? (openBlock(), createElementBlock("span", _hoisted_1$C, toDisplayString(_ctx.$t($props.field.options.appendButtonText)), 1)) : createCommentVNode("", true)
+                $props.field.options.appendButtonText ? (openBlock(), createElementBlock("span", _hoisted_1$D, toDisplayString(_ctx.$t($props.field.options.appendButtonText)), 1)) : createCommentVNode("", true)
               ]),
               _: 1
             }, 8, ["disabled", "onClick"])
@@ -6929,7 +6929,7 @@ const _sfc_main$3f = {
     }
   }
 };
-const _hoisted_1$B = { class: "el-upload-list__item-status-label" };
+const _hoisted_1$C = { class: "el-upload-list__item-status-label" };
 const _hoisted_2$n = {
   class: "el-icon--upload-success",
   style: { "color": "#FFF" }
@@ -6990,7 +6990,7 @@ function _sfc_render$3f(_ctx, _cache, $props, $setup, $data, $options) {
             fit: "cover",
             "preview-teleported": ""
           }, null, 8, ["src", "preview-src-list", "initial-index"]),
-          createElementVNode("label", _hoisted_1$B, [
+          createElementVNode("label", _hoisted_1$C, [
             createElementVNode("i", _hoisted_2$n, [
               createVNode(_component_svg_icon, {
                 class: "",
@@ -30063,9 +30063,9 @@ const _sfc_main$3c = defineComponent({
     };
   }
 });
-const _hoisted_1$A = { ref: "selector" };
+const _hoisted_1$B = { ref: "selector" };
 function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$A, null, 512);
+  return openBlock(), createElementBlock("div", _hoisted_1$B, null, 512);
 }
 var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$3c, [["render", _sfc_render$3c]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
@@ -30172,7 +30172,7 @@ const _sfc_main$3b = {
     }
   }
 };
-const _hoisted_1$z = { style: { "border": "1px solid #ccc" } };
+const _hoisted_1$A = { style: { "border": "1px solid #ccc" } };
 function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
@@ -30190,7 +30190,7 @@ function _sfc_render$3b(_ctx, _cache, $props, $setup, $data, $options) {
     "sub-form-row-id": $props.subFormRowId
   }, {
     default: withCtx(() => [
-      createElementVNode("div", _hoisted_1$z, [
+      createElementVNode("div", _hoisted_1$A, [
         createVNode(_component_Toolbar, {
           style: { "border-bottom": "1px solid #ccc" },
           editor: $data.editorRef,
@@ -30617,7 +30617,7 @@ const _sfc_main$37 = {
   },
   methods: {}
 };
-const _hoisted_1$y = {
+const _hoisted_1$z = {
   key: 0,
   class: "slot-title"
 };
@@ -30639,7 +30639,7 @@ function _sfc_render$37(_ctx, _cache, $props, $setup, $data, $options) {
         class: normalizeClass([!!$props.designState ? "slot-wrapper-design" : "slot-wrapper-render"])
       }, [
         renderSlot(_ctx.$slots, $props.field.options.name, { formModel: _ctx.formModel }, void 0, true),
-        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1$y, toDisplayString($props.field.options.label), 1)) : createCommentVNode("", true)
+        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1$z, toDisplayString($props.field.options.label), 1)) : createCommentVNode("", true)
       ], 2)
     ]),
     _: 3
@@ -31199,7 +31199,7 @@ const _sfc_main$31 = {
     }
   }
 };
-const _hoisted_1$x = { class: "blank-cell" };
+const _hoisted_1$y = { class: "blank-cell" };
 const _hoisted_2$m = { class: "invisible-content" };
 function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
@@ -31247,7 +31247,7 @@ function _sfc_render$31(_ctx, _cache, $props, $setup, $data, $options) {
         ], 64);
       }), 256)) : (openBlock(), createBlock(_component_el_col, { key: 1 }, {
         default: withCtx(() => [
-          createElementVNode("div", _hoisted_1$x, [
+          createElementVNode("div", _hoisted_1$y, [
             createElementVNode("span", _hoisted_2$m, toDisplayString(_ctx.$t("render.hint.blankCellContent")), 1)
           ])
         ]),
@@ -31699,7 +31699,7 @@ const _sfc_main$2$ = {
     }
   }
 };
-const _hoisted_1$w = { class: "action-header-column" };
+const _hoisted_1$x = { class: "action-header-column" };
 const _hoisted_2$l = { class: "action-label" };
 const _hoisted_3$h = {
   key: 0,
@@ -31726,7 +31726,7 @@ function _sfc_render$2$(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createVNode(_component_el_row, { class: "header-row" }, {
           default: withCtx(() => [
-            createElementVNode("div", _hoisted_1$w, [
+            createElementVNode("div", _hoisted_1$x, [
               createElementVNode("span", _hoisted_2$l, toDisplayString(_ctx.$t("render.hint.subFormAction")), 1),
               createVNode(_component_el_button, {
                 disabled: $options.addDisabled,
@@ -32015,7 +32015,7 @@ const _sfc_main$2Z = {
   },
   methods: {}
 };
-const _hoisted_1$v = ["colspan", "rowspan"];
+const _hoisted_1$w = ["colspan", "rowspan"];
 function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
@@ -32058,7 +32058,7 @@ function _sfc_render$2Z(_ctx, _cache, $props, $setup, $data, $options) {
         ]), 1032, ["field", "parent-list", "index-of-parent-list", "parent-widget"]))
       ], 64);
     }), 256))
-  ], 14, _hoisted_1$v);
+  ], 14, _hoisted_1$w);
 }
 var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$2Z, [["render", _sfc_render$2Z], ["__scopeId", "data-v-3e48ee34"]]);
 var __glob_0_5$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -56654,13 +56654,13 @@ const _sfc_main$2W = {
     }
   }
 };
-const _hoisted_1$u = { class: "ace-container" };
+const _hoisted_1$v = { class: "ace-container" };
 const _hoisted_2$k = {
   class: "ace-editor",
   ref: "ace"
 };
 function _sfc_render$2W(_ctx, _cache, $props, $setup, $data, $options) {
-  return openBlock(), createElementBlock("div", _hoisted_1$u, [
+  return openBlock(), createElementBlock("div", _hoisted_1$v, [
     createElementVNode("div", _hoisted_2$k, null, 512)
   ]);
 }
@@ -58079,7 +58079,7 @@ const _sfc_main$2V = {
     }
   }
 };
-const _hoisted_1$t = { class: "toolbar-container" };
+const _hoisted_1$u = { class: "toolbar-container" };
 const _hoisted_2$j = { class: "left-toolbar" };
 const _hoisted_3$g = { class: "right-toolbar" };
 const _hoisted_4$9 = {
@@ -58127,7 +58127,7 @@ function _sfc_render$2V(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", _hoisted_1$t, [
+  return openBlock(), createElementBlock("div", _hoisted_1$u, [
     createVNode(_component_dir, { class: "toolbar-content" }, {
       default: withCtx(() => [
         createElementVNode("div", _hoisted_2$j, [
@@ -60381,7 +60381,7 @@ const _sfc_main$2i = {
     }
   }
 };
-const _hoisted_1$s = { class: "option-items-pane" };
+const _hoisted_1$t = { class: "option-items-pane" };
 const _hoisted_2$i = {
   key: 2,
   class: "full-width-input"
@@ -60411,7 +60411,7 @@ function _sfc_render$2i(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_dialog = resolveComponent("el-dialog");
   const _component_code_editor = resolveComponent("code-editor");
   const _directive_drag = resolveDirective("drag");
-  return openBlock(), createElementBlock("div", _hoisted_1$s, [
+  return openBlock(), createElementBlock("div", _hoisted_1$t, [
     $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select-v2" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
       key: 0,
       modelValue: $options.optionModel.defaultValue,
@@ -61704,7 +61704,7 @@ const _sfc_main$1S = {
     }
   }
 };
-const _hoisted_1$r = { class: "col-span-title" };
+const _hoisted_1$s = { class: "col-span-title" };
 function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -61744,7 +61744,7 @@ function _sfc_render$1S(_ctx, _cache, $props, $setup, $data, $options) {
             key: colIdx,
             class: "col-item"
           }, [
-            createElementVNode("span", _hoisted_1$r, toDisplayString(_ctx.$t("designer.setting.colSpanTitle")) + toDisplayString(colIdx + 1), 1),
+            createElementVNode("span", _hoisted_1$s, toDisplayString(_ctx.$t("designer.setting.colSpanTitle")) + toDisplayString(colIdx + 1), 1),
             createVNode(_component_el_input_number, {
               modelValue: colItem.options.span,
               "onUpdate:modelValue": ($event) => colItem.options.span = $event,
@@ -62155,7 +62155,7 @@ const _sfc_main$1J = {
     }
   }
 };
-const _hoisted_1$q = { class: "col-item" };
+const _hoisted_1$r = { class: "col-item" };
 function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
@@ -62205,7 +62205,7 @@ function _sfc_render$1J(_ctx, _cache, $props, $setup, $data, $options) {
           "item-key": "id"
         }, { group: "panesGroup", ghostClass: "ghost", handle: ".drag-option" }), {
           item: withCtx(({ element: tpItem, index: tpIdx }) => [
-            createElementVNode("li", _hoisted_1$q, [
+            createElementVNode("li", _hoisted_1$r, [
               createVNode(_component_el_checkbox, {
                 modelValue: tpItem.options.active,
                 "onUpdate:modelValue": ($event) => tpItem.options.active = $event,
@@ -62749,7 +62749,7 @@ const _sfc_main$1z = {
   methods: {
     handleOpen(setting) {
       this.selectType = {};
-      this.form = initForm;
+      this.form = __spreadValues2({}, JSON.parse(JSON.stringify(initForm)));
       this.setting = setting;
       this.form = setting.selectSetting ? setting.selectSetting : form;
       if (this.form.api)
@@ -62757,7 +62757,7 @@ const _sfc_main$1z = {
       this.dialogVisible = true;
     },
     handleTypeChange(value2, init = false) {
-      this.form = initForm;
+      this.form = __spreadProps2(__spreadValues2({}, JSON.parse(JSON.stringify(initForm))), { api: value2 });
       this.selectType = __spreadValues2({}, this.apiOptions[value2]);
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
@@ -62840,7 +62840,6 @@ async function init() {
   _this.loadOptions(options)
 }
 init()`;
-      console.log(onCreated);
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },
@@ -62864,11 +62863,15 @@ init()`;
         return str;
     },
     async getOptions(apiSetting) {
-      const data2 = await $api[apiSetting.method](apiSetting.api).then((res) => res.data.data);
-      return data2.map((item) => ({
-        value: item[apiSetting.valueKey],
-        label: item[apiSetting.labelKey]
-      })).sort((a10, b10) => a10.label.localeCompare(b10.label));
+      try {
+        const data2 = await $api[apiSetting.method](apiSetting.api).then((res) => res.data.data);
+        return data2.map((item) => ({
+          value: item[apiSetting.valueKey],
+          label: item[apiSetting.labelKey]
+        })).sort((a10, b10) => a10.label.localeCompare(b10.label));
+      } catch (error) {
+        return [];
+      }
     },
     async GetMasterTablesDetailApi(id2) {
       try {
@@ -62882,7 +62885,7 @@ init()`;
     }
   }
 };
-const _hoisted_1$p = { class: "params-header" };
+const _hoisted_1$q = { class: "params-header" };
 const _hoisted_2$h = { class: "dialog-footer" };
 function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
@@ -63042,10 +63045,11 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
           }),
           (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.paramSettings, (item, index2) => {
             return openBlock(), createElementBlock("div", { key: _ctx.key }, [
-              createElementVNode("h4", _hoisted_1$p, [
+              createElementVNode("h4", _hoisted_1$q, [
                 createTextVNode(toDisplayString(item.key) + " ", 1),
                 item.type !== "string" ? (openBlock(), createBlock(_component_el_button, {
                   key: 0,
+                  size: "small",
                   type: "info",
                   icon: "el-icon-plus",
                   circle: "",
@@ -63126,7 +63130,7 @@ function _sfc_render$1z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-44254eeb"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1z, [["render", _sfc_render$1z], ["__scopeId", "data-v-17ea389c"]]);
 const _sfc_main$1y = {
   name: "onCreatedSetting-editor",
   components: {
@@ -63153,34 +63157,25 @@ const _sfc_main$1y = {
     }
   }
 };
+const _hoisted_1$p = { style: { "margin-bottom": "0.3rem" } };
 function _sfc_render$1y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_AsyncSelectSetting = resolveComponent("AsyncSelectSetting");
-  const _component_el_form_item = resolveComponent("el-form-item");
-  return openBlock(), createBlock(_component_el_form_item, { "label-width": "150px" }, {
-    label: withCtx(() => [
-      _cache[0] || (_cache[0] = createElementVNode("div", null, "onCreatedSetting", -1)),
-      createElementVNode("div", {
-        class: normalizeClass({ redPoint: $props.optionModel.onCreatedSetting })
-      }, null, 2)
-    ]),
-    default: withCtx(() => [
-      createVNode(_component_el_button, {
-        type: "info",
-        icon: "el-icon-edit",
-        plain: "",
-        round: "",
-        onClick: $options.handleClick
-      }, {
-        default: withCtx(() => [
-          createTextVNode(toDisplayString(_ctx.$t("designer.setting.onCreatedSetting")), 1)
-        ]),
-        _: 1
-      }, 8, ["onClick"]),
-      createVNode(_component_AsyncSelectSetting, { ref: "settingRef" }, null, 512)
-    ]),
-    _: 1
-  });
+  return openBlock(), createElementBlock("div", _hoisted_1$p, [
+    createVNode(_component_el_button, {
+      type: "primary",
+      icon: "el-icon-edit",
+      plain: "",
+      round: "",
+      onClick: $options.handleClick
+    }, {
+      default: withCtx(() => [
+        createTextVNode(toDisplayString(_ctx.$t("designer.setting.onCreatedSetting")), 1)
+      ]),
+      _: 1
+    }, 8, ["onClick"]),
+    createVNode(_component_AsyncSelectSetting, { ref: "settingRef" }, null, 512)
+  ]);
 }
 var onCreatedSettingEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1y, [["render", _sfc_render$1y]]);
 var __glob_0_84 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
@@ -75738,13 +75733,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731563369045__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731566569395__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731563369045__";
+      svgDom.id = "__svg__icons__dom__1731566569395__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
