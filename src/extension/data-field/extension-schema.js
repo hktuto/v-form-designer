@@ -22,9 +22,6 @@ export const asyncSelectSchema = {
     multiple: false,
     multipleLimit: 0,
     optionItems: [
-      {label: 'select 1', value: 1},
-      {label: 'select 2', value: 2},
-      {label: 'select 3', value: 3},
     ],
     selectSetting: {
     },
@@ -40,6 +37,63 @@ export const asyncSelectSchema = {
     //-------------------
     // noCreatedEvent: true,
     onCreatedSetting: 'async-select',
+    onCreated: '',
+    onMounted: '',
+    onRemoteQuery: '',
+    onChange: '',
+    onFocus: '',
+    onBlur: '',
+    onValidate: '',
+  },
+}
+
+export const ugSelectSchema = {
+  type: 'ug-select',
+  icon: 'ug-select-widget',
+  formItemFlag: true,
+  options: {
+    name: '',
+    label: '',
+    labelAlign: '',
+    defaultValue: '',
+    placeholder: '',
+    columnWidth: '200px',
+    size: '',
+    labelWidth: null,
+    labelHidden: false,
+    disabled: false,
+    hidden: false,
+    clearable: true,
+    filterable: true,
+    allowCreate: false,
+    remote: false,
+    automaticDropdown: false,  //自动下拉
+    multiple: false,
+    multipleLimit: 0,
+    optionItems: [
+    ],
+    selectSetting: {
+      userApi: '/nuxeo/identity/users',
+      userMethod: 'post',
+      userValueKey: 'userId',
+      userLabelKey: 'username',
+      groupApi: '/nuxeo/identity/groups',
+      groupMethod: 'post',
+      groupValueKey: 'id',
+      groupLabelKey: 'name',
+    },
+    required: false,
+    requiredHint: '',
+    validation: '',
+    validationHint: '',
+    //-------------------
+    customClass: '',  //自定义css类名
+    labelIconClass: null,
+    labelIconPosition: 'rear',
+    labelTooltip: null,
+    //-------------------
+    // noCreatedEvent: true,
+    onCreatedSetting: 'ug-select',
     onCreated: '',
     onMounted: '',
     onRemoteQuery: '',
