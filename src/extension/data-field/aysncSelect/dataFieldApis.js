@@ -47,6 +47,7 @@ export const selectApis = {
     labelKeyList: ['username', 'userId'],
     valueKey: 'userId',
     labelKey: 'username',
+    filterKey: 'user',
     paramSettings: [{
       key: 'groupName',
       type: 'string',
