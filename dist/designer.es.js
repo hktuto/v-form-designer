@@ -62793,6 +62793,8 @@ const _sfc_main$1B = {
       switch (apiSetting.changeKey) {
         case "masterTable":
           const tableItem2 = apiSetting.options.find((item) => item.name === value2);
+          console.log(value2, tableItem2);
+          console.log(apiSetting);
           const tableDetail = await this.GetMasterTablesDetailApi(tableItem2.id);
           this.selectType.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.valueKeyList = tableDetail.fields.map((item) => item.columnName);
@@ -62872,7 +62874,7 @@ init()`;
     async getOptions(apiSetting) {
       try {
         const data2 = await $api[apiSetting.method](apiSetting.api).then((res) => res.data.data);
-        return data2.map((item) => ({
+        return data2.map((item) => __spreadProps2(__spreadValues2({}, item), {
           value: item[apiSetting.valueKey],
           label: item[apiSetting.labelKey]
         })).sort((a10, b10) => a10.label.localeCompare(b10.label));
@@ -63137,7 +63139,7 @@ function _sfc_render$1B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1B, [["render", _sfc_render$1B], ["__scopeId", "data-v-61906e54"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1B, [["render", _sfc_render$1B], ["__scopeId", "data-v-2711e6bc"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1A = {
   components: { SvgIcon },
@@ -63214,7 +63216,7 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
     key: 0,
     modelValue: $data.dialogVisible,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.dialogVisible = $event),
-    title: _ctx.$t("dataField.setting111"),
+    title: _ctx.$t("dataField.setting"),
     "before-close": _ctx.handleClose
   }, {
     footer: withCtx(() => [
@@ -63324,7 +63326,7 @@ function _sfc_render$1A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var UgSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1A, [["render", _sfc_render$1A], ["__scopeId", "data-v-0bfae8bd"]]);
+var UgSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1A, [["render", _sfc_render$1A], ["__scopeId", "data-v-ef64b208"]]);
 const _sfc_main$1z = {
   name: "onCreatedSetting-editor",
   components: {
@@ -75933,13 +75935,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731635025716__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731648253372__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731635025716__";
+      svgDom.id = "__svg__icons__dom__1731648253372__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

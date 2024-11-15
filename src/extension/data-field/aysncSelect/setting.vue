@@ -239,6 +239,8 @@ export default {
       switch (apiSetting.changeKey) {
         case "masterTable":
           const tableItem = apiSetting.options.find((item) => item.name === value);
+          console.log(value, tableItem);
+          console.log(apiSetting);
           const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
@@ -308,6 +310,7 @@ export default {
         );
         return data
           .map((item) => ({
+            ...item,
             value: item[apiSetting.valueKey],
             label: item[apiSetting.labelKey],
           }))

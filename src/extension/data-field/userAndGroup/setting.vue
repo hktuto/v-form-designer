@@ -2,7 +2,7 @@
   <el-dialog
     v-if="dialogVisible"
     v-model="dialogVisible"
-    :title="$t('dataField.setting111')"
+    :title="$t('dataField.setting')"
     :before-close="handleClose"
   >
     <el-form
