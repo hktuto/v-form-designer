@@ -115,10 +115,26 @@
           >
             <el-col :span="6">
               <el-input
+                v-if="!selectType[`${[item.key]}KeyList`]"
                 v-model="form.params[item.key][paramIndex].key"
                 size="default"
                 clearable
               />
+              <el-select
+                v-else
+                size="default"
+                v-model="form.params[item.key][paramIndex].key"
+                clearable
+                filterable
+                allow-create
+              >
+                <el-option
+                  v-for="(oItem, oIndex) in selectType[`${[item.key]}KeyList`]"
+                  :key="oItem"
+                  :label="oItem"
+                  :value="oItem"
+                />
+              </el-select>
             </el-col>
             <el-col :span="6">
               <el-input
@@ -231,7 +247,10 @@ export default {
         if (item.type === "string") {
           item.options = await this.getOptions(item.apiSetting);
         }
-        if (!!this.form.params[item.key]) return;
+        if (!!this.form.params[item.key]) {
+          this.handleParamChange(this.form.params[item.key], item);
+          return;
+        }
         if (item.type === "string") {
           this.form.params[item.key] = "";
         } else {
@@ -240,14 +259,19 @@ export default {
       });
     },
     async handleParamChange(value, apiSetting) {
+      if (!apiSetting.changeKey) return;
       switch (apiSetting.changeKey) {
         case "masterTable":
+          // this.selectType.whereKeyList = ["test1", "test2"];
           const tableItem = apiSetting.options.find((item) => item.name === value);
           const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
           this.selectType.valueKeyList = tableDetail.fields.map(
+            (item) => item.columnName
+          );
+          this.selectType.whereKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
           break;

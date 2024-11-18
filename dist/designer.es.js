@@ -62792,11 +62792,6 @@ const _sfc_main$1C = {
       if (!this.selectType.paramSettings) {
         this.selectType.paramSettings = [];
       }
-      if (!this.selectType.paramSettings.find((item) => item.key === "other")) {
-        this.selectType.paramSettings.push({
-          key: "other"
-        });
-      }
       if (!this.form)
         this.form = {};
       if (!this.form.params)
@@ -62805,8 +62800,10 @@ const _sfc_main$1C = {
         if (item.type === "string") {
           item.options = await this.getOptions(item.apiSetting);
         }
-        if (!!this.form.params[item.key])
+        if (!!this.form.params[item.key]) {
+          this.handleParamChange(this.form.params[item.key], item);
           return;
+        }
         if (item.type === "string") {
           this.form.params[item.key] = "";
         } else {
@@ -62815,14 +62812,15 @@ const _sfc_main$1C = {
       });
     },
     async handleParamChange(value2, apiSetting) {
+      if (!apiSetting.changeKey)
+        return;
       switch (apiSetting.changeKey) {
         case "masterTable":
           const tableItem2 = apiSetting.options.find((item) => item.name === value2);
-          console.log(value2, tableItem2);
-          console.log(apiSetting);
           const tableDetail = await this.GetMasterTablesDetailApi(tableItem2.id);
           this.selectType.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.valueKeyList = tableDetail.fields.map((item) => item.columnName);
+          this.selectType.whereKeyList = tableDetail.fields.map((item) => item.columnName);
           break;
       }
     },
@@ -62985,8 +62983,6 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
                 "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.form.api = $event),
                 style: { "width": "240px" },
                 clearable: "",
-                "allow-create": "",
-                filterable: "",
                 onChange: $options.handleTypeChange
               }, {
                 default: withCtx(() => [
@@ -63129,12 +63125,32 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
                   default: withCtx(() => [
                     createVNode(_component_el_col, { span: 6 }, {
                       default: withCtx(() => [
-                        createVNode(_component_el_input, {
+                        !$data.selectType[`${[item.key]}KeyList`] ? (openBlock(), createBlock(_component_el_input, {
+                          key: 0,
                           modelValue: $data.form.params[item.key][paramIndex].key,
                           "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].key = $event,
                           size: "default",
                           clearable: ""
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                        }, null, 8, ["modelValue", "onUpdate:modelValue"])) : (openBlock(), createBlock(_component_el_select, {
+                          key: 1,
+                          size: "default",
+                          modelValue: $data.form.params[item.key][paramIndex].key,
+                          "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].key = $event,
+                          clearable: "",
+                          filterable: "",
+                          "allow-create": ""
+                        }, {
+                          default: withCtx(() => [
+                            (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType[`${[item.key]}KeyList`], (oItem, oIndex) => {
+                              return openBlock(), createBlock(_component_el_option, {
+                                key: oItem,
+                                label: oItem,
+                                value: oItem
+                              }, null, 8, ["label", "value"]);
+                            }), 128))
+                          ]),
+                          _: 2
+                        }, 1032, ["modelValue", "onUpdate:modelValue"]))
                       ]),
                       _: 2
                     }, 1024),
@@ -63167,7 +63183,7 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C], ["__scopeId", "data-v-f1d10734"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C], ["__scopeId", "data-v-5fcc0b76"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1B = {
   components: { SvgIcon },
@@ -76351,13 +76367,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731908994829__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731910780266__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731908994829__";
+      svgDom.id = "__svg__icons__dom__1731910780266__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
