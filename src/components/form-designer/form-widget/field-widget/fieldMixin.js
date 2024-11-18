@@ -1,7 +1,7 @@
 import {deepClone} from "@/utils/util"
 import FormValidators from '@/utils/validators'
 import eventBus from "@/utils/event-bus"
-
+import { translate } from "@/utils/i18n"
 export default {
   inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData'],
 
@@ -219,7 +219,7 @@ export default {
               validator: FormValidators[vldName],
               trigger: ['blur', 'change'],
               label: this.field.options.label,
-              errorMsg: $t(this.field.options.validationHint)
+              errorMsg: translate(this.field.options.validationHint)
             })
           } else {
             this.rules.push({
@@ -227,7 +227,7 @@ export default {
               trigger: ['blur', 'change'],
               regExp: vldName,
               label: this.field.options.label,
-              errorMsg: $t(this.field.options.validationHint)
+              errorMsg: translate(this.field.options.validationHint)
             })
           }
         }
@@ -383,6 +383,7 @@ export default {
     },
 
     handleOnChange(val, oldVal) {  //自定义onChange事件
+      console.log('handleOnChangetestc', val, oldVal)
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', this.field.options.onChange)
         changeFn.call(this, val, oldVal)

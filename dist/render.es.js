@@ -2974,7 +2974,20 @@ function getDefaultFormConfig() {
     jsonVersion: 3,
     onFormCreated: "",
     onFormMounted: "",
-    onFormDataChange: ""
+    onFormDataChange: "",
+    dhList: [
+      {
+        fieldName: "test",
+        condition: "===",
+        value: "test",
+        hiddenList: [
+          { fieldName: "test2", required: true }
+        ],
+        disabledList: [
+          { fieldName: "test3", required: true }
+        ]
+      }
+    ]
   };
 }
 function buildDefaultFormJson() {
@@ -3012,35 +3025,35 @@ const validateFn = function(validatorName, rule, value, callback, defaultErrorMs
 };
 const FormValidators = {
   number(rule2, value2, callback2) {
-    validateFn("number", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
+    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
   },
   letter(rule2, value2, callback2) {
-    validateFn("letter", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
+    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
   },
   letterAndNumber(rule2, value2, callback2) {
-    validateFn("letterAndNumber", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
+    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
   },
   mobilePhone(rule2, value2, callback2) {
-    validateFn("mobilePhone", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
+    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
   },
   noBlankStart(rule2, value2, callback2) {
   },
   noBlankEnd(rule2, value2, callback2) {
   },
   letterStartNumberIncluded(rule2, value2, callback2) {
-    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
+    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
   },
   noChinese(rule2, value2, callback2) {
-    validateFn("noChinese", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
   },
   chinese(rule2, value2, callback2) {
-    validateFn("chinese", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
   },
   email(rule2, value2, callback2) {
-    validateFn("email", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
+    validateFn("email", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
   },
   url(rule2, value2, callback2) {
-    validateFn("url", rule2, value2, callback2, "[" + $t(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
+    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
   },
   regExp(rule, value, callback) {
     if (isNull(value) || value.length <= 0) {
@@ -3049,7 +3062,7 @@ const FormValidators = {
     }
     const pattern = eval(rule.regExp);
     if (!pattern.test(value)) {
-      let errTxt = $t(rule.errorMsg) || "[" + $t(rule.label) + "]invalid value";
+      let errTxt = translate(rule.errorMsg) || "[" + translate(rule.label) + "]invalid value";
       callback(new Error(errTxt));
     } else {
       callback();
@@ -3232,7 +3245,7 @@ var fieldMixin = {
             validator: FormValidators[vldName],
             trigger: ["blur", "change"],
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: translate(this.field.options.validationHint)
           });
         } else {
           this.rules.push({
@@ -3240,7 +3253,7 @@ var fieldMixin = {
             trigger: ["blur", "change"],
             regExp: vldName,
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: translate(this.field.options.validationHint)
           });
         }
       }
@@ -3295,9 +3308,9 @@ var fieldMixin = {
         });
       }
     },
-    emitFieldDataChange(newValue, oldValue) {
-      this.emit$("field-value-changed", [newValue, oldValue]);
-      this.dispatch("VFormRender", "fieldChange", [this.field.options.name, newValue, oldValue, this.subFormName, this.subFormRowIndex]);
+    emitFieldDataChange(newValue2, oldValue2) {
+      this.emit$("field-value-changed", [newValue2, oldValue2]);
+      this.dispatch("VFormRender", "fieldChange", [this.field.options.name, newValue2, oldValue2, this.subFormName, this.subFormRowIndex]);
     },
     syncUpdateFormModel(value2) {
       if (!!this.designState) {
@@ -3358,6 +3371,7 @@ var fieldMixin = {
       }
     },
     handleOnChange(val, oldVal) {
+      console.log("handleOnChangetestc", val, oldVal);
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", this.field.options.onChange);
         changeFn.call(this, val, oldVal);
@@ -3436,13 +3450,13 @@ var fieldMixin = {
     getFieldEditor() {
       return this.$refs["fieldEditor"];
     },
-    setValue(newValue) {
+    setValue(newValue2) {
       if (!!this.field.formItemFlag) {
-        let oldValue = deepClone(this.fieldModel);
-        this.fieldModel = newValue;
+        let oldValue2 = deepClone(this.fieldModel);
+        this.fieldModel = newValue2;
         this.initFileList();
-        this.syncUpdateFormModel(newValue);
-        this.emitFieldDataChange(newValue, oldValue);
+        this.syncUpdateFormModel(newValue2);
+        this.emitFieldDataChange(newValue2, oldValue2);
       }
     },
     getValue() {
@@ -4698,7 +4712,7 @@ const _sfc_main$G = {
       return true;
     },
     updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, defaultResult) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       if (!!customResult && !!customResult.name && !!customResult.url) {
         this.fieldModel.push({
           name: customResult.name,
@@ -4713,7 +4727,7 @@ const _sfc_main$G = {
         this.fieldModel = deepClone(fileList);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     handleFileUpload(res, file, fileList) {
       if (file.status === "success") {
@@ -4738,10 +4752,10 @@ const _sfc_main$G = {
       }
     },
     updateFieldModelAndEmitDataChangeForRemove(deletedFileIdx, fileList) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       this.fieldModel.splice(deletedFileIdx, 1);
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     removeUploadFile(fileName, fileUrl, fileUid) {
       let foundIdx = -1;
@@ -5317,7 +5331,7 @@ const _sfc_main$C = {
       return true;
     },
     updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, defaultResult) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       if (!!customResult && !!customResult.name && !!customResult.url) {
         this.fieldModel.push({
           name: customResult.name,
@@ -5332,7 +5346,7 @@ const _sfc_main$C = {
         this.fieldModel = deepClone(fileList);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     handlePictureUpload(res, file, fileList) {
       if (file.status === "success") {
@@ -5347,7 +5361,7 @@ const _sfc_main$C = {
       }
     },
     updateFieldModelAndEmitDataChangeForRemove(file) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       let foundFileIdx = -1;
       this.fileListBeforeRemove.map((fi2, idx) => {
         if (fi2.name === file.name && (fi2.url === file.url || !!fi2.uid && fi2.uid === file.uid)) {
@@ -5358,7 +5372,7 @@ const _sfc_main$C = {
         this.fieldModel.splice(foundFileIdx, 1);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     handleBeforeRemove(fileList) {
       this.fileListBeforeRemove = deepClone(fileList);
@@ -30790,8 +30804,8 @@ const _sfc_main$i = {
             });
           }
         } else if (wItem.type === "sub-form") {
-          let subFormName = wItem.options.name;
-          if (!this.formData.hasOwnProperty(subFormName)) {
+          let subFormName2 = wItem.options.name;
+          if (!this.formData.hasOwnProperty(subFormName2)) {
             let subFormDataRow = {};
             if (wItem.options.showBlankRow) {
               wItem.widgetList.forEach((subFormItem2) => {
@@ -30799,13 +30813,13 @@ const _sfc_main$i = {
                   subFormDataRow[subFormItem2.options.name] = subFormItem2.options.defaultValue;
                 }
               });
-              this.formDataModel[subFormName] = [subFormDataRow];
+              this.formDataModel[subFormName2] = [subFormDataRow];
             } else {
-              this.formDataModel[subFormName] = [];
+              this.formDataModel[subFormName2] = [];
             }
           } else {
-            let initialValue = this.formData[subFormName];
-            this.formDataModel[subFormName] = deepClone(initialValue);
+            let initialValue = this.formData[subFormName2];
+            this.formDataModel[subFormName2] = deepClone(initialValue);
           }
         } else if (wItem.type === "grid-col" || wItem.type === "table-cell") {
           if (!!wItem.widgetList && wItem.widgetList.length > 0) {
@@ -30831,15 +30845,15 @@ const _sfc_main$i = {
     },
     addFieldChangeEventHandler() {
       this.off$("fieldChange");
-      this.on$("fieldChange", (fieldName, newValue, oldValue, subFormName, subFormRowIndex) => {
-        this.handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex);
-        this.$emit("formChange", fieldName, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
+      this.on$("fieldChange", (fieldName2, newValue2, oldValue2, subFormName2, subFormRowIndex2) => {
+        this.handleFieldDataChange(fieldName2, newValue2, oldValue2, subFormName2, subFormRowIndex2);
+        this.$emit("formChange", fieldName2, newValue2, oldValue2, this.formDataModel, subFormName2, subFormRowIndex2);
       });
     },
     addFieldValidateEventHandler() {
       this.off$("fieldValidation");
-      this.on$("fieldValidation", (fieldName) => {
-        this.$refs.renderForm.validateField(fieldName);
+      this.on$("fieldValidation", (fieldName2) => {
+        this.$refs.renderForm.validateField(fieldName2);
       });
     },
     addFilePreviewEventHandler() {
@@ -30852,6 +30866,32 @@ const _sfc_main$i = {
       this.widgetRefList["v_form_ref"] = this;
     },
     handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
+      console.log("handleFieldDataChangetestc", fieldName, newValue, oldValue, subFormName, subFormRowIndex);
+      if (!!this.formConfig && !!this.formConfig.dhList) {
+        let dhList = this.formConfig.dhList;
+        dhList.forEach((dhItem) => {
+          if (dhItem.fieldName === fieldName) {
+            const conditionValue = eval(`'${dhItem.value}' ${dhItem.condition} '${newValue}'`);
+            dhItem.hiddenList.forEach((hiddenItem) => {
+              const w10 = this.getWidgetRef(hiddenItem.fieldName);
+              if (!w10)
+                return;
+              console.log(hiddenItem);
+              w10.setHidden(conditionValue);
+              if (hiddenItem.required)
+                w10.setRequired(!conditionValue);
+            });
+            dhItem.disabledList.forEach((disabledItem) => {
+              const w10 = this.getWidgetRef(disabledItem.fieldName);
+              if (!w10)
+                return;
+              w10.setDisabled(conditionValue);
+              if (disabledItem.required)
+                w10.setRequired(!conditionValue);
+            });
+          }
+        });
+      }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
         let customFunc = new Function("fieldName", "newValue", "oldValue", "formModel", "subFormName", "subFormRowIndex", this.formConfig.onFormDataChange);
         customFunc.call(this, fieldName, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
@@ -30903,15 +30943,15 @@ const _sfc_main$i = {
     },
     findWidgetNameInSubForm(widgetName) {
       let result = [];
-      let subFormName = null;
+      let subFormName2 = null;
       let handlerFn = (field, parent) => {
         if (!!field.options && field.options.name === widgetName) {
-          subFormName = parent.options.name;
+          subFormName2 = parent.options.name;
         }
       };
       traverseFieldWidgets(this.widgetList, handlerFn);
-      if (!!subFormName) {
-        let subFormRef = this.getWidgetRef(subFormName);
+      if (!!subFormName2) {
+        let subFormRef = this.getWidgetRef(subFormName2);
         if (!!subFormRef) {
           let rowIds = subFormRef.getRowIdData();
           if (!!rowIds && rowIds.length > 0) {
@@ -31009,14 +31049,14 @@ const _sfc_main$i = {
       this.broadcast("ContainerItem", "setFormData", this.formDataModel);
       this.broadcast("FieldWidget", "setFormData", this.formDataModel);
     },
-    getFieldValue(fieldName) {
-      let fieldRef = this.getWidgetRef(fieldName);
+    getFieldValue(fieldName2) {
+      let fieldRef = this.getWidgetRef(fieldName2);
       if (!!fieldRef && !!fieldRef.getValue) {
         return fieldRef.getValue();
       }
       if (!fieldRef) {
         let result = [];
-        this.findWidgetNameInSubForm(fieldName).forEach((wn2) => {
+        this.findWidgetNameInSubForm(fieldName2).forEach((wn2) => {
           let sw2 = this.getWidgetRef(wn2);
           if (!!sw2 && !!sw2.getValue) {
             result.push(sw2.getValue());
@@ -31025,13 +31065,13 @@ const _sfc_main$i = {
         return result;
       }
     },
-    setFieldValue(fieldName, fieldValue) {
-      let fieldRef = this.getWidgetRef(fieldName);
+    setFieldValue(fieldName2, fieldValue) {
+      let fieldRef = this.getWidgetRef(fieldName2);
       if (!!fieldRef && !!fieldRef.setValue) {
         fieldRef.setValue(fieldValue);
       }
       if (!fieldRef) {
-        this.findWidgetNameInSubForm(fieldName).forEach((wn2) => {
+        this.findWidgetNameInSubForm(fieldName2).forEach((wn2) => {
           let sw2 = this.getWidgetRef(wn2);
           if (!!sw2 && !!sw2.setValue) {
             sw2.setValue(fieldValue);
@@ -31039,8 +31079,8 @@ const _sfc_main$i = {
         });
       }
     },
-    getSubFormValues(subFormName, needValidation = true) {
-      let foundSFRef = this.subFormRefList[subFormName];
+    getSubFormValues(subFormName2, needValidation = true) {
+      let foundSFRef = this.subFormRefList[subFormName2];
       return foundSFRef.getSubFormValues(needValidation);
     },
     disableForm() {
@@ -31222,7 +31262,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-8cd779ca"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-1820098c"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31448,13 +31488,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731648275175__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731891011276__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731648275175__";
+      svgDom.id = "__svg__icons__dom__1731891011276__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -34291,9 +34331,9 @@ var ace$2 = { exports: {} };
           return;
         if (!value2)
           value2 = "";
-        var newValue = "\n ab" + value2 + "cde fg\n";
-        if (newValue != text.value)
-          text.value = lastValue = newValue;
+        var newValue2 = "\n ab" + value2 + "cde fg\n";
+        if (newValue2 != text.value)
+          text.value = lastValue = newValue2;
         var selectionStart = 4;
         var selectionEnd = 4 + (value2.length || (host.selection.isEmpty() ? 0 : 1));
         if (lastSelectionStart != selectionStart || lastSelectionEnd != selectionEnd) {
@@ -34359,10 +34399,10 @@ var ace$2 = { exports: {} };
               }
             }
           }
-          var newValue = line + "\n\n";
-          if (newValue != lastValue) {
-            text.value = lastValue = newValue;
-            lastSelectionStart = lastSelectionEnd = newValue.length;
+          var newValue2 = line + "\n\n";
+          if (newValue2 != lastValue) {
+            text.value = lastValue = newValue2;
+            lastSelectionStart = lastSelectionEnd = newValue2.length;
           }
         }
         if (afterContextMenu) {

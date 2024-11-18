@@ -9,11 +9,10 @@
       ref="formRef"
       label-position="top"
       :model="form"
-      :rules="rules"
       label-width="auto"
       class="demo-dynamic"
     >
-      <el-form-item prop="api" :label="$t('dataField.api')">
+      <el-form-item prop="api" :label="$t('dataField.api')" :rules="requiredRule">
         <el-select
           size="default"
           v-model="form.api"
@@ -159,6 +158,22 @@ const initForm = {
   valueKey: "value",
   labelKey: "label",
 };
+const requiredRule = {
+  required: true,
+  message: translate("render.hint.fieldRequired"),
+  trigger: "blur",
+};
+const checkFieldNameRule = {
+  validator: checkFieldName,
+  trigger: "blur",
+};
+function checkFieldName(rule, value, callback) {
+  if (!/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(value)) {
+    callback(new Error($t("tip.attributeNameFillingRule")));
+  } else {
+    callback();
+  }
+}
 export default {
   components: { SvgIcon },
   data() {
@@ -169,29 +184,6 @@ export default {
       },
       dialogVisible: false,
       setting: {},
-      rules: {
-        api: [
-          {
-            required: true,
-            message: translate("render.hint.fieldRequired"),
-            trigger: "blur",
-          },
-        ],
-        labelKey: [
-          {
-            required: true,
-            message: translate("render.hint.fieldRequired"),
-            trigger: "blur",
-          },
-        ],
-        valueKey: [
-          {
-            required: true,
-            message: translate("render.hint.fieldRequired"),
-            trigger: "blur",
-          },
-        ],
-      },
       apiOptions: selectApis,
       selectType: {},
     };
@@ -207,7 +199,7 @@ export default {
       this.dialogVisible = true;
     },
     handleTypeChange(value, init = false) {
-      this.form = { ...JSON.parse(JSON.stringify(initForm)), api: value };
+      if (!init) this.form = { ...JSON.parse(JSON.stringify(initForm)), api: value };
       this.selectType = { ...this.apiOptions[value] };
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
@@ -283,7 +275,8 @@ export default {
       if (!apiSetting.method) apiSetting.method = "post";
       const paramsStr = this.getObjStr(params, apiSetting.method);
       // Contract_Approval_Approvers
-      const onCreated = `const _this = this\nconst filterKey = '${apiSetting.filterKey}'\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n  return data.map(item => {\n    const resultItem = {\n      value: item.${apiSetting.valueKey},\n      label: item.${apiSetting.labelKey}\n    }\n    if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true \n    return resultItem\n  }).sort((a,b)=> (a.label.localeCompare(b.label) ))\n\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
+      const onCreated = `const _this = this\nconst filterKey = '${apiSetting.filterKey}'\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n  return data.map(item => {\n    const resultItem = {\n      value: item.${this.form.valueKey},\n      label: item.${this.form.labelKey}\n    }\n    if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true \n    return resultItem\n  }).sort((a,b)=> (a.label.localeCompare(b.label) ))\n\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
+      console.log(onCreated);
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },

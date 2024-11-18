@@ -1,5 +1,5 @@
 import {isEmptyStr, isNull} from "./util";
-
+import { translate } from "@/utils/i18n"
 export const getRegExp = function (validatorName) {
   const commonRegExp = {
     number: '/^[-]?\\d+(\\.\\d+)?$/',
@@ -37,22 +37,22 @@ const FormValidators = {
 
   /* 数字 */
   number(rule, value, callback) {
-    validateFn('number', rule, value, callback, '[' + $t(rule.label) + ']包含非数字字符')
+    validateFn('number', rule, value, callback, '[' + translate(rule.label) + ']包含非数字字符')
   },
 
   /* 字母 */
   letter(rule, value, callback) {
-    validateFn('letter', rule, value, callback, '[' + $t(rule.label) + ']包含非字母字符')
+    validateFn('letter', rule, value, callback, '[' + translate(rule.label) + ']包含非字母字符')
   },
 
   /* 字母和数字 */
   letterAndNumber(rule, value, callback) {
-    validateFn('letterAndNumber', rule, value, callback, '[' + $t(rule.label) + ']只能输入字母或数字')
+    validateFn('letterAndNumber', rule, value, callback, '[' + translate(rule.label) + ']只能输入字母或数字')
   },
 
   /* 手机号码 */
   mobilePhone(rule, value, callback) {
-    validateFn('mobilePhone', rule, value, callback, '[' + $t(rule.label) + ']手机号码格式有误')
+    validateFn('mobilePhone', rule, value, callback, '[' + translate(rule.label) + ']手机号码格式有误')
   },
 
   /* 禁止空白字符开头 */
@@ -67,27 +67,27 @@ const FormValidators = {
 
   /* 字母开头，仅可包含数字 */
   letterStartNumberIncluded(rule, value, callback) {
-    validateFn('letterStartNumberIncluded', rule, value, callback, '[' + $t(rule.label) + ']必须以字母开头，可包含数字')
+    validateFn('letterStartNumberIncluded', rule, value, callback, '[' + translate(rule.label) + ']必须以字母开头，可包含数字')
   },
 
   /* 禁止中文输入 */
   noChinese(rule, value, callback) {
-    validateFn('noChinese', rule, value, callback, '[' + $t(rule.label) + ']不可输入中文字符')
+    validateFn('noChinese', rule, value, callback, '[' + translate(rule.label) + ']不可输入中文字符')
   },
 
   /* 必须中文输入 */
   chinese(rule, value, callback) {
-    validateFn('chinese', rule, value, callback, '[' + $t(rule.label) + ']只能输入中文字符')
+    validateFn('chinese', rule, value, callback, '[' + translate(rule.label) + ']只能输入中文字符')
   },
 
   /* 电子邮箱 */
   email(rule, value, callback) {
-    validateFn('email', rule, value, callback, '[' + $t(rule.label) + ']邮箱格式有误')
+    validateFn('email', rule, value, callback, '[' + translate(rule.label) + ']邮箱格式有误')
   },
 
   /* URL网址 */
   url(rule, value, callback) {
-    validateFn('url', rule, value, callback, '[' + $t(rule.label) + ']URL格式有误')
+    validateFn('url', rule, value, callback, '[' + translate(rule.label) + ']URL格式有误')
   },
 
   /*测试
@@ -99,7 +99,7 @@ const FormValidators = {
     }
 
     if (value < 100) {
-      callback(new Error('[' + $t(rule.label) + ']不能小于100'))
+      callback(new Error('[' + translate(rule.label) + ']不能小于100'))
     } else {
       callback()
     }
@@ -115,7 +115,7 @@ const FormValidators = {
 
     const pattern = eval(rule.regExp)
     if (!pattern.test(value)) {
-      let errTxt = $t(rule.errorMsg) || '[' + $t(rule.label) + ']invalid value'
+      let errTxt = translate(rule.errorMsg) || '[' + translate(rule.label) + ']invalid value'
       callback(new Error(errTxt))
     } else {
       callback()
