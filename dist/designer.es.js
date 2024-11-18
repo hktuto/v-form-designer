@@ -66954,10 +66954,11 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
             }, {
               default: withCtx(() => [
                 createVNode(_component_el_button, {
-                  type: "info",
+                  type: "primary",
                   icon: "el-icon-edit",
                   plain: "",
                   round: "",
+                  style: { "margin-bottom": "0.3rem" },
                   onClick: _cache[8] || (_cache[8] = ($event) => $options.handleOpen("dhList"))
                 }, {
                   default: withCtx(() => [
@@ -67199,7 +67200,7 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_DhListSetting, { ref: "DhListSettingRef" }, null, 512)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-6a556348"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-9da8ecb0"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -76370,13 +76371,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731915177386__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731915537695__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731915177386__";
+      svgDom.id = "__svg__icons__dom__1731915537695__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

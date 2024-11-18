@@ -106,10 +106,11 @@
           :title="$t('designer.setting.eventSetting')"
         >
           <el-button
-            type="info"
+            type="primary"
             icon="el-icon-edit"
             plain
             round
+            style="margin-bottom: 0.3rem"
             @click="handleOpen('dhList')"
           >
             {{ $t("designer.setting.setDhList") }}</el-button
