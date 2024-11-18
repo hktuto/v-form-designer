@@ -119,6 +119,7 @@
                 v-model="form.params[item.key][paramIndex].key"
                 size="default"
                 clearable
+                :placeholder="$t('dataField.apiLabel')"
               />
               <el-select
                 v-else
@@ -127,6 +128,7 @@
                 clearable
                 filterable
                 allow-create
+                :placeholder="$t('dataField.apiLabel')"
               >
                 <el-option
                   v-for="(oItem, oIndex) in selectType[`${[item.key]}KeyList`]"
@@ -140,6 +142,7 @@
               <el-input
                 v-model="form.params[item.key][paramIndex].value"
                 size="default"
+                :placeholder="$t('dataField.apiValue')"
                 clearable
               />
             </el-col>

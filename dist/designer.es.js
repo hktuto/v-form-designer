@@ -63130,15 +63130,17 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
                           modelValue: $data.form.params[item.key][paramIndex].key,
                           "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].key = $event,
                           size: "default",
-                          clearable: ""
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"])) : (openBlock(), createBlock(_component_el_select, {
+                          clearable: "",
+                          placeholder: _ctx.$t("dataField.apiLabel")
+                        }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder"])) : (openBlock(), createBlock(_component_el_select, {
                           key: 1,
                           size: "default",
                           modelValue: $data.form.params[item.key][paramIndex].key,
                           "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].key = $event,
                           clearable: "",
                           filterable: "",
-                          "allow-create": ""
+                          "allow-create": "",
+                          placeholder: _ctx.$t("dataField.apiLabel")
                         }, {
                           default: withCtx(() => [
                             (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType[`${[item.key]}KeyList`], (oItem, oIndex) => {
@@ -63150,7 +63152,7 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
                             }), 128))
                           ]),
                           _: 2
-                        }, 1032, ["modelValue", "onUpdate:modelValue"]))
+                        }, 1032, ["modelValue", "onUpdate:modelValue", "placeholder"]))
                       ]),
                       _: 2
                     }, 1024),
@@ -63160,8 +63162,9 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
                           modelValue: $data.form.params[item.key][paramIndex].value,
                           "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].value = $event,
                           size: "default",
+                          placeholder: _ctx.$t("dataField.apiValue"),
                           clearable: ""
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"])
+                        }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder"])
                       ]),
                       _: 2
                     }, 1024),
@@ -63183,7 +63186,7 @@ function _sfc_render$1C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C], ["__scopeId", "data-v-5fcc0b76"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1C, [["render", _sfc_render$1C], ["__scopeId", "data-v-16cb146c"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1B = {
   components: { SvgIcon },
@@ -66511,7 +66514,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-2fee3ede"]]);
+var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-073b0984"]]);
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$r = {
   name: "form-setting",
@@ -76367,13 +76370,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731910780266__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731915177386__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731910780266__";
+      svgDom.id = "__svg__icons__dom__1731915177386__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
