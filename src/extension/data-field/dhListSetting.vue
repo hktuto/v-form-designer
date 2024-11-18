@@ -8,51 +8,67 @@
     <el-button size="small" type="info" icon="el-icon-plus" circle @click="handleAdd" />
 
     <el-card v-for="(item, index) in dhList" :key="id">
-      <template #header>
-        <div class="card-header">
-          <span>Card name</span>
-          <svg-icon
-            class="el-delete"
-            icon-class="el-delete"
-            @click="handleDelete(index)"
-          />
-        </div>
+      <svg-icon
+        class="el-delete icon-absolute"
+        icon-class="el-delete"
+        @click="handleDelete(index)"
+      />
+      <template v-for="(cItem, cIndex) in item.fieldConditionList">
+        <el-row :gutter="20">
+          <el-col :span="6"> {{ $t("dhList.fieldName") }} </el-col>
+          <el-col :span="6"> {{ $t("dhList.condition") }} </el-col>
+          <el-col :span="6"> {{ $t("dhList.value") }} </el-col>
+        </el-row>
+        <el-row :gutter="20">
+          <el-col :span="6">
+            <el-select-v2
+              v-model="cItem.fieldName"
+              :options="this.fieldList"
+              placeholder="Please select"
+              size="default"
+              clearable
+              @change="(value) => handleChangeFieldName(value, cItem)"
+            />
+          </el-col>
+          <el-col :span="6">
+            <el-select-v2
+              v-model="cItem.condition"
+              :options="cItem.conditionList"
+              placeholder="Please select"
+              size="default"
+              clearable
+            />
+          </el-col>
+          <el-col :span="6">
+            <el-switch
+              v-if="cItem.type === 'switch'"
+              v-model="cItem.value"
+              size="default"
+            />
+            <el-input-number
+              v-else-if="cItem.type === 'number'"
+              v-model="cItem.value"
+              controls-position="right"
+            />
+            <el-input v-else v-model="cItem.value" size="default" clearable />
+          </el-col>
+          <el-button
+            v-if="cIndex !== 0"
+            type="primary"
+            text
+            @click="handleDeleteFieldCondition(cIndex, item)"
+          >
+            {{ $t("common_delete") }}
+          </el-button>
+          <el-button
+            v-if="cIndex === item.fieldConditionList.length - 1"
+            type="primary"
+            text
+            @click="handleAddFieldCondition(item)"
+            >{{ $t("button.add") }}
+          </el-button>
+        </el-row>
       </template>
-      <el-row :gutter="20">
-        <el-col :span="6"> {{ $t("dhList.fieldName") }} </el-col>
-        <el-col :span="6"> {{ $t("dhList.condition") }} </el-col>
-        <el-col :span="6"> {{ $t("dhList.value") }} </el-col>
-      </el-row>
-      <el-row :gutter="20">
-        <el-col :span="6">
-          <el-select-v2
-            v-model="item.fieldName"
-            :options="this.fieldList"
-            placeholder="Please select"
-            size="default"
-            clearable
-            @change="(value) => handleChangeFieldName(value, item)"
-          />
-        </el-col>
-        <el-col :span="6">
-          <el-select-v2
-            v-model="item.condition"
-            :options="item.conditionList"
-            placeholder="Please select"
-            size="default"
-            clearable
-          />
-        </el-col>
-        <el-col :span="6">
-          <el-switch v-if="item.type === 'switch'" v-model="item.value" size="default" />
-          <el-input-number
-            v-else-if="item.type === 'number'"
-            v-model="item.value"
-            controls-position="right"
-          />
-          <el-input v-else v-model="item.value" size="default" clearable />
-        </el-col>
-      </el-row>
       <template v-for="key in ['hidden', 'disabled']">
         <el-divider content-position="left">{{ $t(`dhList.${key}List`) }}</el-divider>
         <el-row :gutter="20">
@@ -128,15 +144,30 @@ export default {
   },
 
   methods: {
-    handleAdd() {
-      this.dhList.push({
-        id: generateId(),
+    handleAddFieldCondition(item) {
+      item.fieldConditionList.push({
         fieldName: "",
         condition: "===",
         value: "",
+        conditionList: [...this.conditionList],
+      });
+    },
+    handleDeleteFieldCondition(fcIndex, item) {
+      item.fieldConditionList.splice(fcIndex, 1);
+    },
+    handleAdd() {
+      this.dhList.push({
+        id: generateId(),
+        fieldConditionList: [
+          {
+            fieldName: "",
+            condition: "===",
+            value: "",
+            conditionList: [...this.conditionList],
+          },
+        ],
         hiddenList: [],
         disabledList: [],
-        conditionList: [...this.conditionList],
       });
     },
     handleDelete(dhIndex) {
@@ -163,7 +194,11 @@ export default {
       if (setting.dhList) {
         const list = JSON.parse(JSON.stringify(setting.dhList));
         list.forEach((item) => {
-          this.handleChangeFieldName(item.fieldName, item);
+          if (item.fieldConditionList) {
+            item.fieldConditionList.forEach((fcItem) => {
+              this.handleChangeFieldName(fcItem.fieldName, fcItem);
+            });
+          }
         });
         this.dhList = list;
       }
@@ -174,9 +209,14 @@ export default {
       this.setting.dhList = this.dhList.map((item) => {
         return {
           id: item.id,
-          fieldName: item.fieldName,
-          condition: item.condition,
-          value: item.value,
+          fieldConditionList: item.fieldConditionList.map((fcItem) => {
+            return {
+              fieldName: fcItem.fieldName,
+              condition: fcItem.condition,
+              value: fcItem.value,
+              // conditionList: fcItem.conditionList,
+            };
+          }),
           hiddenList: item.hiddenList,
           disabledList: item.disabledList,
         };
@@ -185,6 +225,10 @@ export default {
     },
     handleChangeFieldName(value, item) {
       const field = this.fieldList.find((item) => item.value === value);
+      if (!field) {
+        item.conditionList = [...this.conditionList];
+        return;
+      }
       item.type = field.type;
       switch (field.type) {
         case "number":
@@ -210,5 +254,13 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+.el-card {
+  position: relative;
+}
+.icon-absolute {
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
 }
 </style>

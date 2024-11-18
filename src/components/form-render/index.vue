@@ -366,10 +366,13 @@ export default {
       if (!!this.formConfig && !!this.formConfig.dhList) {
         let dhList = this.formConfig.dhList;
         dhList.forEach((dhItem) => {
-          if (dhItem.fieldName === fieldName) {
-            const conditionValue = eval(
-              `'${dhItem.value}' ${dhItem.condition} '${newValue}'`
-            );
+          if (dhItem.fieldConditionList.find((fc) => fc.fieldName === fieldName)) {
+            const evalValue = dhItem.fieldConditionList.map((fc) => {
+              const widget = this.getWidgetRef(fc.fieldName);
+              if (!widget) return true;
+              return `'${widget.getValue()}' ${fc.condition} '${fc.value}'`;
+            });
+            const conditionValue = eval(evalValue.join(" && "));
             dhItem.hiddenList.forEach((hiddenItem) => {
               const w = this.getWidgetRef(hiddenItem.fieldName);
               if (!w) return;

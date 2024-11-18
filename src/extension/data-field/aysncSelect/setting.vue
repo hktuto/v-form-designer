@@ -20,6 +20,8 @@
           clearable
           @change="handleTypeChange"
         >
+          <!-- allow-create -->
+          <!-- filterable -->
           <el-option
             v-for="(item, key) in apiOptions"
             :key="key"
@@ -200,7 +202,17 @@ export default {
     },
     handleTypeChange(value, init = false) {
       if (!init) this.form = { ...JSON.parse(JSON.stringify(initForm)), api: value };
-      this.selectType = { ...this.apiOptions[value] };
+
+      if (!this.apiOptions[value]) {
+        this.selectType = {
+          api: value,
+          method: "get",
+          valueKeyList: ["name", "id"],
+          labelKeyList: ["name", "id"],
+          valueKey: "id",
+          labelKey: "name",
+        };
+      } else this.selectType = { ...this.apiOptions[value] };
       if (!init) {
         this.form.labelKey = this.selectType.labelKey;
         this.form.valueKey = this.selectType.valueKey;
@@ -208,11 +220,11 @@ export default {
       if (!this.selectType.paramSettings) {
         this.selectType.paramSettings = [];
       }
-      if (!this.selectType.paramSettings.find((item) => item.key === "other")) {
-        this.selectType.paramSettings.push({
-          key: "other",
-        });
-      }
+      // if (!this.selectType.paramSettings.find((item) => item.key === "other")) {
+      //   this.selectType.paramSettings.push({
+      //     key: "other",
+      //   });
+      // }
       if (!this.form) this.form = {};
       if (!this.form.params) this.form.params = {};
       this.selectType.paramSettings.forEach(async (item) => {
@@ -231,8 +243,6 @@ export default {
       switch (apiSetting.changeKey) {
         case "masterTable":
           const tableItem = apiSetting.options.find((item) => item.name === value);
-          console.log(value, tableItem);
-          console.log(apiSetting);
           const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName

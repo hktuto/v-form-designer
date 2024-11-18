@@ -30857,8 +30857,14 @@ const _sfc_main$i = {
       if (!!this.formConfig && !!this.formConfig.dhList) {
         let dhList = this.formConfig.dhList;
         dhList.forEach((dhItem) => {
-          if (dhItem.fieldName === fieldName) {
-            const conditionValue = eval(`'${dhItem.value}' ${dhItem.condition} '${newValue}'`);
+          if (dhItem.fieldConditionList.find((fc2) => fc2.fieldName === fieldName)) {
+            const evalValue = dhItem.fieldConditionList.map((fc2) => {
+              const widget = this.getWidgetRef(fc2.fieldName);
+              if (!widget)
+                return true;
+              return `'${widget.getValue()}' ${fc2.condition} '${fc2.value}'`;
+            });
+            const conditionValue = eval(evalValue.join(" && "));
             dhItem.hiddenList.forEach((hiddenItem) => {
               const w10 = this.getWidgetRef(hiddenItem.fieldName);
               if (!w10)
@@ -31248,7 +31254,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-0558d3d8"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-df96a61e"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31474,13 +31480,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731894434958__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731909016150__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731894434958__";
+      svgDom.id = "__svg__icons__dom__1731909016150__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
