@@ -153,7 +153,6 @@ export default {
       list.splice(dhIndex, 1);
     },
     handleOpen(setting) {
-      console.log(setting);
       this.fieldList = this.designer.widgetList.map((w) => {
         return {
           type: w.type,
@@ -168,13 +167,10 @@ export default {
         });
         this.dhList = list;
       }
-      console.log(this.dhList, this.designer.widgetList);
-
       this.setting = setting;
       this.dialogVisible = true;
     },
     handleSubmit() {
-      console.log(this.dhList);
       this.setting.dhList = this.dhList.map((item) => {
         return {
           id: item.id,
@@ -188,7 +184,6 @@ export default {
       this.dialogVisible = false;
     },
     handleChangeFieldName(value, item) {
-      console.log(item);
       const field = this.fieldList.find((item) => item.value === value);
       item.type = field.type;
       switch (field.type) {

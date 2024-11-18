@@ -363,14 +363,6 @@ export default {
     },
 
     handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
-      console.log(
-        "handleFieldDataChangetestc",
-        fieldName,
-        newValue,
-        oldValue,
-        subFormName,
-        subFormRowIndex
-      );
       if (!!this.formConfig && !!this.formConfig.dhList) {
         let dhList = this.formConfig.dhList;
         dhList.forEach((dhItem) => {
@@ -381,7 +373,6 @@ export default {
             dhItem.hiddenList.forEach((hiddenItem) => {
               const w = this.getWidgetRef(hiddenItem.fieldName);
               if (!w) return;
-              console.log(hiddenItem);
               w.setHidden(conditionValue);
               if (hiddenItem.required) w.setRequired(!conditionValue);
             });

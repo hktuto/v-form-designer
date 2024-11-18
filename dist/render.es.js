@@ -2975,19 +2975,7 @@ function getDefaultFormConfig() {
     onFormCreated: "",
     onFormMounted: "",
     onFormDataChange: "",
-    dhList: [
-      {
-        fieldName: "test",
-        condition: "===",
-        value: "test",
-        hiddenList: [
-          { fieldName: "test2", required: true }
-        ],
-        disabledList: [
-          { fieldName: "test3", required: true }
-        ]
-      }
-    ]
+    dhList: []
   };
 }
 function buildDefaultFormJson() {
@@ -30866,7 +30854,6 @@ const _sfc_main$i = {
       this.widgetRefList["v_form_ref"] = this;
     },
     handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
-      console.log("handleFieldDataChangetestc", fieldName, newValue, oldValue, subFormName, subFormRowIndex);
       if (!!this.formConfig && !!this.formConfig.dhList) {
         let dhList = this.formConfig.dhList;
         dhList.forEach((dhItem) => {
@@ -30876,7 +30863,6 @@ const _sfc_main$i = {
               const w10 = this.getWidgetRef(hiddenItem.fieldName);
               if (!w10)
                 return;
-              console.log(hiddenItem);
               w10.setHidden(conditionValue);
               if (hiddenItem.required)
                 w10.setRequired(!conditionValue);
@@ -31262,7 +31248,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-1820098c"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-0558d3d8"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31488,13 +31474,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731891011276__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731894434958__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731891011276__";
+      svgDom.id = "__svg__icons__dom__1731894434958__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

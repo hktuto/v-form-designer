@@ -1852,19 +1852,7 @@ function getDefaultFormConfig() {
     onFormCreated: "",
     onFormMounted: "",
     onFormDataChange: "",
-    dhList: [
-      {
-        fieldName: "test",
-        condition: "===",
-        value: "test",
-        hiddenList: [
-          { fieldName: "test2", required: true }
-        ],
-        disabledList: [
-          { fieldName: "test3", required: true }
-        ]
-      }
-    ]
+    dhList: []
   };
 }
 function buildDefaultFormJson() {
@@ -32387,7 +32375,6 @@ const _sfc_main$2_ = {
       this.widgetRefList["v_form_ref"] = this;
     },
     handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
-      console.log("handleFieldDataChangetestc", fieldName, newValue, oldValue, subFormName, subFormRowIndex);
       if (!!this.formConfig && !!this.formConfig.dhList) {
         let dhList = this.formConfig.dhList;
         dhList.forEach((dhItem) => {
@@ -32397,7 +32384,6 @@ const _sfc_main$2_ = {
               const w10 = this.getWidgetRef(hiddenItem.fieldName);
               if (!w10)
                 return;
-              console.log(hiddenItem);
               w10.setHidden(conditionValue);
               if (hiddenItem.required)
                 w10.setRequired(!conditionValue);
@@ -32783,7 +32769,7 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-1820098c"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-0558d3d8"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -66178,7 +66164,6 @@ const _sfc_main$s = {
       list.splice(dhIndex, 1);
     },
     handleOpen(setting) {
-      console.log(setting);
       this.fieldList = this.designer.widgetList.map((w10) => {
         return {
           type: w10.type,
@@ -66193,12 +66178,10 @@ const _sfc_main$s = {
         });
         this.dhList = list;
       }
-      console.log(this.dhList, this.designer.widgetList);
       this.setting = setting;
       this.dialogVisible = true;
     },
     handleSubmit() {
-      console.log(this.dhList);
       this.setting.dhList = this.dhList.map((item) => {
         return {
           id: item.id,
@@ -66212,7 +66195,6 @@ const _sfc_main$s = {
       this.dialogVisible = false;
     },
     handleChangeFieldName(value2, item) {
-      console.log(item);
       const field = this.fieldList.find((item2) => item2.value === value2);
       item.type = field.type;
       switch (field.type) {
@@ -66448,7 +66430,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-6ca58ce6"]]);
+var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-2c427987"]]);
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$r = {
   name: "form-setting",
@@ -66606,8 +66588,6 @@ const _sfc_main$r = {
       this.showFormEventDialogFlag = false;
     },
     handleOpen(type) {
-      console.log(this.$refs);
-      console.log(this);
       switch (type) {
         case "dhList":
           this.$refs.DhListSettingRef.handleOpen(this.designer.formConfig);
@@ -67135,7 +67115,7 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_DhListSetting, { ref: "DhListSettingRef" }, null, 512)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-7f899fa2"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-6a556348"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -76306,13 +76286,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731890976968__");
+    var svgDom = document.getElementById("__svg__icons__dom__1731894413203__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731890976968__";
+      svgDom.id = "__svg__icons__dom__1731894413203__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

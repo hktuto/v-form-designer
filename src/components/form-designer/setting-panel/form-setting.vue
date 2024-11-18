@@ -485,8 +485,6 @@ export default {
     },
 
     handleOpen(type) {
-      console.log(this.$refs);
-      console.log(this);
       switch (type) {
         case "dhList":
           this.$refs.DhListSettingRef.handleOpen(this.designer.formConfig);

@@ -366,16 +366,7 @@ export function getDefaultFormConfig() {
     onFormCreated: '',
     onFormMounted: '',
     onFormDataChange: '',
-    dhList: [
-      { fieldName: 'test' , condition: '===', value: 'test',
-        hiddenList: [
-          { fieldName: 'test2' , required: true },
-        ],
-        disabledList: [
-          { fieldName: 'test3' , required: true },
-        ],
-      },
-    ]
+    dhList: []
   }
 }
 
