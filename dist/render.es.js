@@ -30862,7 +30862,9 @@ const _sfc_main$i = {
               const widget = this.getWidgetRef(fc2.fieldName);
               if (!widget)
                 return true;
-              return `'${widget.getValue()}' ${fc2.condition} '${fc2.value}'`;
+              const sFcValue = String(fc2.value);
+              const sWValue = String(widget.getValue());
+              return `'${sWValue}' ${fc2.condition} '${sFcValue}'`;
             });
             const conditionValue = eval(evalValue.join(" && "));
             dhItem.hiddenList.forEach((hiddenItem) => {
@@ -31254,7 +31256,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-df96a61e"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-7d868c12"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31480,13 +31482,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731915558933__");
+    var svgDom = document.getElementById("__svg__icons__dom__1732521490686__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731915558933__";
+      svgDom.id = "__svg__icons__dom__1732521490686__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

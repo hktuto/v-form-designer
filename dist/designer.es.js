@@ -32383,7 +32383,9 @@ const _sfc_main$2_ = {
               const widget = this.getWidgetRef(fc2.fieldName);
               if (!widget)
                 return true;
-              return `'${widget.getValue()}' ${fc2.condition} '${fc2.value}'`;
+              const sFcValue = String(fc2.value);
+              const sWValue = String(widget.getValue());
+              return `'${sWValue}' ${fc2.condition} '${sFcValue}'`;
             });
             const conditionValue = eval(evalValue.join(" && "));
             dhItem.hiddenList.forEach((hiddenItem) => {
@@ -32775,7 +32777,7 @@ function _sfc_render$2_(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-df96a61e"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$2_, [["render", _sfc_render$2_], ["__scopeId", "data-v-7d868c12"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -66263,9 +66265,16 @@ const _sfc_main$s = {
       item.type = field.type;
       switch (field.type) {
         case "number":
+          item.value = 0;
           item.conditionList = [...this.conditionList];
           break;
+        case "switch":
+          item.condition = "===";
+          item.value = true;
+          item.conditionList = [this.conditionList[0], this.conditionList[1]];
+          break;
         default:
+          item.value = "";
           item.conditionList = [this.conditionList[0], this.conditionList[1]];
           break;
       }
@@ -66514,7 +66523,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-073b0984"]]);
+var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-598d1b63"]]);
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$r = {
   name: "form-setting",
@@ -76371,13 +76380,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1731915537695__");
+    var svgDom = document.getElementById("__svg__icons__dom__1732521468410__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1731915537695__";
+      svgDom.id = "__svg__icons__dom__1732521468410__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

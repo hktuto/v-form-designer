@@ -232,9 +232,16 @@ export default {
       item.type = field.type;
       switch (field.type) {
         case "number":
+          item.value = 0;
           item.conditionList = [...this.conditionList];
           break;
+        case "switch":
+          item.condition = "===";
+          item.value = true;
+          item.conditionList = [this.conditionList[0], this.conditionList[1]];
+          break;
         default:
+          item.value = "";
           item.conditionList = [this.conditionList[0], this.conditionList[1]];
           break;
       }

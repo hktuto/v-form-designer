@@ -370,7 +370,9 @@ export default {
             const evalValue = dhItem.fieldConditionList.map((fc) => {
               const widget = this.getWidgetRef(fc.fieldName);
               if (!widget) return true;
-              return `'${widget.getValue()}' ${fc.condition} '${fc.value}'`;
+              const sFcValue = String(fc.value);
+              const sWValue = String(widget.getValue());
+              return `'${sWValue}' ${fc.condition} '${sFcValue}'`;
             });
             const conditionValue = eval(evalValue.join(" && "));
             dhItem.hiddenList.forEach((hiddenItem) => {
