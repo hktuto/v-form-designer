@@ -35,6 +35,7 @@
       @focus="handleFocusCustomEvent"
       @blur="handleBlurCustomEvent"
       @change="handleInput"
+      @clear="handleClearEvent"
     >
       <el-option
         v-for="item in field.options.optionItems"
@@ -138,6 +139,9 @@ export default {
         fieldEditor.focus();
       });
       this.handleChangeEvent(value);
+    },
+    handleClearEvent() {
+      this.dispatch("VFormRender", "selectClear", [this.field.options.name]);
     },
   },
 };

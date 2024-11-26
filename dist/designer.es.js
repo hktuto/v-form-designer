@@ -30415,6 +30415,9 @@ const _sfc_main$3c = {
         fieldEditor.focus();
       });
       this.handleChangeEvent(value2);
+    },
+    handleClearEvent() {
+      this.dispatch("VFormRender", "selectClear", [this.field.options.name]);
     }
   }
 };
@@ -30455,7 +30458,8 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: $options.handleInput
+        onChange: $options.handleInput,
+        onClear: $options.handleClearEvent
       }, {
         default: withCtx(() => [
           (openBlock(true), createElementBlock(Fragment, null, renderList($props.field.options.optionItems, (item) => {
@@ -30468,12 +30472,12 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 1
-      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "popper-class", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
+      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "popper-class", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange", "onClear"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-6329be75"]]);
+var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-ea74a61c"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectWidget
@@ -76380,13 +76384,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1732521468410__");
+    var svgDom = document.getElementById("__svg__icons__dom__1732598227477__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1732521468410__";
+      svgDom.id = "__svg__icons__dom__1732598227477__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
