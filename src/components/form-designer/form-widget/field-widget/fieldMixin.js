@@ -447,12 +447,7 @@ export default {
         remoteFn.call(this)
       }
     },
-    lazyLoad(node, resolve) {
-      if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function('node','resolve', this.field.options.onLazyLoad)
-        remoteFn.call(this, node, resolve)
-      }
-    },
+
     //--------------------- 事件处理 end ------------------//
 
     //--------------------- 以下为组件支持外部调用的API方法 begin ------------------//

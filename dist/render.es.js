@@ -3419,12 +3419,6 @@ var fieldMixin = {
         remoteFn.call(this);
       }
     },
-    lazyLoad(node, resolve) {
-      if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
-        remoteFn.call(this, node, resolve);
-      }
-    },
     getFormRef() {
       return this.refList["v_form_ref"];
     },
@@ -3952,7 +3946,19 @@ const _sfc_main$M = {
     return {
       oldFieldValue: null,
       fieldModel: null,
-      rules: []
+      rules: [],
+      prop1: {
+        checkStrictly: this.field.options.checkStrictly,
+        multiple: this.field.options.multiple,
+        expandTrigger: this.field.options.expandTrigger
+      },
+      prop2: {
+        checkStrictly: this.field.options.checkStrictly,
+        multiple: this.field.options.multiple,
+        expandTrigger: this.field.options.expandTrigger,
+        lazy: this.field.options.lazy,
+        lazyLoad: (node, resolved) => this.getLazy(node, resolved)
+      }
     };
   },
   computed: {
@@ -3976,7 +3982,14 @@ const _sfc_main$M = {
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    getLazy(node, resolve) {
+      if (!!this.field.options.onLazyLoad) {
+        let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
+        remoteFn.call(this, node, resolve);
+      }
+    }
+  }
 };
 const _hoisted_1$m = { class: "full-width-input" };
 function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
@@ -4007,13 +4020,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
           filterable: $props.field.options.filterable,
           placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.i18nt("render.hint.selectPlaceholder"),
           "show-all-levels": $options.showFullPath,
-          props: {
-            checkStrictly: $props.field.options.checkStrictly,
-            multiple: $props.field.options.multiple,
-            expandTrigger: $props.field.options.expandTrigger,
-            lazy: $props.field.options.lazy,
-            lazyLoad: _ctx.lazyLoad
-          },
+          props: $props.field.options.lazy ? $data.prop2 : $data.prop1,
           onFocus: _ctx.handleFocusCustomEvent,
           onBlur: _ctx.handleBlurCustomEvent,
           onChange: _ctx.handleChangeEvent
@@ -4023,7 +4030,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-8149033a"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-142d17ca"]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
@@ -31486,13 +31493,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1732598249465__");
+    var svgDom = document.getElementById("__svg__icons__dom__1732692320858__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1732598249465__";
+      svgDom.id = "__svg__icons__dom__1732692320858__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
