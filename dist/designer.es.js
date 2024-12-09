@@ -60457,7 +60457,7 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_code_editor = resolveComponent("code-editor");
   const _directive_drag = resolveDirective("drag");
   return openBlock(), createElementBlock("div", _hoisted_1$v, [
-    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select-v2" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
+    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "select-v2" || $props.selectedWidget.type === "select" && !$props.selectedWidget.options.multiple || $props.selectedWidget.type === "ug-select" && !$props.selectedWidget.options.multiple || $props.selectedWidget.type === "async-select" && !$props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_radio_group, {
       key: 0,
       modelValue: $options.optionModel.defaultValue,
       "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $options.optionModel.defaultValue = $event),
@@ -60506,7 +60506,7 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
         }, 16, ["list"])
       ]),
       _: 1
-    }, 8, ["modelValue", "onChange"])) : $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" && $props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_checkbox_group, {
+    }, 8, ["modelValue", "onChange"])) : $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" && $props.selectedWidget.options.multiple || $props.selectedWidget.type === "select-v2" && $props.selectedWidget.options.multiple || $props.selectedWidget.type === "ug-select" && $props.selectedWidget.options.multiple || $props.selectedWidget.type === "async-select" && $props.selectedWidget.options.multiple ? (openBlock(), createBlock(_component_el_checkbox_group, {
       key: 1,
       modelValue: $options.optionModel.defaultValue,
       "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $options.optionModel.defaultValue = $event),
@@ -60721,7 +60721,7 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l], ["__scopeId", "data-v-76a08b79"]]);
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l], ["__scopeId", "data-v-299621c8"]]);
 const _sfc_main$2k = {
   name: "optionItems-editor",
   mixins: [i18n$1],
@@ -76391,13 +76391,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1732698421212__");
+    var svgDom = document.getElementById("__svg__icons__dom__1733722057634__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1732698421212__";
+      svgDom.id = "__svg__icons__dom__1733722057634__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
