@@ -271,11 +271,7 @@ const basicFields = [
       labelHidden: false,
       disabled: false,
       hidden: false,
-      optionItems: [
-        { label: "radio 1", value: 1 },
-        { label: "radio 2", value: 2 },
-        { label: "radio 3", value: 3 }
-      ],
+      optionItems: [],
       required: false,
       requiredHint: "",
       validation: "",
@@ -308,11 +304,7 @@ const basicFields = [
       labelHidden: false,
       disabled: false,
       hidden: false,
-      optionItems: [
-        { label: "check 1", value: 1 },
-        { label: "check 2", value: 2 },
-        { label: "check 3", value: 3 }
-      ],
+      optionItems: [],
       required: false,
       requiredHint: "",
       validation: "",
@@ -351,11 +343,7 @@ const basicFields = [
       automaticDropdown: false,
       multiple: false,
       multipleLimit: 0,
-      optionItems: [
-        { label: "select 1", value: 1 },
-        { label: "select 2", value: 2 },
-        { label: "select 3", value: 3 }
-      ],
+      optionItems: [],
       required: false,
       requiredHint: "",
       validation: "",
@@ -396,11 +384,7 @@ const basicFields = [
       automaticDropdown: false,
       multiple: false,
       multipleLimit: 0,
-      optionItems: [
-        { label: "select 1", value: 1 },
-        { label: "select 2", value: 2 },
-        { label: "select 3", value: 3 }
-      ],
+      optionItems: [],
       required: false,
       requiredHint: "",
       validation: "",
@@ -60586,7 +60570,7 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }, 8, ["onClick"])
     ])) : createCommentVNode("", true),
-    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" || $props.selectedWidget.type === "select-v2" ? (openBlock(), createElementBlock("div", _hoisted_4$8, [
+    $props.selectedWidget.type === "radio" || $props.selectedWidget.type === "checkbox" || $props.selectedWidget.type === "select" || $props.selectedWidget.type === "select-v2" || $props.selectedWidget.type === "select-group" || $props.selectedWidget.type === "ug-select" || $props.selectedWidget.type === "async-select" ? (openBlock(), createElementBlock("div", _hoisted_4$8, [
       createVNode(_component_el_button, {
         link: "",
         type: "primary",
@@ -60721,7 +60705,7 @@ function _sfc_render$2l(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l], ["__scopeId", "data-v-299621c8"]]);
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2l, [["render", _sfc_render$2l], ["__scopeId", "data-v-3a3653f2"]]);
 const _sfc_main$2k = {
   name: "optionItems-editor",
   mixins: [i18n$1],
@@ -76391,13 +76375,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1733722057634__");
+    var svgDom = document.getElementById("__svg__icons__dom__1733964620959__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1733722057634__";
+      svgDom.id = "__svg__icons__dom__1733964620959__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

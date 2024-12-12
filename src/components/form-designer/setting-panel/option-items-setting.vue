@@ -113,7 +113,10 @@
         selectedWidget.type === 'radio' ||
         selectedWidget.type === 'checkbox' ||
         selectedWidget.type === 'select' ||
-        selectedWidget.type === 'select-v2'
+        selectedWidget.type === 'select-v2' ||
+        selectedWidget.type === 'select-group' ||
+        selectedWidget.type === 'ug-select' ||
+        selectedWidget.type === 'async-select'
       "
     >
       <el-button link type="primary" @click="addOption">{{
