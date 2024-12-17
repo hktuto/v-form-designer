@@ -616,7 +616,12 @@ export function createDesigner(vueInstance) {
       if (!!widget.category) {
         originalWidget = this.getContainerByType(widget.type)
       } else {
-        originalWidget = this.getFieldWidgetByType(widget.type)
+        if(widget.type === 'dynamic') {
+          originalWidget = this.getFieldWidgetByType(widget.options.fieldType)
+          if(configName === 'fieldType') return true
+        } else {
+          originalWidget = this.getFieldWidgetByType(widget.type)
+        }
       }
 
       if (!originalWidget || !originalWidget.options) {

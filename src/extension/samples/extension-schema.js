@@ -151,3 +151,53 @@ export const autoCompleteSchema = {
     onInput: ''
   },
 }
+
+
+export const dynamicSchema = {
+  type: 'dynamic',
+  icon: 'dynamic-field',
+  formItemFlag: true,
+  options: {
+    fieldType: 'input',
+    name: '',
+    label: '',
+    defaultValue: '',
+    placeholder: '',
+    prefixIcon: '',
+    columnWidth: '200px',
+    size: '',
+    labelWidth: null,
+    labelHidden: false,
+    disabled: false,
+    hidden: false,
+    clearable: true,
+    filterable: false,
+    allowCreate: false,
+    remote: false,
+    automaticDropdown: false,  //自动下拉
+    multiple: false,
+    multipleLimit: 0,
+    optionItems: [
+    ],
+    format: '',  //日期显示格式
+    valueFormat: '',  //日期对象格式
+    defaultTime: '',  //默认时间
+    required: false,
+    requiredHint: '',
+    validation: '',
+    validationHint: '',
+    //-------------------
+    customClass: '',  //自定义css类名
+    labelIconClass: null,
+    labelIconPosition: 'rear',
+    labelTooltip: null,
+    //-------------------
+    onCreated: '',
+    onMounted: '',
+    onRemoteQuery: '',
+    onChange: '',
+    onFocus: '',
+    onBlur: '',
+    onValidate: '',
+  }
+}

@@ -82,6 +82,7 @@ const COMMON_PROPERTIES = {
 }
 
 const ADVANCED_PROPERTIES = {
+  'fieldType'         :            'fieldType-editor',
   'min'               :            'min-editor',
   'max'               :            'max-editor',
   'precision'         :            'precision-editor',
@@ -159,6 +160,7 @@ const EVENT_PROPERTIES = {
  * @param propEditorName 对应属性编辑器的组件名称
  */
 export function registerCommonProperty(uniquePropName, propEditorName) {
+  console.log('registerCommonProperty',uniquePropName, propEditorName)
   COMMON_PROPERTIES[uniquePropName] = propEditorName
 }
 

@@ -168,9 +168,18 @@ export default {
       if (this.designState) {
         return
       }
-
-      if ((this.field.type === 'radio') || (this.field.type === 'checkbox')
-          || (this.field.type === 'select') || (this.field.type === 'cascader') || (this.field.type === 'select-v2')) {
+      console.log('initOptionItems', this.field);
+      if (
+        (this.field.options.fieldType === 'radio') ||
+        (this.field.options.fieldType === 'checkbox') ||
+        (this.field.options.fieldType === 'select') ||
+        (this.field.options.fieldType === 'cascader') ||
+        (this.field.options.fieldType === 'select-v2') ||
+        (this.field.type === 'radio') || 
+        (this.field.type === 'checkbox') || 
+        (this.field.type === 'select') || 
+          (this.field.type === 'cascader') || 
+          (this.field.type === 'select-v2')) {
         /* 异步更新option-data之后globalOptionData不能获取到最新值，改用provide的getOptionData()方法 */
         const newOptionItems = this.getOptionData()
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
