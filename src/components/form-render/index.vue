@@ -691,6 +691,7 @@ export default {
 
     resetForm() {
       //重置表单
+      console.log("resetForm");
       let subFormNames = Object.keys(this.subFormRefList);
       subFormNames.forEach((sfName) => {
         if (!!this.subFormRefList[sfName].resetSubForm) {

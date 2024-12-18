@@ -52,8 +52,8 @@ export default {
         if (((subFormData === undefined) || (subFormData[this.subFormRowIndex] === undefined) ||
             (subFormData[this.subFormRowIndex][this.field.options.name] === undefined)) &&
             (this.field.options.defaultValue !== undefined)) {
-          this.fieldModel = this.field.options.defaultValue
-          subFormData[this.subFormRowIndex][this.field.options.name] = this.field.options.defaultValue
+          this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
+          subFormData[this.subFormRowIndex][this.field.options.name] = this.getDeepCopyData(this.field.options.defaultValue)
         } else if (subFormData[this.subFormRowIndex][this.field.options.name] === undefined) {
           this.fieldModel = null
           subFormData[this.subFormRowIndex][this.field.options.name] = null
@@ -74,7 +74,7 @@ export default {
 
       if ((this.formModel[this.field.options.name] === undefined) &&
           (this.field.options.defaultValue !== undefined)) {
-        this.fieldModel = this.field.options.defaultValue
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
       } else if (this.formModel[this.field.options.name] === undefined) {  //如果formModel为空对象，则初始化字段值为null!!
         this.formModel[this.field.options.name] = null
       } else {
@@ -83,7 +83,10 @@ export default {
       this.oldFieldValue = deepClone(this.fieldModel)
       this.initFileList()  //处理图片上传、文件上传字段
     },
-
+    getDeepCopyData(data) {
+      if(data instanceof Array) return JSON.parse(JSON.stringify(data))
+      return data
+    },
     initFileList() { //初始化上传组件的已上传文件列表
       if ( ((this.field.type !== 'picture-upload') && (this.field.type !== 'file-upload')) || (this.designState === true) ) {
         return
@@ -194,7 +197,7 @@ export default {
 
     refreshDefaultValue() {
       if ((this.designState === true) && (this.field.options.defaultValue !== undefined)) {
-        this.fieldModel = this.field.options.defaultValue
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
       }
     },
 
@@ -392,7 +395,6 @@ export default {
     },
 
     handleOnChange(val, oldVal) {  //自定义onChange事件
-      console.log('handleOnChangetestc', val, oldVal)
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', this.field.options.onChange)
         changeFn.call(this, val, oldVal)
@@ -504,7 +506,7 @@ export default {
     },
 
     resetField() {
-      let defaultValue = this.field.options.defaultValue
+      let defaultValue = this.getDeepCopyData(this.field.options.defaultValue)
       this.setValue(defaultValue)
       this.$nextTick(() => {
         //

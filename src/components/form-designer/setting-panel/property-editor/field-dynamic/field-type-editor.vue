@@ -27,7 +27,16 @@ export default {
   },
   data() {
     return {
-      fieldTypes: ["input", "textarea", "number", "select", "date", "date-range"],
+      fieldTypes: [
+        "input",
+        "textarea",
+        "number",
+        "select",
+        "date",
+        "date-range",
+        "date-range2",
+        "number-range",
+      ],
     };
   },
   created() {},
@@ -38,6 +47,18 @@ export default {
         case "date":
           this.optionModel.defaultValue = "";
           break;
+
+        case "number-range":
+          this.optionModel.defaultValue = [0, 0];
+          this.controlsPosition = "right";
+          break;
+        case "date-range2":
+          this.optionModel.format = "YYYY-MM-DD";
+          this.optionModel.valueFormat = "YYYY-MM-DD HH:mm";
+          this.optionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:00"];
+          this.optionModel.defaultValue = ["", ""];
+          this.optionModel.type = "date";
+          break;
         case "date-range":
           this.optionModel.format = "YYYY-MM-DD";
           this.optionModel.valueFormat = "YYYY-MM-DD HH:mm";
@@ -46,11 +67,12 @@ export default {
           break;
 
         default:
+          this.controlsPosition = "";
           this.optionModel.type = "";
           this.optionModel.format = "";
           this.optionModel.valueFormat = "";
           this.optionModel.defaultTime = "";
-
+          this.optionModel.defaultValue = null;
           break;
       }
     },

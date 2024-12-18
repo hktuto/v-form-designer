@@ -307,8 +307,10 @@ export default {
 
     getPropEditor(propName, editorName) {
       let originalPropName = propName.replace(this.selectedWidget.type + "-", ""); //去掉组件名称前缀-，如果有的话！！
-      let ownPropEditorName = `${this.selectedWidget.type}-${originalPropName}-editor`;
-      console.log(ownPropEditorName, this.$options.components[ownPropEditorName]);
+      let ownPropEditorName =
+        this.selectedWidget.type === "dynamic"
+          ? `${this.selectedWidget.options.fieldType}-${originalPropName}-editor`
+          : `${this.selectedWidget.type}-${originalPropName}-editor`;
       if (!!this.$options.components[ownPropEditorName]) {
         //局部注册的属性编辑器组件
         return ownPropEditorName;

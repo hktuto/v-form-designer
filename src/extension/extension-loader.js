@@ -31,6 +31,12 @@ import {autoCompleteTemplateGenerator} from '@/extension/samples/extension-sfc-g
 
 import {dynamicSchema} from "@/extension/samples/extension-schema"
 import DynamicWidget from '@/extension/samples/dynamic/dynamic-widget'
+
+import {dateRange2Schema} from "@/extension/samples/extension-schema"
+import DateRange2Widget from '@/extension/samples/dynamic/date-range2-widget'
+
+import { numberRangeSchema } from '@/extension/samples/extension-schema'
+import NumberRangeWidget from '@/extension/samples/dynamic/numberRange-widget'
 export const loadExtension = function (app) {
     loadCard(app)
     loadAlertWidget(app)
@@ -38,6 +44,8 @@ export const loadExtension = function (app) {
     loadAutoCompleteWidget(app)
     loadjsonEditorWidget(app)
     loadDynamicWidget(app)
+    loadDateRange2Widget(app)
+    loadNumberRangeWidget(app)
 }
 const loadjsonEditorWidget = (app) => {
     /**
@@ -52,10 +60,20 @@ const loadjsonEditorWidget = (app) => {
     app.component(JsonEditorWidget.name, JsonEditorWidget)  //注册组件
     registerFWGenerator('jsonEditor', nullTemplateGenerator)  //注册字段组件的代码生成器
 }
+const loadNumberRangeWidget = (app) => {
+    addCustomWidgetSchema(numberRangeSchema)  //加载组件Json Schema
+    app.component(NumberRangeWidget.name, NumberRangeWidget)  //注册组件
+    registerFWGenerator('numberRange', nullTemplateGenerator)  //注册字段组件的代码生成器
+}
 const loadDynamicWidget = (app) => {
     addCustomWidgetSchema(dynamicSchema)  //加载组件Json Schema
     app.component(DynamicWidget.name, DynamicWidget)  //注册组件
-    registerFWGenerator('autoComplete', nullTemplateGenerator)  //注册字段组件的代码生成器
+    registerFWGenerator('dynamic', nullTemplateGenerator)  //注册字段组件的代码生成器
+}
+const loadDateRange2Widget = (app) => {
+    addCustomWidgetSchema(dateRange2Schema)  //加载组件Json Schema
+    app.component(DateRange2Widget.name, DateRange2Widget)  //注册组件
+    registerFWGenerator('dateRange2', nullTemplateGenerator)  //注册字段组件的代码生成器
 }
 const loadAutoCompleteWidget = (app) => {
     addCustomWidgetSchema(autoCompleteSchema)  //加载组件Json Schema

@@ -3,9 +3,15 @@ export default {
     widgetLabel: {
       card: 'Card',
       alert: 'Alert',
-      'select-group': 'Select Group',
-      'auto-complete': 'Auto Complete',
+      'select-group': '分组选项',
+      'auto-complete': '自动填充',
       'json-editor': 'code-editor',
+      'async-select': 'async-select',
+      'ug-select': 'ug-select',
+      'number-range': '数字范围',
+      'date-range2': '日期范围2',
+      'dynamic': '动态组件',
+      'select-v2': '虚拟下拉',
     },
 
     setting: {

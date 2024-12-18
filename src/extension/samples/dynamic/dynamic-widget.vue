@@ -9,6 +9,14 @@
       v-else-if="field.options.fieldType === 'date-range'"
       v-bind="$props"
     />
+    <DateRange2Widget
+      v-else-if="field.options.fieldType === 'date-range2'"
+      v-bind="$props"
+    />
+    <NumberRangeWidget
+      v-else-if="field.options.fieldType === 'number-range'"
+      v-bind="$props"
+    />
   </div>
 </template>
 <script>
@@ -23,6 +31,8 @@ import NumberWidget from "@/components/form-designer/form-widget/field-widget/nu
 import TextareaWidget from "@/components/form-designer/form-widget/field-widget/textarea-widget.vue";
 import DateWidget from "@/components/form-designer/form-widget/field-widget/date-widget.vue";
 import DateRangeWidget from "@/components/form-designer/form-widget/field-widget/date-range-widget.vue";
+import NumberRangeWidget from "@/extension/samples/dynamic/numberRange-widget.vue";
+import DateRange2Widget from "@/extension/samples/dynamic/date-range2-widget.vue";
 export default {
   name: "dynamic-widget",
   componentName: "FieldWidget", //必须固定为FieldWidget，用于接收父级组件的broadcast事件
@@ -60,6 +70,8 @@ export default {
     TextareaWidget,
     DateWidget,
     DateRangeWidget,
+    NumberRangeWidget,
+    DateRange2Widget,
     FormItemWrapper,
   },
   data() {
