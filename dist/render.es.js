@@ -17,7 +17,7 @@ var __spreadValues2 = (a10, b10) => {
   return a10;
 };
 var __spreadProps2 = (a10, b10) => __defProps2(a10, __getOwnPropDescs2(b10));
-import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, isVNode, h as h$1, markRaw, capitalize } from "vue";
+import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, isVNode, h as h$1, markRaw, capitalize, normalizeProps } from "vue";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var axios$2 = { exports: {} };
 var bind$2 = function bind2(fn2, thisArg) {
@@ -1145,7 +1145,7 @@ var _export_sfc$2 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$R = {
+const _sfc_main$U = {
   name: "container-item-wrapper",
   props: {
     widget: Object
@@ -1156,14 +1156,14 @@ const _sfc_main$R = {
     }
   }
 };
-function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R]]);
+var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U]]);
 var __glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerItemWrapper
@@ -1223,6 +1223,7 @@ var enLocale = {
     basicFieldTitle: "Basic Field",
     advancedFieldTitle: "Advanced Field",
     customFieldTitle: "Customized Field",
+    dataFieldTitle: "Docpal Field",
     noWidgetHint: "Please select a widget from the left list, drag and drop to this container.",
     widgetLabel: {
       grid: "Grid",
@@ -1531,6 +1532,7 @@ var zhLocale = {
     subscription: "\u8BA2\u9605Pro"
   },
   designer: {
+    dataFieldTitle: "Docpal \u7EC4\u4EF6\u5E93",
     componentLib: "\u7EC4\u4EF6\u5E93",
     formLib: "\u8868\u5355\u6A21\u677F",
     containerTitle: "\u5BB9\u5668",
@@ -1908,9 +1910,15 @@ var enLocale_extension = {
     widgetLabel: {
       card: "Card",
       alert: "Alert",
-      "select-group": "Select Group",
-      "auto-complete": "Auto Complete",
-      "json-editor": "code-editor"
+      "select-group": "\u5206\u7EC4\u9009\u9879",
+      "auto-complete": "\u81EA\u52A8\u586B\u5145",
+      "json-editor": "code-editor",
+      "async-select": "async-select",
+      "ug-select": "ug-select",
+      "number-range": "\u6570\u5B57\u8303\u56F4",
+      "date-range2": "\u65E5\u671F\u8303\u56F42",
+      "dynamic": "\u52A8\u6001\u7EC4\u4EF6",
+      "select-v2": "\u865A\u62DF\u4E0B\u62C9"
     },
     setting: {
       cardFolded: "Folded",
@@ -1935,7 +1943,13 @@ var zhLocale_extension = {
       alert: "\u63D0\u793A",
       "select-group": "\u5206\u7EC4\u9009\u9879",
       "auto-complete": "\u81EA\u52A8\u586B\u5145",
-      "json-editor": "code-editor"
+      "json-editor": "code-editor",
+      "async-select": "async-select",
+      "ug-select": "ug-select",
+      "number-range": "\u6570\u5B57\u8303\u56F4",
+      "date-range2": "\u65E5\u671F\u8303\u56F42",
+      "dynamic": "\u52A8\u6001\u7EC4\u4EF6",
+      "select-v2": "\u865A\u62DF\u4E0B\u62C9"
     },
     setting: {
       cardFolded: "\u662F\u5426\u6536\u8D77",
@@ -2017,7 +2031,7 @@ var refMixin = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
-const _sfc_main$Q = {
+const _sfc_main$T = {
   name: "SvgIcon",
   props: {
     iconClass: {
@@ -2047,7 +2061,7 @@ const _sfc_main$Q = {
 };
 const _hoisted_1$p = ["xlink:href"];
 const _hoisted_2$h = { key: 0 };
-function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
@@ -2056,9 +2070,9 @@ function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$h, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$Q, [["render", _sfc_render$Q], ["__scopeId", "data-v-8002b89a"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-8002b89a"]]);
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$P = {
+const _sfc_main$S = {
   name: "static-content-wrapper",
   mixins: [i18n$1],
   components: {
@@ -2158,7 +2172,7 @@ const _hoisted_6$4 = {
 };
 const _hoisted_7$4 = ["title"];
 const _hoisted_8$2 = { key: 0 };
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["field-wrapper", { "design-time-bottom-margin": !!this.designer }]),
@@ -2215,7 +2229,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-dac971c6"]]);
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-dac971c6"]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
@@ -3094,8 +3108,8 @@ var fieldMixin = {
       if (!!this.subFormItemFlag && !this.designState) {
         let subFormData = this.formModel[this.subFormName];
         if ((subFormData === void 0 || subFormData[this.subFormRowIndex] === void 0 || subFormData[this.subFormRowIndex][this.field.options.name] === void 0) && this.field.options.defaultValue !== void 0) {
-          this.fieldModel = this.field.options.defaultValue;
-          subFormData[this.subFormRowIndex][this.field.options.name] = this.field.options.defaultValue;
+          this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue);
+          subFormData[this.subFormRowIndex][this.field.options.name] = this.getDeepCopyData(this.field.options.defaultValue);
         } else if (subFormData[this.subFormRowIndex][this.field.options.name] === void 0) {
           this.fieldModel = null;
           subFormData[this.subFormRowIndex][this.field.options.name] = null;
@@ -3110,7 +3124,7 @@ var fieldMixin = {
         return;
       }
       if (this.formModel[this.field.options.name] === void 0 && this.field.options.defaultValue !== void 0) {
-        this.fieldModel = this.field.options.defaultValue;
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue);
       } else if (this.formModel[this.field.options.name] === void 0) {
         this.formModel[this.field.options.name] = null;
       } else {
@@ -3118,6 +3132,11 @@ var fieldMixin = {
       }
       this.oldFieldValue = deepClone(this.fieldModel);
       this.initFileList();
+    },
+    getDeepCopyData(data2) {
+      if (data2 instanceof Array)
+        return JSON.parse(JSON.stringify(data2));
+      return data2;
     },
     initFileList() {
       if (this.field.type !== "picture-upload" && this.field.type !== "file-upload" || this.designState === true) {
@@ -3192,7 +3211,8 @@ var fieldMixin = {
       if (this.designState) {
         return;
       }
-      if (this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader" || this.field.type === "select-v2") {
+      console.log("initOptionItems", this.field);
+      if (this.field.options.fieldType === "radio" || this.field.options.fieldType === "checkbox" || this.field.options.fieldType === "select" || this.field.options.fieldType === "cascader" || this.field.options.fieldType === "select-v2" || this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader" || this.field.type === "select-v2") {
         const newOptionItems = this.getOptionData();
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
           if (!!keepSelected) {
@@ -3205,7 +3225,7 @@ var fieldMixin = {
     },
     refreshDefaultValue() {
       if (this.designState === true && this.field.options.defaultValue !== void 0) {
-        this.fieldModel = this.field.options.defaultValue;
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue);
       }
     },
     clearFieldRules() {
@@ -3359,7 +3379,6 @@ var fieldMixin = {
       }
     },
     handleOnChange(val, oldVal) {
-      console.log("handleOnChangetestc", val, oldVal);
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", this.field.options.onChange);
         changeFn.call(this, val, oldVal);
@@ -3447,7 +3466,7 @@ var fieldMixin = {
       }
     },
     resetField() {
-      let defaultValue = this.field.options.defaultValue;
+      let defaultValue = this.getDeepCopyData(this.field.options.defaultValue);
       this.setValue(defaultValue);
       this.$nextTick(() => {
       });
@@ -3558,7 +3577,7 @@ var fieldMixin = {
   }
 };
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$O = {
+const _sfc_main$R = {
   name: "button-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -3604,7 +3623,7 @@ const _sfc_main$O = {
   },
   methods: {}
 };
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -3640,13 +3659,13 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-c66844f0"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R], ["__scopeId", "data-v-c66844f0"]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var formItemWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$N = {
+const _sfc_main$Q = {
   name: "form-item-wrapper",
   mixins: [i18n$1],
   components: {
@@ -3795,7 +3814,7 @@ const _hoisted_7$3 = {
 };
 const _hoisted_8$1 = ["title"];
 const _hoisted_9$1 = { key: 0 };
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -3906,13 +3925,13 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-774b5bb8"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$Q, [["render", _sfc_render$Q], ["__scopeId", "data-v-774b5bb8"]]);
 var __glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
 }, Symbol.toStringTag, { value: "Module" }));
 var cascaderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$M = {
+const _sfc_main$P = {
   name: "cascader-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -3992,7 +4011,7 @@ const _sfc_main$M = {
   }
 };
 const _hoisted_1$m = { class: "full-width-input" };
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4030,13 +4049,13 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-142d17ca"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-142d17ca"]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var checkboxWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$L = {
+const _sfc_main$O = {
   name: "checkbox-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4092,7 +4111,7 @@ const _sfc_main$L = {
   },
   methods: {}
 };
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox_button = resolveComponent("el-checkbox-button");
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
@@ -4153,13 +4172,13 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-716b0a6b"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-716b0a6b"]]);
 var __glob_0_2$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var colorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$K = {
+const _sfc_main$N = {
   name: "color-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4214,7 +4233,7 @@ const _sfc_main$K = {
   },
   methods: {}
 };
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4242,13 +4261,13 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-8d04bd98"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-8d04bd98"]]);
 var __glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$J = {
+const _sfc_main$M = {
   name: "date-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4332,7 +4351,7 @@ const _sfc_main$J = {
   },
   methods: {}
 };
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4377,13 +4396,13 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-70c0efa1"]]);
+var DateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-70c0efa1"]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": dateRangeWidget
+  "default": DateRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$I = {
+const _sfc_main$L = {
   name: "date-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4438,7 +4457,7 @@ const _sfc_main$I = {
   },
   methods: {}
 };
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4481,13 +4500,13 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-39eeee06"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": dateWidget
+  "default": DateWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dividerWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$H = {
+const _sfc_main$K = {
   name: "divider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4533,7 +4552,7 @@ const _sfc_main$H = {
   },
   methods: {}
 };
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -4562,14 +4581,14 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-4a82b0d8"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-4a82b0d8"]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var fileUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 let selectFileText = "'" + translate("render.hint.selectFile") + "'";
-const _sfc_main$G = {
+const _sfc_main$J = {
   name: "file-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4812,7 +4831,7 @@ const _hoisted_1$l = {
 const _hoisted_2$e = { class: "upload-file-list" };
 const _hoisted_3$c = ["title", "onClick"];
 const _hoisted_4$5 = ["title", "onClick"];
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -4878,13 +4897,13 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$G, [["render", _sfc_render$G], ["__scopeId", "data-v-fc065ade"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-fc065ade"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$F = {
+const _sfc_main$I = {
   name: "html-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4931,7 +4950,7 @@ const _sfc_main$F = {
   methods: {}
 };
 const _hoisted_1$k = ["innerHTML"];
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -4953,13 +4972,13 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-3d941b4e"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-3d941b4e"]]);
 var __glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var inputWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$E = {
+const _sfc_main$H = {
   name: "input-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5026,7 +5045,7 @@ const _sfc_main$E = {
   }
 };
 const _hoisted_1$j = { key: 1 };
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_input = resolveComponent("el-input");
@@ -5098,13 +5117,13 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-40f3d4c3"]]);
+var InputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-40f3d4c3"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": inputWidget
+  "default": InputWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var numberWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$D = {
+const _sfc_main$G = {
   name: "number-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5159,7 +5178,7 @@ const _sfc_main$D = {
   },
   methods: {}
 };
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5197,13 +5216,13 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-68a5bd58"]]);
+var NumberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$G, [["render", _sfc_render$G], ["__scopeId", "data-v-68a5bd58"]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": numberWidget
+  "default": NumberWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var pictureUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$C = {
+const _sfc_main$F = {
   name: "picture-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5430,7 +5449,7 @@ const _hoisted_6$2 = {
   class: "el-upload__tip"
 };
 const _hoisted_7$2 = { class: "uploader-icon" };
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_image = resolveComponent("el-image");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -5515,13 +5534,13 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$C, [["render", _sfc_render$C], ["__scopeId", "data-v-72787dcd"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-72787dcd"]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var radioWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$B = {
+const _sfc_main$E = {
   name: "radio-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5577,7 +5596,7 @@ const _sfc_main$B = {
   },
   methods: {}
 };
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -5639,13 +5658,13 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-253adc5e"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-253adc5e"]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var rateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$A = {
+const _sfc_main$D = {
   name: "rate-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5700,7 +5719,7 @@ const _sfc_main$A = {
   },
   methods: {}
 };
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5733,7 +5752,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-409c0e8b"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-409c0e8b"]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -28509,7 +28528,7 @@ function _sfc_render$1$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$1$1, null, 512);
 }
 var Editor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$1, [["render", _sfc_render$1$1]]);
-const _sfc_main$z = defineComponent({
+const _sfc_main$C = defineComponent({
   props: {
     editor: {
       type: Object
@@ -28552,12 +28571,12 @@ const _sfc_main$z = defineComponent({
   }
 });
 const _hoisted_1$h = { ref: "selector" };
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$h, null, 512);
 }
-var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$z, [["render", _sfc_render$z]]);
+var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$y = {
+const _sfc_main$B = {
   name: "rich-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin],
@@ -28661,7 +28680,7 @@ const _sfc_main$y = {
   }
 };
 const _hoisted_1$g = { style: { "border": "1px solid #ccc" } };
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -28699,13 +28718,13 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-297e7d24"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-297e7d24"]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectV2Widget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$x = {
+const _sfc_main$A = {
   name: "select-v2-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -28781,7 +28800,7 @@ const _sfc_main$x = {
     }
   }
 };
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_select_v2 = resolveComponent("el-select-v2");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -28822,13 +28841,13 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-63aaa7c2"]]);
+var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-63aaa7c2"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectV2Widget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$w = {
+const _sfc_main$z = {
   name: "select-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -28907,7 +28926,7 @@ const _sfc_main$w = {
     }
   }
 };
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -28963,13 +28982,13 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-ea74a61c"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-ea74a61c"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": selectWidget
+  "default": SelectWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var sliderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$v = {
+const _sfc_main$y = {
   name: "slider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29024,7 +29043,7 @@ const _sfc_main$v = {
   },
   methods: {}
 };
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29057,13 +29076,13 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-92a76556"]]);
+var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-92a76556"]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var slotWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$u = {
+const _sfc_main$x = {
   name: "slot-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29113,7 +29132,7 @@ const _hoisted_1$f = {
   key: 0,
   class: "slot-title"
 };
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -29137,13 +29156,13 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-95f13fca"]]);
+var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-95f13fca"]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var staticTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$t = {
+const _sfc_main$w = {
   name: "static-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29189,7 +29208,7 @@ const _sfc_main$t = {
   },
   methods: {}
 };
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -29215,13 +29234,13 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-0f585042"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-0f585042"]]);
 var __glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var switchWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$s = {
+const _sfc_main$v = {
   name: "switch-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29276,7 +29295,7 @@ const _sfc_main$s = {
   },
   methods: {}
 };
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29308,13 +29327,13 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-3529e848"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-3529e848"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var textareaWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$r = {
+const _sfc_main$u = {
   name: "textarea-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29369,7 +29388,7 @@ const _sfc_main$r = {
   },
   methods: {}
 };
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29407,13 +29426,13 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-0a243825"]]);
+var TextareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-0a243825"]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": textareaWidget
+  "default": TextareaWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$q = {
+const _sfc_main$t = {
   name: "time-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29468,7 +29487,7 @@ const _sfc_main$q = {
   },
   methods: {}
 };
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29511,13 +29530,13 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-37df7776"]]);
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-37df7776"]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$p = {
+const _sfc_main$s = {
   name: "time-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29572,7 +29591,7 @@ const _sfc_main$p = {
   },
   methods: {}
 };
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29609,7 +29628,7 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$p, [["render", _sfc_render$p], ["__scopeId", "data-v-5cc62ec1"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-5cc62ec1"]]);
 var __glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -29621,7 +29640,7 @@ for (const path in modules$1) {
   comps[cname] = modules$1[path].default;
 }
 var gridColItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$o = {
+const _sfc_main$r = {
   name: "GridColItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -29693,7 +29712,7 @@ const _sfc_main$o = {
 };
 const _hoisted_1$e = { class: "blank-cell" };
 const _hoisted_2$c = { class: "invisible-content" };
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
   return withDirectives((openBlock(), createBlock(_component_el_col, mergeProps({
     class: ["grid-cell", [$options.customClass]]
@@ -29751,7 +29770,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, !$props.widget.options.hidden]
   ]);
 }
-var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-3406a44d"]]);
+var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-3406a44d"]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColItem
@@ -29912,7 +29931,7 @@ var containerItemMixin = {
     }
   }
 };
-const _sfc_main$n = {
+const _sfc_main$q = {
   name: "vf-grid-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -29934,7 +29953,7 @@ const _sfc_main$n = {
   },
   methods: {}
 };
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_grid_col_item = resolveComponent("grid-col-item");
   const _component_el_row = resolveComponent("el-row");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -29975,13 +29994,13 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n]]);
+var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q]]);
 var __glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridItem
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$m = {
+const _sfc_main$p = {
   name: "sub-form-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -30204,7 +30223,7 @@ const _hoisted_7$1 = {
   key: 0,
   class: "row-number-span"
 };
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -30354,12 +30373,12 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-0e6b0002"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$p, [["render", _sfc_render$p], ["__scopeId", "data-v-0e6b0002"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$l = {
+const _sfc_main$o = {
   name: "tab-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -30406,7 +30425,7 @@ const _sfc_main$l = {
     }
   }
 };
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -30481,13 +30500,13 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l]]);
+var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o]]);
 var __glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableCellItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$k = {
+const _sfc_main$n = {
   name: "TableCellItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -30508,7 +30527,7 @@ const _sfc_main$k = {
   methods: {}
 };
 const _hoisted_1$c = ["colspan", "rowspan"];
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
     colspan: $props.widget.options.colspan || 1,
@@ -30552,13 +30571,13 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ], 14, _hoisted_1$c);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-3e48ee34"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-3e48ee34"]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$j = {
+const _sfc_main$m = {
   name: "table-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -30580,7 +30599,7 @@ const _sfc_main$j = {
   },
   methods: {}
 };
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_table_cell_item = resolveComponent("table-cell-item");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
   return openBlock(), createBlock(_component_container_item_wrapper, { widget: $props.widget }, {
@@ -30630,7 +30649,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$j, [["render", _sfc_render$j], ["__scopeId", "data-v-429726ac"]]);
+var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-429726ac"]]);
 var __glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableItem
@@ -30645,7 +30664,7 @@ var ContainerItems = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$i = {
+const _sfc_main$l = {
   name: "VFormRender",
   componentName: "VFormRender",
   mixins: [emitter, i18n$1],
@@ -31121,6 +31140,7 @@ const _sfc_main$i = {
       });
     },
     resetForm() {
+      console.log("resetForm");
       let subFormNames = Object.keys(this.subFormRefList);
       subFormNames.forEach((sfName) => {
         if (!!this.subFormRefList[sfName].resetSubForm) {
@@ -31212,7 +31232,7 @@ const _sfc_main$i = {
     }
   }
 };
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createBlock(_component_el_form, {
     "label-position": $options.labelPosition,
@@ -31267,7 +31287,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-7d868c12"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-b286374c"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31275,7 +31295,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$h = defineComponent({
+const _sfc_main$k = defineComponent({
   name: "ArrowDown"
 });
 const _hoisted_1$b = {
@@ -31292,11 +31312,11 @@ const _hoisted_2$a = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$9 = [
   _hoisted_2$a
 ];
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$b, _hoisted_3$9);
 }
-var arrowDown = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h]]);
-const _sfc_main$g = defineComponent({
+var arrowDown = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k]]);
+const _sfc_main$j = defineComponent({
   name: "ArrowUp"
 });
 const _hoisted_1$a = {
@@ -31313,11 +31333,11 @@ const _hoisted_2$9 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$8 = [
   _hoisted_2$9
 ];
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$a, _hoisted_3$8);
 }
-var arrowUp = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
-const _sfc_main$f = defineComponent({
+var arrowUp = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j]]);
+const _sfc_main$i = defineComponent({
   name: "CirclePlus"
 });
 const _hoisted_1$9 = {
@@ -31344,11 +31364,11 @@ const _hoisted_5$1 = [
   _hoisted_3$7,
   _hoisted_4$2
 ];
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$9, _hoisted_5$1);
 }
-var circlePlus = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
-const _sfc_main$e = defineComponent({
+var circlePlus = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i]]);
+const _sfc_main$h = defineComponent({
   name: "Delete"
 });
 const _hoisted_1$8 = {
@@ -31365,11 +31385,11 @@ const _hoisted_2$7 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$6 = [
   _hoisted_2$7
 ];
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$8, _hoisted_3$6);
 }
-var _delete = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
-const _sfc_main$d = defineComponent({
+var _delete = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h]]);
+const _sfc_main$g = defineComponent({
   name: "Edit"
 });
 const _hoisted_1$7 = {
@@ -31391,11 +31411,11 @@ const _hoisted_4$1 = [
   _hoisted_2$6,
   _hoisted_3$5
 ];
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$7, _hoisted_4$1);
 }
-var edit = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
-const _sfc_main$c = defineComponent({
+var edit = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
+const _sfc_main$f = defineComponent({
   name: "InfoFilled"
 });
 const _hoisted_1$6 = {
@@ -31412,11 +31432,11 @@ const _hoisted_2$5 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$4 = [
   _hoisted_2$5
 ];
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$6, _hoisted_3$4);
 }
-var infoFilled = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
-const _sfc_main$b = defineComponent({
+var infoFilled = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
+const _sfc_main$e = defineComponent({
   name: "Minus"
 });
 const _hoisted_1$5 = {
@@ -31433,11 +31453,11 @@ const _hoisted_2$4 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$3 = [
   _hoisted_2$4
 ];
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$5, _hoisted_3$3);
 }
-var minus = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
-const _sfc_main$a = defineComponent({
+var minus = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
+const _sfc_main$d = defineComponent({
   name: "Plus"
 });
 const _hoisted_1$4 = {
@@ -31454,11 +31474,11 @@ const _hoisted_2$3 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$2 = [
   _hoisted_2$3
 ];
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$4, _hoisted_3$2);
 }
-var plus = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
-const _sfc_main$9 = defineComponent({
+var plus = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
+const _sfc_main$c = defineComponent({
   name: "Search"
 });
 const _hoisted_1$3 = {
@@ -31475,10 +31495,10 @@ const _hoisted_2$2 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$1 = [
   _hoisted_2$2
 ];
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$3, _hoisted_3$1);
 }
-var search = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
+var search = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
 function registerIcon(app) {
   app.component("el-icon-edit", edit);
   app.component("el-icon-minus", minus);
@@ -31493,13 +31513,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1733964644049__");
+    var svgDom = document.getElementById("__svg__icons__dom__1734502759872__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1733964644049__";
+      svgDom.id = "__svg__icons__dom__1734502759872__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -31720,7 +31740,7 @@ var containerMixin = {
   }
 };
 var containerWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$8 = {
+const _sfc_main$b = {
   name: "container-wrapper",
   mixins: [i18n$1, containerMixin],
   components: {
@@ -31756,7 +31776,7 @@ const _hoisted_9 = {
 };
 const _hoisted_10 = ["title"];
 const _hoisted_11 = { key: 0 };
-function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
@@ -31824,7 +31844,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-b1a0dbfc"]]);
+var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-b1a0dbfc"]]);
 var refMixinDesign = {
   methods: {
     initRefList() {
@@ -31850,7 +31870,7 @@ var refMixinDesign = {
   }
 };
 var cardWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$7 = {
+const _sfc_main$a = {
   name: "card-widget",
   componentName: "ContainerWidget",
   mixins: [i18n$1, containerMixin, refMixinDesign],
@@ -31893,7 +31913,7 @@ const _sfc_main$7 = {
 };
 const _hoisted_1$1 = { class: "clear-fix" };
 const _hoisted_2 = { class: "form-widget-list" };
-function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown = resolveComponent("ArrowDown");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_ArrowUp = resolveComponent("ArrowUp");
@@ -31978,9 +31998,9 @@ function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$7, [["render", _sfc_render$7], ["__scopeId", "data-v-06588696"]]);
+var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-06588696"]]);
 var cardItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$6 = {
+const _sfc_main$9 = {
   name: "card-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -32012,7 +32032,7 @@ const _sfc_main$6 = {
   }
 };
 const _hoisted_1 = { class: "clear-fix" };
-function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown = resolveComponent("ArrowDown");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_ArrowUp = resolveComponent("ArrowUp");
@@ -32095,9 +32115,9 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$6, [["render", _sfc_render$6], ["__scopeId", "data-v-52275f84"]]);
+var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$9, [["render", _sfc_render$9], ["__scopeId", "data-v-52275f84"]]);
 var selectGroupWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$5 = {
+const _sfc_main$8 = {
   name: "select-group-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -32166,7 +32186,7 @@ const _sfc_main$5 = {
     }
   }
 };
-function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_option_group = resolveComponent("el-option-group");
   const _component_el_select = resolveComponent("el-select");
@@ -32235,7 +32255,7 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$5, [["render", _sfc_render$5], ["__scopeId", "data-v-733dff56"]]);
+var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-733dff56"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -55032,7 +55052,7 @@ var themeChrome = { exports: {} };
   })();
 })(themeChrome);
 var jsonEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$4 = {
+const _sfc_main$7 = {
   name: "json-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -55092,7 +55112,7 @@ const _sfc_main$4 = {
     }
   }
 };
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_v_ace_editor = resolveComponent("v-ace-editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -55120,8 +55140,8 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var JsonEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-54325e57"]]);
-const _sfc_main$3 = {
+var JsonEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$7, [["render", _sfc_render$7], ["__scopeId", "data-v-54325e57"]]);
+const _sfc_main$6 = {
   name: "alert-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -55167,7 +55187,7 @@ const _sfc_main$3 = {
     }
   }
 };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_alert = resolveComponent("el-alert");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -55198,9 +55218,9 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AlertWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3]]);
+var AlertWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$6, [["render", _sfc_render$6]]);
 var autoCompleteWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2 = {
+const _sfc_main$5 = {
   name: "auto-complete-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -55260,7 +55280,7 @@ const _sfc_main$2 = {
   },
   methods: {}
 };
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_autocomplete = resolveComponent("el-autocomplete");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -55315,16 +55335,364 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-75ce707c"]]);
+var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$5, [["render", _sfc_render$5], ["__scopeId", "data-v-75ce707c"]]);
+var numberRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$4 = {
+  name: "number-range-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: [0, 0],
+      rules: []
+    };
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    minChange(value2) {
+      if ((this.fieldModel[1] === 0 || !!this.fieldModel[1]) && (value2 === 0 || !!value2) && value2 > this.fieldModel[1]) {
+        this.fieldModel[1] = value2 + 1;
+      }
+      this.handleChangeEvent([value2, this.fieldModel[1]]);
+    },
+    maxChange(value2) {
+      if ((this.fieldModel[0] === 0 || !!this.fieldModel[0]) && (value2 === 0 || !!value2) && value2 < this.fieldModel[0]) {
+        this.fieldModel[0] = value2 - 1;
+      }
+      this.handleChangeEvent([this.fieldModel[0], value2]);
+    }
+  }
+};
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input_number = resolveComponent("el-input-number");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createElementVNode("div", {
+        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width layout" : "layout"])
+      }, [
+        createVNode(_component_el_input_number, {
+          ref: "fieldEditor",
+          modelValue: $data.fieldModel[0],
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel[0] = $event),
+          class: "full-width-input",
+          disabled: $props.field.options.disabled,
+          size: _ctx.widgetSize,
+          "controls-position": $props.field.options.controlsPosition,
+          stepStrictly: $props.field.options.stepStrictly,
+          placeholder: $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startNumber"),
+          min: $props.field.options.min,
+          max: $props.field.options.max,
+          precision: $props.field.options.precision,
+          step: $props.field.options.step,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: $options.minChange
+        }, null, 8, ["modelValue", "disabled", "size", "controls-position", "stepStrictly", "placeholder", "min", "max", "precision", "step", "onFocus", "onBlur", "onChange"]),
+        _cache[2] || (_cache[2] = createTextVNode(" - ")),
+        createVNode(_component_el_input_number, {
+          ref: "fieldEditor",
+          modelValue: $data.fieldModel[1],
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.fieldModel[1] = $event),
+          class: "full-width-input",
+          disabled: $props.field.options.disabled,
+          size: _ctx.widgetSize,
+          "controls-position": $props.field.options.controlsPosition,
+          stepStrictly: $props.field.options.stepStrictly,
+          placeholder: $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endNumber"),
+          min: $props.field.options.min,
+          max: $props.field.options.max,
+          precision: $props.field.options.precision,
+          step: $props.field.options.step,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: $options.maxChange
+        }, null, 8, ["modelValue", "disabled", "size", "controls-position", "stepStrictly", "placeholder", "min", "max", "precision", "step", "onFocus", "onBlur", "onChange"])
+      ], 2)
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var NumberRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-ffcd0de8"]]);
+var dateRange2Widget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$3 = {
+  name: "date-range2-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: ["", ""],
+      rules: [],
+      disabledDate1: (time) => {
+        if (!this.fieldModel[1])
+          return false;
+        const startTime = new Date(this.fieldModel[1]).getTime();
+        return time.getTime() > startTime;
+      },
+      disabledDate2: (time) => {
+        if (!this.fieldModel[0])
+          return false;
+        const startTime = new Date(this.fieldModel[0]).getTime();
+        return time.getTime() < startTime;
+      }
+    };
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    startDateChange(value2) {
+      this.handleChangeEvent([value2, this.fieldModel[1]]);
+    }
+  }
+};
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_date_picker = resolveComponent("el-date-picker");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createElementVNode("div", {
+        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width" : ""])
+      }, [
+        createVNode(_component_el_date_picker, {
+          ref: "fieldEditor",
+          type: $props.field.options.type,
+          modelValue: $data.fieldModel[0],
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel[0] = $event),
+          disabled: $props.field.options.disabled,
+          readonly: $props.field.options.readonly,
+          size: _ctx.widgetSize,
+          clearable: $props.field.options.clearable,
+          editable: $props.field.options.editable,
+          format: $props.field.options.format,
+          "value-format": $props.field.options.valueFormat,
+          shortcuts: _ctx.onShortcutsFn(),
+          "default-time": $props.field.options.defaultTime[0],
+          placeholder: $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startDatePlaceholder"),
+          "disabled-date": $data.disabledDate1,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: $options.startDateChange
+        }, null, 8, ["type", "modelValue", "disabled", "readonly", "size", "clearable", "editable", "format", "value-format", "shortcuts", "default-time", "placeholder", "disabled-date", "onFocus", "onBlur", "onChange"]),
+        _cache[3] || (_cache[3] = createTextVNode(" - ")),
+        createVNode(_component_el_date_picker, {
+          ref: "fieldEditor",
+          type: $props.field.options.type,
+          modelValue: $data.fieldModel[1],
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.fieldModel[1] = $event),
+          disabled: $props.field.options.disabled,
+          readonly: $props.field.options.readonly,
+          size: _ctx.widgetSize,
+          clearable: $props.field.options.clearable,
+          editable: $props.field.options.editable,
+          format: $props.field.options.format,
+          "value-format": $props.field.options.valueFormat,
+          shortcuts: _ctx.onShortcutsFn(),
+          "default-time": $props.field.options.defaultTime[1],
+          placeholder: $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endDatePlaceholder"),
+          "disabled-date": $data.disabledDate2,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: _cache[2] || (_cache[2] = (value2) => _ctx.handleChangeEvent([$data.fieldModel[0], value2]))
+        }, null, 8, ["type", "modelValue", "disabled", "readonly", "size", "clearable", "editable", "format", "value-format", "shortcuts", "default-time", "placeholder", "disabled-date", "onFocus", "onBlur"])
+      ], 2)
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var DateRange2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-7a730b34"]]);
+const _sfc_main$2 = {
+  name: "dynamic-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    SelectGroupWidget,
+    InputWidget,
+    SelectWidget,
+    NumberWidget,
+    TextareaWidget,
+    DateWidget,
+    DateRangeWidget,
+    NumberRangeWidget,
+    DateRange2Widget,
+    FormItemWrapper
+  },
+  data() {
+    return {};
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+  },
+  mounted() {
+  },
+  beforeUnmount() {
+  },
+  methods: {}
+};
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_InputWidget = resolveComponent("InputWidget");
+  const _component_SelectWidget = resolveComponent("SelectWidget");
+  const _component_NumberWidget = resolveComponent("NumberWidget");
+  const _component_TextareaWidget = resolveComponent("TextareaWidget");
+  const _component_DateWidget = resolveComponent("DateWidget");
+  const _component_DateRangeWidget = resolveComponent("DateRangeWidget");
+  const _component_DateRange2Widget = resolveComponent("DateRange2Widget");
+  const _component_NumberRangeWidget = resolveComponent("NumberRangeWidget");
+  return openBlock(), createElementBlock("div", null, [
+    $props.field.options.fieldType === "input" ? (openBlock(), createBlock(_component_InputWidget, normalizeProps(mergeProps({ key: 0 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "select" ? (openBlock(), createBlock(_component_SelectWidget, normalizeProps(mergeProps({ key: 1 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "number" ? (openBlock(), createBlock(_component_NumberWidget, normalizeProps(mergeProps({ key: 2 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "textarea" ? (openBlock(), createBlock(_component_TextareaWidget, normalizeProps(mergeProps({ key: 3 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "date" ? (openBlock(), createBlock(_component_DateWidget, normalizeProps(mergeProps({ key: 4 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "date-range" ? (openBlock(), createBlock(_component_DateRangeWidget, normalizeProps(mergeProps({ key: 5 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "date-range2" ? (openBlock(), createBlock(_component_DateRange2Widget, normalizeProps(mergeProps({ key: 6 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "number-range" ? (openBlock(), createBlock(_component_NumberRangeWidget, normalizeProps(mergeProps({ key: 7 }, _ctx.$props)), null, 16)) : createCommentVNode("", true)
+  ]);
+}
+var DynamicWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2, [["render", _sfc_render$2]]);
 const loadExtension = function(app) {
   loadCard(app);
   loadAlertWidget(app);
   loadSelectGroupWidget(app);
   loadAutoCompleteWidget(app);
   loadjsonEditorWidget(app);
+  loadDynamicWidget(app);
+  loadDateRange2Widget(app);
+  loadNumberRangeWidget(app);
 };
 const loadjsonEditorWidget = (app) => {
   app.component(JsonEditorWidget.name, JsonEditorWidget);
+};
+const loadNumberRangeWidget = (app) => {
+  app.component(NumberRangeWidget.name, NumberRangeWidget);
+};
+const loadDynamicWidget = (app) => {
+  app.component(DynamicWidget.name, DynamicWidget);
+};
+const loadDateRange2Widget = (app) => {
+  app.component(DateRange2Widget.name, DateRange2Widget);
 };
 const loadAutoCompleteWidget = (app) => {
   app.component(AutoCompleteWidget.name, AutoCompleteWidget);
