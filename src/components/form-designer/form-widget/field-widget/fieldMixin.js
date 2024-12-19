@@ -555,7 +555,7 @@ export default {
     setFieldType(type) {
       if(this.field.type !== 'dynamic' || !type) return
       const json = JSON.parse(JSON.stringify(this.getFormJson())) 
-      const selectedWidget = json.widgetList.find(w => w.id === this.field.id)
+      const selectedWidget = getWidgetItem(this.field.id, json) 
       handleDynamicFieldTypeChange(type, selectedWidget.options)
       selectedWidget.options.fieldType = type
       const _this = this
@@ -730,4 +730,22 @@ export function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
       break;
   }
 }
-
+function getWidgetItem(id, json) {
+  let result = null
+  try {
+    json.widgetList.forEach(w => {
+      if (w.widgetList) {
+        const item = getWidgetItem(id, w)
+        if(!!item) result = item
+        throw new Error('succcess')
+      }
+      else if (w.id === id) {
+        result = w
+        throw new Error('succcess')
+      }
+    })
+  } catch (error) {
+    
+  }
+  return result
+}

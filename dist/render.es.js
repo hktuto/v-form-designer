@@ -3504,7 +3504,7 @@ var fieldMixin = {
       if (this.field.type !== "dynamic" || !type)
         return;
       const json = JSON.parse(JSON.stringify(this.getFormJson()));
-      const selectedWidget = json.widgetList.find((w10) => w10.id === this.field.id);
+      const selectedWidget = getWidgetItem(this.field.id, json);
       handleDynamicFieldTypeChange(type, selectedWidget.options);
       selectedWidget.options.fieldType = type;
       const _this = this;
@@ -3623,6 +3623,24 @@ function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
       dynamicOptionModel.defaultValue = null;
       break;
   }
+}
+function getWidgetItem(id2, json) {
+  let result = null;
+  try {
+    json.widgetList.forEach((w10) => {
+      if (w10.widgetList) {
+        const item = getWidgetItem(id2, w10);
+        if (!!item)
+          result = item;
+        throw new Error("succcess");
+      } else if (w10.id === id2) {
+        result = w10;
+        throw new Error("succcess");
+      }
+    });
+  } catch (error) {
+  }
+  return result;
 }
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$R = {
@@ -31568,13 +31586,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1734570977816__");
+    var svgDom = document.getElementById("__svg__icons__dom__1734576883296__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1734570977816__";
+      svgDom.id = "__svg__icons__dom__1734576883296__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
