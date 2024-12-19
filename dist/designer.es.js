@@ -4577,7 +4577,7 @@ eventBus.$on = instance.on;
 eventBus.$off = instance.off;
 eventBus.$emit = instance.emit;
 var fieldMixin = {
-  inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData"],
+  inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData", "getFormJson", "setFormJson"],
   computed: {
     formConfig() {
       return this.getFormConfig();
@@ -5005,6 +5005,19 @@ var fieldMixin = {
         this.buildFieldRules();
       }
     },
+    setFieldType(type) {
+      if (this.field.type !== "dynamic" || !type)
+        return;
+      const json = JSON.parse(JSON.stringify(this.getFormJson()));
+      const selectedWidget = json.widgetList.find((w10) => w10.id === this.field.id);
+      handleDynamicFieldTypeChange(type, selectedWidget.options);
+      selectedWidget.options.fieldType = type;
+      const _this = this;
+      setTimeout(() => {
+        _this.setFormJson(json);
+        _this.buildFieldRules();
+      });
+    },
     setRequired(flag) {
       this.field.options.required = flag;
       this.buildFieldRules();
@@ -5081,6 +5094,41 @@ var fieldMixin = {
     }
   }
 };
+function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
+  switch (fieldType) {
+    case "date":
+      dynamicOptionModel.format = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = "2000-01-01 00:00:00", dynamicOptionModel.defaultValue = "";
+      dynamicOptionModel.type = "date";
+      break;
+    case "number-range":
+      dynamicOptionModel.defaultValue = [0, 0];
+      dynamicOptionModel.controlsPosition = "right";
+      break;
+    case "date-range2":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:59"];
+      dynamicOptionModel.defaultValue = ["", ""];
+      dynamicOptionModel.type = "date";
+      break;
+    case "date-range":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:00"];
+      dynamicOptionModel.type = "daterange";
+      break;
+    default:
+      dynamicOptionModel.controlsPosition = "";
+      dynamicOptionModel.type = "";
+      dynamicOptionModel.format = "";
+      dynamicOptionModel.valueFormat = "";
+      dynamicOptionModel.defaultTime = "";
+      dynamicOptionModel.defaultValue = null;
+      break;
+  }
+}
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$3z = {
   name: "button-widget",
@@ -5200,7 +5248,7 @@ const _sfc_main$3y = {
     },
     rules: Array
   },
-  inject: ["getFormConfig"],
+  inject: ["getFormConfig", "getFormJson"],
   computed: {
     formConfig() {
       return this.getFormConfig();
@@ -5334,7 +5382,12 @@ function _sfc_render$3y(_ctx, _cache, $props, $setup, $data, $options) {
       title: $props.field.options.labelTooltip,
       rules: $props.rules,
       prop: $options.getPropName(),
-      class: normalizeClass([$options.selected ? "selected" : "", $options.labelAlign, $options.customClass, $props.field.options.required ? "required" : ""]),
+      class: normalizeClass([
+        $options.selected ? "selected" : "",
+        $options.labelAlign,
+        $options.customClass,
+        $props.field.options.required ? "required" : ""
+      ]),
       onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $options.selectField($props.field), ["stop"]))
     }, {
       label: withCtx(() => [
@@ -5430,7 +5483,7 @@ function _sfc_render$3y(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-774b5bb8"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-c6406230"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
@@ -32207,7 +32260,9 @@ const _sfc_main$33 = {
       globalModel: {
         formModel: this.formDataModel
       },
-      previewState: this.previewState
+      previewState: this.previewState,
+      getFormJson: () => this.formJsonObj,
+      setFormJson: this.setFormJson
     };
   },
   data() {
@@ -32792,7 +32847,7 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-b286374c"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-3c3d9f9d"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -65160,14 +65215,13 @@ const _sfc_main$10 = {
   },
   methods: {
     handleChange(val) {
-      console.log(val);
       switch (val) {
         case "date":
           this.optionModel.defaultValue = "";
           break;
         case "number-range":
           this.optionModel.defaultValue = [0, 0];
-          this.controlsPosition = "right";
+          this.optionModel.controlsPosition = "right";
           break;
         case "date-range2":
           this.optionModel.format = "YYYY-MM-DD";
@@ -65183,7 +65237,7 @@ const _sfc_main$10 = {
           this.optionModel.type = "daterange";
           break;
         default:
-          this.controlsPosition = "";
+          this.optionModel.controlsPosition = "";
           this.optionModel.type = "";
           this.optionModel.format = "";
           this.optionModel.valueFormat = "";
@@ -76554,13 +76608,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1734505254034__");
+    var svgDom = document.getElementById("__svg__icons__dom__1734570942100__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1734505254034__";
+      svgDom.id = "__svg__icons__dom__1734570942100__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

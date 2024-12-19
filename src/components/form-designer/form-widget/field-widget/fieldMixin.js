@@ -3,13 +3,12 @@ import FormValidators from '@/utils/validators'
 import eventBus from "@/utils/event-bus"
 import { translate } from "@/utils/i18n"
 export default {
-  inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData'],
+  inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData', 'getFormJson', 'setFormJson'],
 
   computed: {
     formConfig() {
       return this.getFormConfig()
     },
-
     widgetSize() {
       return this.field.options.size || 'default'
     },
@@ -32,7 +31,9 @@ export default {
   },
 
   methods: {
-
+    // getFormJson() {
+    //   return this.getFormJson()
+    // },
     //--------------------- 组件内部方法 begin ------------------//
     getPropName() {
       if (this.subFormItemFlag && !this.designState) {
@@ -551,7 +552,18 @@ export default {
         this.buildFieldRules()
       }
     },
-
+    setFieldType(type) {
+      if(this.field.type !== 'dynamic' || !type) return
+      const json = JSON.parse(JSON.stringify(this.getFormJson())) 
+      const selectedWidget = json.widgetList.find(w => w.id === this.field.id)
+      handleDynamicFieldTypeChange(type, selectedWidget.options)
+      selectedWidget.options.fieldType = type
+      const _this = this
+      setTimeout(() => {
+        _this.setFormJson(json)
+        _this.buildFieldRules()
+      },)
+    },
     setRequired(flag) {
       this.field.options.required = flag
       this.buildFieldRules()
@@ -679,3 +691,43 @@ export default {
 
   }
 }
+export function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
+  switch (fieldType) {
+    case "date":
+      dynamicOptionModel.format = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+
+      dynamicOptionModel.defaultTime = "2000-01-01 00:00:00",
+      dynamicOptionModel.defaultValue = '';
+      dynamicOptionModel.type = "date";
+      break;
+
+    case "number-range":
+      dynamicOptionModel.defaultValue = [0, 0];
+      dynamicOptionModel.controlsPosition = "right";
+      break;
+    case "date-range2":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:59"];
+      dynamicOptionModel.defaultValue = ['', ''];
+      dynamicOptionModel.type = "date";
+      break;
+    case "date-range":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:00"];
+      dynamicOptionModel.type = "daterange";
+      break;
+
+    default:
+      dynamicOptionModel.controlsPosition = "";
+      dynamicOptionModel.type = "";
+      dynamicOptionModel.format = "";
+      dynamicOptionModel.valueFormat = "";
+      dynamicOptionModel.defaultTime = "";
+      dynamicOptionModel.defaultValue = null;
+      break;
+  }
+}
+

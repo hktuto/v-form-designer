@@ -125,6 +125,8 @@ export default {
         formModel: this.formDataModel,
       },
       previewState: this.previewState,
+      getFormJson: () => this.formJsonObj,
+      setFormJson: this.setFormJson,
     };
   },
   data() {

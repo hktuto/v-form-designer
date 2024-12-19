@@ -42,7 +42,6 @@ export default {
   created() {},
   methods: {
     handleChange(val) {
-      console.log(val);
       switch (val) {
         case "date":
           this.optionModel.defaultValue = "";
@@ -50,7 +49,7 @@ export default {
 
         case "number-range":
           this.optionModel.defaultValue = [0, 0];
-          this.controlsPosition = "right";
+          this.optionModel.controlsPosition = "right";
           break;
         case "date-range2":
           this.optionModel.format = "YYYY-MM-DD";
@@ -67,7 +66,7 @@ export default {
           break;
 
         default:
-          this.controlsPosition = "";
+          this.optionModel.controlsPosition = "";
           this.optionModel.type = "";
           this.optionModel.format = "";
           this.optionModel.valueFormat = "";
