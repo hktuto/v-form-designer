@@ -5,7 +5,7 @@ export const getRegExp = function (validatorName) {
     number: '/^[-]?\\d+(\\.\\d+)?$/',
     letter: '/^[A-Za-z]+$/',
     letterAndNumber: '/^[A-Za-z0-9]+$/',
-    mobilePhone: '/^[1][3-9][0-9]{9}$/',
+    mobilePhone: '/^(\+?\d{1,3}[- ]?)?\d{10}$/',
     letterStartNumberIncluded: '/^[A-Za-z]+[A-Za-z\\d]*$/',
     noChinese: '/^[^\u4e00-\u9fa5]+$/',
     chinese: '/^[\u4e00-\u9fa5]+$/',

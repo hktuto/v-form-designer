@@ -3003,7 +3003,7 @@ const getRegExp = function(validatorName2) {
     number: "/^[-]?\\d+(\\.\\d+)?$/",
     letter: "/^[A-Za-z]+$/",
     letterAndNumber: "/^[A-Za-z0-9]+$/",
-    mobilePhone: "/^[1][3-9][0-9]{9}$/",
+    mobilePhone: "/^(+?d{1,3}[- ]?)?d{10}$/",
     letterStartNumberIncluded: "/^[A-Za-z]+[A-Za-z\\d]*$/",
     noChinese: "/^[^\u4E00-\u9FA5]+$/",
     chinese: "/^[\u4E00-\u9FA5]+$/",
@@ -31586,13 +31586,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1734576883296__");
+    var svgDom = document.getElementById("__svg__icons__dom__1738825984015__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1734576883296__";
+      svgDom.id = "__svg__icons__dom__1738825984015__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
