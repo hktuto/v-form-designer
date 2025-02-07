@@ -147,7 +147,7 @@
 
       beforeFileUpload(file) {
         console.log(this.field.options.uploadURL,this.field.options.uploadURL === '/api/docpal/workflow/upload/file')
-
+        if(!this.field.options.uploadName) this.field.options.uploadName = 'files'
         if (!!this.field.options && !!this.field.options.fileTypes && this.field.options.fileTypes.length > 0) {
           let fileTypeCheckResult = false
           let extFileName = file.name.substring(file.name.lastIndexOf('.') + 1)
@@ -178,10 +178,11 @@
             properties: {
               'dc:title': file.name,
             },
-            type:"File"
+            type:"File",
           }
           this.uploadData = {
-            document: JSON.stringify(params)
+            document: JSON.stringify(params),
+            nonPermission: true
           }
         }
         else {
@@ -292,8 +293,8 @@
         }
       },
       handlePreview(file) {
-        this.emit$('filePreview', file, this.field.options)
-        this.dispatch('VFormRender', 'filePreview', file, this.field.options)
+        this.emit$('filePreview', { file, options: this.field.options })
+        this.dispatch('VFormRender', 'filePreview', { file, options: this.field.options })
       },
       handleUploadHeaders() {
         const cookieToken = localStorage.getItem('token')

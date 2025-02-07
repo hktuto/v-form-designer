@@ -15,10 +15,14 @@ import ContainerItems from '@/components/form-render/container-item/index'
 import { addDirective } from '@/utils/directive'
 import { installI18n } from '@/utils/i18n'
 import { loadExtension } from '@/extension/extension-loader'
-import { translate } from "@/utils/i18n"
-if (typeof window !== 'undefined') {
+
+import { loadDataExtension } from '@/extension/dataField-loader'
+import { translate, changeLocale } from "@/utils/i18n"
+if (!!window) {
+  console.log('vform start');
   window.axios = axios
 }
+console.log('vform start window', window);
 const vfApp = createApp(App)
 vfApp.config.globalProperties.$t = (key) => (translate(key))
 vfApp.use(ElementPlus)
@@ -30,5 +34,5 @@ installI18n(vfApp)
 vfApp.use(ContainerWidgets)
 vfApp.use(ContainerItems)
 loadExtension(vfApp)
-
+loadDataExtension(vfApp)
 vfApp.mount('#app')

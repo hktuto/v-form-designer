@@ -28,12 +28,24 @@ import {alertTemplateGenerator} from '@/extension/samples/extension-sfc-generato
 import {autoCompleteSchema} from "@/extension/samples/extension-schema"
 import AutoCompleteWidget from '@/extension/samples/autoComplete/auto-complete-widget'
 import {autoCompleteTemplateGenerator} from '@/extension/samples/extension-sfc-generator'
+
+import {dynamicSchema} from "@/extension/samples/extension-schema"
+import DynamicWidget from '@/extension/samples/dynamic/dynamic-widget'
+
+import {dateRange2Schema} from "@/extension/samples/extension-schema"
+import DateRange2Widget from '@/extension/samples/dynamic/date-range2-widget'
+
+import { numberRangeSchema } from '@/extension/samples/extension-schema'
+import NumberRangeWidget from '@/extension/samples/dynamic/numberRange-widget'
 export const loadExtension = function (app) {
     loadCard(app)
     loadAlertWidget(app)
     loadSelectGroupWidget(app)
     loadAutoCompleteWidget(app)
     loadjsonEditorWidget(app)
+    loadDynamicWidget(app)
+    loadDateRange2Widget(app)
+    loadNumberRangeWidget(app)
 }
 const loadjsonEditorWidget = (app) => {
     /**
@@ -48,28 +60,27 @@ const loadjsonEditorWidget = (app) => {
     app.component(JsonEditorWidget.name, JsonEditorWidget)  //注册组件
     registerFWGenerator('jsonEditor', nullTemplateGenerator)  //注册字段组件的代码生成器
 }
+const loadNumberRangeWidget = (app) => {
+    addCustomWidgetSchema(numberRangeSchema)  //加载组件Json Schema
+    app.component(NumberRangeWidget.name, NumberRangeWidget)  //注册组件
+    registerFWGenerator('numberRange', nullTemplateGenerator)  //注册字段组件的代码生成器
+}
+const loadDynamicWidget = (app) => {
+    addCustomWidgetSchema(dynamicSchema)  //加载组件Json Schema
+    app.component(DynamicWidget.name, DynamicWidget)  //注册组件
+    registerFWGenerator('dynamic', nullTemplateGenerator)  //注册字段组件的代码生成器
+}
+const loadDateRange2Widget = (app) => {
+    addCustomWidgetSchema(dateRange2Schema)  //加载组件Json Schema
+    app.component(DateRange2Widget.name, DateRange2Widget)  //注册组件
+    registerFWGenerator('dateRange2', nullTemplateGenerator)  //注册字段组件的代码生成器
+}
 const loadAutoCompleteWidget = (app) => {
-    /**
-   * 加载字段组件步骤：
-   * 1. 加载组件Json Schema;
-   * 2. 全局注册字段组件，字段组件设计期和运行期共用，故需要仅需注册一个组件；
-   * 3. 全局注册属性编辑器组件（基本属性、高级属性、事件属性）；
-   * 4. 注册字段组件的代码生成器；
-   * 5. 加载完毕。
-   */
     addCustomWidgetSchema(autoCompleteSchema)  //加载组件Json Schema
     app.component(AutoCompleteWidget.name, AutoCompleteWidget)  //注册组件
     registerFWGenerator('autoComplete', autoCompleteTemplateGenerator)  //注册字段组件的代码生成器
 }
 const loadSelectGroupWidget = (app) => {
-    /**
-   * 加载字段组件步骤：
-   * 1. 加载组件Json Schema;
-   * 2. 全局注册字段组件，字段组件设计期和运行期共用，故需要仅需注册一个组件；
-   * 3. 全局注册属性编辑器组件（基本属性、高级属性、事件属性）；
-   * 4. 注册字段组件的代码生成器；
-   * 5. 加载完毕。
-   */
     addCustomWidgetSchema(selectGroupSchema)  //加载组件Json Schema
     app.component(SelectGroupWidget.name, SelectGroupWidget)  //注册组件
     registerFWGenerator('selectGroup', nullTemplateGenerator)  //注册字段组件的代码生成器

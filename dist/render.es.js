@@ -17,7 +17,7 @@ var __spreadValues2 = (a10, b10) => {
   return a10;
 };
 var __spreadProps2 = (a10, b10) => __defProps2(a10, __getOwnPropDescs2(b10));
-import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, pushScopeId, popScopeId, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, normalizeProps, guardReactiveProps, vShow, isVNode, h as h$1, markRaw, capitalize } from "vue";
+import { openBlock, createElementBlock, normalizeClass, renderSlot, reactive, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, normalizeStyle, withModifiers, Fragment, createVNode, createBlock, withCtx, createTextVNode, renderList, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, isVNode, h as h$1, markRaw, capitalize, normalizeProps } from "vue";
 var commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
 var axios$2 = { exports: {} };
 var bind$2 = function bind2(fn2, thisArg) {
@@ -1145,7 +1145,7 @@ var _export_sfc$2 = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$P = {
+const _sfc_main$U = {
   name: "container-item-wrapper",
   props: {
     widget: Object
@@ -1156,14 +1156,14 @@ const _sfc_main$P = {
     }
   }
 };
-function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
   }, [
     renderSlot(_ctx.$slots, "default")
   ], 2);
 }
-var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P]]);
+var ContainerItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U]]);
 var __glob_0_0$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": ContainerItemWrapper
@@ -1223,6 +1223,7 @@ var enLocale = {
     basicFieldTitle: "Basic Field",
     advancedFieldTitle: "Advanced Field",
     customFieldTitle: "Customized Field",
+    dataFieldTitle: "Docpal Field",
     noWidgetHint: "Please select a widget from the left list, drag and drop to this container.",
     widgetLabel: {
       grid: "Grid",
@@ -1506,6 +1507,7 @@ var enLocale = {
       formCss: "Form CSS",
       addCss: "Edit",
       customClass: "Custom Class",
+      popperClass: "Popper Class",
       globalFunctions: "Global Functions",
       addEventHandler: "Edit",
       editWidgetEventHandler: "Edit Widget Event Handler",
@@ -1530,6 +1532,7 @@ var zhLocale = {
     subscription: "\u8BA2\u9605Pro"
   },
   designer: {
+    dataFieldTitle: "Docpal \u7EC4\u4EF6\u5E93",
     componentLib: "\u7EC4\u4EF6\u5E93",
     formLib: "\u8868\u5355\u6A21\u677F",
     containerTitle: "\u5BB9\u5668",
@@ -1821,6 +1824,7 @@ var zhLocale = {
       formCss: "\u8868\u5355\u5168\u5C40CSS",
       addCss: "\u7F16\u5199CSS",
       customClass: "\u81EA\u5B9A\u4E49CSS\u6837\u5F0F",
+      popperClass: "\u81EA\u5B9A\u4E49\u5F39\u6846\u6837\u5F0F",
       globalFunctions: "\u8868\u5355\u5168\u5C40\u51FD\u6570",
       addEventHandler: "\u7F16\u5199\u4EE3\u7801",
       editWidgetEventHandler: "\u7EC4\u4EF6\u4E8B\u4EF6\u5904\u7406",
@@ -1906,9 +1910,15 @@ var enLocale_extension = {
     widgetLabel: {
       card: "Card",
       alert: "Alert",
-      "select-group": "Select Group",
-      "auto-complete": "Auto Complete",
-      "json-editor": "code-editor"
+      "select-group": "\u5206\u7EC4\u9009\u9879",
+      "auto-complete": "\u81EA\u52A8\u586B\u5145",
+      "json-editor": "code-editor",
+      "async-select": "async-select",
+      "ug-select": "ug-select",
+      "number-range": "\u6570\u5B57\u8303\u56F4",
+      "date-range2": "\u65E5\u671F\u8303\u56F42",
+      "dynamic": "\u52A8\u6001\u7EC4\u4EF6",
+      "select-v2": "\u865A\u62DF\u4E0B\u62C9"
     },
     setting: {
       cardFolded: "Folded",
@@ -1933,7 +1943,13 @@ var zhLocale_extension = {
       alert: "\u63D0\u793A",
       "select-group": "\u5206\u7EC4\u9009\u9879",
       "auto-complete": "\u81EA\u52A8\u586B\u5145",
-      "json-editor": "code-editor"
+      "json-editor": "code-editor",
+      "async-select": "async-select",
+      "ug-select": "ug-select",
+      "number-range": "\u6570\u5B57\u8303\u56F4",
+      "date-range2": "\u65E5\u671F\u8303\u56F42",
+      "dynamic": "\u52A8\u6001\u7EC4\u4EF6",
+      "select-v2": "\u865A\u62DF\u4E0B\u62C9"
     },
     setting: {
       cardFolded: "\u662F\u5426\u6536\u8D77",
@@ -1969,7 +1985,9 @@ const changeLocale = function(langName) {
   localStorage.setItem("v_form_locale", langName);
 };
 const translate = function(key) {
-  if (window.$t) {
+  if (window.$t)
+    console.log(i18n.$st(key), window.$t(key), key);
+  if (window.$t && window.$t(key) !== key) {
     return window.$t(key);
   }
   return i18n.$st(key);
@@ -1977,6 +1995,7 @@ const translate = function(key) {
 var i18n$1 = {
   methods: {
     i18nt(key) {
+      console.log("i18nt", key);
       return translate(key);
     },
     i18n2t(key1, key2) {
@@ -2012,7 +2031,7 @@ var refMixin = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
-const _sfc_main$O = {
+const _sfc_main$T = {
   name: "SvgIcon",
   props: {
     iconClass: {
@@ -2042,7 +2061,7 @@ const _sfc_main$O = {
 };
 const _hoisted_1$p = ["xlink:href"];
 const _hoisted_2$h = { key: 0 };
-function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", {
     class: normalizeClass($options.svgClass),
     "aria-hidden": "true"
@@ -2051,9 +2070,9 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$h, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-8002b89a"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-8002b89a"]]);
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$N = {
+const _sfc_main$S = {
   name: "static-content-wrapper",
   mixins: [i18n$1],
   components: {
@@ -2146,14 +2165,14 @@ const _hoisted_1$o = {
 const _hoisted_2$g = ["title"];
 const _hoisted_3$e = ["title"];
 const _hoisted_4$7 = ["title"];
-const _hoisted_5$6 = ["title"];
+const _hoisted_5$5 = ["title"];
 const _hoisted_6$4 = {
   key: 1,
   class: "drag-handler background-opacity"
 };
 const _hoisted_7$4 = ["title"];
 const _hoisted_8$2 = { key: 0 };
-function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["field-wrapper", { "design-time-bottom-margin": !!this.designer }]),
@@ -2194,7 +2213,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[4] || (_cache[4] = withModifiers((...args) => $options.removeFieldWidget && $options.removeFieldWidget(...args), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-        ], 8, _hoisted_5$6)
+        ], 8, _hoisted_5$5)
       ])) : createCommentVNode("", true),
       $props.designer.selectedId === $props.field.id ? (openBlock(), createElementBlock("div", _hoisted_6$4, [
         createElementVNode("i", {
@@ -2210,7 +2229,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-dac971c6"]]);
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-dac971c6"]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
@@ -2959,7 +2978,7 @@ function getDefaultFormConfig() {
     refName: "vForm",
     rulesName: "rules",
     labelWidth: 80,
-    labelPosition: "left",
+    labelPosition: "top",
     size: "",
     labelAlign: "label-left-align",
     cssCode: "",
@@ -2969,7 +2988,8 @@ function getDefaultFormConfig() {
     jsonVersion: 3,
     onFormCreated: "",
     onFormMounted: "",
-    onFormDataChange: ""
+    onFormDataChange: "",
+    dhList: []
   };
 }
 function buildDefaultFormJson() {
@@ -2983,7 +3003,7 @@ const getRegExp = function(validatorName2) {
     number: "/^[-]?\\d+(\\.\\d+)?$/",
     letter: "/^[A-Za-z]+$/",
     letterAndNumber: "/^[A-Za-z0-9]+$/",
-    mobilePhone: "/^[1][3-9][0-9]{9}$/",
+    mobilePhone: "/^(\\+?\\d{1,3}[- ]?)?\\d{10}$/",
     letterStartNumberIncluded: "/^[A-Za-z]+[A-Za-z\\d]*$/",
     noChinese: "/^[^\u4E00-\u9FA5]+$/",
     chinese: "/^[\u4E00-\u9FA5]+$/",
@@ -3007,35 +3027,35 @@ const validateFn = function(validatorName, rule, value, callback, defaultErrorMs
 };
 const FormValidators = {
   number(rule2, value2, callback2) {
-    validateFn("number", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
+    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
   },
   letter(rule2, value2, callback2) {
-    validateFn("letter", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
+    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
   },
   letterAndNumber(rule2, value2, callback2) {
-    validateFn("letterAndNumber", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
+    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
   },
   mobilePhone(rule2, value2, callback2) {
-    validateFn("mobilePhone", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
+    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
   },
   noBlankStart(rule2, value2, callback2) {
   },
   noBlankEnd(rule2, value2, callback2) {
   },
   letterStartNumberIncluded(rule2, value2, callback2) {
-    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
+    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
   },
   noChinese(rule2, value2, callback2) {
-    validateFn("noChinese", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
   },
   chinese(rule2, value2, callback2) {
-    validateFn("chinese", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
   },
   email(rule2, value2, callback2) {
-    validateFn("email", rule2, value2, callback2, "[" + $t(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
+    validateFn("email", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
   },
   url(rule2, value2, callback2) {
-    validateFn("url", rule2, value2, callback2, "[" + $t(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
+    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
   },
   regExp(rule, value, callback) {
     if (isNull(value) || value.length <= 0) {
@@ -3044,7 +3064,7 @@ const FormValidators = {
     }
     const pattern = eval(rule.regExp);
     if (!pattern.test(value)) {
-      let errTxt = $t(rule.errorMsg) || "[" + $t(rule.label) + "]invalid value";
+      let errTxt = translate(rule.errorMsg) || "[" + translate(rule.label) + "]invalid value";
       callback(new Error(errTxt));
     } else {
       callback();
@@ -3052,7 +3072,7 @@ const FormValidators = {
   }
 };
 var fieldMixin = {
-  inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData"],
+  inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData", "getFormJson", "setFormJson"],
   computed: {
     formConfig() {
       return this.getFormConfig();
@@ -3088,8 +3108,8 @@ var fieldMixin = {
       if (!!this.subFormItemFlag && !this.designState) {
         let subFormData = this.formModel[this.subFormName];
         if ((subFormData === void 0 || subFormData[this.subFormRowIndex] === void 0 || subFormData[this.subFormRowIndex][this.field.options.name] === void 0) && this.field.options.defaultValue !== void 0) {
-          this.fieldModel = this.field.options.defaultValue;
-          subFormData[this.subFormRowIndex][this.field.options.name] = this.field.options.defaultValue;
+          this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue);
+          subFormData[this.subFormRowIndex][this.field.options.name] = this.getDeepCopyData(this.field.options.defaultValue);
         } else if (subFormData[this.subFormRowIndex][this.field.options.name] === void 0) {
           this.fieldModel = null;
           subFormData[this.subFormRowIndex][this.field.options.name] = null;
@@ -3104,7 +3124,7 @@ var fieldMixin = {
         return;
       }
       if (this.formModel[this.field.options.name] === void 0 && this.field.options.defaultValue !== void 0) {
-        this.fieldModel = this.field.options.defaultValue;
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue);
       } else if (this.formModel[this.field.options.name] === void 0) {
         this.formModel[this.field.options.name] = null;
       } else {
@@ -3112,6 +3132,11 @@ var fieldMixin = {
       }
       this.oldFieldValue = deepClone(this.fieldModel);
       this.initFileList();
+    },
+    getDeepCopyData(data2) {
+      if (data2 instanceof Array)
+        return JSON.parse(JSON.stringify(data2));
+      return data2;
     },
     initFileList() {
       if (this.field.type !== "picture-upload" && this.field.type !== "file-upload" || this.designState === true) {
@@ -3186,7 +3211,8 @@ var fieldMixin = {
       if (this.designState) {
         return;
       }
-      if (this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader") {
+      console.log("initOptionItems", this.field);
+      if (this.field.options.fieldType === "radio" || this.field.options.fieldType === "checkbox" || this.field.options.fieldType === "select" || this.field.options.fieldType === "cascader" || this.field.options.fieldType === "select-v2" || this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader" || this.field.type === "select-v2") {
         const newOptionItems = this.getOptionData();
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
           if (!!keepSelected) {
@@ -3199,7 +3225,7 @@ var fieldMixin = {
     },
     refreshDefaultValue() {
       if (this.designState === true && this.field.options.defaultValue !== void 0) {
-        this.fieldModel = this.field.options.defaultValue;
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue);
       }
     },
     clearFieldRules() {
@@ -3227,7 +3253,7 @@ var fieldMixin = {
             validator: FormValidators[vldName],
             trigger: ["blur", "change"],
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: translate(this.field.options.validationHint)
           });
         } else {
           this.rules.push({
@@ -3235,7 +3261,7 @@ var fieldMixin = {
             trigger: ["blur", "change"],
             regExp: vldName,
             label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            errorMsg: translate(this.field.options.validationHint)
           });
         }
       }
@@ -3290,9 +3316,9 @@ var fieldMixin = {
         });
       }
     },
-    emitFieldDataChange(newValue, oldValue) {
-      this.emit$("field-value-changed", [newValue, oldValue]);
-      this.dispatch("VFormRender", "fieldChange", [this.field.options.name, newValue, oldValue, this.subFormName, this.subFormRowIndex]);
+    emitFieldDataChange(newValue2, oldValue2) {
+      this.emit$("field-value-changed", [newValue2, oldValue2]);
+      this.dispatch("VFormRender", "fieldChange", [this.field.options.name, newValue2, oldValue2, this.subFormName, this.subFormRowIndex]);
     },
     syncUpdateFormModel(value2) {
       if (!!this.designState) {
@@ -3412,12 +3438,6 @@ var fieldMixin = {
         remoteFn.call(this);
       }
     },
-    lazyLoad(node, resolve) {
-      if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
-        remoteFn.call(this, node, resolve);
-      }
-    },
     getFormRef() {
       return this.refList["v_form_ref"];
     },
@@ -3431,13 +3451,13 @@ var fieldMixin = {
     getFieldEditor() {
       return this.$refs["fieldEditor"];
     },
-    setValue(newValue) {
+    setValue(newValue2) {
       if (!!this.field.formItemFlag) {
-        let oldValue = deepClone(this.fieldModel);
-        this.fieldModel = newValue;
+        let oldValue2 = deepClone(this.fieldModel);
+        this.fieldModel = newValue2;
         this.initFileList();
-        this.syncUpdateFormModel(newValue);
-        this.emitFieldDataChange(newValue, oldValue);
+        this.syncUpdateFormModel(newValue2);
+        this.emitFieldDataChange(newValue2, oldValue2);
       }
     },
     getValue() {
@@ -3446,7 +3466,7 @@ var fieldMixin = {
       }
     },
     resetField() {
-      let defaultValue = this.field.options.defaultValue;
+      let defaultValue = this.getDeepCopyData(this.field.options.defaultValue);
       this.setValue(defaultValue);
       this.$nextTick(() => {
       });
@@ -3479,6 +3499,19 @@ var fieldMixin = {
       } else {
         this.buildFieldRules();
       }
+    },
+    setFieldType(type) {
+      if (this.field.type !== "dynamic" || !type)
+        return;
+      const json = JSON.parse(JSON.stringify(this.getFormJson()));
+      const selectedWidget = getWidgetItem(this.field.id, json);
+      handleDynamicFieldTypeChange(type, selectedWidget.options);
+      selectedWidget.options.fieldType = type;
+      const _this = this;
+      setTimeout(() => {
+        _this.setFormJson(json);
+        _this.buildFieldRules();
+      });
     },
     setRequired(flag) {
       this.field.options.required = flag;
@@ -3556,8 +3589,61 @@ var fieldMixin = {
     }
   }
 };
+function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
+  switch (fieldType) {
+    case "date":
+      dynamicOptionModel.format = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = "2000-01-01 00:00:00", dynamicOptionModel.defaultValue = "";
+      dynamicOptionModel.type = "date";
+      break;
+    case "number-range":
+      dynamicOptionModel.defaultValue = [0, 0];
+      dynamicOptionModel.controlsPosition = "right";
+      break;
+    case "date-range2":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:59"];
+      dynamicOptionModel.defaultValue = ["", ""];
+      dynamicOptionModel.type = "date";
+      break;
+    case "date-range":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:00"];
+      dynamicOptionModel.type = "daterange";
+      break;
+    default:
+      dynamicOptionModel.controlsPosition = "";
+      dynamicOptionModel.type = "";
+      dynamicOptionModel.format = "";
+      dynamicOptionModel.valueFormat = "";
+      dynamicOptionModel.defaultTime = "";
+      dynamicOptionModel.defaultValue = null;
+      break;
+  }
+}
+function getWidgetItem(id2, json) {
+  let result = null;
+  try {
+    json.widgetList.forEach((w10) => {
+      if (w10.widgetList) {
+        const item = getWidgetItem(id2, w10);
+        if (!!item)
+          result = item;
+        throw new Error("succcess");
+      } else if (w10.id === id2) {
+        result = w10;
+        throw new Error("succcess");
+      }
+    });
+  } catch (error) {
+  }
+  return result;
+}
 var buttonWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$M = {
+const _sfc_main$R = {
   name: "button-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -3603,7 +3689,7 @@ const _sfc_main$M = {
   },
   methods: {}
 };
-function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -3639,13 +3725,13 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-c66844f0"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R], ["__scopeId", "data-v-c66844f0"]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var formItemWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$L = {
+const _sfc_main$Q = {
   name: "form-item-wrapper",
   mixins: [i18n$1],
   components: {
@@ -3675,7 +3761,7 @@ const _sfc_main$L = {
     },
     rules: Array
   },
-  inject: ["getFormConfig"],
+  inject: ["getFormConfig", "getFormJson"],
   computed: {
     formConfig() {
       return this.getFormConfig();
@@ -3786,7 +3872,7 @@ const _hoisted_2$f = {
 };
 const _hoisted_3$d = ["title"];
 const _hoisted_4$6 = ["title"];
-const _hoisted_5$5 = ["title"];
+const _hoisted_5$4 = ["title"];
 const _hoisted_6$3 = ["title"];
 const _hoisted_7$3 = {
   key: 1,
@@ -3794,7 +3880,7 @@ const _hoisted_7$3 = {
 };
 const _hoisted_8$1 = ["title"];
 const _hoisted_9$1 = { key: 0 };
-function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$Q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_form_item = resolveComponent("el-form-item");
@@ -3809,7 +3895,12 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
       title: $props.field.options.labelTooltip,
       rules: $props.rules,
       prop: $options.getPropName(),
-      class: normalizeClass([$options.selected ? "selected" : "", $options.labelAlign, $options.customClass, $props.field.options.required ? "required" : ""]),
+      class: normalizeClass([
+        $options.selected ? "selected" : "",
+        $options.labelAlign,
+        $options.customClass,
+        $props.field.options.required ? "required" : ""
+      ]),
       onClick: _cache[0] || (_cache[0] = withModifiers(($event) => $options.selectField($props.field), ["stop"]))
     }, {
       label: withCtx(() => [
@@ -3883,7 +3974,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[3] || (_cache[3] = withModifiers(($event) => $options.moveDownWidget($props.field), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-move-down" })
-        ], 8, _hoisted_5$5)) : createCommentVNode("", true),
+        ], 8, _hoisted_5$4)) : createCommentVNode("", true),
         createElementVNode("i", {
           title: _ctx.$t("designer.hint.remove"),
           onClick: _cache[4] || (_cache[4] = withModifiers((...args) => $options.removeFieldWidget && $options.removeFieldWidget(...args), ["stop"]))
@@ -3905,13 +3996,13 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-774b5bb8"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$Q, [["render", _sfc_render$Q], ["__scopeId", "data-v-c6406230"]]);
 var __glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
 }, Symbol.toStringTag, { value: "Module" }));
 var cascaderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$K = {
+const _sfc_main$P = {
   name: "cascader-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -3945,7 +4036,19 @@ const _sfc_main$K = {
     return {
       oldFieldValue: null,
       fieldModel: null,
-      rules: []
+      rules: [],
+      prop1: {
+        checkStrictly: this.field.options.checkStrictly,
+        multiple: this.field.options.multiple,
+        expandTrigger: this.field.options.expandTrigger
+      },
+      prop2: {
+        checkStrictly: this.field.options.checkStrictly,
+        multiple: this.field.options.multiple,
+        expandTrigger: this.field.options.expandTrigger,
+        lazy: this.field.options.lazy,
+        lazyLoad: (node, resolved) => this.getLazy(node, resolved)
+      }
     };
   },
   computed: {
@@ -3969,10 +4072,17 @@ const _sfc_main$K = {
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    getLazy(node, resolve) {
+      if (!!this.field.options.onLazyLoad) {
+        let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
+        remoteFn.call(this, node, resolve);
+      }
+    }
+  }
 };
 const _hoisted_1$m = { class: "full-width-input" };
-function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_cascader = resolveComponent("el-cascader");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4000,13 +4110,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
           filterable: $props.field.options.filterable,
           placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.i18nt("render.hint.selectPlaceholder"),
           "show-all-levels": $options.showFullPath,
-          props: {
-            checkStrictly: $props.field.options.checkStrictly,
-            multiple: $props.field.options.multiple,
-            expandTrigger: $props.field.options.expandTrigger,
-            lazy: $props.field.options.lazy,
-            lazyLoad: _ctx.lazyLoad
-          },
+          props: $props.field.options.lazy ? $data.prop2 : $data.prop1,
           onFocus: _ctx.handleFocusCustomEvent,
           onBlur: _ctx.handleBlurCustomEvent,
           onChange: _ctx.handleChangeEvent
@@ -4016,13 +4120,13 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-8149033a"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-142d17ca"]]);
 var __glob_0_1$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var checkboxWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$J = {
+const _sfc_main$O = {
   name: "checkbox-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4078,7 +4182,7 @@ const _sfc_main$J = {
   },
   methods: {}
 };
-function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_checkbox_button = resolveComponent("el-checkbox-button");
   const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_checkbox_group = resolveComponent("el-checkbox-group");
@@ -4139,13 +4243,13 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-716b0a6b"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-716b0a6b"]]);
 var __glob_0_2$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var colorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$I = {
+const _sfc_main$N = {
   name: "color-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4200,7 +4304,7 @@ const _sfc_main$I = {
   },
   methods: {}
 };
-function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_color_picker = resolveComponent("el-color-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4228,13 +4332,13 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-8d04bd98"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-8d04bd98"]]);
 var __glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$H = {
+const _sfc_main$M = {
   name: "date-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4318,7 +4422,7 @@ const _sfc_main$H = {
   },
   methods: {}
 };
-function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4363,13 +4467,13 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-70c0efa1"]]);
+var DateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-70c0efa1"]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": dateRangeWidget
+  "default": DateRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$G = {
+const _sfc_main$L = {
   name: "date-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4424,7 +4528,7 @@ const _sfc_main$G = {
   },
   methods: {}
 };
-function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_date_picker = resolveComponent("el-date-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -4467,13 +4571,13 @@ function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$G, [["render", _sfc_render$G], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-39eeee06"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": dateWidget
+  "default": DateWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var dividerWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$F = {
+const _sfc_main$K = {
   name: "divider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4519,7 +4623,7 @@ const _sfc_main$F = {
   },
   methods: {}
 };
-function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -4548,14 +4652,14 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-4a82b0d8"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-4a82b0d8"]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var fileUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 let selectFileText = "'" + translate("render.hint.selectFile") + "'";
-const _sfc_main$E = {
+const _sfc_main$J = {
   name: "file-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4636,6 +4740,8 @@ const _sfc_main$E = {
     },
     beforeFileUpload(file) {
       console.log(this.field.options.uploadURL, this.field.options.uploadURL === "/api/docpal/workflow/upload/file");
+      if (!this.field.options.uploadName)
+        this.field.options.uploadName = "files";
       if (!!this.field.options && !!this.field.options.fileTypes && this.field.options.fileTypes.length > 0) {
         let fileTypeCheckResult = false;
         let extFileName = file.name.substring(file.name.lastIndexOf(".") + 1);
@@ -4668,7 +4774,8 @@ const _sfc_main$E = {
           type: "File"
         };
         this.uploadData = {
-          document: JSON.stringify(params)
+          document: JSON.stringify(params),
+          nonPermission: true
         };
       } else {
         this.uploadData = {
@@ -4690,7 +4797,7 @@ const _sfc_main$E = {
       return true;
     },
     updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, defaultResult) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       if (!!customResult && !!customResult.name && !!customResult.url) {
         this.fieldModel.push({
           name: customResult.name,
@@ -4705,7 +4812,7 @@ const _sfc_main$E = {
         this.fieldModel = deepClone(fileList);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     handleFileUpload(res, file, fileList) {
       if (file.status === "success") {
@@ -4730,10 +4837,10 @@ const _sfc_main$E = {
       }
     },
     updateFieldModelAndEmitDataChangeForRemove(deletedFileIdx, fileList) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       this.fieldModel.splice(deletedFileIdx, 1);
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     removeUploadFile(fileName, fileUrl, fileUid) {
       let foundIdx = -1;
@@ -4767,8 +4874,8 @@ const _sfc_main$E = {
       }
     },
     handlePreview(file) {
-      this.emit$("filePreview", file, this.field.options);
-      this.dispatch("VFormRender", "filePreview", file, this.field.options);
+      this.emit$("filePreview", { file, options: this.field.options });
+      this.dispatch("VFormRender", "filePreview", { file, options: this.field.options });
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
@@ -4788,16 +4895,14 @@ const _sfc_main$E = {
     }
   }
 };
-const _withScopeId = (n10) => (pushScopeId("data-v-4bbf02d2"), n10 = n10(), popScopeId(), n10);
 const _hoisted_1$l = {
   key: 0,
   class: "el-upload__tip"
 };
-const _hoisted_2$e = /* @__PURE__ */ _withScopeId(() => /* @__PURE__ */ createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1));
-const _hoisted_3$c = { class: "upload-file-list" };
+const _hoisted_2$e = { class: "upload-file-list" };
+const _hoisted_3$c = ["title", "onClick"];
 const _hoisted_4$5 = ["title", "onClick"];
-const _hoisted_5$4 = ["title", "onClick"];
-function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -4838,15 +4943,15 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
         ]),
         default: withCtx(() => [
           createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
-          _hoisted_2$e
+          _cache[0] || (_cache[0] = createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1))
         ]),
         file: withCtx(({ file }) => [
-          createElementVNode("div", _hoisted_3$c, [
+          createElementVNode("div", _hoisted_2$e, [
             createElementVNode("span", {
               class: "upload-file-name",
               title: file.name,
               onClick: ($event) => $options.handlePreview(file)
-            }, toDisplayString(file.name), 9, _hoisted_4$5),
+            }, toDisplayString(file.name), 9, _hoisted_3$c),
             !$props.field.options.disabled ? (openBlock(), createElementBlock("span", {
               key: 0,
               class: "file-action",
@@ -4854,7 +4959,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
               onClick: ($event) => $options.removeUploadFile(file.name, file.url, file.uid)
             }, [
               createVNode(_component_svg_icon, { "icon-class": "el-delete" })
-            ], 8, _hoisted_5$4)) : createCommentVNode("", true)
+            ], 8, _hoisted_4$5)) : createCommentVNode("", true)
           ])
         ]),
         _: 1
@@ -4863,13 +4968,13 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-4bbf02d2"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-fc065ade"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var htmlTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$D = {
+const _sfc_main$I = {
   name: "html-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -4916,7 +5021,7 @@ const _sfc_main$D = {
   methods: {}
 };
 const _hoisted_1$k = ["innerHTML"];
-function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -4938,13 +5043,13 @@ function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-3d941b4e"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-3d941b4e"]]);
 var __glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var inputWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$C = {
+const _sfc_main$H = {
   name: "input-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5011,7 +5116,7 @@ const _sfc_main$C = {
   }
 };
 const _hoisted_1$j = { key: 1 };
-function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_input = resolveComponent("el-input");
@@ -5083,13 +5188,13 @@ function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var inputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$C, [["render", _sfc_render$C], ["__scopeId", "data-v-40f3d4c3"]]);
+var InputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-40f3d4c3"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": inputWidget
+  "default": InputWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var numberWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$B = {
+const _sfc_main$G = {
   name: "number-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5144,7 +5249,7 @@ const _sfc_main$B = {
   },
   methods: {}
 };
-function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$G(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5182,13 +5287,13 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var numberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-68a5bd58"]]);
+var NumberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$G, [["render", _sfc_render$G], ["__scopeId", "data-v-68a5bd58"]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": numberWidget
+  "default": NumberWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var pictureUploadWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$A = {
+const _sfc_main$F = {
   name: "picture-upload-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5311,7 +5416,7 @@ const _sfc_main$A = {
       return true;
     },
     updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, defaultResult) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       if (!!customResult && !!customResult.name && !!customResult.url) {
         this.fieldModel.push({
           name: customResult.name,
@@ -5326,7 +5431,7 @@ const _sfc_main$A = {
         this.fieldModel = deepClone(fileList);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     handlePictureUpload(res, file, fileList) {
       if (file.status === "success") {
@@ -5341,7 +5446,7 @@ const _sfc_main$A = {
       }
     },
     updateFieldModelAndEmitDataChangeForRemove(file) {
-      let oldValue = deepClone(this.fieldModel);
+      let oldValue2 = deepClone(this.fieldModel);
       let foundFileIdx = -1;
       this.fileListBeforeRemove.map((fi2, idx) => {
         if (fi2.name === file.name && (fi2.url === file.url || !!fi2.uid && fi2.uid === file.uid)) {
@@ -5352,7 +5457,7 @@ const _sfc_main$A = {
         this.fieldModel.splice(foundFileIdx, 1);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue);
+      this.emitFieldDataChange(this.fieldModel, oldValue2);
     },
     handleBeforeRemove(fileList) {
       this.fileListBeforeRemove = deepClone(fileList);
@@ -5415,7 +5520,7 @@ const _hoisted_6$2 = {
   class: "el-upload__tip"
 };
 const _hoisted_7$2 = { class: "uploader-icon" };
-function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_image = resolveComponent("el-image");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
@@ -5500,13 +5605,13 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-72787dcd"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-72787dcd"]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var radioWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$z = {
+const _sfc_main$E = {
   name: "radio-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5562,7 +5667,7 @@ const _sfc_main$z = {
   },
   methods: {}
 };
-function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_button = resolveComponent("el-radio-button");
   const _component_el_radio = resolveComponent("el-radio");
   const _component_el_radio_group = resolveComponent("el-radio-group");
@@ -5624,13 +5729,13 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-253adc5e"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-253adc5e"]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var rateWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$y = {
+const _sfc_main$D = {
   name: "rate-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -5685,7 +5790,7 @@ const _sfc_main$y = {
   },
   methods: {}
 };
-function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_rate = resolveComponent("el-rate");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -5718,7 +5823,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-409c0e8b"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$D, [["render", _sfc_render$D], ["__scopeId", "data-v-409c0e8b"]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -28494,7 +28599,7 @@ function _sfc_render$1$1(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$1$1, null, 512);
 }
 var Editor = /* @__PURE__ */ _export_sfc$1(_sfc_main$1$1, [["render", _sfc_render$1$1]]);
-const _sfc_main$x = defineComponent({
+const _sfc_main$C = defineComponent({
   props: {
     editor: {
       type: Object
@@ -28537,12 +28642,12 @@ const _sfc_main$x = defineComponent({
   }
 });
 const _hoisted_1$h = { ref: "selector" };
-function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$C(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("div", _hoisted_1$h, null, 512);
 }
-var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$x, [["render", _sfc_render$x]]);
+var Toolbar = /* @__PURE__ */ _export_sfc$1(_sfc_main$C, [["render", _sfc_render$C]]);
 var richEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$w = {
+const _sfc_main$B = {
   name: "rich-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin],
@@ -28646,7 +28751,7 @@ const _sfc_main$w = {
   }
 };
 const _hoisted_1$g = { style: { "border": "1px solid #ccc" } };
-function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_Toolbar = resolveComponent("Toolbar");
   const _component_Editor = resolveComponent("Editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -28684,13 +28789,13 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-297e7d24"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-297e7d24"]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectV2Widget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$v = {
+const _sfc_main$A = {
   name: "select-v2-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -28751,37 +28856,22 @@ const _sfc_main$v = {
   },
   mounted() {
     this.handleOnMounted();
-    this.$nextTick(() => {
-      this.handleInput();
-    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
   methods: {
-    handleInput() {
+    handleInput(value2) {
       const fieldEditor = this.$refs.fieldEditor;
-      if (!fieldEditor)
-        return;
-      const input = fieldEditor.input;
-      if (!input)
-        return;
-      input.onkeyup = (event) => {
-        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
-          const value2 = event.target.value;
-          if (!value2)
-            return;
-          fieldEditor.handleOptionSelect({
-            label: value2,
-            value: value2,
-            created: true
-          });
-        }
-      };
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
     }
   }
 };
-function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_select_v2 = resolveComponent("el-select-v2");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -28816,19 +28906,19 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput
       }, null, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "multiple", "multiple-limit", "remote", "remote-method", "allow-create", "automatic-dropdown", "options", "placeholder", "onFocus", "onBlur", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-b20e3dc4"]]);
+var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-63aaa7c2"]]);
 var __glob_0_16 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectV2Widget
 }, Symbol.toStringTag, { value: "Module" }));
 var selectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$u = {
+const _sfc_main$z = {
   name: "select-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -28889,37 +28979,25 @@ const _sfc_main$u = {
   },
   mounted() {
     this.handleOnMounted();
-    this.$nextTick(() => {
-      this.handleInput();
-    });
   },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
   methods: {
-    handleInput() {
+    handleInput(value2) {
       const fieldEditor = this.$refs.fieldEditor;
-      if (!fieldEditor)
-        return;
-      const input = fieldEditor.input;
-      if (!input)
-        return;
-      input.onkeyup = (event) => {
-        if (this.allowDefaultFirstOption && event.key === "Enter" && fieldEditor.hoverIndex === -1) {
-          const value2 = event.target.value;
-          if (!value2)
-            return;
-          fieldEditor.handleOptionSelect({
-            label: value2,
-            value: value2,
-            created: true
-          });
-        }
-      };
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
+    },
+    handleClearEvent() {
+      this.dispatch("VFormRender", "selectClear", [this.field.options.name]);
     }
   }
 };
-function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -28947,6 +29025,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
         filterable: $props.field.options.filterable,
         defaultFirstOption: "",
         "allow-create": $props.field.options.allowCreate,
+        "popper-class": $props.field.options.popperClass,
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
@@ -28955,7 +29034,8 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput,
+        onClear: $options.handleClearEvent
       }, {
         default: withCtx(() => [
           (openBlock(true), createElementBlock(Fragment, null, renderList($props.field.options.optionItems, (item) => {
@@ -28968,18 +29048,18 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
           }), 128))
         ]),
         _: 1
-      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange"])
+      }, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "allow-create", "popper-class", "automatic-dropdown", "multiple", "multiple-limit", "placeholder", "remote", "remote-method", "onFocus", "onBlur", "onChange", "onClear"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-e8a33dd0"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-ea74a61c"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": selectWidget
+  "default": SelectWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var sliderWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$t = {
+const _sfc_main$y = {
   name: "slider-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29034,7 +29114,7 @@ const _sfc_main$t = {
   },
   methods: {}
 };
-function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_slider = resolveComponent("el-slider");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29067,13 +29147,13 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-92a76556"]]);
+var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-92a76556"]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var slotWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$s = {
+const _sfc_main$x = {
   name: "slot-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29123,7 +29203,7 @@ const _hoisted_1$f = {
   key: 0,
   class: "slot-title"
 };
-function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -29147,13 +29227,13 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-95f13fca"]]);
+var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-95f13fca"]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var staticTextWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$r = {
+const _sfc_main$w = {
   name: "static-text-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29199,7 +29279,7 @@ const _sfc_main$r = {
   },
   methods: {}
 };
-function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
     designer: $props.designer,
@@ -29225,13 +29305,13 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-0f585042"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-0f585042"]]);
 var __glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var switchWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$q = {
+const _sfc_main$v = {
   name: "switch-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29286,7 +29366,7 @@ const _sfc_main$q = {
   },
   methods: {}
 };
-function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_switch = resolveComponent("el-switch");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29318,13 +29398,13 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-3529e848"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-3529e848"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var textareaWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$p = {
+const _sfc_main$u = {
   name: "textarea-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29379,7 +29459,7 @@ const _sfc_main$p = {
   },
   methods: {}
 };
-function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29417,13 +29497,13 @@ function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var textareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$p, [["render", _sfc_render$p], ["__scopeId", "data-v-0a243825"]]);
+var TextareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-0a243825"]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
-  "default": textareaWidget
+  "default": TextareaWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$o = {
+const _sfc_main$t = {
   name: "time-range-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29478,7 +29558,7 @@ const _sfc_main$o = {
   },
   methods: {}
 };
-function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29521,13 +29601,13 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-37df7776"]]);
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-37df7776"]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
 }, Symbol.toStringTag, { value: "Module" }));
 var timeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$n = {
+const _sfc_main$s = {
   name: "time-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -29582,7 +29662,7 @@ const _sfc_main$n = {
   },
   methods: {}
 };
-function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_time_picker = resolveComponent("el-time-picker");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -29619,7 +29699,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-5cc62ec1"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-5cc62ec1"]]);
 var __glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -29631,7 +29711,7 @@ for (const path in modules$1) {
   comps[cname] = modules$1[path].default;
 }
 var gridColItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$m = {
+const _sfc_main$r = {
   name: "GridColItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -29703,7 +29783,7 @@ const _sfc_main$m = {
 };
 const _hoisted_1$e = { class: "blank-cell" };
 const _hoisted_2$c = { class: "invisible-content" };
-function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_col = resolveComponent("el-col");
   return withDirectives((openBlock(), createBlock(_component_el_col, mergeProps({
     class: ["grid-cell", [$options.customClass]]
@@ -29725,7 +29805,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -29741,7 +29821,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -29761,7 +29841,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, !$props.widget.options.hidden]
   ]);
 }
-var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-3406a44d"]]);
+var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-3406a44d"]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColItem
@@ -29922,7 +30002,7 @@ var containerItemMixin = {
     }
   }
 };
-const _sfc_main$l = {
+const _sfc_main$q = {
   name: "vf-grid-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -29944,7 +30024,7 @@ const _sfc_main$l = {
   },
   methods: {}
 };
-function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_grid_col_item = resolveComponent("grid-col-item");
   const _component_el_row = resolveComponent("el-row");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -29970,7 +30050,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
                 return {
                   name: slot,
                   fn: withCtx((scope) => [
-                    renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                    renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                   ])
                 };
               })
@@ -29985,13 +30065,13 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l]]);
+var gridItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q]]);
 var __glob_0_2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gridItem
 }, Symbol.toStringTag, { value: "Module" }));
 var subFormItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$k = {
+const _sfc_main$p = {
   name: "sub-form-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -30214,7 +30294,7 @@ const _hoisted_7$1 = {
   key: 0,
   class: "row-number-span"
 };
-function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$p(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tooltip = resolveComponent("el-tooltip");
@@ -30364,12 +30444,12 @@ function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$k, [["render", _sfc_render$k], ["__scopeId", "data-v-0e6b0002"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$p, [["render", _sfc_render$p], ["__scopeId", "data-v-0e6b0002"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
 }, Symbol.toStringTag, { value: "Module" }));
-const _sfc_main$j = {
+const _sfc_main$o = {
   name: "tab-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -30416,7 +30496,7 @@ const _sfc_main$j = {
     }
   }
 };
-function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_tab_pane = resolveComponent("el-tab-pane");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
@@ -30455,7 +30535,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
                           return {
                             name: slot,
                             fn: withCtx((scope) => [
-                              renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                              renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                             ])
                           };
                         })
@@ -30470,7 +30550,7 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
                           return {
                             name: slot,
                             fn: withCtx((scope) => [
-                              renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)))
+                              renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope))
                             ])
                           };
                         })
@@ -30491,13 +30571,13 @@ function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$j, [["render", _sfc_render$j]]);
+var tabItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o]]);
 var __glob_0_4 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tabItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableCellItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$i = {
+const _sfc_main$n = {
   name: "TableCellItem",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin],
@@ -30518,7 +30598,7 @@ const _sfc_main$i = {
   methods: {}
 };
 const _hoisted_1$c = ["colspan", "rowspan"];
-function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("td", {
     class: normalizeClass(["table-cell", [$options.customClass]]),
     colspan: $props.widget.options.colspan || 1,
@@ -30538,7 +30618,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
             return {
               name: slot,
               fn: withCtx((scope) => [
-                renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
               ])
             };
           })
@@ -30553,7 +30633,7 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
             return {
               name: slot,
               fn: withCtx((scope) => [
-                renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
               ])
             };
           })
@@ -30562,13 +30642,13 @@ function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ], 14, _hoisted_1$c);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$i, [["render", _sfc_render$i], ["__scopeId", "data-v-3e48ee34"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-3e48ee34"]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
 }, Symbol.toStringTag, { value: "Module" }));
 var tableItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$h = {
+const _sfc_main$m = {
   name: "table-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -30590,7 +30670,7 @@ const _sfc_main$h = {
   },
   methods: {}
 };
-function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_table_cell_item = resolveComponent("table-cell-item");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
   return openBlock(), createBlock(_component_container_item_wrapper, { widget: $props.widget }, {
@@ -30622,7 +30702,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
                         return {
                           name: slot,
                           fn: withCtx((scope) => [
-                            renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                            renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                           ])
                         };
                       })
@@ -30640,7 +30720,7 @@ function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$h, [["render", _sfc_render$h], ["__scopeId", "data-v-429726ac"]]);
+var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-429726ac"]]);
 var __glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableItem
@@ -30655,7 +30735,7 @@ var ContainerItems = {
   }
 };
 var index_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$g = {
+const _sfc_main$l = {
   name: "VFormRender",
   componentName: "VFormRender",
   mixins: [emitter, i18n$1],
@@ -30693,7 +30773,9 @@ const _sfc_main$g = {
       globalModel: {
         formModel: this.formDataModel
       },
-      previewState: this.previewState
+      previewState: this.previewState,
+      getFormJson: () => this.formJsonObj,
+      setFormJson: this.setFormJson
     };
   },
   data() {
@@ -30743,6 +30825,12 @@ const _sfc_main$g = {
   mounted() {
     this.initLocale();
     this.handleOnMounted();
+    console.log("vfRender mounted localeChange11");
+    window.addEventListener("localeChange", this.changeLanguage);
+  },
+  unmounted() {
+    console.log("vfRender beforeDestroy localeChange");
+    window.removeEventListener("localeChange", this.changeLanguage);
   },
   methods: {
     initFormObject(insertHtmlCodeFlag = true) {
@@ -30813,8 +30901,8 @@ const _sfc_main$g = {
             });
           }
         } else if (wItem.type === "sub-form") {
-          let subFormName = wItem.options.name;
-          if (!this.formData.hasOwnProperty(subFormName)) {
+          let subFormName2 = wItem.options.name;
+          if (!this.formData.hasOwnProperty(subFormName2)) {
             let subFormDataRow = {};
             if (wItem.options.showBlankRow) {
               wItem.widgetList.forEach((subFormItem2) => {
@@ -30822,13 +30910,13 @@ const _sfc_main$g = {
                   subFormDataRow[subFormItem2.options.name] = subFormItem2.options.defaultValue;
                 }
               });
-              this.formDataModel[subFormName] = [subFormDataRow];
+              this.formDataModel[subFormName2] = [subFormDataRow];
             } else {
-              this.formDataModel[subFormName] = [];
+              this.formDataModel[subFormName2] = [];
             }
           } else {
-            let initialValue = this.formData[subFormName];
-            this.formDataModel[subFormName] = deepClone(initialValue);
+            let initialValue = this.formData[subFormName2];
+            this.formDataModel[subFormName2] = deepClone(initialValue);
           }
         } else if (wItem.type === "grid-col" || wItem.type === "table-cell") {
           if (!!wItem.widgetList && wItem.widgetList.length > 0) {
@@ -30854,15 +30942,15 @@ const _sfc_main$g = {
     },
     addFieldChangeEventHandler() {
       this.off$("fieldChange");
-      this.on$("fieldChange", (fieldName, newValue, oldValue, subFormName, subFormRowIndex) => {
-        this.handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex);
-        this.$emit("formChange", fieldName, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
+      this.on$("fieldChange", (fieldName2, newValue2, oldValue2, subFormName2, subFormRowIndex2) => {
+        this.handleFieldDataChange(fieldName2, newValue2, oldValue2, subFormName2, subFormRowIndex2);
+        this.$emit("formChange", fieldName2, newValue2, oldValue2, this.formDataModel, subFormName2, subFormRowIndex2);
       });
     },
     addFieldValidateEventHandler() {
       this.off$("fieldValidation");
-      this.on$("fieldValidation", (fieldName) => {
-        this.$refs.renderForm.validateField(fieldName);
+      this.on$("fieldValidation", (fieldName2) => {
+        this.$refs.renderForm.validateField(fieldName2);
       });
     },
     addFilePreviewEventHandler() {
@@ -30875,6 +30963,38 @@ const _sfc_main$g = {
       this.widgetRefList["v_form_ref"] = this;
     },
     handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
+      if (!!this.formConfig && !!this.formConfig.dhList) {
+        let dhList = this.formConfig.dhList;
+        dhList.forEach((dhItem) => {
+          if (dhItem.fieldConditionList.find((fc2) => fc2.fieldName === fieldName)) {
+            const evalValue = dhItem.fieldConditionList.map((fc2) => {
+              const widget = this.getWidgetRef(fc2.fieldName);
+              if (!widget)
+                return true;
+              const sFcValue = String(fc2.value);
+              const sWValue = String(widget.getValue());
+              return `'${sWValue}' ${fc2.condition} '${sFcValue}'`;
+            });
+            const conditionValue = eval(evalValue.join(" && "));
+            dhItem.hiddenList.forEach((hiddenItem) => {
+              const w10 = this.getWidgetRef(hiddenItem.fieldName);
+              if (!w10)
+                return;
+              w10.setHidden(conditionValue);
+              if (hiddenItem.required)
+                w10.setRequired(!conditionValue);
+            });
+            dhItem.disabledList.forEach((disabledItem) => {
+              const w10 = this.getWidgetRef(disabledItem.fieldName);
+              if (!w10)
+                return;
+              w10.setDisabled(conditionValue);
+              if (disabledItem.required)
+                w10.setRequired(!conditionValue);
+            });
+          }
+        });
+      }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
         let customFunc = new Function("fieldName", "newValue", "oldValue", "formModel", "subFormName", "subFormRowIndex", this.formConfig.onFormDataChange);
         customFunc.call(this, fieldName, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
@@ -30926,15 +31046,15 @@ const _sfc_main$g = {
     },
     findWidgetNameInSubForm(widgetName) {
       let result = [];
-      let subFormName = null;
+      let subFormName2 = null;
       let handlerFn = (field, parent) => {
         if (!!field.options && field.options.name === widgetName) {
-          subFormName = parent.options.name;
+          subFormName2 = parent.options.name;
         }
       };
       traverseFieldWidgets(this.widgetList, handlerFn);
-      if (!!subFormName) {
-        let subFormRef = this.getWidgetRef(subFormName);
+      if (!!subFormName2) {
+        let subFormRef = this.getWidgetRef(subFormName2);
         if (!!subFormRef) {
           let rowIds = subFormRef.getRowIdData();
           if (!!rowIds && rowIds.length > 0) {
@@ -31032,14 +31152,14 @@ const _sfc_main$g = {
       this.broadcast("ContainerItem", "setFormData", this.formDataModel);
       this.broadcast("FieldWidget", "setFormData", this.formDataModel);
     },
-    getFieldValue(fieldName) {
-      let fieldRef = this.getWidgetRef(fieldName);
+    getFieldValue(fieldName2) {
+      let fieldRef = this.getWidgetRef(fieldName2);
       if (!!fieldRef && !!fieldRef.getValue) {
         return fieldRef.getValue();
       }
       if (!fieldRef) {
         let result = [];
-        this.findWidgetNameInSubForm(fieldName).forEach((wn2) => {
+        this.findWidgetNameInSubForm(fieldName2).forEach((wn2) => {
           let sw2 = this.getWidgetRef(wn2);
           if (!!sw2 && !!sw2.getValue) {
             result.push(sw2.getValue());
@@ -31048,13 +31168,13 @@ const _sfc_main$g = {
         return result;
       }
     },
-    setFieldValue(fieldName, fieldValue) {
-      let fieldRef = this.getWidgetRef(fieldName);
+    setFieldValue(fieldName2, fieldValue) {
+      let fieldRef = this.getWidgetRef(fieldName2);
       if (!!fieldRef && !!fieldRef.setValue) {
         fieldRef.setValue(fieldValue);
       }
       if (!fieldRef) {
-        this.findWidgetNameInSubForm(fieldName).forEach((wn2) => {
+        this.findWidgetNameInSubForm(fieldName2).forEach((wn2) => {
           let sw2 = this.getWidgetRef(wn2);
           if (!!sw2 && !!sw2.setValue) {
             sw2.setValue(fieldValue);
@@ -31062,8 +31182,8 @@ const _sfc_main$g = {
         });
       }
     },
-    getSubFormValues(subFormName, needValidation = true) {
-      let foundSFRef = this.subFormRefList[subFormName];
+    getSubFormValues(subFormName2, needValidation = true) {
+      let foundSFRef = this.subFormRefList[subFormName2];
       return foundSFRef.getSubFormValues(needValidation);
     },
     disableForm() {
@@ -31099,6 +31219,7 @@ const _sfc_main$g = {
       });
     },
     resetForm() {
+      console.log("resetForm");
       let subFormNames = Object.keys(this.subFormRefList);
       subFormNames.forEach((sfName) => {
         if (!!this.subFormRefList[sfName].resetSubForm) {
@@ -31190,7 +31311,7 @@ const _sfc_main$g = {
     }
   }
 };
-function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_form = resolveComponent("el-form");
   return openBlock(), createBlock(_component_el_form, {
     "label-position": $options.labelPosition,
@@ -31217,7 +31338,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -31234,7 +31355,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
               return {
                 name: slot,
                 fn: withCtx((scope) => [
-                  renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                  renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                 ])
               };
             })
@@ -31245,7 +31366,7 @@ function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$g, [["render", _sfc_render$g], ["__scopeId", "data-v-8cd779ca"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-089ebd45"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31253,7 +31374,7 @@ var _export_sfc = (sfc, props) => {
   }
   return target;
 };
-const _sfc_main$f = defineComponent({
+const _sfc_main$k = defineComponent({
   name: "ArrowDown"
 });
 const _hoisted_1$b = {
@@ -31270,11 +31391,11 @@ const _hoisted_2$a = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$9 = [
   _hoisted_2$a
 ];
-function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$k(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$b, _hoisted_3$9);
 }
-var arrowDown = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
-const _sfc_main$e = defineComponent({
+var arrowDown = /* @__PURE__ */ _export_sfc(_sfc_main$k, [["render", _sfc_render$k]]);
+const _sfc_main$j = defineComponent({
   name: "ArrowUp"
 });
 const _hoisted_1$a = {
@@ -31291,11 +31412,11 @@ const _hoisted_2$9 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$8 = [
   _hoisted_2$9
 ];
-function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$j(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$a, _hoisted_3$8);
 }
-var arrowUp = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
-const _sfc_main$d = defineComponent({
+var arrowUp = /* @__PURE__ */ _export_sfc(_sfc_main$j, [["render", _sfc_render$j]]);
+const _sfc_main$i = defineComponent({
   name: "CirclePlus"
 });
 const _hoisted_1$9 = {
@@ -31322,11 +31443,11 @@ const _hoisted_5$1 = [
   _hoisted_3$7,
   _hoisted_4$2
 ];
-function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$i(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$9, _hoisted_5$1);
 }
-var circlePlus = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
-const _sfc_main$c = defineComponent({
+var circlePlus = /* @__PURE__ */ _export_sfc(_sfc_main$i, [["render", _sfc_render$i]]);
+const _sfc_main$h = defineComponent({
   name: "Delete"
 });
 const _hoisted_1$8 = {
@@ -31343,11 +31464,11 @@ const _hoisted_2$7 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$6 = [
   _hoisted_2$7
 ];
-function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$h(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$8, _hoisted_3$6);
 }
-var _delete = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
-const _sfc_main$b = defineComponent({
+var _delete = /* @__PURE__ */ _export_sfc(_sfc_main$h, [["render", _sfc_render$h]]);
+const _sfc_main$g = defineComponent({
   name: "Edit"
 });
 const _hoisted_1$7 = {
@@ -31369,11 +31490,11 @@ const _hoisted_4$1 = [
   _hoisted_2$6,
   _hoisted_3$5
 ];
-function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$g(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$7, _hoisted_4$1);
 }
-var edit = /* @__PURE__ */ _export_sfc(_sfc_main$b, [["render", _sfc_render$b]]);
-const _sfc_main$a = defineComponent({
+var edit = /* @__PURE__ */ _export_sfc(_sfc_main$g, [["render", _sfc_render$g]]);
+const _sfc_main$f = defineComponent({
   name: "InfoFilled"
 });
 const _hoisted_1$6 = {
@@ -31390,11 +31511,11 @@ const _hoisted_2$5 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$4 = [
   _hoisted_2$5
 ];
-function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$f(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$6, _hoisted_3$4);
 }
-var infoFilled = /* @__PURE__ */ _export_sfc(_sfc_main$a, [["render", _sfc_render$a]]);
-const _sfc_main$9 = defineComponent({
+var infoFilled = /* @__PURE__ */ _export_sfc(_sfc_main$f, [["render", _sfc_render$f]]);
+const _sfc_main$e = defineComponent({
   name: "Minus"
 });
 const _hoisted_1$5 = {
@@ -31411,11 +31532,11 @@ const _hoisted_2$4 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$3 = [
   _hoisted_2$4
 ];
-function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$e(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$5, _hoisted_3$3);
 }
-var minus = /* @__PURE__ */ _export_sfc(_sfc_main$9, [["render", _sfc_render$9]]);
-const _sfc_main$8 = defineComponent({
+var minus = /* @__PURE__ */ _export_sfc(_sfc_main$e, [["render", _sfc_render$e]]);
+const _sfc_main$d = defineComponent({
   name: "Plus"
 });
 const _hoisted_1$4 = {
@@ -31432,11 +31553,11 @@ const _hoisted_2$3 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$2 = [
   _hoisted_2$3
 ];
-function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$d(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$4, _hoisted_3$2);
 }
-var plus = /* @__PURE__ */ _export_sfc(_sfc_main$8, [["render", _sfc_render$8]]);
-const _sfc_main$7 = defineComponent({
+var plus = /* @__PURE__ */ _export_sfc(_sfc_main$d, [["render", _sfc_render$d]]);
+const _sfc_main$c = defineComponent({
   name: "Search"
 });
 const _hoisted_1$3 = {
@@ -31453,10 +31574,10 @@ const _hoisted_2$2 = /* @__PURE__ */ createElementVNode("path", {
 const _hoisted_3$1 = [
   _hoisted_2$2
 ];
-function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
   return openBlock(), createElementBlock("svg", _hoisted_1$3, _hoisted_3$1);
 }
-var search = /* @__PURE__ */ _export_sfc(_sfc_main$7, [["render", _sfc_render$7]]);
+var search = /* @__PURE__ */ _export_sfc(_sfc_main$c, [["render", _sfc_render$c]]);
 function registerIcon(app) {
   app.component("el-icon-edit", edit);
   app.component("el-icon-minus", minus);
@@ -31471,13 +31592,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1712643522019__");
+    var svgDom = document.getElementById("__svg__icons__dom__1738915326156__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1712643522019__";
+      svgDom.id = "__svg__icons__dom__1738915326156__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -31698,7 +31819,7 @@ var containerMixin = {
   }
 };
 var containerWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$6 = {
+const _sfc_main$b = {
   name: "container-wrapper",
   mixins: [i18n$1, containerMixin],
   components: {
@@ -31734,7 +31855,7 @@ const _hoisted_9 = {
 };
 const _hoisted_10 = ["title"];
 const _hoisted_11 = { key: 0 };
-function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
   return openBlock(), createElementBlock("div", {
     class: normalizeClass(["container-wrapper", [$options.customClass]])
@@ -31802,7 +31923,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$6, [["render", _sfc_render$6], ["__scopeId", "data-v-b1a0dbfc"]]);
+var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-b1a0dbfc"]]);
 var refMixinDesign = {
   methods: {
     initRefList() {
@@ -31828,7 +31949,7 @@ var refMixinDesign = {
   }
 };
 var cardWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$5 = {
+const _sfc_main$a = {
   name: "card-widget",
   componentName: "ContainerWidget",
   mixins: [i18n$1, containerMixin, refMixinDesign],
@@ -31871,7 +31992,7 @@ const _sfc_main$5 = {
 };
 const _hoisted_1$1 = { class: "clear-fix" };
 const _hoisted_2 = { class: "form-widget-list" };
-function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown = resolveComponent("ArrowDown");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_ArrowUp = resolveComponent("ArrowUp");
@@ -31956,9 +32077,9 @@ function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$5, [["render", _sfc_render$5], ["__scopeId", "data-v-06588696"]]);
+var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-06588696"]]);
 var cardItem_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$4 = {
+const _sfc_main$9 = {
   name: "card-item",
   componentName: "ContainerItem",
   mixins: [emitter, i18n$1, refMixin, containerItemMixin],
@@ -31990,7 +32111,7 @@ const _sfc_main$4 = {
   }
 };
 const _hoisted_1 = { class: "clear-fix" };
-function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$9(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ArrowDown = resolveComponent("ArrowDown");
   const _component_el_icon = resolveComponent("el-icon");
   const _component_ArrowUp = resolveComponent("ArrowUp");
@@ -32041,7 +32162,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                   return {
                     name: slot,
                     fn: withCtx((scope) => [
-                      renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                      renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                     ])
                   };
                 })
@@ -32057,7 +32178,7 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
                   return {
                     name: slot,
                     fn: withCtx((scope) => [
-                      renderSlot(_ctx.$slots, slot, normalizeProps(guardReactiveProps(scope)), void 0, true)
+                      renderSlot(_ctx.$slots, slot, mergeProps({ ref_for: true }, scope), void 0, true)
                     ])
                   };
                 })
@@ -32073,9 +32194,9 @@ function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-52275f84"]]);
+var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$9, [["render", _sfc_render$9], ["__scopeId", "data-v-52275f84"]]);
 var selectGroupWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$3 = {
+const _sfc_main$8 = {
   name: "select-group-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -32133,9 +32254,18 @@ const _sfc_main$3 = {
   beforeUnmount() {
     this.unregisterFromRefList();
   },
-  methods: {}
+  methods: {
+    handleInput(value2) {
+      const fieldEditor = this.$refs.fieldEditor;
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
+    }
+  }
 };
-function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_option = resolveComponent("el-option");
   const _component_el_option_group = resolveComponent("el-option-group");
   const _component_el_select = resolveComponent("el-select");
@@ -32172,7 +32302,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
         "remote-method": _ctx.remoteQuery,
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
-        onChange: _ctx.handleChangeEvent
+        onChange: $options.handleInput
       }, {
         default: withCtx(() => [
           $props.field.options.prefixIcon ? (openBlock(), createElementBlock("i", {
@@ -32204,7 +32334,7 @@ function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-5af6ecf1"]]);
+var SelectGroupWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-733dff56"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -33070,11 +33200,63 @@ var ace$2 = { exports: {} };
       });
     };
   });
-  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error"], function(require2, exports2, module2) {
+  ace.define("ace/lib/default_english_messages", ["require", "exports", "module"], function(require2, exports2, module2) {
+    var defaultEnglishMessages = {
+      "autocomplete.popup.aria-roledescription": "Autocomplete suggestions",
+      "autocomplete.popup.aria-label": "Autocomplete suggestions",
+      "autocomplete.popup.item.aria-roledescription": "item",
+      "autocomplete.loading": "Loading...",
+      "editor.scroller.aria-roledescription": "editor",
+      "editor.scroller.aria-label": "Editor content, press Enter to start editing, press Escape to exit",
+      "editor.gutter.aria-roledescription": "editor",
+      "editor.gutter.aria-label": "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit",
+      "error-marker.good-state": "Looks good!",
+      "prompt.recently-used": "Recently used",
+      "prompt.other-commands": "Other commands",
+      "prompt.no-matching-commands": "No matching commands",
+      "search-box.find.placeholder": "Search for",
+      "search-box.find-all.text": "All",
+      "search-box.replace.placeholder": "Replace with",
+      "search-box.replace-next.text": "Replace",
+      "search-box.replace-all.text": "All",
+      "search-box.toggle-replace.title": "Toggle Replace mode",
+      "search-box.toggle-regexp.title": "RegExp Search",
+      "search-box.toggle-case.title": "CaseSensitive Search",
+      "search-box.toggle-whole-word.title": "Whole Word Search",
+      "search-box.toggle-in-selection.title": "Search In Selection",
+      "search-box.search-counter": "$0 of $1",
+      "text-input.aria-roledescription": "editor",
+      "text-input.aria-label": "Cursor at row $0",
+      "gutter.code-folding.range.aria-label": "Toggle code folding, rows $0 through $1",
+      "gutter.code-folding.closed.aria-label": "Toggle code folding, rows $0 through $1",
+      "gutter.code-folding.open.aria-label": "Toggle code folding, row $0",
+      "gutter.code-folding.closed.title": "Unfold code",
+      "gutter.code-folding.open.title": "Fold code",
+      "gutter.annotation.aria-label.error": "Error, read annotations row $0",
+      "gutter.annotation.aria-label.warning": "Warning, read annotations row $0",
+      "gutter.annotation.aria-label.info": "Info, read annotations row $0",
+      "inline-fold.closed.title": "Unfold code",
+      "gutter-tooltip.aria-label.error.singular": "error",
+      "gutter-tooltip.aria-label.error.plural": "errors",
+      "gutter-tooltip.aria-label.warning.singular": "warning",
+      "gutter-tooltip.aria-label.warning.plural": "warnings",
+      "gutter-tooltip.aria-label.info.singular": "information message",
+      "gutter-tooltip.aria-label.info.plural": "information messages",
+      "gutter.annotation.aria-label.security": "Security finding, read annotations row $0",
+      "gutter.annotation.aria-label.hint": "Suggestion, read annotations row $0",
+      "gutter-tooltip.aria-label.security.singular": "security finding",
+      "gutter-tooltip.aria-label.security.plural": "security findings",
+      "gutter-tooltip.aria-label.hint.singular": "suggestion",
+      "gutter-tooltip.aria-label.hint.plural": "suggestions"
+    };
+    exports2.defaultEnglishMessages = defaultEnglishMessages;
+  });
+  ace.define("ace/lib/app_config", ["require", "exports", "module", "ace/lib/oop", "ace/lib/event_emitter", "ace/lib/report_error", "ace/lib/default_english_messages"], function(require2, exports2, module2) {
     "no use strict";
     var oop = require2("./oop");
     var EventEmitter = require2("./event_emitter").EventEmitter;
     var reportError = require2("./report_error").reportError;
+    var defaultEnglishMessages = require2("./default_english_messages").defaultEnglishMessages;
     var optionsProvider = {
       setOptions: function(optList) {
         Object.keys(optList).forEach(function(key) {
@@ -33126,9 +33308,12 @@ var ace$2 = { exports: {} };
         console.warn.apply(console, arguments);
     }
     var messages;
+    var nlsPlaceholders;
     var AppConfig = function() {
       function AppConfig2() {
         this.$defaultOptions = {};
+        messages = defaultEnglishMessages;
+        nlsPlaceholders = "dollarSigns";
       }
       AppConfig2.prototype.defineOptions = function(obj, path, options) {
         if (!obj.$options)
@@ -33173,20 +33358,33 @@ var ace$2 = { exports: {} };
           this.setDefaultValue(path, key, optionHash[key]);
         }, this);
       };
-      AppConfig2.prototype.setMessages = function(value2) {
+      AppConfig2.prototype.setMessages = function(value2, options) {
         messages = value2;
-      };
-      AppConfig2.prototype.nls = function(string, params) {
-        if (messages && !messages[string]) {
-          warn("No message found for '" + string + "' in the provided messages, falling back to default English message.");
+        if (options && options.placeholders) {
+          nlsPlaceholders = options.placeholders;
         }
-        var translated = messages && messages[string] || string;
+      };
+      AppConfig2.prototype.nls = function(key, defaultString, params) {
+        if (!messages[key]) {
+          warn("No message found for the key '" + key + "' in the provided messages, trying to find a translation for the default string '" + defaultString + "'.");
+          if (!messages[defaultString]) {
+            warn("No message found for the default string '" + defaultString + "' in the provided messages. Falling back to the default English message.");
+          }
+        }
+        var translated = messages[key] || messages[defaultString] || defaultString;
         if (params) {
-          translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, name) {
-            if (name == "$")
-              return "$";
-            return params[name];
-          });
+          if (nlsPlaceholders === "dollarSigns") {
+            translated = translated.replace(/\$(\$|[\d]+)/g, function(_10, dollarMatch) {
+              if (dollarMatch == "$")
+                return "$";
+              return params[dollarMatch];
+            });
+          }
+          if (nlsPlaceholders === "curlyBrackets") {
+            translated = translated.replace(/\{([^\}]+)\}/g, function(_10, curlyBracketMatch) {
+              return params[curlyBracketMatch];
+            });
+          }
         }
         return translated;
       };
@@ -33349,7 +33547,7 @@ var ace$2 = { exports: {} };
         };
       }
     };
-    exports2.version = "1.32.3";
+    exports2.version = "1.36.3";
   });
   ace.define("ace/loader_build", ["require", "exports", "module", "ace/lib/fixoldbrowsers", "ace/config"], function(require2, exports2, module2) {
     require2("./lib/fixoldbrowsers");
@@ -33622,189 +33820,158 @@ var ace$2 = { exports: {} };
     exports2.Range = Range;
   });
   ace.define("ace/lib/keys", ["require", "exports", "module", "ace/lib/oop"], function(require2, exports2, module2) {
-    /*! @license
-    ==========================================================================
-    SproutCore -- JavaScript Application Framework
-    copyright 2006-2009, Sprout Systems Inc., Apple Inc. and contributors.
-    
-    Permission is hereby granted, free of charge, to any person obtaining a
-    copy of this software and associated documentation files (the "Software"),
-    to deal in the Software without restriction, including without limitation
-    the rights to use, copy, modify, merge, publish, distribute, sublicense,
-    and/or sell copies of the Software, and to permit persons to whom the
-    Software is furnished to do so, subject to the following conditions:
-    
-    The above copyright notice and this permission notice shall be included in
-    all copies or substantial portions of the Software.
-    
-    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
-    FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
-    DEALINGS IN THE SOFTWARE.
-    
-    SproutCore and the SproutCore logo are trademarks of Sprout Systems, Inc.
-    
-    For more information about SproutCore, visit http://www.sproutcore.com
-    
-    
-    ==========================================================================
-    @license */
     var oop = require2("./oop");
-    var Keys = function() {
-      var ret = {
-        MODIFIER_KEYS: {
-          16: "Shift",
-          17: "Ctrl",
-          18: "Alt",
-          224: "Meta",
-          91: "MetaLeft",
-          92: "MetaRight",
-          93: "ContextMenu"
-        },
-        KEY_MODS: {
-          "ctrl": 1,
-          "alt": 2,
-          "option": 2,
-          "shift": 4,
-          "super": 8,
-          "meta": 8,
-          "command": 8,
-          "cmd": 8,
-          "control": 1
-        },
-        FUNCTION_KEYS: {
-          8: "Backspace",
-          9: "Tab",
-          13: "Return",
-          19: "Pause",
-          27: "Esc",
-          32: "Space",
-          33: "PageUp",
-          34: "PageDown",
-          35: "End",
-          36: "Home",
-          37: "Left",
-          38: "Up",
-          39: "Right",
-          40: "Down",
-          44: "Print",
-          45: "Insert",
-          46: "Delete",
-          96: "Numpad0",
-          97: "Numpad1",
-          98: "Numpad2",
-          99: "Numpad3",
-          100: "Numpad4",
-          101: "Numpad5",
-          102: "Numpad6",
-          103: "Numpad7",
-          104: "Numpad8",
-          105: "Numpad9",
-          "-13": "NumpadEnter",
-          112: "F1",
-          113: "F2",
-          114: "F3",
-          115: "F4",
-          116: "F5",
-          117: "F6",
-          118: "F7",
-          119: "F8",
-          120: "F9",
-          121: "F10",
-          122: "F11",
-          123: "F12",
-          144: "Numlock",
-          145: "Scrolllock"
-        },
-        PRINTABLE_KEYS: {
-          32: " ",
-          48: "0",
-          49: "1",
-          50: "2",
-          51: "3",
-          52: "4",
-          53: "5",
-          54: "6",
-          55: "7",
-          56: "8",
-          57: "9",
-          59: ";",
-          61: "=",
-          65: "a",
-          66: "b",
-          67: "c",
-          68: "d",
-          69: "e",
-          70: "f",
-          71: "g",
-          72: "h",
-          73: "i",
-          74: "j",
-          75: "k",
-          76: "l",
-          77: "m",
-          78: "n",
-          79: "o",
-          80: "p",
-          81: "q",
-          82: "r",
-          83: "s",
-          84: "t",
-          85: "u",
-          86: "v",
-          87: "w",
-          88: "x",
-          89: "y",
-          90: "z",
-          107: "+",
-          109: "-",
-          110: ".",
-          186: ";",
-          187: "=",
-          188: ",",
-          189: "-",
-          190: ".",
-          191: "/",
-          192: "`",
-          219: "[",
-          220: "\\",
-          221: "]",
-          222: "'",
-          111: "/",
-          106: "*"
-        }
-      };
-      ret.PRINTABLE_KEYS[173] = "-";
-      var name, i10;
-      for (i10 in ret.FUNCTION_KEYS) {
-        name = ret.FUNCTION_KEYS[i10].toLowerCase();
-        ret[name] = parseInt(i10, 10);
+    var Keys = {
+      MODIFIER_KEYS: {
+        16: "Shift",
+        17: "Ctrl",
+        18: "Alt",
+        224: "Meta",
+        91: "MetaLeft",
+        92: "MetaRight",
+        93: "ContextMenu"
+      },
+      KEY_MODS: {
+        "ctrl": 1,
+        "alt": 2,
+        "option": 2,
+        "shift": 4,
+        "super": 8,
+        "meta": 8,
+        "command": 8,
+        "cmd": 8,
+        "control": 1
+      },
+      FUNCTION_KEYS: {
+        8: "Backspace",
+        9: "Tab",
+        13: "Return",
+        19: "Pause",
+        27: "Esc",
+        32: "Space",
+        33: "PageUp",
+        34: "PageDown",
+        35: "End",
+        36: "Home",
+        37: "Left",
+        38: "Up",
+        39: "Right",
+        40: "Down",
+        44: "Print",
+        45: "Insert",
+        46: "Delete",
+        "-13": "NumpadEnter",
+        144: "Numlock",
+        145: "Scrolllock"
+      },
+      PRINTABLE_KEYS: {
+        32: " ",
+        59: ";",
+        61: "=",
+        107: "+",
+        109: "-",
+        110: ".",
+        186: ";",
+        187: "=",
+        188: ",",
+        189: "-",
+        190: ".",
+        191: "/",
+        192: "`",
+        219: "[",
+        220: "\\",
+        221: "]",
+        222: "'",
+        111: "/",
+        106: "*"
       }
-      for (i10 in ret.PRINTABLE_KEYS) {
-        name = ret.PRINTABLE_KEYS[i10].toLowerCase();
-        ret[name] = parseInt(i10, 10);
+    };
+    var codeToKeyCode = {
+      Command: 224,
+      Backspace: 8,
+      Tab: 9,
+      Return: 13,
+      Enter: 13,
+      Pause: 19,
+      Escape: 27,
+      PageUp: 33,
+      PageDown: 34,
+      End: 35,
+      Home: 36,
+      Insert: 45,
+      Delete: 46,
+      ArrowLeft: 37,
+      ArrowUp: 38,
+      ArrowRight: 39,
+      ArrowDown: 40,
+      Backquote: 192,
+      Minus: 189,
+      Equal: 187,
+      BracketLeft: 219,
+      Backslash: 220,
+      BracketRight: 221,
+      Semicolon: 186,
+      Quote: 222,
+      Comma: 188,
+      Period: 190,
+      Slash: 191,
+      Space: 32,
+      NumpadAdd: 107,
+      NumpadDecimal: 110,
+      NumpadSubtract: 109,
+      NumpadDivide: 111,
+      NumpadMultiply: 106
+    };
+    for (var i10 = 0; i10 < 10; i10++) {
+      codeToKeyCode["Digit" + i10] = 48 + i10;
+      codeToKeyCode["Numpad" + i10] = 96 + i10;
+      Keys.PRINTABLE_KEYS[48 + i10] = "" + i10;
+      Keys.FUNCTION_KEYS[96 + i10] = "Numpad" + i10;
+    }
+    for (var i10 = 65; i10 < 91; i10++) {
+      var chr = String.fromCharCode(i10 + 32);
+      codeToKeyCode["Key" + chr.toUpperCase()] = i10;
+      Keys.PRINTABLE_KEYS[i10] = chr;
+    }
+    for (var i10 = 1; i10 < 13; i10++) {
+      codeToKeyCode["F" + i10] = 111 + i10;
+      Keys.FUNCTION_KEYS[111 + i10] = "F" + i10;
+    }
+    var modifiers = {
+      Shift: 16,
+      Control: 17,
+      Alt: 18,
+      Meta: 224
+    };
+    for (var mod in modifiers) {
+      codeToKeyCode[mod] = codeToKeyCode[mod + "Left"] = codeToKeyCode[mod + "Right"] = modifiers[mod];
+    }
+    exports2.$codeToKeyCode = codeToKeyCode;
+    Keys.PRINTABLE_KEYS[173] = "-";
+    for (var j10 in Keys.FUNCTION_KEYS) {
+      var name = Keys.FUNCTION_KEYS[j10].toLowerCase();
+      Keys[name] = parseInt(j10, 10);
+    }
+    for (var j10 in Keys.PRINTABLE_KEYS) {
+      var name = Keys.PRINTABLE_KEYS[j10].toLowerCase();
+      Keys[name] = parseInt(j10, 10);
+    }
+    oop.mixin(Keys, Keys.MODIFIER_KEYS);
+    oop.mixin(Keys, Keys.PRINTABLE_KEYS);
+    oop.mixin(Keys, Keys.FUNCTION_KEYS);
+    Keys.enter = Keys["return"];
+    Keys.escape = Keys.esc;
+    Keys.del = Keys["delete"];
+    (function() {
+      var mods = ["cmd", "ctrl", "alt", "shift"];
+      for (var i11 = Math.pow(2, mods.length); i11--; ) {
+        Keys.KEY_MODS[i11] = mods.filter(function(x10) {
+          return i11 & Keys.KEY_MODS[x10];
+        }).join("-") + "-";
       }
-      oop.mixin(ret, ret.MODIFIER_KEYS);
-      oop.mixin(ret, ret.PRINTABLE_KEYS);
-      oop.mixin(ret, ret.FUNCTION_KEYS);
-      ret.enter = ret["return"];
-      ret.escape = ret.esc;
-      ret.del = ret["delete"];
-      (function() {
-        var mods = ["cmd", "ctrl", "alt", "shift"];
-        for (var i11 = Math.pow(2, mods.length); i11--; ) {
-          ret.KEY_MODS[i11] = mods.filter(function(x10) {
-            return i11 & ret.KEY_MODS[x10];
-          }).join("-") + "-";
-        }
-      })();
-      ret.KEY_MODS[0] = "";
-      ret.KEY_MODS[-1] = "input-";
-      return ret;
-    }();
+    })();
+    Keys.KEY_MODS[0] = "";
+    Keys.KEY_MODS[-1] = "input-";
     oop.mixin(exports2, Keys);
     exports2.default = exports2;
     exports2.keyCodeToString = function(keyCode) {
@@ -33958,14 +34125,17 @@ var ace$2 = { exports: {} };
         addListener(el2, "mousedown", onMousedown, destroyer);
       });
     };
-    var getModifierHash = function(e13) {
+    function getModifierHash(e13) {
       return 0 | (e13.ctrlKey ? 1 : 0) | (e13.altKey ? 2 : 0) | (e13.shiftKey ? 4 : 0) | (e13.metaKey ? 8 : 0);
-    };
+    }
     exports2.getModifierString = function(e13) {
       return keys.KEY_MODS[getModifierHash(e13)];
     };
     function normalizeCommandKeys(callback2, e13, keyCode) {
       var hashId = getModifierHash(e13);
+      if (!keyCode && e13.code) {
+        keyCode = keys.$codeToKeyCode[e13.code] || keyCode;
+      }
       if (!useragent.isMac && pressedKeys) {
         if (e13.getModifierState && (e13.getModifierState("OS") || e13.getModifierState("Win")))
           hashId |= 8;
@@ -33976,7 +34146,7 @@ var ace$2 = { exports: {} };
             return;
         }
         if (keyCode === 18 || keyCode === 17) {
-          var location = "location" in e13 ? e13.location : e13.keyLocation;
+          var location = e13.location;
           if (keyCode === 17 && location === 1) {
             if (pressedKeys[keyCode] == 1)
               ts2 = e13.timeStamp;
@@ -33991,8 +34161,7 @@ var ace$2 = { exports: {} };
         keyCode = -1;
       }
       if (!hashId && keyCode === 13) {
-        var location = "location" in e13 ? e13.location : e13.keyLocation;
-        if (location === 3) {
+        if (e13.location === 3) {
           callback2(e13, hashId, -keyCode);
           if (e13.defaultPrevented)
             return;
@@ -34161,11 +34330,16 @@ var ace$2 = { exports: {} };
           text.setAttribute("role", options.role);
         }
         if (options.setLabel) {
-          text.setAttribute("aria-roledescription", nls("editor"));
+          text.setAttribute("aria-roledescription", nls("text-input.aria-roledescription", "editor"));
+          var arialLabel = "";
+          if (host.$textInputAriaLabel) {
+            arialLabel += "".concat(host.$textInputAriaLabel, ", ");
+          }
           if (host.session) {
             var row = host.session.selection.cursor.row;
-            text.setAttribute("aria-label", nls("Cursor at row $0", [row + 1]));
+            arialLabel += nls("text-input.aria-label", "Cursor at row $0", [row + 1]);
           }
+          text.setAttribute("aria-label", arialLabel);
         }
       };
       this.setAriaOptions({ role: "textbox" });
@@ -34261,9 +34435,9 @@ var ace$2 = { exports: {} };
           return;
         if (!value2)
           value2 = "";
-        var newValue = "\n ab" + value2 + "cde fg\n";
-        if (newValue != text.value)
-          text.value = lastValue = newValue;
+        var newValue2 = "\n ab" + value2 + "cde fg\n";
+        if (newValue2 != text.value)
+          text.value = lastValue = newValue2;
         var selectionStart = 4;
         var selectionEnd = 4 + (value2.length || (host.selection.isEmpty() ? 0 : 1));
         if (lastSelectionStart != selectionStart || lastSelectionEnd != selectionEnd) {
@@ -34329,10 +34503,10 @@ var ace$2 = { exports: {} };
               }
             }
           }
-          var newValue = line + "\n\n";
-          if (newValue != lastValue) {
-            text.value = lastValue = newValue;
-            lastSelectionStart = lastSelectionEnd = newValue.length;
+          var newValue2 = line + "\n\n";
+          if (newValue2 != lastValue) {
+            text.value = lastValue = newValue2;
+            lastSelectionStart = lastSelectionEnd = newValue2.length;
           }
         }
         if (afterContextMenu) {
@@ -34514,7 +34688,11 @@ var ace$2 = { exports: {} };
           pasted = true;
         }
       };
-      event.addCommandKeyListener(text, host.onCommandKey.bind(host), host);
+      event.addCommandKeyListener(text, function(e13, hashId, keyCode) {
+        if (inComposition)
+          return;
+        return host.onCommandKey(e13, hashId, keyCode);
+      }, host);
       event.addListener(text, "select", onSelect, host);
       event.addListener(text, "input", onInput, host);
       event.addListener(text, "cut", onCut, host);
@@ -35349,7 +35527,7 @@ var ace$2 = { exports: {} };
     }(Tooltip);
     exports2.HoverTooltip = HoverTooltip;
   });
-  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config"], function(require2, exports2, module2) {
+  ace.define("ace/mouse/default_gutter_handler", ["require", "exports", "module", "ace/lib/dom", "ace/lib/event", "ace/tooltip", "ace/config", "ace/lib/lang"], function(require2, exports2, module2) {
     var __extends = this && this.__extends || function() {
       var extendStatics = function(d10, b10) {
         extendStatics = Object.setPrototypeOf || { __proto__: [] } instanceof Array && function(d11, b11) {
@@ -35389,6 +35567,7 @@ var ace$2 = { exports: {} };
     var event = require2("../lib/event");
     var Tooltip = require2("../tooltip").Tooltip;
     var nls = require2("../config").nls;
+    require2("../lib/lang");
     function GutterHandler(mouseHandler) {
       var editor = mouseHandler.editor;
       var gutter = editor.renderer.$gutterLayer;
@@ -35510,59 +35689,99 @@ var ace$2 = { exports: {} };
       Object.defineProperty(GutterTooltip2, "annotationLabels", {
         get: function() {
           return {
-            error: { singular: nls("error"), plural: nls("errors") },
-            warning: { singular: nls("warning"), plural: nls("warnings") },
-            info: { singular: nls("information message"), plural: nls("information messages") }
+            error: {
+              singular: nls("gutter-tooltip.aria-label.error.singular", "error"),
+              plural: nls("gutter-tooltip.aria-label.error.plural", "errors")
+            },
+            security: {
+              singular: nls("gutter-tooltip.aria-label.security.singular", "security finding"),
+              plural: nls("gutter-tooltip.aria-label.security.plural", "security findings")
+            },
+            warning: {
+              singular: nls("gutter-tooltip.aria-label.warning.singular", "warning"),
+              plural: nls("gutter-tooltip.aria-label.warning.plural", "warnings")
+            },
+            info: {
+              singular: nls("gutter-tooltip.aria-label.info.singular", "information message"),
+              plural: nls("gutter-tooltip.aria-label.info.plural", "information messages")
+            },
+            hint: {
+              singular: nls("gutter-tooltip.aria-label.hint.singular", "suggestion"),
+              plural: nls("gutter-tooltip.aria-label.hint.plural", "suggestions")
+            }
           };
         },
         enumerable: false,
         configurable: true
       });
       GutterTooltip2.prototype.showTooltip = function(row) {
+        var _a2;
         var gutter = this.editor.renderer.$gutterLayer;
         var annotationsInRow = gutter.$annotations[row];
         var annotation;
         if (annotationsInRow)
-          annotation = { text: Array.from(annotationsInRow.text), type: Array.from(annotationsInRow.type) };
+          annotation = {
+            displayText: Array.from(annotationsInRow.displayText),
+            type: Array.from(annotationsInRow.type)
+          };
         else
-          annotation = { text: [], type: [] };
+          annotation = { displayText: [], type: [] };
         var fold = gutter.session.getFoldLine(row);
         if (fold && gutter.$showFoldedAnnotations) {
-          var annotationsInFold = { error: [], warning: [], info: [] };
-          var mostSevereAnnotationInFoldType;
+          var annotationsInFold = { error: [], security: [], warning: [], info: [], hint: [] };
+          var severityRank = { error: 1, security: 2, warning: 3, info: 4, hint: 5 };
+          var mostSevereAnnotationTypeInFold;
           for (var i10 = row + 1; i10 <= fold.end.row; i10++) {
             if (!gutter.$annotations[i10])
               continue;
             for (var j10 = 0; j10 < gutter.$annotations[i10].text.length; j10++) {
               var annotationType = gutter.$annotations[i10].type[j10];
               annotationsInFold[annotationType].push(gutter.$annotations[i10].text[j10]);
-              if (annotationType === "error") {
-                mostSevereAnnotationInFoldType = "error_fold";
-                continue;
-              }
-              if (annotationType === "warning") {
-                mostSevereAnnotationInFoldType = "warning_fold";
-                continue;
+              if (!mostSevereAnnotationTypeInFold || severityRank[annotationType] < severityRank[mostSevereAnnotationTypeInFold]) {
+                mostSevereAnnotationTypeInFold = annotationType;
               }
             }
           }
-          if (mostSevereAnnotationInFoldType === "error_fold" || mostSevereAnnotationInFoldType === "warning_fold") {
+          if (["error", "security", "warning"].includes(mostSevereAnnotationTypeInFold)) {
             var summaryFoldedAnnotations = "".concat(GutterTooltip2.annotationsToSummaryString(annotationsInFold), " in folded code.");
-            annotation.text.push(summaryFoldedAnnotations);
-            annotation.type.push(mostSevereAnnotationInFoldType);
+            annotation.displayText.push(summaryFoldedAnnotations);
+            annotation.type.push(mostSevereAnnotationTypeInFold + "_fold");
           }
         }
-        if (annotation.text.length === 0)
+        if (annotation.displayText.length === 0)
           return this.hide();
-        var annotationMessages = { error: [], warning: [], info: [] };
+        var annotationMessages = { error: [], security: [], warning: [], info: [], hint: [] };
         var iconClassName = gutter.$useSvgGutterIcons ? "ace_icon_svg" : "ace_icon";
-        for (var i10 = 0; i10 < annotation.text.length; i10++) {
-          var line = "<span class='ace_".concat(annotation.type[i10], " ").concat(iconClassName, "' aria-label='").concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular, "' role=img> </span> ").concat(annotation.text[i10]);
-          annotationMessages[annotation.type[i10].replace("_fold", "")].push(line);
+        for (var i10 = 0; i10 < annotation.displayText.length; i10++) {
+          var lineElement = dom.createElement("span");
+          var iconElement = dom.createElement("span");
+          (_a2 = iconElement.classList).add.apply(_a2, ["ace_".concat(annotation.type[i10]), iconClassName]);
+          iconElement.setAttribute("aria-label", "".concat(GutterTooltip2.annotationLabels[annotation.type[i10].replace("_fold", "")].singular));
+          iconElement.setAttribute("role", "img");
+          iconElement.appendChild(dom.createTextNode(" "));
+          lineElement.appendChild(iconElement);
+          lineElement.appendChild(dom.createTextNode(annotation.displayText[i10]));
+          lineElement.appendChild(dom.createElement("br"));
+          annotationMessages[annotation.type[i10].replace("_fold", "")].push(lineElement);
         }
-        var tooltipContent = [].concat(annotationMessages.error, annotationMessages.warning, annotationMessages.info).join("<br>");
-        this.setHtml(tooltipContent);
-        this.$element.setAttribute("aria-live", "polite");
+        var tooltipElement = this.getElement();
+        dom.removeChildren(tooltipElement);
+        annotationMessages.error.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.security.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.warning.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.info.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        annotationMessages.hint.forEach(function(el2) {
+          return tooltipElement.appendChild(el2);
+        });
+        tooltipElement.setAttribute("aria-live", "polite");
         if (!this.isOpen) {
           this.setTheme(this.editor.renderer.theme);
           this.setClassName("ace_gutter-tooltip");
@@ -35578,7 +35797,7 @@ var ace$2 = { exports: {} };
       GutterTooltip2.annotationsToSummaryString = function(annotations) {
         var e_1, _a2;
         var summary = [];
-        var annotationTypes = ["error", "warning", "info"];
+        var annotationTypes = ["error", "security", "warning", "info", "hint"];
         try {
           for (var annotationTypes_1 = __values(annotationTypes), annotationTypes_1_1 = annotationTypes_1.next(); !annotationTypes_1_1.done; annotationTypes_1_1 = annotationTypes_1.next()) {
             var annotationType = annotationTypes_1_1.value;
@@ -36029,14 +36248,17 @@ var ace$2 = { exports: {} };
           var hasUndo = editor.session.getUndoManager().hasUndo();
           contextMenu.replaceChild(dom.buildDom(isOpen ? [
             "span",
-            !selected && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
-            selected && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
-            selected && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
-            clipboard2 && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
-            hasUndo && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
-            ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
-            ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
+            !selected && canExecuteCommand("selectall") && ["span", { class: "ace_mobile-button", action: "selectall" }, "Select All"],
+            selected && canExecuteCommand("copy") && ["span", { class: "ace_mobile-button", action: "copy" }, "Copy"],
+            selected && canExecuteCommand("cut") && ["span", { class: "ace_mobile-button", action: "cut" }, "Cut"],
+            clipboard2 && canExecuteCommand("paste") && ["span", { class: "ace_mobile-button", action: "paste" }, "Paste"],
+            hasUndo && canExecuteCommand("undo") && ["span", { class: "ace_mobile-button", action: "undo" }, "Undo"],
+            canExecuteCommand("find") && ["span", { class: "ace_mobile-button", action: "find" }, "Find"],
+            canExecuteCommand("openCommandPalette") && ["span", { class: "ace_mobile-button", action: "openCommandPalette" }, "Palette"]
           ] : ["span"]), contextMenu.firstChild);
+        };
+        var canExecuteCommand = function(cmd) {
+          return editor.commands.canExecute(cmd, editor);
         };
         var handleClick = function(e13) {
           var action = e13.target.getAttribute("action");
@@ -36084,6 +36306,12 @@ var ace$2 = { exports: {} };
         ], editor.container);
       }
       function showContextMenu() {
+        if (!editor.getOption("enableMobileMenu")) {
+          if (contextMenu) {
+            hideContextMenu();
+          }
+          return;
+        }
         if (!contextMenu)
           createContextMenu();
         var cursor = editor.selection.cursor;
@@ -38617,8 +38845,23 @@ var ace$2 = { exports: {} };
           initContext(editor);
           var selection = editor.getSelectionRange();
           var selected = session.doc.getTextRange(selection);
+          var token = session.getTokenAt(cursor.row, cursor.column);
           if (selected !== "" && selected !== "{" && editor.getWrapBehavioursEnabled()) {
             return getWrapped(selection, selected, "{", "}");
+          } else if (token && /(?:string)\.quasi|\.xml/.test(token.type)) {
+            var excludeTokens = [
+              /tag\-(?:open|name)/,
+              /attribute\-name/
+            ];
+            if (excludeTokens.some(function(el2) {
+              return el2.test(token.type);
+            }) || /(string)\.quasi/.test(token.type) && token.value[cursor.column - token.start - 1] !== "$")
+              return;
+            CstyleBehaviour.recordAutoInsert(editor, session, "}");
+            return {
+              text: "{}",
+              selection: [1, 1]
+            };
           } else if (CstyleBehaviour.isSaneInsertion(editor, session)) {
             if (/[\]\}\)]/.test(line[cursor.column]) || editor.inMultiSelectMode || options.braces) {
               CstyleBehaviour.recordAutoInsert(editor, session, "}");
@@ -38847,14 +39090,46 @@ var ace$2 = { exports: {} };
         this.add("doc comment end", "insertion", function(state, action, editor, session, text) {
           if (state === "doc-start" && (text === "\n" || text === "\r\n") && editor.selection.isEmpty()) {
             var cursor = editor.getCursorPosition();
+            if (cursor.column === 0) {
+              return;
+            }
             var line = session.doc.getLine(cursor.row);
             var nextLine = session.doc.getLine(cursor.row + 1);
+            var tokens = session.getTokens(cursor.row);
+            var index2 = 0;
+            for (var i10 = 0; i10 < tokens.length; i10++) {
+              index2 += tokens[i10].value.length;
+              var currentToken = tokens[i10];
+              if (index2 >= cursor.column) {
+                if (index2 === cursor.column) {
+                  if (!/\.doc/.test(currentToken.type)) {
+                    return;
+                  }
+                  if (/\*\//.test(currentToken.value)) {
+                    var nextToken = tokens[i10 + 1];
+                    if (!nextToken || !/\.doc/.test(nextToken.type)) {
+                      return;
+                    }
+                  }
+                }
+                var cursorPosInToken = cursor.column - (index2 - currentToken.value.length);
+                var closeDocPos = currentToken.value.indexOf("*/");
+                var openDocPos = currentToken.value.indexOf("/**", closeDocPos > -1 ? closeDocPos + 2 : 0);
+                if (openDocPos !== -1 && cursorPosInToken > openDocPos && cursorPosInToken < openDocPos + 3) {
+                  return;
+                }
+                if (closeDocPos !== -1 && openDocPos !== -1 && cursorPosInToken >= closeDocPos && cursorPosInToken <= openDocPos || !/\.doc/.test(currentToken.type)) {
+                  return;
+                }
+                break;
+              }
+            }
             var indent = this.$getIndent(line);
             if (/\s*\*/.test(nextLine)) {
               if (/^\s*\*/.test(line)) {
                 return {
                   text: text + indent + "* ",
-                  selection: [1, 3 + indent.length, 1, 3 + indent.length]
+                  selection: [1, 2 + indent.length, 1, 2 + indent.length]
                 };
               } else {
                 return {
@@ -41266,32 +41541,30 @@ var ace$2 = { exports: {} };
           if (dir != 1) {
             do {
               token = iterator.stepBackward();
-            } while (token && re2.test(token.type) && !/^comment.end/.test(token.type));
+            } while (token && re2.test(token.type));
             token = iterator.stepForward();
           }
           range.start.row = iterator.getCurrentTokenRow();
-          range.start.column = iterator.getCurrentTokenColumn() + (/^comment.start/.test(token.type) ? token.value.length : 2);
+          range.start.column = iterator.getCurrentTokenColumn() + token.value.length;
           iterator = new TokenIterator(this, row, column);
+          var initState = this.getState(iterator.$row);
           if (dir != -1) {
             var lastRow = -1;
             do {
               token = iterator.stepForward();
               if (lastRow == -1) {
                 var state = this.getState(iterator.$row);
-                if (!re2.test(state))
+                if (initState.toString() !== state.toString())
                   lastRow = iterator.$row;
               } else if (iterator.$row > lastRow) {
                 break;
               }
-            } while (token && re2.test(token.type) && !/^comment.start/.test(token.type));
+            } while (token && re2.test(token.type));
             token = iterator.stepBackward();
           } else
             token = iterator.getCurrentToken();
           range.end.row = iterator.getCurrentTokenRow();
           range.end.column = iterator.getCurrentTokenColumn();
-          if (!/^comment.end/.test(token.type)) {
-            range.end.column += token.value.length - 2;
-          }
           return range;
         }
       };
@@ -41702,6 +41975,10 @@ var ace$2 = { exports: {} };
         var foundOpenTagEnd = false;
         do {
           prevToken = token;
+          if (prevToken.type.indexOf("tag-close") !== -1 && !foundOpenTagEnd) {
+            var openTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
+            foundOpenTagEnd = true;
+          }
           token = iterator.stepForward();
           if (token) {
             if (token.value === ">" && !foundOpenTagEnd) {
@@ -41720,7 +41997,9 @@ var ace$2 = { exports: {} };
                     var closeTagStart = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 2);
                     token = iterator.stepForward();
                     var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length);
-                    token = iterator.stepForward();
+                    if (token.type.indexOf("tag-close") === -1) {
+                      token = iterator.stepForward();
+                    }
                     if (token && token.value === ">") {
                       var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
                     } else {
@@ -41759,7 +42038,9 @@ var ace$2 = { exports: {} };
         var closeTagStart = new Range(startRow, startColumn, startRow, endColumn);
         iterator.stepForward();
         var closeTagName = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + token.value.length);
-        token = iterator.stepForward();
+        if (token.type.indexOf("tag-close") === -1) {
+          token = iterator.stepForward();
+        }
         if (!token || token.value !== ">")
           return;
         var closeTagEnd = new Range(iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn(), iterator.getCurrentTokenRow(), iterator.getCurrentTokenColumn() + 1);
@@ -41841,6 +42122,7 @@ var ace$2 = { exports: {} };
         this.$backMarkers = {};
         this.$markerId = 1;
         this.$undoSelect = true;
+        this.prevOp = {};
         this.$foldData = [];
         this.id = "session" + ++EditSession2.$uid;
         this.$foldData.toString = function() {
@@ -41857,12 +42139,73 @@ var ace$2 = { exports: {} };
           text = new Document2(text);
         this.setDocument(text);
         this.selection = new Selection(this);
+        this.$onSelectionChange = this.onSelectionChange.bind(this);
+        this.selection.on("changeSelection", this.$onSelectionChange);
+        this.selection.on("changeCursor", this.$onSelectionChange);
         this.$bidiHandler = new BidiHandler(this);
         config.resetOptions(this);
         this.setMode(mode);
         config._signal("session", this);
         this.destroyed = false;
+        this.$initOperationListeners();
       }
+      EditSession2.prototype.$initOperationListeners = function() {
+        var _this = this;
+        this.curOp = null;
+        this.on("change", function() {
+          if (!_this.curOp) {
+            _this.startOperation();
+            _this.curOp.selectionBefore = _this.$lastSel;
+          }
+          _this.curOp.docChanged = true;
+        }, true);
+        this.on("changeSelection", function() {
+          if (!_this.curOp) {
+            _this.startOperation();
+            _this.curOp.selectionBefore = _this.$lastSel;
+          }
+          _this.curOp.selectionChanged = true;
+        }, true);
+        this.$operationResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
+      };
+      EditSession2.prototype.startOperation = function(commandEvent) {
+        if (this.curOp) {
+          if (!commandEvent || this.curOp.command) {
+            return;
+          }
+          this.prevOp = this.curOp;
+        }
+        if (!commandEvent) {
+          commandEvent = {};
+        }
+        this.$operationResetTimer.schedule();
+        this.curOp = {
+          command: commandEvent.command || {},
+          args: commandEvent.args
+        };
+        this.curOp.selectionBefore = this.selection.toJSON();
+        this._signal("startOperation", commandEvent);
+      };
+      EditSession2.prototype.endOperation = function(e13) {
+        if (this.curOp) {
+          if (e13 && e13.returnValue === false) {
+            this.curOp = null;
+            this._signal("endOperation", e13);
+            return;
+          }
+          if (e13 == true && this.curOp.command && this.curOp.command.name == "mouse") {
+            return;
+          }
+          var currentSelection = this.selection.toJSON();
+          this.curOp.selectionAfter = currentSelection;
+          this.$lastSel = this.selection.toJSON();
+          this.getUndoManager().addSelection(currentSelection);
+          this._signal("beforeEndOperation");
+          this.prevOp = this.curOp;
+          this.curOp = null;
+          this._signal("endOperation", e13);
+        }
+      };
       EditSession2.prototype.setDocument = function(doc) {
         if (this.doc)
           this.doc.off("change", this.$onChange);
@@ -41933,6 +42276,9 @@ var ace$2 = { exports: {} };
         }
         this.bgTokenizer.$updateOnChange(delta);
         this._signal("change", delta);
+      };
+      EditSession2.prototype.onSelectionChange = function() {
+        this._signal("changeSelection");
       };
       EditSession2.prototype.setValue = function(text) {
         this.doc.setValue(text);
@@ -43220,16 +43566,29 @@ var ace$2 = { exports: {} };
           return [screenColumn, column];
         };
       };
+      EditSession2.prototype.getPrecedingCharacter = function() {
+        var pos = this.selection.getCursor();
+        if (pos.column === 0) {
+          return pos.row === 0 ? "" : this.doc.getNewLineCharacter();
+        }
+        var currentLine = this.getLine(pos.row);
+        return currentLine[pos.column - 1];
+      };
       EditSession2.prototype.destroy = function() {
         if (!this.destroyed) {
           this.bgTokenizer.setDocument(null);
           this.bgTokenizer.cleanup();
           this.destroyed = true;
         }
+        this.endOperation();
         this.$stopWorker();
         this.removeAllListeners();
         if (this.doc) {
           this.doc.off("change", this.$onChange);
+        }
+        if (this.selection) {
+          this.selection.off("changeCursor", this.$onSelectionChange);
+          this.selection.off("changeSelection", this.$onSelectionChange);
         }
         this.selection.detach();
       };
@@ -43498,6 +43857,9 @@ var ace$2 = { exports: {} };
         var match = re2.exec(input);
         if (!match || match[0].length != input.length)
           return null;
+        if (!options.regExp) {
+          replacement = replacement.replace(/\$/g, "$$$$");
+        }
         replacement = input.replace(re2, replacement);
         if (options.preserveCase) {
           replacement = replacement.split("");
@@ -43958,16 +44320,24 @@ var ace$2 = { exports: {} };
         }
         if (typeof command === "string")
           command = this.commands[command];
+        if (!this.canExecute(command, editor)) {
+          return false;
+        }
+        var e13 = { editor, command, args };
+        e13.returnValue = this._emit("exec", e13);
+        this._signal("afterExec", e13);
+        return e13.returnValue === false ? false : true;
+      };
+      CommandManager2.prototype.canExecute = function(command, editor) {
+        if (typeof command === "string")
+          command = this.commands[command];
         if (!command)
           return false;
         if (editor && editor.$readOnly && !command.readOnly)
           return false;
         if (this.$checkCommandState != false && command.isAvailable && !command.isAvailable(editor))
           return false;
-        var e13 = { editor, command, args };
-        e13.returnValue = this._emit("exec", e13);
-        this._signal("afterExec", e13);
-        return e13.returnValue === false ? false : true;
+        return true;
       };
       CommandManager2.prototype.toggleRecording = function(editor) {
         if (this.$inReplay)
@@ -44987,7 +45357,6 @@ var ace$2 = { exports: {} };
         exec: function(editor) {
           editor.autoIndent();
         },
-        multiSelectAction: "forEachLine",
         scrollIntoView: "animate"
       },
       {
@@ -45911,46 +46280,27 @@ var ace$2 = { exports: {} };
       Editor3.prototype.$initOperationListeners = function() {
         this.commands.on("exec", this.startOperation.bind(this), true);
         this.commands.on("afterExec", this.endOperation.bind(this), true);
-        this.$opResetTimer = lang.delayedCall(this.endOperation.bind(this, true));
-        this.on("change", function() {
-          if (!this.curOp) {
-            this.startOperation();
-            this.curOp.selectionBefore = this.$lastSel;
-          }
-          this.curOp.docChanged = true;
-        }.bind(this), true);
-        this.on("changeSelection", function() {
-          if (!this.curOp) {
-            this.startOperation();
-            this.curOp.selectionBefore = this.$lastSel;
-          }
-          this.curOp.selectionChanged = true;
-        }.bind(this), true);
       };
       Editor3.prototype.startOperation = function(commandEvent) {
-        if (this.curOp) {
-          if (!commandEvent || this.curOp.command)
-            return;
-          this.prevOp = this.curOp;
-        }
-        if (!commandEvent) {
-          this.previousCommand = null;
-          commandEvent = {};
-        }
-        this.$opResetTimer.schedule();
-        this.curOp = this.session.curOp = {
-          command: commandEvent.command || {},
-          args: commandEvent.args,
-          scrollTop: this.renderer.scrollTop
-        };
-        this.curOp.selectionBefore = this.selection.toJSON();
+        this.session.startOperation(commandEvent);
       };
       Editor3.prototype.endOperation = function(e13) {
+        this.session.endOperation(e13);
+      };
+      Editor3.prototype.onStartOperation = function(commandEvent) {
+        this.curOp = this.session.curOp;
+        this.curOp.scrollTop = this.renderer.scrollTop;
+        this.prevOp = this.session.prevOp;
+        if (!commandEvent) {
+          this.previousCommand = null;
+        }
+      };
+      Editor3.prototype.onEndOperation = function(e13) {
         if (this.curOp && this.session) {
-          if (e13 && e13.returnValue === false || !this.session)
-            return this.curOp = null;
-          if (e13 == true && this.curOp.command && this.curOp.command.name == "mouse")
+          if (e13 && e13.returnValue === false) {
+            this.curOp = null;
             return;
+          }
           this._signal("beforeEndOperation");
           if (!this.curOp)
             return;
@@ -45978,10 +46328,7 @@ var ace$2 = { exports: {} };
             if (scrollIntoView == "animate")
               this.renderer.animateScrolling(this.curOp.scrollTop);
           }
-          var sel = this.selection.toJSON();
-          this.curOp.selectionAfter = sel;
-          this.$lastSel = this.selection.toJSON();
-          this.session.getUndoManager().addSelection(sel);
+          this.$lastSel = this.session.selection.toJSON();
           this.prevOp = this.curOp;
           this.curOp = null;
         }
@@ -46049,6 +46396,8 @@ var ace$2 = { exports: {} };
           this.session.off("changeOverwrite", this.$onCursorChange);
           this.session.off("changeScrollTop", this.$onScrollTopChange);
           this.session.off("changeScrollLeft", this.$onScrollLeftChange);
+          this.session.off("startOperation", this.$onStartOperation);
+          this.session.off("endOperation", this.$onEndOperation);
           var selection = this.session.getSelection();
           selection.off("changeCursor", this.$onCursorChange);
           selection.off("changeSelection", this.$onSelectionChange);
@@ -46088,6 +46437,10 @@ var ace$2 = { exports: {} };
           this.selection.on("changeCursor", this.$onCursorChange);
           this.$onSelectionChange = this.onSelectionChange.bind(this);
           this.selection.on("changeSelection", this.$onSelectionChange);
+          this.$onStartOperation = this.onStartOperation.bind(this);
+          this.session.on("startOperation", this.$onStartOperation);
+          this.$onEndOperation = this.onEndOperation.bind(this);
+          this.session.on("endOperation", this.$onEndOperation);
           this.onChangeMode();
           this.onCursorChange();
           this.onScrollTopChange();
@@ -46179,8 +46532,12 @@ var ace$2 = { exports: {} };
             var token = iterator.getCurrentToken();
             if (token && /\b(?:tag-open|tag-name)/.test(token.type)) {
               var tagNamesRanges = session.getMatchingTags(pos);
-              if (tagNamesRanges)
-                ranges = [tagNamesRanges.openTagName, tagNamesRanges.closeTagName];
+              if (tagNamesRanges) {
+                ranges = [
+                  tagNamesRanges.openTagName.isEmpty() ? tagNamesRanges.openTag : tagNamesRanges.openTagName,
+                  tagNamesRanges.closeTagName.isEmpty() ? tagNamesRanges.closeTag : tagNamesRanges.closeTagName
+                ];
+              }
             }
           }
           if (!ranges && session.$mode.getMatching)
@@ -46476,38 +46833,33 @@ var ace$2 = { exports: {} };
       Editor3.prototype.autoIndent = function() {
         var session = this.session;
         var mode = session.getMode();
-        var startRow, endRow;
-        if (this.selection.isEmpty()) {
-          startRow = 0;
-          endRow = session.doc.getLength() - 1;
-        } else {
-          var selectedRange = this.getSelectionRange();
-          startRow = selectedRange.start.row;
-          endRow = selectedRange.end.row;
-        }
+        var ranges = this.selection.isEmpty() ? [new Range(0, 0, session.doc.getLength() - 1, 0)] : this.selection.getAllRanges();
         var prevLineState = "";
         var prevLine = "";
         var lineIndent = "";
-        var line, currIndent, range;
         var tab = session.getTabString();
-        for (var row = startRow; row <= endRow; row++) {
-          if (row > 0) {
-            prevLineState = session.getState(row - 1);
-            prevLine = session.getLine(row - 1);
-            lineIndent = mode.getNextLineIndent(prevLineState, prevLine, tab);
-          }
-          line = session.getLine(row);
-          currIndent = mode.$getIndent(line);
-          if (lineIndent !== currIndent) {
-            if (currIndent.length > 0) {
-              range = new Range(row, 0, row, currIndent.length);
-              session.remove(range);
+        for (var i10 = 0; i10 < ranges.length; i10++) {
+          var startRow = ranges[i10].start.row;
+          var endRow = ranges[i10].end.row;
+          for (var row = startRow; row <= endRow; row++) {
+            if (row > 0) {
+              prevLineState = session.getState(row - 1);
+              prevLine = session.getLine(row - 1);
+              lineIndent = mode.getNextLineIndent(prevLineState, prevLine, tab);
             }
-            if (lineIndent.length > 0) {
-              session.insert({ row, column: 0 }, lineIndent);
+            var line = session.getLine(row);
+            var currIndent = mode.$getIndent(line);
+            if (lineIndent !== currIndent) {
+              if (currIndent.length > 0) {
+                var range = new Range(row, 0, row, currIndent.length);
+                session.remove(range);
+              }
+              if (lineIndent.length > 0) {
+                session.insert({ row, column: 0 }, lineIndent);
+              }
             }
+            mode.autoOutdent(prevLineState, session, row);
           }
-          mode.autoOutdent(prevLineState, session, row);
         }
       };
       Editor3.prototype.onTextInput = function(text, composition) {
@@ -47736,21 +48088,24 @@ var ace$2 = { exports: {} };
             this.textInput.setNumberOfExtraLines(useragent.isWin ? 3 : 0);
             this.renderer.scroller.setAttribute("tabindex", 0);
             this.renderer.scroller.setAttribute("role", "group");
-            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor"));
+            this.renderer.scroller.setAttribute("aria-roledescription", nls("editor.scroller.aria-roledescription", "editor"));
             this.renderer.scroller.classList.add(this.renderer.keyboardFocusClassName);
-            this.renderer.scroller.setAttribute("aria-label", nls("Editor content, press Enter to start editing, press Escape to exit"));
+            this.renderer.scroller.setAttribute("aria-label", nls("editor.scroller.aria-label", "Editor content, press Enter to start editing, press Escape to exit"));
             this.renderer.scroller.addEventListener("keyup", focusOnEnterKeyup.bind(this));
             this.commands.addCommand(blurCommand);
             this.renderer.$gutter.setAttribute("tabindex", 0);
             this.renderer.$gutter.setAttribute("aria-hidden", false);
             this.renderer.$gutter.setAttribute("role", "group");
-            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor"));
-            this.renderer.$gutter.setAttribute("aria-label", nls("Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
+            this.renderer.$gutter.setAttribute("aria-roledescription", nls("editor.gutter.aria-roledescription", "editor"));
+            this.renderer.$gutter.setAttribute("aria-label", nls("editor.gutter.aria-label", "Editor gutter, press Enter to interact with controls using arrow keys, press Escape to exit"));
             this.renderer.$gutter.classList.add(this.renderer.keyboardFocusClassName);
             this.renderer.content.setAttribute("aria-hidden", true);
             if (!gutterKeyboardHandler)
               gutterKeyboardHandler = new GutterKeyboardHandler(this);
             gutterKeyboardHandler.addListener();
+            this.textInput.setAriaOptions({
+              setLabel: true
+            });
           } else {
             this.renderer.enableKeyboardAccessibility = false;
             this.textInput.getElement().setAttribute("tabindex", 0);
@@ -47774,6 +48129,18 @@ var ace$2 = { exports: {} };
           }
         },
         initialValue: false
+      },
+      textInputAriaLabel: {
+        set: function(val) {
+          this.$textInputAriaLabel = val;
+        },
+        initialValue: ""
+      },
+      enableMobileMenu: {
+        set: function(val) {
+          this.$enableMobileMenu = val;
+        },
+        initialValue: true
       },
       customScrollbar: "renderer",
       hScrollBarAlwaysVisible: "renderer",
@@ -47985,23 +48352,31 @@ var ace$2 = { exports: {} };
           var row = annotation.row;
           var rowInfo = this.$annotations[row];
           if (!rowInfo)
-            rowInfo = this.$annotations[row] = { text: [], type: [] };
+            rowInfo = this.$annotations[row] = { text: [], type: [], displayText: [] };
           var annoText = annotation.text;
+          var displayAnnoText = annotation.text;
           var annoType = annotation.type;
           annoText = annoText ? lang.escapeHTML(annoText) : annotation.html || "";
+          displayAnnoText = displayAnnoText ? displayAnnoText : annotation.html || "";
           if (rowInfo.text.indexOf(annoText) === -1) {
             rowInfo.text.push(annoText);
             rowInfo.type.push(annoType);
+            rowInfo.displayText.push(displayAnnoText);
           }
           var className = annotation.className;
-          if (className)
+          if (className) {
             rowInfo.className = className;
-          else if (annoType == "error")
+          } else if (annoType === "error") {
             rowInfo.className = " ace_error";
-          else if (annoType == "warning" && rowInfo.className != " ace_error")
+          } else if (annoType === "security" && !/\bace_error\b/.test(rowInfo.className)) {
+            rowInfo.className = " ace_security";
+          } else if (annoType === "warning" && !/\bace_(error|security)\b/.test(rowInfo.className)) {
             rowInfo.className = " ace_warning";
-          else if (annoType == "info" && !rowInfo.className)
+          } else if (annoType === "info" && !rowInfo.className) {
             rowInfo.className = " ace_info";
+          } else if (annoType === "hint" && !rowInfo.className) {
+            rowInfo.className = " ace_hint";
+          }
         }
       };
       Gutter2.prototype.$updateAnnotations = function(delta) {
@@ -48211,10 +48586,12 @@ var ace$2 = { exports: {} };
                 foldAnnotationClass = " ace_error_fold";
                 break;
               }
-              if (this.$annotations[i10].className === " ace_warning") {
+              if (this.$annotations[i10].className === " ace_security") {
+                annotationInFold = true;
+                foldAnnotationClass = " ace_security_fold";
+              } else if (this.$annotations[i10].className === " ace_warning" && foldAnnotationClass !== " ace_security_fold") {
                 annotationInFold = true;
                 foldAnnotationClass = " ace_warning_fold";
-                continue;
               }
             }
             className += foldAnnotationClass;
@@ -48228,19 +48605,25 @@ var ace$2 = { exports: {} };
           foldWidget.setAttribute("tabindex", "-1");
           var foldRange = session.getFoldWidgetRange(row);
           if (foldRange)
-            foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [foldRange.start.row + 1, foldRange.end.row + 1]));
+            foldWidget.setAttribute("aria-label", nls("gutter.code-folding.range.aria-label", "Toggle code folding, rows $0 through $1", [
+              foldRange.start.row + 1,
+              foldRange.end.row + 1
+            ]));
           else {
             if (fold)
-              foldWidget.setAttribute("aria-label", nls("Toggle code folding, rows $0 through $1", [fold.start.row + 1, fold.end.row + 1]));
+              foldWidget.setAttribute("aria-label", nls("gutter.code-folding.closed.aria-label", "Toggle code folding, rows $0 through $1", [
+                fold.start.row + 1,
+                fold.end.row + 1
+              ]));
             else
-              foldWidget.setAttribute("aria-label", nls("Toggle code folding, row $0", [row + 1]));
+              foldWidget.setAttribute("aria-label", nls("gutter.code-folding.open.aria-label", "Toggle code folding, row $0", [row + 1]));
           }
           if (isClosedFold) {
             foldWidget.setAttribute("aria-expanded", "false");
-            foldWidget.setAttribute("title", nls("Unfold code"));
+            foldWidget.setAttribute("title", nls("gutter.code-folding.closed.title", "Unfold code"));
           } else {
             foldWidget.setAttribute("aria-expanded", "true");
-            foldWidget.setAttribute("title", nls("Fold code"));
+            foldWidget.setAttribute("title", nls("gutter.code-folding.open.title", "Fold code"));
           }
         } else {
           if (foldWidget) {
@@ -48257,7 +48640,19 @@ var ace$2 = { exports: {} };
           dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
           dom.setStyle(annotationNode.style, "height", lineHeight);
-          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          var ariaLabel;
+          switch (foldAnnotationClass) {
+            case " ace_error_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.error", "Error, read annotations row $0", [rowText]);
+              break;
+            case " ace_security_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.security", "Security finding, read annotations row $0", [rowText]);
+              break;
+            case " ace_warning_fold":
+              ariaLabel = nls("gutter.annotation.aria-label.warning", "Warning, read annotations row $0", [rowText]);
+              break;
+          }
+          annotationNode.setAttribute("aria-label", ariaLabel);
           annotationNode.setAttribute("tabindex", "-1");
           annotationNode.setAttribute("role", "button");
         } else if (this.$annotations[row]) {
@@ -48270,7 +48665,25 @@ var ace$2 = { exports: {} };
           dom.setStyle(annotationIconNode.style, "height", lineHeight);
           dom.setStyle(annotationNode.style, "display", "block");
           dom.setStyle(annotationNode.style, "height", lineHeight);
-          annotationNode.setAttribute("aria-label", nls("Read annotations row $0", [rowText]));
+          var ariaLabel;
+          switch (this.$annotations[row].className) {
+            case " ace_error":
+              ariaLabel = nls("gutter.annotation.aria-label.error", "Error, read annotations row $0", [rowText]);
+              break;
+            case " ace_security":
+              ariaLabel = nls("gutter.annotation.aria-label.security", "Security finding, read annotations row $0", [rowText]);
+              break;
+            case " ace_warning":
+              ariaLabel = nls("gutter.annotation.aria-label.warning", "Warning, read annotations row $0", [rowText]);
+              break;
+            case " ace_info":
+              ariaLabel = nls("gutter.annotation.aria-label.info", "Info, read annotations row $0", [rowText]);
+              break;
+            case " ace_hint":
+              ariaLabel = nls("gutter.annotation.aria-label.hint", "Suggestion, read annotations row $0", [rowText]);
+              break;
+          }
+          annotationNode.setAttribute("aria-label", ariaLabel);
           annotationNode.setAttribute("tabindex", "-1");
           annotationNode.setAttribute("role", "button");
         } else {
@@ -48460,7 +48873,7 @@ var ace$2 = { exports: {} };
           range1.end.column = this.session.getLine(range1.start.row).length;
           this.drawBidiSingleLineMarker(stringBuilder, range1, clazz + " ace_br1 ace_start", config, null, extraStyle);
         } else {
-          this.elt(clazz + " ace_br1 ace_start", "height:" + height + "px;right:0;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
+          this.elt(clazz + " ace_br1 ace_start", "height:" + height + "px;right:" + padding + "px;top:" + top + "px;left:" + left + "px;" + (extraStyle || ""));
         }
         if (this.session.$bidiHandler.isBidiRow(range.end.row)) {
           var range1 = range.clone();
@@ -48477,7 +48890,7 @@ var ace$2 = { exports: {} };
           return;
         top = this.$getTop(range.start.row + 1, config);
         var radiusClass = (range.start.column ? 1 : 0) | (range.end.column ? 0 : 8);
-        this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:0;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
+        this.elt(clazz + (radiusClass ? " ace_br" + radiusClass : ""), "height:" + height + "px;right:" + padding + "px;top:" + top + "px;left:" + padding + "px;" + (extraStyle || ""));
       };
       Marker2.prototype.drawSingleLineMarker = function(stringBuilder, range, clazz, config, extraLength, extraStyle) {
         if (this.session.$bidiHandler.isBidiRow(range.start.row))
@@ -48815,7 +49228,7 @@ var ace$2 = { exports: {} };
           var span = this.dom.createElement("span");
           if (token.type == "fold") {
             span.style.width = token.value.length * this.config.characterWidth + "px";
-            span.setAttribute("title", nls("Unfold code"));
+            span.setAttribute("title", nls("inline-fold.closed.title", "Unfold code"));
           }
           span.className = classes;
           span.appendChild(valueFragment);
@@ -49851,7 +50264,7 @@ var ace$2 = { exports: {} };
       FontMetrics2.prototype.$getZoom = function(element) {
         if (!element || !element.parentElement)
           return 1;
-        return (window.getComputedStyle(element)["zoom"] || 1) * this.$getZoom(element.parentElement);
+        return (Number(window.getComputedStyle(element)["zoom"]) || 1) * this.$getZoom(element.parentElement);
       };
       FontMetrics2.prototype.$initTransformMeasureNodes = function() {
         var t10 = function(t11, l10) {
@@ -49938,6 +50351,7 @@ var ace$2 = { exports: {} };
     direction: ltr;
     text-align: left;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    forced-color-adjust: none;
 }
 
 .ace_scroller {
@@ -50033,7 +50447,7 @@ var ace$2 = { exports: {} };
     float: left;
 }
 
-.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold {
+.ace_gutter-cell.ace_error, .ace_icon.ace_error, .ace_icon.ace_error_fold, .ace_gutter-cell.ace_security, .ace_icon.ace_security, .ace_icon.ace_security_fold {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");
     background-repeat: no-repeat;
     background-position: 2px center;
@@ -50045,17 +50459,22 @@ var ace$2 = { exports: {} };
     background-position: 2px center;
 }
 
-.ace_gutter-cell.ace_info, .ace_icon.ace_info {
+.ace_gutter-cell.ace_info, .ace_icon.ace_info, .ace_gutter-cell.ace_hint, .ace_icon.ace_hint {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");
     background-repeat: no-repeat;
     background-position: 2px center;
 }
-.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info {
+
+.ace_dark .ace_gutter-cell.ace_info, .ace_dark .ace_icon.ace_info, .ace_dark .ace_gutter-cell.ace_hint, .ace_dark .ace_icon.ace_hint {
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");
 }
 
 .ace_icon_svg.ace_error {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJyZWQiIHNoYXBlLXJlbmRlcmluZz0iZ2VvbWV0cmljUHJlY2lzaW9uIj4KPGNpcmNsZSBmaWxsPSJub25lIiBjeD0iOCIgY3k9IjgiIHI9IjciIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPGxpbmUgeDE9IjExIiB5MT0iNSIgeDI9IjUiIHkyPSIxMSIvPgo8bGluZSB4MT0iMTEiIHkxPSIxMSIgeDI9IjUiIHkyPSI1Ii8+CjwvZz4KPC9zdmc+");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_security {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0iZGFya29yYW5nZSIgZmlsbD0ibm9uZSIgc2hhcGUtcmVuZGVyaW5nPSJnZW9tZXRyaWNQcmVjaXNpb24iPgogICAgICAgIDxwYXRoIGNsYXNzPSJzdHJva2UtbGluZWpvaW4tcm91bmQiIGQ9Ik04IDE0LjgzMDdDOCAxNC44MzA3IDIgMTIuOTA0NyAyIDguMDg5OTJWMy4yNjU0OEM1LjMxIDMuMjY1NDggNy45ODk5OSAxLjM0OTE4IDcuOTg5OTkgMS4zNDkxOEM3Ljk4OTk5IDEuMzQ5MTggMTAuNjkgMy4yNjU0OCAxNCAzLjI2NTQ4VjguMDg5OTJDMTQgMTIuOTA0NyA4IDE0LjgzMDcgOCAxNC44MzA3WiIvPgogICAgICAgIDxwYXRoIGQ9Ik0yIDguMDg5OTJWMy4yNjU0OEM1LjMxIDMuMjY1NDggNy45ODk5OSAxLjM0OTE4IDcuOTg5OTkgMS4zNDkxOCIvPgogICAgICAgIDxwYXRoIGQ9Ik0xMy45OSA4LjA4OTkyVjMuMjY1NDhDMTAuNjggMy4yNjU0OCA4IDEuMzQ5MTggOCAxLjM0OTE4Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTggNFY5Ii8+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTggMTBWMTIiLz4KICAgIDwvZz4KPC9zdmc+");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning {
@@ -50066,9 +50485,17 @@ var ace$2 = { exports: {} };
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiI+CjxnIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlPSJibHVlIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CjxjaXJjbGUgZmlsbD0ibm9uZSIgY3g9IjgiIGN5PSI4IiByPSI3IiBzdHJva2UtbGluZWpvaW49InJvdW5kIi8+Cjxwb2x5bGluZSBwb2ludHM9IjggMTEgOCA4Ii8+Cjxwb2x5bGluZSBwb2ludHM9IjkgOCA2IDgiLz4KPGxpbmUgeDE9IjEwIiB5MT0iMTEiIHgyPSI2IiB5Mj0iMTEiLz4KPHJlY3QgeD0iOCIgeT0iNSIgd2lkdGg9IjAuMDEiIGhlaWdodD0iMC4wMSIvPgo8L2c+Cjwvc3ZnPg==");
     background-color: royalblue;
 }
+.ace_icon_svg.ace_hint {
+    -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjAgMTYiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CiAgICA8ZyBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZT0ic2lsdmVyIiBmaWxsPSJub25lIiBzaGFwZS1yZW5kZXJpbmc9Imdlb21ldHJpY1ByZWNpc2lvbiI+CiAgICAgICAgPHBhdGggY2xhc3M9InN0cm9rZS1saW5lam9pbi1yb3VuZCIgZD0iTTYgMTRIMTAiLz4KICAgICAgICA8cGF0aCBkPSJNOCAxMUg5QzkgOS40NzAwMiAxMiA4LjU0MDAyIDEyIDUuNzYwMDJDMTIuMDIgNC40MDAwMiAxMS4zOSAzLjM2MDAyIDEwLjQzIDIuNjcwMDJDOSAxLjY0MDAyIDcuMDAwMDEgMS42NDAwMiA1LjU3MDAxIDIuNjcwMDJDNC42MTAwMSAzLjM2MDAyIDMuOTggNC40MDAwMiA0IDUuNzYwMDJDNCA4LjU0MDAyIDcuMDAwMDEgOS40NzAwMiA3LjAwMDAxIDExSDhaIi8+CiAgICA8L2c+Cjwvc3ZnPg==");
+    background-color: silver;
+}
 
 .ace_icon_svg.ace_error_fold {
     -webkit-mask-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyMCAxNiIgZmlsbD0ibm9uZSI+CiAgPHBhdGggZD0ibSAxOC45Mjk4NTEsNy44Mjk4MDc2IGMgMC4xNDYzNTMsNi4zMzc0NjA0IC02LjMyMzE0Nyw3Ljc3Nzg0NDQgLTcuNDc3OTEyLDcuNzc3ODQ0NCAtMi4xMDcyNzI2LC0wLjEyODc1IDUuMTE3Njc4LDAuMzU2MjQ5IDUuMDUxNjk4LC03Ljg3MDA2MTggLTAuNjA0NjcyLC04LjAwMzk3MzQ5IC03LjA3NzI3MDYsLTcuNTYzMTE4OSAtNC44NTczLC03LjQzMDM5NTU2IDEuNjA2LC0wLjExNTE0MjI1IDYuODk3NDg1LDEuMjYyNTQ1OTYgNy4yODM1MTQsNy41MjI2MTI5NiB6IiBmaWxsPSJjcmltc29uIiBzdHJva2Utd2lkdGg9IjIiLz4KICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0ibSA4LjExNDc1NjIsMi4wNTI5ODI4IGMgMy4zNDkxNjk4LDAgNi4wNjQxMzI4LDIuNjc2ODYyNyA2LjA2NDEzMjgsNS45Nzg5NTMgMCwzLjMwMjExMjIgLTIuNzE0OTYzLDUuOTc4OTIwMiAtNi4wNjQxMzI4LDUuOTc4OTIwMiAtMy4zNDkxNDczLDAgLTYuMDY0MTc3MiwtMi42NzY4MDggLTYuMDY0MTc3MiwtNS45Nzg5MjAyIDAuMDA1MzksLTMuMjk5ODg2MSAyLjcxNzI2NTYsLTUuOTczNjQwOCA2LjA2NDE3NzIsLTUuOTc4OTUzIHogbSAwLC0xLjczNTgyNzE5IGMgLTQuMzIxNDgzNiwwIC03LjgyNDc0MDM4LDMuNDU0MDE4NDkgLTcuODI0NzQwMzgsNy43MTQ3ODAxOSAwLDQuMjYwNzI4MiAzLjUwMzI1Njc4LDcuNzE0NzQ1MiA3LjgyNDc0MDM4LDcuNzE0NzQ1MiA0LjMyMTQ0OTgsMCA3LjgyNDY5OTgsLTMuNDU0MDE3IDcuODI0Njk5OCwtNy43MTQ3NDUyIDAsLTIuMDQ2MDkxNCAtMC44MjQzOTIsLTQuMDA4MzY3MiAtMi4yOTE3NTYsLTUuNDU1MTc0NiBDIDEyLjE4MDIyNSwxLjEyOTk2NDggMTAuMTkwMDEzLDAuMzE3MTU1NjEgOC4xMTQ3NTYyLDAuMzE3MTU1NjEgWiBNIDYuOTM3NDU2Myw4LjI0MDU5ODUgNC42NzE4Njg1LDEwLjQ4NTg1MiA2LjAwODY4MTQsMTEuODc2NzI4IDguMzE3MDAzNSw5LjYwMDc5MTEgMTAuNjI1MzM3LDExLjg3NjcyOCAxMS45NjIxMzgsMTAuNDg1ODUyIDkuNjk2NTUwOCw4LjI0MDU5ODUgMTEuOTYyMTM4LDYuMDA2ODA2NiAxMC41NzMyNDYsNC42Mzc0MzM1IDguMzE3MDAzNSw2Ljg3MzQyOTcgNi4wNjA3NjA3LDQuNjM3NDMzNSA0LjY3MTg2ODUsNi4wMDY4MDY2IFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
+    background-color: crimson;
+}
+.ace_icon_svg.ace_security_fold {
+    -webkit-mask-image: url("data:image/svg+xml;base64,CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2aWV3Qm94PSIwIDAgMTcgMTQiIGZpbGw9Im5vbmUiPgogICAgPHBhdGggZD0iTTEwLjAwMDEgMTMuNjk5MkMxMC4wMDAxIDEzLjY5OTIgMTEuOTI0MSAxMy40NzYzIDEzIDEyLjY5OTJDMTQuNDEzOSAxMS42NzgxIDE2IDEwLjUgMTYuMTI1MSA2LjgxMTI2VjIuNTg5ODdDMTYuMTI1MSAyLjU0NzY4IDE2LjEyMjEgMi41MDYxOSAxNi4xMTY0IDIuNDY1NTlWMS43MTQ4NUgxNS4yNDE0TDE1LjIzMDcgMS43MTQ4NEwxNC42MjUxIDEuNjk5MjJWNi44MTEyM0MxNC42MjUxIDguNTEwNjEgMTQuNjI1MSA5LjQ2NDYxIDEyLjc4MjQgMTEuNzIxQzEyLjE1ODYgMTIuNDg0OCAxMC4wMDAxIDEzLjY5OTIgMTAuMDAwMSAxMy42OTkyWiIgZmlsbD0iY3JpbXNvbiIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgICA8cGF0aCBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTcuMzM2MDkgMC4zNjc0NzVDNy4wMzIxNCAwLjE1MjY1MiA2LjYyNTQ4IDAuMTUzNjE0IDYuMzIyNTMgMC4zNjk5OTdMNi4zMDg2OSAwLjM3OTU1NEM2LjI5NTUzIDAuMzg4NTg4IDYuMjczODggMC40MDMyNjYgNi4yNDQxNyAwLjQyMjc4OUM2LjE4NDcxIDAuNDYxODYgNi4wOTMyMSAwLjUyMDE3MSA1Ljk3MzEzIDAuNTkxMzczQzUuNzMyNTEgMC43MzQwNTkgNS4zNzk5IDAuOTI2ODY0IDQuOTQyNzkgMS4xMjAwOUM0LjA2MTQ0IDEuNTA5NyAyLjg3NTQxIDEuODgzNzcgMS41ODk4NCAxLjg4Mzc3SDAuNzE0ODQ0VjIuNzU4NzdWNi45ODAxNUMwLjcxNDg0NCA5LjQ5Mzc0IDIuMjg4NjYgMTEuMTk3MyAzLjcwMjU0IDEyLjIxODVDNC40MTg0NSAxMi43MzU1IDUuMTI4NzQgMTMuMTA1MyA1LjY1NzMzIDEzLjM0NTdDNS45MjI4NCAxMy40NjY0IDYuMTQ1NjYgMTMuNTU1OSA2LjMwNDY1IDEzLjYxNjFDNi4zODQyMyAxMy42NDYyIDYuNDQ4MDUgMTMuNjY5IDYuNDkzNDkgMTMuNjg0OEM2LjUxNjIyIDEzLjY5MjcgNi41MzQzOCAxMy42OTg5IDYuNTQ3NjQgMTMuNzAzM0w2LjU2MzgyIDEzLjcwODdMNi41NjkwOCAxMy43MTA0TDYuNTcwOTkgMTMuNzExTDYuODM5ODQgMTMuNzUzM0w2LjU3MjQyIDEzLjcxMTVDNi43NDYzMyAxMy43NjczIDYuOTMzMzUgMTMuNzY3MyA3LjEwNzI3IDEzLjcxMTVMNy4xMDg3IDEzLjcxMUw3LjExMDYxIDEzLjcxMDRMNy4xMTU4NyAxMy43MDg3TDcuMTMyMDUgMTMuNzAzM0M3LjE0NTMxIDEzLjY5ODkgNy4xNjM0NiAxMy42OTI3IDcuMTg2MTkgMTMuNjg0OEM3LjIzMTY0IDEzLjY2OSA3LjI5NTQ2IDEzLjY0NjIgNy4zNzUwMyAxMy42MTYxQzcuNTM0MDMgMTMuNTU1OSA3Ljc1Njg1IDEzLjQ2NjQgOC4wMjIzNiAxMy4zNDU3QzguNTUwOTUgMTMuMTA1MyA5LjI2MTIzIDEyLjczNTUgOS45NzcxNSAxMi4yMTg1QzExLjM5MSAxMS4xOTczIDEyLjk2NDggOS40OTM3NyAxMi45NjQ4IDYuOTgwMThWMi43NTg4QzEyLjk2NDggMi43MTY2IDEyLjk2MTkgMi42NzUxMSAxMi45NTYxIDIuNjM0NTFWMS44ODM3N0gxMi4wODExQzEyLjA3NzUgMS44ODM3NyAxMi4wNzQgMS44ODM3NyAxMi4wNzA0IDEuODgzNzdDMTAuNzk3OSAxLjg4MDA0IDkuNjE5NjIgMS41MTEwMiA4LjczODk0IDEuMTI0ODZDOC43MzUzNCAxLjEyMzI3IDguNzMxNzQgMS4xMjE2OCA4LjcyODE0IDEuMTIwMDlDOC4yOTEwMyAwLjkyNjg2NCA3LjkzODQyIDAuNzM0MDU5IDcuNjk3NzkgMC41OTEzNzNDNy41Nzc3MiAwLjUyMDE3MSA3LjQ4NjIyIDAuNDYxODYgNy40MjY3NiAwLjQyMjc4OUM3LjM5NzA1IDAuNDAzMjY2IDcuMzc1MzkgMC4zODg1ODggNy4zNjIyNCAwLjM3OTU1NEw3LjM0ODk2IDAuMzcwMzVDNy4zNDg5NiAwLjM3MDM1IDcuMzQ4NDcgMC4zNzAwMiA3LjM0NTYzIDAuMzc0MDU0TDcuMzM3NzkgMC4zNjg2NTlMNy4zMzYwOSAwLjM2NzQ3NVpNOC4wMzQ3MSAyLjcyNjkxQzguODYwNCAzLjA5MDYzIDkuOTYwNjYgMy40NjMwOSAxMS4yMDYxIDMuNTg5MDdWNi45ODAxNUgxMS4yMTQ4QzExLjIxNDggOC42Nzk1MyAxMC4xNjM3IDkuOTI1MDcgOC45NTI1NCAxMC43OTk4QzguMzU1OTUgMTEuMjMwNiA3Ljc1Mzc0IDExLjU0NTQgNy4yOTc5NiAxMS43NTI3QzcuMTE2NzEgMTEuODM1MSA2Ljk2MDYyIDExLjg5OTYgNi44Mzk4NCAxMS45NDY5QzYuNzE5MDYgMTEuODk5NiA2LjU2Mjk3IDExLjgzNTEgNi4zODE3MyAxMS43NTI3QzUuOTI1OTUgMTEuNTQ1NCA1LjMyMzczIDExLjIzMDYgNC43MjcxNSAxMC43OTk4QzMuNTE2MDMgOS45MjUwNyAyLjQ2NDg0IDguNjc5NTUgMi40NjQ4NCA2Ljk4MDE4VjMuNTg5MDlDMy43MTczOCAzLjQ2MjM5IDQuODIzMDggMy4wODYzOSA1LjY1MDMzIDIuNzIwNzFDNi4xNDIyOCAyLjUwMzI0IDYuNTQ0ODUgMi4yODUzNyA2LjgzMjU0IDIuMTE2MjRDNy4xMjE4MSAyLjI4NTM1IDcuNTI3IDIuNTAzNTIgOC4wMjE5NiAyLjcyMTMxQzguMDI2MiAyLjcyMzE3IDguMDMwNDUgMi43MjUwNCA4LjAzNDcxIDIuNzI2OTFaTTUuOTY0ODQgMy40MDE0N1Y3Ljc3NjQ3SDcuNzE0ODRWMy40MDE0N0g1Ljk2NDg0Wk01Ljk2NDg0IDEwLjQwMTVWOC42NTE0N0g3LjcxNDg0VjEwLjQwMTVINS45NjQ4NFoiIGZpbGw9ImNyaW1zb24iIHN0cm9rZS13aWR0aD0iMiIvPgo8L3N2Zz4=");
     background-color: crimson;
 }
 .ace_icon_svg.ace_warning_fold {
@@ -50548,18 +50975,32 @@ var ace$2 = { exports: {} };
 }
 
 .ace_placeholder {
+    position: relative;
     font-family: arial;
     transform: scale(0.9);
     transform-origin: left;
     white-space: pre;
     opacity: 0.7;
     margin: 0 10px;
+    z-index: 1;
 }
 
 .ace_ghost_text {
     opacity: 0.5;
     font-style: italic;
+}
+
+.ace_ghost_text_container > div {
     white-space: pre;
+}
+
+.ghost_text_line_wrapped::after {
+    content: "\u21A9";
+    position: absolute;
+}
+
+.ace_lineWidgetContainer.ace_ghost_text {
+    margin: 0px 4px
 }
 
 .ace_screenreader-only {
@@ -50569,6 +51010,10 @@ var ace$2 = { exports: {} };
     width:1px;
     height:1px;
     overflow:hidden;
+}
+
+.ace_hidden_token {
+    display: none;
 }`;
   });
   ace.define("ace/layer/decorators", ["require", "exports", "module", "ace/lib/dom", "ace/lib/oop", "ace/lib/event_emitter"], function(require2, exports2, module2) {
@@ -50687,7 +51132,7 @@ var ace$2 = { exports: {} };
     oop.implement(Decorator.prototype, EventEmitter);
     exports2.Decorator = Decorator;
   });
-  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent"], function(require2, exports2, module2) {
+  ace.define("ace/virtual_renderer", ["require", "exports", "module", "ace/lib/oop", "ace/lib/dom", "ace/lib/lang", "ace/config", "ace/layer/gutter", "ace/layer/marker", "ace/layer/text", "ace/layer/cursor", "ace/scrollbar", "ace/scrollbar", "ace/scrollbar_custom", "ace/scrollbar_custom", "ace/renderloop", "ace/layer/font_metrics", "ace/lib/event_emitter", "ace/css/editor-css", "ace/layer/decorators", "ace/lib/useragent", "ace/layer/text_util"], function(require2, exports2, module2) {
     var oop = require2("./lib/oop");
     var dom = require2("./lib/dom");
     var lang = require2("./lib/lang");
@@ -50706,6 +51151,7 @@ var ace$2 = { exports: {} };
     var editorCss = require2("./css/editor-css");
     var Decorator = require2("./layer/decorators").Decorator;
     var useragent = require2("./lib/useragent");
+    var isTextToken = require2("./layer/text_util").isTextToken;
     dom.importCssString(editorCss, "ace_editor.css", false);
     var VirtualRenderer = function() {
       function VirtualRenderer2(container, theme) {
@@ -50896,6 +51342,12 @@ var ace$2 = { exports: {} };
         var el2 = this.container;
         if (!height)
           height = el2.clientHeight || el2.scrollHeight;
+        if (!height && this.$maxLines && this.lineHeight > 1) {
+          if (!el2.style.height || el2.style.height == "0px") {
+            el2.style.height = "1px";
+            height = el2.clientHeight || el2.scrollHeight;
+          }
+        }
         if (!width)
           width = el2.clientWidth || el2.scrollWidth;
         var changes = this.$updateCachedSize(force, gutterWidth, width, height);
@@ -51709,8 +52161,8 @@ var ace$2 = { exports: {} };
         var cursor = this.session.selection.cursor;
         var insertPosition = position || { row: cursor.row, column: cursor.column };
         this.removeGhostText();
-        var textLines = text.split("\n");
-        this.addToken(textLines[0], "ghost_text", insertPosition.row, insertPosition.column);
+        var textChunks = this.$calculateWrappedTextChunks(text, insertPosition);
+        this.addToken(textChunks[0].text, "ghost_text", insertPosition.row, insertPosition.column);
         this.$ghostText = {
           text,
           position: {
@@ -51718,27 +52170,73 @@ var ace$2 = { exports: {} };
             column: insertPosition.column
           }
         };
-        if (textLines.length > 1) {
+        var widgetDiv = dom.createElement("div");
+        if (textChunks.length > 1) {
+          var hiddenTokens = this.hideTokensAfterPosition(insertPosition.row, insertPosition.column);
+          var lastLineDiv;
+          textChunks.slice(1).forEach(function(el3) {
+            var chunkDiv = dom.createElement("div");
+            var chunkSpan = dom.createElement("span");
+            chunkSpan.className = "ace_ghost_text";
+            if (el3.wrapped)
+              chunkDiv.className = "ghost_text_line_wrapped";
+            if (el3.text.length === 0)
+              el3.text = " ";
+            chunkSpan.appendChild(dom.createTextNode(el3.text));
+            chunkDiv.appendChild(chunkSpan);
+            widgetDiv.appendChild(chunkDiv);
+            lastLineDiv = chunkDiv;
+          });
+          hiddenTokens.forEach(function(token) {
+            var element = dom.createElement("span");
+            if (!isTextToken(token.type))
+              element.className = "ace_" + token.type.replace(/\./g, " ace_");
+            element.appendChild(dom.createTextNode(token.value));
+            lastLineDiv.appendChild(element);
+          });
           this.$ghostTextWidget = {
-            text: textLines.slice(1).join("\n"),
+            el: widgetDiv,
             row: insertPosition.row,
             column: insertPosition.column,
-            className: "ace_ghost_text"
+            className: "ace_ghost_text_container"
           };
           this.session.widgetManager.addLineWidget(this.$ghostTextWidget);
           var pixelPosition = this.$cursorLayer.getPixelPosition(insertPosition, true);
           var el2 = this.container;
           var height = el2.getBoundingClientRect().height;
-          var ghostTextHeight = textLines.length * this.lineHeight;
+          var ghostTextHeight = textChunks.length * this.lineHeight;
           var fitsY = ghostTextHeight < height - pixelPosition.top;
           if (fitsY)
             return;
           if (ghostTextHeight < height) {
-            this.scrollBy(0, (textLines.length - 1) * this.lineHeight);
+            this.scrollBy(0, (textChunks.length - 1) * this.lineHeight);
           } else {
-            this.scrollBy(0, pixelPosition.top);
+            this.scrollToRow(insertPosition.row);
           }
         }
+      };
+      VirtualRenderer2.prototype.$calculateWrappedTextChunks = function(text, position) {
+        var availableWidth = this.$size.scrollerWidth - this.$padding * 2;
+        var limit = Math.floor(availableWidth / this.characterWidth) - 2;
+        limit = limit <= 0 ? 60 : limit;
+        var textLines = text.split(/\r?\n/);
+        var textChunks = [];
+        for (var i10 = 0; i10 < textLines.length; i10++) {
+          var displayTokens = this.session.$getDisplayTokens(textLines[i10], position.column);
+          var wrapSplits = this.session.$computeWrapSplits(displayTokens, limit, this.session.$tabSize);
+          if (wrapSplits.length > 0) {
+            var start = 0;
+            wrapSplits.push(textLines[i10].length);
+            for (var j10 = 0; j10 < wrapSplits.length; j10++) {
+              var textSlice = textLines[i10].slice(start, wrapSplits[j10]);
+              textChunks.push({ text: textSlice, wrapped: true });
+              start = wrapSplits[j10];
+            }
+          } else {
+            textChunks.push({ text: textLines[i10], wrapped: false });
+          }
+        }
+        return textChunks;
       };
       VirtualRenderer2.prototype.removeGhostText = function() {
         if (!this.$ghostText)
@@ -51773,6 +52271,28 @@ var ace$2 = { exports: {} };
           }
         }
         this.updateLines(row, row);
+      };
+      VirtualRenderer2.prototype.hideTokensAfterPosition = function(row, column) {
+        var tokens = this.session.getTokens(row);
+        var l10 = 0;
+        var hasPassedCursor = false;
+        var hiddenTokens = [];
+        for (var i10 = 0; i10 < tokens.length; i10++) {
+          var token = tokens[i10];
+          l10 += token.value.length;
+          if (token.type === "ghost_text")
+            continue;
+          if (hasPassedCursor) {
+            hiddenTokens.push({ type: token.type, value: token.value });
+            token.type = "hidden_token";
+            continue;
+          }
+          if (l10 === column) {
+            hasPassedCursor = true;
+          }
+        }
+        this.updateLines(row, row);
+        return hiddenTokens;
       };
       VirtualRenderer2.prototype.removeExtraToken = function(row, column) {
         this.session.bgTokenizer.lines[row] = null;
@@ -51811,6 +52331,10 @@ var ace$2 = { exports: {} };
           }
           _self._dispatchEvent("themeLoaded", { theme: module3 });
           cb2 && cb2();
+          if (useragent.isSafari && _self.scroller) {
+            _self.scroller.style.background = "red";
+            _self.scroller.style.background = "";
+          }
         }
       };
       VirtualRenderer2.prototype.getTheme = function() {
@@ -53558,7 +54082,7 @@ var ace$2 = { exports: {} };
         return;
       } else {
         gutterAnno = {
-          text: [nls("Looks good!")],
+          displayText: [nls("error-marker.good-state", "Looks good!")],
           className: "ace_ok"
         };
       }
@@ -53578,7 +54102,12 @@ var ace$2 = { exports: {} };
       arrow.style.left = left + editor.renderer.gutterWidth - 5 + "px";
       w10.el.className = "error_widget_wrapper";
       el2.className = "error_widget " + gutterAnno.className;
-      el2.innerHTML = gutterAnno.text.join("<br>");
+      gutterAnno.displayText.forEach(function(annoTextLine, i10) {
+        el2.appendChild(dom.createTextNode(annoTextLine));
+        if (i10 < gutterAnno.displayText.length - 1) {
+          el2.appendChild(dom.createElement("br"));
+        }
+      });
       el2.appendChild(dom.createElement("div"));
       var kb2 = function(_10, hashId, keyString) {
         if (hashId === 0 && (keyString === "esc" || keyString === "return")) {
@@ -54602,7 +55131,7 @@ var themeChrome = { exports: {} };
   })();
 })(themeChrome);
 var jsonEditorWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main$2 = {
+const _sfc_main$7 = {
   name: "json-editor-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -54662,7 +55191,7 @@ const _sfc_main$2 = {
     }
   }
 };
-function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$7(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_v_ace_editor = resolveComponent("v-ace-editor");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
@@ -54690,8 +55219,8 @@ function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var JsonEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2, [["render", _sfc_render$2], ["__scopeId", "data-v-54325e57"]]);
-const _sfc_main$1 = {
+var JsonEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$7, [["render", _sfc_render$7], ["__scopeId", "data-v-54325e57"]]);
+const _sfc_main$6 = {
   name: "alert-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -54737,7 +55266,7 @@ const _sfc_main$1 = {
     }
   }
 };
-function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_alert = resolveComponent("el-alert");
   const _component_static_content_wrapper = resolveComponent("static-content-wrapper");
   return openBlock(), createBlock(_component_static_content_wrapper, {
@@ -54768,9 +55297,9 @@ function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AlertWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$1, [["render", _sfc_render$1]]);
+var AlertWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$6, [["render", _sfc_render$6]]);
 var autoCompleteWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
-const _sfc_main = {
+const _sfc_main$5 = {
   name: "auto-complete-widget",
   componentName: "FieldWidget",
   mixins: [emitter, fieldMixin, i18n$1],
@@ -54830,7 +55359,7 @@ const _sfc_main = {
   },
   methods: {}
 };
-function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+function _sfc_render$5(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_autocomplete = resolveComponent("el-autocomplete");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
@@ -54885,16 +55414,364 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-75ce707c"]]);
+var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$5, [["render", _sfc_render$5], ["__scopeId", "data-v-75ce707c"]]);
+var numberRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$4 = {
+  name: "number-range-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: [0, 0],
+      rules: []
+    };
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    minChange(value2) {
+      if ((this.fieldModel[1] === 0 || !!this.fieldModel[1]) && (value2 === 0 || !!value2) && value2 > this.fieldModel[1]) {
+        this.fieldModel[1] = value2 + 1;
+      }
+      this.handleChangeEvent([value2, this.fieldModel[1]]);
+    },
+    maxChange(value2) {
+      if ((this.fieldModel[0] === 0 || !!this.fieldModel[0]) && (value2 === 0 || !!value2) && value2 < this.fieldModel[0]) {
+        this.fieldModel[0] = value2 - 1;
+      }
+      this.handleChangeEvent([this.fieldModel[0], value2]);
+    }
+  }
+};
+function _sfc_render$4(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_input_number = resolveComponent("el-input-number");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createElementVNode("div", {
+        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width layout" : "layout"])
+      }, [
+        createVNode(_component_el_input_number, {
+          ref: "fieldEditor",
+          modelValue: $data.fieldModel[0],
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel[0] = $event),
+          class: "full-width-input",
+          disabled: $props.field.options.disabled,
+          size: _ctx.widgetSize,
+          "controls-position": $props.field.options.controlsPosition,
+          stepStrictly: $props.field.options.stepStrictly,
+          placeholder: $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startNumber"),
+          min: $props.field.options.min,
+          max: $props.field.options.max,
+          precision: $props.field.options.precision,
+          step: $props.field.options.step,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: $options.minChange
+        }, null, 8, ["modelValue", "disabled", "size", "controls-position", "stepStrictly", "placeholder", "min", "max", "precision", "step", "onFocus", "onBlur", "onChange"]),
+        _cache[2] || (_cache[2] = createTextVNode(" - ")),
+        createVNode(_component_el_input_number, {
+          ref: "fieldEditor",
+          modelValue: $data.fieldModel[1],
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.fieldModel[1] = $event),
+          class: "full-width-input",
+          disabled: $props.field.options.disabled,
+          size: _ctx.widgetSize,
+          "controls-position": $props.field.options.controlsPosition,
+          stepStrictly: $props.field.options.stepStrictly,
+          placeholder: $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endNumber"),
+          min: $props.field.options.min,
+          max: $props.field.options.max,
+          precision: $props.field.options.precision,
+          step: $props.field.options.step,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: $options.maxChange
+        }, null, 8, ["modelValue", "disabled", "size", "controls-position", "stepStrictly", "placeholder", "min", "max", "precision", "step", "onFocus", "onBlur", "onChange"])
+      ], 2)
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var NumberRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$4, [["render", _sfc_render$4], ["__scopeId", "data-v-ffcd0de8"]]);
+var dateRange2Widget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$3 = {
+  name: "date-range2-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: ["", ""],
+      rules: [],
+      disabledDate1: (time) => {
+        if (!this.fieldModel[1])
+          return false;
+        const startTime = new Date(this.fieldModel[1]).getTime();
+        return time.getTime() > startTime;
+      },
+      disabledDate2: (time) => {
+        if (!this.fieldModel[0])
+          return false;
+        const startTime = new Date(this.fieldModel[0]).getTime();
+        return time.getTime() < startTime;
+      }
+    };
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    startDateChange(value2) {
+      this.handleChangeEvent([value2, this.fieldModel[1]]);
+    }
+  }
+};
+function _sfc_render$3(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_date_picker = resolveComponent("el-date-picker");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createElementVNode("div", {
+        class: normalizeClass([!!$props.field.options.autoFullWidth ? "auto-full-width" : ""])
+      }, [
+        createVNode(_component_el_date_picker, {
+          ref: "fieldEditor",
+          type: $props.field.options.type,
+          modelValue: $data.fieldModel[0],
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel[0] = $event),
+          disabled: $props.field.options.disabled,
+          readonly: $props.field.options.readonly,
+          size: _ctx.widgetSize,
+          clearable: $props.field.options.clearable,
+          editable: $props.field.options.editable,
+          format: $props.field.options.format,
+          "value-format": $props.field.options.valueFormat,
+          shortcuts: _ctx.onShortcutsFn(),
+          "default-time": $props.field.options.defaultTime[0],
+          placeholder: $props.field.options.startPlaceholder ? _ctx.$t($props.field.options.startPlaceholder) : _ctx.$t("render.hint.startDatePlaceholder"),
+          "disabled-date": $data.disabledDate1,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: $options.startDateChange
+        }, null, 8, ["type", "modelValue", "disabled", "readonly", "size", "clearable", "editable", "format", "value-format", "shortcuts", "default-time", "placeholder", "disabled-date", "onFocus", "onBlur", "onChange"]),
+        _cache[3] || (_cache[3] = createTextVNode(" - ")),
+        createVNode(_component_el_date_picker, {
+          ref: "fieldEditor",
+          type: $props.field.options.type,
+          modelValue: $data.fieldModel[1],
+          "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.fieldModel[1] = $event),
+          disabled: $props.field.options.disabled,
+          readonly: $props.field.options.readonly,
+          size: _ctx.widgetSize,
+          clearable: $props.field.options.clearable,
+          editable: $props.field.options.editable,
+          format: $props.field.options.format,
+          "value-format": $props.field.options.valueFormat,
+          shortcuts: _ctx.onShortcutsFn(),
+          "default-time": $props.field.options.defaultTime[1],
+          placeholder: $props.field.options.endPlaceholder ? _ctx.$t($props.field.options.endPlaceholder) : _ctx.$t("render.hint.endDatePlaceholder"),
+          "disabled-date": $data.disabledDate2,
+          onFocus: _ctx.handleFocusCustomEvent,
+          onBlur: _ctx.handleBlurCustomEvent,
+          onChange: _cache[2] || (_cache[2] = (value2) => _ctx.handleChangeEvent([$data.fieldModel[0], value2]))
+        }, null, 8, ["type", "modelValue", "disabled", "readonly", "size", "clearable", "editable", "format", "value-format", "shortcuts", "default-time", "placeholder", "disabled-date", "onFocus", "onBlur"])
+      ], 2)
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var DateRange2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3, [["render", _sfc_render$3], ["__scopeId", "data-v-7a730b34"]]);
+const _sfc_main$2 = {
+  name: "dynamic-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    SelectGroupWidget,
+    InputWidget,
+    SelectWidget,
+    NumberWidget,
+    TextareaWidget,
+    DateWidget,
+    DateRangeWidget,
+    NumberRangeWidget,
+    DateRange2Widget,
+    FormItemWrapper
+  },
+  data() {
+    return {};
+  },
+  computed: {},
+  beforeCreate() {
+  },
+  created() {
+  },
+  mounted() {
+  },
+  beforeUnmount() {
+  },
+  methods: {}
+};
+function _sfc_render$2(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_InputWidget = resolveComponent("InputWidget");
+  const _component_SelectWidget = resolveComponent("SelectWidget");
+  const _component_NumberWidget = resolveComponent("NumberWidget");
+  const _component_TextareaWidget = resolveComponent("TextareaWidget");
+  const _component_DateWidget = resolveComponent("DateWidget");
+  const _component_DateRangeWidget = resolveComponent("DateRangeWidget");
+  const _component_DateRange2Widget = resolveComponent("DateRange2Widget");
+  const _component_NumberRangeWidget = resolveComponent("NumberRangeWidget");
+  return openBlock(), createElementBlock("div", null, [
+    $props.field.options.fieldType === "input" ? (openBlock(), createBlock(_component_InputWidget, normalizeProps(mergeProps({ key: 0 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "select" ? (openBlock(), createBlock(_component_SelectWidget, normalizeProps(mergeProps({ key: 1 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "number" ? (openBlock(), createBlock(_component_NumberWidget, normalizeProps(mergeProps({ key: 2 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "textarea" ? (openBlock(), createBlock(_component_TextareaWidget, normalizeProps(mergeProps({ key: 3 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "date" ? (openBlock(), createBlock(_component_DateWidget, normalizeProps(mergeProps({ key: 4 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "date-range" ? (openBlock(), createBlock(_component_DateRangeWidget, normalizeProps(mergeProps({ key: 5 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "date-range2" ? (openBlock(), createBlock(_component_DateRange2Widget, normalizeProps(mergeProps({ key: 6 }, _ctx.$props)), null, 16)) : $props.field.options.fieldType === "number-range" ? (openBlock(), createBlock(_component_NumberRangeWidget, normalizeProps(mergeProps({ key: 7 }, _ctx.$props)), null, 16)) : createCommentVNode("", true)
+  ]);
+}
+var DynamicWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$2, [["render", _sfc_render$2]]);
 const loadExtension = function(app) {
   loadCard(app);
   loadAlertWidget(app);
   loadSelectGroupWidget(app);
   loadAutoCompleteWidget(app);
   loadjsonEditorWidget(app);
+  loadDynamicWidget(app);
+  loadDateRange2Widget(app);
+  loadNumberRangeWidget(app);
 };
 const loadjsonEditorWidget = (app) => {
   app.component(JsonEditorWidget.name, JsonEditorWidget);
+};
+const loadNumberRangeWidget = (app) => {
+  app.component(NumberRangeWidget.name, NumberRangeWidget);
+};
+const loadDynamicWidget = (app) => {
+  app.component(DynamicWidget.name, DynamicWidget);
+};
+const loadDateRange2Widget = (app) => {
+  app.component(DateRange2Widget.name, DateRange2Widget);
 };
 const loadAutoCompleteWidget = (app) => {
   app.component(AutoCompleteWidget.name, AutoCompleteWidget);
@@ -54937,8 +55814,258 @@ const loadAlertWidget = (app) => {
   registerCPEditor(app, "alert-effect", "alert-effect-editor", createRadioButtonGroupEditor("effect", "extension.setting.effect", { optionItems: effectOptions }));
   registerEPEditor(app, "alert-onClose", "alert-onClose-editor", createEventHandlerEditor("onClose", []));
 };
+var asyncSelectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main$1 = {
+  name: "async-select-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: null,
+      rules: []
+    };
+  },
+  computed: {
+    allowDefaultFirstOption() {
+      return !!this.field.options.filterable && !!this.field.options.allowCreate;
+    },
+    remoteMethod() {
+      if (!!this.field.options.remote && !!this.field.options.onRemoteQuery) {
+        return this.remoteQuery;
+      } else {
+        return void 0;
+      }
+    }
+  },
+  beforeCreate() {
+  },
+  created() {
+    this.initOptionItems();
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    handleInput(value2) {
+      const fieldEditor = this.$refs.fieldEditor;
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
+    }
+  }
+};
+function _sfc_render$1(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_select_v2 = resolveComponent("el-select-v2");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_el_select_v2, {
+        ref: "fieldEditor",
+        modelValue: $data.fieldModel,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
+        class: "full-width-input",
+        disabled: $props.field.options.disabled,
+        size: _ctx.widgetSize,
+        clearable: $props.field.options.clearable,
+        filterable: $props.field.options.filterable,
+        multiple: $props.field.options.multiple,
+        "multiple-limit": $props.field.options.multipleLimit,
+        remote: $props.field.options.remote,
+        "remote-method": $options.remoteMethod,
+        "allow-create": $props.field.options.allowCreate,
+        "automatic-dropdown": $props.field.options.automaticDropdown,
+        options: $props.field.options.optionItems,
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        onFocus: _ctx.handleFocusCustomEvent,
+        onBlur: _ctx.handleBlurCustomEvent,
+        onChange: $options.handleInput
+      }, null, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "multiple", "multiple-limit", "remote", "remote-method", "allow-create", "automatic-dropdown", "options", "placeholder", "onFocus", "onBlur", "onChange"])
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var AsyncSelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$1, [["render", _sfc_render$1], ["__scopeId", "data-v-2c4dcb91"]]);
+var ugSelectWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
+const _sfc_main = {
+  name: "ug-select-widget",
+  componentName: "FieldWidget",
+  mixins: [emitter, fieldMixin, i18n$1],
+  props: {
+    field: Object,
+    parentWidget: Object,
+    parentList: Array,
+    indexOfParentList: Number,
+    designer: Object,
+    designState: {
+      type: Boolean,
+      default: false
+    },
+    subFormRowIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormColIndex: {
+      type: Number,
+      default: -1
+    },
+    subFormRowId: {
+      type: String,
+      default: ""
+    }
+  },
+  components: {
+    FormItemWrapper
+  },
+  data() {
+    return {
+      oldFieldValue: null,
+      fieldModel: null,
+      rules: []
+    };
+  },
+  computed: {
+    allowDefaultFirstOption() {
+      return !!this.field.options.filterable && !!this.field.options.allowCreate;
+    },
+    remoteMethod() {
+      if (!!this.field.options.remote && !!this.field.options.onRemoteQuery) {
+        return this.remoteQuery;
+      } else {
+        return void 0;
+      }
+    }
+  },
+  beforeCreate() {
+  },
+  created() {
+    this.initOptionItems();
+    this.initFieldModel();
+    this.registerToRefList();
+    this.initEventHandler();
+    this.buildFieldRules();
+    this.handleOnCreated();
+  },
+  mounted() {
+    this.handleOnMounted();
+  },
+  beforeUnmount() {
+    this.unregisterFromRefList();
+  },
+  methods: {
+    handleInput(value2) {
+      const fieldEditor = this.$refs.fieldEditor;
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value2);
+    }
+  }
+};
+function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_select_v2 = resolveComponent("el-select-v2");
+  const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
+  return openBlock(), createBlock(_component_form_item_wrapper, {
+    designer: $props.designer,
+    field: $props.field,
+    rules: $data.rules,
+    "design-state": $props.designState,
+    "parent-widget": $props.parentWidget,
+    "parent-list": $props.parentList,
+    "index-of-parent-list": $props.indexOfParentList,
+    "sub-form-row-index": $props.subFormRowIndex,
+    "sub-form-col-index": $props.subFormColIndex,
+    "sub-form-row-id": $props.subFormRowId
+  }, {
+    default: withCtx(() => [
+      createVNode(_component_el_select_v2, {
+        ref: "fieldEditor",
+        modelValue: $data.fieldModel,
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
+        class: "full-width-input",
+        disabled: $props.field.options.disabled,
+        size: _ctx.widgetSize,
+        clearable: $props.field.options.clearable,
+        filterable: $props.field.options.filterable,
+        multiple: $props.field.options.multiple,
+        "multiple-limit": $props.field.options.multipleLimit,
+        remote: $props.field.options.remote,
+        "remote-method": $options.remoteMethod,
+        "allow-create": $props.field.options.allowCreate,
+        "automatic-dropdown": $props.field.options.automaticDropdown,
+        options: $props.field.options.optionItems,
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        onFocus: _ctx.handleFocusCustomEvent,
+        onBlur: _ctx.handleBlurCustomEvent,
+        onChange: $options.handleInput
+      }, null, 8, ["modelValue", "disabled", "size", "clearable", "filterable", "multiple", "multiple-limit", "remote", "remote-method", "allow-create", "automatic-dropdown", "options", "placeholder", "onFocus", "onBlur", "onChange"])
+    ]),
+    _: 1
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+}
+var UgSelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-2553f098"]]);
+const loadDataExtension = function(app) {
+  loadAsyncSelectWidget(app);
+  loadUgSelectWidget(app);
+};
+const loadAsyncSelectWidget = (app) => {
+  console.log("??????????");
+  app.component(AsyncSelectWidget.name, AsyncSelectWidget);
+};
+const loadUgSelectWidget = (app) => {
+  app.component(UgSelectWidget.name, UgSelectWidget);
+};
 VFormRender.install = function(app) {
   loadExtension(app);
+  loadDataExtension(app);
   app.use(ContainerItems);
   registerIcon(app);
   app.component(VFormRender.name, VFormRender);
@@ -54948,6 +56075,7 @@ const components = [
 ];
 const install = (app) => {
   loadExtension(app);
+  loadDataExtension(app);
   app.use(ContainerItems);
   registerIcon(app);
   components.forEach((component) => {

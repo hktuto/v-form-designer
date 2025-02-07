@@ -57,6 +57,8 @@ const COMMON_PROPERTIES = {
   'uploadTip'         :            'uploadTip-editor',
   'withCredentials'   :            'withCredentials-editor',
   'multipleSelect'    :            'multipleSelect-editor',
+  'popperClass'       :            'popperClass-editor',
+
   'limit'             :            'limit-editor',
   'fileMaxSize'       :            'fileMaxSize-editor',
   'fileTypes'         :            'fileTypes-editor',
@@ -80,6 +82,7 @@ const COMMON_PROPERTIES = {
 }
 
 const ADVANCED_PROPERTIES = {
+  'fieldType'         :            'fieldType-editor',
   'min'               :            'min-editor',
   'max'               :            'max-editor',
   'precision'         :            'precision-editor',
@@ -119,6 +122,7 @@ const ADVANCED_PROPERTIES = {
 
 const EVENT_PROPERTIES = {
   //字段
+  'onCreatedSetting'  :            'onCreatedSetting-editor',
   'onCreated'         :            'onCreated-editor',
   'onMounted'         :            'onMounted-editor',
   'onClick'           :            'onClick-editor',

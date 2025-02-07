@@ -39,7 +39,8 @@ export const changeLocale = function(langName) {
 }
 
 export const translate = function(key) {
-  if(window.$t) {
+  if(window.$t ) console.log(i18n.$st(key), window.$t(key), key);
+  if(window.$t &&  window.$t(key) !== key) {
     return window.$t(key)
   }
   return i18n.$st(key)
@@ -52,6 +53,7 @@ export const installI18n = (app) => {
 export default {
   methods: {
     i18nt(key) {
+      console.log('i18nt', key)
       return translate(key)
     },
 

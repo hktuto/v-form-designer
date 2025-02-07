@@ -14,12 +14,14 @@ import { addDirective } from '@/utils/directive'
 import { installI18n } from '@/utils/i18n'
 import { loadExtension } from '@/extension/extension-loader'
 
+import { loadDataExtension } from '@/extension/dataField-loader'
+
 
 VFormDesigner.install = function (app) {
   addDirective(app)
   installI18n(app)
   loadExtension(app)
-
+  loadDataExtension(app)
   app.use(ContainerWidgets)
   app.use(ContainerItems)
 
@@ -31,7 +33,7 @@ VFormDesigner.install = function (app) {
 VFormRender.install = function (app) {
   installI18n(app)
   loadExtension(app)
-
+  loadDataExtension(app)
   app.use(ContainerItems)
 
   registerIcon(app)
@@ -47,7 +49,7 @@ const install = (app) => {
   addDirective(app)
   installI18n(app)
   loadExtension(app)
-
+  loadDataExtension(app)
   app.use(ContainerWidgets)
   app.use(ContainerItems)
 

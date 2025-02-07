@@ -19,7 +19,7 @@ export default {
     basicFieldTitle: 'Basic Field',
     advancedFieldTitle: 'Advanced Field',
     customFieldTitle: 'Customized Field',
-
+    dataFieldTitle: 'Docpal Field',
     noWidgetHint: 'Please select a widget from the left list, drag and drop to this container.',
 
     widgetLabel: {
@@ -320,6 +320,7 @@ export default {
       formCss: 'Form CSS',
       addCss: 'Edit',
       customClass: 'Custom Class',
+      popperClass: 'Popper Class',
       globalFunctions: 'Global Functions',
       addEventHandler: 'Edit',
       editWidgetEventHandler: 'Edit Widget Event Handler',

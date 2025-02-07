@@ -268,9 +268,6 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       optionItems: [
-        {label: 'radio 1', value: 1},
-        {label: 'radio 2', value: 2},
-        {label: 'radio 3', value: 3},
       ],
       required: false,
       requiredHint: '',
@@ -308,9 +305,6 @@ export const basicFields = [
       disabled: false,
       hidden: false,
       optionItems: [
-        {label: 'check 1', value: 1},
-        {label: 'check 2', value: 2},
-        {label: 'check 3', value: 3},
       ],
       required: false,
       requiredHint: '',
@@ -348,14 +342,12 @@ export const basicFields = [
       clearable: true,
       filterable: true,
       allowCreate: false,
+      popperClass: '',
       remote: false,
       automaticDropdown: false,  //自动下拉
       multiple: false,
       multipleLimit: 0,
       optionItems: [
-        {label: 'select 1', value: 1},
-        {label: 'select 2', value: 2},
-        {label: 'select 3', value: 3},
       ],
       required: false,
       requiredHint: '',
@@ -400,9 +392,6 @@ export const basicFields = [
       multiple: false,
       multipleLimit: 0,
       optionItems: [
-        {label: 'select 1', value: 1},
-        {label: 'select 2', value: 2},
-        {label: 'select 3', value: 3},
       ],
       required: false,
       requiredHint: '',
@@ -1009,7 +998,9 @@ export const advancedFields = [
 export const customFields = [
 
 ]
+export const dataFields = [
 
+]
 export function addContainerWidgetSchema(containerSchema) {
   containers.push(containerSchema)
 }
@@ -1025,3 +1016,7 @@ export function addAdvancedFieldSchema(fieldSchema) {
 export function addCustomWidgetSchema(widgetSchema) {
   customFields.push(widgetSchema)
 }
+export function addDataFieldsWidgetSchema(widgetSchema) {
+  dataFields.push(widgetSchema)
+}
+

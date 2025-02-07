@@ -1,15 +1,14 @@
 import {deepClone} from "@/utils/util"
 import FormValidators from '@/utils/validators'
 import eventBus from "@/utils/event-bus"
-
+import { translate } from "@/utils/i18n"
 export default {
-  inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData'],
+  inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData', 'getFormJson', 'setFormJson'],
 
   computed: {
     formConfig() {
       return this.getFormConfig()
     },
-
     widgetSize() {
       return this.field.options.size || 'default'
     },
@@ -32,7 +31,9 @@ export default {
   },
 
   methods: {
-
+    // getFormJson() {
+    //   return this.getFormJson()
+    // },
     //--------------------- 组件内部方法 begin ------------------//
     getPropName() {
       if (this.subFormItemFlag && !this.designState) {
@@ -52,8 +53,8 @@ export default {
         if (((subFormData === undefined) || (subFormData[this.subFormRowIndex] === undefined) ||
             (subFormData[this.subFormRowIndex][this.field.options.name] === undefined)) &&
             (this.field.options.defaultValue !== undefined)) {
-          this.fieldModel = this.field.options.defaultValue
-          subFormData[this.subFormRowIndex][this.field.options.name] = this.field.options.defaultValue
+          this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
+          subFormData[this.subFormRowIndex][this.field.options.name] = this.getDeepCopyData(this.field.options.defaultValue)
         } else if (subFormData[this.subFormRowIndex][this.field.options.name] === undefined) {
           this.fieldModel = null
           subFormData[this.subFormRowIndex][this.field.options.name] = null
@@ -74,7 +75,7 @@ export default {
 
       if ((this.formModel[this.field.options.name] === undefined) &&
           (this.field.options.defaultValue !== undefined)) {
-        this.fieldModel = this.field.options.defaultValue
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
       } else if (this.formModel[this.field.options.name] === undefined) {  //如果formModel为空对象，则初始化字段值为null!!
         this.formModel[this.field.options.name] = null
       } else {
@@ -83,7 +84,10 @@ export default {
       this.oldFieldValue = deepClone(this.fieldModel)
       this.initFileList()  //处理图片上传、文件上传字段
     },
-
+    getDeepCopyData(data) {
+      if(data instanceof Array) return JSON.parse(JSON.stringify(data))
+      return data
+    },
     initFileList() { //初始化上传组件的已上传文件列表
       if ( ((this.field.type !== 'picture-upload') && (this.field.type !== 'file-upload')) || (this.designState === true) ) {
         return
@@ -168,9 +172,18 @@ export default {
       if (this.designState) {
         return
       }
-
-      if ((this.field.type === 'radio') || (this.field.type === 'checkbox')
-          || (this.field.type === 'select') || (this.field.type === 'cascader')) {
+      console.log('initOptionItems', this.field);
+      if (
+        (this.field.options.fieldType === 'radio') ||
+        (this.field.options.fieldType === 'checkbox') ||
+        (this.field.options.fieldType === 'select') ||
+        (this.field.options.fieldType === 'cascader') ||
+        (this.field.options.fieldType === 'select-v2') ||
+        (this.field.type === 'radio') || 
+        (this.field.type === 'checkbox') || 
+        (this.field.type === 'select') || 
+          (this.field.type === 'cascader') || 
+          (this.field.type === 'select-v2')) {
         /* 异步更新option-data之后globalOptionData不能获取到最新值，改用provide的getOptionData()方法 */
         const newOptionItems = this.getOptionData()
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
@@ -185,7 +198,7 @@ export default {
 
     refreshDefaultValue() {
       if ((this.designState === true) && (this.field.options.defaultValue !== undefined)) {
-        this.fieldModel = this.field.options.defaultValue
+        this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
       }
     },
 
@@ -198,51 +211,51 @@ export default {
     },
 
     buildFieldRules() {
-      if (!this.field.formItemFlag && this.field.options.hidden) {
-        return
-      }
+        if (!this.field.formItemFlag && this.field.options.hidden) {
+          return
+        }
 
-      this.rules.splice(0, this.rules.length)  //清空已有
-      if (!!this.field.options.required) {
-        this.rules.push({
-          required: true,
-          //trigger: ['blur', 'change'],
-          trigger: ['blur'],  /* 去掉change事件触发校验，change事件触发时formModel数据尚未更新，导致radio/checkbox必填校验出错！！ */
-          message: this.field.options.requiredHint || this.i18nt('render.hint.fieldRequired'),
-        })
-      }
-
-      if (!!this.field.options.validation) {
-        let vldName = this.field.options.validation
-        if (!!FormValidators[vldName]) {
+        this.rules.splice(0, this.rules.length)  //清空已有
+        if (!!this.field.options.required) {
           this.rules.push({
-            validator: FormValidators[vldName],
-            trigger: ['blur', 'change'],
-            label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
-          })
-        } else {
-          this.rules.push({
-            validator: FormValidators['regExp'],
-            trigger: ['blur', 'change'],
-            regExp: vldName,
-            label: this.field.options.label,
-            errorMsg: $t(this.field.options.validationHint)
+            required: true,
+            //trigger: ['blur', 'change'],
+            trigger: ['blur'],  /* 去掉change事件触发校验，change事件触发时formModel数据尚未更新，导致radio/checkbox必填校验出错！！ */
+            message: this.field.options.requiredHint || this.i18nt('render.hint.fieldRequired'),
           })
         }
-      }
 
-      if (!!this.field.options.onValidate) {
-        let customFn = (rule, value, callback) => {
-          let tmpFunc =  new Function('rule', 'value', 'callback', this.field.options.onValidate)
-          return tmpFunc.call(this, rule, value, callback)
+        if (!!this.field.options.validation) {
+          let vldName = this.field.options.validation
+          if (!!FormValidators[vldName]) {
+            this.rules.push({
+              validator: FormValidators[vldName],
+              trigger: ['blur', 'change'],
+              label: this.field.options.label,
+              errorMsg: translate(this.field.options.validationHint)
+            })
+          } else {
+            this.rules.push({
+              validator: FormValidators['regExp'],
+              trigger: ['blur', 'change'],
+              regExp: vldName,
+              label: this.field.options.label,
+              errorMsg: translate(this.field.options.validationHint)
+            })
+          }
         }
-        this.rules.push({
-          validator: customFn,
-          trigger: ['blur', 'change'],
-          label: this.field.options.label
-        })
-      }
+
+        if (!!this.field.options.onValidate) {
+          let customFn = (rule, value, callback) => {
+            let tmpFunc =  new Function('rule', 'value', 'callback', this.field.options.onValidate)
+            return tmpFunc.call(this, rule, value, callback)
+          }
+          this.rules.push({
+            validator: customFn,
+            trigger: ['blur', 'change'],
+            label: this.field.options.label
+          })
+        }
     },
 
     /**
@@ -446,12 +459,7 @@ export default {
         remoteFn.call(this)
       }
     },
-    lazyLoad(node, resolve) {
-      if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function('node','resolve', this.field.options.onLazyLoad)
-        remoteFn.call(this, node, resolve)
-      }
-    },
+
     //--------------------- 事件处理 end ------------------//
 
     //--------------------- 以下为组件支持外部调用的API方法 begin ------------------//
@@ -499,7 +507,7 @@ export default {
     },
 
     resetField() {
-      let defaultValue = this.field.options.defaultValue
+      let defaultValue = this.getDeepCopyData(this.field.options.defaultValue)
       this.setValue(defaultValue)
       this.$nextTick(() => {
         //
@@ -544,7 +552,18 @@ export default {
         this.buildFieldRules()
       }
     },
-
+    setFieldType(type) {
+      if(this.field.type !== 'dynamic' || !type) return
+      const json = JSON.parse(JSON.stringify(this.getFormJson())) 
+      const selectedWidget = getWidgetItem(this.field.id, json) 
+      handleDynamicFieldTypeChange(type, selectedWidget.options)
+      selectedWidget.options.fieldType = type
+      const _this = this
+      setTimeout(() => {
+        _this.setFormJson(json)
+        _this.buildFieldRules()
+      },)
+    },
     setRequired(flag) {
       this.field.options.required = flag
       this.buildFieldRules()
@@ -671,4 +690,62 @@ export default {
     //--------------------- 以上为组件支持外部调用的API方法 end ------------------//
 
   }
+}
+export function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
+  switch (fieldType) {
+    case "date":
+      dynamicOptionModel.format = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+
+      dynamicOptionModel.defaultTime = "2000-01-01 00:00:00",
+      dynamicOptionModel.defaultValue = '';
+      dynamicOptionModel.type = "date";
+      break;
+
+    case "number-range":
+      dynamicOptionModel.defaultValue = [0, 0];
+      dynamicOptionModel.controlsPosition = "right";
+      break;
+    case "date-range2":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:59"];
+      dynamicOptionModel.defaultValue = ['', ''];
+      dynamicOptionModel.type = "date";
+      break;
+    case "date-range":
+      dynamicOptionModel.format = "YYYY-MM-DD";
+      dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
+      dynamicOptionModel.defaultTime = ["2000-01-01 00:00:00", "2000-01-01 23:59:00"];
+      dynamicOptionModel.type = "daterange";
+      break;
+
+    default:
+      dynamicOptionModel.controlsPosition = "";
+      dynamicOptionModel.type = "";
+      dynamicOptionModel.format = "";
+      dynamicOptionModel.valueFormat = "";
+      dynamicOptionModel.defaultTime = "";
+      dynamicOptionModel.defaultValue = null;
+      break;
+  }
+}
+function getWidgetItem(id, json) {
+  let result = null
+  try {
+    json.widgetList.forEach(w => {
+      if (w.widgetList) {
+        const item = getWidgetItem(id, w)
+        if(!!item) result = item
+        throw new Error('succcess')
+      }
+      else if (w.id === id) {
+        result = w
+        throw new Error('succcess')
+      }
+    })
+  } catch (error) {
+    
+  }
+  return result
 }

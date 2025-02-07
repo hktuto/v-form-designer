@@ -11,6 +11,7 @@ export default {
   },
 
   designer: {
+    dataFieldTitle: 'Docpal 组件库',
     componentLib: '组件库',
     formLib: '表单模板',
     containerTitle: '容器',
@@ -32,7 +33,6 @@ export default {
       'table-cell':     '单元格',
       'tab-pane':       '选项卡页',
       'data-table':     '数据表格',
-
       input:          '单行输入',
       textarea:       '多行输入',
       number:         '计数器',
@@ -320,6 +320,7 @@ export default {
       formCss: '表单全局CSS',
       addCss: '编写CSS',
       customClass: '自定义CSS样式',
+      popperClass: '自定义弹框样式',
       globalFunctions: '表单全局函数',
       addEventHandler: '编写代码',
       editWidgetEventHandler: '组件事件处理',

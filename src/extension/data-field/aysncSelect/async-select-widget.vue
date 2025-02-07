@@ -11,39 +11,40 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
   >
-    <div class="full-width-input">
-      <el-cascader
-        ref="fieldEditor"
-        :options="field.options.optionItems"
-        v-model="fieldModel"
-        :disabled="field.options.disabled"
-        :size="widgetSize"
-        :clearable="field.options.clearable"
-        :filterable="field.options.filterable"
-        :placeholder="
-          field.options.placeholder
-            ? $t(field.options.placeholder)
-            : i18nt('render.hint.selectPlaceholder')
-        "
-        :show-all-levels="showFullPath"
-        :props="field.options.lazy ? prop2 : prop1"
-        @focus="handleFocusCustomEvent"
-        @blur="handleBlurCustomEvent"
-        @change="handleChangeEvent"
-      >
-      </el-cascader>
-    </div>
+    <el-select-v2
+      ref="fieldEditor"
+      v-model="fieldModel"
+      class="full-width-input"
+      :disabled="field.options.disabled"
+      :size="widgetSize"
+      :clearable="field.options.clearable"
+      :filterable="field.options.filterable"
+      :multiple="field.options.multiple"
+      :multiple-limit="field.options.multipleLimit"
+      :remote="field.options.remote"
+      :remote-method="remoteMethod"
+      :allow-create="field.options.allowCreate"
+      :automatic-dropdown="field.options.automaticDropdown"
+      :options="field.options.optionItems"
+      :placeholder="
+        field.options.placeholder
+          ? $t(field.options.placeholder)
+          : $t('render.hint.selectPlaceholder')
+      "
+      @focus="handleFocusCustomEvent"
+      @blur="handleBlurCustomEvent"
+      @change="handleInput"
+    />
   </form-item-wrapper>
 </template>
 
 <script>
-import FormItemWrapper from "./form-item-wrapper";
+import FormItemWrapper from "@/components/form-designer/form-widget/field-widget/form-item-wrapper";
 import emitter from "@/utils/emitter";
 import i18n, { translate } from "@/utils/i18n";
 import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
-
 export default {
-  name: "cascader-widget",
+  name: "async-select-widget",
   componentName: "FieldWidget", //必须固定为FieldWidget，用于接收父级组件的broadcast事件
   mixins: [emitter, fieldMixin, i18n],
   props: {
@@ -79,26 +80,19 @@ export default {
       oldFieldValue: null, //field组件change之前的值
       fieldModel: null,
       rules: [],
-      prop1: {
-        checkStrictly: this.field.options.checkStrictly,
-        multiple: this.field.options.multiple,
-        expandTrigger: this.field.options.expandTrigger,
-      },
-      prop2: {
-        checkStrictly: this.field.options.checkStrictly,
-        multiple: this.field.options.multiple,
-        expandTrigger: this.field.options.expandTrigger,
-        lazy: this.field.options.lazy,
-        lazyLoad: (node, resolved) => this.getLazy(node, resolved),
-      },
     };
   },
   computed: {
-    showFullPath() {
-      return (
-        this.field.options.showAllLevels === undefined ||
-        !!this.field.options.showAllLevels
-      );
+    allowDefaultFirstOption() {
+      return !!this.field.options.filterable && !!this.field.options.allowCreate;
+    },
+
+    remoteMethod() {
+      if (!!this.field.options.remote && !!this.field.options.onRemoteQuery) {
+        return this.remoteQuery;
+      } else {
+        return undefined;
+      }
     },
   },
   beforeCreate() {
@@ -126,24 +120,20 @@ export default {
   },
 
   methods: {
-    getLazy(node, resolve) {
-      if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
-        remoteFn.call(this, node, resolve);
-      }
+    handleInput(value) {
+      const fieldEditor = this.$refs.fieldEditor;
+      fieldEditor.blur();
+      setTimeout(() => {
+        fieldEditor.focus();
+      });
+      this.handleChangeEvent(value);
     },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-@import "../../../../styles/global.scss"; /* form-item-wrapper已引入，还需要重复引入吗？ */
-
 .full-width-input {
   width: 100% !important;
-
-  :deep(.el-cascader) {
-    width: 100% !important;
-  }
 }
 </style>
