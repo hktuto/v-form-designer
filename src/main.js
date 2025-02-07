@@ -17,9 +17,11 @@ import { installI18n } from '@/utils/i18n'
 import { loadExtension } from '@/extension/extension-loader'
 
 import { loadDataExtension } from '@/extension/dataField-loader'
-import { translate } from "@/utils/i18n"
+import { translate, changeLocale } from "@/utils/i18n"
 if (typeof window !== 'undefined') {
+  console.log('vform start');
   window.axios = axios
+  window.addEventListener('localeChange', (locale) => changeLocale(locale));
 }
 const vfApp = createApp(App)
 vfApp.config.globalProperties.$t = (key) => (translate(key))
