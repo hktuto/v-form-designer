@@ -30825,11 +30825,9 @@ const _sfc_main$l = {
   mounted() {
     this.initLocale();
     this.handleOnMounted();
-    console.log("vfRender mounted localeChange11");
     window.addEventListener("localeChange", this.changeLanguage);
   },
   unmounted() {
-    console.log("vfRender beforeDestroy localeChange");
     window.removeEventListener("localeChange", this.changeLanguage);
   },
   methods: {
@@ -31067,7 +31065,12 @@ const _sfc_main$l = {
       return result;
     },
     changeLanguage(langName) {
-      changeLocale(langName);
+      var _a2;
+      if (typeof value === "string") {
+        changeLocale(langName);
+      } else if ((_a2 = langName == null ? void 0 : langName.detail) == null ? void 0 : _a2.locale) {
+        changeLocale(langName.detail.locale);
+      }
     },
     getNativeForm() {
       return this.$refs["renderForm"];
@@ -31219,7 +31222,6 @@ const _sfc_main$l = {
       });
     },
     resetForm() {
-      console.log("resetForm");
       let subFormNames = Object.keys(this.subFormRefList);
       subFormNames.forEach((sfName) => {
         if (!!this.subFormRefList[sfName].resetSubForm) {
@@ -31366,7 +31368,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-089ebd45"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-71c64e6f"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31592,13 +31594,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1738916443058__");
+    var svgDom = document.getElementById("__svg__icons__dom__1738919437219__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1738916443058__";
+      svgDom.id = "__svg__icons__dom__1738919437219__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

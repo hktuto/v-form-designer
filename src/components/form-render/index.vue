@@ -193,11 +193,9 @@ export default {
   mounted() {
     this.initLocale();
     this.handleOnMounted();
-    console.log("vfRender mounted localeChange11");
     window.addEventListener("localeChange", this.changeLanguage);
   },
   unmounted() {
-    console.log("vfRender beforeDestroy localeChange");
     window.removeEventListener("localeChange", this.changeLanguage);
   },
   methods: {
@@ -501,7 +499,11 @@ export default {
     /* 提示：用户可自行扩充这些方法！！！ */
 
     changeLanguage(langName) {
-      changeLocale(langName);
+      if (typeof value === "string") {
+        changeLocale(langName);
+      } else if (langName?.detail?.locale) {
+        changeLocale(langName.detail.locale);
+      }
     },
 
     getNativeForm() {
@@ -699,7 +701,6 @@ export default {
 
     resetForm() {
       //重置表单
-      console.log("resetForm");
       let subFormNames = Object.keys(this.subFormRefList);
       subFormNames.forEach((sfName) => {
         if (!!this.subFormRefList[sfName].resetSubForm) {
@@ -837,7 +838,6 @@ export default {
     getGlobalDsv() {
       return this.globalDsv;
     },
-
     //--------------------- 以上为组件支持外部调用的API方法 end ------------------//
   },
 };
