@@ -4487,7 +4487,7 @@ const getRegExp = function(validatorName2) {
     number: "/^[-]?\\d+(\\.\\d+)?$/",
     letter: "/^[A-Za-z]+$/",
     letterAndNumber: "/^[A-Za-z0-9]+$/",
-    mobilePhone: "/^(+?d{1,3}[- ]?)?d{10}$/",
+    mobilePhone: "/^(\\+?\\d{1,3}[- ]?)?\\d{10}$/",
     letterStartNumberIncluded: "/^[A-Za-z]+[A-Za-z\\d]*$/",
     noChinese: "/^[^\u4E00-\u9FA5]+$/",
     chinese: "/^[\u4E00-\u9FA5]+$/",
@@ -32330,6 +32330,12 @@ const _sfc_main$33 = {
   mounted() {
     this.initLocale();
     this.handleOnMounted();
+    console.log("vfRender mounted localeChange11");
+    window.addEventListener("localeChange", this.changeLanguage);
+  },
+  unmounted() {
+    console.log("vfRender beforeDestroy localeChange");
+    window.removeEventListener("localeChange", this.changeLanguage);
   },
   methods: {
     initFormObject(insertHtmlCodeFlag = true) {
@@ -32865,7 +32871,7 @@ function _sfc_render$33(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-3c3d9f9d"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$33, [["render", _sfc_render$33], ["__scopeId", "data-v-089ebd45"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -76626,13 +76632,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1738913059760__");
+    var svgDom = document.getElementById("__svg__icons__dom__1738915300436__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1738913059760__";
+      svgDom.id = "__svg__icons__dom__1738915300436__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

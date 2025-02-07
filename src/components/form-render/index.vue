@@ -193,6 +193,12 @@ export default {
   mounted() {
     this.initLocale();
     this.handleOnMounted();
+    console.log("vfRender mounted localeChange11");
+    window.addEventListener("localeChange", this.changeLanguage);
+  },
+  unmounted() {
+    console.log("vfRender beforeDestroy localeChange");
+    window.removeEventListener("localeChange", this.changeLanguage);
   },
   methods: {
     initFormObject(insertHtmlCodeFlag = true) {
