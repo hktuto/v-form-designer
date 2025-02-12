@@ -15,7 +15,8 @@ function getMasterTableRecordCode() {
 }
 function getFunctionCode(setting) {
   const paramsStr = getParamsStr(setting)
-  return `async function init_${setting.fieldName}() {\n  const options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')\n  const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n if(!!widgetRef) widgetRef.loadOptions(options)\n}\ninit_${setting.fieldName}()\n`
+  const funName = `init_${setting.fieldName}`.replace(/ /, '')
+  return `async function ${funName}() {\n  const options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')\n  const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n if(!!widgetRef) widgetRef.loadOptions(options)\n}\n${funName}()\n`
 }
 function getParamsStr(setting) {
   const params = setting.params;

@@ -62708,12 +62708,13 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
 }
 function getFunctionCode(setting) {
   const paramsStr = getParamsStr(setting);
-  return `async function init_${setting.fieldName}() {
+  const funName = `init_${setting.fieldName}`.replace(/ /, "");
+  return `async function ${funName}() {
   const options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')
   const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
  if(!!widgetRef) widgetRef.loadOptions(options)
 }
-init_${setting.fieldName}()
+${funName}()
 `;
 }
 function getParamsStr(setting) {
@@ -62791,26 +62792,27 @@ const _sfc_main$1M = {
     form: {
       type: Object,
       required: true
+    },
+    widgetList: {
+      type: Array,
+      required: true
     }
   },
-  inject: ["getFieldWidgets"],
   data() {
     return {
       selectApiList: apiList,
       selectApi: {},
-      widgetList: [],
       hasExecuted: false
     };
   },
   mounted() {
-    this.getWidgetList();
   },
   methods: {
     handleDelete() {
       this.$emit("delete");
     },
-    getWidgetList() {
-      this.widgetList = this.getFieldWidgets();
+    handleFieldNameChange(value2, old) {
+      console.log(value2, old);
     },
     handleApiChange(value2, init = false) {
       if (!this.selectApiList[value2]) {
@@ -62902,6 +62904,20 @@ const _sfc_main$1M = {
           this.handleApiChange(val, true);
         }
       }
+    },
+    "form.fieldName": {
+      deep: true,
+      immediate: true,
+      handler(val, oldVal) {
+        this.$nextTick(() => {
+          if (!!val) {
+            this.$emit("setWidgetDisabled", val, true);
+          }
+          if (!!oldVal) {
+            this.$emit("setWidgetDisabled", oldVal, false);
+          }
+        });
+      }
     }
   }
 };
@@ -62932,19 +62948,21 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
             style: { "width": "240px" },
             clearable: "",
             "allow-create": "",
-            filterable: ""
+            filterable: "",
+            onChange: $options.handleFieldNameChange
           }, {
             default: withCtx(() => [
-              (openBlock(true), createElementBlock(Fragment, null, renderList($data.widgetList, (item, index2) => {
+              (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (item, index2) => {
                 return openBlock(), createBlock(_component_el_option, {
                   key: item.name,
                   label: item.name,
-                  value: item.name
-                }, null, 8, ["label", "value"]);
+                  value: item.name,
+                  disabled: item.disabled
+                }, null, 8, ["label", "value", "disabled"]);
               }), 128))
             ]),
             _: 1
-          }, 8, ["modelValue"])
+          }, 8, ["modelValue", "onChange"])
         ]),
         _: 1
       }, 8, ["label", "rules"]),
@@ -63186,7 +63204,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-21e6bf96"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-722d6774"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -63202,10 +63220,25 @@ const _sfc_main$1L = {
       changeFieldList: [],
       dialogVisible: false,
       selectType: {},
-      setting: {}
+      setting: {},
+      widgetList: []
     };
   },
+  inject: ["getFieldWidgets"],
+  mounted() {
+    this.getWidgetList();
+  },
   methods: {
+    getWidgetList() {
+      this.widgetList = this.getFieldWidgets();
+      console.log(this.widgetList);
+    },
+    setWidgetDisabled(widgetName, disabled = false) {
+      console.log(widgetName, disabled);
+      const disabledWidget = this.widgetList.find((item) => item.name === widgetName);
+      if (disabledWidget)
+        disabledWidget.disabled = disabled;
+    },
     handleSubmit() {
       const changeCode = generateChangeCode(this.changeFieldList);
       this.setting.onChange = changeCode;
@@ -63292,8 +63325,10 @@ function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
             return openBlock(), createBlock(_component_ChangeSettingForm, {
               key: index2,
               form: item,
+              widgetList: $data.widgetList,
+              onSetWidgetDisabled: $options.setWidgetDisabled,
               onDelete: ($event) => $options.handleDelete(index2)
-            }, null, 8, ["form", "onDelete"]);
+            }, null, 8, ["form", "widgetList", "onSetWidgetDisabled", "onDelete"]);
           }), 128))
         ]),
         _: 1
@@ -77313,13 +77348,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739328844025__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739345526744__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739328844025__";
+      svgDom.id = "__svg__icons__dom__1739345526744__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -19,9 +19,23 @@ export default {
       dialogVisible: false,
       selectType: {},
       setting: {},
+      widgetList: [],
     };
   },
+  inject: ["getFieldWidgets"],
+  mounted() {
+    this.getWidgetList();
+  },
   methods: {
+    getWidgetList() {
+      this.widgetList = this.getFieldWidgets();
+      console.log(this.widgetList);
+    },
+    setWidgetDisabled(widgetName, disabled = false) {
+      console.log(widgetName, disabled);
+      const disabledWidget = this.widgetList.find((item) => item.name === widgetName);
+      if (disabledWidget) disabledWidget.disabled = disabled;
+    },
     handleSubmit() {
       const changeCode = generateChangeCode(this.changeFieldList);
       this.setting.onChange = changeCode;
@@ -74,6 +88,8 @@ export default {
         v-for="(item, index) in changeFieldList"
         :key="index"
         :form="item"
+        :widgetList="widgetList"
+        @setWidgetDisabled="setWidgetDisabled"
         @delete="handleDelete(index)"
       ></ChangeSettingForm>
     </el-form>

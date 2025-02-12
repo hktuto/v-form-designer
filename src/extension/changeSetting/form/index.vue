@@ -14,25 +14,26 @@ export default {
       type: Object,
       required: true,
     },
+    widgetList: {
+      type: Array,
+      required: true,
+    },
   },
-  inject: ["getFieldWidgets"],
   data() {
     return {
       selectApiList: apiList,
       selectApi: {},
-      widgetList: [],
       hasExecuted: false,
     };
   },
-  mounted() {
-    this.getWidgetList();
-  },
+  mounted() {},
   methods: {
     handleDelete() {
       this.$emit("delete");
     },
-    getWidgetList() {
-      this.widgetList = this.getFieldWidgets();
+
+    handleFieldNameChange(value, old) {
+      console.log(value, old);
     },
     handleApiChange(value, init = false) {
       if (!this.selectApiList[value]) {
@@ -132,6 +133,20 @@ export default {
         }
       },
     },
+    "form.fieldName": {
+      deep: true,
+      immediate: true,
+      handler(val, oldVal) {
+        this.$nextTick(() => {
+          if (!!val) {
+            this.$emit("setWidgetDisabled", val, true);
+          }
+          if (!!oldVal) {
+            this.$emit("setWidgetDisabled", oldVal, false);
+          }
+        });
+      },
+    },
   },
 };
 </script>
@@ -149,12 +164,14 @@ export default {
         clearable
         allow-create
         filterable
+        @change="handleFieldNameChange"
       >
         <el-option
           v-for="(item, index) in widgetList"
           :key="item.name"
           :label="item.name"
           :value="item.name"
+          :disabled="item.disabled"
         />
       </el-select>
     </el-form-item>
