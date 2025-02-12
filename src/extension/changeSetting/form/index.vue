@@ -29,6 +29,9 @@ export default {
   mounted() {},
   methods: {
     handleDelete() {
+      if (!!this.form.fieldName) {
+        this.$emit("setWidgetDisabled", this.form.fieldName, false);
+      }
       this.$emit("delete");
     },
 
