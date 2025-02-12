@@ -62714,7 +62714,8 @@ function getFunctionCode(setting) {
   const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
   if(!!widgetRef) widgetRef.loadOptions(options)
   if(options.length === 1) {
-    widgetRef.setValue( options[0]['${setting.valueKey}'])
+    if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+    else widgetRef.setValue(options[0].value)
   }
   else widgetRef.setValue(null)
 }
@@ -77355,13 +77356,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739350237736__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739351666447__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739350237736__";
+      svgDom.id = "__svg__icons__dom__1739351666447__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
