@@ -1356,6 +1356,8 @@ var enLocale = {
       generateSFC: "Generate SFC"
     },
     setting: {
+      onCreatedSetting: "Manually configure onCreated code",
+      onChangeSetting: "Manually configure onChange code",
       basicSetting: "Basic Setting",
       attributeSetting: "Attribute Setting",
       commonSetting: "Common Setting",
@@ -1673,6 +1675,8 @@ var zhLocale = {
       generateSFC: "\u751F\u6210SFC"
     },
     setting: {
+      onCreatedSetting: "\u624B\u52A8\u914D\u7F6E onCreated \u4EE3\u7801",
+      onChangeSetting: "\u624B\u52A8\u914D\u7F6E onChange \u4EE3\u7801",
       basicSetting: "\u57FA\u672C\u5C5E\u6027",
       attributeSetting: "\u5C5E\u6027\u8BBE\u7F6E",
       commonSetting: "\u5E38\u89C1\u5C5E\u6027",
@@ -31594,13 +31598,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1738919437219__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739328886488__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1738919437219__";
+      svgDom.id = "__svg__icons__dom__1739328886488__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

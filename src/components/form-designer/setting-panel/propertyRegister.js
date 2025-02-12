@@ -123,6 +123,7 @@ const ADVANCED_PROPERTIES = {
 const EVENT_PROPERTIES = {
   //字段
   'onCreatedSetting'  :            'onCreatedSetting-editor',
+  'onChangeSetting'   :            'onChangeSetting-editor',
   'onCreated'         :            'onCreated-editor',
   'onMounted'         :            'onMounted-editor',
   'onClick'           :            'onClick-editor',
@@ -130,7 +131,7 @@ const EVENT_PROPERTIES = {
   'onChange'          :            'onChange-editor',
   'onFocus'           :            'onFocus-editor',
   'onBlur'            :            'onBlur-editor',
-  'onEnter'           :           'onEnter-editor',
+  'onEnter'           :            'onEnter-editor',
   'onRemoteQuery'     :            'onRemoteQuery-editor',
   'onBeforeUpload'    :            'onBeforeUpload-editor',
   'onUploadSuccess'   :            'onUploadSuccess-editor',

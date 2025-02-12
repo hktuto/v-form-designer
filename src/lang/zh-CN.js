@@ -164,6 +164,8 @@ export default {
     },
 
     setting: {
+      onCreatedSetting: '手动配置 onCreated 代码',
+      onChangeSetting: '手动配置 onChange 代码',
       basicSetting: '基本属性',
       attributeSetting: '属性设置',
       commonSetting: '常见属性',

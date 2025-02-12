@@ -164,6 +164,8 @@ export default {
     },
 
     setting: {
+      onCreatedSetting: 'Manually configure onCreated code',
+      onChangeSetting: 'Manually configure onChange code',
       basicSetting: 'Basic Setting',
       attributeSetting: 'Attribute Setting',
       commonSetting: 'Common Setting',

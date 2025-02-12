@@ -25,6 +25,7 @@ export const asyncSelectSchema = {
     ],
     selectSetting: {
     },
+    changeSettings: [],
     required: false,
     requiredHint: '',
     validation: '',
@@ -37,6 +38,7 @@ export const asyncSelectSchema = {
     //-------------------
     // noCreatedEvent: true,
     onCreatedSetting: 'async-select',
+    onChangeSetting: true,
     onCreated: '',
     onMounted: '',
     onRemoteQuery: '',

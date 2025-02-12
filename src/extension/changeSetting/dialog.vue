@@ -1,0 +1,95 @@
+<script>
+import { generateChangeCode } from "@/extension/changeSetting/codeHelper";
+
+import SvgIcon from "@/components/svg-icon/index";
+import ChangeSettingForm from "./form";
+const initApi = {
+  fieldName: "",
+  api: "",
+  method: "get",
+  params: {},
+  valueKey: "value",
+  labelKey: "label",
+};
+export default {
+  components: { SvgIcon, ChangeSettingForm },
+  data() {
+    return {
+      changeFieldList: [],
+      dialogVisible: false,
+      selectType: {},
+      setting: {},
+    };
+  },
+  methods: {
+    handleSubmit() {
+      const changeCode = generateChangeCode(this.changeFieldList);
+      this.setting.onChange = changeCode;
+      this.setting.changeSettings = JSON.parse(JSON.stringify(this.changeFieldList));
+      console.log(this.setting);
+      this.dialogVisible = false;
+    },
+    handleOpen(setting) {
+      this.selectType = {};
+      this.setting = setting;
+      console.log(this.setting);
+      this.changeFieldList =
+        setting.changeSettings?.length > 0
+          ? setting.changeSettings
+          : [
+              {
+                ...initApi,
+              },
+            ];
+      // if (this.form.api) this.handleTypeChange(this.form.api, true);
+      this.dialogVisible = true;
+    },
+    handleDelete(index) {
+      this.changeFieldList.splice(index, 1);
+    },
+    handleAdd() {
+      if (!this.changeFieldList) this.changeFieldList = [];
+      this.changeFieldList.push({
+        ...initApi,
+      });
+    },
+  },
+};
+</script>
+<template>
+  <el-dialog
+    v-if="dialogVisible"
+    v-model="dialogVisible"
+    :title="$t('designer.setting.onChangeSetting')"
+    :before-close="handleClose"
+  >
+    <el-form
+      ref="formRef"
+      label-position="top"
+      :model="form"
+      label-width="auto"
+      class="demo-dynamic"
+    >
+      <ChangeSettingForm
+        v-for="(item, index) in changeFieldList"
+        :key="index"
+        :form="item"
+        @delete="handleDelete(index)"
+      ></ChangeSettingForm>
+    </el-form>
+    <template #footer>
+      <div class="dialog-footer">
+        <el-button size="default" type="primary" @click="handleAdd">{{
+          $t("designer.setting.addOption")
+        }}</el-button>
+        <el-button size="default" @click="dialogVisible = false">{{
+          $t("designer.hint.cancel")
+        }}</el-button>
+        <el-button size="default" type="primary" @click="handleSubmit">
+          {{ $t("designer.hint.confirm") }}
+        </el-button>
+      </div>
+    </template>
+  </el-dialog>
+</template>
+<style lang="scss" scoped></style>
