@@ -164,6 +164,7 @@ export default {
         clearable
         allow-create
         filterable
+        :placeholder="$t('render.hint.selectPlaceholder')"
       >
         <el-option
           v-for="(item, index) in widgetList"
@@ -184,6 +185,7 @@ export default {
             clearable
             allow-create
             filterable
+            :placeholder="$t('render.hint.selectPlaceholder')"
             @change="handleApiChange"
           >
             <el-option
@@ -204,6 +206,7 @@ export default {
             clearable
             filterable
             allow-create
+            :placeholder="$t('render.hint.selectPlaceholder')"
           >
             <el-option
               v-for="(item, index) in selectApi.labelKeyList"
@@ -223,6 +226,7 @@ export default {
             clearable
             filterable
             allow-create
+            :placeholder="$t('render.hint.selectPlaceholder')"
           >
             <el-option
               v-for="(item, index) in selectApi.valueKeyList"
@@ -261,6 +265,7 @@ export default {
           filterable
           clearable
           allow-create
+          :placeholder="$t('render.hint.selectPlaceholder')"
           @change="(value) => handleParamChange(value, item)"
         >
           <el-option label="[Change value]" value="currentValue" />
@@ -316,7 +321,7 @@ export default {
               clearable
               filterable
               allow-create
-              :placeholder="$t('dataField.apiValue')"
+              :placeholder="$t('dataField.apiFieldValue')"
             >
               <!-- field change value -->
               <el-option label="[Change value]" value="currentValue" />

@@ -63827,7 +63827,8 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
             style: { "width": "240px" },
             clearable: "",
             "allow-create": "",
-            filterable: ""
+            filterable: "",
+            placeholder: _ctx.$t("render.hint.selectPlaceholder")
           }, {
             default: withCtx(() => [
               (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (item, index2) => {
@@ -63840,7 +63841,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
               }), 128))
             ]),
             _: 1
-          }, 8, ["modelValue"])
+          }, 8, ["modelValue", "placeholder"])
         ]),
         _: 1
       }, 8, ["label", "rules"]),
@@ -63862,6 +63863,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                     clearable: "",
                     "allow-create": "",
                     filterable: "",
+                    placeholder: _ctx.$t("render.hint.selectPlaceholder"),
                     onChange: $options.handleApiChange
                   }, {
                     default: withCtx(() => [
@@ -63874,7 +63876,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                       }), 128))
                     ]),
                     _: 1
-                  }, 8, ["modelValue", "onChange"])
+                  }, 8, ["modelValue", "placeholder", "onChange"])
                 ]),
                 _: 1
               }, 8, ["label", "rules"])
@@ -63895,7 +63897,8 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                     style: { "width": "240px" },
                     clearable: "",
                     filterable: "",
-                    "allow-create": ""
+                    "allow-create": "",
+                    placeholder: _ctx.$t("render.hint.selectPlaceholder")
                   }, {
                     default: withCtx(() => [
                       (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.labelKeyList, (item, index2) => {
@@ -63907,7 +63910,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                       }), 128))
                     ]),
                     _: 1
-                  }, 8, ["modelValue"])
+                  }, 8, ["modelValue", "placeholder"])
                 ]),
                 _: 1
               }, 8, ["label"])
@@ -63928,7 +63931,8 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                     style: { "width": "240px" },
                     clearable: "",
                     filterable: "",
-                    "allow-create": ""
+                    "allow-create": "",
+                    placeholder: _ctx.$t("render.hint.selectPlaceholder")
                   }, {
                     default: withCtx(() => [
                       (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.valueKeyList, (item, index2) => {
@@ -63940,7 +63944,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                       }), 128))
                     ]),
                     _: 1
-                  }, 8, ["modelValue"])
+                  }, 8, ["modelValue", "placeholder"])
                 ]),
                 _: 1
               }, 8, ["label"])
@@ -63984,6 +63988,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
               filterable: "",
               clearable: "",
               "allow-create": "",
+              placeholder: _ctx.$t("render.hint.selectPlaceholder"),
               onChange: (value2) => $options.handleParamChange(value2, item)
             }, {
               default: withCtx(() => [
@@ -64007,7 +64012,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                 }), 128))
               ]),
               _: 2
-            }, 1032, ["modelValue", "onUpdate:modelValue", "onChange"]))
+            }, 1032, ["modelValue", "onUpdate:modelValue", "placeholder", "onChange"]))
           ], 64)) : (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList($props.form.params[item.key], (param, paramIndex) => {
             return openBlock(), createBlock(_component_el_row, {
               gutter: 20,
@@ -64056,7 +64061,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                       clearable: "",
                       filterable: "",
                       "allow-create": "",
-                      placeholder: _ctx.$t("dataField.apiValue")
+                      placeholder: _ctx.$t("dataField.apiFieldValue")
                     }, {
                       default: withCtx(() => [
                         createVNode(_component_el_option, {
@@ -64096,7 +64101,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-95dd8884"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-c953b3b8"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -64677,6 +64682,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                 "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.form.api = $event),
                 style: { "width": "240px" },
                 clearable: "",
+                placeholder: _ctx.$t("render.hint.selectPlaceholder"),
                 onChange: $options.handleTypeChange
               }, {
                 default: withCtx(() => [
@@ -64689,7 +64695,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                   }), 128))
                 ]),
                 _: 1
-              }, 8, ["modelValue", "onChange"])
+              }, 8, ["modelValue", "placeholder", "onChange"])
             ]),
             _: 1
           }, 8, ["label", "rules"]),
@@ -64709,7 +64715,8 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                         style: { "width": "240px" },
                         clearable: "",
                         filterable: "",
-                        "allow-create": ""
+                        "allow-create": "",
+                        placeholder: _ctx.$t("render.hint.selectPlaceholder")
                       }, {
                         default: withCtx(() => [
                           (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.labelKeyList, (item, index2) => {
@@ -64721,7 +64728,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                           }), 128))
                         ]),
                         _: 1
-                      }, 8, ["modelValue"])
+                      }, 8, ["modelValue", "placeholder"])
                     ]),
                     _: 1
                   }, 8, ["label"])
@@ -64742,7 +64749,8 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                         style: { "width": "240px" },
                         clearable: "",
                         filterable: "",
-                        "allow-create": ""
+                        "allow-create": "",
+                        placeholder: _ctx.$t("render.hint.selectPlaceholder")
                       }, {
                         default: withCtx(() => [
                           (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.valueKeyList, (item, index2) => {
@@ -64754,7 +64762,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                           }), 128))
                         ]),
                         _: 1
-                      }, 8, ["modelValue"])
+                      }, 8, ["modelValue", "placeholder"])
                     ]),
                     _: 1
                   }, 8, ["label"])
@@ -64798,6 +64806,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                   filterable: "",
                   clearable: "",
                   "allow-create": "",
+                  placeholder: _ctx.$t("render.hint.selectPlaceholder"),
                   onChange: (value2) => $options.handleParamChange(value2, item)
                 }, {
                   default: withCtx(() => [
@@ -64810,7 +64819,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                     }), 128))
                   ]),
                   _: 2
-                }, 1032, ["modelValue", "onUpdate:modelValue", "onChange"]))
+                }, 1032, ["modelValue", "onUpdate:modelValue", "placeholder", "onChange"]))
               ], 64)) : (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList($data.form.params[item.key], (param, paramIndex) => {
                 return openBlock(), createBlock(_component_el_row, {
                   gutter: 20,
@@ -64856,7 +64865,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
                           modelValue: $data.form.params[item.key][paramIndex].value,
                           "onUpdate:modelValue": ($event) => $data.form.params[item.key][paramIndex].value = $event,
                           size: "default",
-                          placeholder: _ctx.$t("dataField.apiValue"),
+                          placeholder: _ctx.$t("dataField.apiFieldValue"),
                           clearable: ""
                         }, null, 8, ["modelValue", "onUpdate:modelValue", "placeholder"])
                       ]),
@@ -64880,7 +64889,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H], ["__scopeId", "data-v-7075c530"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H], ["__scopeId", "data-v-8c8621b0"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1G = {
   components: { SvgIcon },
@@ -68215,11 +68224,11 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                           modelValue: cItem.fieldName,
                           "onUpdate:modelValue": ($event) => cItem.fieldName = $event,
                           options: this.fieldList,
-                          placeholder: "Please select",
+                          placeholder: _ctx.$t("render.hint.selectPlaceholder"),
                           size: "default",
                           clearable: "",
                           onChange: (value2) => $options.handleChangeFieldName(value2, cItem)
-                        }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "onChange"])
+                        }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder", "onChange"])
                       ]),
                       _: 2
                     }, 1024),
@@ -68232,7 +68241,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                           placeholder: "Please select",
                           size: "default",
                           clearable: ""
-                        }, null, 8, ["modelValue", "onUpdate:modelValue", "options"])
+                        }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder"])
                       ]),
                       _: 2
                     }, 1024),
@@ -68329,10 +68338,10 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                             modelValue: dhItem2.fieldName,
                             "onUpdate:modelValue": ($event) => dhItem2.fieldName = $event,
                             options: this.fieldList,
-                            placeholder: "Please select",
+                            placeholder: _ctx.$t("render.hint.selectPlaceholder"),
                             size: "default",
                             clearable: ""
-                          }, null, 8, ["modelValue", "onUpdate:modelValue", "options"])
+                          }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder"])
                         ]),
                         _: 2
                       }, 1024),
@@ -68365,7 +68374,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-598d1b63"]]);
+var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-223dd7c5"]]);
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$u = {
   name: "form-setting",
@@ -78230,13 +78239,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739428803401__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739432779967__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739428803401__";
+      svgDom.id = "__svg__icons__dom__1739432779967__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -80865,12 +80874,11 @@ const ugSelectSchema = {
     labelIconClass: null,
     labelIconPosition: "rear",
     labelTooltip: null,
-    onCreatedSetting: "ug-select",
     onCreated: "const _this = this\nasync function getOptions() {\n  const options = [\n        { value: 'user_groups', label: $i18n.t('user_groups'), options: await groupListFilter() },\n        { value: 'user_users', label: $i18n.t('user_users'), options: await userListFilter() }\n  ]\n  _this.loadOptions(options)\n}\nasync function userListFilter () {\n  const data = await $api.post('/nuxeo/identity/users', {}).then(res => res.data.data)\n  return data.reduce((prev,item) => {\n    if (item.userId) prev.push({\n      label: item.username,\n      value: item.userId\n    })\n    return prev\n  }, [])\n}\nasync function groupListFilter () {\n  const data = await $api.post('/nuxeo/identity/groups', {}).then(res => res.data.data)\n  return data.reduce((prev,item) => {\n    if (item.id) prev.push({\n      label: item.name,\n      value: item.id\n    })\n    return prev\n  }, [])\n}\ngetOptions()",
     onMounted: "",
     onRemoteQuery: "",
     onChange: "",
-    onCreatedSetting: "async-select",
+    onCreatedSetting: "ug-select",
     onChangeSetting: true,
     onFocus: "",
     onBlur: "",

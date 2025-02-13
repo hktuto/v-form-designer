@@ -18,6 +18,7 @@
           v-model="form.api"
           style="width: 240px"
           clearable
+          :placeholder="$t('render.hint.selectPlaceholder')"
           @change="handleTypeChange"
         >
           <!-- allow-create -->
@@ -40,6 +41,7 @@
               clearable
               filterable
               allow-create
+              :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
                 v-for="(item, index) in selectType.labelKeyList"
@@ -59,6 +61,7 @@
               clearable
               filterable
               allow-create
+              :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
                 v-for="(item, index) in selectType.valueKeyList"
@@ -97,6 +100,7 @@
             filterable
             clearable
             allow-create
+            :placeholder="$t('render.hint.selectPlaceholder')"
             @change="(value) => handleParamChange(value, item)"
           >
             <el-option
@@ -142,7 +146,7 @@
               <el-input
                 v-model="form.params[item.key][paramIndex].value"
                 size="default"
-                :placeholder="$t('dataField.apiValue')"
+                :placeholder="$t('dataField.apiFieldValue')"
                 clearable
               />
             </el-col>

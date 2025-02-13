@@ -24,7 +24,7 @@
             <el-select-v2
               v-model="cItem.fieldName"
               :options="this.fieldList"
-              placeholder="Please select"
+              :placeholder="$t('render.hint.selectPlaceholder')"
               size="default"
               clearable
               @change="(value) => handleChangeFieldName(value, cItem)"
@@ -37,6 +37,7 @@
               placeholder="Please select"
               size="default"
               clearable
+              :placeholder="$t('render.hint.selectPlaceholder')"
             />
           </el-col>
           <el-col :span="6">
@@ -87,7 +88,7 @@
             <el-select-v2
               v-model="dhItem.fieldName"
               :options="this.fieldList"
-              placeholder="Please select"
+              :placeholder="$t('render.hint.selectPlaceholder')"
               size="default"
               clearable
             />

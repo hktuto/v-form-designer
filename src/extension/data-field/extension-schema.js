@@ -95,12 +95,11 @@ export const ugSelectSchema = {
     labelTooltip: null,
     //-------------------
     // noCreatedEvent: true,
-    onCreatedSetting: 'ug-select',
     onCreated: "const _this = this\nasync function getOptions() {\n  const options = [\n        { value: 'user_groups', label: $i18n.t('user_groups'), options: await groupListFilter() },\n        { value: 'user_users', label: $i18n.t('user_users'), options: await userListFilter() }\n  ]\n  _this.loadOptions(options)\n}\nasync function userListFilter () {\n  const data = await $api.post('/nuxeo/identity/users', {}).then(res => res.data.data)\n  return data.reduce((prev,item) => {\n    if (item.userId) prev.push({\n      label: item.username,\n      value: item.userId\n    })\n    return prev\n  }, [])\n}\nasync function groupListFilter () {\n  const data = await $api.post('/nuxeo/identity/groups', {}).then(res => res.data.data)\n  return data.reduce((prev,item) => {\n    if (item.id) prev.push({\n      label: item.name,\n      value: item.id\n    })\n    return prev\n  }, [])\n}\ngetOptions()",
     onMounted: '',
     onRemoteQuery: '',
     onChange: '',
-    onCreatedSetting: 'async-select',
+    onCreatedSetting: 'ug-select',
     onChangeSetting: true,
     onFocus: '',
     onBlur: '',
