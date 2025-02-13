@@ -11,15 +11,66 @@ export function generateChangeCode(changeFieldList) {
 }
 
 function getMasterTableRecordCode() {
-  return `\nasync function get_masterTableColumn(params,labelKey='name', valueKey='id') {\n  try {\n    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)\n    return data.reduce((prev, item) => {\n      if(!item[valueKey] || !item[labelKey]) return prev \n      const resultItem = {\n        value: item[valueKey],\n        label: item[labelKey] || '' \n      }\n      prev.push(resultItem) \n      return prev\n    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))\n  } catch (e) {}\n}\n`
+  return `\nasync function get_masterTableColumn(params,labelKey='name', valueKey='id') {\n  try {\n    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)\n    return data.reduce((prev, item) => {\n      if(!item[valueKey] || !item[labelKey]) return prev \n      const resultItem = {\n        value: item[valueKey],\n        label: item[labelKey] || '' \n      }\n      prev.push(resultItem) \n      return prev\n    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))\n  } catch (e) {\n    return []\n  }\n}\n`
 }
 function getFunctionCode(setting) {
   const paramsStr = getParamsStr(setting)
-  const funName = `init_${setting.fieldName}`.replace(/ /, '')
-  return `async function ${funName}() {\n  const options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')\n  const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n  if(!!widgetRef) widgetRef.loadOptions(options)\n  if(options.length === 1) {\n    if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])\n    else widgetRef.setValue(options[0].value)\n  }\n  else widgetRef.setValue(null)\n}\n${funName}()\n`
+  const funName = `init_${setting.fieldName}`.replace(/ /g, '')
+  const optionApiStr = `\n  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`
+  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr)
+  return `\nasync function ${funName}() {${fieldParamsInitStr}\n  try {\n    const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n    if(widgetRef.loadOption) widgetRef.loadOptions(options)\n    if(options.length === 1) {\n      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])\n      else widgetRef.setValue(options[0].value)\n    }\n    else widgetRef.setValue(null)\n  }\n  catch(e) {\n    \n  }\n}\n${funName}()\n`
+}
+// funName
+// fieldParamsInitStr
+function getFieldParamsInitStr(setting, optionApiStr) {
+  const params = setting.params;
+  const fieldCodeList = []
+  const paramsList = []
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        return prev;
+      }
+      params[key].forEach((item) => {
+        if (item.value) {
+          const fieldCode = generateFieldCode(item.value)
+          if(!!fieldCode) fieldCodeList.push(fieldCode);
+          const paramName = getParamName(item.value)
+          if(!!paramName) paramsList.push(paramName);
+        }
+      });
+    }
+    else if (params[key]) {
+      const fieldCode = generateFieldCode(params[key])
+      if(!!fieldCode) fieldCodeList.push(fieldCode);
+      const paramName = getParamName(params[key])
+      if(!!paramName) paramsList.push(paramName);
+    }
+  });
+  return fieldCodeList.join('') + generateFieldExistCode();
+  function generateFieldCode(paramName) {
+    if (!paramName.startsWith('widgetValue_')) return ''
+    const widgetName = paramName.replace(/widgetValue_/, '');
+    const widgetNameNoSpace = paramName.replace(/widgetValue_/, '').replace(/ /g, '');
+    return `\n  let widgetValue_${widgetNameNoSpace} = ''\n  const widgetRef_${widgetNameNoSpace} = this.getWidgetRef('${widgetName}')\n  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()\n`
+  }
+  function generateFieldExistCode() {
+    const pList = [...new Set(paramsList)]
+    const conditionStr = pList.reduce((prev, item, index) => {
+      prev += '!!' + item
+      if (index !== pList.length - 1) prev += ' && '
+      return prev
+    }, '')
+    return `\n  let options = []\n  if(${conditionStr}) ${optionApiStr}\n`
+  }
+  function getParamName(paramName) {
+    if (paramName.startsWith('widgetValue_')) return paramName.replace(/ /g, '')
+    else if(paramName === 'currentValue') return 'value'
+    return ''
+  }
 }
 function getParamsStr(setting) {
-  const params = setting.params;
+  const params = JSON.parse(JSON.stringify(setting.params)) ;
   const apiMethod = setting.method || "post";
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
@@ -41,6 +92,10 @@ function getParamsStr(setting) {
     Object.keys(obj).forEach((key) => {
       if (typeof obj[key] == "object") str += `${key}:{${getStr(obj[key])}}, `;
       else if (obj[key] === 'currentValue') str += `${key}: value, `;
+      else if (obj[key].startsWith('widgetValue_')) {
+        const widgetName = obj[key].replace(/ /g, '');
+        str += `${key}: ${widgetName}, `;
+      }
       else if (obj[key]) str += `${key}: '${obj[key]}', `;
     });
     return str;

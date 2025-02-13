@@ -269,6 +269,12 @@ export default {
         >
           <el-option label="Change value" value="currentValue" />
           <el-option
+            v-for="(oItem, oIndex) in widgetList"
+            :key="`widgetValue_${oItem.name}`"
+            :label="`${oItem.name} value`"
+            :value="`widgetValue_${oItem.name}`"
+          />
+          <el-option
             v-for="(item, index) in item.options"
             :key="item"
             :label="item.label"
@@ -318,6 +324,12 @@ export default {
             >
               <!-- field change value -->
               <el-option label="Change value" value="currentValue" />
+              <el-option
+                v-for="(oItem, oIndex) in widgetList"
+                :key="`widgetValue_${oItem.name}`"
+                :label="`${oItem.name} value`"
+                :value="`widgetValue_${oItem.name}`"
+              />
             </el-select>
           </el-col>
           <svg-icon

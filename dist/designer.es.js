@@ -46887,14 +46887,14 @@ var ace$2 = { exports: {} };
       Editor3.prototype.$historyTracker = function(e13) {
         if (!this.$mergeUndoDeltas)
           return;
-        var prev = this.prevOp;
+        var prev2 = this.prevOp;
         var mergeableCommands = this.$mergeableCommands;
-        var shouldMerge = prev.command && e13.command.name == prev.command.name;
+        var shouldMerge = prev2.command && e13.command.name == prev2.command.name;
         if (e13.command.name == "insertstring") {
           var text = e13.args;
           if (this.mergeNextCommand === void 0)
             this.mergeNextCommand = true;
-          shouldMerge = shouldMerge && this.mergeNextCommand && (!/\s/.test(text) || /\s/.test(prev.args));
+          shouldMerge = shouldMerge && this.mergeNextCommand && (!/\s/.test(text) || /\s/.test(prev2.args));
           this.mergeNextCommand = true;
         } else {
           shouldMerge = shouldMerge && mergeableCommands.indexOf(e13.command.name) !== -1;
@@ -49398,7 +49398,7 @@ var ace$2 = { exports: {} };
         var start = range.start.row;
         var end = range.end.row;
         var row = start;
-        var prev = 0;
+        var prev2 = 0;
         var curr = 0;
         var next = session.getScreenLastRowColumn(row);
         var lineRange = new Range(row, range.start.column, row, curr);
@@ -49406,10 +49406,10 @@ var ace$2 = { exports: {} };
           lineRange.start.row = lineRange.end.row = row;
           lineRange.start.column = row == start ? range.start.column : session.getRowWrapIndent(row);
           lineRange.end.column = next;
-          prev = curr;
+          prev2 = curr;
           curr = next;
           next = row + 1 < end ? session.getScreenLastRowColumn(row + 1) : row == end ? 0 : range.end.column;
-          this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
+          this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev2 < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
         }
       };
       Marker2.prototype.drawMultiLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
@@ -62689,10 +62689,10 @@ var __glob_0_81 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
 function generateChangeCode(changeFieldList) {
   const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
   const mf2 = getMasterTableRecordCode();
-  const code = _changeFieldList.reduce((prev, item) => {
+  const code = _changeFieldList.reduce((prev2, item) => {
     const funCode = getFunctionCode(item);
-    prev += funCode;
-    return prev;
+    prev2 += funCode;
+    return prev2;
   }, "const _this = this" + mf2);
   return code;
 }
@@ -62710,28 +62710,99 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
       prev.push(resultItem) 
       return prev
     }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
-  } catch (e) {}
+  } catch (e) {
+    return []
+  }
 }
 `;
 }
 function getFunctionCode(setting) {
   const paramsStr = getParamsStr(setting);
   const funName = `init_${setting.fieldName}`.replace(/ /, "");
-  return `async function ${funName}() {
-  const options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')
-  const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
-  if(!!widgetRef) widgetRef.loadOptions(options)
-  if(options.length === 1) {
-    if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-    else widgetRef.setValue(options[0].value)
+  const optionApiStr = `
+  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
+  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
+  return `
+async function ${funName}() {${fieldParamsInitStr}
+  try {
+    const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
+    if(widgetRef.loadOption) widgetRef.loadOptions(options)
+    if(options.length === 1) {
+      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+      else widgetRef.setValue(options[0].value)
+    }
+    else widgetRef.setValue(null)
   }
-  else widgetRef.setValue(null)
+  catch(e) {
+    
+  }
 }
 ${funName}()
 `;
 }
-function getParamsStr(setting) {
+function getFieldParamsInitStr(setting, optionApiStr) {
   const params = setting.params;
+  const fieldCodeList = [];
+  const paramsList = [];
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        return prev;
+      }
+      params[key].forEach((item) => {
+        if (item.value) {
+          const fieldCode = generateFieldCode(item.value);
+          if (!!fieldCode)
+            fieldCodeList.push(fieldCode);
+          const paramName = getParamName(item.value);
+          if (!!paramName)
+            paramsList.push(paramName);
+        }
+      });
+    } else if (params[key]) {
+      const fieldCode = generateFieldCode(params[key]);
+      if (!!fieldCode)
+        fieldCodeList.push(fieldCode);
+      const paramName = getParamName(params[key]);
+      if (!!paramName)
+        paramsList.push(paramName);
+    }
+  });
+  return fieldCodeList.join("") + generateFieldExistCode();
+  function generateFieldCode(paramName) {
+    if (!paramName.startsWith("widgetValue_"))
+      return "";
+    const widgetName = paramName.replace(/widgetValue_/, "");
+    const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
+    return `
+  let widgetValue_${widgetNameNoSpace} = ''
+  const widgetRef_${widgetNameNoSpace} = this.getWidgetRef('${widgetName}')
+  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
+`;
+  }
+  function generateFieldExistCode() {
+    const pList = [...new Set(paramsList)];
+    const conditionStr = pList.reduce((prev2, item, index2) => {
+      prev2 += "!!" + item;
+      if (index2 !== pList.length - 1)
+        prev2 += " && ";
+      return prev2;
+    }, "");
+    return `
+  let options = []
+  if(${conditionStr}) ${optionApiStr}
+`;
+  }
+  function getParamName(paramName) {
+    if (paramName.startsWith("widgetValue_"))
+      return paramName.replace(/ /g, "");
+    else if (paramName === "currentValue")
+      return "value";
+    return "";
+  }
+}
+function getParamsStr(setting) {
+  const params = JSON.parse(JSON.stringify(setting.params));
   const apiMethod = setting.method || "post";
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
@@ -62758,7 +62829,10 @@ function getParamsStr(setting) {
         str += `${key}:{${getStr(obj[key])}}, `;
       else if (obj[key] === "currentValue")
         str += `${key}: value, `;
-      else if (obj[key])
+      else if (obj[key].startsWith("widgetValue_")) {
+        const widgetName = obj[key].replace(/ /g, "");
+        str += `${key}: ${widgetName}, `;
+      } else if (obj[key])
         str += `${key}: '${obj[key]}', `;
     });
     return str;
@@ -63129,6 +63203,13 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                   label: "Change value",
                   value: "currentValue"
                 }),
+                (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem, oIndex) => {
+                  return openBlock(), createBlock(_component_el_option, {
+                    key: `widgetValue_${oItem.name}`,
+                    label: `${oItem.name} value`,
+                    value: `widgetValue_${oItem.name}`
+                  }, null, 8, ["label", "value"]);
+                }), 128)),
                 (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2, index3) => {
                   return openBlock(), createBlock(_component_el_option, {
                     key: item2,
@@ -63193,7 +63274,14 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                         createVNode(_component_el_option, {
                           label: "Change value",
                           value: "currentValue"
-                        })
+                        }),
+                        (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem, oIndex) => {
+                          return openBlock(), createBlock(_component_el_option, {
+                            key: `widgetValue_${oItem.name}`,
+                            label: `${oItem.name} value`,
+                            value: `widgetValue_${oItem.name}`
+                          }, null, 8, ["label", "value"]);
+                        }), 128))
                       ]),
                       _: 2
                     }, 1032, ["modelValue", "onUpdate:modelValue", "placeholder"])
@@ -63220,7 +63308,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-ab6390fa"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-58bfe5a7"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -77364,13 +77452,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739407711513__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739423759560__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739407711513__";
+      svgDom.id = "__svg__icons__dom__1739423759560__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
