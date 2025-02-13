@@ -52,7 +52,7 @@ function getFieldParamsInitStr(setting, optionApiStr) {
     if (!paramName.startsWith('widgetValue_')) return ''
     const widgetName = paramName.replace(/widgetValue_/, '');
     const widgetNameNoSpace = paramName.replace(/widgetValue_/, '').replace(/ /g, '');
-    return `\n  let widgetValue_${widgetNameNoSpace} = ''\n  const widgetRef_${widgetNameNoSpace} = this.getWidgetRef('${widgetName}')\n  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()\n`
+    return `\n  let widgetValue_${widgetNameNoSpace} = ''\n  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')\n  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()\n`
   }
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)]

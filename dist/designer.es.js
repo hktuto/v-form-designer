@@ -62718,7 +62718,7 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
 }
 function getFunctionCode(setting) {
   const paramsStr = getParamsStr(setting);
-  const funName = `init_${setting.fieldName}`.replace(/ /, "");
+  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
   const optionApiStr = `
   options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
   const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
@@ -62776,7 +62776,7 @@ function getFieldParamsInitStr(setting, optionApiStr) {
     const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
     return `
   let widgetValue_${widgetNameNoSpace} = ''
-  const widgetRef_${widgetNameNoSpace} = this.getWidgetRef('${widgetName}')
+  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')
   if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
 `;
   }
@@ -63200,13 +63200,13 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
             }, {
               default: withCtx(() => [
                 createVNode(_component_el_option, {
-                  label: "Change value",
+                  label: "[Change value]",
                   value: "currentValue"
                 }),
                 (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem, oIndex) => {
                   return openBlock(), createBlock(_component_el_option, {
                     key: `widgetValue_${oItem.name}`,
-                    label: `${oItem.name} value`,
+                    label: `[${oItem.name} value]`,
                     value: `widgetValue_${oItem.name}`
                   }, null, 8, ["label", "value"]);
                 }), 128)),
@@ -63272,13 +63272,13 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
                     }, {
                       default: withCtx(() => [
                         createVNode(_component_el_option, {
-                          label: "Change value",
+                          label: "[Change value]",
                           value: "currentValue"
                         }),
                         (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem, oIndex) => {
                           return openBlock(), createBlock(_component_el_option, {
                             key: `widgetValue_${oItem.name}`,
-                            label: `${oItem.name} value`,
+                            label: `[${oItem.name} value]`,
                             value: `widgetValue_${oItem.name}`
                           }, null, 8, ["label", "value"]);
                         }), 128))
@@ -63308,7 +63308,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-58bfe5a7"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-2b80edb2"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -77452,13 +77452,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739423759560__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739425763952__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739423759560__";
+      svgDom.id = "__svg__icons__dom__1739425763952__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
