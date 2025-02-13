@@ -35,9 +35,6 @@ export default {
       this.$emit("delete");
     },
 
-    handleFieldNameChange(value, old) {
-      console.log(value, old);
-    },
     handleApiChange(value, init = false) {
       if (!this.selectApiList[value]) {
         this.selectApi = {
@@ -167,7 +164,6 @@ export default {
         clearable
         allow-create
         filterable
-        @change="handleFieldNameChange"
       >
         <el-option
           v-for="(item, index) in widgetList"

@@ -275,7 +275,6 @@ export default {
     addWindowResizeHandler(() => {
       this.$nextTick(() => {
         this.scrollerHeight = window.innerHeight - 56 - 48 + "px";
-        //console.log(this.scrollerHeight)
       });
     });
   },

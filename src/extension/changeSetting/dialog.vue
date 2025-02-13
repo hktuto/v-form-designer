@@ -23,16 +23,12 @@ export default {
     };
   },
   inject: ["getFieldWidgets"],
-  mounted() {
-    this.getWidgetList();
-  },
+
   methods: {
     getWidgetList() {
       this.widgetList = this.getFieldWidgets();
-      console.log(this.widgetList);
     },
     setWidgetDisabled(widgetName, disabled = false) {
-      console.log(widgetName, disabled);
       const disabledWidget = this.widgetList.find((item) => item.name === widgetName);
       if (disabledWidget) disabledWidget.disabled = disabled;
     },
@@ -40,13 +36,12 @@ export default {
       const changeCode = generateChangeCode(this.changeFieldList);
       this.setting.onChange = changeCode;
       this.setting.changeSettings = JSON.parse(JSON.stringify(this.changeFieldList));
-      console.log(this.setting);
       this.dialogVisible = false;
     },
     handleOpen(setting) {
+      this.getWidgetList();
       this.selectType = {};
       this.setting = setting;
-      console.log(this.setting);
       this.changeFieldList =
         setting.changeSettings?.length > 0
           ? setting.changeSettings

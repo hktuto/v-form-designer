@@ -6864,7 +6864,6 @@ const _sfc_main$3q = {
       let uploadURL = this.field.options.uploadURL;
       if (!!uploadURL && (uploadURL.indexOf("DSV.") > -1 || uploadURL.indexOf("DSV[") > -1)) {
         let DSV = this.getGlobalDsv();
-        console.log("test DSV: ", DSV);
         return evalFn(this.field.options.uploadURL, DSV);
       }
       return this.field.options.uploadURL;
@@ -7009,7 +7008,7 @@ const _sfc_main$3q = {
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
       if (cookieToken)
-        this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
+        this.uploadHeaders = { Authorization: `Bearer ${cookieToken}` };
     },
     getCookie(name) {
       var strCookies = document.cookie;
@@ -7027,7 +7026,7 @@ const _sfc_main$3q = {
 const _hoisted_1$H = { class: "el-upload-list__item-status-label" };
 const _hoisted_2$n = {
   class: "el-icon--upload-success",
-  style: { "color": "#FFF" }
+  style: { "color": "#fff" }
 };
 const _hoisted_3$i = { class: "el-upload-list__item-actions" };
 const _hoisted_4$b = ["onClick"];
@@ -7067,7 +7066,7 @@ function _sfc_render$3q(_ctx, _cache, $props, $setup, $data, $options) {
         "file-list": $data.fileList,
         "show-file-list": $props.field.options.showFileList,
         "list-type": "picture-card",
-        class: normalizeClass({ "hideUploadDiv": $data.uploadBtnHidden }),
+        class: normalizeClass({ hideUploadDiv: $data.uploadBtnHidden }),
         limit: $props.field.options.limit,
         "on-exceed": $options.handlePictureExceed,
         "before-upload": $options.beforePictureUpload,
@@ -7122,7 +7121,7 @@ function _sfc_render$3q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3q, [["render", _sfc_render$3q], ["__scopeId", "data-v-72787dcd"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3q, [["render", _sfc_render$3q], ["__scopeId", "data-v-56753bb9"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
@@ -30247,9 +30246,7 @@ const _sfc_main$3m = {
   },
   methods: {
     handleChange(editor) {
-      console.log(editor);
-      const html = editor.getHtml();
-      console.log({ html }, this.fieldModel);
+      editor.getHtml();
       this.valueChangedFlag = true;
       this.syncUpdateFormModel(this.fieldModel);
     },
@@ -30306,7 +30303,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-297e7d24"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-a541e214"]]);
 var __glob_0_15$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
@@ -57870,15 +57867,15 @@ const _sfc_main$34 = {
       activeCodeTab: "vue",
       activeSFCTab: "vue2",
       testFormData: {
-        "select62173": 2
+        select62173: 2
       },
       testOptionData: {
-        "select62173": [
+        select62173: [
           { label: "01", value: 1 },
           { label: "22", value: 2 },
           { label: "333", value: 3 }
         ],
-        "select001": [
+        select001: [
           { label: "\u8FA3\u6912", value: 1 },
           { label: "\u83E0\u841D", value: 2 },
           { label: "\u4E11\u6A58\u5B50", value: 3 }
@@ -58162,22 +58159,818 @@ const _sfc_main$34 = {
         let newFormJson = res.data;
         this.$refs.preForm.setFormJson(newFormJson);
         this.$nextTick(() => {
-          let newFormData = { "input30696": "668899" };
+          let newFormData = { input30696: "668899" };
           this.$refs.preForm.setFormData(newFormData);
         });
       }).catch((err) => {
       });
     },
     testSetFormJson() {
-      let newFormJson = { "widgetList": [{ "type": "static-text", "icon": "static-text", "formItemFlag": false, "options": { "name": "statictext111193", "columnWidth": "200px", "hidden": false, "textContent": "\u591A\u5217\u8868\u5355", "customClass": [], "onCreated": "", "onMounted": "", "label": "static-text" }, "id": "statictext111193" }, { "type": "divider", "icon": "divider", "formItemFlag": false, "options": { "name": "divider102346", "label": "", "columnWidth": "200px", "direction": "horizontal", "contentPosition": "center", "hidden": false, "customClass": [], "onCreated": "", "onMounted": "" }, "id": "divider102346" }, { "type": "grid", "category": "container", "icon": "grid", "cols": [{ "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "input", "icon": "text-field", "formItemFlag": true, "options": { "name": "input12931", "label": "\u53D1\u4EF6\u4EBA\u59D3\u540D", "labelAlign": "", "type": "text", "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "clearable": true, "showPassword": false, "required": true, "validation": "", "validationHint": "", "customClass": [], "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "prefixIcon": "", "suffixIcon": "", "appendButton": false, "appendButtonDisabled": false, "buttonIcon": "el-icon-search", "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "input12931" }], "options": { "name": "gridCol25469", "hidden": false, "span": 12, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": [] }, "id": "grid-col-25469" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "input", "icon": "text-field", "formItemFlag": true, "options": { "name": "input23031", "label": "\u53D1\u4EF6\u4EBA\u53F7\u7801", "labelAlign": "", "type": "text", "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "clearable": true, "showPassword": false, "required": true, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "prefixIcon": "", "suffixIcon": "", "appendButton": false, "appendButtonDisabled": false, "buttonIcon": "el-icon-search", "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "input23031" }], "options": { "name": "gridCol25125", "hidden": false, "span": 12, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-25125" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "switch", "icon": "switch-field", "formItemFlag": true, "options": { "name": "switch96070", "label": "\u662F\u5426\u4FDD\u5BC6", "labelAlign": "", "defaultValue": true, "columnWidth": "200px", "labelWidth": null, "labelHidden": false, "disabled": false, "hidden": false, "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "switchWidth": 40, "activeText": "", "inactiveText": "", "activeColor": null, "inactiveColor": null, "onCreated": "", "onMounted": "", "onChange": "", "onValidate": "" }, "id": "switch96070" }], "options": { "name": "gridCol44470", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-44470" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "textarea", "icon": "textarea-field", "formItemFlag": true, "options": { "name": "textarea21654", "label": "\u53D1\u4EF6\u4EBA\u5730\u5740", "labelAlign": "", "rows": 3, "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "required": true, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "textarea21654" }], "options": { "name": "gridCol98223", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-98223" }], "options": { "name": "grid35834", "hidden": false, "gutter": 12, "customClass": "" }, "id": "grid35834" }, { "type": "divider", "icon": "divider", "formItemFlag": false, "options": { "name": "divider69240", "label": "", "columnWidth": "200px", "direction": "horizontal", "contentPosition": "center", "hidden": false, "customClass": "", "onCreated": "", "onMounted": "" }, "id": "divider69240" }, { "type": "grid", "category": "container", "icon": "grid", "cols": [{ "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "input", "icon": "text-field", "formItemFlag": true, "options": { "name": "input113152", "label": "\u6536\u4EF6\u4EBA\u59D3\u540D111", "labelAlign": "", "type": "text", "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "clearable": true, "showPassword": false, "required": true, "validation": "", "validationHint": "", "customClass": [], "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "prefixIcon": "", "suffixIcon": "", "appendButton": false, "appendButtonDisabled": false, "buttonIcon": "el-icon-search", "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "input113152" }], "options": { "name": "gridCol47242", "hidden": false, "span": 12, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-47242" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "input", "icon": "text-field", "formItemFlag": true, "options": { "name": "input40240", "label": "\u6536\u4EF6\u4EBA\u53F7\u7801", "labelAlign": "", "type": "text", "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "clearable": true, "showPassword": false, "required": true, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "prefixIcon": "", "suffixIcon": "", "appendButton": false, "appendButtonDisabled": false, "buttonIcon": "el-icon-search", "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "input40240" }], "options": { "name": "gridCol27970", "hidden": false, "span": 12, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-27970" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "checkbox", "icon": "checkbox-field", "formItemFlag": true, "options": { "name": "checkbox63174", "label": "\u63A5\u6536\u65F6\u95F4\u6BB5", "labelAlign": "", "defaultValue": [], "columnWidth": "200px", "size": "", "displayStyle": "inline", "buttonStyle": false, "border": false, "labelWidth": null, "labelHidden": false, "disabled": false, "hidden": false, "optionItems": [{ "label": "\u4E0A\u53489:00 - 11:30", "value": 1 }, { "label": "\u4E0B\u534812:30 - 18:00", "value": 2 }, { "label": "\u665A\u4E0A18:00 - 21:00", "value": 3 }], "required": true, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "onCreated": "", "onMounted": "", "onChange": "", "onValidate": "" }, "id": "checkbox63174" }], "options": { "name": "gridCol74653", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-74653" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "input", "icon": "text-field", "formItemFlag": true, "options": { "name": "input78584", "label": "\u6536\u4EF6\u4EBA\u5730\u5740", "labelAlign": "", "type": "text", "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "clearable": true, "showPassword": false, "required": true, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "prefixIcon": "", "suffixIcon": "", "appendButton": false, "appendButtonDisabled": false, "buttonIcon": "el-icon-search", "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "input78584" }], "options": { "name": "gridCol63781", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-63781" }], "options": { "name": "grid114672", "hidden": false, "gutter": 12, "customClass": "" }, "id": "grid114672" }, { "type": "divider", "icon": "divider", "formItemFlag": false, "options": { "name": "divider75887", "label": "", "columnWidth": "200px", "direction": "horizontal", "contentPosition": "center", "hidden": false, "customClass": [], "onCreated": "", "onMounted": "" }, "id": "divider75887" }, { "type": "grid", "category": "container", "icon": "grid", "cols": [{ "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "time-range", "icon": "time-range-field", "formItemFlag": true, "options": { "name": "timerange47503", "label": "\u9001\u8D27\u65F6\u95F4", "labelAlign": "", "defaultValue": null, "startPlaceholder": "", "endPlaceholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "clearable": true, "editable": false, "format": "HH:mm:ss", "required": true, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "onCreated": "", "onMounted": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "timerange47503" }], "options": { "name": "gridCol109912", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-109912" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "slider", "icon": "slider-field", "formItemFlag": true, "options": { "name": "slider54714", "label": "\u4EF7\u683C\u4FDD\u62A4", "labelAlign": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "disabled": false, "hidden": false, "required": false, "validation": "", "validationHint": "", "customClass": [], "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "min": 0, "max": 100, "step": 10, "range": false, "height": null, "onCreated": "", "onMounted": "", "onChange": "", "onValidate": "", "showStops": true }, "id": "slider54714" }], "options": { "name": "gridCol114653", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-114653" }, { "type": "grid-col", "category": "container", "icon": "grid-col", "internal": true, "widgetList": [{ "type": "textarea", "icon": "textarea-field", "formItemFlag": true, "options": { "name": "textarea64794", "label": "\u5176\u4ED6\u4FE1\u606F", "labelAlign": "", "rows": 3, "defaultValue": "", "placeholder": "", "columnWidth": "200px", "size": "", "labelWidth": null, "labelHidden": false, "readonly": false, "disabled": false, "hidden": false, "required": false, "validation": "", "validationHint": "", "customClass": "", "labelIconClass": null, "labelIconPosition": "rear", "labelTooltip": null, "minLength": null, "maxLength": null, "showWordLimit": false, "onCreated": "", "onMounted": "", "onInput": "", "onChange": "", "onFocus": "", "onBlur": "", "onValidate": "" }, "id": "textarea64794" }], "options": { "name": "gridCol80867", "hidden": false, "span": 24, "offset": 0, "push": 0, "pull": 0, "responsive": false, "md": 12, "sm": 12, "xs": 12, "customClass": "" }, "id": "grid-col-80867" }], "options": { "name": "grid28709", "hidden": false, "gutter": 12, "customClass": "" }, "id": "grid28709" }], "formConfig": { "modelName": "formData", "refName": "vForm", "rulesName": "rules", "labelWidth": 150, "labelPosition": "left", "size": "", "labelAlign": "label-right-align", "cssCode": "", "customClass": [], "functions": "", "layoutType": "PC", "jsonVersion": 3, "onFormCreated": "", "onFormMounted": "", "onFormDataChange": "", "onFormValidate": "" } };
+      let newFormJson = {
+        widgetList: [
+          {
+            type: "static-text",
+            icon: "static-text",
+            formItemFlag: false,
+            options: {
+              name: "statictext111193",
+              columnWidth: "200px",
+              hidden: false,
+              textContent: "\u591A\u5217\u8868\u5355",
+              customClass: [],
+              onCreated: "",
+              onMounted: "",
+              label: "static-text"
+            },
+            id: "statictext111193"
+          },
+          {
+            type: "divider",
+            icon: "divider",
+            formItemFlag: false,
+            options: {
+              name: "divider102346",
+              label: "",
+              columnWidth: "200px",
+              direction: "horizontal",
+              contentPosition: "center",
+              hidden: false,
+              customClass: [],
+              onCreated: "",
+              onMounted: ""
+            },
+            id: "divider102346"
+          },
+          {
+            type: "grid",
+            category: "container",
+            icon: "grid",
+            cols: [
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "input",
+                    icon: "text-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "input12931",
+                      label: "\u53D1\u4EF6\u4EBA\u59D3\u540D",
+                      labelAlign: "",
+                      type: "text",
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      clearable: true,
+                      showPassword: false,
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: [],
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      prefixIcon: "",
+                      suffixIcon: "",
+                      appendButton: false,
+                      appendButtonDisabled: false,
+                      buttonIcon: "el-icon-search",
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "input12931"
+                  }
+                ],
+                options: {
+                  name: "gridCol25469",
+                  hidden: false,
+                  span: 12,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: []
+                },
+                id: "grid-col-25469"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "input",
+                    icon: "text-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "input23031",
+                      label: "\u53D1\u4EF6\u4EBA\u53F7\u7801",
+                      labelAlign: "",
+                      type: "text",
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      clearable: true,
+                      showPassword: false,
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      prefixIcon: "",
+                      suffixIcon: "",
+                      appendButton: false,
+                      appendButtonDisabled: false,
+                      buttonIcon: "el-icon-search",
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "input23031"
+                  }
+                ],
+                options: {
+                  name: "gridCol25125",
+                  hidden: false,
+                  span: 12,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-25125"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "switch",
+                    icon: "switch-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "switch96070",
+                      label: "\u662F\u5426\u4FDD\u5BC6",
+                      labelAlign: "",
+                      defaultValue: true,
+                      columnWidth: "200px",
+                      labelWidth: null,
+                      labelHidden: false,
+                      disabled: false,
+                      hidden: false,
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      switchWidth: 40,
+                      activeText: "",
+                      inactiveText: "",
+                      activeColor: null,
+                      inactiveColor: null,
+                      onCreated: "",
+                      onMounted: "",
+                      onChange: "",
+                      onValidate: ""
+                    },
+                    id: "switch96070"
+                  }
+                ],
+                options: {
+                  name: "gridCol44470",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-44470"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "textarea",
+                    icon: "textarea-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "textarea21654",
+                      label: "\u53D1\u4EF6\u4EBA\u5730\u5740",
+                      labelAlign: "",
+                      rows: 3,
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "textarea21654"
+                  }
+                ],
+                options: {
+                  name: "gridCol98223",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-98223"
+              }
+            ],
+            options: { name: "grid35834", hidden: false, gutter: 12, customClass: "" },
+            id: "grid35834"
+          },
+          {
+            type: "divider",
+            icon: "divider",
+            formItemFlag: false,
+            options: {
+              name: "divider69240",
+              label: "",
+              columnWidth: "200px",
+              direction: "horizontal",
+              contentPosition: "center",
+              hidden: false,
+              customClass: "",
+              onCreated: "",
+              onMounted: ""
+            },
+            id: "divider69240"
+          },
+          {
+            type: "grid",
+            category: "container",
+            icon: "grid",
+            cols: [
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "input",
+                    icon: "text-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "input113152",
+                      label: "\u6536\u4EF6\u4EBA\u59D3\u540D111",
+                      labelAlign: "",
+                      type: "text",
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      clearable: true,
+                      showPassword: false,
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: [],
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      prefixIcon: "",
+                      suffixIcon: "",
+                      appendButton: false,
+                      appendButtonDisabled: false,
+                      buttonIcon: "el-icon-search",
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "input113152"
+                  }
+                ],
+                options: {
+                  name: "gridCol47242",
+                  hidden: false,
+                  span: 12,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-47242"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "input",
+                    icon: "text-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "input40240",
+                      label: "\u6536\u4EF6\u4EBA\u53F7\u7801",
+                      labelAlign: "",
+                      type: "text",
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      clearable: true,
+                      showPassword: false,
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      prefixIcon: "",
+                      suffixIcon: "",
+                      appendButton: false,
+                      appendButtonDisabled: false,
+                      buttonIcon: "el-icon-search",
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "input40240"
+                  }
+                ],
+                options: {
+                  name: "gridCol27970",
+                  hidden: false,
+                  span: 12,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-27970"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "checkbox",
+                    icon: "checkbox-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "checkbox63174",
+                      label: "\u63A5\u6536\u65F6\u95F4\u6BB5",
+                      labelAlign: "",
+                      defaultValue: [],
+                      columnWidth: "200px",
+                      size: "",
+                      displayStyle: "inline",
+                      buttonStyle: false,
+                      border: false,
+                      labelWidth: null,
+                      labelHidden: false,
+                      disabled: false,
+                      hidden: false,
+                      optionItems: [
+                        { label: "\u4E0A\u53489:00 - 11:30", value: 1 },
+                        { label: "\u4E0B\u534812:30 - 18:00", value: 2 },
+                        { label: "\u665A\u4E0A18:00 - 21:00", value: 3 }
+                      ],
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      onCreated: "",
+                      onMounted: "",
+                      onChange: "",
+                      onValidate: ""
+                    },
+                    id: "checkbox63174"
+                  }
+                ],
+                options: {
+                  name: "gridCol74653",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-74653"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "input",
+                    icon: "text-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "input78584",
+                      label: "\u6536\u4EF6\u4EBA\u5730\u5740",
+                      labelAlign: "",
+                      type: "text",
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      clearable: true,
+                      showPassword: false,
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      prefixIcon: "",
+                      suffixIcon: "",
+                      appendButton: false,
+                      appendButtonDisabled: false,
+                      buttonIcon: "el-icon-search",
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "input78584"
+                  }
+                ],
+                options: {
+                  name: "gridCol63781",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-63781"
+              }
+            ],
+            options: { name: "grid114672", hidden: false, gutter: 12, customClass: "" },
+            id: "grid114672"
+          },
+          {
+            type: "divider",
+            icon: "divider",
+            formItemFlag: false,
+            options: {
+              name: "divider75887",
+              label: "",
+              columnWidth: "200px",
+              direction: "horizontal",
+              contentPosition: "center",
+              hidden: false,
+              customClass: [],
+              onCreated: "",
+              onMounted: ""
+            },
+            id: "divider75887"
+          },
+          {
+            type: "grid",
+            category: "container",
+            icon: "grid",
+            cols: [
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "time-range",
+                    icon: "time-range-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "timerange47503",
+                      label: "\u9001\u8D27\u65F6\u95F4",
+                      labelAlign: "",
+                      defaultValue: null,
+                      startPlaceholder: "",
+                      endPlaceholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      clearable: true,
+                      editable: false,
+                      format: "HH:mm:ss",
+                      required: true,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      onCreated: "",
+                      onMounted: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "timerange47503"
+                  }
+                ],
+                options: {
+                  name: "gridCol109912",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-109912"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "slider",
+                    icon: "slider-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "slider54714",
+                      label: "\u4EF7\u683C\u4FDD\u62A4",
+                      labelAlign: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      disabled: false,
+                      hidden: false,
+                      required: false,
+                      validation: "",
+                      validationHint: "",
+                      customClass: [],
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      min: 0,
+                      max: 100,
+                      step: 10,
+                      range: false,
+                      height: null,
+                      onCreated: "",
+                      onMounted: "",
+                      onChange: "",
+                      onValidate: "",
+                      showStops: true
+                    },
+                    id: "slider54714"
+                  }
+                ],
+                options: {
+                  name: "gridCol114653",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-114653"
+              },
+              {
+                type: "grid-col",
+                category: "container",
+                icon: "grid-col",
+                internal: true,
+                widgetList: [
+                  {
+                    type: "textarea",
+                    icon: "textarea-field",
+                    formItemFlag: true,
+                    options: {
+                      name: "textarea64794",
+                      label: "\u5176\u4ED6\u4FE1\u606F",
+                      labelAlign: "",
+                      rows: 3,
+                      defaultValue: "",
+                      placeholder: "",
+                      columnWidth: "200px",
+                      size: "",
+                      labelWidth: null,
+                      labelHidden: false,
+                      readonly: false,
+                      disabled: false,
+                      hidden: false,
+                      required: false,
+                      validation: "",
+                      validationHint: "",
+                      customClass: "",
+                      labelIconClass: null,
+                      labelIconPosition: "rear",
+                      labelTooltip: null,
+                      minLength: null,
+                      maxLength: null,
+                      showWordLimit: false,
+                      onCreated: "",
+                      onMounted: "",
+                      onInput: "",
+                      onChange: "",
+                      onFocus: "",
+                      onBlur: "",
+                      onValidate: ""
+                    },
+                    id: "textarea64794"
+                  }
+                ],
+                options: {
+                  name: "gridCol80867",
+                  hidden: false,
+                  span: 24,
+                  offset: 0,
+                  push: 0,
+                  pull: 0,
+                  responsive: false,
+                  md: 12,
+                  sm: 12,
+                  xs: 12,
+                  customClass: ""
+                },
+                id: "grid-col-80867"
+              }
+            ],
+            options: { name: "grid28709", hidden: false, gutter: 12, customClass: "" },
+            id: "grid28709"
+          }
+        ],
+        formConfig: {
+          modelName: "formData",
+          refName: "vForm",
+          rulesName: "rules",
+          labelWidth: 150,
+          labelPosition: "left",
+          size: "",
+          labelAlign: "label-right-align",
+          cssCode: "",
+          customClass: [],
+          functions: "",
+          layoutType: "PC",
+          jsonVersion: 3,
+          onFormCreated: "",
+          onFormMounted: "",
+          onFormDataChange: "",
+          onFormValidate: ""
+        }
+      };
       this.$refs.preForm.setFormJson(newFormJson);
       this.$nextTick(() => {
-        this.$refs.preForm.setFormData({ "input12931": "asdf" });
+        this.$refs.preForm.setFormData({ input12931: "asdf" });
       });
     },
     testSetFormData() {
       let testFD = {
-        "input89263": "899668"
+        input89263: "899668"
       };
       this.$refs.preForm.setFormData(testFD);
     },
@@ -58248,7 +59041,7 @@ const _hoisted_12 = {
   key: 4,
   class: ""
 };
-const _hoisted_13 = { style: { "border": "1px solid #DCDFE6" } };
+const _hoisted_13 = { style: { "border": "1px solid #dcdfe6" } };
 const _hoisted_14 = { class: "dialog-footer" };
 const _hoisted_15 = {
   key: 5,
@@ -58511,7 +59304,9 @@ function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
         default: withCtx(() => [
           createElementVNode("div", null, [
             createElementVNode("div", {
-              class: normalizeClass(["form-render-wrapper", [$options.layoutType === "H5" ? "h5-layout" : $options.layoutType === "Pad" ? "pad-layout" : ""]])
+              class: normalizeClass(["form-render-wrapper", [
+                $options.layoutType === "H5" ? "h5-layout" : $options.layoutType === "Pad" ? "pad-layout" : ""
+              ]])
             }, [
               createVNode(_component_VFormRender, {
                 ref: "preForm",
@@ -58915,7 +59710,7 @@ function _sfc_render$34(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-27112323"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$34, [["render", _sfc_render$34], ["__scopeId", "data-v-2237a97c"]]);
 const _sfc_main$33 = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -61831,9 +62626,6 @@ const _sfc_main$21 = {
       curGrid.cols.forEach((colItem) => {
         spanSum += colItem.options.span;
       });
-      if (spanSum > 24) {
-        console.log("\u5217\u6805\u683C\u4E4B\u548C\u8D85\u51FA24");
-      }
       this.designer.saveCurrentHistoryStep();
     },
     deleteCol(curGrid, colIdx) {
@@ -61924,7 +62716,7 @@ function _sfc_render$21(_ctx, _cache, $props, $setup, $data, $options) {
     })
   ]);
 }
-var gutterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$21, [["render", _sfc_render$21], ["__scopeId", "data-v-7e22782e"]]);
+var gutterEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$21, [["render", _sfc_render$21], ["__scopeId", "data-v-bf48c298"]]);
 var __glob_0_65 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": gutterEditor
@@ -62901,9 +63693,6 @@ const _sfc_main$1M = {
       }
       this.$emit("delete");
     },
-    handleFieldNameChange(value2, old) {
-      console.log(value2, old);
-    },
     handleApiChange(value2, init = false) {
       if (!this.selectApiList[value2]) {
         this.selectApi = {
@@ -63038,8 +63827,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
             style: { "width": "240px" },
             clearable: "",
             "allow-create": "",
-            filterable: "",
-            onChange: $options.handleFieldNameChange
+            filterable: ""
           }, {
             default: withCtx(() => [
               (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (item, index2) => {
@@ -63052,7 +63840,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
               }), 128))
             ]),
             _: 1
-          }, 8, ["modelValue", "onChange"])
+          }, 8, ["modelValue"])
         ]),
         _: 1
       }, 8, ["label", "rules"]),
@@ -63308,7 +64096,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-2b80edb2"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-95dd8884"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -63329,16 +64117,11 @@ const _sfc_main$1L = {
     };
   },
   inject: ["getFieldWidgets"],
-  mounted() {
-    this.getWidgetList();
-  },
   methods: {
     getWidgetList() {
       this.widgetList = this.getFieldWidgets();
-      console.log(this.widgetList);
     },
     setWidgetDisabled(widgetName, disabled = false) {
-      console.log(widgetName, disabled);
       const disabledWidget = this.widgetList.find((item) => item.name === widgetName);
       if (disabledWidget)
         disabledWidget.disabled = disabled;
@@ -63347,14 +64130,13 @@ const _sfc_main$1L = {
       const changeCode = generateChangeCode(this.changeFieldList);
       this.setting.onChange = changeCode;
       this.setting.changeSettings = JSON.parse(JSON.stringify(this.changeFieldList));
-      console.log(this.setting);
       this.dialogVisible = false;
     },
     handleOpen(setting) {
       var _a2;
+      this.getWidgetList();
       this.selectType = {};
       this.setting = setting;
-      console.log(this.setting);
       this.changeFieldList = ((_a2 = setting.changeSettings) == null ? void 0 : _a2.length) > 0 ? setting.changeSettings : [
         __spreadValues2({}, initApi)
       ];
@@ -63458,7 +64240,6 @@ const _sfc_main$1K = {
   },
   methods: {
     handleClick() {
-      console.log(this.$refs);
       this.$refs.settingRef.handleOpen(this.optionModel);
     }
   }
@@ -63786,7 +64567,6 @@ async function init() {
   _this.loadOptions(options)
 }
 init()`;
-      console.log(onCreated);
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },
@@ -64100,7 +64880,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H], ["__scopeId", "data-v-27bf6103"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H], ["__scopeId", "data-v-7075c530"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1G = {
   components: { SvgIcon },
@@ -64307,7 +65087,6 @@ const _sfc_main$1F = {
   },
   methods: {
     handleClick() {
-      console.log(this.$refs);
       switch (this.optionModel.onCreatedSetting) {
         case "async-select":
           this.$refs.settingRef.handleOpen(this.optionModel);
@@ -68860,7 +69639,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-3ed815b6"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-4e49b466"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -69217,7 +69996,6 @@ const _sfc_main$r = {
       this.designer.emitHistoryChange();
     },
     selectWidget(widget) {
-      console.log("id: " + widget.id);
       this.designer.setSelected(widget);
     },
     checkContainerMove(evt) {
@@ -69363,7 +70141,7 @@ function _sfc_render$r(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 16, ["class", "style"])) : createCommentVNode("", true);
 }
-var GridColWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-39454e23"]]);
+var GridColWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$r, [["render", _sfc_render$r], ["__scopeId", "data-v-70981756"]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColWidget
@@ -77452,13 +78230,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739425763952__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739428803401__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739425763952__";
+      svgDom.id = "__svg__icons__dom__1739428803401__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

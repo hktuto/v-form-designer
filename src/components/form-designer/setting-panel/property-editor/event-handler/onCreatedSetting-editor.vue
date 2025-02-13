@@ -36,7 +36,6 @@ export default {
   },
   methods: {
     handleClick() {
-      console.log(this.$refs);
       switch (this.optionModel.onCreatedSetting) {
         case "async-select":
           this.$refs.settingRef.handleOpen(this.optionModel);

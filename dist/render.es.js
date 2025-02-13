@@ -5351,7 +5351,6 @@ const _sfc_main$F = {
       let uploadURL = this.field.options.uploadURL;
       if (!!uploadURL && (uploadURL.indexOf("DSV.") > -1 || uploadURL.indexOf("DSV[") > -1)) {
         let DSV = this.getGlobalDsv();
-        console.log("test DSV: ", DSV);
         return evalFn(this.field.options.uploadURL, DSV);
       }
       return this.field.options.uploadURL;
@@ -5496,7 +5495,7 @@ const _sfc_main$F = {
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
       if (cookieToken)
-        this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
+        this.uploadHeaders = { Authorization: `Bearer ${cookieToken}` };
     },
     getCookie(name) {
       var strCookies = document.cookie;
@@ -5514,7 +5513,7 @@ const _sfc_main$F = {
 const _hoisted_1$i = { class: "el-upload-list__item-status-label" };
 const _hoisted_2$d = {
   class: "el-icon--upload-success",
-  style: { "color": "#FFF" }
+  style: { "color": "#fff" }
 };
 const _hoisted_3$b = { class: "el-upload-list__item-actions" };
 const _hoisted_4$4 = ["onClick"];
@@ -5554,7 +5553,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
         "file-list": $data.fileList,
         "show-file-list": $props.field.options.showFileList,
         "list-type": "picture-card",
-        class: normalizeClass({ "hideUploadDiv": $data.uploadBtnHidden }),
+        class: normalizeClass({ hideUploadDiv: $data.uploadBtnHidden }),
         limit: $props.field.options.limit,
         "on-exceed": $options.handlePictureExceed,
         "before-upload": $options.beforePictureUpload,
@@ -5609,7 +5608,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-72787dcd"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-56753bb9"]]);
 var __glob_0_12 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
@@ -28734,9 +28733,7 @@ const _sfc_main$B = {
   },
   methods: {
     handleChange(editor) {
-      console.log(editor);
-      const html = editor.getHtml();
-      console.log({ html }, this.fieldModel);
+      editor.getHtml();
       this.valueChangedFlag = true;
       this.syncUpdateFormModel(this.fieldModel);
     },
@@ -28793,7 +28790,7 @@ function _sfc_render$B(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-297e7d24"]]);
+var richEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$B, [["render", _sfc_render$B], ["__scopeId", "data-v-a541e214"]]);
 var __glob_0_15 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": richEditorWidget
@@ -31598,13 +31595,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739425790899__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739428832818__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739425790899__";
+      svgDom.id = "__svg__icons__dom__1739428832818__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
