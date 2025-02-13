@@ -100,6 +100,8 @@ export const ugSelectSchema = {
     onMounted: '',
     onRemoteQuery: '',
     onChange: '',
+    onCreatedSetting: 'async-select',
+    onChangeSetting: true,
     onFocus: '',
     onBlur: '',
     onValidate: '',
