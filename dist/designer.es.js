@@ -68116,16 +68116,16 @@ const _sfc_main$v = {
       item.type = field.type;
       switch (field.type) {
         case "number":
-          item.value = 0;
+          item.value = item.value || 0;
           item.conditionList = [...this.conditionList];
           break;
         case "switch":
           item.condition = "===";
-          item.value = true;
+          item.value = item.value || true;
           item.conditionList = [this.conditionList[0], this.conditionList[1]];
           break;
         default:
-          item.value = "";
+          item.value = item.value || "";
           item.conditionList = [this.conditionList[0], this.conditionList[1]];
           break;
       }
@@ -68191,108 +68191,106 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
               "icon-class": "el-delete",
               onClick: ($event) => $options.handleDelete(index2)
             }, null, 8, ["onClick"]),
-            (openBlock(true), createElementBlock(Fragment, null, renderList(item.fieldConditionList, (cItem, cIndex) => {
-              return openBlock(), createElementBlock(Fragment, null, [
-                createVNode(_component_el_row, { gutter: 20 }, {
+            createVNode(_component_el_row, { gutter: 20 }, {
+              default: withCtx(() => [
+                createVNode(_component_el_col, { span: 6 }, {
                   default: withCtx(() => [
-                    createVNode(_component_el_col, { span: 6 }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("dhList.fieldName")), 1)
-                      ]),
-                      _: 1
-                    }),
-                    createVNode(_component_el_col, { span: 6 }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("dhList.condition")), 1)
-                      ]),
-                      _: 1
-                    }),
-                    createVNode(_component_el_col, { span: 6 }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("dhList.value")), 1)
-                      ]),
-                      _: 1
-                    })
+                    createTextVNode(toDisplayString(_ctx.$t("dhList.fieldName")), 1)
                   ]),
                   _: 1
                 }),
-                createVNode(_component_el_row, { gutter: 20 }, {
+                createVNode(_component_el_col, { span: 6 }, {
                   default: withCtx(() => [
-                    createVNode(_component_el_col, { span: 6 }, {
-                      default: withCtx(() => [
-                        createVNode(_component_el_select_v2, {
-                          modelValue: cItem.fieldName,
-                          "onUpdate:modelValue": ($event) => cItem.fieldName = $event,
-                          options: this.fieldList,
-                          placeholder: _ctx.$t("render.hint.selectPlaceholder"),
-                          size: "default",
-                          clearable: "",
-                          onChange: (value2) => $options.handleChangeFieldName(value2, cItem)
-                        }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder", "onChange"])
-                      ]),
-                      _: 2
-                    }, 1024),
-                    createVNode(_component_el_col, { span: 6 }, {
-                      default: withCtx(() => [
-                        createVNode(_component_el_select_v2, {
-                          modelValue: cItem.condition,
-                          "onUpdate:modelValue": ($event) => cItem.condition = $event,
-                          options: cItem.conditionList,
-                          placeholder: "Please select",
-                          size: "default",
-                          clearable: ""
-                        }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder"])
-                      ]),
-                      _: 2
-                    }, 1024),
-                    createVNode(_component_el_col, { span: 6 }, {
-                      default: withCtx(() => [
-                        cItem.type === "switch" ? (openBlock(), createBlock(_component_el_switch, {
-                          key: 0,
-                          modelValue: cItem.value,
-                          "onUpdate:modelValue": ($event) => cItem.value = $event,
-                          size: "default"
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"])) : cItem.type === "number" ? (openBlock(), createBlock(_component_el_input_number, {
-                          key: 1,
-                          modelValue: cItem.value,
-                          "onUpdate:modelValue": ($event) => cItem.value = $event,
-                          "controls-position": "right"
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"])) : (openBlock(), createBlock(_component_el_input, {
-                          key: 2,
-                          modelValue: cItem.value,
-                          "onUpdate:modelValue": ($event) => cItem.value = $event,
-                          size: "default",
-                          clearable: ""
-                        }, null, 8, ["modelValue", "onUpdate:modelValue"]))
-                      ]),
-                      _: 2
-                    }, 1024),
-                    cIndex !== 0 ? (openBlock(), createBlock(_component_el_button, {
-                      key: 0,
-                      type: "primary",
-                      text: "",
-                      onClick: ($event) => $options.handleDeleteFieldCondition(cIndex, item)
-                    }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("common_delete")), 1)
-                      ]),
-                      _: 2
-                    }, 1032, ["onClick"])) : createCommentVNode("", true),
-                    cIndex === item.fieldConditionList.length - 1 ? (openBlock(), createBlock(_component_el_button, {
-                      key: 1,
-                      type: "primary",
-                      text: "",
-                      onClick: ($event) => $options.handleAddFieldCondition(item)
-                    }, {
-                      default: withCtx(() => [
-                        createTextVNode(toDisplayString(_ctx.$t("button.add")), 1)
-                      ]),
-                      _: 2
-                    }, 1032, ["onClick"])) : createCommentVNode("", true)
+                    createTextVNode(toDisplayString(_ctx.$t("dhList.condition")), 1)
                   ]),
-                  _: 2
-                }, 1024)
-              ], 64);
+                  _: 1
+                }),
+                createVNode(_component_el_col, { span: 6 }, {
+                  default: withCtx(() => [
+                    createTextVNode(toDisplayString(_ctx.$t("dhList.value")), 1)
+                  ]),
+                  _: 1
+                })
+              ]),
+              _: 1
+            }),
+            (openBlock(true), createElementBlock(Fragment, null, renderList(item.fieldConditionList, (cItem, cIndex) => {
+              return openBlock(), createBlock(_component_el_row, { gutter: 20 }, {
+                default: withCtx(() => [
+                  createVNode(_component_el_col, { span: 6 }, {
+                    default: withCtx(() => [
+                      createVNode(_component_el_select_v2, {
+                        modelValue: cItem.fieldName,
+                        "onUpdate:modelValue": ($event) => cItem.fieldName = $event,
+                        options: this.fieldList,
+                        placeholder: _ctx.$t("render.hint.selectPlaceholder"),
+                        size: "default",
+                        clearable: "",
+                        onChange: (value2) => $options.handleChangeFieldName(value2, cItem)
+                      }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder", "onChange"])
+                    ]),
+                    _: 2
+                  }, 1024),
+                  createVNode(_component_el_col, { span: 6 }, {
+                    default: withCtx(() => [
+                      createVNode(_component_el_select_v2, {
+                        modelValue: cItem.condition,
+                        "onUpdate:modelValue": ($event) => cItem.condition = $event,
+                        options: cItem.conditionList,
+                        placeholder: "Please select",
+                        size: "default",
+                        clearable: ""
+                      }, null, 8, ["modelValue", "onUpdate:modelValue", "options", "placeholder"])
+                    ]),
+                    _: 2
+                  }, 1024),
+                  createVNode(_component_el_col, { span: 6 }, {
+                    default: withCtx(() => [
+                      cItem.type === "switch" ? (openBlock(), createBlock(_component_el_switch, {
+                        key: 0,
+                        modelValue: cItem.value,
+                        "onUpdate:modelValue": ($event) => cItem.value = $event,
+                        size: "default"
+                      }, null, 8, ["modelValue", "onUpdate:modelValue"])) : cItem.type === "number" ? (openBlock(), createBlock(_component_el_input_number, {
+                        key: 1,
+                        modelValue: cItem.value,
+                        "onUpdate:modelValue": ($event) => cItem.value = $event,
+                        "controls-position": "right"
+                      }, null, 8, ["modelValue", "onUpdate:modelValue"])) : (openBlock(), createBlock(_component_el_input, {
+                        key: 2,
+                        modelValue: cItem.value,
+                        "onUpdate:modelValue": ($event) => cItem.value = $event,
+                        size: "default",
+                        clearable: ""
+                      }, null, 8, ["modelValue", "onUpdate:modelValue"]))
+                    ]),
+                    _: 2
+                  }, 1024),
+                  cIndex !== 0 ? (openBlock(), createBlock(_component_el_button, {
+                    key: 0,
+                    type: "primary",
+                    text: "",
+                    onClick: ($event) => $options.handleDeleteFieldCondition(cIndex, item)
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(_ctx.$t("common_delete")), 1)
+                    ]),
+                    _: 2
+                  }, 1032, ["onClick"])) : createCommentVNode("", true),
+                  cIndex === item.fieldConditionList.length - 1 ? (openBlock(), createBlock(_component_el_button, {
+                    key: 1,
+                    type: "primary",
+                    text: "",
+                    onClick: ($event) => $options.handleAddFieldCondition(item)
+                  }, {
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(_ctx.$t("button.add")), 1)
+                    ]),
+                    _: 2
+                  }, 1032, ["onClick"])) : createCommentVNode("", true)
+                ]),
+                _: 2
+              }, 1024);
             }), 256)),
             (openBlock(), createElementBlock(Fragment, null, renderList(["hidden", "disabled"], (key) => {
               return openBlock(), createElementBlock(Fragment, null, [
@@ -68374,7 +68372,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-223dd7c5"]]);
+var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-6c2cd0be"]]);
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$u = {
   name: "form-setting",
@@ -78239,13 +78237,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739432779967__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739435475146__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739432779967__";
+      svgDom.id = "__svg__icons__dom__1739435475146__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
