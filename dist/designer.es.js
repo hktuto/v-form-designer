@@ -2071,7 +2071,7 @@ var enLocale = {
       rows: "Rows",
       labelHidden: "Hide Label",
       required: "Required",
-      requiredHint: "Failure Hint",
+      requiredHint: "Required Hint",
       validation: "Validation",
       validationHelp: "Regular expressions supported",
       validationHint: "Validation Hint",
@@ -4760,7 +4760,7 @@ var fieldMixin = {
         this.rules.push({
           required: true,
           trigger: ["blur"],
-          message: this.field.options.requiredHint || this.i18nt("render.hint.fieldRequired")
+          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt("render.hint.fieldRequired")
         });
       }
       if (!!this.field.options.validation) {
@@ -78237,13 +78237,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1739435475146__");
+    var svgDom = document.getElementById("__svg__icons__dom__1739870416152__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1739435475146__";
+      svgDom.id = "__svg__icons__dom__1739870416152__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

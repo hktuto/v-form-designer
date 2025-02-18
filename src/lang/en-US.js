@@ -194,7 +194,7 @@ export default {
       rows: 'Rows',
       labelHidden: 'Hide Label',
       required: 'Required',
-      requiredHint: 'Failure Hint',
+      requiredHint: 'Required Hint',
       validation: 'Validation',
       validationHelp: 'Regular expressions supported',
       validationHint: 'Validation Hint',
