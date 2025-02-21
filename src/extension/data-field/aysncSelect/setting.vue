@@ -18,6 +18,7 @@
           v-model="form.api"
           style="width: 240px"
           clearable
+          :placeholder="$t('render.hint.selectPlaceholder')"
           @change="handleTypeChange"
         >
           <!-- allow-create -->
@@ -40,6 +41,7 @@
               clearable
               filterable
               allow-create
+              :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
                 v-for="(item, index) in selectType.labelKeyList"
@@ -59,6 +61,7 @@
               clearable
               filterable
               allow-create
+              :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
                 v-for="(item, index) in selectType.valueKeyList"
@@ -97,6 +100,7 @@
             filterable
             clearable
             allow-create
+            :placeholder="$t('render.hint.selectPlaceholder')"
             @change="(value) => handleParamChange(value, item)"
           >
             <el-option
@@ -119,7 +123,7 @@
                 v-model="form.params[item.key][paramIndex].key"
                 size="default"
                 clearable
-                :placeholder="$t('dataField.apiLabel')"
+                :placeholder="$t('dataField.apiField')"
               />
               <el-select
                 v-else
@@ -128,7 +132,7 @@
                 clearable
                 filterable
                 allow-create
-                :placeholder="$t('dataField.apiLabel')"
+                :placeholder="$t('dataField.apiField')"
               >
                 <el-option
                   v-for="(oItem, oIndex) in selectType[`${[item.key]}KeyList`]"
@@ -142,7 +146,7 @@
               <el-input
                 v-model="form.params[item.key][paramIndex].value"
                 size="default"
-                :placeholder="$t('dataField.apiValue')"
+                :placeholder="$t('dataField.apiFieldValue')"
                 clearable
               />
             </el-col>
@@ -184,17 +188,6 @@ const requiredRule = {
   message: translate("render.hint.fieldRequired"),
   trigger: "blur",
 };
-const checkFieldNameRule = {
-  validator: checkFieldName,
-  trigger: "blur",
-};
-function checkFieldName(rule, value, callback) {
-  if (!/^[a-zA-Z_][a-zA-Z0-9_]*$/.test(value)) {
-    callback(new Error($t("tip.attributeNameFillingRule")));
-  } else {
-    callback();
-  }
-}
 export default {
   components: { SvgIcon },
   data() {
@@ -312,8 +305,7 @@ export default {
       if (!apiSetting.method) apiSetting.method = "post";
       const paramsStr = this.getObjStr(params, apiSetting.method);
       // Contract_Approval_Approvers
-      const onCreated = `const _this = this\nconst filterKey = '${apiSetting.filterKey}'\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n  return data.map(item => {\n    const resultItem = {\n      value: item.${this.form.valueKey},\n      label: item.${this.form.labelKey}\n    }\n    if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true \n    return resultItem\n  }).sort((a,b)=> (a.label.localeCompare(b.label) ))\n\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
-      console.log(onCreated);
+      const onCreated = `const _this = this\nconst filterKey = '${apiSetting.filterKey}'\nasync function getList() {\n  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)\n  return data.reduce((prev, item) => {\n    if(!item.${this.form.valueKey} || !item.${this.form.labelKey}) return prev \n const resultItem = {\n      value: item.${this.form.valueKey},\n      label: item.${this.form.labelKey} || '' \n    }\n    if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true \n   prev.push(resultItem) \n return prev\n  }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))\n\n}\nasync function init() {\n  const options = await getList()\n  _this.loadOptions(options)\n}\ninit()`;
       this.setting.onCreated = onCreated;
       this.dialogVisible = false;
     },

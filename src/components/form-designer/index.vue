@@ -210,6 +210,7 @@ export default {
       serverFieldList: this.fieldList,
       getDesignerConfig: () => this.designerConfig,
       getBannedWidgets: () => this.bannedWidgets,
+      getFieldWidgets: () => this.getFieldWidgets(),
     };
   },
   created() {

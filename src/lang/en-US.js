@@ -164,6 +164,8 @@ export default {
     },
 
     setting: {
+      onCreatedSetting: 'Manually configure onCreated code',
+      onChangeSetting: 'Manually configure onChange code',
       basicSetting: 'Basic Setting',
       attributeSetting: 'Attribute Setting',
       commonSetting: 'Common Setting',
@@ -192,7 +194,7 @@ export default {
       rows: 'Rows',
       labelHidden: 'Hide Label',
       required: 'Required',
-      requiredHint: 'Failure Hint',
+      requiredHint: 'Required Hint',
       validation: 'Validation',
       validationHelp: 'Regular expressions supported',
       validationHint: 'Validation Hint',

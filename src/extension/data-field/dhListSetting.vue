@@ -13,18 +13,18 @@
         icon-class="el-delete"
         @click="handleDelete(index)"
       />
+      <el-row :gutter="20">
+        <el-col :span="6"> {{ $t("dhList.fieldName") }} </el-col>
+        <el-col :span="6"> {{ $t("dhList.condition") }} </el-col>
+        <el-col :span="6"> {{ $t("dhList.value") }} </el-col>
+      </el-row>
       <template v-for="(cItem, cIndex) in item.fieldConditionList">
-        <el-row :gutter="20">
-          <el-col :span="6"> {{ $t("dhList.fieldName") }} </el-col>
-          <el-col :span="6"> {{ $t("dhList.condition") }} </el-col>
-          <el-col :span="6"> {{ $t("dhList.value") }} </el-col>
-        </el-row>
         <el-row :gutter="20">
           <el-col :span="6">
             <el-select-v2
               v-model="cItem.fieldName"
               :options="this.fieldList"
-              placeholder="Please select"
+              :placeholder="$t('render.hint.selectPlaceholder')"
               size="default"
               clearable
               @change="(value) => handleChangeFieldName(value, cItem)"
@@ -37,6 +37,7 @@
               placeholder="Please select"
               size="default"
               clearable
+              :placeholder="$t('render.hint.selectPlaceholder')"
             />
           </el-col>
           <el-col :span="6">
@@ -87,7 +88,7 @@
             <el-select-v2
               v-model="dhItem.fieldName"
               :options="this.fieldList"
-              placeholder="Please select"
+              :placeholder="$t('render.hint.selectPlaceholder')"
               size="default"
               clearable
             />
@@ -232,16 +233,16 @@ export default {
       item.type = field.type;
       switch (field.type) {
         case "number":
-          item.value = 0;
+          item.value = item.value || 0;
           item.conditionList = [...this.conditionList];
           break;
         case "switch":
           item.condition = "===";
-          item.value = true;
+          item.value = item.value || true;
           item.conditionList = [this.conditionList[0], this.conditionList[1]];
           break;
         default:
-          item.value = "";
+          item.value = item.value || "";
           item.conditionList = [this.conditionList[0], this.conditionList[1]];
           break;
       }

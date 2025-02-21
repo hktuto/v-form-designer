@@ -19,10 +19,8 @@ import { loadExtension } from '@/extension/extension-loader'
 import { loadDataExtension } from '@/extension/dataField-loader'
 import { translate, changeLocale } from "@/utils/i18n"
 if (!!window) {
-  console.log('vform start');
   window.axios = axios
 }
-console.log('vform start window', window);
 const vfApp = createApp(App)
 vfApp.config.globalProperties.$t = (key) => (translate(key))
 vfApp.use(ElementPlus)

@@ -16,9 +16,8 @@ export const cardSchema = {
 }
 
 export const calendarSchema = {
-  type : 'Calendar',
+  type : 'calendar',
   icon: 'slot-filed',
-  name:"calendar-widget",
   formItemFlag: false,
   options: {
     name: "calendar",
