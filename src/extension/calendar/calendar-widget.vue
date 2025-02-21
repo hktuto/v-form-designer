@@ -12,7 +12,7 @@
   >
     <div :class="[!!designState ? 'slot-wrapper-design' : 'slot-wrapper-render']">
       <!-- -->
-      <slot name="calendar" v-bind="{ formModel, options: field.options }"> </slot>
+      <slot :name="field.options.name" v-bind:options="field.options"> </slot>
       <!-- -->
       <!-- slot :name="field.options.name"></slot -->
       <div v-if="!!designState" class="slot-title">Calendar Widget</div>
