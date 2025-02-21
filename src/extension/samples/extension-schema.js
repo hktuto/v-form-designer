@@ -23,6 +23,7 @@ export const calendarSchema = {
     name: "calendar",
     label: "",
     hidden: false,
+    dynamicConfig: {}
   }
 }
 
