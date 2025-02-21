@@ -78,6 +78,7 @@ const COMMON_PROPERTIES = {
   'offset'             :            'offset-editor',
   'push'               :            'push-editor',
   'pull'               :            'pull-editor',
+  'dynamicConfig'      :            'dynamicConfig-editor',
 
 }
 
