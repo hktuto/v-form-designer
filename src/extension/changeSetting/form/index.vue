@@ -2,11 +2,7 @@
 import { translate, changeLocale } from "@/utils/i18n";
 import SvgIcon from "@/components/svg-icon/index";
 import { apiList } from "@/extension/changeSetting/apiList";
-const requiredRule = {
-  required: true,
-  message: translate("render.hint.fieldRequired"),
-  trigger: "blur",
-};
+
 export default {
   components: { SvgIcon },
   props: {
@@ -155,7 +151,17 @@ export default {
     <el-form-item
       prop="api"
       :label="$t('designer.setting.widgetName')"
-      :rules="requiredRule"
+      :rules="[
+        {
+          required: true,
+          message:
+            '[' +
+            $t('designer.setting.widgetName') +
+            ']' +
+            $t('render.hint.fieldRequired'),
+          trigger: 'blur',
+        },
+      ]"
     >
       <el-select
         size="default"
@@ -177,7 +183,17 @@ export default {
     </el-form-item>
     <el-row>
       <el-col :span="8">
-        <el-form-item prop="api" :label="$t('dataField.api')" :rules="requiredRule">
+        <el-form-item
+          prop="api"
+          :label="$t('dataField.api')"
+          :rules="[
+            {
+              required: true,
+              message: '[' + $t('dataField.api') + ']' + $t('render.hint.fieldRequired'),
+              trigger: 'blur',
+            },
+          ]"
+        >
           <el-select
             size="default"
             v-model="form.api"

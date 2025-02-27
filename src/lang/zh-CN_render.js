@@ -20,7 +20,7 @@ export default {
       unsupportedFileType: '不支持格式: ',
       fileSizeExceed: '文件大小已超出: ',
       refNotFound: '组件未找到: ',
-      fieldRequired: '字段值不可为空',
+      fieldRequired: '必填',
       invalidNumber: '数据格式错误',
       selectFile: ' 选择文件',
       downloadFile: '下载',

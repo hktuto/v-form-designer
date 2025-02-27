@@ -20,7 +20,7 @@ export default {
       unsupportedFileType: 'Unsupported format: ',
       fileSizeExceed: 'File size out of limit: ',
       refNotFound: 'Ref not found: ',
-      fieldRequired: 'Input value should be not null.',
+      fieldRequired: 'is required',
       invalidNumber: 'Invalid number format',
       selectFile: ' File...',
       downloadFile: 'Download',
