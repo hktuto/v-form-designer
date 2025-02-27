@@ -17,7 +17,7 @@ var __spreadValues2 = (a10, b10) => {
   return a10;
 };
 var __spreadProps2 = (a10, b10) => __defProps2(a10, __getOwnPropDescs2(b10));
-import require$$0$1, { reactive, openBlock, createElementBlock, normalizeClass, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, createBlock, withCtx, createVNode, createTextVNode, Fragment, renderList, renderSlot, normalizeStyle, withModifiers, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, resolveDirective, isVNode, h as h$1, markRaw, capitalize, normalizeProps, guardReactiveProps } from "vue";
+import require$$0$1, { reactive, openBlock, createElementBlock, normalizeClass, createElementVNode, toDisplayString, createCommentVNode, resolveComponent, createBlock, withCtx, createVNode, createTextVNode, Fragment, renderList, renderSlot, normalizeStyle, withModifiers, withKeys, createSlots, defineComponent, ref, shallowRef, onMounted, watch, watchEffect, toRaw, withDirectives, mergeProps, resolveDynamicComponent, vShow, resolveDirective, isVNode, h as h$1, markRaw, capitalize, normalizeProps } from "vue";
 const containers = [
   {
     type: "grid",
@@ -78346,13 +78346,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740650140096__");
+    var svgDom = document.getElementById("__svg__icons__dom__1740650439778__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740650140096__";
+      svgDom.id = "__svg__icons__dom__1740650439778__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -81309,14 +81309,16 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
       createElementVNode("div", {
         class: normalizeClass([!!$props.designState ? "slot-wrapper-design" : "slot-wrapper-render"])
       }, [
-        renderSlot(_ctx.$slots, "calendar", normalizeProps(guardReactiveProps({ formModel: _ctx.formModel, options: $props.field.options })), void 0, true),
+        renderSlot(_ctx.$slots, $props.field.options.name, {
+          options: $props.field.options
+        }, void 0, true),
         !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1, "Calendar Widget")) : createCommentVNode("", true)
       ], 2)
     ]),
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-13b783ec"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-d66e51a4"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);
