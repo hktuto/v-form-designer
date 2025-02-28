@@ -81,10 +81,10 @@
                         </el-button>
                         <el-popconfirm
                             :disabled="actionDisabled"
-                            :width="300"
+                            width="200"
                             :confirm-button-text="$t('render.hint.confirm')"
                             :cancel-button-text="$t('render.hint.cancel')"
-                            :title="$t('designer.hint.importJsonHint')"
+                            :title="$t('render.hint.deleteSubFormRow')"
                             @confirm="deleteSubFormRow(sfrIdx)"
                         >
                             <template #reference>
