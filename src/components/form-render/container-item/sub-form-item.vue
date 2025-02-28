@@ -79,18 +79,12 @@
                             <svg-icon icon-class="el-plus"
                             />
                         </el-button>
-                        <!--            <el-button-->
-                        <!--              :disabled="actionDisabled"-->
-                        <!--              circle-->
-                        <!--              @click="deleteSubFormRow(sfrIdx)"-->
-                        <!--              :title="$t('render.hint.deleteSubFormRow')"-->
-                        <!--              ><svg-icon icon-class="el-delete"-->
-                        <!--            /></el-button>-->
                         <el-popconfirm
                             :disabled="actionDisabled"
+                            :width="300"
                             :confirm-button-text="$t('render.hint.confirm')"
                             :cancel-button-text="$t('render.hint.cancel')"
-                            :title="$t('render.hint.deleteSubFormRow')"
+                            :title="$t('designer.hint.importJsonHint')"
                             @confirm="deleteSubFormRow(sfrIdx)"
                         >
                             <template #reference>
