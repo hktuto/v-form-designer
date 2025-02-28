@@ -2076,7 +2076,7 @@ function _sfc_render$U(_ctx, _cache, $props, $setup, $data, $options) {
     !!$props.title ? (openBlock(), createElementBlock("title", _hoisted_2$h, toDisplayString($props.title), 1)) : createCommentVNode("", true)
   ], 2);
 }
-var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U], ["__scopeId", "data-v-8002b89a"]]);
+var SvgIcon = /* @__PURE__ */ _export_sfc$2(_sfc_main$U, [["render", _sfc_render$U], ["__scopeId", "data-v-2a03d21b"]]);
 var staticContentWrapper_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$T = {
   name: "static-content-wrapper",
@@ -2093,6 +2093,10 @@ const _sfc_main$T = {
     designState: {
       type: Boolean,
       default: false
+    },
+    additionalStyle: {
+      type: String,
+      default: ""
     },
     displayStyle: {
       type: String,
@@ -2235,7 +2239,7 @@ function _sfc_render$T(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 6);
 }
-var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-dac971c6"]]);
+var StaticContentWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$T, [["render", _sfc_render$T], ["__scopeId", "data-v-18a148e4"]]);
 var __glob_0_20 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": StaticContentWrapper
@@ -3731,7 +3735,7 @@ function _sfc_render$S(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "display-style", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-c66844f0"]]);
+var buttonWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$S, [["render", _sfc_render$S], ["__scopeId", "data-v-0c3ad1ca"]]);
 var __glob_0_0 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": buttonWidget
@@ -4249,7 +4253,7 @@ function _sfc_render$P(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-716b0a6b"]]);
+var checkboxWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$P, [["render", _sfc_render$P], ["__scopeId", "data-v-501920b3"]]);
 var __glob_0_2$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": checkboxWidget
@@ -4338,7 +4342,7 @@ function _sfc_render$O(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-8d04bd98"]]);
+var colorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$O, [["render", _sfc_render$O], ["__scopeId", "data-v-1aa76420"]]);
 var __glob_0_3$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": colorWidget
@@ -4473,7 +4477,7 @@ function _sfc_render$N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-70c0efa1"]]);
+var DateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$N, [["render", _sfc_render$N], ["__scopeId", "data-v-bffd300a"]]);
 var __glob_0_4$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateRangeWidget
@@ -4577,7 +4581,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateWidget
@@ -4658,7 +4662,7 @@ function _sfc_render$L(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-4a82b0d8"]]);
+var dividerWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$L, [["render", _sfc_render$L], ["__scopeId", "data-v-a3d9051e"]]);
 var __glob_0_6$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": dividerWidget
@@ -4974,7 +4978,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-fc065ade"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-1d4625ab"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -5049,7 +5053,7 @@ function _sfc_render$J(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-3d941b4e"]]);
+var htmlTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$J, [["render", _sfc_render$J], ["__scopeId", "data-v-a0d236d6"]]);
 var __glob_0_9 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": htmlTextWidget
@@ -5194,7 +5198,7 @@ function _sfc_render$I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var InputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-40f3d4c3"]]);
+var InputWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$I, [["render", _sfc_render$I], ["__scopeId", "data-v-4e1e3348"]]);
 var __glob_0_10 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": InputWidget
@@ -5293,7 +5297,7 @@ function _sfc_render$H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var NumberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-68a5bd58"]]);
+var NumberWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$H, [["render", _sfc_render$H], ["__scopeId", "data-v-0dfe76bf"]]);
 var __glob_0_11 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": NumberWidget
@@ -5734,7 +5738,7 @@ function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-253adc5e"]]);
+var radioWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$F, [["render", _sfc_render$F], ["__scopeId", "data-v-5becdb92"]]);
 var __glob_0_13 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": radioWidget
@@ -5828,7 +5832,7 @@ function _sfc_render$E(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-409c0e8b"]]);
+var rateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$E, [["render", _sfc_render$E], ["__scopeId", "data-v-e8d5267c"]]);
 var __glob_0_14 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": rateWidget
@@ -29150,7 +29154,7 @@ function _sfc_render$z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-92a76556"]]);
+var sliderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$z, [["render", _sfc_render$z], ["__scopeId", "data-v-e54b3390"]]);
 var __glob_0_18 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": sliderWidget
@@ -29230,7 +29234,7 @@ function _sfc_render$y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-95f13fca"]]);
+var slotWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$y, [["render", _sfc_render$y], ["__scopeId", "data-v-1b458525"]]);
 var __glob_0_19 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": slotWidget
@@ -29308,7 +29312,7 @@ function _sfc_render$x(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-0f585042"]]);
+var staticTextWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$x, [["render", _sfc_render$x], ["__scopeId", "data-v-5c0e1d8a"]]);
 var __glob_0_21 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": staticTextWidget
@@ -29401,7 +29405,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-3529e848"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-51a90f56"]]);
 var __glob_0_22 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
@@ -29500,7 +29504,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var TextareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-0a243825"]]);
+var TextareaWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-f9d2719e"]]);
 var __glob_0_23 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TextareaWidget
@@ -29604,7 +29608,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-37df7776"]]);
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-39163a8d"]]);
 var __glob_0_24 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
@@ -29702,7 +29706,7 @@ function _sfc_render$t(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-5cc62ec1"]]);
+var timeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$t, [["render", _sfc_render$t], ["__scopeId", "data-v-fcdc66e8"]]);
 var __glob_0_25 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeWidget
@@ -29844,7 +29848,7 @@ function _sfc_render$s(_ctx, _cache, $props, $setup, $data, $options) {
     [vShow, !$props.widget.options.hidden]
   ]);
 }
-var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-3406a44d"]]);
+var GridColItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$s, [["render", _sfc_render$s], ["__scopeId", "data-v-8cecd14e"]]);
 var __glob_0_1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": GridColItem
@@ -30244,22 +30248,13 @@ const _sfc_main$q = {
       this.handleSubFormRowChange(oldSubFormData);
     },
     deleteSubFormRow(formRowIndex) {
-      const tip = this.widget.options.label ? this.$t("render.hint.deleteSubFormRowLabel", {
-        label: this.$t(this.widget.options.label)
-      }).replace("${label}", this.$t(this.widget.options.label)) : this.$t("render.hint.deleteSubFormRow");
-      this.$confirm(tip, this.$t("render.hint.prompt"), {
-        confirmButtonText: this.$t("render.hint.confirm"),
-        cancelButtonText: this.$t("render.hint.cancel")
-      }).then(() => {
-        let oldSubFormData = this.formModel[this.widget.options.name] || [];
-        let deletedDataRow = deepClone(oldSubFormData[formRowIndex]);
-        oldSubFormData.splice(formRowIndex, 1);
-        this.deleteFromRowIdData(formRowIndex);
-        this.deleteFromFieldSchemaData(formRowIndex);
-        this.handleSubFormRowDelete(oldSubFormData, deletedDataRow);
-        this.handleSubFormRowChange(oldSubFormData);
-      }).catch(() => {
-      });
+      let oldSubFormData = this.formModel[this.widget.options.name] || [];
+      let deletedDataRow = deepClone(oldSubFormData[formRowIndex]);
+      oldSubFormData.splice(formRowIndex, 1);
+      this.deleteFromRowIdData(formRowIndex);
+      this.deleteFromFieldSchemaData(formRowIndex);
+      this.handleSubFormRowDelete(oldSubFormData, deletedDataRow);
+      this.handleSubFormRowChange(oldSubFormData);
     },
     handleSubFormRowChange(subFormData) {
       if (!!this.widget.options.onSubFormRowChange) {
@@ -30305,6 +30300,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_button = resolveComponent("el-button");
   const _component_el_tooltip = resolveComponent("el-tooltip");
   const _component_el_row = resolveComponent("el-row");
+  const _component_el_popconfirm = resolveComponent("el-popconfirm");
   const _component_container_item_wrapper = resolveComponent("container-item-wrapper");
   return openBlock(), createBlock(_component_container_item_wrapper, { widget: $props.widget }, {
     default: withCtx(() => [
@@ -30410,17 +30406,23 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
                     ]),
                     _: 2
                   }, 1032, ["disabled", "onClick", "title"]),
-                  createVNode(_component_el_button, {
+                  createVNode(_component_el_popconfirm, {
                     disabled: $data.actionDisabled,
-                    circle: "",
-                    onClick: ($event) => $options.deleteSubFormRow(sfrIdx),
-                    title: _ctx.$t("render.hint.deleteSubFormRow")
+                    "confirm-button-text": _ctx.$t("render.hint.confirm"),
+                    "cancel-button-text": _ctx.$t("render.hint.cancel"),
+                    title: _ctx.$t("render.hint.deleteSubFormRow"),
+                    onConfirm: ($event) => $options.deleteSubFormRow(sfrIdx)
                   }, {
-                    default: withCtx(() => [
-                      createVNode(_component_svg_icon, { "icon-class": "el-delete" })
+                    reference: withCtx(() => [
+                      createVNode(_component_el_button, { circle: "" }, {
+                        default: withCtx(() => [
+                          createVNode(_component_svg_icon, { "icon-class": "el-delete" })
+                        ]),
+                        _: 1
+                      })
                     ]),
                     _: 2
-                  }, 1032, ["disabled", "onClick", "title"]),
+                  }, 1032, ["disabled", "confirm-button-text", "cancel-button-text", "title", "onConfirm"]),
                   $props.widget.options.showRowNumber ? (openBlock(), createElementBlock("span", _hoisted_7$1, "#" + toDisplayString(sfrIdx + 1), 1)) : createCommentVNode("", true)
                 ])
               ]),
@@ -30453,7 +30455,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-27b59716"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-12afd4ee"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -30651,7 +30653,7 @@ function _sfc_render$o(_ctx, _cache, $props, $setup, $data, $options) {
     }), 256))
   ], 14, _hoisted_1$d);
 }
-var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-3e48ee34"]]);
+var TableCellItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$o, [["render", _sfc_render$o], ["__scopeId", "data-v-162f05d8"]]);
 var __glob_0_5 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": TableCellItem
@@ -30729,7 +30731,7 @@ function _sfc_render$n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-429726ac"]]);
+var tableItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$n, [["render", _sfc_render$n], ["__scopeId", "data-v-656b4452"]]);
 var __glob_0_6 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": tableItem
@@ -31603,13 +31605,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740706996553__");
+    var svgDom = document.getElementById("__svg__icons__dom__1740727037699__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740706996553__";
+      svgDom.id = "__svg__icons__dom__1740727037699__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -31934,7 +31936,7 @@ function _sfc_render$c(_ctx, _cache, $props, $setup, $data, $options) {
     ])) : createCommentVNode("", true)
   ], 2);
 }
-var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$c, [["render", _sfc_render$c], ["__scopeId", "data-v-b1a0dbfc"]]);
+var ContainerWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$c, [["render", _sfc_render$c], ["__scopeId", "data-v-49d9fa1c"]]);
 var refMixinDesign = {
   methods: {
     initRefList() {
@@ -32088,7 +32090,7 @@ function _sfc_render$b(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "widget", "parent-widget", "parent-list", "index-of-parent-list"]);
 }
-var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-06588696"]]);
+var CardWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$b, [["render", _sfc_render$b], ["__scopeId", "data-v-78104555"]]);
 var cardItem_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$a = {
   name: "card-item",
@@ -32205,7 +32207,7 @@ function _sfc_render$a(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["widget"]);
 }
-var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-52275f84"]]);
+var CardItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$a, [["render", _sfc_render$a], ["__scopeId", "data-v-1999fb0d"]]);
 var selectGroupWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$9 = {
   name: "select-group-widget",
@@ -55230,7 +55232,7 @@ function _sfc_render$8(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var JsonEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-54325e57"]]);
+var JsonEditorWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$8, [["render", _sfc_render$8], ["__scopeId", "data-v-6c526f08"]]);
 const _sfc_main$7 = {
   name: "alert-widget",
   componentName: "FieldWidget",
@@ -55425,7 +55427,7 @@ function _sfc_render$6(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$6, [["render", _sfc_render$6], ["__scopeId", "data-v-75ce707c"]]);
+var AutoCompleteWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$6, [["render", _sfc_render$6], ["__scopeId", "data-v-6373b197"]]);
 var numberRangeWidget_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$5 = {
   name: "number-range-widget",
@@ -56134,13 +56136,13 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
         renderSlot(_ctx.$slots, $props.field.options.name, {
           options: $props.field.options
         }, void 0, true),
-        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1, "Calendar Widget")) : createCommentVNode("", true)
+        !!$props.designState ? (openBlock(), createElementBlock("div", _hoisted_1, toDisplayString($props.field.options.name), 1)) : createCommentVNode("", true)
       ], 2)
     ]),
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-d66e51a4"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-ccc47612"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);

@@ -15,7 +15,7 @@
       <slot :name="field.options.name" v-bind:options="field.options"> </slot>
       <!-- -->
       <!-- slot :name="field.options.name"></slot -->
-      <div v-if="!!designState" class="slot-title">Calendar Widget</div>
+      <div v-if="!!designState" class="slot-title">{{ field.options.name }} </div>
     </div>
   </static-content-wrapper>
 </template>
