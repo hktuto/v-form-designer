@@ -20,7 +20,7 @@ export default {
       unsupportedFileType: 'Unsupported format: ',
       fileSizeExceed: 'File size out of limit: ',
       refNotFound: 'Ref not found: ',
-      fieldRequired: 'Input value should be not null.',
+      fieldRequired: 'is required',
       invalidNumber: 'Invalid number format',
       selectFile: ' File...',
       downloadFile: 'Download',
@@ -32,6 +32,7 @@ export default {
       subFormAddActionHint: 'add new row',
       insertSubFormRow: 'insert new row',
       deleteSubFormRow: 'delete this row',
+      deleteSubFormRowLabel: 'delete the [${label}]?',
       nonSubFormType: 'The type of widget don\'t match sub-form',
     }
   }

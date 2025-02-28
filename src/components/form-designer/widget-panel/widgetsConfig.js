@@ -46,6 +46,7 @@ export const containers = [
       name: '',
       showBlankRow: true,
       showRowNumber: true,
+      label: "",
       labelAlign: 'label-center-align',
       hidden: false,
       maxLength: null,

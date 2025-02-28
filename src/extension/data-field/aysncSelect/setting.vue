@@ -12,7 +12,17 @@
       label-width="auto"
       class="demo-dynamic"
     >
-      <el-form-item prop="api" :label="$t('dataField.api')" :rules="requiredRule">
+      <el-form-item
+        prop="api"
+        :label="$t('dataField.api')"
+        :rules="[
+          {
+            required: true,
+            message: '[' + $t('dataField.api') + ']' + $t('render.hint.fieldRequired'),
+            trigger: 'blur',
+          },
+        ]"
+      >
         <el-select
           size="default"
           v-model="form.api"
@@ -183,11 +193,7 @@ const initForm = {
   valueKey: "value",
   labelKey: "label",
 };
-const requiredRule = {
-  required: true,
-  message: translate("render.hint.fieldRequired"),
-  trigger: "blur",
-};
+
 export default {
   components: { SvgIcon },
   data() {
