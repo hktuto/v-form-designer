@@ -32,6 +32,7 @@ export default {
       subFormAddActionHint: 'add new row',
       insertSubFormRow: 'insert new row',
       deleteSubFormRow: 'delete this row',
+      deleteSubFormRowLabel: 'delete the [${label}]?',
       nonSubFormType: 'The type of widget don\'t match sub-form',
     }
   }

@@ -32,6 +32,7 @@ export default {
       subFormAddActionHint: '新增行',
       insertSubFormRow: '插入行',
       deleteSubFormRow: '删除行',
+      deleteSubFormRowLabel: 'delete the ${label}?',
       nonSubFormType: '组件类型不是子表单',
     }
   }

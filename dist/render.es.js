@@ -1871,6 +1871,7 @@ var enLocale_render = {
       subFormAddActionHint: "add new row",
       insertSubFormRow: "insert new row",
       deleteSubFormRow: "delete this row",
+      deleteSubFormRowLabel: "delete the [${label}]?",
       nonSubFormType: "The type of widget don't match sub-form"
     }
   }
@@ -1905,6 +1906,7 @@ var zhLocale_render = {
       subFormAddActionHint: "\u65B0\u589E\u884C",
       insertSubFormRow: "\u63D2\u5165\u884C",
       deleteSubFormRow: "\u5220\u9664\u884C",
+      deleteSubFormRowLabel: "delete the ${label}?",
       nonSubFormType: "\u7EC4\u4EF6\u7C7B\u578B\u4E0D\u662F\u5B50\u8868\u5355"
     }
   }
@@ -30242,7 +30244,10 @@ const _sfc_main$q = {
       this.handleSubFormRowChange(oldSubFormData);
     },
     deleteSubFormRow(formRowIndex) {
-      this.$confirm(this.$t("render.hint.deleteSubFormRow") + "?", this.$t("render.hint.prompt"), {
+      const tip = this.widget.options.label ? this.$t("render.hint.deleteSubFormRowLabel", {
+        label: this.$t(this.widget.options.label)
+      }).replace("${label}", this.$t(this.widget.options.label)) : this.$t("render.hint.deleteSubFormRow");
+      this.$confirm(tip, this.$t("render.hint.prompt"), {
         confirmButtonText: this.$t("render.hint.confirm"),
         cancelButtonText: this.$t("render.hint.cancel")
       }).then(() => {
@@ -30448,7 +30453,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-262e29cc"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-27b59716"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -31598,13 +31603,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740650467691__");
+    var svgDom = document.getElementById("__svg__icons__dom__1740706996553__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740650467691__";
+      svgDom.id = "__svg__icons__dom__1740706996553__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

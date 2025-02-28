@@ -323,14 +323,15 @@ export default {
     },
 
     deleteSubFormRow(formRowIndex) {
-      this.$confirm(
-        this.$t("render.hint.deleteSubFormRow") + "?",
-        this.$t("render.hint.prompt"),
-        {
-          confirmButtonText: this.$t("render.hint.confirm"),
-          cancelButtonText: this.$t("render.hint.cancel"),
-        }
-      )
+      const tip = this.widget.options.label
+        ? this.$t("render.hint.deleteSubFormRowLabel", {
+            label: this.$t(this.widget.options.label),
+          }).replace("${label}", this.$t(this.widget.options.label))
+        : this.$t("render.hint.deleteSubFormRow");
+      this.$confirm(tip, this.$t("render.hint.prompt"), {
+        confirmButtonText: this.$t("render.hint.confirm"),
+        cancelButtonText: this.$t("render.hint.cancel"),
+      })
         .then(() => {
           let oldSubFormData = this.formModel[this.widget.options.name] || [];
           let deletedDataRow = deepClone(oldSubFormData[formRowIndex]);
