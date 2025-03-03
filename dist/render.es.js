@@ -30405,6 +30405,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
                   createVNode(_component_el_popconfirm, {
                     disabled: $data.actionDisabled,
                     width: "200",
+                    "popper-class": "sub-form-item-delete-popconfirm",
                     "confirm-button-text": _ctx.$t("render.hint.confirm"),
                     "cancel-button-text": _ctx.$t("render.hint.cancel"),
                     title: _ctx.$t("render.hint.deleteSubFormRow"),
@@ -30452,7 +30453,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-064eb2d2"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-130eadcf"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -31602,13 +31603,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740730634423__");
+    var svgDom = document.getElementById("__svg__icons__dom__1740985026970__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740730634423__";
+      svgDom.id = "__svg__icons__dom__1740985026970__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -56139,7 +56140,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-3ef01723"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-ccc47612"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);
