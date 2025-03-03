@@ -31767,10 +31767,9 @@ const _sfc_main$3c = {
       this.handleSubFormRowChange(oldSubFormData);
     },
     getTip() {
-      const tip = this.widget.options.label ? this.$t("render.hint.deleteSubFormRowLabel", {
+      return this.widget.options.label ? this.$t("render.hint.deleteSubFormRowLabel", {
         label: this.$t(this.widget.options.label)
       }).replace("${label}", this.$t(this.widget.options.label)) : this.$t("render.hint.deleteSubFormRow");
-      return tip;
     },
     handleSubFormRowChange(subFormData) {
       if (!!this.widget.options.onSubFormRowChange) {
@@ -31927,7 +31926,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                     width: "200",
                     "confirm-button-text": _ctx.$t("render.hint.confirm"),
                     "cancel-button-text": _ctx.$t("render.hint.cancel"),
-                    title: $options.getTip,
+                    title: $options.getTip(),
                     onConfirm: ($event) => $options.deleteSubFormRow(sfrIdx)
                   }, {
                     reference: withCtx(() => [
@@ -31972,7 +31971,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-0550348b"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-fa44bdb8"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -78357,13 +78356,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740987706611__");
+    var svgDom = document.getElementById("__svg__icons__dom__1740990301155__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740987706611__";
+      svgDom.id = "__svg__icons__dom__1740990301155__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

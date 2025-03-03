@@ -84,7 +84,7 @@
                             width="200"
                             :confirm-button-text="$t('render.hint.confirm')"
                             :cancel-button-text="$t('render.hint.cancel')"
-                            :title="getTip"
+                            :title="getTip()"
                             @confirm="deleteSubFormRow(sfrIdx)"
                         >
                             <template #reference>
@@ -348,12 +348,11 @@ export default {
         },
 
         getTip() {
-            const tip = this.widget.options.label
+            return this.widget.options.label
                 ? this.$t("render.hint.deleteSubFormRowLabel", {
                     label: this.$t(this.widget.options.label),
                 }).replace("${label}", this.$t(this.widget.options.label))
                 : this.$t("render.hint.deleteSubFormRow");
-            return tip;
         },
 
         /*deleteSubFormRow(formRowIndex) {
