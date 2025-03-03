@@ -31919,6 +31919,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                   createVNode(_component_el_popconfirm, {
                     disabled: $data.actionDisabled,
                     width: "200",
+                    "popper-class": "sub-form-item-delete-popconfirm",
                     "confirm-button-text": _ctx.$t("render.hint.confirm"),
                     "cancel-button-text": _ctx.$t("render.hint.cancel"),
                     title: _ctx.$t("render.hint.deleteSubFormRow"),
@@ -31966,7 +31967,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-064eb2d2"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-130eadcf"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -59718,7 +59719,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-7ecd2860"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-2237a97c"]]);
 const _sfc_main$35 = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -78351,13 +78352,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740730599558__");
+    var svgDom = document.getElementById("__svg__icons__dom__1740984997789__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740730599558__";
+      svgDom.id = "__svg__icons__dom__1740984997789__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -81323,7 +81324,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-3ef01723"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-ccc47612"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);
