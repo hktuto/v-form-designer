@@ -4763,7 +4763,7 @@ var fieldMixin = {
         this.rules.push({
           required: true,
           trigger: ["blur"],
-          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : "[" + this.i18nt(this.field.options.label) + "]" + this.i18nt("render.hint.fieldRequired")
+          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + " " + this.i18nt("render.hint.fieldRequired")
         });
       }
       if (!!this.field.options.validation) {
@@ -63925,7 +63925,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
         rules: [
           {
             required: true,
-            message: _ctx.$t("designer.setting.widgetName") + _ctx.$t("render.hint.fieldRequired"),
+            message: _ctx.$t("designer.setting.widgetName") + " " + _ctx.$t("render.hint.fieldRequired"),
             trigger: "blur"
           }
         ]
@@ -64218,7 +64218,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-55df141e"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-16365a58"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -78356,13 +78356,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741054770194__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741056681846__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741054770194__";
+      svgDom.id = "__svg__icons__dom__1741056681846__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

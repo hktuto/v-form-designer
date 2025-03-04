@@ -155,9 +155,7 @@ export default {
             :rules="[
         {
           required: true,
-          message:
-            $t('designer.setting.widgetName') +
-            $t('render.hint.fieldRequired'),
+          message: $t('designer.setting.widgetName') + ' ' + $t('render.hint.fieldRequired'),
           trigger: 'blur',
         },
       ]"
@@ -188,7 +186,7 @@ export default {
                     :rules="[
             {
               required: true,
-              message:  $t('dataField.api') +' '+ $t('render.hint.fieldRequired'),
+              message: $t('dataField.api') +' '+ $t('render.hint.fieldRequired'),
               trigger: 'blur',
             },
           ]"
