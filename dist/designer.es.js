@@ -63925,7 +63925,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
         rules: [
           {
             required: true,
-            message: "[" + _ctx.$t("designer.setting.widgetName") + "]" + _ctx.$t("render.hint.fieldRequired"),
+            message: _ctx.$t("designer.setting.widgetName") + _ctx.$t("render.hint.fieldRequired"),
             trigger: "blur"
           }
         ]
@@ -63966,7 +63966,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                 rules: [
                   {
                     required: true,
-                    message: "[" + _ctx.$t("dataField.api") + "]" + _ctx.$t("render.hint.fieldRequired"),
+                    message: _ctx.$t("dataField.api") + " " + _ctx.$t("render.hint.fieldRequired"),
                     trigger: "blur"
                   }
                 ]
@@ -64218,7 +64218,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-727ff472"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-55df141e"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -64788,7 +64788,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
             rules: [
               {
                 required: true,
-                message: "[" + _ctx.$t("dataField.api") + "]" + _ctx.$t("render.hint.fieldRequired"),
+                message: _ctx.$t("dataField.api") + " " + _ctx.$t("render.hint.fieldRequired"),
                 trigger: "blur"
               }
             ]
@@ -65007,7 +65007,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-b950819a"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-d0e16d40"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -78356,13 +78356,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740990301155__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741054770194__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740990301155__";
+      svgDom.id = "__svg__icons__dom__1741054770194__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
