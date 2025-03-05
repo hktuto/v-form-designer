@@ -32679,6 +32679,7 @@ const _sfc_main$38 = {
           this.formDataModel[propName] = deepClone(formData[propName]);
         }
       });
+      this.clearValidate();
       this.broadcast("ContainerItem", "setFormData", this.formDataModel);
       this.broadcast("FieldWidget", "setFormData", this.formDataModel);
     },
@@ -32895,7 +32896,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-71c64e6f"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-7cc75a0c"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -78356,13 +78357,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741056681846__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741161442785__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741056681846__";
+      svgDom.id = "__svg__icons__dom__1741161442785__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
