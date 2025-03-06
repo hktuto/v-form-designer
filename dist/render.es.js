@@ -3034,39 +3034,39 @@ const validateFn = function(validatorName, rule, value, callback, defaultErrorMs
 };
 const FormValidators = {
   number(rule2, value2, callback2) {
-    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_number"));
+    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_number"));
   },
   numberInteger(rule2, value2, callback2) {
-    validateFn("numberInteger", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_numberInteger"));
+    validateFn("numberInteger", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_numberInteger"));
   },
   letter(rule2, value2, callback2) {
-    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_letter"));
+    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_letter"));
   },
   letterAndNumber(rule2, value2, callback2) {
-    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]" + this.i18nt("validateFn_letterAndNumber"));
+    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]" + translate("validateFn_letterAndNumber"));
   },
   mobilePhone(rule2, value2, callback2) {
-    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_mobilePhone"));
+    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_mobilePhone"));
   },
   noBlankStart(rule2, value2, callback2) {
   },
   noBlankEnd(rule2, value2, callback2) {
   },
   letterStartNumberIncluded(rule2, value2, callback2) {
-    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_letterStartNumberIncluded"));
+    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_letterStartNumberIncluded"));
   },
   noChinese(rule2, value2, callback2) {
-    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_noChinese"));
+    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_noChinese"));
   },
   chinese(rule2, value2, callback2) {
-    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_chinese"));
+    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_chinese"));
   },
   email(rule2, value2, callback2) {
     const msg = this.i18nt("user_emailFormatError");
     validateFn("email", rule2, value2, callback2, msg);
   },
   url(rule2, value2, callback2) {
-    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + this.i18nt("validateFn_url"));
+    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_url"));
   },
   regExp(rule, value, callback) {
     if (isNull(value) || value.length <= 0) {
@@ -31613,13 +31613,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741241576302__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741243583412__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741241576302__";
+      svgDom.id = "__svg__icons__dom__1741243583412__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

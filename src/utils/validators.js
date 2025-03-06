@@ -39,27 +39,27 @@ const FormValidators = {
 
     /* 数字 */
     number(rule, value, callback) {
-        validateFn('number', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_number'))
+        validateFn('number', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_number'))
     },
 
     /* 整數 */
-    numberInteger (rule, value, callback){
-      validateFn('numberInteger', rule, value, callback,'[' + translate(rule.label) + '] ' + this.i18nt('validateFn_numberInteger'))
+    numberInteger(rule, value, callback) {
+        validateFn('numberInteger', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_numberInteger'))
     },
 
     /* 字母 */
     letter(rule, value, callback) {
-        validateFn('letter', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_letter'))
+        validateFn('letter', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_letter'))
     },
 
     /* 字母和数字 */
     letterAndNumber(rule, value, callback) {
-        validateFn('letterAndNumber', rule, value, callback, '[' + translate(rule.label) + ']' + this.i18nt('validateFn_letterAndNumber'))
+        validateFn('letterAndNumber', rule, value, callback, '[' + translate(rule.label) + ']' + translate('validateFn_letterAndNumber'))
     },
 
     /* 手机号码 */
     mobilePhone(rule, value, callback) {
-        validateFn('mobilePhone', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_mobilePhone'))
+        validateFn('mobilePhone', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_mobilePhone'))
     },
 
     /* 禁止空白字符开头 */
@@ -74,17 +74,17 @@ const FormValidators = {
 
     /* 字母开头，仅可包含数字 */
     letterStartNumberIncluded(rule, value, callback) {
-        validateFn('letterStartNumberIncluded', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_letterStartNumberIncluded'))
+        validateFn('letterStartNumberIncluded', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_letterStartNumberIncluded'))
     },
 
     /* 禁止中文输入 */
     noChinese(rule, value, callback) {
-        validateFn('noChinese', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_noChinese'))
+        validateFn('noChinese', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_noChinese'))
     },
 
     /* 必须中文输入 */
     chinese(rule, value, callback) {
-        validateFn('chinese', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_chinese'))
+        validateFn('chinese', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_chinese'))
     },
 
     /* 电子邮箱 */
@@ -96,7 +96,7 @@ const FormValidators = {
 
     /* URL网址 */
     url(rule, value, callback) {
-        validateFn('url', rule, value, callback, '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_url'))
+        validateFn('url', rule, value, callback, '[' + translate(rule.label) + '] ' + translate('validateFn_url'))
     },
 
     /*测试
