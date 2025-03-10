@@ -89,8 +89,8 @@ const FormValidators = {
 
     /* 电子邮箱 */
     email(rule, value, callback) {
-        // const msg = '[' + translate(rule.label) + '] ' + this.i18nt('validateFn_email');
-        const msg = this.i18nt('user_emailFormatError');
+        // const msg = '[' + translate(rule.label) + '] ' + translate('validateFn_email');
+        const msg = translate('user_emailFormatError');
         validateFn('email', rule, value, callback, msg)
     },
 
