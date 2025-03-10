@@ -28,7 +28,13 @@
       :placeholder="
         field.options.placeholder
           ? $t(field.options.placeholder)
-          : $t('render.hint.selectPlaceholder')
+          : ( !field.options.required
+                ? $t('common_selectOccupancyContent')
+                : (field.options.multiple
+	                ? $t('common_selectecIsMultiSelectRequiredMsg')
+	                : $t('common_selectecIsRequiredMsg')
+	            )
+	        )
       "
       :remote="field.options.remote"
       :remote-method="remoteMethod"

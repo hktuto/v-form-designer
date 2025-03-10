@@ -606,14 +606,14 @@ export default {
         },
 
         setFormData(formData) {
+            // 清空規則，防止因爲多次打開表單時，但是校驗依舊存在的問題
+            this.clearValidate();
             //设置表单数据
             Object.keys(this.formDataModel).forEach((propName) => {
                 if (!!formData && formData.hasOwnProperty(propName)) {
                     this.formDataModel[propName] = deepClone(formData[propName]);
                 }
             });
-            // 清空規則，防止因爲多次打開表單時，但是校驗依舊存在的問題
-            this.clearValidate();
             // 通知SubForm组件：表单数据更新事件！！
             this.broadcast("ContainerItem", "setFormData", this.formDataModel);
             // 通知FieldWidget组件：表单数据更新事件！！

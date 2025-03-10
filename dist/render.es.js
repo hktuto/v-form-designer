@@ -29037,7 +29037,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
-        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : !$props.field.options.required ? _ctx.$t("common_selectOccupancyContent") : $props.field.options.multiple ? _ctx.$t("common_selectecIsMultiSelectRequiredMsg") : _ctx.$t("common_selectecIsRequiredMsg"),
         remote: $props.field.options.remote,
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
@@ -29061,7 +29061,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-ea74a61c"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-02dfdee5"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": SelectWidget
@@ -31165,12 +31165,12 @@ const _sfc_main$m = {
       return promise;
     },
     setFormData(formData) {
+      this.clearValidate();
       Object.keys(this.formDataModel).forEach((propName) => {
         if (!!formData && formData.hasOwnProperty(propName)) {
           this.formDataModel[propName] = deepClone(formData[propName]);
         }
       });
-      this.clearValidate();
       this.broadcast("ContainerItem", "setFormData", this.formDataModel);
       this.broadcast("FieldWidget", "setFormData", this.formDataModel);
     },
@@ -31387,7 +31387,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-6e95f132"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-050413e7"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31613,13 +31613,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741243583412__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741571776629__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741243583412__";
+      svgDom.id = "__svg__icons__dom__1741571776629__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
