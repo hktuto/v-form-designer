@@ -4500,13 +4500,14 @@ var __glob_0_20$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineP
 const getRegExp = function(validatorName2) {
   const commonRegExp = {
     number: "/^[-]?\\d+(\\.\\d+)?$/",
+    numberInteger: "/^[1-9]\\d*|0$/",
     letter: "/^[A-Za-z]+$/",
     letterAndNumber: "/^[A-Za-z0-9]+$/",
     mobilePhone: "/^(\\+?\\d{1,3}[- ]?)?\\d{10}$/",
     letterStartNumberIncluded: "/^[A-Za-z]+[A-Za-z\\d]*$/",
     noChinese: "/^[^\u4E00-\u9FA5]+$/",
     chinese: "/^[\u4E00-\u9FA5]+$/",
-    email: "/^([-_A-Za-z0-9.]+)@([_A-Za-z0-9]+\\.)+[A-Za-z0-9]{2,3}$/",
+    email: '/^(([^<>()[\\]\\\\.,;:\\s@"]+(\\.[^<>()[\\]\\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/',
     url: "/^([hH][tT]{2}[pP]:\\/\\/|[hH][tT]{2}[pP][sS]:\\/\\/)(([A-Za-z0-9-~]+)\\.)+([A-Za-z0-9-~\\/])+$/"
   };
   return commonRegExp[validatorName2];
@@ -4526,35 +4527,39 @@ const validateFn = function(validatorName, rule, value, callback, defaultErrorMs
 };
 const FormValidators = {
   number(rule2, value2, callback2) {
-    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
+    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_number"));
+  },
+  numberInteger(rule2, value2, callback2) {
+    validateFn("numberInteger", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_numberInteger"));
   },
   letter(rule2, value2, callback2) {
-    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
+    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_letter"));
   },
   letterAndNumber(rule2, value2, callback2) {
-    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
+    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]" + translate("validateFn_letterAndNumber"));
   },
   mobilePhone(rule2, value2, callback2) {
-    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
+    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_mobilePhone"));
   },
   noBlankStart(rule2, value2, callback2) {
   },
   noBlankEnd(rule2, value2, callback2) {
   },
   letterStartNumberIncluded(rule2, value2, callback2) {
-    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
+    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_letterStartNumberIncluded"));
   },
   noChinese(rule2, value2, callback2) {
-    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_noChinese"));
   },
   chinese(rule2, value2, callback2) {
-    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_chinese"));
   },
   email(rule2, value2, callback2) {
-    validateFn("email", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
+    const msg = translate("user_emailFormatError");
+    validateFn("email", rule2, value2, callback2, msg);
   },
   url(rule2, value2, callback2) {
-    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
+    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_url"));
   },
   regExp(rule, value, callback) {
     if (isNull(value) || value.length <= 0) {
@@ -4763,7 +4768,7 @@ var fieldMixin = {
         this.rules.push({
           required: true,
           trigger: ["blur"],
-          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : "[" + this.i18nt(this.field.options.label) + "]" + this.i18nt("render.hint.fieldRequired")
+          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + " " + this.i18nt("render.hint.fieldRequired")
         });
       }
       if (!!this.field.options.validation) {
@@ -6091,7 +6096,7 @@ function _sfc_render$3y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateWidget
@@ -30546,7 +30551,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
-        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : !$props.field.options.required ? _ctx.$t("common_selectOccupancyContent") : $props.field.options.multiple ? _ctx.$t("common_selectecIsMultiSelectRequiredMsg") : _ctx.$t("common_selectecIsRequiredMsg"),
         remote: $props.field.options.remote,
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
@@ -30570,7 +30575,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-ea74a61c"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-02dfdee5"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": SelectWidget
@@ -31766,6 +31771,11 @@ const _sfc_main$3c = {
       this.handleSubFormRowDelete(oldSubFormData, deletedDataRow);
       this.handleSubFormRowChange(oldSubFormData);
     },
+    getTip() {
+      return this.widget.options.label ? this.$t("render.hint.deleteSubFormRowLabel", {
+        label: this.$t(this.widget.options.label)
+      }).replace("${label}", this.$t(this.widget.options.label)) : this.$t("render.hint.deleteSubFormRow");
+    },
     handleSubFormRowChange(subFormData) {
       if (!!this.widget.options.onSubFormRowChange) {
         let customFunc = new Function("subFormData", this.widget.options.onSubFormRowChange);
@@ -31919,10 +31929,9 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                   createVNode(_component_el_popconfirm, {
                     disabled: $data.actionDisabled,
                     width: "200",
-                    "popper-class": "sub-form-item-delete-popconfirm",
                     "confirm-button-text": _ctx.$t("render.hint.confirm"),
                     "cancel-button-text": _ctx.$t("render.hint.cancel"),
-                    title: _ctx.$t("render.hint.deleteSubFormRow"),
+                    title: $options.getTip(),
                     onConfirm: ($event) => $options.deleteSubFormRow(sfrIdx)
                   }, {
                     reference: withCtx(() => [
@@ -31967,7 +31976,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-130eadcf"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-fe444b44"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -32670,6 +32679,7 @@ const _sfc_main$38 = {
       return promise;
     },
     setFormData(formData) {
+      this.clearValidate();
       Object.keys(this.formDataModel).forEach((propName) => {
         if (!!formData && formData.hasOwnProperty(propName)) {
           this.formDataModel[propName] = deepClone(formData[propName]);
@@ -32891,7 +32901,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-71c64e6f"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-050413e7"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -46893,14 +46903,14 @@ var ace$2 = { exports: {} };
       Editor3.prototype.$historyTracker = function(e13) {
         if (!this.$mergeUndoDeltas)
           return;
-        var prev2 = this.prevOp;
+        var prev = this.prevOp;
         var mergeableCommands = this.$mergeableCommands;
-        var shouldMerge = prev2.command && e13.command.name == prev2.command.name;
+        var shouldMerge = prev.command && e13.command.name == prev.command.name;
         if (e13.command.name == "insertstring") {
           var text = e13.args;
           if (this.mergeNextCommand === void 0)
             this.mergeNextCommand = true;
-          shouldMerge = shouldMerge && this.mergeNextCommand && (!/\s/.test(text) || /\s/.test(prev2.args));
+          shouldMerge = shouldMerge && this.mergeNextCommand && (!/\s/.test(text) || /\s/.test(prev.args));
           this.mergeNextCommand = true;
         } else {
           shouldMerge = shouldMerge && mergeableCommands.indexOf(e13.command.name) !== -1;
@@ -49404,7 +49414,7 @@ var ace$2 = { exports: {} };
         var start = range.start.row;
         var end = range.end.row;
         var row = start;
-        var prev2 = 0;
+        var prev = 0;
         var curr = 0;
         var next = session.getScreenLastRowColumn(row);
         var lineRange = new Range(row, range.start.column, row, curr);
@@ -49412,10 +49422,10 @@ var ace$2 = { exports: {} };
           lineRange.start.row = lineRange.end.row = row;
           lineRange.start.column = row == start ? range.start.column : session.getRowWrapIndent(row);
           lineRange.end.column = next;
-          prev2 = curr;
+          prev = curr;
           curr = next;
           next = row + 1 < end ? session.getScreenLastRowColumn(row + 1) : row == end ? 0 : range.end.column;
-          this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev2 < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
+          this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
         }
       };
       Marker2.prototype.drawMultiLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
@@ -63587,11 +63597,11 @@ var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
 function generateChangeCode(changeFieldList) {
   const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
   const mf2 = getMasterTableRecordCode();
-  const code = _changeFieldList.reduce((prev2, item) => {
+  const code = _changeFieldList.reduce((prev, item) => {
     const funCode = getFunctionCode(item);
-    prev2 += funCode;
-    return prev2;
-  }, "const _this = this" + mf2);
+    prev += funCode;
+    return prev;
+  }, "const _this = this\nif(value === oldValue) return\n" + mf2);
   return code;
 }
 function getMasterTableRecordCode() {
@@ -63620,11 +63630,12 @@ function getFunctionCode(setting) {
   const optionApiStr = `
   options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
   const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
+  console.log(fieldParamsInitStr);
   return `
 async function ${funName}() {${fieldParamsInitStr}
   try {
     const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
-    if(widgetRef.loadOption) widgetRef.loadOptions(options)
+    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
     if(options.length === 1) {
       if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
       else widgetRef.setValue(options[0].value)
@@ -63645,7 +63656,7 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
       if (params[key].length === 0) {
-        return prev;
+        return;
       }
       params[key].forEach((item) => {
         if (item.value) {
@@ -63680,11 +63691,11 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   }
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)];
-    const conditionStr = pList.reduce((prev2, item, index2) => {
-      prev2 += "!!" + item;
+    const conditionStr = pList.reduce((prev, item, index2) => {
+      prev += "!!" + item;
       if (index2 !== pList.length - 1)
-        prev2 += " && ";
-      return prev2;
+        prev += " && ";
+      return prev;
     }, "");
     return `
   let options = []
@@ -63711,7 +63722,8 @@ function getParamsStr(setting) {
       const data2 = [...params[key]];
       params[key] = {};
       data2.forEach((item) => {
-        if (item.value)
+        console.log(item);
+        if (item.value && item.key)
           params[key][item.key] = item.value;
       });
     }
@@ -63921,7 +63933,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
         rules: [
           {
             required: true,
-            message: "[" + _ctx.$t("designer.setting.widgetName") + "]" + _ctx.$t("render.hint.fieldRequired"),
+            message: _ctx.$t("designer.setting.widgetName") + " " + _ctx.$t("render.hint.fieldRequired"),
             trigger: "blur"
           }
         ]
@@ -63962,7 +63974,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                 rules: [
                   {
                     required: true,
-                    message: "[" + _ctx.$t("dataField.api") + "]" + _ctx.$t("render.hint.fieldRequired"),
+                    message: _ctx.$t("dataField.api") + " " + _ctx.$t("render.hint.fieldRequired"),
                     trigger: "blur"
                   }
                 ]
@@ -64214,7 +64226,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-727ff472"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-16365a58"]]);
 const initApi = {
   fieldName: "",
   api: "",
@@ -64784,7 +64796,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
             rules: [
               {
                 required: true,
-                message: "[" + _ctx.$t("dataField.api") + "]" + _ctx.$t("render.hint.fieldRequired"),
+                message: _ctx.$t("dataField.api") + " " + _ctx.$t("render.hint.fieldRequired"),
                 trigger: "blur"
               }
             ]
@@ -65003,7 +65015,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-b950819a"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-d0e16d40"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -78352,13 +78364,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740984997789__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741686248157__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740984997789__";
+      svgDom.id = "__svg__icons__dom__1741686248157__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

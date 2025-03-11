@@ -3007,13 +3007,14 @@ function buildDefaultFormJson() {
 const getRegExp = function(validatorName2) {
   const commonRegExp = {
     number: "/^[-]?\\d+(\\.\\d+)?$/",
+    numberInteger: "/^[1-9]\\d*|0$/",
     letter: "/^[A-Za-z]+$/",
     letterAndNumber: "/^[A-Za-z0-9]+$/",
     mobilePhone: "/^(\\+?\\d{1,3}[- ]?)?\\d{10}$/",
     letterStartNumberIncluded: "/^[A-Za-z]+[A-Za-z\\d]*$/",
     noChinese: "/^[^\u4E00-\u9FA5]+$/",
     chinese: "/^[\u4E00-\u9FA5]+$/",
-    email: "/^([-_A-Za-z0-9.]+)@([_A-Za-z0-9]+\\.)+[A-Za-z0-9]{2,3}$/",
+    email: '/^(([^<>()[\\]\\\\.,;:\\s@"]+(\\.[^<>()[\\]\\\\.,;:\\s@"]+)*)|(".+"))@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$/',
     url: "/^([hH][tT]{2}[pP]:\\/\\/|[hH][tT]{2}[pP][sS]:\\/\\/)(([A-Za-z0-9-~]+)\\.)+([A-Za-z0-9-~\\/])+$/"
   };
   return commonRegExp[validatorName2];
@@ -3033,35 +3034,39 @@ const validateFn = function(validatorName, rule, value, callback, defaultErrorMs
 };
 const FormValidators = {
   number(rule2, value2, callback2) {
-    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u6570\u5B57\u5B57\u7B26");
+    validateFn("number", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_number"));
+  },
+  numberInteger(rule2, value2, callback2) {
+    validateFn("numberInteger", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_numberInteger"));
   },
   letter(rule2, value2, callback2) {
-    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5305\u542B\u975E\u5B57\u6BCD\u5B57\u7B26");
+    validateFn("letter", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_letter"));
   },
   letterAndNumber(rule2, value2, callback2) {
-    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u5B57\u6BCD\u6216\u6570\u5B57");
+    validateFn("letterAndNumber", rule2, value2, callback2, "[" + translate(rule2.label) + "]" + translate("validateFn_letterAndNumber"));
   },
   mobilePhone(rule2, value2, callback2) {
-    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u624B\u673A\u53F7\u7801\u683C\u5F0F\u6709\u8BEF");
+    validateFn("mobilePhone", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_mobilePhone"));
   },
   noBlankStart(rule2, value2, callback2) {
   },
   noBlankEnd(rule2, value2, callback2) {
   },
   letterStartNumberIncluded(rule2, value2, callback2) {
-    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u5FC5\u987B\u4EE5\u5B57\u6BCD\u5F00\u5934\uFF0C\u53EF\u5305\u542B\u6570\u5B57");
+    validateFn("letterStartNumberIncluded", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_letterStartNumberIncluded"));
   },
   noChinese(rule2, value2, callback2) {
-    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u4E0D\u53EF\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("noChinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_noChinese"));
   },
   chinese(rule2, value2, callback2) {
-    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u53EA\u80FD\u8F93\u5165\u4E2D\u6587\u5B57\u7B26");
+    validateFn("chinese", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_chinese"));
   },
   email(rule2, value2, callback2) {
-    validateFn("email", rule2, value2, callback2, "[" + translate(rule2.label) + "]\u90AE\u7BB1\u683C\u5F0F\u6709\u8BEF");
+    const msg = translate("user_emailFormatError");
+    validateFn("email", rule2, value2, callback2, msg);
   },
   url(rule2, value2, callback2) {
-    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "]URL\u683C\u5F0F\u6709\u8BEF");
+    validateFn("url", rule2, value2, callback2, "[" + translate(rule2.label) + "] " + translate("validateFn_url"));
   },
   regExp(rule, value, callback) {
     if (isNull(value) || value.length <= 0) {
@@ -3249,7 +3254,7 @@ var fieldMixin = {
         this.rules.push({
           required: true,
           trigger: ["blur"],
-          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : "[" + this.i18nt(this.field.options.label) + "]" + this.i18nt("render.hint.fieldRequired")
+          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + " " + this.i18nt("render.hint.fieldRequired")
         });
       }
       if (!!this.field.options.validation) {
@@ -4577,7 +4582,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateWidget
@@ -29032,7 +29037,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
-        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : !$props.field.options.required ? _ctx.$t("common_selectOccupancyContent") : $props.field.options.multiple ? _ctx.$t("common_selectecIsMultiSelectRequiredMsg") : _ctx.$t("common_selectecIsRequiredMsg"),
         remote: $props.field.options.remote,
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
@@ -29056,7 +29061,7 @@ function _sfc_render$A(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-ea74a61c"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$A, [["render", _sfc_render$A], ["__scopeId", "data-v-02dfdee5"]]);
 var __glob_0_17 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": SelectWidget
@@ -30252,6 +30257,11 @@ const _sfc_main$q = {
       this.handleSubFormRowDelete(oldSubFormData, deletedDataRow);
       this.handleSubFormRowChange(oldSubFormData);
     },
+    getTip() {
+      return this.widget.options.label ? this.$t("render.hint.deleteSubFormRowLabel", {
+        label: this.$t(this.widget.options.label)
+      }).replace("${label}", this.$t(this.widget.options.label)) : this.$t("render.hint.deleteSubFormRow");
+    },
     handleSubFormRowChange(subFormData) {
       if (!!this.widget.options.onSubFormRowChange) {
         let customFunc = new Function("subFormData", this.widget.options.onSubFormRowChange);
@@ -30405,10 +30415,9 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
                   createVNode(_component_el_popconfirm, {
                     disabled: $data.actionDisabled,
                     width: "200",
-                    "popper-class": "sub-form-item-delete-popconfirm",
                     "confirm-button-text": _ctx.$t("render.hint.confirm"),
                     "cancel-button-text": _ctx.$t("render.hint.cancel"),
-                    title: _ctx.$t("render.hint.deleteSubFormRow"),
+                    title: $options.getTip(),
                     onConfirm: ($event) => $options.deleteSubFormRow(sfrIdx)
                   }, {
                     reference: withCtx(() => [
@@ -30453,7 +30462,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-130eadcf"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-fe444b44"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -31156,6 +31165,7 @@ const _sfc_main$m = {
       return promise;
     },
     setFormData(formData) {
+      this.clearValidate();
       Object.keys(this.formDataModel).forEach((propName) => {
         if (!!formData && formData.hasOwnProperty(propName)) {
           this.formDataModel[propName] = deepClone(formData[propName]);
@@ -31377,7 +31387,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-71c64e6f"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-050413e7"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31603,13 +31613,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1740985026970__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741686267796__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1740985026970__";
+      svgDom.id = "__svg__icons__dom__1741686267796__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
