@@ -4582,7 +4582,7 @@ function _sfc_render$M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$M, [["render", _sfc_render$M], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateWidget
@@ -30462,7 +30462,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-fa44bdb8"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-fe444b44"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -31613,13 +31613,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741583700619__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741686267796__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741583700619__";
+      svgDom.id = "__svg__icons__dom__1741686267796__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -56150,7 +56150,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-3ef01723"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-ccc47612"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);

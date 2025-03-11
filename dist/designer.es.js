@@ -6096,7 +6096,7 @@ function _sfc_render$3y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-39eeee06"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-1cba4a63"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateWidget
@@ -31976,7 +31976,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-fa44bdb8"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-fe444b44"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -46903,14 +46903,14 @@ var ace$2 = { exports: {} };
       Editor3.prototype.$historyTracker = function(e13) {
         if (!this.$mergeUndoDeltas)
           return;
-        var prev2 = this.prevOp;
+        var prev = this.prevOp;
         var mergeableCommands = this.$mergeableCommands;
-        var shouldMerge = prev2.command && e13.command.name == prev2.command.name;
+        var shouldMerge = prev.command && e13.command.name == prev.command.name;
         if (e13.command.name == "insertstring") {
           var text = e13.args;
           if (this.mergeNextCommand === void 0)
             this.mergeNextCommand = true;
-          shouldMerge = shouldMerge && this.mergeNextCommand && (!/\s/.test(text) || /\s/.test(prev2.args));
+          shouldMerge = shouldMerge && this.mergeNextCommand && (!/\s/.test(text) || /\s/.test(prev.args));
           this.mergeNextCommand = true;
         } else {
           shouldMerge = shouldMerge && mergeableCommands.indexOf(e13.command.name) !== -1;
@@ -49414,7 +49414,7 @@ var ace$2 = { exports: {} };
         var start = range.start.row;
         var end = range.end.row;
         var row = start;
-        var prev2 = 0;
+        var prev = 0;
         var curr = 0;
         var next = session.getScreenLastRowColumn(row);
         var lineRange = new Range(row, range.start.column, row, curr);
@@ -49422,10 +49422,10 @@ var ace$2 = { exports: {} };
           lineRange.start.row = lineRange.end.row = row;
           lineRange.start.column = row == start ? range.start.column : session.getRowWrapIndent(row);
           lineRange.end.column = next;
-          prev2 = curr;
+          prev = curr;
           curr = next;
           next = row + 1 < end ? session.getScreenLastRowColumn(row + 1) : row == end ? 0 : range.end.column;
-          this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev2 < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
+          this.drawSingleLineMarker(stringBuilder, lineRange, clazz + (row == start ? " ace_start" : "") + " ace_br" + getBorderClass(row == start || row == start + 1 && range.start.column, prev < curr, curr > next, row == end), layerConfig, row == end ? 0 : 1, extraStyle);
         }
       };
       Marker2.prototype.drawMultiLineMarker = function(stringBuilder, range, clazz, config, extraStyle) {
@@ -59729,7 +59729,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-7ecd2860"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-2237a97c"]]);
 const _sfc_main$35 = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -63597,11 +63597,11 @@ var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
 function generateChangeCode(changeFieldList) {
   const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
   const mf2 = getMasterTableRecordCode();
-  const code = _changeFieldList.reduce((prev2, item) => {
+  const code = _changeFieldList.reduce((prev, item) => {
     const funCode = getFunctionCode(item);
-    prev2 += funCode;
-    return prev2;
-  }, "const _this = this" + mf2);
+    prev += funCode;
+    return prev;
+  }, "const _this = this\nif(value === oldValue) return\n" + mf2);
   return code;
 }
 function getMasterTableRecordCode() {
@@ -63630,11 +63630,12 @@ function getFunctionCode(setting) {
   const optionApiStr = `
   options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
   const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
+  console.log(fieldParamsInitStr);
   return `
 async function ${funName}() {${fieldParamsInitStr}
   try {
     const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
-    if(widgetRef.loadOption) widgetRef.loadOptions(options)
+    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
     if(options.length === 1) {
       if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
       else widgetRef.setValue(options[0].value)
@@ -63655,7 +63656,7 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
       if (params[key].length === 0) {
-        return prev;
+        return;
       }
       params[key].forEach((item) => {
         if (item.value) {
@@ -63690,11 +63691,11 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   }
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)];
-    const conditionStr = pList.reduce((prev2, item, index2) => {
-      prev2 += "!!" + item;
+    const conditionStr = pList.reduce((prev, item, index2) => {
+      prev += "!!" + item;
       if (index2 !== pList.length - 1)
-        prev2 += " && ";
-      return prev2;
+        prev += " && ";
+      return prev;
     }, "");
     return `
   let options = []
@@ -63721,7 +63722,8 @@ function getParamsStr(setting) {
       const data2 = [...params[key]];
       params[key] = {};
       data2.forEach((item) => {
-        if (item.value)
+        console.log(item);
+        if (item.value && item.key)
           params[key][item.key] = item.value;
       });
     }
@@ -78362,13 +78364,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741583682312__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741686248157__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741583682312__";
+      svgDom.id = "__svg__icons__dom__1741686248157__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -81334,7 +81336,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-3ef01723"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-ccc47612"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);

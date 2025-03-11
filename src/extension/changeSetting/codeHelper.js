@@ -6,7 +6,7 @@ export function generateChangeCode(changeFieldList) {
     const funCode = getFunctionCode(item)
     prev += funCode
     return prev
-  },'const _this = this' + mf)
+  },'const _this = this\nif(value === oldValue) return\n' + mf)
   return code
 }
 
@@ -18,7 +18,8 @@ function getFunctionCode(setting) {
   const funName = `init_${setting.fieldName}`.replace(/ /g, '')
   const optionApiStr = `\n  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`
   const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr)
-  return `\nasync function ${funName}() {${fieldParamsInitStr}\n  try {\n    const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n    if(widgetRef.loadOption) widgetRef.loadOptions(options)\n    if(options.length === 1) {\n      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])\n      else widgetRef.setValue(options[0].value)\n    }\n    else widgetRef.setValue(null)\n  }\n  catch(e) {\n    \n  }\n}\n${funName}()\n`
+  console.log(fieldParamsInitStr);
+  return `\nasync function ${funName}() {${fieldParamsInitStr}\n  try {\n    const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n    if(widgetRef.loadOptions) widgetRef.loadOptions(options)\n    if(options.length === 1) {\n      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])\n      else widgetRef.setValue(options[0].value)\n    }\n    else widgetRef.setValue(null)\n  }\n  catch(e) {\n    \n  }\n}\n${funName}()\n`
 }
 // funName
 // fieldParamsInitStr
@@ -29,7 +30,7 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
       if (params[key].length === 0) {
-        return prev;
+        return 
       }
       params[key].forEach((item) => {
         if (item.value) {
@@ -81,7 +82,8 @@ function getParamsStr(setting) {
       const data = [...params[key]];
       params[key] = {};
       data.forEach((item) => {
-        if (item.value) params[key][item.key] = item.value;
+        console.log(item);
+        if (item.value && item.key) params[key][item.key] = item.value;
       });
     }
   });
