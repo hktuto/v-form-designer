@@ -57,43 +57,61 @@
                 $t(subWidget.options.label)
               }}</span></template
             >
-          </div>
-        </template>
-      </el-row>
-      <el-row
-        v-for="(subFormRowId, sfrIdx) in rowIdData"
-        class="sub-form-row"
-        :key="subFormRowId"
-      >
-        <div class="sub-form-action-column hide-label">
-          <div class="action-button-column">
-            <el-button
-              :disabled="addDisabled"
-              circle
-              @click="insertSubFormRow(sfrIdx)"
-              :title="$t('render.hint.insertSubFormRow')"
-            >
-              <svg-icon icon-class="el-plus" />
-            </el-button>
-            <el-popconfirm
-              :disabled="actionDisabled"
-              width="200"
-              popper-class="sub-form-item-delete-popconfirm"
-              :confirm-button-text="$t('render.hint.confirm')"
-              :cancel-button-text="$t('render.hint.cancel')"
-              :title="$t('render.hint.deleteSubFormRow')"
-              @confirm="deleteSubFormRow(sfrIdx)"
-            >
-              <template #reference>
-                <el-button circle>
-                  <svg-icon icon-class="el-delete" />
-                </el-button>
-              </template>
-            </el-popconfirm>
-            <span v-if="widget.options.showRowNumber" class="row-number-span"
-              >#{{ sfrIdx + 1 }}</span
-            >
-          </div>
+                <div class="sub-form-action-column hide-label">
+                    <div class="action-button-column">
+                        <el-button
+                            :disabled="addDisabled"
+                            circle
+                            @click="insertSubFormRow(sfrIdx)"
+                            :title="$t('render.hint.insertSubFormRow')"
+                        >
+                            <svg-icon icon-class="el-plus"
+                            />
+                        </el-button>
+                        <el-popconfirm
+                            :disabled="actionDisabled"
+                            width="200"
+                            :confirm-button-text="$t('render.hint.confirm')"
+                            :cancel-button-text="$t('render.hint.cancel')"
+                            :title="getTip()"
+                            @confirm="deleteSubFormRow(sfrIdx)"
+                        >
+                            <template #reference>
+                                <el-button circle>
+                                    <svg-icon icon-class="el-delete"
+                                    />
+                                </el-button>
+                            </template>
+                        </el-popconfirm>
+                        <span v-if="widget.options.showRowNumber" class="row-number-span"
+                        >#{{ sfrIdx + 1 }}</span
+                        >
+                    </div>
+                </div>
+                <template
+                    v-for="(subWidget, swIdx) in widget.widgetList"
+                    :key="subWidget.id + 'tc' + subFormRowId"
+                >
+                    <div
+                        class="sub-form-table-column hide-label"
+                        :style="{ width: subWidget.options.columnWidth }"
+                    >
+                        <component
+                            :is="subWidget.type + '-widget'"
+                            :field="fieldSchemaData[sfrIdx][swIdx]"
+                            :key="fieldSchemaData[sfrIdx][swIdx].id"
+                            :parent-list="widget.widgetList"
+                            :index-of-parent-list="swIdx"
+                            :parent-widget="widget"
+                            :sub-form-row-id="subFormRowId"
+                            :sub-form-row-index="sfrIdx"
+                            :sub-form-col-index="swIdx"
+                        >
+                            <!-- 子表单暂不支持插槽！！！ -->
+                        </component>
+                    </div>
+                </template>
+            </el-row>
         </div>
         <template
           v-for="(subWidget, swIdx) in widget.widgetList"
@@ -331,17 +349,17 @@ export default {
       this.handleSubFormRowChange(oldSubFormData);
     },
 
-    deleteSubFormRow(formRowIndex) {
-      let oldSubFormData = this.formModel[this.widget.options.name] || [];
-      let deletedDataRow = deepClone(oldSubFormData[formRowIndex]);
-      oldSubFormData.splice(formRowIndex, 1);
-      this.deleteFromRowIdData(formRowIndex);
-      this.deleteFromFieldSchemaData(formRowIndex);
+        },
 
-      this.handleSubFormRowDelete(oldSubFormData, deletedDataRow);
-      this.handleSubFormRowChange(oldSubFormData);
-    },
-    /*deleteSubFormRow(formRowIndex) {
+        getTip() {
+            return this.widget.options.label
+                ? this.$t("render.hint.deleteSubFormRowLabel", {
+                    label: this.$t(this.widget.options.label),
+                }).replace("${label}", this.$t(this.widget.options.label))
+                : this.$t("render.hint.deleteSubFormRow");
+        },
+
+        /*deleteSubFormRow(formRowIndex) {
               const tip = this.widget.options.label
                 ? this.$t("render.hint.deleteSubFormRowLabel", {
                     label: this.$t(this.widget.options.label),
