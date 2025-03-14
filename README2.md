@@ -1,6 +1,52 @@
+# Variant Form 3 For Vue 3.x
+#### 一款高效的Vue 3低代码表单，可视化设计，一键生成源码，享受更多摸鱼时间。
+
+![image](https://ks3-cn-beijing.ksyuncs.com/vform-static/img/vform_demo.gif)
+
+<br/>
+
+### 立即体验VForm 3
+[在线Demo](http://120.92.142.115:81/vform3/)
+ 
+### 立即体验VForm 3 Pro高级版（提供商业支持）
+[VForm 3 Pro Demo](https://vform666.com/pages/pro/)
+
+### 视频教程集合：
+[B站观看](https://space.bilibili.com/626932375)
+ 
+### 适合Vue 2的版本看这里
+[点此查看](https://gitee.com/vdpadmin/variant-form)
+ 
+### 友情链接
+[Fantastic-admin](https://hooray.gitee.io/fantastic-admin/) —— 一款开箱即用的 Vue 中后台管理系统框架（支持Vue2/Vue3）
+ 
+[REBUILD](https://getrebuild.com/) —— 高度可定制化的企业管理系统
+
+### 功能一览
+```
+> 拖拽式可视化表单设计；
+> 支持PC、Pad、H5三种布局；
+> 支持运行时动态加载表单；
+> 支持表单复杂交互控制；
+> 支持自定义CSS样式；
+> 支持自定义校验逻辑；
+> 支持国际化多语言；
+> 可导出Vue组件、HTML源码；
+> 可导出Vue的SFC单文件组件；
+> 支持开发自定义组件；
+> 支持响应式自适应布局；
+> 支持VS Code插件；
+> 更多功能等你探究...；
+```
+
+### 安装依赖
+```
+npm install --registry=https://registry.npm.taobao.org
+```
+
 ### 开发调试
 ```
-npm run dev
+npm run serve
 ```
 
 ### 生产打包
