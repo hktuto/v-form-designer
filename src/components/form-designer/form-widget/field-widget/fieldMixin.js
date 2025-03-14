@@ -136,8 +136,12 @@ export default {
 
     handleOnMounted() {
       if (!!this.field.options.onMounted) {
-        let mountFunc = new Function(this.field.options.onMounted)
-        mountFunc.call(this)
+        // try {
+          let mountFunc = new Function(this.field.options.onMounted)
+          mountFunc.call(this)
+        // } catch (error) {
+        //   console.error(error);
+        // }
       }
     },
 
