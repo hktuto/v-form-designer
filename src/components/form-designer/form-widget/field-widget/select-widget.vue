@@ -31,8 +31,8 @@
           : ( !field.options.required
                 ? $t('common_selectOccupancyContent')
                 : (field.options.multiple
-	                ? $t('common_selectecIsMultiSelectRequiredMsg')
-	                : $t('common_selectecIsRequiredMsg')
+	                ? $t('common_selectedIsMultiSelectRequiredMsg')
+	                : $t('common_selectedIsRequiredMsg')
 	            )
 	        )
       "

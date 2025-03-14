@@ -29,7 +29,13 @@
       :placeholder="
         field.options.placeholder
           ? $t(field.options.placeholder)
-          : $t('render.hint.selectPlaceholder')
+          : ( !field.options.required
+                ? $t('common_selectOccupancyContent')
+                : (field.options.multiple
+	                ? $t('common_selectedIsMultiSelectRequiredMsg')
+	                : $t('common_selectedIsRequiredMsg')
+	            )
+	        )
       "
       @focus="handleFocusCustomEvent"
       @blur="handleBlurCustomEvent"

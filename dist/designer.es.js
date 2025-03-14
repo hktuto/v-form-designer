@@ -6096,7 +6096,7 @@ function _sfc_render$3y(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-1cba4a63"]]);
+var DateWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3y, [["render", _sfc_render$3y], ["__scopeId", "data-v-39eeee06"]]);
 var __glob_0_5$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateWidget
@@ -30425,7 +30425,7 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
         "allow-create": $props.field.options.allowCreate,
         "automatic-dropdown": $props.field.options.automaticDropdown,
         options: $props.field.options.optionItems,
-        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : _ctx.$t("render.hint.selectPlaceholder"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : !$props.field.options.required ? _ctx.$t("common_selectOccupancyContent") : $props.field.options.multiple ? _ctx.$t("common_selectedIsMultiSelectRequiredMsg") : _ctx.$t("common_selectedIsRequiredMsg"),
         onFocus: _ctx.handleFocusCustomEvent,
         onBlur: _ctx.handleBlurCustomEvent,
         onChange: $options.handleInput
@@ -30434,7 +30434,7 @@ function _sfc_render$3n(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n], ["__scopeId", "data-v-63aaa7c2"]]);
+var selectV2Widget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3n, [["render", _sfc_render$3n], ["__scopeId", "data-v-17df7311"]]);
 var __glob_0_16$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": selectV2Widget
@@ -30551,7 +30551,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
         "automatic-dropdown": $props.field.options.automaticDropdown,
         multiple: $props.field.options.multiple,
         "multiple-limit": $props.field.options.multipleLimit,
-        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : !$props.field.options.required ? _ctx.$t("common_selectOccupancyContent") : $props.field.options.multiple ? _ctx.$t("common_selectecIsMultiSelectRequiredMsg") : _ctx.$t("common_selectecIsRequiredMsg"),
+        placeholder: $props.field.options.placeholder ? _ctx.$t($props.field.options.placeholder) : !$props.field.options.required ? _ctx.$t("common_selectOccupancyContent") : $props.field.options.multiple ? _ctx.$t("common_selectedIsMultiSelectRequiredMsg") : _ctx.$t("common_selectedIsRequiredMsg"),
         remote: $props.field.options.remote,
         "remote-method": $options.remoteMethod,
         onFocus: _ctx.handleFocusCustomEvent,
@@ -30575,7 +30575,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-02dfdee5"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-2fcc7663"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": SelectWidget
@@ -59729,7 +59729,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-2237a97c"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-7ecd2860"]]);
 const _sfc_main$35 = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -78364,13 +78364,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741686248157__");
+    var svgDom = document.getElementById("__svg__icons__dom__1741942904159__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741686248157__";
+      svgDom.id = "__svg__icons__dom__1741942904159__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -81336,7 +81336,7 @@ function _sfc_render(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-ccc47612"]]);
+var CalendarWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main, [["render", _sfc_render], ["__scopeId", "data-v-3ef01723"]]);
 const loadDataExtension = function(app) {
   loadAsyncSelectWidget(app);
   loadUgSelectWidget(app);
