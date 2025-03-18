@@ -63610,7 +63610,7 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
   try {
     const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
     return data.reduce((prev, item) => {
-      if(!item[valueKey] || !item[labelKey]) return prev 
+      if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
       const resultItem = {
         value: item[valueKey],
         label: item[labelKey] || '' 
@@ -64674,18 +64674,19 @@ const _sfc_main$1I = {
       const onCreated = `const _this = this
 const filterKey = '${apiSetting.filterKey}'
 async function getList() {
-  const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)
-  return data.reduce((prev, item) => {
-    if(!item.${this.form.valueKey} || !item.${this.form.labelKey}) return prev 
- const resultItem = {
-      value: item.${this.form.valueKey},
-      label: item.${this.form.labelKey} || '' 
-    }
-    if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true 
-   prev.push(resultItem) 
- return prev
-  }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
-
+  try {
+    const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)
+    return data.reduce((prev, item) => {
+      if(!item.${this.form.valueKey} || !item.${this.form.labelKey} || prev.find(p => p.value === item.${this.form.valueKey})) return prev 
+      const resultItem = {
+        value: item.${this.form.valueKey},
+        label: item.${this.form.labelKey} || '' 
+      }
+      if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true 
+      prev.push(resultItem) 
+      return prev
+    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
+  } catch (e) { return [] }
 }
 async function init() {
   const options = await getList()
@@ -65015,7 +65016,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-d0e16d40"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-b190abaa"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -78364,13 +78365,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1741944592705__");
+    var svgDom = document.getElementById("__svg__icons__dom__1742285129959__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1741944592705__";
+      svgDom.id = "__svg__icons__dom__1742285129959__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
