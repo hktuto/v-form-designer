@@ -63692,14 +63692,18 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)];
     const conditionStr = pList.reduce((prev, item, index2) => {
-      prev += "!!" + item;
+      if (!!item)
+        prev += "!!" + item;
       if (index2 !== pList.length - 1)
         prev += " && ";
       return prev;
     }, "");
-    return `
+    return conditionStr.length > 0 ? `
   let options = []
   if(${conditionStr}) ${optionApiStr}
+` : `
+  let options = []
+ ${optionApiStr}
 `;
   }
   function getParamName(paramName) {
@@ -78365,13 +78369,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1742285129959__");
+    var svgDom = document.getElementById("__svg__icons__dom__1742287082861__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1742285129959__";
+      svgDom.id = "__svg__icons__dom__1742287082861__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
