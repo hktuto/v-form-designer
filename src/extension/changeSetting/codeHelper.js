@@ -58,11 +58,12 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)]
     const conditionStr = pList.reduce((prev, item, index) => {
-      prev += '!!' + item
+      if (!!item) prev += '!!' + item
       if (index !== pList.length - 1) prev += ' && '
       return prev
     }, '')
-    return `\n  let options = []\n  if(${conditionStr}) ${optionApiStr}\n`
+    
+    return conditionStr.length > 0  ? `\n  let options = []\n  if(${conditionStr}) ${optionApiStr}\n` : `\n  let options = []\n ${optionApiStr}\n`
   }
   function getParamName(paramName) {
     if (paramName.startsWith('widgetValue_')) return paramName.replace(/ /g, '')
