@@ -6,6 +6,7 @@ export const selectApis = {
   masterTableColumn: {
     method: 'post',
     api: MASTER_TABLE_COLUMN_API,
+    filterKey: 'masterTableColumn',
     paramSettings: [
       {
         key: 'name',
