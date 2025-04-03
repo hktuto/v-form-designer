@@ -11,7 +11,7 @@ export function generateChangeCode(changeFieldList) {
 }
 
 function getMasterTableRecordCode() {
-  return `\nasync function get_masterTableColumn(params,labelKey='name', valueKey='id') {\n  try {\n    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)\n    return data.reduce((prev, item) => {\n      if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev \n      const resultItem = {\n        value: item[valueKey],\n        label: item[labelKey] || '' \n      }\n      prev.push(resultItem) \n      return prev\n    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))\n  } catch (e) {\n    return []\n  }\n}\n`
+  return `\nasync function get_masterTableColumn(params,labelKey='name', valueKey='id') {\n  try {\n    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)\n    return data.reduce((prev, item) => {\n      if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev \n      const resultItem = {\n        value: item[valueKey],\n        label: item[labelKey] || '' \n      }\n      resultItem.disabled = !item.status\n      prev.push(resultItem) \n      return prev\n    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))\n  } catch (e) {\n    return []\n  }\n}\n`
 }
 function getFunctionCode(setting) {
   const paramsStr = getParamsStr(setting)

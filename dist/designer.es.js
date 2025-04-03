@@ -63615,6 +63615,7 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
         value: item[valueKey],
         label: item[labelKey] || '' 
       }
+      resultItem.disabled = !item.status
       prev.push(resultItem) 
       return prev
     }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
@@ -64687,6 +64688,7 @@ async function getList() {
         label: item.${this.form.labelKey} || '' 
       }
       if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true 
+      else if(filterKey === 'masterTableColumn') resultItem.disabled = !item.status
       prev.push(resultItem) 
       return prev
     }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
@@ -65020,7 +65022,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-b190abaa"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-48fa9d45"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -78369,13 +78371,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1742287082861__");
+    var svgDom = document.getElementById("__svg__icons__dom__1743664993279__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1742287082861__";
+      svgDom.id = "__svg__icons__dom__1743664993279__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
