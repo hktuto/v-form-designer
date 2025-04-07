@@ -69777,7 +69777,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
       $data.showWidgetEventDialogFlag ? withDirectives((openBlock(), createElementBlock("div", _hoisted_1$k, [
         createVNode(_component_el_dialog, {
           title: _ctx.$t("designer.setting.editWidgetEventHandler", {
-            isChange: ["onCreatedPlus", "onChangePlus"].includes($data.curEventName) ? "designer.setting.editWidgetEventHandlerChange" : ""
+            isChange: ["onCreatedPlus", "onChangePlus"].includes($data.curEventName) ? _ctx.$t("designer.setting.editWidgetEventHandlerChange") : ""
           }),
           modelValue: $data.showWidgetEventDialogFlag,
           "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.showWidgetEventDialogFlag = $event),
@@ -69837,7 +69837,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-b1cedf32"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-4c04ce0a"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -78428,13 +78428,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1744010314024__");
+    var svgDom = document.getElementById("__svg__icons__dom__1744014164455__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1744010314024__";
+      svgDom.id = "__svg__icons__dom__1744014164455__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

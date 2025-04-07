@@ -134,7 +134,7 @@
     >
       <el-dialog
         :title="$t('designer.setting.editWidgetEventHandler', {
-          isChange: ['onCreatedPlus','onChangePlus'].includes(curEventName) ? 'designer.setting.editWidgetEventHandlerChange': ''
+          isChange: ['onCreatedPlus','onChangePlus'].includes(curEventName) ? $t('designer.setting.editWidgetEventHandlerChange'): ''
         })"
         v-model="showWidgetEventDialogFlag"
         :show-close="true"
