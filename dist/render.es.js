@@ -1511,6 +1511,7 @@ var enLocale = {
       customClass: "Custom Class",
       popperClass: "Popper Class",
       globalFunctions: "Global Functions",
+      isCreateDynamicCode: "Create Dynamic Code",
       addEventHandler: "Edit",
       editWidgetEventHandler: "Edit Widget Event Handler",
       editFormEventHandler: "Edit Form Event Handler",
@@ -1830,6 +1831,7 @@ var zhLocale = {
       customClass: "\u81EA\u5B9A\u4E49CSS\u6837\u5F0F",
       popperClass: "\u81EA\u5B9A\u4E49\u5F39\u6846\u6837\u5F0F",
       globalFunctions: "\u8868\u5355\u5168\u5C40\u51FD\u6570",
+      isCreateDynamicCode: "\u521B\u5EFA\u52A8\u6001\u4EE3\u7801",
       addEventHandler: "\u7F16\u5199\u4EE3\u7801",
       editWidgetEventHandler: "\u7EC4\u4EF6\u4E8B\u4EF6\u5904\u7406",
       editFormEventHandler: "\u8868\u5355\u4E8B\u4EF6\u5904\u7406",
@@ -2992,6 +2994,7 @@ function getDefaultFormConfig() {
     functions: "",
     layoutType: "PC",
     jsonVersion: 3,
+    isCreateDynamicCode: true,
     onFormCreated: "",
     onFormMounted: "",
     onFormDataChange: "",
@@ -3082,6 +3085,305 @@ const FormValidators = {
     }
   }
 };
+const GROUP_API = "/nuxeo/identity/groups";
+const USER_API = "/nuxeo/identity/member";
+const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
+const MASTER_TABLE_API = "/docpal/master/tables?type=all";
+const selectApis = {
+  masterTableColumn: {
+    method: "post",
+    api: MASTER_TABLE_COLUMN_API,
+    filterKey: "masterTableColumn",
+    paramSettings: [
+      {
+        key: "name",
+        type: "string",
+        changeKey: "masterTable",
+        apiSetting: {
+          api: MASTER_TABLE_API,
+          method: "get",
+          labelKey: "name",
+          valueKey: "name"
+        }
+      },
+      {
+        key: "where",
+        type: "object"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name"
+  },
+  masterTable: {
+    api: MASTER_TABLE_API,
+    method: "get",
+    valueKeyList: ["name", "id"],
+    labelKeyList: ["name", "id"],
+    valueKey: "id",
+    labelKey: "name"
+  },
+  user: {
+    api: USER_API,
+    valueKeyList: ["username", "userId"],
+    labelKeyList: ["username", "userId"],
+    valueKey: "userId",
+    labelKey: "username",
+    filterKey: "user",
+    paramSettings: [{
+      key: "groupName",
+      type: "string",
+      apiSetting: {
+        api: GROUP_API,
+        method: "post",
+        labelKey: "name",
+        valueKey: "id"
+      }
+    }]
+  },
+  group: {
+    api: GROUP_API,
+    method: "post",
+    valueKeyList: ["id", "name"],
+    labelKeyList: ["id", "name"],
+    valueKey: "id",
+    labelKey: "name"
+  }
+};
+function setOnCreate(widgetRef) {
+  if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0)
+    return;
+  const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
+  widgetRef.onCreated = onCreatedCode;
+}
+function generateCreateCode(selectSetting) {
+  const apiSetting = selectApis[selectSetting.api];
+  let params = __spreadValues2({}, selectSetting.params);
+  if (selectSetting.params.other) {
+    const other = selectSetting.params.other;
+    other.forEach((item) => {
+      if (item.value)
+        params[item.key] = item.value;
+    });
+    delete params.other;
+  }
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        delete params[key];
+        return;
+      }
+      const data2 = [...params[key]];
+      params[key] = {};
+      data2.forEach((item) => {
+        if (item.value)
+          params[key][item.key] = item.value;
+      });
+    }
+  });
+  if (!apiSetting.method)
+    apiSetting.method = "post";
+  const paramsStr = getObjStr(params, apiSetting.method);
+  const onCreated = `const _this = this
+const filterKey = '${apiSetting.filterKey}'
+async function getList() {
+  try {
+    const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)
+    return data.reduce((prev, item) => {
+      if(!item.${selectSetting.valueKey} || !item.${selectSetting.labelKey} || prev.find(p => p.value === item.${selectSetting.valueKey})) return prev 
+      const resultItem = {
+        value: item.${selectSetting.valueKey},
+        label: item.${selectSetting.labelKey} || '' 
+      }
+      if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true 
+      else if(filterKey === 'masterTableColumn') resultItem.disabled = !item.status
+      prev.push(resultItem) 
+      return prev
+    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
+  } catch (e) { return [] }
+}
+async function init() {
+  const options = await getList()
+  _this.loadOptions(options)
+}
+init()`;
+  return onCreated;
+}
+function getObjStr(obj, apiMethod = "post") {
+  let str = "";
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] == "object")
+      str += `${key}:{${getObjStr(obj[key])}}, `;
+    else if (obj[key])
+      str += `${key}: '${obj[key]}', `;
+  });
+  if (apiMethod === "get")
+    return `params: {${str}}`;
+  else
+    return str;
+}
+function setOnChange(widgetRef) {
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0)
+    return;
+  const changeCode = generateChangeCode(widgetRef.changeSettings);
+  widgetRef.onChange = changeCode;
+}
+function generateChangeCode(changeFieldList) {
+  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
+  const mf2 = getMasterTableRecordCode();
+  const code = _changeFieldList.reduce((prev, item) => {
+    const funCode = getFunctionCode(item);
+    prev += funCode;
+    return prev;
+  }, "const _this = this\nif(value === oldValue) return\n" + mf2);
+  return code;
+}
+function getMasterTableRecordCode() {
+  return `
+async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+  try {
+    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
+    return data.reduce((prev, item) => {
+      if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
+      const resultItem = {
+        value: item[valueKey],
+        label: item[labelKey] || '' 
+      }
+      resultItem.disabled = !item.status
+      prev.push(resultItem) 
+      return prev
+    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
+  } catch (e) {
+    return []
+  }
+}
+`;
+}
+function getFunctionCode(setting) {
+  const paramsStr = getParamsStr(setting);
+  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
+  const optionApiStr = `
+  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
+  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
+  return `
+async function ${funName}() {${fieldParamsInitStr}
+  try {
+    const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
+    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
+    if(options.length === 1) {
+      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+      else if(oldValue) widgetRef.setValue(options[0].value)
+    }
+    else widgetRef.setValue(null)
+  }
+  catch(e) {
+    
+  }
+}
+${funName}()
+`;
+}
+function getFieldParamsInitStr(setting, optionApiStr) {
+  const params = setting.params;
+  const fieldCodeList = [];
+  const paramsList = [];
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        return;
+      }
+      params[key].forEach((item) => {
+        if (item.value) {
+          const fieldCode = generateFieldCode(item.value);
+          if (!!fieldCode)
+            fieldCodeList.push(fieldCode);
+          const paramName = getParamName(item.value);
+          if (!!paramName)
+            paramsList.push(paramName);
+        }
+      });
+    } else if (params[key]) {
+      const fieldCode = generateFieldCode(params[key]);
+      if (!!fieldCode)
+        fieldCodeList.push(fieldCode);
+      const paramName = getParamName(params[key]);
+      if (!!paramName)
+        paramsList.push(paramName);
+    }
+  });
+  return fieldCodeList.join("") + generateFieldExistCode();
+  function generateFieldCode(paramName) {
+    if (!paramName.startsWith("widgetValue_"))
+      return "";
+    const widgetName = paramName.replace(/widgetValue_/, "");
+    const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
+    return `
+  let widgetValue_${widgetNameNoSpace} = ''
+  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')
+  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
+`;
+  }
+  function generateFieldExistCode() {
+    const pList = [...new Set(paramsList)];
+    const conditionStr = pList.reduce((prev, item, index2) => {
+      if (!!item)
+        prev += "!!" + item;
+      if (index2 !== pList.length - 1)
+        prev += " && ";
+      return prev;
+    }, "");
+    return conditionStr.length > 0 ? `
+  let options = []
+  if(${conditionStr}) ${optionApiStr}
+` : `
+  let options = []
+ ${optionApiStr}
+`;
+  }
+  function getParamName(paramName) {
+    if (paramName.startsWith("widgetValue_"))
+      return paramName.replace(/ /g, "");
+    else if (paramName === "currentValue")
+      return "value";
+    return "";
+  }
+}
+function getParamsStr(setting) {
+  const params = JSON.parse(JSON.stringify(setting.params));
+  const apiMethod = setting.method || "post";
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        delete params[key];
+        return;
+      }
+      const data2 = [...params[key]];
+      params[key] = {};
+      data2.forEach((item) => {
+        if (item.value && item.key)
+          params[key][item.key] = item.value;
+      });
+    }
+  });
+  if (apiMethod === "get")
+    return `{params: {${getStr(params)}}}`;
+  else
+    return `{${getStr(params)}}`;
+  function getStr(obj) {
+    let str = "";
+    Object.keys(obj).forEach((key) => {
+      if (typeof obj[key] == "object")
+        str += `${key}:{${getStr(obj[key])}}, `;
+      else if (obj[key] === "currentValue")
+        str += `${key}: value, `;
+      else if (obj[key].startsWith("widgetValue_")) {
+        const widgetName = obj[key].replace(/ /g, "");
+        str += `${key}: ${widgetName}, `;
+      } else if (obj[key])
+        str += `${key}: '${obj[key]}', `;
+    });
+    return str;
+  }
+}
 var fieldMixin = {
   inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData", "getFormJson", "setFormJson"],
   computed: {
@@ -3182,6 +3484,10 @@ var fieldMixin = {
       });
     },
     handleOnCreated() {
+      if (this.formConfig.isCreateDynamicCode !== false) {
+        setOnCreate(this.field.options);
+        setOnChange(this.field.options);
+      }
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated);
         customFunc.call(this);
@@ -31613,13 +31919,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1743988130235__");
+    var svgDom = document.getElementById("__svg__icons__dom__1743996452051__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1743988130235__";
+      svgDom.id = "__svg__icons__dom__1743996452051__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

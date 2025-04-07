@@ -13,7 +13,7 @@ export function isEmptyStr(str) {
   return (str === undefined) || (!str && (str !== 0) && (str !== '0')) || (!/[^\s]/.test(str));
 }
 
-export const generateId = function() {
+export const generateId = function () {
   return Math.floor(Math.random() * 100000 + Math.random() * 20000 + Math.random() * 5000);
 };
 
@@ -25,7 +25,7 @@ export const deepClone = function (origin) {
   return JSON.parse(JSON.stringify(origin))
 }
 
-export const overwriteObj = function(obj1, obj2) {  /* 浅拷贝对象属性，obj2覆盖obj1 */
+export const overwriteObj = function (obj1, obj2) {  /* 浅拷贝对象属性，obj2覆盖obj1 */
   // for (let prop in obj2) {
   //   if (obj2.hasOwnProperty(prop)) {
   //     obj1[prop] = obj2[prop]
@@ -55,7 +55,7 @@ export const addWindowResizeHandler = function (handler) {
   }
 }
 
-const createStyleSheet = function() {
+const createStyleSheet = function () {
   let head = document.head || document.getElementsByTagName('head')[0];
   let style = document.createElement('style');
   style.type = 'text/css';
@@ -80,7 +80,7 @@ export const insertCustomCssToHead = function (cssCode, formId = '') {
   newStyle.id = !!formId ? 'vform-custom-css' + '-' + formId : 'vform-custom-css'
   try {
     newStyle.appendChild(document.createTextNode(cssCode))
-  } catch(ex) {
+  } catch (ex) {
     newStyle.styleSheet.cssText = cssCode
   }
 
@@ -103,7 +103,7 @@ export const insertGlobalFunctionsToHtml = function (functionsCode, formId = '')
   bodyEle.appendChild(newScriptEle)
 }
 
-export const optionExists = function(optionsObj, optionName) {
+export const optionExists = function (optionsObj, optionName) {
   if (!optionsObj) {
     return false
   }
@@ -111,7 +111,7 @@ export const optionExists = function(optionsObj, optionName) {
   return Object.keys(optionsObj).indexOf(optionName) > -1
 }
 
-export const loadRemoteScript = function(srcPath, callback) {  /*加载远程js，加载成功后执行回调函数*/
+export const loadRemoteScript = function (srcPath, callback) {  /*加载远程js，加载成功后执行回调函数*/
   let sid = encodeURIComponent(srcPath)
   let oldScriptEle = document.getElementById(sid)
 
@@ -338,9 +338,9 @@ export function copyToClipboard(content, clickEvent, $message, successMsg, error
 export function getQueryParam(variable) {
   let query = window.location.search.substring(1);
   let vars = query.split("&")
-  for (let i=0; i<vars.length; i++) {
+  for (let i = 0; i < vars.length; i++) {
     let pair = vars[i].split("=")
-    if(pair[0] == variable) {
+    if (pair[0] == variable) {
       return pair[1]
     }
   }
@@ -362,6 +362,7 @@ export function getDefaultFormConfig() {
     functions: '',  //全局函数
     layoutType: 'PC',
     jsonVersion: 3,
+    isCreateDynamicCode: true,
 
     onFormCreated: '',
     onFormMounted: '',
@@ -373,6 +374,6 @@ export function getDefaultFormConfig() {
 export function buildDefaultFormJson() {
   return {
     widgetList: [],
-    formConfig: deepClone( getDefaultFormConfig() )
+    formConfig: deepClone(getDefaultFormConfig())
   }
 }

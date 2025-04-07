@@ -1842,6 +1842,7 @@ function getDefaultFormConfig() {
     functions: "",
     layoutType: "PC",
     jsonVersion: 3,
+    isCreateDynamicCode: true,
     onFormCreated: "",
     onFormMounted: "",
     onFormDataChange: "",
@@ -2197,6 +2198,7 @@ var enLocale = {
       customClass: "Custom Class",
       popperClass: "Popper Class",
       globalFunctions: "Global Functions",
+      isCreateDynamicCode: "Create Dynamic Code",
       addEventHandler: "Edit",
       editWidgetEventHandler: "Edit Widget Event Handler",
       editFormEventHandler: "Edit Form Event Handler",
@@ -2516,6 +2518,7 @@ var zhLocale = {
       customClass: "\u81EA\u5B9A\u4E49CSS\u6837\u5F0F",
       popperClass: "\u81EA\u5B9A\u4E49\u5F39\u6846\u6837\u5F0F",
       globalFunctions: "\u8868\u5355\u5168\u5C40\u51FD\u6570",
+      isCreateDynamicCode: "\u521B\u5EFA\u52A8\u6001\u4EE3\u7801",
       addEventHandler: "\u7F16\u5199\u4EE3\u7801",
       editWidgetEventHandler: "\u7EC4\u4EF6\u4E8B\u4EF6\u5904\u7406",
       editFormEventHandler: "\u8868\u5355\u4E8B\u4EF6\u5904\u7406",
@@ -4596,6 +4599,305 @@ const eventBus = {};
 eventBus.$on = instance.on;
 eventBus.$off = instance.off;
 eventBus.$emit = instance.emit;
+const GROUP_API = "/nuxeo/identity/groups";
+const USER_API = "/nuxeo/identity/member";
+const MASTER_TABLE_COLUMN_API$1 = "/docpal/master/tables/record/page/nonPermission";
+const MASTER_TABLE_API$1 = "/docpal/master/tables?type=all";
+const selectApis = {
+  masterTableColumn: {
+    method: "post",
+    api: MASTER_TABLE_COLUMN_API$1,
+    filterKey: "masterTableColumn",
+    paramSettings: [
+      {
+        key: "name",
+        type: "string",
+        changeKey: "masterTable",
+        apiSetting: {
+          api: MASTER_TABLE_API$1,
+          method: "get",
+          labelKey: "name",
+          valueKey: "name"
+        }
+      },
+      {
+        key: "where",
+        type: "object"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name"
+  },
+  masterTable: {
+    api: MASTER_TABLE_API$1,
+    method: "get",
+    valueKeyList: ["name", "id"],
+    labelKeyList: ["name", "id"],
+    valueKey: "id",
+    labelKey: "name"
+  },
+  user: {
+    api: USER_API,
+    valueKeyList: ["username", "userId"],
+    labelKeyList: ["username", "userId"],
+    valueKey: "userId",
+    labelKey: "username",
+    filterKey: "user",
+    paramSettings: [{
+      key: "groupName",
+      type: "string",
+      apiSetting: {
+        api: GROUP_API,
+        method: "post",
+        labelKey: "name",
+        valueKey: "id"
+      }
+    }]
+  },
+  group: {
+    api: GROUP_API,
+    method: "post",
+    valueKeyList: ["id", "name"],
+    labelKeyList: ["id", "name"],
+    valueKey: "id",
+    labelKey: "name"
+  }
+};
+function setOnCreate(widgetRef) {
+  if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0)
+    return;
+  const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
+  widgetRef.onCreated = onCreatedCode;
+}
+function generateCreateCode(selectSetting) {
+  const apiSetting = selectApis[selectSetting.api];
+  let params = __spreadValues2({}, selectSetting.params);
+  if (selectSetting.params.other) {
+    const other = selectSetting.params.other;
+    other.forEach((item) => {
+      if (item.value)
+        params[item.key] = item.value;
+    });
+    delete params.other;
+  }
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        delete params[key];
+        return;
+      }
+      const data2 = [...params[key]];
+      params[key] = {};
+      data2.forEach((item) => {
+        if (item.value)
+          params[key][item.key] = item.value;
+      });
+    }
+  });
+  if (!apiSetting.method)
+    apiSetting.method = "post";
+  const paramsStr = getObjStr(params, apiSetting.method);
+  const onCreated = `const _this = this
+const filterKey = '${apiSetting.filterKey}'
+async function getList() {
+  try {
+    const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)
+    return data.reduce((prev, item) => {
+      if(!item.${selectSetting.valueKey} || !item.${selectSetting.labelKey} || prev.find(p => p.value === item.${selectSetting.valueKey})) return prev 
+      const resultItem = {
+        value: item.${selectSetting.valueKey},
+        label: item.${selectSetting.labelKey} || '' 
+      }
+      if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true 
+      else if(filterKey === 'masterTableColumn') resultItem.disabled = !item.status
+      prev.push(resultItem) 
+      return prev
+    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
+  } catch (e) { return [] }
+}
+async function init() {
+  const options = await getList()
+  _this.loadOptions(options)
+}
+init()`;
+  return onCreated;
+}
+function getObjStr(obj, apiMethod = "post") {
+  let str = "";
+  Object.keys(obj).forEach((key) => {
+    if (typeof obj[key] == "object")
+      str += `${key}:{${getObjStr(obj[key])}}, `;
+    else if (obj[key])
+      str += `${key}: '${obj[key]}', `;
+  });
+  if (apiMethod === "get")
+    return `params: {${str}}`;
+  else
+    return str;
+}
+function setOnChange(widgetRef) {
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0)
+    return;
+  const changeCode = generateChangeCode(widgetRef.changeSettings);
+  widgetRef.onChange = changeCode;
+}
+function generateChangeCode(changeFieldList) {
+  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
+  const mf2 = getMasterTableRecordCode();
+  const code = _changeFieldList.reduce((prev, item) => {
+    const funCode = getFunctionCode(item);
+    prev += funCode;
+    return prev;
+  }, "const _this = this\nif(value === oldValue) return\n" + mf2);
+  return code;
+}
+function getMasterTableRecordCode() {
+  return `
+async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+  try {
+    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
+    return data.reduce((prev, item) => {
+      if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
+      const resultItem = {
+        value: item[valueKey],
+        label: item[labelKey] || '' 
+      }
+      resultItem.disabled = !item.status
+      prev.push(resultItem) 
+      return prev
+    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
+  } catch (e) {
+    return []
+  }
+}
+`;
+}
+function getFunctionCode(setting) {
+  const paramsStr = getParamsStr(setting);
+  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
+  const optionApiStr = `
+  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
+  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
+  return `
+async function ${funName}() {${fieldParamsInitStr}
+  try {
+    const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
+    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
+    if(options.length === 1) {
+      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+      else if(oldValue) widgetRef.setValue(options[0].value)
+    }
+    else widgetRef.setValue(null)
+  }
+  catch(e) {
+    
+  }
+}
+${funName}()
+`;
+}
+function getFieldParamsInitStr(setting, optionApiStr) {
+  const params = setting.params;
+  const fieldCodeList = [];
+  const paramsList = [];
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        return;
+      }
+      params[key].forEach((item) => {
+        if (item.value) {
+          const fieldCode = generateFieldCode(item.value);
+          if (!!fieldCode)
+            fieldCodeList.push(fieldCode);
+          const paramName = getParamName(item.value);
+          if (!!paramName)
+            paramsList.push(paramName);
+        }
+      });
+    } else if (params[key]) {
+      const fieldCode = generateFieldCode(params[key]);
+      if (!!fieldCode)
+        fieldCodeList.push(fieldCode);
+      const paramName = getParamName(params[key]);
+      if (!!paramName)
+        paramsList.push(paramName);
+    }
+  });
+  return fieldCodeList.join("") + generateFieldExistCode();
+  function generateFieldCode(paramName) {
+    if (!paramName.startsWith("widgetValue_"))
+      return "";
+    const widgetName = paramName.replace(/widgetValue_/, "");
+    const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
+    return `
+  let widgetValue_${widgetNameNoSpace} = ''
+  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')
+  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
+`;
+  }
+  function generateFieldExistCode() {
+    const pList = [...new Set(paramsList)];
+    const conditionStr = pList.reduce((prev, item, index2) => {
+      if (!!item)
+        prev += "!!" + item;
+      if (index2 !== pList.length - 1)
+        prev += " && ";
+      return prev;
+    }, "");
+    return conditionStr.length > 0 ? `
+  let options = []
+  if(${conditionStr}) ${optionApiStr}
+` : `
+  let options = []
+ ${optionApiStr}
+`;
+  }
+  function getParamName(paramName) {
+    if (paramName.startsWith("widgetValue_"))
+      return paramName.replace(/ /g, "");
+    else if (paramName === "currentValue")
+      return "value";
+    return "";
+  }
+}
+function getParamsStr(setting) {
+  const params = JSON.parse(JSON.stringify(setting.params));
+  const apiMethod = setting.method || "post";
+  Object.keys(params).forEach((key) => {
+    if (params[key] instanceof Array) {
+      if (params[key].length === 0) {
+        delete params[key];
+        return;
+      }
+      const data2 = [...params[key]];
+      params[key] = {};
+      data2.forEach((item) => {
+        if (item.value && item.key)
+          params[key][item.key] = item.value;
+      });
+    }
+  });
+  if (apiMethod === "get")
+    return `{params: {${getStr(params)}}}`;
+  else
+    return `{${getStr(params)}}`;
+  function getStr(obj) {
+    let str = "";
+    Object.keys(obj).forEach((key) => {
+      if (typeof obj[key] == "object")
+        str += `${key}:{${getStr(obj[key])}}, `;
+      else if (obj[key] === "currentValue")
+        str += `${key}: value, `;
+      else if (obj[key].startsWith("widgetValue_")) {
+        const widgetName = obj[key].replace(/ /g, "");
+        str += `${key}: ${widgetName}, `;
+      } else if (obj[key])
+        str += `${key}: '${obj[key]}', `;
+    });
+    return str;
+  }
+}
 var fieldMixin = {
   inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData", "getFormJson", "setFormJson"],
   computed: {
@@ -4696,6 +4998,10 @@ var fieldMixin = {
       });
     },
     handleOnCreated() {
+      if (this.formConfig.isCreateDynamicCode !== false) {
+        setOnCreate(this.field.options);
+        setOnChange(this.field.options);
+      }
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated);
         customFunc.call(this);
@@ -63594,176 +63900,19 @@ var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   __proto__: null,
   "default": onChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-function generateChangeCode(changeFieldList) {
-  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
-  const mf2 = getMasterTableRecordCode();
-  const code = _changeFieldList.reduce((prev, item) => {
-    const funCode = getFunctionCode(item);
-    prev += funCode;
-    return prev;
-  }, "const _this = this\nif(value === oldValue) return\n" + mf2);
-  return code;
-}
-function getMasterTableRecordCode() {
-  return `
-async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
-  try {
-    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
-    return data.reduce((prev, item) => {
-      if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
-      const resultItem = {
-        value: item[valueKey],
-        label: item[labelKey] || '' 
-      }
-      resultItem.disabled = !item.status
-      prev.push(resultItem) 
-      return prev
-    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
-  } catch (e) {
-    return []
-  }
-}
-`;
-}
-function getFunctionCode(setting) {
-  const paramsStr = getParamsStr(setting);
-  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
-  const optionApiStr = `
-  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
-  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
-  return `
-async function ${funName}() {${fieldParamsInitStr}
-  try {
-    const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
-    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
-    if(options.length === 1) {
-      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-      else if(oldValue) widgetRef.setValue(options[0].value)
-    }
-    else widgetRef.setValue(null)
-  }
-  catch(e) {
-    
-  }
-}
-${funName}()
-`;
-}
-function getFieldParamsInitStr(setting, optionApiStr) {
-  const params = setting.params;
-  const fieldCodeList = [];
-  const paramsList = [];
-  Object.keys(params).forEach((key) => {
-    if (params[key] instanceof Array) {
-      if (params[key].length === 0) {
-        return;
-      }
-      params[key].forEach((item) => {
-        if (item.value) {
-          const fieldCode = generateFieldCode(item.value);
-          if (!!fieldCode)
-            fieldCodeList.push(fieldCode);
-          const paramName = getParamName(item.value);
-          if (!!paramName)
-            paramsList.push(paramName);
-        }
-      });
-    } else if (params[key]) {
-      const fieldCode = generateFieldCode(params[key]);
-      if (!!fieldCode)
-        fieldCodeList.push(fieldCode);
-      const paramName = getParamName(params[key]);
-      if (!!paramName)
-        paramsList.push(paramName);
-    }
-  });
-  return fieldCodeList.join("") + generateFieldExistCode();
-  function generateFieldCode(paramName) {
-    if (!paramName.startsWith("widgetValue_"))
-      return "";
-    const widgetName = paramName.replace(/widgetValue_/, "");
-    const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
-    return `
-  let widgetValue_${widgetNameNoSpace} = ''
-  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')
-  if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
-`;
-  }
-  function generateFieldExistCode() {
-    const pList = [...new Set(paramsList)];
-    const conditionStr = pList.reduce((prev, item, index2) => {
-      if (!!item)
-        prev += "!!" + item;
-      if (index2 !== pList.length - 1)
-        prev += " && ";
-      return prev;
-    }, "");
-    return conditionStr.length > 0 ? `
-  let options = []
-  if(${conditionStr}) ${optionApiStr}
-` : `
-  let options = []
- ${optionApiStr}
-`;
-  }
-  function getParamName(paramName) {
-    if (paramName.startsWith("widgetValue_"))
-      return paramName.replace(/ /g, "");
-    else if (paramName === "currentValue")
-      return "value";
-    return "";
-  }
-}
-function getParamsStr(setting) {
-  const params = JSON.parse(JSON.stringify(setting.params));
-  const apiMethod = setting.method || "post";
-  Object.keys(params).forEach((key) => {
-    if (params[key] instanceof Array) {
-      if (params[key].length === 0) {
-        delete params[key];
-        return;
-      }
-      const data2 = [...params[key]];
-      params[key] = {};
-      data2.forEach((item) => {
-        if (item.value && item.key)
-          params[key][item.key] = item.value;
-      });
-    }
-  });
-  if (apiMethod === "get")
-    return `{params: {${getStr(params)}}}`;
-  else
-    return `{${getStr(params)}}`;
-  function getStr(obj) {
-    let str = "";
-    Object.keys(obj).forEach((key) => {
-      if (typeof obj[key] == "object")
-        str += `${key}:{${getStr(obj[key])}}, `;
-      else if (obj[key] === "currentValue")
-        str += `${key}: value, `;
-      else if (obj[key].startsWith("widgetValue_")) {
-        const widgetName = obj[key].replace(/ /g, "");
-        str += `${key}: ${widgetName}, `;
-      } else if (obj[key])
-        str += `${key}: '${obj[key]}', `;
-    });
-    return str;
-  }
-}
-const MASTER_TABLE_COLUMN_API$1 = "/docpal/master/tables/record/page/nonPermission";
-const MASTER_TABLE_API$1 = "/docpal/master/tables?type=all";
+const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
+const MASTER_TABLE_API = "/docpal/master/tables?type=all";
 const apiList = {
   masterTableColumn: {
     method: "post",
-    api: MASTER_TABLE_COLUMN_API$1,
+    api: MASTER_TABLE_COLUMN_API,
     paramSettings: [
       {
         key: "name",
         type: "string",
         changeKey: "masterTable",
         apiSetting: {
-          api: MASTER_TABLE_API$1,
+          api: MASTER_TABLE_API,
           method: "get",
           labelKey: "name",
           valueKey: "name"
@@ -64260,9 +64409,8 @@ const _sfc_main$1M = {
         disabledWidget.disabled = disabled;
     },
     handleSubmit() {
-      const changeCode = generateChangeCode(this.changeFieldList);
-      this.setting.onChange = changeCode;
       this.setting.changeSettings = JSON.parse(JSON.stringify(this.changeFieldList));
+      setOnChange(this.setting);
       this.dialogVisible = false;
     },
     handleOpen(setting) {
@@ -64497,70 +64645,6 @@ var __glob_0_85 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   __proto__: null,
   "default": onCreatedEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const GROUP_API = "/nuxeo/identity/groups";
-const USER_API = "/nuxeo/identity/member";
-const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
-const MASTER_TABLE_API = "/docpal/master/tables?type=all";
-const selectApis = {
-  masterTableColumn: {
-    method: "post",
-    api: MASTER_TABLE_COLUMN_API,
-    filterKey: "masterTableColumn",
-    paramSettings: [
-      {
-        key: "name",
-        type: "string",
-        changeKey: "masterTable",
-        apiSetting: {
-          api: MASTER_TABLE_API,
-          method: "get",
-          labelKey: "name",
-          valueKey: "name"
-        }
-      },
-      {
-        key: "where",
-        type: "object"
-      }
-    ],
-    valueKey: "id",
-    labelKey: "name"
-  },
-  masterTable: {
-    api: MASTER_TABLE_API,
-    method: "get",
-    valueKeyList: ["name", "id"],
-    labelKeyList: ["name", "id"],
-    valueKey: "id",
-    labelKey: "name"
-  },
-  user: {
-    api: USER_API,
-    valueKeyList: ["username", "userId"],
-    labelKeyList: ["username", "userId"],
-    valueKey: "userId",
-    labelKey: "username",
-    filterKey: "user",
-    paramSettings: [{
-      key: "groupName",
-      type: "string",
-      apiSetting: {
-        api: GROUP_API,
-        method: "post",
-        labelKey: "name",
-        valueKey: "id"
-      }
-    }]
-  },
-  group: {
-    api: GROUP_API,
-    method: "post",
-    valueKeyList: ["id", "name"],
-    labelKeyList: ["id", "name"],
-    valueKey: "id",
-    labelKey: "name"
-  }
-};
 var setting_vue_vue_type_style_index_0_scoped_true_lang$1 = "";
 const initForm = {
   api: "",
@@ -64648,57 +64732,7 @@ const _sfc_main$1I = {
     },
     handleSubmit() {
       this.setting.selectSetting = this.form;
-      const apiSetting = this.apiOptions[this.form.api];
-      let params = __spreadValues2({}, this.form.params);
-      if (this.form.params.other) {
-        const other = this.form.params.other;
-        other.forEach((item) => {
-          if (item.value)
-            params[item.key] = item.value;
-        });
-        delete params.other;
-      }
-      Object.keys(params).forEach((key) => {
-        if (params[key] instanceof Array) {
-          if (params[key].length === 0) {
-            delete params[key];
-            return;
-          }
-          const data2 = [...params[key]];
-          params[key] = {};
-          data2.forEach((item) => {
-            if (item.value)
-              params[key][item.key] = item.value;
-          });
-        }
-      });
-      if (!apiSetting.method)
-        apiSetting.method = "post";
-      const paramsStr = this.getObjStr(params, apiSetting.method);
-      const onCreated = `const _this = this
-const filterKey = '${apiSetting.filterKey}'
-async function getList() {
-  try {
-    const data = await $api.${apiSetting.method}('${apiSetting.api}',{${paramsStr}}).then(res => res.data.data)
-    return data.reduce((prev, item) => {
-      if(!item.${this.form.valueKey} || !item.${this.form.labelKey} || prev.find(p => p.value === item.${this.form.valueKey})) return prev 
-      const resultItem = {
-        value: item.${this.form.valueKey},
-        label: item.${this.form.labelKey} || '' 
-      }
-      if(filterKey === 'user') resultItem.disabled = item.status === 'A' ? false : true 
-      else if(filterKey === 'masterTableColumn') resultItem.disabled = !item.status
-      prev.push(resultItem) 
-      return prev
-    }, []).sort((a,b)=> (a.label.localeCompare(b.label) ))
-  } catch (e) { return [] }
-}
-async function init() {
-  const options = await getList()
-  _this.loadOptions(options)
-}
-init()`;
-      this.setting.onCreated = onCreated;
+      setOnCreate(this.setting);
       this.dialogVisible = false;
     },
     handleAddParams(paramSetting) {
@@ -64706,19 +64740,6 @@ init()`;
     },
     handleDeleteParam(key, index2) {
       this.form.params[key].splice(index2, 1);
-    },
-    getObjStr(obj, apiMethod = "post") {
-      let str = "";
-      Object.keys(obj).forEach((key) => {
-        if (typeof obj[key] == "object")
-          str += `${key}:{${this.getObjStr(obj[key])}}, `;
-        else if (obj[key])
-          str += `${key}: '${obj[key]}', `;
-      });
-      if (apiMethod === "get")
-        return `params: {${str}}`;
-      else
-        return str;
     },
     async getOptions(apiSetting) {
       try {
@@ -65021,7 +65042,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-48fa9d45"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-40707ab4"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -68694,6 +68715,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_radio_group = resolveComponent("el-radio-group");
   const _component_el_input_number = resolveComponent("el-input-number");
   const _component_el_button = resolveComponent("el-button");
+  const _component_el_switch = resolveComponent("el-switch");
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_input = resolveComponent("el-input");
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
@@ -68711,13 +68733,13 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
       "label-position": "left",
       "label-width": "120px",
       class: "setting-form",
-      onSubmit: _cache[13] || (_cache[13] = withModifiers(() => {
+      onSubmit: _cache[14] || (_cache[14] = withModifiers(() => {
       }, ["prevent"]))
     }, {
       default: withCtx(() => [
         createVNode(_component_el_collapse, {
           modelValue: $data.formActiveCollapseNames,
-          "onUpdate:modelValue": _cache[12] || (_cache[12] = ($event) => $data.formActiveCollapseNames = $event),
+          "onUpdate:modelValue": _cache[13] || (_cache[13] = ($event) => $data.formActiveCollapseNames = $event),
           class: "setting-collapse"
         }, {
           default: withCtx(() => [
@@ -68887,6 +68909,20 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                   ]),
                   _: 1
                 }, 8, ["label"]),
+                createVNode(_component_el_form_item, {
+                  label: _ctx.$t("designer.setting.isCreateDynamicCode")
+                }, {
+                  default: withCtx(() => [
+                    createVNode(_component_el_switch, {
+                      modelValue: $props.formConfig.isCreateDynamicCode,
+                      "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $props.formConfig.isCreateDynamicCode = $event),
+                      size: "small",
+                      "active-text": "Open",
+                      "inactive-text": "Close"
+                    }, null, 8, ["modelValue"])
+                  ]),
+                  _: 1
+                }, 8, ["label"]),
                 createVNode(_component_el_form_item, { "label-width": "0" }, {
                   default: withCtx(() => [
                     createVNode(_component_el_divider, { class: "custom-divider" }, {
@@ -68905,7 +68941,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                     createVNode(_component_el_input, {
                       type: "text",
                       modelValue: $props.formConfig.modelName,
-                      "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $props.formConfig.modelName = $event)
+                      "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $props.formConfig.modelName = $event)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
@@ -68917,7 +68953,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                     createVNode(_component_el_input, {
                       type: "text",
                       modelValue: $props.formConfig.refName,
-                      "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $props.formConfig.refName = $event)
+                      "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $props.formConfig.refName = $event)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
@@ -68929,7 +68965,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                     createVNode(_component_el_input, {
                       type: "text",
                       modelValue: $props.formConfig.rulesName,
-                      "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $props.formConfig.rulesName = $event)
+                      "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $props.formConfig.rulesName = $event)
                     }, null, 8, ["modelValue"])
                   ]),
                   _: 1
@@ -68949,7 +68985,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                   plain: "",
                   round: "",
                   style: { "margin-bottom": "0.3rem" },
-                  onClick: _cache[8] || (_cache[8] = ($event) => $options.handleOpen("dhList"))
+                  onClick: _cache[9] || (_cache[9] = ($event) => $options.handleOpen("dhList"))
                 }, {
                   default: withCtx(() => [
                     createTextVNode(toDisplayString(_ctx.$t("designer.setting.setDhList")), 1)
@@ -68958,7 +68994,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                 }),
                 createVNode(_component_el_form_item, { "label-width": "150px" }, {
                   label: withCtx(() => [
-                    _cache[23] || (_cache[23] = createElementVNode("div", null, "onFormCreated", -1)),
+                    _cache[24] || (_cache[24] = createElementVNode("div", null, "onFormCreated", -1)),
                     createElementVNode("div", {
                       class: normalizeClass({ redPoint: $props.formConfig.onFormCreated })
                     }, null, 2)
@@ -68969,7 +69005,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                       icon: "el-icon-edit",
                       plain: "",
                       round: "",
-                      onClick: _cache[9] || (_cache[9] = ($event) => $options.editFormEventHandler("onFormCreated"))
+                      onClick: _cache[10] || (_cache[10] = ($event) => $options.editFormEventHandler("onFormCreated"))
                     }, {
                       default: withCtx(() => [
                         createTextVNode(toDisplayString(_ctx.$t("designer.setting.addEventHandler")), 1)
@@ -68984,7 +69020,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                   "label-width": "150px"
                 }, {
                   label: withCtx(() => [
-                    _cache[24] || (_cache[24] = createElementVNode("div", null, "onFormMounted", -1)),
+                    _cache[25] || (_cache[25] = createElementVNode("div", null, "onFormMounted", -1)),
                     createElementVNode("div", {
                       class: normalizeClass({ redPoint: $props.formConfig.onFormMounted })
                     }, null, 2)
@@ -68995,7 +69031,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                       icon: "el-icon-edit",
                       plain: "",
                       round: "",
-                      onClick: _cache[10] || (_cache[10] = ($event) => $options.editFormEventHandler("onFormMounted"))
+                      onClick: _cache[11] || (_cache[11] = ($event) => $options.editFormEventHandler("onFormMounted"))
                     }, {
                       default: withCtx(() => [
                         createTextVNode(toDisplayString(_ctx.$t("designer.setting.addEventHandler")), 1)
@@ -69007,7 +69043,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                 }),
                 createVNode(_component_el_form_item, { "label-width": "150px" }, {
                   label: withCtx(() => [
-                    _cache[25] || (_cache[25] = createElementVNode("div", null, "onFormDataChange", -1)),
+                    _cache[26] || (_cache[26] = createElementVNode("div", null, "onFormDataChange", -1)),
                     createElementVNode("div", {
                       class: normalizeClass({ redPoint: $props.formConfig.onFormDataChange })
                     }, null, 2)
@@ -69018,7 +69054,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
                       icon: "el-icon-edit",
                       plain: "",
                       round: "",
-                      onClick: _cache[11] || (_cache[11] = ($event) => $options.editFormEventHandler("onFormDataChange"))
+                      onClick: _cache[12] || (_cache[12] = ($event) => $options.editFormEventHandler("onFormDataChange"))
                     }, {
                       default: withCtx(() => [
                         createTextVNode(toDisplayString(_ctx.$t("designer.setting.addEventHandler")), 1)
@@ -69041,7 +69077,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.editFormEventHandler"),
         modelValue: $data.showFormEventDialogFlag,
-        "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.showFormEventDialogFlag = $event),
+        "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.showFormEventDialogFlag = $event),
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
         "append-to-body": "",
@@ -69052,7 +69088,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         footer: withCtx(() => [
           createElementVNode("div", _hoisted_3$e, [
             createVNode(_component_el_button, {
-              onClick: _cache[15] || (_cache[15] = ($event) => $data.showFormEventDialogFlag = false)
+              onClick: _cache[16] || (_cache[16] = ($event) => $data.showFormEventDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
@@ -69080,7 +69116,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
             mode: "javascript",
             readonly: false,
             modelValue: $data.formEventHandlerCode,
-            "onUpdate:modelValue": _cache[14] || (_cache[14] = ($event) => $data.formEventHandlerCode = $event),
+            "onUpdate:modelValue": _cache[15] || (_cache[15] = ($event) => $data.formEventHandlerCode = $event),
             ref: "ecEditor"
           }, null, 8, ["modelValue"]),
           createVNode(_component_el_alert, {
@@ -69098,7 +69134,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.formCss"),
         modelValue: $data.showEditFormCssDialogFlag,
-        "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => $data.showEditFormCssDialogFlag = $event),
+        "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => $data.showEditFormCssDialogFlag = $event),
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
         "append-to-body": "",
@@ -69109,7 +69145,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         footer: withCtx(() => [
           createElementVNode("div", _hoisted_5$5, [
             createVNode(_component_el_button, {
-              onClick: _cache[18] || (_cache[18] = ($event) => $data.showEditFormCssDialogFlag = false)
+              onClick: _cache[19] || (_cache[19] = ($event) => $data.showEditFormCssDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
@@ -69132,7 +69168,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
             mode: "css",
             readonly: false,
             modelValue: $data.formCssCode,
-            "onUpdate:modelValue": _cache[17] || (_cache[17] = ($event) => $data.formCssCode = $event)
+            "onUpdate:modelValue": _cache[18] || (_cache[18] = ($event) => $data.formCssCode = $event)
           }, null, 8, ["modelValue"])
         ]),
         _: 1
@@ -69144,7 +69180,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         title: _ctx.$t("designer.setting.globalFunctions"),
         modelValue: $data.showEditFunctionsDialogFlag,
-        "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => $data.showEditFunctionsDialogFlag = $event),
+        "onUpdate:modelValue": _cache[23] || (_cache[23] = ($event) => $data.showEditFunctionsDialogFlag = $event),
         "show-close": true,
         class: "drag-dialog small-padding-dialog",
         "append-to-body": "",
@@ -69155,7 +69191,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         footer: withCtx(() => [
           createElementVNode("div", _hoisted_7$3, [
             createVNode(_component_el_button, {
-              onClick: _cache[21] || (_cache[21] = ($event) => $data.showEditFunctionsDialogFlag = false)
+              onClick: _cache[22] || (_cache[22] = ($event) => $data.showEditFunctionsDialogFlag = false)
             }, {
               default: withCtx(() => [
                 createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
@@ -69178,7 +69214,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
             mode: "javascript",
             readonly: false,
             modelValue: $data.functionsCode,
-            "onUpdate:modelValue": _cache[20] || (_cache[20] = ($event) => $data.functionsCode = $event),
+            "onUpdate:modelValue": _cache[21] || (_cache[21] = ($event) => $data.functionsCode = $event),
             ref: "gfEditor"
           }, null, 8, ["modelValue"])
         ]),
@@ -69190,7 +69226,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_DhListSetting, { ref: "DhListSettingRef" }, null, 512)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-9da8ecb0"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-3030c7ca"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -78370,13 +78406,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1743988098964__");
+    var svgDom = document.getElementById("__svg__icons__dom__1743996433229__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1743988098964__";
+      svgDom.id = "__svg__icons__dom__1743996433229__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

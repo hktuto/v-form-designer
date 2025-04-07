@@ -22,17 +22,23 @@
             </el-select>
           </el-form-item>
           <el-form-item :label="$t('designer.setting.labelPosition')">
-            <el-radio-group v-model="formConfig.labelPosition" class="radio-group-custom">
-              <el-radio-button label="left">{{
-                $t("designer.setting.leftPosition")
-              }}</el-radio-button>
-              <el-radio-button label="top">{{
-                $t("designer.setting.topPosition")
-              }}</el-radio-button>
+            <el-radio-group
+              v-model="formConfig.labelPosition"
+              class="radio-group-custom"
+            >
+              <el-radio-button label="left">
+                {{ $t("designer.setting.leftPosition") }}
+              </el-radio-button>
+              <el-radio-button label="top">
+                {{ $t("designer.setting.topPosition") }}
+              </el-radio-button>
             </el-radio-group>
           </el-form-item>
           <el-form-item :label="$t('designer.setting.labelAlign')">
-            <el-radio-group v-model="formConfig.labelAlign" class="radio-group-custom">
+            <el-radio-group
+              v-model="formConfig.labelAlign"
+              class="radio-group-custom"
+            >
               <el-radio-button label="label-left-align">{{
                 $t("designer.setting.leftAlign")
               }}</el-radio-button>
@@ -52,9 +58,14 @@
             ></el-input-number>
           </el-form-item>
           <el-form-item :label="$t('designer.setting.formCss')">
-            <el-button type="info" icon="el-icon-edit" plain round @click="editFormCss">{{
-              $t("designer.setting.addCss")
-            }}</el-button>
+            <el-button
+              type="info"
+              icon="el-icon-edit"
+              plain
+              round
+              @click="editFormCss"
+              >{{ $t("designer.setting.addCss") }}</el-button
+            >
           </el-form-item>
           <!-- -->
           <el-form-item :label="$t('designer.setting.customClass')">
@@ -83,6 +94,14 @@
               @click="editGlobalFunctions"
               >{{ $t("designer.setting.addEventHandler") }}</el-button
             >
+          </el-form-item>
+          <el-form-item :label="$t('designer.setting.isCreateDynamicCode')">
+            <el-switch
+              v-model="formConfig.isCreateDynamicCode"
+              size="small"
+              active-text="Open"
+              inactive-text="Close"
+            />
           </el-form-item>
           <el-form-item label-width="0">
             <el-divider class="custom-divider">{{
@@ -227,7 +246,11 @@
         :close-on-press-escape="false"
         :destroy-on-close="true"
       >
-        <code-editor :mode="'css'" :readonly="false" v-model="formCssCode"></code-editor>
+        <code-editor
+          :mode="'css'"
+          :readonly="false"
+          v-model="formCssCode"
+        ></code-editor>
         <template #footer>
           <div class="dialog-footer">
             <el-button @click="showEditFormCssDialogFlag = false">

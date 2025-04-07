@@ -1,12 +1,17 @@
+export function setOnChange(widgetRef) {
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0) return
+  const changeCode = generateChangeCode(widgetRef.changeSettings);
+  widgetRef.onChange = changeCode;
+}
 export function generateChangeCode(changeFieldList) {
-  const _changeFieldList= JSON.parse(JSON.stringify(changeFieldList));
+  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
 
   const mf = getMasterTableRecordCode()
-  const code = _changeFieldList.reduce((prev,item) => {
+  const code = _changeFieldList.reduce((prev, item) => {
     const funCode = getFunctionCode(item)
     prev += funCode
     return prev
-  },'const _this = this\nif(value === oldValue) return\n' + mf)
+  }, 'const _this = this\nif(value === oldValue) return\n' + mf)
   return code
 }
 
@@ -29,22 +34,22 @@ function getFieldParamsInitStr(setting, optionApiStr) {
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
       if (params[key].length === 0) {
-        return 
+        return
       }
       params[key].forEach((item) => {
         if (item.value) {
           const fieldCode = generateFieldCode(item.value)
-          if(!!fieldCode) fieldCodeList.push(fieldCode);
+          if (!!fieldCode) fieldCodeList.push(fieldCode);
           const paramName = getParamName(item.value)
-          if(!!paramName) paramsList.push(paramName);
+          if (!!paramName) paramsList.push(paramName);
         }
       });
     }
     else if (params[key]) {
       const fieldCode = generateFieldCode(params[key])
-      if(!!fieldCode) fieldCodeList.push(fieldCode);
+      if (!!fieldCode) fieldCodeList.push(fieldCode);
       const paramName = getParamName(params[key])
-      if(!!paramName) paramsList.push(paramName);
+      if (!!paramName) paramsList.push(paramName);
     }
   });
   return fieldCodeList.join('') + generateFieldExistCode();
@@ -61,17 +66,17 @@ function getFieldParamsInitStr(setting, optionApiStr) {
       if (index !== pList.length - 1) prev += ' && '
       return prev
     }, '')
-    
-    return conditionStr.length > 0  ? `\n  let options = []\n  if(${conditionStr}) ${optionApiStr}\n` : `\n  let options = []\n ${optionApiStr}\n`
+
+    return conditionStr.length > 0 ? `\n  let options = []\n  if(${conditionStr}) ${optionApiStr}\n` : `\n  let options = []\n ${optionApiStr}\n`
   }
   function getParamName(paramName) {
     if (paramName.startsWith('widgetValue_')) return paramName.replace(/ /g, '')
-    else if(paramName === 'currentValue') return 'value'
+    else if (paramName === 'currentValue') return 'value'
     return ''
   }
 }
 function getParamsStr(setting) {
-  const params = JSON.parse(JSON.stringify(setting.params)) ;
+  const params = JSON.parse(JSON.stringify(setting.params));
   const apiMethod = setting.method || "post";
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
@@ -86,7 +91,7 @@ function getParamsStr(setting) {
       });
     }
   });
-  if(apiMethod === "get") return `{params: {${getStr(params)}}}`;
+  if (apiMethod === "get") return `{params: {${getStr(params)}}}`;
   else return `{${getStr(params)}}`
   function getStr(obj) {
     let str = "";

@@ -1,5 +1,5 @@
 <script>
-import { generateChangeCode } from "@/extension/changeSetting/codeHelper";
+import { setOnChange } from "@/extension/changeSetting/codeHelper";
 
 import SvgIcon from "@/components/svg-icon/index";
 import ChangeSettingForm from "./form";
@@ -33,9 +33,8 @@ export default {
       if (disabledWidget) disabledWidget.disabled = disabled;
     },
     handleSubmit() {
-      const changeCode = generateChangeCode(this.changeFieldList);
-      this.setting.onChange = changeCode;
       this.setting.changeSettings = JSON.parse(JSON.stringify(this.changeFieldList));
+      setOnChange(this.setting)
       this.dialogVisible = false;
     },
     handleOpen(setting) {

@@ -1,7 +1,10 @@
-import {deepClone} from "@/utils/util"
+import { deepClone } from "@/utils/util"
 import FormValidators from '@/utils/validators'
 import eventBus from "@/utils/event-bus"
 import { translate } from "@/utils/i18n"
+
+import { setOnCreate } from "@/extension/data-field/aysncSelect/codeHelper";
+import { setOnChange } from "@/extension/changeSetting/codeHelper";
 export default {
   inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData', 'getFormJson', 'setFormJson'],
 
@@ -51,8 +54,8 @@ export default {
       if (!!this.subFormItemFlag && !this.designState) {  //SubForm子表单组件需要特殊处理！！
         let subFormData = this.formModel[this.subFormName]
         if (((subFormData === undefined) || (subFormData[this.subFormRowIndex] === undefined) ||
-            (subFormData[this.subFormRowIndex][this.field.options.name] === undefined)) &&
-            (this.field.options.defaultValue !== undefined)) {
+          (subFormData[this.subFormRowIndex][this.field.options.name] === undefined)) &&
+          (this.field.options.defaultValue !== undefined)) {
           this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
           subFormData[this.subFormRowIndex][this.field.options.name] = this.getDeepCopyData(this.field.options.defaultValue)
         } else if (subFormData[this.subFormRowIndex][this.field.options.name] === undefined) {
@@ -74,7 +77,7 @@ export default {
       }
 
       if ((this.formModel[this.field.options.name] === undefined) &&
-          (this.field.options.defaultValue !== undefined)) {
+        (this.field.options.defaultValue !== undefined)) {
         this.fieldModel = this.getDeepCopyData(this.field.options.defaultValue)
       } else if (this.formModel[this.field.options.name] === undefined) {  //如果formModel为空对象，则初始化字段值为null!!
         this.formModel[this.field.options.name] = null
@@ -85,11 +88,11 @@ export default {
       this.initFileList()  //处理图片上传、文件上传字段
     },
     getDeepCopyData(data) {
-      if(data instanceof Array) return JSON.parse(JSON.stringify(data))
+      if (data instanceof Array) return JSON.parse(JSON.stringify(data))
       return data
     },
     initFileList() { //初始化上传组件的已上传文件列表
-      if ( ((this.field.type !== 'picture-upload') && (this.field.type !== 'file-upload')) || (this.designState === true) ) {
+      if (((this.field.type !== 'picture-upload') && (this.field.type !== 'file-upload')) || (this.designState === true)) {
         return
       }
 
@@ -128,6 +131,10 @@ export default {
     },
 
     handleOnCreated() {
+      if (this.formConfig.isCreateDynamicCode !== false) {
+        setOnCreate(this.field.options)
+        setOnChange(this.field.options)
+      }
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated)
         customFunc.call(this)
@@ -137,8 +144,8 @@ export default {
     handleOnMounted() {
       if (!!this.field.options.onMounted) {
         // try {
-          let mountFunc = new Function(this.field.options.onMounted)
-          mountFunc.call(this)
+        let mountFunc = new Function(this.field.options.onMounted)
+        mountFunc.call(this)
         // } catch (error) {
         //   console.error(error);
         // }
@@ -183,11 +190,11 @@ export default {
         (this.field.options.fieldType === 'select') ||
         (this.field.options.fieldType === 'cascader') ||
         (this.field.options.fieldType === 'select-v2') ||
-        (this.field.type === 'radio') || 
-        (this.field.type === 'checkbox') || 
-        (this.field.type === 'select') || 
-          (this.field.type === 'cascader') || 
-          (this.field.type === 'select-v2')) {
+        (this.field.type === 'radio') ||
+        (this.field.type === 'checkbox') ||
+        (this.field.type === 'select') ||
+        (this.field.type === 'cascader') ||
+        (this.field.type === 'select-v2')) {
         /* 异步更新option-data之后globalOptionData不能获取到最新值，改用provide的getOptionData()方法 */
         const newOptionItems = this.getOptionData()
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
@@ -215,51 +222,51 @@ export default {
     },
 
     buildFieldRules() {
-        if (!this.field.formItemFlag && this.field.options.hidden) {
-          return
-        }
+      if (!this.field.formItemFlag && this.field.options.hidden) {
+        return
+      }
 
-        this.rules.splice(0, this.rules.length)  //清空已有
-        if (!!this.field.options.required) {
+      this.rules.splice(0, this.rules.length)  //清空已有
+      if (!!this.field.options.required) {
+        this.rules.push({
+          required: true,
+          //trigger: ['blur', 'change'],
+          trigger: ['blur'],  /* 去掉change事件触发校验，change事件触发时formModel数据尚未更新，导致radio/checkbox必填校验出错！！ */
+          message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + ' ' + this.i18nt('render.hint.fieldRequired')
+        })
+      }
+
+      if (!!this.field.options.validation) {
+        let vldName = this.field.options.validation
+        if (!!FormValidators[vldName]) {
           this.rules.push({
-            required: true,
-            //trigger: ['blur', 'change'],
-            trigger: ['blur'],  /* 去掉change事件触发校验，change事件触发时formModel数据尚未更新，导致radio/checkbox必填校验出错！！ */
-            message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + ' ' + this.i18nt('render.hint.fieldRequired')
-          })
-        }
-
-        if (!!this.field.options.validation) {
-          let vldName = this.field.options.validation
-          if (!!FormValidators[vldName]) {
-            this.rules.push({
-              validator: FormValidators[vldName],
-              trigger: ['blur', 'change'],
-              label: this.field.options.label,
-              errorMsg: translate(this.field.options.validationHint)
-            })
-          } else {
-            this.rules.push({
-              validator: FormValidators['regExp'],
-              trigger: ['blur', 'change'],
-              regExp: vldName,
-              label: this.field.options.label,
-              errorMsg: translate(this.field.options.validationHint)
-            })
-          }
-        }
-
-        if (!!this.field.options.onValidate) {
-          let customFn = (rule, value, callback) => {
-            let tmpFunc =  new Function('rule', 'value', 'callback', this.field.options.onValidate)
-            return tmpFunc.call(this, rule, value, callback)
-          }
-          this.rules.push({
-            validator: customFn,
+            validator: FormValidators[vldName],
             trigger: ['blur', 'change'],
-            label: this.field.options.label
+            label: this.field.options.label,
+            errorMsg: translate(this.field.options.validationHint)
+          })
+        } else {
+          this.rules.push({
+            validator: FormValidators['regExp'],
+            trigger: ['blur', 'change'],
+            regExp: vldName,
+            label: this.field.options.label,
+            errorMsg: translate(this.field.options.validationHint)
           })
         }
+      }
+
+      if (!!this.field.options.onValidate) {
+        let customFn = (rule, value, callback) => {
+          let tmpFunc = new Function('rule', 'value', 'callback', this.field.options.onValidate)
+          return tmpFunc.call(this, rule, value, callback)
+        }
+        this.rules.push({
+          validator: customFn,
+          trigger: ['blur', 'change'],
+          label: this.field.options.label
+        })
+      }
     },
 
     /**
@@ -322,7 +329,7 @@ export default {
 
       /* 必须用dispatch向指定父组件派发消息！！ */
       this.dispatch('VFormRender', 'fieldChange',
-          [this.field.options.name, newValue, oldValue, this.subFormName, this.subFormRowIndex])
+        [this.field.options.name, newValue, oldValue, this.subFormName, this.subFormRowIndex])
     },
 
     syncUpdateFormModel(value) {
@@ -434,8 +441,8 @@ export default {
     },
     querySearchAsync(queryString, cb) {
       if (!!this.field.options.onQuerySearchAsync) {
-        let remoteFn = new Function('queryString','cb', this.field.options.onQuerySearchAsync)
-        console.log({remoteFn}, 'ss');
+        let remoteFn = new Function('queryString', 'cb', this.field.options.onQuerySearchAsync)
+        console.log({ remoteFn }, 'ss');
         remoteFn.call(this, queryString, cb)
       }
     },
@@ -557,9 +564,9 @@ export default {
       }
     },
     setFieldType(type) {
-      if(this.field.type !== 'dynamic' || !type) return
-      const json = JSON.parse(JSON.stringify(this.getFormJson())) 
-      const selectedWidget = getWidgetItem(this.field.id, json) 
+      if (this.field.type !== 'dynamic' || !type) return
+      const json = JSON.parse(JSON.stringify(this.getFormJson()))
+      const selectedWidget = getWidgetItem(this.field.id, json)
       handleDynamicFieldTypeChange(type, selectedWidget.options)
       selectedWidget.options.fieldType = type
       const _this = this
@@ -599,13 +606,13 @@ export default {
       }
 
       if ((this.field.type === 'checkbox') ||
-          ((this.field.type === 'select') && this.field.options.multiple)) {
+        ((this.field.type === 'select') && this.field.options.multiple)) {
         this.fieldModel = []
       } else {
         this.fieldModel = ''
       }
     },
-    
+
     /**
      * 加载选项，并清空字段值
      * @param options
@@ -702,7 +709,7 @@ export function handleDynamicFieldTypeChange(fieldType, dynamicOptionModel) {
       dynamicOptionModel.valueFormat = "YYYY-MM-DD HH:mm";
 
       dynamicOptionModel.defaultTime = "2000-01-01 00:00:00",
-      dynamicOptionModel.defaultValue = '';
+        dynamicOptionModel.defaultValue = '';
       dynamicOptionModel.type = "date";
       break;
 
@@ -740,7 +747,7 @@ function getWidgetItem(id, json) {
     json.widgetList.forEach(w => {
       if (w.widgetList) {
         const item = getWidgetItem(id, w)
-        if(!!item) result = item
+        if (!!item) result = item
         throw new Error('succcess')
       }
       else if (w.id === id) {
@@ -749,7 +756,7 @@ function getWidgetItem(id, json) {
       }
     })
   } catch (error) {
-    
+
   }
   return result
 }
