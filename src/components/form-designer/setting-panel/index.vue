@@ -133,7 +133,9 @@
       v-drag="['.drag-dialog.el-dialog', '.drag-dialog .el-dialog__header']"
     >
       <el-dialog
-        :title="$t('designer.setting.editWidgetEventHandler')"
+        :title="$t('designer.setting.editWidgetEventHandler', {
+          isChange: ['onCreatedPlus','onChangePlus'].includes(curEventName) ? 'designer.setting.editWidgetEventHandlerChange': ''
+        })"
         v-model="showWidgetEventDialogFlag"
         :show-close="true"
         class="drag-dialog small-padding-dialog"
@@ -142,6 +144,7 @@
         :close-on-press-escape="false"
         :destroy-on-close="true"
       >
+
         <el-alert type="info" :closable="false" :title="eventHeader"></el-alert>
         <code-editor
           :mode="'javascript'"
@@ -340,7 +343,6 @@ export default {
 
     editEventHandler(eventName, eventParams) {
       //debugger
-
       this.curEventName = eventName;
       this.eventHeader = `${this.optionModel.name}.${eventName}(${eventParams.join(
         ", "

@@ -326,7 +326,7 @@ export default {
       globalFunctions: 'Global Functions',
       isCreateDynamicCode: 'Create Dynamic Code',
       addEventHandler: 'Edit',
-      editWidgetEventHandler: 'Edit Widget Event Handler',
+      editWidgetEventHandler: 'Edit Widget Event Handler{isChange}',
       editFormEventHandler: 'Edit Form Event Handler',
       formSFCSetting: 'SFC Setting',
       formModelName: 'Model Name',

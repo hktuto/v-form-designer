@@ -1,7 +1,7 @@
 export function setOnChange(widgetRef) {
   if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0) return
   const changeCode = generateChangeCode(widgetRef.changeSettings);
-  widgetRef.onChange = changeCode;
+  widgetRef.onChangePlus = changeCode;
 }
 export function generateChangeCode(changeFieldList) {
   const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));

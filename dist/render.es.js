@@ -1513,7 +1513,7 @@ var enLocale = {
       globalFunctions: "Global Functions",
       isCreateDynamicCode: "Create Dynamic Code",
       addEventHandler: "Edit",
-      editWidgetEventHandler: "Edit Widget Event Handler",
+      editWidgetEventHandler: "Edit Widget Event Handler{isChange}",
       editFormEventHandler: "Edit Form Event Handler",
       formSFCSetting: "SFC Setting",
       formModelName: "Model Name",
@@ -1833,7 +1833,7 @@ var zhLocale = {
       globalFunctions: "\u8868\u5355\u5168\u5C40\u51FD\u6570",
       isCreateDynamicCode: "\u521B\u5EFA\u52A8\u6001\u4EE3\u7801",
       addEventHandler: "\u7F16\u5199\u4EE3\u7801",
-      editWidgetEventHandler: "\u7EC4\u4EF6\u4E8B\u4EF6\u5904\u7406",
+      editWidgetEventHandler: "\u7EC4\u4EF6\u4E8B\u4EF6\u5904\u7406{isChange}",
       editFormEventHandler: "\u8868\u5355\u4E8B\u4EF6\u5904\u7406",
       formSFCSetting: "\u751F\u6210SFC\u8BBE\u7F6E",
       formModelName: "\u6570\u636E\u5BF9\u8C61\u540D\u79F0",
@@ -3153,7 +3153,8 @@ function setOnCreate(widgetRef) {
   if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0)
     return;
   const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
-  widgetRef.onCreated = onCreatedCode;
+  widgetRef.onCreatedPlus = onCreatedCode;
+  console.log(widgetRef);
 }
 function generateCreateCode(selectSetting) {
   const apiSetting = selectApis[selectSetting.api];
@@ -3225,7 +3226,7 @@ function setOnChange(widgetRef) {
   if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0)
     return;
   const changeCode = generateChangeCode(widgetRef.changeSettings);
-  widgetRef.onChange = changeCode;
+  widgetRef.onChangePlus = changeCode;
 }
 function generateChangeCode(changeFieldList) {
   const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
@@ -3484,13 +3485,15 @@ var fieldMixin = {
       });
     },
     handleOnCreated() {
-      if (this.formConfig.isCreateDynamicCode !== false) {
-        setOnCreate(this.field.options);
-        setOnChange(this.field.options);
-      }
+      setOnCreate(this.field.options);
+      setOnChange(this.field.options);
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated);
         customFunc.call(this);
+      }
+      if (!!this.field.options.onCreatedPlus) {
+        let customPlusFunc = new Function(this.field.options.onCreatedPlus);
+        customPlusFunc.call(this);
       }
     },
     handleOnMounted() {
@@ -3699,6 +3702,10 @@ var fieldMixin = {
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", this.field.options.onChange);
         changeFn.call(this, val, oldVal);
+      }
+      if (!!this.field.options.onChangePlus) {
+        let changePlusFn = new Function("value", "oldValue", this.field.options.onChangePlus);
+        changePlusFn.call(this, val, oldVal);
       }
     },
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {
@@ -31919,13 +31926,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1743996452051__");
+    var svgDom = document.getElementById("__svg__icons__dom__1744010344949__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1743996452051__";
+      svgDom.id = "__svg__icons__dom__1744010344949__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

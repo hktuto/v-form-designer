@@ -7,6 +7,9 @@
     <el-button type="primary" icon="el-icon-edit" plain round @click="handleClick">
       {{ $t("designer.setting.onCreatedSetting") }}</el-button
     >
+    <el-button v-if="optionModel.onCreatedPlus" type="primary" icon="el-icon-edit" plain text @click="editEventHandler('onCreatedPlus', eventParams)">
+      {{ $t("designer.setting.onCreatedSettingEdit") }}</el-button
+    >
     <AsyncSelectSetting ref="settingRef"></AsyncSelectSetting>
     <UgSelectSetting ref="UgSelectSettingRef"></UgSelectSetting>
   </div>
@@ -50,4 +53,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.el-button+.el-button {
+  margin-left: unset;
+}
+</style>

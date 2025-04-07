@@ -3,7 +3,8 @@ import { selectApis } from "@/extension/data-field/aysncSelect/dataFieldApis";
 export function setOnCreate(widgetRef) {
   if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0) return
   const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
-  widgetRef.onCreated = onCreatedCode;
+  widgetRef.onCreatedPlus = onCreatedCode;
+  console.log(widgetRef)
 }
 
 export function generateCreateCode(selectSetting) {

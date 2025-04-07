@@ -95,14 +95,14 @@
               >{{ $t("designer.setting.addEventHandler") }}</el-button
             >
           </el-form-item>
-          <el-form-item :label="$t('designer.setting.isCreateDynamicCode')">
+          <!-- <el-form-item :label="$t('designer.setting.isCreateDynamicCode')">
             <el-switch
               v-model="formConfig.isCreateDynamicCode"
               size="small"
               active-text="Open"
               inactive-text="Close"
             />
-          </el-form-item>
+          </el-form-item> -->
           <el-form-item label-width="0">
             <el-divider class="custom-divider">{{
               $t("designer.setting.formSFCSetting")

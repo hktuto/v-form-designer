@@ -326,7 +326,7 @@ export default {
       globalFunctions: '表单全局函数',
       isCreateDynamicCode: '创建动态代码',
       addEventHandler: '编写代码',
-      editWidgetEventHandler: '组件事件处理',
+      editWidgetEventHandler: '组件事件处理{isChange}',
       editFormEventHandler: '表单事件处理',
       formSFCSetting: '生成SFC设置',
       formModelName: '数据对象名称',

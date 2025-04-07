@@ -131,13 +131,17 @@ export default {
     },
 
     handleOnCreated() {
-      if (this.formConfig.isCreateDynamicCode !== false) {
-        setOnCreate(this.field.options)
-        setOnChange(this.field.options)
-      }
+      // if (this.formConfig.isCreateDynamicCode !== false) {
+      setOnCreate(this.field.options)
+      setOnChange(this.field.options)
+      // }
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated)
         customFunc.call(this)
+      }
+      if (!!this.field.options.onCreatedPlus) {
+        let customPlusFunc = new Function(this.field.options.onCreatedPlus)
+        customPlusFunc.call(this)
       }
     },
 
@@ -410,6 +414,10 @@ export default {
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', this.field.options.onChange)
         changeFn.call(this, val, oldVal)
+      }
+      if (!!this.field.options.onChangePlus) {
+        let changePlusFn = new Function('value', 'oldValue', this.field.options.onChangePlus)
+        changePlusFn.call(this, val, oldVal)
       }
     },
 

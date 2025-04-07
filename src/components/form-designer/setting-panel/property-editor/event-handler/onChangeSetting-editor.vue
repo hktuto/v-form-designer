@@ -7,6 +7,9 @@
     <el-button type="primary" icon="el-icon-edit" plain round @click="handleClick">
       {{ $t("designer.setting.onChangeSetting") }}</el-button
     >
+    <el-button v-if="optionModel.onChangePlus" type="primary" icon="el-icon-edit" plain text @click="editEventHandler('onChangePlus', eventParams)">
+      {{ $t("designer.setting.onChangeSettingEdit") }}</el-button
+    >
     <ChangeSettingDialog ref="settingRef"></ChangeSettingDialog>
   </div>
 </template>
@@ -26,7 +29,7 @@ export default {
   },
   data() {
     return {
-      eventParams: [],
+      eventParams: ['value', 'oldValue', 'subFormData', 'rowId'],
     };
   },
   methods: {
@@ -37,4 +40,8 @@ export default {
 };
 </script>
 
-<style scoped></style>
+<style scoped>
+.el-button+.el-button {
+  margin-left: unset;
+}
+</style>
