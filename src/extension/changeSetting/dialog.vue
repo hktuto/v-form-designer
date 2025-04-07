@@ -29,12 +29,16 @@ export default {
       this.widgetList = this.getFieldWidgets();
     },
     setWidgetDisabled(widgetName, disabled = false) {
-      const disabledWidget = this.widgetList.find((item) => item.name === widgetName);
+      const disabledWidget = this.widgetList.find(
+        (item) => item.name === widgetName
+      );
       if (disabledWidget) disabledWidget.disabled = disabled;
     },
     handleSubmit() {
-      this.setting.changeSettings = JSON.parse(JSON.stringify(this.changeFieldList));
-      setOnChange(this.setting)
+      this.setting.changeSettings = JSON.parse(
+        JSON.stringify(this.changeFieldList)
+      );
+      setOnChange(this.setting);
       this.dialogVisible = false;
     },
     handleOpen(setting) {
@@ -89,17 +93,30 @@ export default {
     </el-form>
     <template #footer>
       <div class="dialog-footer">
-        <el-button size="default" type="primary" @click="handleAdd">{{
-          $t("designer.setting.addOption")
-        }}</el-button>
-        <el-button size="default" @click="dialogVisible = false">{{
-          $t("designer.hint.cancel")
-        }}</el-button>
-        <el-button size="default" type="primary" @click="handleSubmit">
-          {{ $t("designer.hint.confirm") }}
-        </el-button>
+        <el-checkbox
+          v-model="setting.isCreateDynamicCode"
+          :label="$t('designer.setting.isCreateDynamicCode')"
+          size="large"
+        />
+        <div>
+          <el-button size="default" type="primary" @click="handleAdd">{{
+            $t("designer.setting.addOption")
+          }}</el-button>
+          <el-button size="default" @click="dialogVisible = false">{{
+            $t("designer.hint.cancel")
+          }}</el-button>
+          <el-button size="default" type="primary" @click="handleSubmit">
+            {{ $t("designer.hint.confirm") }}
+          </el-button>
+        </div>
       </div>
     </template>
   </el-dialog>
 </template>
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>

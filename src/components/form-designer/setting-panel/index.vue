@@ -1,7 +1,9 @@
 <template>
   <el-tabs v-model="activeTab">
     <el-tab-pane :label="$t('designer.hint.widgetSetting')" name="1">
-      <template v-if="!!designer.selectedWidget && !designer.selectedWidget.category">
+      <template
+        v-if="!!designer.selectedWidget && !designer.selectedWidget.category"
+      >
         <el-form
           :model="optionModel"
           size="small"
@@ -10,7 +12,10 @@
           class="setting-form"
           @submit.prevent
         >
-          <el-collapse v-model="widgetActiveCollapseNames" class="setting-collapse">
+          <el-collapse
+            v-model="widgetActiveCollapseNames"
+            class="setting-collapse"
+          >
             <el-collapse-item
               name="1"
               v-if="showCollapse(commonProps)"
@@ -62,7 +67,9 @@
         </el-form>
       </template>
 
-      <template v-if="!!designer.selectedWidget && !!designer.selectedWidget.category">
+      <template
+        v-if="!!designer.selectedWidget && !!designer.selectedWidget.category"
+      >
         <el-form
           :model="optionModel"
           size="small"
@@ -71,7 +78,10 @@
           class="setting-form"
           @submit.prevent
         >
-          <el-collapse v-model="widgetActiveCollapseNames" class="setting-collapse">
+          <el-collapse
+            v-model="widgetActiveCollapseNames"
+            class="setting-collapse"
+          >
             <el-collapse-item
               name="1"
               v-if="showCollapse(commonProps)"
@@ -124,8 +134,15 @@
       </template>
     </el-tab-pane>
 
-    <el-tab-pane v-if="!!designer" :label="$t('designer.hint.formSetting')" name="2">
-      <form-setting :designer="designer" :form-config="formConfig"></form-setting>
+    <el-tab-pane
+      v-if="!!designer"
+      :label="$t('designer.hint.formSetting')"
+      name="2"
+    >
+      <form-setting
+        :designer="designer"
+        :form-config="formConfig"
+      ></form-setting>
     </el-tab-pane>
     <div
       v-if="showWidgetEventDialogFlag"
@@ -133,9 +150,13 @@
       v-drag="['.drag-dialog.el-dialog', '.drag-dialog .el-dialog__header']"
     >
       <el-dialog
-        :title="$t('designer.setting.editWidgetEventHandler', {
-          isChange: ['onCreatedPlus','onChangePlus'].includes(curEventName) ? $t('designer.setting.editWidgetEventHandlerChange'): ''
-        })"
+        :title="
+          $t('designer.setting.editWidgetEventHandler', {
+            isChange: ['onCreatedPlus', 'onChangePlus'].includes(curEventName)
+              ? $t('designer.setting.editWidgetEventHandlerChange')
+              : '',
+          })
+        "
         v-model="showWidgetEventDialogFlag"
         :show-close="true"
         class="drag-dialog small-padding-dialog"
@@ -144,7 +165,6 @@
         :close-on-press-escape="false"
         :destroy-on-close="true"
       >
-
         <el-alert type="info" :closable="false" :title="eventHeader"></el-alert>
         <code-editor
           :mode="'javascript'"
@@ -155,12 +175,25 @@
         <el-alert type="info" :closable="false" title="}"></el-alert>
         <template #footer>
           <div class="dialog-footer">
-            <el-button @click="showWidgetEventDialogFlag = false">
-              {{ $t("designer.hint.cancel") }}</el-button
-            >
-            <el-button type="primary" @click="saveEventHandler">
-              {{ $t("designer.hint.confirm") }}</el-button
-            >
+            <el-checkbox v-if="curEventName === 'onChangePlus'"
+              v-model="selectedWidget.options.isCreateDynamicCode"
+              :label="$t('designer.setting.isCreateDynamicCode')"
+              size="large"
+            />
+            <el-checkbox v-else-if="curEventName === 'onCreatedPlus'"
+              v-model="selectedWidget.options.selectSetting.isCreateDynamicCode"
+              :label="$t('designer.setting.isCreateDynamicCode')"
+              size="large"
+            />
+            <div v-else></div>
+            <div>
+              <el-button @click="showWidgetEventDialogFlag = false">
+                {{ $t("designer.hint.cancel") }}</el-button
+              >
+              <el-button type="primary" @click="saveEventHandler">
+                {{ $t("designer.hint.confirm") }}</el-button
+              >
+            </div>
           </div>
         </template>
       </el-dialog>
@@ -179,7 +212,8 @@ import eventBus from "@/utils/event-bus";
 import emitter from "@/utils/emitter";
 import { propertyRegistered } from "@/components/form-designer/setting-panel/propertyRegister";
 
-const { COMMON_PROPERTIES, ADVANCED_PROPERTIES, EVENT_PROPERTIES } = WidgetProperties;
+const { COMMON_PROPERTIES, ADVANCED_PROPERTIES, EVENT_PROPERTIES } =
+  WidgetProperties;
 
 export default {
   name: "SettingPanel",
@@ -303,12 +337,18 @@ export default {
         }
       }
 
-      let originalPropName = propName.replace(this.selectedWidget.type + "-", ""); //去掉组件名称前缀-，如果有的话！！
+      let originalPropName = propName.replace(
+        this.selectedWidget.type + "-",
+        ""
+      ); //去掉组件名称前缀-，如果有的话！！
       return this.designer.hasConfig(this.selectedWidget, originalPropName);
     },
 
     getPropEditor(propName, editorName) {
-      let originalPropName = propName.replace(this.selectedWidget.type + "-", ""); //去掉组件名称前缀-，如果有的话！！
+      let originalPropName = propName.replace(
+        this.selectedWidget.type + "-",
+        ""
+      ); //去掉组件名称前缀-，如果有的话！！
       let ownPropEditorName =
         this.selectedWidget.type === "dynamic"
           ? `${this.selectedWidget.options.fieldType}-${originalPropName}-editor`
@@ -344,9 +384,9 @@ export default {
     editEventHandler(eventName, eventParams) {
       //debugger
       this.curEventName = eventName;
-      this.eventHeader = `${this.optionModel.name}.${eventName}(${eventParams.join(
-        ", "
-      )}) {`;
+      this.eventHeader = `${
+        this.optionModel.name
+      }.${eventName}(${eventParams.join(", ")}) {`;
       this.eventHandlerCode = this.selectedWidget.options[eventName] || "";
 
       const onValidateDefault =
@@ -356,7 +396,10 @@ export default {
       // 设置字段校验函数示例代码
       if (eventName === "onValidate" && !this.optionModel["onValidate"]) {
         this.eventHandlerCode = onValidateDefault;
-      } else if (eventName === "onLazyLoad" && !this.optionModel["onLazyLoad"]) {
+      } else if (
+        eventName === "onLazyLoad" &&
+        !this.optionModel["onLazyLoad"]
+      ) {
         this.eventHandlerCode = lazyLoadDefault;
       }
       this.showWidgetEventDialogFlag = true;
@@ -452,5 +495,10 @@ export default {
   :deep(.el-dialog__body) {
     padding: 6px 15px 12px 15px;
   }
+}
+.dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

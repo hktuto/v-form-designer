@@ -3933,7 +3933,7 @@ const _sfc_main$3H = {
 };
 const _hoisted_1$Q = ["title", "onDblclick"];
 const _hoisted_2$s = ["title", "onDblclick"];
-const _hoisted_3$m = ["title", "onDblclick"];
+const _hoisted_3$n = ["title", "onDblclick"];
 const _hoisted_4$f = ["title", "onDblclick"];
 const _hoisted_5$c = ["title", "onDblclick"];
 const _hoisted_6$b = ["src"];
@@ -4068,7 +4068,7 @@ function _sfc_render$3H(_ctx, _cache, $props, $setup, $data, $options) {
                           }, null, 8, ["icon-class"]),
                           createTextVNode(toDisplayString(_ctx.i18n2t(`designer.widgetLabel.${fld.type}`, `extension.widgetLabel.${fld.type}`)), 1)
                         ])
-                      ], 40, _hoisted_3$m)
+                      ], 40, _hoisted_3$n)
                     ]),
                     _: 1
                   }, 8, ["list", "move", "clone"])
@@ -4429,7 +4429,7 @@ const _hoisted_1$P = {
   class: "field-action"
 };
 const _hoisted_2$r = ["title"];
-const _hoisted_3$l = ["title"];
+const _hoisted_3$m = ["title"];
 const _hoisted_4$e = ["title"];
 const _hoisted_5$b = ["title"];
 const _hoisted_6$a = {
@@ -4466,7 +4466,7 @@ function _sfc_render$3F(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[2] || (_cache[2] = withModifiers(($event) => $options.moveUpWidget($props.field), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-move-up" })
-        ], 8, _hoisted_3$l)) : createCommentVNode("", true),
+        ], 8, _hoisted_3$m)) : createCommentVNode("", true),
         !!$props.parentList && $props.parentList.length > 1 ? (openBlock(), createElementBlock("i", {
           key: 1,
           title: _ctx.$t("designer.hint.moveDownWidget"),
@@ -4664,11 +4664,10 @@ const selectApis = {
   }
 };
 function setOnCreate(widgetRef) {
-  if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0)
+  if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0 || !widgetRef.selectSetting.api || !widgetRef.selectSetting.isCreateDynamicCode)
     return;
   const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
   widgetRef.onCreatedPlus = onCreatedCode;
-  console.log(widgetRef);
 }
 function generateCreateCode(selectSetting) {
   const apiSetting = selectApis[selectSetting.api];
@@ -4737,7 +4736,7 @@ function getObjStr(obj, apiMethod = "post") {
     return str;
 }
 function setOnChange(widgetRef) {
-  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0)
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode)
     return;
   const changeCode = generateChangeCode(widgetRef.changeSettings);
   widgetRef.onChangePlus = changeCode;
@@ -5708,7 +5707,7 @@ const _hoisted_2$q = {
   key: 0,
   class: "field-action"
 };
-const _hoisted_3$k = ["title"];
+const _hoisted_3$l = ["title"];
 const _hoisted_4$d = ["title"];
 const _hoisted_5$a = ["title"];
 const _hoisted_6$9 = ["title"];
@@ -5798,7 +5797,7 @@ function _sfc_render$3D(_ctx, _cache, $props, $setup, $data, $options) {
           onClick: _cache[1] || (_cache[1] = withModifiers(($event) => $options.selectParentWidget($props.field), ["stop"]))
         }, [
           createVNode(_component_svg_icon, { "icon-class": "el-back" })
-        ], 8, _hoisted_3$k),
+        ], 8, _hoisted_3$l),
         !!$props.parentList && $props.parentList.length > 1 ? (openBlock(), createElementBlock("i", {
           key: 0,
           title: _ctx.$t("designer.hint.moveUpWidget"),
@@ -6738,7 +6737,7 @@ const _hoisted_1$M = {
   class: "el-upload__tip"
 };
 const _hoisted_2$p = { class: "upload-file-list" };
-const _hoisted_3$j = ["title", "onClick"];
+const _hoisted_3$k = ["title", "onClick"];
 const _hoisted_4$c = ["title", "onClick"];
 function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_svg_icon = resolveComponent("svg-icon");
@@ -6789,7 +6788,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
               class: "upload-file-name",
               title: file.name,
               onClick: ($event) => $options.handlePreview(file)
-            }, toDisplayString(file.name), 9, _hoisted_3$j),
+            }, toDisplayString(file.name), 9, _hoisted_3$k),
             !$props.field.options.disabled ? (openBlock(), createElementBlock("span", {
               key: 0,
               class: "file-action",
@@ -7349,7 +7348,7 @@ const _hoisted_2$o = {
   class: "el-icon--upload-success",
   style: { "color": "#fff" }
 };
-const _hoisted_3$i = { class: "el-upload-list__item-actions" };
+const _hoisted_3$j = { class: "el-upload-list__item-actions" };
 const _hoisted_4$b = ["onClick"];
 const _hoisted_5$9 = ["onClick"];
 const _hoisted_6$8 = {
@@ -7413,7 +7412,7 @@ function _sfc_render$3s(_ctx, _cache, $props, $setup, $data, $options) {
               })
             ])
           ]),
-          createElementVNode("span", _hoisted_3$i, [
+          createElementVNode("span", _hoisted_3$j, [
             createElementVNode("span", {
               class: "el-upload-list__item-preview",
               onClick: ($event) => $options.handlePictureCardPreview(file)
@@ -32117,7 +32116,7 @@ const _sfc_main$3c = {
 };
 const _hoisted_1$E = { class: "action-header-column" };
 const _hoisted_2$m = { class: "action-label" };
-const _hoisted_3$h = {
+const _hoisted_3$i = {
   key: 0,
   class: "custom-label"
 };
@@ -32169,7 +32168,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                 ]]),
                 style: normalizeStyle({ width: subWidget.options.columnWidth })
               }, [
-                !!subWidget.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_3$h, [
+                !!subWidget.options.labelIconClass ? (openBlock(), createElementBlock("span", _hoisted_3$i, [
                   subWidget.options.labelIconPosition === "front" ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
                     !!subWidget.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
                       createVNode(_component_el_tooltip, {
@@ -59348,7 +59347,7 @@ const _sfc_main$36 = {
 };
 const _hoisted_1$B = { class: "toolbar-container" };
 const _hoisted_2$k = { class: "left-toolbar" };
-const _hoisted_3$g = { class: "right-toolbar" };
+const _hoisted_3$h = { class: "right-toolbar" };
 const _hoisted_4$9 = {
   key: 0,
   class: ""
@@ -59465,7 +59464,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
             _: 1
           }, 8, ["title", "onClick"])
         ]),
-        createElementVNode("div", _hoisted_3$g, [
+        createElementVNode("div", _hoisted_3$h, [
           $options.showToolButton("clearDesignerButton") ? (openBlock(), createBlock(_component_el_button, {
             key: 0,
             link: "",
@@ -61762,7 +61761,7 @@ const _hoisted_2$i = {
   key: 2,
   class: "full-width-input"
 };
-const _hoisted_3$f = { key: 3 };
+const _hoisted_3$g = { key: 3 };
 const _hoisted_4$8 = { key: 4 };
 const _hoisted_5$6 = {
   key: 5,
@@ -61895,7 +61894,7 @@ function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
         placeholder: _ctx.$t("render.hint.selectPlaceholder")
       }, null, 8, ["modelValue", "options", "onChange", "placeholder"])
     ])) : createCommentVNode("", true),
-    $props.selectedWidget.type === "cascader" ? (openBlock(), createElementBlock("div", _hoisted_3$f, [
+    $props.selectedWidget.type === "cascader" ? (openBlock(), createElementBlock("div", _hoisted_3$g, [
       createVNode(_component_el_button, {
         link: "",
         type: "primary",
@@ -64386,6 +64385,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
   });
 }
 var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-16365a58"]]);
+var dialog_vue_vue_type_style_index_0_scoped_true_lang = "";
 const initApi = {
   fieldName: "",
   api: "",
@@ -64444,46 +64444,55 @@ const _hoisted_1$v = { class: "dialog-footer" };
 function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_ChangeSettingForm = resolveComponent("ChangeSettingForm");
   const _component_el_form = resolveComponent("el-form");
+  const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_dialog = resolveComponent("el-dialog");
   return $data.dialogVisible ? (openBlock(), createBlock(_component_el_dialog, {
     key: 0,
     modelValue: $data.dialogVisible,
-    "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.dialogVisible = $event),
+    "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.dialogVisible = $event),
     title: _ctx.$t("designer.setting.onChangeSetting"),
     "before-close": _ctx.handleClose
   }, {
     footer: withCtx(() => [
       createElementVNode("div", _hoisted_1$v, [
-        createVNode(_component_el_button, {
-          size: "default",
-          type: "primary",
-          onClick: $options.handleAdd
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.setting.addOption")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"]),
-        createVNode(_component_el_button, {
-          size: "default",
-          onClick: _cache[0] || (_cache[0] = ($event) => $data.dialogVisible = false)
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
-          ]),
-          _: 1
-        }),
-        createVNode(_component_el_button, {
-          size: "default",
-          type: "primary",
-          onClick: $options.handleSubmit
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])
+        createVNode(_component_el_checkbox, {
+          modelValue: $data.setting.isCreateDynamicCode,
+          "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.setting.isCreateDynamicCode = $event),
+          label: _ctx.$t("designer.setting.isCreateDynamicCode"),
+          size: "large"
+        }, null, 8, ["modelValue", "label"]),
+        createElementVNode("div", null, [
+          createVNode(_component_el_button, {
+            size: "default",
+            type: "primary",
+            onClick: $options.handleAdd
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.setting.addOption")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"]),
+          createVNode(_component_el_button, {
+            size: "default",
+            onClick: _cache[1] || (_cache[1] = ($event) => $data.dialogVisible = false)
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
+            ]),
+            _: 1
+          }),
+          createVNode(_component_el_button, {
+            size: "default",
+            type: "primary",
+            onClick: $options.handleSubmit
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])
+        ])
       ])
     ]),
     default: withCtx(() => [
@@ -64511,7 +64520,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var ChangeSettingDialog = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M]]);
+var ChangeSettingDialog = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-52d1dd85"]]);
 var onChangeSettingEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1L = {
   name: "onChangeSetting-editor",
@@ -64798,35 +64807,44 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_input = resolveComponent("el-input");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_form = resolveComponent("el-form");
+  const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_dialog = resolveComponent("el-dialog");
   return $data.dialogVisible ? (openBlock(), createBlock(_component_el_dialog, {
     key: 0,
     modelValue: $data.dialogVisible,
-    "onUpdate:modelValue": _cache[4] || (_cache[4] = ($event) => $data.dialogVisible = $event),
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.dialogVisible = $event),
     title: _ctx.$t("dataField.setting"),
     "before-close": _ctx.handleClose
   }, {
     footer: withCtx(() => [
       createElementVNode("div", _hoisted_2$h, [
-        createVNode(_component_el_button, {
-          size: "default",
-          onClick: _cache[3] || (_cache[3] = ($event) => $data.dialogVisible = false)
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
-          ]),
-          _: 1
-        }),
-        createVNode(_component_el_button, {
-          size: "default",
-          type: "primary",
-          onClick: $options.handleSubmit
-        }, {
-          default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
-          ]),
-          _: 1
-        }, 8, ["onClick"])
+        createVNode(_component_el_checkbox, {
+          modelValue: $data.form.isCreateDynamicCode,
+          "onUpdate:modelValue": _cache[3] || (_cache[3] = ($event) => $data.form.isCreateDynamicCode = $event),
+          label: _ctx.$t("designer.setting.isCreateDynamicCode"),
+          size: "large"
+        }, null, 8, ["modelValue", "label"]),
+        createElementVNode("div", null, [
+          createVNode(_component_el_button, {
+            size: "default",
+            onClick: _cache[4] || (_cache[4] = ($event) => $data.dialogVisible = false)
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
+            ]),
+            _: 1
+          }),
+          createVNode(_component_el_button, {
+            size: "default",
+            type: "primary",
+            onClick: $options.handleSubmit
+          }, {
+            default: withCtx(() => [
+              createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
+            ]),
+            _: 1
+          }, 8, ["onClick"])
+        ])
       ])
     ]),
     default: withCtx(() => [
@@ -65063,7 +65081,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-40707ab4"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-1148fdd4"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -68731,7 +68749,7 @@ const _hoisted_2$g = {
   key: 0,
   class: ""
 };
-const _hoisted_3$e = { class: "dialog-footer" };
+const _hoisted_3$f = { class: "dialog-footer" };
 const _hoisted_4$7 = {
   key: 1,
   class: ""
@@ -69106,7 +69124,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         "destroy-on-close": true
       }, {
         footer: withCtx(() => [
-          createElementVNode("div", _hoisted_3$e, [
+          createElementVNode("div", _hoisted_3$f, [
             createVNode(_component_el_button, {
               onClick: _cache[15] || (_cache[15] = ($event) => $data.showFormEventDialogFlag = false)
             }, {
@@ -69576,6 +69594,7 @@ const _hoisted_1$k = {
   class: ""
 };
 const _hoisted_2$f = { class: "dialog-footer" };
+const _hoisted_3$e = { key: 2 };
 function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_collapse_item = resolveComponent("el-collapse-item");
   const _component_el_collapse = resolveComponent("el-collapse");
@@ -69584,13 +69603,14 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_form_setting = resolveComponent("form-setting");
   const _component_el_alert = resolveComponent("el-alert");
   const _component_code_editor = resolveComponent("code-editor");
+  const _component_el_checkbox = resolveComponent("el-checkbox");
   const _component_el_button = resolveComponent("el-button");
   const _component_el_dialog = resolveComponent("el-dialog");
   const _component_el_tabs = resolveComponent("el-tabs");
   const _directive_drag = resolveDirective("drag");
   return openBlock(), createBlock(_component_el_tabs, {
     modelValue: $data.activeTab,
-    "onUpdate:modelValue": _cache[7] || (_cache[7] = ($event) => $data.activeTab = $event)
+    "onUpdate:modelValue": _cache[9] || (_cache[9] = ($event) => $data.activeTab = $event)
   }, {
     default: withCtx(() => [
       createVNode(_component_el_tab_pane, {
@@ -69780,7 +69800,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
             isChange: ["onCreatedPlus", "onChangePlus"].includes($data.curEventName) ? _ctx.$t("designer.setting.editWidgetEventHandlerChange") : ""
           }),
           modelValue: $data.showWidgetEventDialogFlag,
-          "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $data.showWidgetEventDialogFlag = $event),
+          "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.showWidgetEventDialogFlag = $event),
           "show-close": true,
           class: "drag-dialog small-padding-dialog",
           "append-to-body": "",
@@ -69790,23 +69810,38 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
         }, {
           footer: withCtx(() => [
             createElementVNode("div", _hoisted_2$f, [
-              createVNode(_component_el_button, {
-                onClick: _cache[5] || (_cache[5] = ($event) => $data.showWidgetEventDialogFlag = false)
-              }, {
-                default: withCtx(() => [
-                  createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
-                ]),
-                _: 1
-              }),
-              createVNode(_component_el_button, {
-                type: "primary",
-                onClick: $options.saveEventHandler
-              }, {
-                default: withCtx(() => [
-                  createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
-                ]),
-                _: 1
-              }, 8, ["onClick"])
+              $data.curEventName === "onChangePlus" ? (openBlock(), createBlock(_component_el_checkbox, {
+                key: 0,
+                modelValue: $props.selectedWidget.options.isCreateDynamicCode,
+                "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $props.selectedWidget.options.isCreateDynamicCode = $event),
+                label: _ctx.$t("designer.setting.isCreateDynamicCode"),
+                size: "large"
+              }, null, 8, ["modelValue", "label"])) : $data.curEventName === "onCreatedPlus" ? (openBlock(), createBlock(_component_el_checkbox, {
+                key: 1,
+                modelValue: $props.selectedWidget.options.selectSetting.isCreateDynamicCode,
+                "onUpdate:modelValue": _cache[6] || (_cache[6] = ($event) => $props.selectedWidget.options.selectSetting.isCreateDynamicCode = $event),
+                label: _ctx.$t("designer.setting.isCreateDynamicCode"),
+                size: "large"
+              }, null, 8, ["modelValue", "label"])) : (openBlock(), createElementBlock("div", _hoisted_3$e)),
+              createElementVNode("div", null, [
+                createVNode(_component_el_button, {
+                  onClick: _cache[7] || (_cache[7] = ($event) => $data.showWidgetEventDialogFlag = false)
+                }, {
+                  default: withCtx(() => [
+                    createTextVNode(toDisplayString(_ctx.$t("designer.hint.cancel")), 1)
+                  ]),
+                  _: 1
+                }),
+                createVNode(_component_el_button, {
+                  type: "primary",
+                  onClick: $options.saveEventHandler
+                }, {
+                  default: withCtx(() => [
+                    createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
+                  ]),
+                  _: 1
+                }, 8, ["onClick"])
+              ])
             ])
           ]),
           default: withCtx(() => [
@@ -69837,7 +69872,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-4c04ce0a"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-634d51ac"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -78428,13 +78463,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1744014164455__");
+    var svgDom = document.getElementById("__svg__icons__dom__1744018959000__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1744014164455__";
+      svgDom.id = "__svg__icons__dom__1744018959000__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

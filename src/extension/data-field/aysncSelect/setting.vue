@@ -174,12 +174,15 @@
     </el-form>
     <template #footer>
       <div class="dialog-footer">
-        <el-button size="default" @click="dialogVisible = false"
-          >{{ $t("designer.hint.cancel") }}
-        </el-button>
-        <el-button size="default" type="primary" @click="handleSubmit">
-          {{ $t("designer.hint.confirm") }}
-        </el-button>
+        <el-checkbox v-model="form.isCreateDynamicCode" :label="$t('designer.setting.isCreateDynamicCode')" size="large" />
+        <div>
+          <el-button size="default" @click="dialogVisible = false"
+            >{{ $t("designer.hint.cancel") }}
+          </el-button>
+          <el-button size="default" type="primary" @click="handleSubmit">
+            {{ $t("designer.hint.confirm") }}
+          </el-button>
+        </div>
       </div>
     </template>
   </el-dialog>
@@ -346,5 +349,10 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+}
+.dialog-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 </style>

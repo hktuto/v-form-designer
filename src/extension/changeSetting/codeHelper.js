@@ -1,5 +1,5 @@
 export function setOnChange(widgetRef) {
-  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0) return
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode) return
   const changeCode = generateChangeCode(widgetRef.changeSettings);
   widgetRef.onChangePlus = changeCode;
 }
