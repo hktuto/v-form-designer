@@ -63631,7 +63631,6 @@ function getFunctionCode(setting) {
   const optionApiStr = `
   options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
   const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
-  console.log(fieldParamsInitStr);
   return `
 async function ${funName}() {${fieldParamsInitStr}
   try {
@@ -63639,7 +63638,7 @@ async function ${funName}() {${fieldParamsInitStr}
     if(widgetRef.loadOptions) widgetRef.loadOptions(options)
     if(options.length === 1) {
       if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-      else widgetRef.setValue(options[0].value)
+      else if(oldValue) widgetRef.setValue(options[0].value)
     }
     else widgetRef.setValue(null)
   }
@@ -63727,7 +63726,6 @@ function getParamsStr(setting) {
       const data2 = [...params[key]];
       params[key] = {};
       data2.forEach((item) => {
-        console.log(item);
         if (item.value && item.key)
           params[key][item.key] = item.value;
       });
@@ -78372,13 +78370,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1743665843693__");
+    var svgDom = document.getElementById("__svg__icons__dom__1743988098964__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1743665843693__";
+      svgDom.id = "__svg__icons__dom__1743988098964__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
