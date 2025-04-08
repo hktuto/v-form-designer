@@ -132,8 +132,8 @@ export default {
 
     handleOnCreated() {
       // if (this.formConfig.isCreateDynamicCode !== false) {
-      setOnCreate(this.field.options)
-      setOnChange(this.field.options)
+      setOnCreate(this.field.options, true)
+      setOnChange(this.field.options, true)
       // }
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated)

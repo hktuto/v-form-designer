@@ -1,10 +1,10 @@
 
 import { selectApis } from "@/extension/data-field/aysncSelect/dataFieldApis";
-export function setOnCreate(widgetRef) {
+export function setOnCreate(widgetRef, isHandleOnCreated = false) {
   if (!widgetRef.selectSetting ||
     Object.keys(widgetRef.selectSetting).length === 0 ||
     !widgetRef.selectSetting.api ||
-    !widgetRef.selectSetting.isCreateDynamicCode
+    (!widgetRef.selectSetting.isCreateDynamicCode && isHandleOnCreated)
   ) return
   const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
   widgetRef.onCreatedPlus = onCreatedCode;

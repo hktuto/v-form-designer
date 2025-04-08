@@ -4663,8 +4663,8 @@ const selectApis = {
     labelKey: "name"
   }
 };
-function setOnCreate(widgetRef) {
-  if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0 || !widgetRef.selectSetting.api || !widgetRef.selectSetting.isCreateDynamicCode)
+function setOnCreate(widgetRef, isHandleOnCreated = false) {
+  if (!widgetRef.selectSetting || Object.keys(widgetRef.selectSetting).length === 0 || !widgetRef.selectSetting.api || !widgetRef.selectSetting.isCreateDynamicCode && isHandleOnCreated)
     return;
   const onCreatedCode = generateCreateCode(widgetRef.selectSetting);
   widgetRef.onCreatedPlus = onCreatedCode;
@@ -4735,8 +4735,8 @@ function getObjStr(obj, apiMethod = "post") {
   else
     return str;
 }
-function setOnChange(widgetRef) {
-  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode)
+function setOnChange(widgetRef, isHandleOnCreated = false) {
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode && isHandleOnCreated)
     return;
   const changeCode = generateChangeCode(widgetRef.changeSettings);
   widgetRef.onChangePlus = changeCode;
@@ -4998,8 +4998,8 @@ var fieldMixin = {
       });
     },
     handleOnCreated() {
-      setOnCreate(this.field.options);
-      setOnChange(this.field.options);
+      setOnCreate(this.field.options, true);
+      setOnChange(this.field.options, true);
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated);
         customFunc.call(this);
@@ -78463,13 +78463,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1744018959000__");
+    var svgDom = document.getElementById("__svg__icons__dom__1744073660287__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1744018959000__";
+      svgDom.id = "__svg__icons__dom__1744073660287__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
