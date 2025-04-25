@@ -1805,15 +1805,12 @@ export default {
     },
 
     testOnAppendButtonClick(clickedWidget) {
-      console.log("test", clickedWidget);
     },
 
     testOnButtonClick(button) {
-      console.log("test", button);
     },
 
     onMyEmitTest(aaa) {
-      console.log("-----", aaa);
     },
 
     findWidgetById(wId) {

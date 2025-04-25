@@ -2690,7 +2690,6 @@ const translate = function(key) {
 var i18n$1 = {
   methods: {
     i18nt(key) {
-      console.log("i18nt", key);
       return translate(key);
     },
     i18n2t(key1, key2) {
@@ -5044,7 +5043,6 @@ var fieldMixin = {
       if (this.designState) {
         return;
       }
-      console.log("initOptionItems", this.field);
       if (this.field.options.fieldType === "radio" || this.field.options.fieldType === "checkbox" || this.field.options.fieldType === "select" || this.field.options.fieldType === "cascader" || this.field.options.fieldType === "select-v2" || this.field.type === "radio" || this.field.type === "checkbox" || this.field.type === "select" || this.field.type === "cascader" || this.field.type === "select-v2") {
         const newOptionItems = this.getOptionData();
         if (!!newOptionItems && newOptionItems.hasOwnProperty(this.field.options.name)) {
@@ -5246,9 +5244,7 @@ var fieldMixin = {
     },
     querySearchAsync(queryString, cb2) {
       if (!!this.field.options.onQuerySearchAsync) {
-        let remoteFn = new Function("queryString", "cb", this.field.options.onQuerySearchAsync);
-        console.log({ remoteFn }, "ss");
-        remoteFn.call(this, queryString, cb2);
+        new Function("queryString", "cb", this.field.options.onQuerySearchAsync);
       }
     },
     onShortcutsFn() {
@@ -5358,7 +5354,6 @@ var fieldMixin = {
       this.field.options.label = newLabel;
     },
     setPickerOptions(pickerOptions) {
-      console.log("setPickerOptions", pickerOptions);
       return false;
     },
     focus() {
@@ -6576,7 +6571,6 @@ const _sfc_main$3w = {
       this.$message.warning(this.$t("render.hint.uploadExceed").replace("${uploadLimit}", uploadLimit));
     },
     beforeFileUpload(file) {
-      console.log(this.field.options.uploadURL, this.field.options.uploadURL === "/api/docpal/workflow/upload/file");
       if (!this.field.options.uploadName)
         this.field.options.uploadName = "files";
       if (!!this.field.options && !!this.field.options.fileTypes && this.field.options.fileTypes.length > 0) {
@@ -6805,7 +6799,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-fc065ade"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-0db05296"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -32807,8 +32801,9 @@ const _sfc_main$38 = {
     handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
       if (!!this.formConfig && !!this.formConfig.dhList) {
         let dhList = this.formConfig.dhList;
+        let validList = [];
         dhList.forEach((dhItem) => {
-          if (dhItem.fieldConditionList.find((fc2) => fc2.fieldName === fieldName)) {
+          if (dhItem.fieldConditionList.find((fc2) => fc2.fieldName === fieldName) && !validList.includes[fieldName]) {
             const evalValue = dhItem.fieldConditionList.map((fc2) => {
               const widget = this.getWidgetRef(fc2.fieldName);
               if (!widget)
@@ -32818,6 +32813,7 @@ const _sfc_main$38 = {
               return `'${sWValue}' ${fc2.condition} '${sFcValue}'`;
             });
             const conditionValue = eval(evalValue.join(" && "));
+            validList.push(fieldName);
             dhItem.hiddenList.forEach((hiddenItem) => {
               const w10 = this.getWidgetRef(hiddenItem.fieldName);
               if (!w10)
@@ -33213,7 +33209,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-050413e7"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-5e9a00e8"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -59315,13 +59311,10 @@ const _sfc_main$36 = {
     handleFormChange(fieldName2, newValue2, oldValue2, formModel) {
     },
     testOnAppendButtonClick(clickedWidget) {
-      console.log("test", clickedWidget);
     },
     testOnButtonClick(button) {
-      console.log("test", button);
     },
     onMyEmitTest(aaa) {
-      console.log("-----", aaa);
     },
     findWidgetById(wId) {
       let foundW = null;
@@ -60041,7 +60034,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-7ecd2860"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-1cc864f1"]]);
 const _sfc_main$35 = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -60638,7 +60631,6 @@ const _sfc_main$2S = {
         this.optionModel.dynamicConfig = newConfig;
         this.dialogVisible = false;
       } catch (error) {
-        console.log(error);
       }
     }
   }
@@ -71954,7 +71946,6 @@ function createDesigner(vueInstance) {
     copyNewFieldWidget(origin) {
       let newWidget = deepClone(origin);
       let tempId = generateId();
-      console.log({ tempId });
       newWidget.id = newWidget.type.replace(/-/g, "") + tempId;
       newWidget.options.name = newWidget.id;
       newWidget.options.label = newWidget.options.label || newWidget.type.toLowerCase();
@@ -78463,13 +78454,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1744073660287__");
+    var svgDom = document.getElementById("__svg__icons__dom__1745542682342__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1744073660287__";
+      svgDom.id = "__svg__icons__dom__1745542682342__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -81449,7 +81440,6 @@ const loadCalendarWidget = (app) => {
   registerFWGenerator("calendarWidget", nullTemplateGenerator);
 };
 const loadAsyncSelectWidget = (app) => {
-  console.log("??????????");
   addDataFieldsWidgetSchema(asyncSelectSchema);
   app.component(AsyncSelectWidget.name, AsyncSelectWidget);
   registerFWGenerator("asyncSelect", nullTemplateGenerator);

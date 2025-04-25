@@ -62,7 +62,6 @@ export default {
         this.optionModel.dynamicConfig = newConfig;
         this.dialogVisible = false;
       } catch (error) {
-        console.log(error);
       }
     },
   },

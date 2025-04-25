@@ -10,9 +10,9 @@ import AsyncSelectWidget from '@/extension/data-field/aysncSelect/async-select-w
 import UgSelectWidget from './data-field/userAndGroup/ug-select-widget.vue'
 
 import { nullTemplateGenerator } from '@/extension/samples/extension-sfc-generator'
-import {registerFWGenerator} from '@/utils/sfc-generator'
+import { registerFWGenerator } from '@/utils/sfc-generator'
 
-import {calendarSchema} from '@/extension/samples/extension-schema'
+import { calendarSchema } from '@/extension/samples/extension-schema'
 import CalendarWidget from '@/extension/calendar/calendar-widget'
 
 export const loadDataExtension = function (app) {
@@ -27,7 +27,6 @@ const loadCalendarWidget = (app) => {
   registerFWGenerator('calendarWidget', nullTemplateGenerator)
 }
 const loadAsyncSelectWidget = (app) => {
-  console.log('??????????');
   /**
  * 加载字段组件步骤：
  * 1. 加载组件Json Schema;
@@ -42,7 +41,7 @@ const loadAsyncSelectWidget = (app) => {
 }
 
 const loadUgSelectWidget = (app) => {
-  addDataFieldsWidgetSchema(ugSelectSchema) 
+  addDataFieldsWidgetSchema(ugSelectSchema)
   app.component(UgSelectWidget.name, UgSelectWidget)
-  registerFWGenerator('asyncSelect', nullTemplateGenerator) 
+  registerFWGenerator('asyncSelect', nullTemplateGenerator)
 }

@@ -187,7 +187,6 @@ export default {
       if (this.designState) {
         return
       }
-      console.log('initOptionItems', this.field);
       if (
         (this.field.options.fieldType === 'radio') ||
         (this.field.options.fieldType === 'checkbox') ||
@@ -450,8 +449,6 @@ export default {
     querySearchAsync(queryString, cb) {
       if (!!this.field.options.onQuerySearchAsync) {
         let remoteFn = new Function('queryString', 'cb', this.field.options.onQuerySearchAsync)
-        console.log({ remoteFn }, 'ss');
-        remoteFn.call(this, queryString, cb)
       }
     },
     onShortcutsFn() {
@@ -597,7 +594,6 @@ export default {
      */
     setPickerOptions(pickerOptions) {
       // TODO 日期选项设置
-      console.log('setPickerOptions', pickerOptions)
       return false
       // this.field.options.pickerOptions = pickerOptions
       //this.clearSelectedOptions()  //清空已选选项

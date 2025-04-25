@@ -33,14 +33,14 @@ const i18n = createI18n({
   legacy: false,
 })
 
-export const changeLocale = function(langName) {
+export const changeLocale = function (langName) {
   i18n.setLang(langName)
   localStorage.setItem('v_form_locale', langName)
 }
 
-export const translate = function(key) {
-  if(window.$t ) console.log(i18n.$st(key), window.$t(key), key);
-  if(window.$t &&  window.$t(key) !== key) {
+export const translate = function (key) {
+  if (window.$t) console.log(i18n.$st(key), window.$t(key), key);
+  if (window.$t && window.$t(key) !== key) {
     return window.$t(key)
   }
   return i18n.$st(key)
@@ -53,13 +53,12 @@ export const installI18n = (app) => {
 export default {
   methods: {
     i18nt(key) {
-      console.log('i18nt', key)
       return translate(key)
     },
 
     /* 如果key1不存在，则查找key2 */
     i18n2t(key1, key2) {
-      if(translate(key1) === key1) return translate(key2)
+      if (translate(key1) === key1) return translate(key2)
       return translate(key1)
     },
   }
