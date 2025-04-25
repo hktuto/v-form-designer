@@ -5147,9 +5147,9 @@ var fieldMixin = {
         });
       }
     },
-    emitFieldDataChange(newValue2, oldValue2) {
-      this.emit$("field-value-changed", [newValue2, oldValue2]);
-      this.dispatch("VFormRender", "fieldChange", [this.field.options.name, newValue2, oldValue2, this.subFormName, this.subFormRowIndex]);
+    emitFieldDataChange(newValue, oldValue) {
+      this.emit$("field-value-changed", [newValue, oldValue]);
+      this.dispatch("VFormRender", "fieldChange", [this.field.options.name, newValue, oldValue, this.subFormName, this.subFormRowIndex]);
     },
     syncUpdateFormModel(value2) {
       if (!!this.designState) {
@@ -5284,13 +5284,13 @@ var fieldMixin = {
     getFieldEditor() {
       return this.$refs["fieldEditor"];
     },
-    setValue(newValue2) {
+    setValue(newValue) {
       if (!!this.field.formItemFlag) {
-        let oldValue2 = deepClone(this.fieldModel);
-        this.fieldModel = newValue2;
+        let oldValue = deepClone(this.fieldModel);
+        this.fieldModel = newValue;
         this.initFileList();
-        this.syncUpdateFormModel(newValue2);
-        this.emitFieldDataChange(newValue2, oldValue2);
+        this.syncUpdateFormModel(newValue);
+        this.emitFieldDataChange(newValue, oldValue);
       }
     },
     getValue() {
@@ -6628,7 +6628,7 @@ const _sfc_main$3w = {
       return true;
     },
     updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, defaultResult) {
-      let oldValue2 = deepClone(this.fieldModel);
+      let oldValue = deepClone(this.fieldModel);
       if (!!customResult && !!customResult.name && !!customResult.url) {
         this.fieldModel.push({
           name: customResult.name,
@@ -6643,7 +6643,7 @@ const _sfc_main$3w = {
         this.fieldModel = deepClone(fileList);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue2);
+      this.emitFieldDataChange(this.fieldModel, oldValue);
     },
     handleFileUpload(res, file, fileList) {
       if (file.status === "success") {
@@ -6668,10 +6668,10 @@ const _sfc_main$3w = {
       }
     },
     updateFieldModelAndEmitDataChangeForRemove(deletedFileIdx, fileList) {
-      let oldValue2 = deepClone(this.fieldModel);
+      let oldValue = deepClone(this.fieldModel);
       this.fieldModel.splice(deletedFileIdx, 1);
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue2);
+      this.emitFieldDataChange(this.fieldModel, oldValue);
     },
     removeUploadFile(fileName, fileUrl, fileUid) {
       let foundIdx = -1;
@@ -7246,7 +7246,7 @@ const _sfc_main$3s = {
       return true;
     },
     updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, defaultResult) {
-      let oldValue2 = deepClone(this.fieldModel);
+      let oldValue = deepClone(this.fieldModel);
       if (!!customResult && !!customResult.name && !!customResult.url) {
         this.fieldModel.push({
           name: customResult.name,
@@ -7261,7 +7261,7 @@ const _sfc_main$3s = {
         this.fieldModel = deepClone(fileList);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue2);
+      this.emitFieldDataChange(this.fieldModel, oldValue);
     },
     handlePictureUpload(res, file, fileList) {
       if (file.status === "success") {
@@ -7276,7 +7276,7 @@ const _sfc_main$3s = {
       }
     },
     updateFieldModelAndEmitDataChangeForRemove(file) {
-      let oldValue2 = deepClone(this.fieldModel);
+      let oldValue = deepClone(this.fieldModel);
       let foundFileIdx = -1;
       this.fileListBeforeRemove.map((fi2, idx) => {
         if (fi2.name === file.name && (fi2.url === file.url || !!fi2.uid && fi2.uid === file.uid)) {
@@ -7287,7 +7287,7 @@ const _sfc_main$3s = {
         this.fieldModel.splice(foundFileIdx, 1);
       }
       this.syncUpdateFormModel(this.fieldModel);
-      this.emitFieldDataChange(this.fieldModel, oldValue2);
+      this.emitFieldDataChange(this.fieldModel, oldValue);
     },
     handleBeforeRemove(fileList) {
       this.fileListBeforeRemove = deepClone(fileList);
@@ -32572,6 +32572,58 @@ var ContainerItems = {
     }
   }
 };
+function handleDhList(fieldName, dhList, getWidgetRef) {
+  const allHiddenList = [];
+  const allDisabledList = [];
+  dhList.forEach((item) => {
+    allHiddenList.push(...item.hiddenList);
+    allDisabledList.push(...item.disabledList);
+  });
+  const validList = [];
+  dhList.forEach((dhItem) => {
+    if (dhItem.fieldConditionList.find((fc2) => fc2.fieldName === fieldName) && !validList.includes(fieldName)) {
+      const evalValue = dhItem.fieldConditionList.map((fc2) => {
+        const widget = getWidgetRef(fc2.fieldName);
+        if (!widget)
+          return true;
+        const sFcValue = String(fc2.value);
+        const sWValue = String(widget.getValue());
+        return `'${sWValue}' ${fc2.condition} '${sFcValue}'`;
+      });
+      const conditionValue = eval(evalValue.join(" && "));
+      if (conditionValue)
+        validList.push(fieldName);
+      allHiddenList.forEach((hiddenItem) => {
+        const w10 = getWidgetRef(hiddenItem.fieldName);
+        if (!w10)
+          return;
+        if (dhItem.hiddenList.find((curHiddenItem) => hiddenItem.fieldName === curHiddenItem.fieldName)) {
+          w10.setHidden(conditionValue);
+          if (hiddenItem.required)
+            w10.setRequired(!conditionValue);
+        } else {
+          w10.setHidden(!conditionValue);
+          if (hiddenItem.required)
+            w10.setRequired(conditionValue);
+        }
+      });
+      allDisabledList.forEach((disabledItem) => {
+        const w10 = getWidgetRef(disabledItem.fieldName);
+        if (!w10)
+          return;
+        if (dhItem.hiddenList.find((curDisabledItem) => disabledItem.fieldName === curDisabledItem.fieldName)) {
+          w10.setHidden(conditionValue);
+          if (disabledItem.required)
+            w10.setRequired(!conditionValue);
+        } else {
+          w10.setHidden(!conditionValue);
+          if (disabledItem.required)
+            w10.setRequired(conditionValue);
+        }
+      });
+    }
+  });
+}
 var index_vue_vue_type_style_index_0_scoped_true_lang$6 = "";
 const _sfc_main$38 = {
   name: "VFormRender",
@@ -32737,8 +32789,8 @@ const _sfc_main$38 = {
             });
           }
         } else if (wItem.type === "sub-form") {
-          let subFormName2 = wItem.options.name;
-          if (!this.formData.hasOwnProperty(subFormName2)) {
+          let subFormName = wItem.options.name;
+          if (!this.formData.hasOwnProperty(subFormName)) {
             let subFormDataRow = {};
             if (wItem.options.showBlankRow) {
               wItem.widgetList.forEach((subFormItem2) => {
@@ -32746,13 +32798,13 @@ const _sfc_main$38 = {
                   subFormDataRow[subFormItem2.options.name] = subFormItem2.options.defaultValue;
                 }
               });
-              this.formDataModel[subFormName2] = [subFormDataRow];
+              this.formDataModel[subFormName] = [subFormDataRow];
             } else {
-              this.formDataModel[subFormName2] = [];
+              this.formDataModel[subFormName] = [];
             }
           } else {
-            let initialValue = this.formData[subFormName2];
-            this.formDataModel[subFormName2] = deepClone(initialValue);
+            let initialValue = this.formData[subFormName];
+            this.formDataModel[subFormName] = deepClone(initialValue);
           }
         } else if (wItem.type === "grid-col" || wItem.type === "table-cell") {
           if (!!wItem.widgetList && wItem.widgetList.length > 0) {
@@ -32778,9 +32830,9 @@ const _sfc_main$38 = {
     },
     addFieldChangeEventHandler() {
       this.off$("fieldChange");
-      this.on$("fieldChange", (fieldName2, newValue2, oldValue2, subFormName2, subFormRowIndex2) => {
-        this.handleFieldDataChange(fieldName2, newValue2, oldValue2, subFormName2, subFormRowIndex2);
-        this.$emit("formChange", fieldName2, newValue2, oldValue2, this.formDataModel, subFormName2, subFormRowIndex2);
+      this.on$("fieldChange", (fieldName2, newValue, oldValue, subFormName, subFormRowIndex) => {
+        this.handleFieldDataChange(fieldName2, newValue, oldValue, subFormName, subFormRowIndex);
+        this.$emit("formChange", fieldName2, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
       });
     },
     addFieldValidateEventHandler() {
@@ -32798,44 +32850,13 @@ const _sfc_main$38 = {
     registerFormToRefList() {
       this.widgetRefList["v_form_ref"] = this;
     },
-    handleFieldDataChange(fieldName, newValue, oldValue, subFormName, subFormRowIndex) {
+    handleFieldDataChange(fieldName2, newValue, oldValue, subFormName, subFormRowIndex) {
       if (!!this.formConfig && !!this.formConfig.dhList) {
-        let dhList = this.formConfig.dhList;
-        let validList = [];
-        dhList.forEach((dhItem) => {
-          if (dhItem.fieldConditionList.find((fc2) => fc2.fieldName === fieldName) && !validList.includes[fieldName]) {
-            const evalValue = dhItem.fieldConditionList.map((fc2) => {
-              const widget = this.getWidgetRef(fc2.fieldName);
-              if (!widget)
-                return true;
-              const sFcValue = String(fc2.value);
-              const sWValue = String(widget.getValue());
-              return `'${sWValue}' ${fc2.condition} '${sFcValue}'`;
-            });
-            const conditionValue = eval(evalValue.join(" && "));
-            validList.push(fieldName);
-            dhItem.hiddenList.forEach((hiddenItem) => {
-              const w10 = this.getWidgetRef(hiddenItem.fieldName);
-              if (!w10)
-                return;
-              w10.setHidden(conditionValue);
-              if (hiddenItem.required)
-                w10.setRequired(!conditionValue);
-            });
-            dhItem.disabledList.forEach((disabledItem) => {
-              const w10 = this.getWidgetRef(disabledItem.fieldName);
-              if (!w10)
-                return;
-              w10.setDisabled(conditionValue);
-              if (disabledItem.required)
-                w10.setRequired(!conditionValue);
-            });
-          }
-        });
+        handleDhList(fieldName2, this.formConfig.dhList, this.getWidgetRef);
       }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
         let customFunc = new Function("fieldName", "newValue", "oldValue", "formModel", "subFormName", "subFormRowIndex", this.formConfig.onFormDataChange);
-        customFunc.call(this, fieldName, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
+        customFunc.call(this, fieldName2, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
       }
     },
     handleOnCreated() {
@@ -32884,15 +32905,15 @@ const _sfc_main$38 = {
     },
     findWidgetNameInSubForm(widgetName) {
       let result = [];
-      let subFormName2 = null;
+      let subFormName = null;
       let handlerFn = (field, parent) => {
         if (!!field.options && field.options.name === widgetName) {
-          subFormName2 = parent.options.name;
+          subFormName = parent.options.name;
         }
       };
       traverseFieldWidgets(this.widgetList, handlerFn);
-      if (!!subFormName2) {
-        let subFormRef = this.getWidgetRef(subFormName2);
+      if (!!subFormName) {
+        let subFormRef = this.getWidgetRef(subFormName);
         if (!!subFormRef) {
           let rowIds = subFormRef.getRowIdData();
           if (!!rowIds && rowIds.length > 0) {
@@ -33026,8 +33047,8 @@ const _sfc_main$38 = {
         });
       }
     },
-    getSubFormValues(subFormName2, needValidation = true) {
-      let foundSFRef = this.subFormRefList[subFormName2];
+    getSubFormValues(subFormName, needValidation = true) {
+      let foundSFRef = this.subFormRefList[subFormName];
       return foundSFRef.getSubFormValues(needValidation);
     },
     disableForm() {
@@ -33209,7 +33230,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-5e9a00e8"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-dc3d1938"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -35310,9 +35331,9 @@ var ace$2 = { exports: {} };
           return;
         if (!value2)
           value2 = "";
-        var newValue2 = "\n ab" + value2 + "cde fg\n";
-        if (newValue2 != text.value)
-          text.value = lastValue = newValue2;
+        var newValue = "\n ab" + value2 + "cde fg\n";
+        if (newValue != text.value)
+          text.value = lastValue = newValue;
         var selectionStart = 4;
         var selectionEnd = 4 + (value2.length || (host.selection.isEmpty() ? 0 : 1));
         if (lastSelectionStart != selectionStart || lastSelectionEnd != selectionEnd) {
@@ -35378,10 +35399,10 @@ var ace$2 = { exports: {} };
               }
             }
           }
-          var newValue2 = line + "\n\n";
-          if (newValue2 != lastValue) {
-            text.value = lastValue = newValue2;
-            lastSelectionStart = lastSelectionEnd = newValue2.length;
+          var newValue = line + "\n\n";
+          if (newValue != lastValue) {
+            text.value = lastValue = newValue;
+            lastSelectionStart = lastSelectionEnd = newValue.length;
           }
         }
         if (afterContextMenu) {
@@ -57115,8 +57136,8 @@ const _sfc_main$37 = {
     getEditorAnnotations() {
       return this.aceEditor.getSession().getAnnotations();
     },
-    setValue(newValue2) {
-      this.aceEditor.getSession().setValue(newValue2);
+    setValue(newValue) {
+      this.aceEditor.getSession().setValue(newValue);
     }
   }
 };
@@ -59308,7 +59329,7 @@ const _sfc_main$36 = {
       });
       this.$refs.preForm.reloadOptionData();
     },
-    handleFormChange(fieldName2, newValue2, oldValue2, formModel) {
+    handleFormChange(fieldName2, newValue, oldValue, formModel) {
     },
     testOnAppendButtonClick(clickedWidget) {
     },
@@ -61252,11 +61273,11 @@ const _sfc_main$2C = {
       get() {
         return this.optionModel["max"];
       },
-      set(newValue2) {
-        if (!newValue2 || isNaN(newValue2)) {
+      set(newValue) {
+        if (!newValue || isNaN(newValue)) {
           this.optionModel.max = null;
         } else {
-          this.optionModel.max = Number(newValue2);
+          this.optionModel.max = Number(newValue);
         }
       }
     }
@@ -61297,11 +61318,11 @@ const _sfc_main$2B = {
       get() {
         return this.optionModel["maxLength"];
       },
-      set(newValue2) {
-        if (!newValue2 || isNaN(newValue2)) {
+      set(newValue) {
+        if (!newValue || isNaN(newValue)) {
           this.optionModel.maxLength = null;
         } else {
-          this.optionModel.maxLength = Number(newValue2);
+          this.optionModel.maxLength = Number(newValue);
         }
       }
     }
@@ -61345,11 +61366,11 @@ const _sfc_main$2A = {
       get() {
         return this.optionModel["min"];
       },
-      set(newValue2) {
-        if (newValue2 === void 0 || newValue2 === null || isNaN(newValue2)) {
+      set(newValue) {
+        if (newValue === void 0 || newValue === null || isNaN(newValue)) {
           this.optionModel.min = null;
         } else {
-          this.optionModel.min = Number(newValue2);
+          this.optionModel.min = Number(newValue);
         }
       }
     }
@@ -61390,11 +61411,11 @@ const _sfc_main$2z = {
       get() {
         return this.optionModel["minLength"];
       },
-      set(newValue2) {
-        if (!newValue2 || isNaN(newValue2)) {
+      set(newValue) {
+        if (!newValue || isNaN(newValue)) {
           this.optionModel.minLength = null;
         } else {
-          this.optionModel.minLength = Number(newValue2);
+          this.optionModel.minLength = Number(newValue);
         }
       }
     }
@@ -61682,9 +61703,9 @@ const _sfc_main$2u = {
       this.optionModel.optionItems.splice(index2, 1);
     },
     addOption() {
-      let newValue2 = this.optionModel.optionItems.length + 1;
+      let newValue = this.optionModel.optionItems.length + 1;
       this.optionModel.optionItems.push({
-        value: newValue2,
+        value: newValue,
         label: "new option"
       });
     },
@@ -63115,7 +63136,7 @@ function _sfc_render$22(_ctx, _cache, $props, $setup, $data, $options) {
               modelModifiers: { number: true },
               min: 1,
               max: 24,
-              onChange: (newValue2, oldValue2) => $options.spanChanged($props.selectedWidget, colItem, colIdx, newValue2, oldValue2),
+              onChange: (newValue, oldValue) => $options.spanChanged($props.selectedWidget, colItem, colIdx, newValue, oldValue),
               class: "cell-span-input"
             }, null, 8, ["modelValue", "onUpdate:modelValue", "onChange"]),
             createVNode(_component_el_button, {
@@ -69461,8 +69482,8 @@ const _sfc_main$u = {
       get() {
         return this.selectedWidget.options;
       },
-      set(newValue2) {
-        this.selectedWidget.options = newValue2;
+      set(newValue) {
+        this.selectedWidget.options = newValue;
       }
     }
   },
@@ -78454,13 +78475,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1745542682342__");
+    var svgDom = document.getElementById("__svg__icons__dom__1745562195636__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1745542682342__";
+      svgDom.id = "__svg__icons__dom__1745562195636__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

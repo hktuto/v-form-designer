@@ -62,6 +62,7 @@
 import emitter from "@/utils/emitter";
 import "./container-item/index";
 import FieldComponents from "@/components/form-designer/form-widget/field-widget/index";
+import { handleDhList } from '@/extension/changeSetting/dhListHelper'
 import {
   generateId,
   deepClone,
@@ -377,36 +378,7 @@ export default {
       subFormRowIndex
     ) {
       if (!!this.formConfig && !!this.formConfig.dhList) {
-        let dhList = this.formConfig.dhList;
-        let validList = []
-        dhList.forEach((dhItem) => {
-          if (
-            dhItem.fieldConditionList.find((fc) => fc.fieldName === fieldName) &&
-            !validList.includes[fieldName]
-          ) {
-            const evalValue = dhItem.fieldConditionList.map((fc) => {
-              const widget = this.getWidgetRef(fc.fieldName);
-              if (!widget) return true;
-              const sFcValue = String(fc.value);
-              const sWValue = String(widget.getValue());
-              return `'${sWValue}' ${fc.condition} '${sFcValue}'`;
-            });
-            const conditionValue = eval(evalValue.join(" && "));
-            validList.push(fieldName)
-            dhItem.hiddenList.forEach((hiddenItem) => {
-              const w = this.getWidgetRef(hiddenItem.fieldName);
-              if (!w) return;
-              w.setHidden(conditionValue);
-              if (hiddenItem.required) w.setRequired(!conditionValue);
-            });
-            dhItem.disabledList.forEach((disabledItem) => {
-              const w = this.getWidgetRef(disabledItem.fieldName);
-              if (!w) return;
-              w.setDisabled(conditionValue);
-              if (disabledItem.required) w.setRequired(!conditionValue);
-            });
-          }
-        });
+        handleDhList(fieldName, this.formConfig.dhList, this.getWidgetRef)
       }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
         let customFunc = new Function(
