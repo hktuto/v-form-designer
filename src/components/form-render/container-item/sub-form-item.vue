@@ -1,9 +1,15 @@
 <template>
   <container-item-wrapper :widget="widget">
-    <div :key="widget.id" class="sub-form-container" v-show="!widget.options.hidden">
+    <div
+      :key="widget.id"
+      class="sub-form-container"
+      v-show="!widget.options.hidden"
+    >
       <el-row class="header-row">
-        <div class="action-header-column">
-          <span class="action-label">{{ $t("render.hint.subFormAction") }}</span>
+        <div class="action-header-column" v-if="!widget.options.disabled">
+          <span class="action-label">
+            {{ $t("render.hint.subFormAction") }}
+          </span>
           <el-button
             :disabled="addDisabled"
             round
@@ -16,7 +22,10 @@
             <svg-icon icon-class="el-plus" />
           </el-button>
         </div>
-        <template v-for="subWidget in widget.widgetList" :key="subWidget.id + 'thc'">
+        <template
+          v-for="subWidget in widget.widgetList"
+          :key="subWidget.id + 'thc'"
+        >
           <div
             class="field-header-column"
             :class="[
@@ -25,38 +34,50 @@
             ]"
             :style="{ width: subWidget.options.columnWidth }"
           >
-            <span v-if="!!subWidget.options.labelIconClass" class="custom-label">
+            <span
+              v-if="!!subWidget.options.labelIconClass"
+              class="custom-label"
+            >
               <template v-if="subWidget.options.labelIconPosition === 'front'">
                 <template v-if="!!subWidget.options.labelTooltip">
-                  <el-tooltip :content="subWidget.options.labelTooltip" effect="light">
-                    <svg-icon
-                      :icon-class="subWidget.options.labelIconClass" /></el-tooltip
-                  >{{ $t(subWidget.options.label) }}</template
-                >
+                  <el-tooltip
+                    :content="subWidget.options.labelTooltip"
+                    effect="light"
+                  >
+                    <svg-icon :icon-class="subWidget.options.labelIconClass" />
+                  </el-tooltip>
+                  {{ $t(subWidget.options.label) }}
+                </template>
                 <template v-else>
-                  <svg-icon :icon-class="subWidget.options.labelIconClass" />{{
-                    $t(subWidget.options.label)
-                  }}</template
-                >
+                  <svg-icon :icon-class="subWidget.options.labelIconClass" />
+                  {{ $t(subWidget.options.label) }}
+                </template>
               </template>
-              <template v-else-if="subWidget.options.labelIconPosition === 'rear'">
+              <template
+                v-else-if="subWidget.options.labelIconPosition === 'rear'"
+              >
                 <template v-if="!!subWidget.options.labelTooltip">
-                  {{ $t(subWidget.options.label)
-                  }}<el-tooltip :content="subWidget.options.labelTooltip" effect="light">
+                  {{ $t(subWidget.options.label) }}
+                  <el-tooltip
+                    :content="subWidget.options.labelTooltip"
+                    effect="light"
+                  >
                     <svg-icon
-                      :icon-class="subWidget.options.labelIconClass" /></el-tooltip
+                      :icon-class="
+                        subWidget.options.labelIconClass
+                      " /></el-tooltip
                 ></template>
                 <template v-else>
-                  {{ $t(subWidget.options.label)
-                  }}<svg-icon :icon-class="subWidget.options.labelIconClass"
-                /></template>
+                  {{ $t(subWidget.options.label) }}
+                  <svg-icon :icon-class="subWidget.options.labelIconClass" />
+                </template>
               </template>
             </span>
             <template v-else>
-              <span :title="subWidget.options.labelTooltip">{{
-                $t(subWidget.options.label)
-              }}</span></template
-            >
+              <span :title="subWidget.options.labelTooltip">
+                {{ $t(subWidget.options.label) }}
+              </span>
+            </template>
           </div>
         </template>
       </el-row>
@@ -65,7 +86,10 @@
         class="sub-form-row"
         :key="subFormRowId"
       >
-        <div class="sub-form-action-column hide-label">
+        <div
+          v-if="!widget.options.disabled"
+          class="sub-form-action-column hide-label"
+        >
           <div class="action-button-column">
             <el-button
               :disabled="addDisabled"
@@ -300,7 +324,8 @@ export default {
       let newSubFormDataRow = {};
       this.widget.widgetList.forEach((subFormItem) => {
         if (!!subFormItem.formItemFlag) {
-          newSubFormDataRow[subFormItem.options.name] = subFormItem.options.defaultValue;
+          newSubFormDataRow[subFormItem.options.name] =
+            subFormItem.options.defaultValue;
         }
       });
 
@@ -309,7 +334,10 @@ export default {
       this.addToRowIdData();
       this.addToFieldSchemaData();
 
-      this.handleSubFormRowAdd(oldSubFormData, this.rowIdData[oldSubFormData.length - 1]);
+      this.handleSubFormRowAdd(
+        oldSubFormData,
+        this.rowIdData[oldSubFormData.length - 1]
+      );
       this.handleSubFormRowChange(oldSubFormData);
     },
 
@@ -317,7 +345,8 @@ export default {
       let newSubFormDataRow = {};
       this.widget.widgetList.forEach((subFormItem) => {
         if (!!subFormItem.formItemFlag) {
-          newSubFormDataRow[subFormItem.options.name] = subFormItem.options.defaultValue;
+          newSubFormDataRow[subFormItem.options.name] =
+            subFormItem.options.defaultValue;
         }
       });
 
@@ -326,7 +355,10 @@ export default {
       this.insertToRowIdData(beforeFormRowIndex);
       this.addToFieldSchemaData(beforeFormRowIndex);
 
-      this.handleSubFormRowInsert(oldSubFormData, this.rowIdData[beforeFormRowIndex]);
+      this.handleSubFormRowInsert(
+        oldSubFormData,
+        this.rowIdData[beforeFormRowIndex]
+      );
       this.handleSubFormRowChange(oldSubFormData);
     },
 
@@ -458,7 +490,7 @@ div.field-header-column {
   //overflow: hidden;
   //white-space: nowrap;  //文字超出长度不自动换行
   //text-overflow: ellipsis;  //文字超出长度显示省略号
-
+  padding-left: 3px;
   span.custom-label i {
     margin: 0 3px;
   }

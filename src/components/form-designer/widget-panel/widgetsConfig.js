@@ -49,6 +49,7 @@ export const containers = [
       label: "",
       labelAlign: 'label-center-align',
       hidden: false,
+      disabled: false,
       maxLength: null,
       customClass: '',  //自定义css类名
       onSubFormRowAdd: '',
@@ -531,7 +532,7 @@ export const basicFields = [
       requiredHint: '',
       validation: '',
       validationHint: '',
-      
+
 
       //-------------------
       customClass: '',  //自定义css类名
@@ -576,7 +577,7 @@ export const basicFields = [
       editable: true,
       format: 'YYYY-MM-DD',  //日期显示格式
       valueFormat: 'YYYY-MM-DD HH:mm',  //日期对象格式
-      defaultTime: ['2000-01-01 00:00:00','2000-01-01 23:59:00'],
+      defaultTime: ['2000-01-01 00:00:00', '2000-01-01 23:59:00'],
       required: false,
       requiredHint: '',
       validation: '',
