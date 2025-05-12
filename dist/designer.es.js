@@ -67,6 +67,7 @@ const containers = [
       label: "",
       labelAlign: "label-center-align",
       hidden: false,
+      disabled: false,
       maxLength: null,
       customClass: "",
       onSubFormRowAdd: "",
@@ -32108,14 +32109,20 @@ const _sfc_main$3c = {
     }
   }
 };
-const _hoisted_1$E = { class: "action-header-column" };
+const _hoisted_1$E = {
+  key: 0,
+  class: "action-header-column"
+};
 const _hoisted_2$m = { class: "action-label" };
 const _hoisted_3$i = {
   key: 0,
   class: "custom-label"
 };
 const _hoisted_4$a = ["title"];
-const _hoisted_5$8 = { class: "sub-form-action-column hide-label" };
+const _hoisted_5$8 = {
+  key: 0,
+  class: "sub-form-action-column hide-label"
+};
 const _hoisted_6$7 = { class: "action-button-column" };
 const _hoisted_7$6 = {
   key: 0,
@@ -32136,7 +32143,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
       }, [
         createVNode(_component_el_row, { class: "header-row" }, {
           default: withCtx(() => [
-            createElementVNode("div", _hoisted_1$E, [
+            !$props.widget.options.disabled ? (openBlock(), createElementBlock("div", _hoisted_1$E, [
               createElementVNode("span", _hoisted_2$m, toDisplayString(_ctx.$t("render.hint.subFormAction")), 1),
               createVNode(_component_el_button, {
                 disabled: $options.addDisabled,
@@ -32152,7 +32159,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                 ]),
                 _: 1
               }, 8, ["disabled", "onClick", "title"])
-            ]),
+            ])) : createCommentVNode("", true),
             (openBlock(true), createElementBlock(Fragment, null, renderList($props.widget.widgetList, (subWidget) => {
               return openBlock(), createElementBlock("div", {
                 key: subWidget.id + "thc",
@@ -32176,16 +32183,16 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                         ]),
                         _: 2
                       }, 1032, ["content"]),
-                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1)
+                      createTextVNode(" " + toDisplayString(_ctx.$t(subWidget.options.label)), 1)
                     ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                       createVNode(_component_svg_icon, {
                         "icon-class": subWidget.options.labelIconClass
                       }, null, 8, ["icon-class"]),
-                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1)
+                      createTextVNode(" " + toDisplayString(_ctx.$t(subWidget.options.label)), 1)
                     ], 64))
                   ], 64)) : subWidget.options.labelIconPosition === "rear" ? (openBlock(), createElementBlock(Fragment, { key: 1 }, [
                     !!subWidget.options.labelTooltip ? (openBlock(), createElementBlock(Fragment, { key: 0 }, [
-                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1),
+                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)) + " ", 1),
                       createVNode(_component_el_tooltip, {
                         content: subWidget.options.labelTooltip,
                         effect: "light"
@@ -32198,7 +32205,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                         _: 2
                       }, 1032, ["content"])
                     ], 64)) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
-                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)), 1),
+                      createTextVNode(toDisplayString(_ctx.$t(subWidget.options.label)) + " ", 1),
                       createVNode(_component_svg_icon, {
                         "icon-class": subWidget.options.labelIconClass
                       }, null, 8, ["icon-class"])
@@ -32219,7 +32226,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
             key: subFormRowId
           }, {
             default: withCtx(() => [
-              createElementVNode("div", _hoisted_5$8, [
+              !$props.widget.options.disabled ? (openBlock(), createElementBlock("div", _hoisted_5$8, [
                 createElementVNode("div", _hoisted_6$7, [
                   createVNode(_component_el_button, {
                     disabled: $options.addDisabled,
@@ -32252,7 +32259,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                   }, 1032, ["disabled", "confirm-button-text", "cancel-button-text", "title", "onConfirm"]),
                   $props.widget.options.showRowNumber ? (openBlock(), createElementBlock("span", _hoisted_7$6, "#" + toDisplayString(sfrIdx + 1), 1)) : createCommentVNode("", true)
                 ])
-              ]),
+              ])) : createCommentVNode("", true),
               (openBlock(true), createElementBlock(Fragment, null, renderList($props.widget.widgetList, (subWidget, swIdx) => {
                 return openBlock(), createElementBlock("div", {
                   key: subWidget.id + "tc" + subFormRowId,
@@ -32282,7 +32289,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-fe444b44"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-2ea92fd9"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -60547,6 +60554,15 @@ const _sfc_main$2U = {
     designer: Object,
     selectedWidget: Object,
     optionModel: Object
+  },
+  methods: {
+    handleChange(value2) {
+      if (this.selectedWidget.type === "sub-form") {
+        this.selectedWidget.widgetList.forEach((item) => {
+          item.options.disabled = value2;
+        });
+      }
+    }
   }
 };
 function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
@@ -60558,8 +60574,9 @@ function _sfc_render$2U(_ctx, _cache, $props, $setup, $data, $options) {
     default: withCtx(() => [
       createVNode(_component_el_switch, {
         modelValue: $props.optionModel.disabled,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.disabled = $event)
-      }, null, 8, ["modelValue"])
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.disabled = $event),
+        onChange: $options.handleChange
+      }, null, 8, ["modelValue", "onChange"])
     ]),
     _: 1
   }, 8, ["label"]);
@@ -78475,13 +78492,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1745562195636__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747027724864__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1745562195636__";
+      svgDom.id = "__svg__icons__dom__1747027724864__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
