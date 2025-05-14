@@ -25,7 +25,7 @@ function getFunctionCode(setting) {
   const funName = `init_${setting.fieldName}`.replace(/ /g, '')
   const optionApiStr = `\n  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`
   const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr)
-  return `\nasync function ${funName}() {${fieldParamsInitStr}\n  try {\n    const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n    if(widgetRef.loadOptions) widgetRef.loadOptions(options)\n    if(options.length === 1) {\n      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])\n      else if(oldValue) widgetRef.setValue(options[0].value)\n    }\n    else widgetRef.setValue(null)\n  }\n  catch(e) {\n    \n  }\n}\n${funName}()\n`
+  return `\nasync function ${funName}() {${fieldParamsInitStr}\n  try {\n    const widgetRef = _this.getWidgetRef('${setting.fieldName}') \n    if(widgetRef.loadOptions) widgetRef.loadOptions(options)\n    if(options.length === 1) {\n      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])\n      else widgetRef.setValue(options[0].value)\n    }\n    else widgetRef.setValue(null)\n  }\n  catch(e) {\n    \n  }\n}\n${funName}()\n`
 }
 // funName
 // fieldParamsInitStr

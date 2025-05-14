@@ -3270,7 +3270,7 @@ async function ${funName}() {${fieldParamsInitStr}
     if(widgetRef.loadOptions) widgetRef.loadOptions(options)
     if(options.length === 1) {
       if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-      else if(oldValue) widgetRef.setValue(options[0].value)
+      else widgetRef.setValue(options[0].value)
     }
     else widgetRef.setValue(null)
   }
@@ -3383,6 +3383,7 @@ function getParamsStr(setting) {
     return str;
   }
 }
+let isReady = false;
 var fieldMixin = {
   inject: ["refList", "getFormConfig", "getGlobalDsv", "globalOptionData", "globalModel", "getOptionData", "getFormJson", "setFormJson"],
   computed: {
@@ -3485,6 +3486,9 @@ var fieldMixin = {
     handleOnCreated() {
       setOnCreate(this.field.options, true);
       setOnChange(this.field.options, true);
+      setTimeout(() => {
+        isReady = false;
+      }, 500);
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated);
         customFunc.call(this);
@@ -3696,6 +3700,8 @@ var fieldMixin = {
       }
     },
     handleOnChange(val, oldVal) {
+      if (!isReady)
+        return;
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", this.field.options.onChange);
         changeFn.call(this, val, oldVal);
@@ -3706,9 +3712,15 @@ var fieldMixin = {
       }
     },
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {
+      if (!isReady)
+        return;
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", "subFormData", "rowId", this.field.options.onChange);
         changeFn.call(this, val, oldVal, subFormData, rowId);
+      }
+      if (!!this.field.options.onChangePlus) {
+        let changePlusFn = new Function("value", "oldValue", this.field.options.onChangePlus);
+        changePlusFn.call(this, val, oldVal, subFormData, rowId);
       }
     },
     handleButtonWidgetClick() {
@@ -31948,13 +31960,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747027744642__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747200009881__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747027744642__";
+      svgDom.id = "__svg__icons__dom__1747200009881__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

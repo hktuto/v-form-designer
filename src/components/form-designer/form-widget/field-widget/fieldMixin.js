@@ -5,9 +5,9 @@ import { translate } from "@/utils/i18n"
 
 import { setOnCreate } from "@/extension/data-field/aysncSelect/codeHelper";
 import { setOnChange } from "@/extension/changeSetting/codeHelper";
+let isReady = false
 export default {
   inject: ['refList', 'getFormConfig', 'getGlobalDsv', 'globalOptionData', 'globalModel', 'getOptionData', 'getFormJson', 'setFormJson'],
-
   computed: {
     formConfig() {
       return this.getFormConfig()
@@ -135,6 +135,9 @@ export default {
       setOnCreate(this.field.options, true)
       setOnChange(this.field.options, true)
       // }
+      setTimeout(() => {
+        isReady = false
+      }, 500)
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated)
         customFunc.call(this)
@@ -410,6 +413,7 @@ export default {
     },
 
     handleOnChange(val, oldVal) {  //自定义onChange事件
+      if (!isReady) return
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', this.field.options.onChange)
         changeFn.call(this, val, oldVal)
@@ -421,9 +425,14 @@ export default {
     },
 
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {  //子表单自定义onChange事件
+      if (!isReady) return
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', 'subFormData', 'rowId', this.field.options.onChange)
         changeFn.call(this, val, oldVal, subFormData, rowId)
+      }
+      if (!!this.field.options.onChangePlus) {
+        let changePlusFn = new Function('value', 'oldValue', this.field.options.onChangePlus)
+        changePlusFn.call(this, val, oldVal, subFormData, rowId)
       }
     },
 
