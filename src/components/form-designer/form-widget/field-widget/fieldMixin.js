@@ -135,6 +135,7 @@ export default {
       setOnCreate(this.field.options, true)
       setOnChange(this.field.options, true)
       // }
+      isReady = false
       setTimeout(() => {
         isReady = true
       }, 500)
