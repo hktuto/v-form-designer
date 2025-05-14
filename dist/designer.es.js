@@ -4748,7 +4748,7 @@ function generateChangeCode(changeFieldList) {
     const funCode = getFunctionCode(item);
     prev += funCode;
     return prev;
-  }, "const _this = this\nif(value === oldValue) return\n" + mf2);
+  }, "const _this = this\nif(value === oldValue) return\nconst isReady = _this.getIsReady()  \n" + mf2);
   return code;
 }
 function getMasterTableRecordCode() {
@@ -4783,11 +4783,13 @@ async function ${funName}() {${fieldParamsInitStr}
   try {
     const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
     if(widgetRef.loadOptions) widgetRef.loadOptions(options)
-    if(options.length === 1) {
-      if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-      else widgetRef.setValue(options[0].value)
+    if(isReady) {
+      if(options.length === 1) {
+        if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+        else widgetRef.setValue(options[0].value)
+      }
+      else widgetRef.setValue(null)
     }
-    else widgetRef.setValue(null)
   }
   catch(e) {
     
@@ -4965,6 +4967,9 @@ var fieldMixin = {
       if (data2 instanceof Array)
         return JSON.parse(JSON.stringify(data2));
       return data2;
+    },
+    getIsReady() {
+      return isReady;
     },
     initFileList() {
       if (this.field.type !== "picture-upload" && this.field.type !== "file-upload" || this.designState === true) {
@@ -5216,8 +5221,6 @@ var fieldMixin = {
       }
     },
     handleOnChange(val, oldVal) {
-      if (!isReady)
-        return;
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", this.field.options.onChange);
         changeFn.call(this, val, oldVal);
@@ -5228,8 +5231,6 @@ var fieldMixin = {
       }
     },
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {
-      if (!isReady)
-        return;
       if (!!this.field.options.onChange) {
         let changeFn = new Function("value", "oldValue", "subFormData", "rowId", this.field.options.onChange);
         changeFn.call(this, val, oldVal, subFormData, rowId);
@@ -33250,7 +33251,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-dc3d1938"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-ca4cee72"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -78505,13 +78506,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747204518928__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747206813089__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747204518928__";
+      svgDom.id = "__svg__icons__dom__1747206813089__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

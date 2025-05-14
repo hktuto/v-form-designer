@@ -74,7 +74,6 @@ import {
   buildDefaultFormJson,
 } from "@/utils/util";
 import i18n, { changeLocale } from "@/utils/i18n";
-
 export default {
   name: "VFormRender",
   componentName: "VFormRender",

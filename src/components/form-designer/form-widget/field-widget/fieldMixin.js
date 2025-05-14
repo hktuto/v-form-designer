@@ -91,6 +91,9 @@ export default {
       if (data instanceof Array) return JSON.parse(JSON.stringify(data))
       return data
     },
+    getIsReady() {
+      return isReady
+    },
     initFileList() { //初始化上传组件的已上传文件列表
       if (((this.field.type !== 'picture-upload') && (this.field.type !== 'file-upload')) || (this.designState === true)) {
         return
@@ -414,7 +417,6 @@ export default {
     },
 
     handleOnChange(val, oldVal) {  //自定义onChange事件
-      if (!isReady) return
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', this.field.options.onChange)
         changeFn.call(this, val, oldVal)
@@ -426,7 +428,6 @@ export default {
     },
 
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {  //子表单自定义onChange事件
-      if (!isReady) return
       if (!!this.field.options.onChange) {
         let changeFn = new Function('value', 'oldValue', 'subFormData', 'rowId', this.field.options.onChange)
         changeFn.call(this, val, oldVal, subFormData, rowId)
