@@ -136,7 +136,7 @@ export default {
       setOnChange(this.field.options, true)
       // }
       setTimeout(() => {
-        isReady = false
+        isReady = true
       }, 500)
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated)

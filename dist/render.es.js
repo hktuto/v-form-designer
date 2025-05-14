@@ -3487,7 +3487,7 @@ var fieldMixin = {
       setOnCreate(this.field.options, true);
       setOnChange(this.field.options, true);
       setTimeout(() => {
-        isReady = false;
+        isReady = true;
       }, 500);
       if (!!this.field.options.onCreated) {
         let customFunc = new Function(this.field.options.onCreated);
@@ -31960,13 +31960,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747200009881__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747201480759__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747200009881__";
+      svgDom.id = "__svg__icons__dom__1747201480759__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
