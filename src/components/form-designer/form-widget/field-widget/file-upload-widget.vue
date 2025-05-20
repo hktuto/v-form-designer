@@ -382,7 +382,7 @@ export default {
       });
     },
     handleOnChange(file,fileList) {
-      console.log(fileList)
+      console.log(JSON.parse(JSON.stringify(fileList)))
       this.field.options.totalFileList = fileList?.length || 0;
     },  
     handleUploadHeaders() {

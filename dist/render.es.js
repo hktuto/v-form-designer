@@ -5212,7 +5212,7 @@ const _sfc_main$K = {
       });
     },
     handleOnChange(file, fileList) {
-      console.log(fileList);
+      console.log(JSON.parse(JSON.stringify(fileList)));
       this.field.options.totalFileList = (fileList == null ? void 0 : fileList.length) || 0;
     },
     handleUploadHeaders() {
@@ -5314,7 +5314,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-3df9f874"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-0cb48d9c"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -31527,11 +31527,17 @@ const _sfc_main$m = {
               const fieldRef = this.widgetRefList[key];
               if (((_a2 = fieldRef.field) == null ? void 0 : _a2.type) === "file-upload") {
                 let uploadData = this.formDataModel[key];
+                console.log(fieldRef.field.options.totalFileList);
                 if (!uploadData)
                   continue;
-                if (fieldRef.field.options.totalFileList > uploadData.length) {
+                const successLen = uploadData.reduce((prev, item) => {
+                  if (item.status === "success")
+                    prev++;
+                  return prev;
+                }, 0);
+                if (fieldRef.field.options.totalFileList > successLen) {
                   callback2(this.formDataModel, this.$t("render.hint.fileLoading"));
-                  throw new Error("upload data is loading");
+                  throw new Error("render.hint.fileLoading");
                 }
               }
             }
@@ -31768,7 +31774,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-824bce00"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-69e1330d"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31994,13 +32000,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747728499666__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747730428002__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747728499666__";
+      svgDom.id = "__svg__icons__dom__1747730428002__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
