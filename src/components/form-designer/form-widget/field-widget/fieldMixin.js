@@ -235,7 +235,7 @@ export default {
       if (!this.field.formItemFlag && this.field.options.hidden) {
         return
       }
-
+      const _this = this
       this.rules.splice(0, this.rules.length)  //清空已有
       if (!!this.field.options.required) {
         this.rules.push({
@@ -249,7 +249,7 @@ export default {
       if (this.field.type === 'file-upload') {
         this.rules.push({
           validator: (rule, value, callback, defaultErrorMsg) => {
-            const fieldModel = this.formModel[this.field.options.name]
+            const fieldModel = _this.formModel[_this.field.options.name]
             console.log(fieldModel);
             if (!fieldModel) callback()
             try {

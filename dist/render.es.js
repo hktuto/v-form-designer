@@ -3565,6 +3565,7 @@ var fieldMixin = {
       if (!this.field.formItemFlag && this.field.options.hidden) {
         return;
       }
+      const _this = this;
       this.rules.splice(0, this.rules.length);
       if (!!this.field.options.required) {
         this.rules.push({
@@ -3577,7 +3578,7 @@ var fieldMixin = {
       if (this.field.type === "file-upload") {
         this.rules.push({
           validator: (rule2, value2, callback2, defaultErrorMsg2) => {
-            const fieldModel = this.formModel[this.field.options.name];
+            const fieldModel = _this.formModel[_this.field.options.name];
             console.log(fieldModel);
             if (!fieldModel)
               callback2();
@@ -31988,13 +31989,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747708043482__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747709265173__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747708043482__";
+      svgDom.id = "__svg__icons__dom__1747709265173__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
