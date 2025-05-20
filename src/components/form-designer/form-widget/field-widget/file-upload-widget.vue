@@ -10,7 +10,6 @@
     :sub-form-row-index="subFormRowIndex"
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
-    :on-change="handleOnChange"
   >
     <!-- el-upload增加:name="field.options.name"后，会导致又拍云上传失败！故删除之！！ -->
     <el-upload
@@ -32,6 +31,7 @@
       :before-upload="beforeFileUpload"
       :on-success="handleFileUpload"
       :on-error="handleUploadError"
+      :on-change="handleOnChange"
     >
       <template #tip>
         <div class="el-upload__tip" v-if="!!field.options.uploadTip">
@@ -381,8 +381,9 @@ export default {
         options: this.field.options,
       });
     },
-    handleOnChange(file,fileList ) {
-      this.field.options.totalFileList = fileList.length || 0
+    handleOnChange(file,fileList) {
+      console.log(fileList)
+      this.field.options.totalFileList = fileList?.length || 0;
     },  
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
