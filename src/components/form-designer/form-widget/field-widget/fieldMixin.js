@@ -277,23 +277,6 @@ export default {
           label: this.field.options.label
         })
       }
-      if (this.field.type === 'file-upload') {
-        const uploadValidFn = (rule, value, callback) => {
-          if (!value) callback()
-          try {
-            Object.keys(value).forEach(key => {
-              if (!value[key]) throw new Error(key)
-            })
-            callback()
-          } catch (error) {
-            callback('data no upload', error)
-          }
-        }
-        this.rules.push({
-          validator: uploadValidFn,
-          label: this.field.options.label,
-        })
-      }
     },
 
     /**

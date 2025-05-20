@@ -586,16 +586,13 @@ export default {
               const fieldRef = this.widgetRefList[key];
               if (fieldRef.field?.type === "file-upload") {
                 let uploadData = this.formDataModel[key];
-                if(!uploadData) continue
-                for (const fileKey in uploadData) {
-                  const file = uploadData[fileKey]
-                  if (!file) {
-                    callback(
-                      this.formDataModel,
-                      this.$t("render.hint.fileLoading")
-                    );
-                    throw new Error("upload data is loading");
-                  }
+                if (!uploadData) continue;
+                if (fieldRef.field.options.totalFileList > uploadData.length) {
+                  callback(
+                    this.formDataModel,
+                    this.$t("render.hint.fileLoading")
+                  );
+                  throw new Error("upload data is loading");
                 }
               }
             }

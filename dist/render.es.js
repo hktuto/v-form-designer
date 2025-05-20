@@ -3603,25 +3603,6 @@ var fieldMixin = {
           label: this.field.options.label
         });
       }
-      if (this.field.type === "file-upload") {
-        const uploadValidFn = (rule2, value2, callback2) => {
-          if (!value2)
-            callback2();
-          try {
-            Object.keys(value2).forEach((key) => {
-              if (!value2[key])
-                throw new Error(key);
-            });
-            callback2();
-          } catch (error) {
-            callback2("data no upload", error);
-          }
-        };
-        this.rules.push({
-          validator: uploadValidFn,
-          label: this.field.options.label
-        });
-      }
     },
     disableChangeValidate() {
       if (!this.rules) {
@@ -5225,12 +5206,18 @@ const _sfc_main$K = {
     },
     handlePreview(file) {
       this.emit$("filePreview", { file, options: this.field.options });
-      this.dispatch("VFormRender", "filePreview", { file, options: this.field.options });
+      this.dispatch("VFormRender", "filePreview", {
+        file,
+        options: this.field.options
+      });
+    },
+    handleOnChange(file, fileList) {
+      this.field.options.totalFileList = fileList.length || 0;
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
       if (cookieToken)
-        this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
+        this.uploadHeaders = { Authorization: `Bearer ${cookieToken}` };
     },
     getCookie(name) {
       var strCookies = document.cookie;
@@ -5266,14 +5253,15 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     "index-of-parent-list": $props.indexOfParentList,
     "sub-form-row-index": $props.subFormRowIndex,
     "sub-form-col-index": $props.subFormColIndex,
-    "sub-form-row-id": $props.subFormRowId
+    "sub-form-row-id": $props.subFormRowId,
+    "on-change": $options.handleOnChange
   }, {
     default: withCtx(() => [
       createVNode(_component_el_upload, {
         ref: "fieldEditor",
         disabled: $props.field.options.disabled,
         style: normalizeStyle($data.styleVariables),
-        class: normalizeClass(["dynamicPseudoAfter", { "hideUploadDiv": $data.uploadBtnHidden }]),
+        class: normalizeClass(["dynamicPseudoAfter", { hideUploadDiv: $data.uploadBtnHidden }]),
         action: $options.realUploadURL,
         name: $props.field.options.uploadName,
         headers: $data.uploadHeaders,
@@ -5301,7 +5289,14 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
               class: "upload-file-name",
               title: file.name,
               onClick: ($event) => $options.handlePreview(file)
-            }, toDisplayString(file.name), 9, _hoisted_3$c),
+            }, [
+              createTextVNode(toDisplayString(file.name), 1),
+              file.status === "success" ? (openBlock(), createBlock(_component_svg_icon, {
+                key: 0,
+                class: "el-icon--right",
+                "icon-class": "el-check"
+              })) : createCommentVNode("", true)
+            ], 8, _hoisted_3$c),
             !$props.field.options.disabled ? (openBlock(), createElementBlock("span", {
               key: 0,
               class: "file-action",
@@ -5316,9 +5311,9 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
       }, 8, ["disabled", "style", "action", "name", "headers", "data", "with-credentials", "multiple", "file-list", "show-file-list", "class", "limit", "on-exceed", "before-upload", "on-success", "on-error"])
     ]),
     _: 1
-  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
+  }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id", "on-change"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-0db05296"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-69b8039d"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -31533,12 +31528,9 @@ const _sfc_main$m = {
                 let uploadData = this.formDataModel[key];
                 if (!uploadData)
                   continue;
-                for (const fileKey in uploadData) {
-                  const file = uploadData[fileKey];
-                  if (!file) {
-                    callback2(this.formDataModel, this.$t("render.hint.fileLoading"));
-                    throw new Error("upload data is loading");
-                  }
+                if (fieldRef.field.options.totalFileList > uploadData.length) {
+                  callback2(this.formDataModel, this.$t("render.hint.fileLoading"));
+                  throw new Error("upload data is loading");
                 }
               }
             }
@@ -31775,7 +31767,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-d934a186"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-824bce00"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -32001,13 +31993,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747723247206__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747727779150__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747723247206__";
+      svgDom.id = "__svg__icons__dom__1747727779150__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
