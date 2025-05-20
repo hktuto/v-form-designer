@@ -31522,33 +31522,34 @@ const _sfc_main$m = {
       this.$refs["renderForm"].validate((valid) => {
         var _a2;
         if (valid) {
-          try {
-            for (let key in this.widgetRefList) {
-              const fieldRef = this.widgetRefList[key];
-              if (((_a2 = fieldRef.field) == null ? void 0 : _a2.type) === "file-upload") {
-                let uploadData = this.formDataModel[key];
-                console.log(fieldRef.field.options.totalFileList);
-                if (!uploadData) {
-                  if (fieldRef.field.options.totalFileList > 0) {
-                    throw new Error("render.hint.fileLoading");
-                  } else
-                    continue;
-                }
-                const successLen = uploadData.reduce((prev, item) => {
-                  if (item.status === "success")
-                    prev++;
-                  return prev;
-                }, 0);
-                if (fieldRef.field.options.totalFileList > successLen) {
-                  throw new Error("render.hint.fileLoading");
-                }
+          let isUploadSuccess = true;
+          for (let key in this.widgetRefList) {
+            const fieldRef = this.widgetRefList[key];
+            if (((_a2 = fieldRef.field) == null ? void 0 : _a2.type) === "file-upload") {
+              let uploadData = this.formDataModel[key];
+              console.log(fieldRef.field.options.totalFileList);
+              if (!uploadData) {
+                if (fieldRef.field.options.totalFileList > 0) {
+                  isUploadSuccess = false;
+                  break;
+                } else
+                  continue;
+              }
+              const successLen = uploadData.reduce((prev, item) => {
+                if (item.status === "success")
+                  prev++;
+                return prev;
+              }, 0);
+              if (fieldRef.field.options.totalFileList > successLen) {
+                isUploadSuccess = false;
+                break;
               }
             }
-            callback2(this.formDataModel);
-          } catch (error) {
-            callback2(this.formDataModel, this.$t("render.hint.fileLoading"));
-            throw new Error(error);
           }
+          if (isUploadSuccess)
+            callback2(this.formDataModel);
+          else
+            callback2(this.formDataModel, this.$t("render.hint.fileLoading"));
         } else {
           callback2(this.formDataModel, this.$t("render.hint.validationFailed"));
         }
@@ -31778,7 +31779,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-799969ea"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-3dea8afa"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -32004,13 +32005,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747731391640__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747733104312__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747731391640__";
+      svgDom.id = "__svg__icons__dom__1747733104312__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

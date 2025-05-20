@@ -581,31 +581,30 @@ export default {
 
       this.$refs["renderForm"].validate((valid) => {
         if (valid) {
-          try {
-            for (let key in this.widgetRefList) {
-              const fieldRef = this.widgetRefList[key];
-              if (fieldRef.field?.type === "file-upload") {
-                let uploadData = this.formDataModel[key];
-                console.log(fieldRef.field.options.totalFileList);
-                if (!uploadData) {
-                  if (fieldRef.field.options.totalFileList > 0) {
-                    throw new Error("render.hint.fileLoading");
-                  } else continue;
-                }
-                const successLen = uploadData.reduce((prev, item) => {
-                  if (item.status === "success") prev++;
-                  return prev;
-                }, 0);
-                if (fieldRef.field.options.totalFileList > successLen) {
-                  throw new Error("render.hint.fileLoading");
-                }
+          let isUploadSuccess = true;
+          for (let key in this.widgetRefList) {
+            const fieldRef = this.widgetRefList[key];
+            if (fieldRef.field?.type === "file-upload") {
+              let uploadData = this.formDataModel[key];
+              console.log(fieldRef.field.options.totalFileList);
+              if (!uploadData) {
+                if (fieldRef.field.options.totalFileList > 0) {
+                  isUploadSuccess = false;
+                  break;
+                } else continue;
+              }
+              const successLen = uploadData.reduce((prev, item) => {
+                if (item.status === "success") prev++;
+                return prev;
+              }, 0);
+              if (fieldRef.field.options.totalFileList > successLen) {
+                isUploadSuccess = false;
+                break;
               }
             }
-            callback(this.formDataModel);
-          } catch (error) {
-            callback(this.formDataModel, this.$t("render.hint.fileLoading"));
-            throw new Error(error);
           }
+          if (isUploadSuccess) callback(this.formDataModel);
+          else callback(this.formDataModel, this.$t("render.hint.fileLoading"));
         } else {
           callback(this.formDataModel, this.$t("render.hint.validationFailed"));
         }
