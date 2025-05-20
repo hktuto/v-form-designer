@@ -245,7 +245,26 @@ export default {
           message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + ' ' + this.i18nt('render.hint.fieldRequired')
         })
       }
-
+      console.log(this.field);
+      if (!!this.field.type === 'file-upload') {
+        const fieldModel = this.formModel[this.field.options.name]
+        console.log(fieldModel);
+        this.rules.push({
+          validator: (rule, value, callback, defaultErrorMsg) => {
+            try {
+              Object.keys(fieldModel).forEach(key => {
+                if (!fieldModel[key]) throw new Error(key)
+              })
+              callback()
+            } catch (error) {
+              callback('data no upload', error)
+            }
+          },
+          trigger: ['blur', 'change'],
+          label: this.field.options.label,
+          errorMsg: translate(this.field.options.validationHint)
+        })
+      }
       if (!!this.field.options.validation) {
         let vldName = this.field.options.validation
         if (!!FormValidators[vldName]) {
