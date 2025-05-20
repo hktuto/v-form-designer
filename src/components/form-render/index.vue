@@ -587,22 +587,23 @@ export default {
               if (fieldRef.field?.type === "file-upload") {
                 let uploadData = this.formDataModel[key];
                 console.log(fieldRef.field.options.totalFileList);
-                if (!uploadData) continue;
-                const successLen = uploadData.reduce((prev,item) => {
-                  if(item.status === 'success') prev ++
-                  return prev
-                }, 0)
+                if (!uploadData) {
+                  if (fieldRef.field.options.totalFileList > 0) {
+                    throw new Error("render.hint.fileLoading");
+                  } else continue;
+                }
+                const successLen = uploadData.reduce((prev, item) => {
+                  if (item.status === "success") prev++;
+                  return prev;
+                }, 0);
                 if (fieldRef.field.options.totalFileList > successLen) {
-                  callback(
-                    this.formDataModel,
-                    this.$t("render.hint.fileLoading")
-                  );
                   throw new Error("render.hint.fileLoading");
                 }
               }
             }
             callback(this.formDataModel);
           } catch (error) {
+            callback(this.formDataModel, this.$t("render.hint.fileLoading"));
             throw new Error(error);
           }
         } else {
