@@ -31524,8 +31524,28 @@ const _sfc_main$m = {
         };
       });
       this.$refs["renderForm"].validate((valid) => {
+        var _a2;
         if (valid) {
-          callback2(this.formDataModel);
+          try {
+            for (let key in this.widgetRefList) {
+              const fieldRef = this.widgetRefList[key];
+              if (((_a2 = fieldRef.field) == null ? void 0 : _a2.type) === "file-upload") {
+                let uploadData = this.formDataModel[key];
+                if (!uploadData)
+                  continue;
+                for (const fileKey in uploadData) {
+                  const file = uploadData[fileKey];
+                  if (!file) {
+                    callback2(this.formDataModel, this.$t("render.hint.fileLoading"));
+                    throw new Error("upload data is loading");
+                  }
+                }
+              }
+            }
+            callback2(this.formDataModel);
+          } catch (error) {
+            throw new Error(error);
+          }
         } else {
           callback2(this.formDataModel, this.$t("render.hint.validationFailed"));
         }
@@ -31755,7 +31775,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-ca4cee72"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-d934a186"]]);
 var _export_sfc = (sfc, props) => {
   const target = sfc.__vccOpts || sfc;
   for (const [key, val] of props) {
@@ -31981,13 +32001,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747717989567__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747723247206__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747717989567__";
+      svgDom.id = "__svg__icons__dom__1747723247206__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -62,7 +62,7 @@
 import emitter from "@/utils/emitter";
 import "./container-item/index";
 import FieldComponents from "@/components/form-designer/form-widget/field-widget/index";
-import { handleDhList } from '@/extension/changeSetting/dhListHelper'
+import { handleDhList } from "@/extension/changeSetting/dhListHelper";
 import {
   generateId,
   deepClone,
@@ -377,7 +377,7 @@ export default {
       subFormRowIndex
     ) {
       if (!!this.formConfig && !!this.formConfig.dhList) {
-        handleDhList(fieldName, this.formConfig.dhList, this.getWidgetRef)
+        handleDhList(fieldName, this.formConfig.dhList, this.getWidgetRef);
       }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
         let customFunc = new Function(
@@ -581,7 +581,28 @@ export default {
 
       this.$refs["renderForm"].validate((valid) => {
         if (valid) {
-          callback(this.formDataModel);
+          try {
+            for (let key in this.widgetRefList) {
+              const fieldRef = this.widgetRefList[key];
+              if (fieldRef.field?.type === "file-upload") {
+                let uploadData = this.formDataModel[key];
+                if(!uploadData) continue
+                for (const fileKey in uploadData) {
+                  const file = uploadData[fileKey]
+                  if (!file) {
+                    callback(
+                      this.formDataModel,
+                      this.$t("render.hint.fileLoading")
+                    );
+                    throw new Error("upload data is loading");
+                  }
+                }
+              }
+            }
+            callback(this.formDataModel);
+          } catch (error) {
+            throw new Error(error);
+          }
         } else {
           callback(this.formDataModel, this.$t("render.hint.validationFailed"));
         }
