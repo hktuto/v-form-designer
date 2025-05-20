@@ -5080,36 +5080,12 @@ var fieldMixin = {
       if (!this.field.formItemFlag && this.field.options.hidden) {
         return;
       }
-      const _this = this;
       this.rules.splice(0, this.rules.length);
       if (!!this.field.options.required) {
         this.rules.push({
           required: true,
           trigger: ["blur"],
           message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + " " + this.i18nt("render.hint.fieldRequired")
-        });
-      }
-      console.log(this.field);
-      if (this.field.type === "file-upload") {
-        this.rules.push({
-          validator: (rule2, value2, callback2, defaultErrorMsg2) => {
-            const fieldModel = _this.formModel[_this.field.options.name];
-            console.log(fieldModel);
-            if (!fieldModel)
-              callback2();
-            try {
-              Object.keys(fieldModel).forEach((key) => {
-                if (!fieldModel[key])
-                  throw new Error(key);
-              });
-              callback2();
-            } catch (error) {
-              callback2("data no upload", error);
-            }
-          },
-          trigger: ["blur", "change"],
-          label: this.field.options.label,
-          errorMsg: translate(this.field.options.validationHint)
         });
       }
       if (!!this.field.options.validation) {
@@ -5139,6 +5115,25 @@ var fieldMixin = {
         this.rules.push({
           validator: customFn,
           trigger: ["blur", "change"],
+          label: this.field.options.label
+        });
+      }
+      if (this.field.type === "file-upload") {
+        const uploadValidFn = (rule2, value2, callback2) => {
+          if (!value2)
+            callback2();
+          try {
+            Object.keys(value2).forEach((key) => {
+              if (!value2[key])
+                throw new Error(key);
+            });
+            callback2();
+          } catch (error) {
+            callback2("data no upload", error);
+          }
+        };
+        this.rules.push({
+          validator: uploadValidFn,
           label: this.field.options.label
         });
       }
@@ -6745,15 +6740,12 @@ const _sfc_main$3w = {
     },
     handlePreview(file) {
       this.emit$("filePreview", { file, options: this.field.options });
-      this.dispatch("VFormRender", "filePreview", {
-        file,
-        options: this.field.options
-      });
+      this.dispatch("VFormRender", "filePreview", { file, options: this.field.options });
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
       if (cookieToken)
-        this.uploadHeaders = { Authorization: `Bearer ${cookieToken}` };
+        this.uploadHeaders = { "Authorization": `Bearer ${cookieToken}` };
     },
     getCookie(name) {
       var strCookies = document.cookie;
@@ -6796,7 +6788,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
         ref: "fieldEditor",
         disabled: $props.field.options.disabled,
         style: normalizeStyle($data.styleVariables),
-        class: normalizeClass(["dynamicPseudoAfter", { hideUploadDiv: $data.uploadBtnHidden }]),
+        class: normalizeClass(["dynamicPseudoAfter", { "hideUploadDiv": $data.uploadBtnHidden }]),
         action: $options.realUploadURL,
         name: $props.field.options.uploadName,
         headers: $data.uploadHeaders,
@@ -6841,7 +6833,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-4e69a446"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-0db05296"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -78533,13 +78525,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747709244379__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747717958094__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747709244379__";
+      svgDom.id = "__svg__icons__dom__1747717958094__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

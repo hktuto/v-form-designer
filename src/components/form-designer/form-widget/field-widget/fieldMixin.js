@@ -245,27 +245,7 @@ export default {
           message: this.field.options.requiredHint ? this.i18nt(this.field.options.requiredHint) : this.i18nt(this.field.options.label) + ' ' + this.i18nt('render.hint.fieldRequired')
         })
       }
-      console.log(this.field);
-      if (this.field.type === 'file-upload') {
-        this.rules.push({
-          validator: (rule, value, callback, defaultErrorMsg) => {
-            const fieldModel = _this.formModel[_this.field.options.name]
-            console.log(fieldModel);
-            if (!fieldModel) callback()
-            try {
-              Object.keys(fieldModel).forEach(key => {
-                if (!fieldModel[key]) throw new Error(key)
-              })
-              callback()
-            } catch (error) {
-              callback('data no upload', error)
-            }
-          },
-          trigger: ['blur', 'change'],
-          label: this.field.options.label,
-          errorMsg: translate(this.field.options.validationHint)
-        })
-      }
+
       if (!!this.field.options.validation) {
         let vldName = this.field.options.validation
         if (!!FormValidators[vldName]) {
@@ -295,6 +275,23 @@ export default {
           validator: customFn,
           trigger: ['blur', 'change'],
           label: this.field.options.label
+        })
+      }
+      if (this.field.type === 'file-upload') {
+        const uploadValidFn = (rule, value, callback) => {
+          if (!value) callback()
+          try {
+            Object.keys(value).forEach(key => {
+              if (!value[key]) throw new Error(key)
+            })
+            callback()
+          } catch (error) {
+            callback('data no upload', error)
+          }
+        }
+        this.rules.push({
+          validator: uploadValidFn,
+          label: this.field.options.label,
         })
       }
     },
