@@ -246,11 +246,12 @@ export default {
         })
       }
       console.log(this.field);
-      if (!!this.field.type === 'file-upload') {
-        const fieldModel = this.formModel[this.field.options.name]
-        console.log(fieldModel);
+      if (this.field.type === 'file-upload') {
         this.rules.push({
           validator: (rule, value, callback, defaultErrorMsg) => {
+            const fieldModel = this.formModel[this.field.options.name]
+            console.log(fieldModel);
+            if (!fieldModel) callback()
             try {
               Object.keys(fieldModel).forEach(key => {
                 if (!fieldModel[key]) throw new Error(key)
