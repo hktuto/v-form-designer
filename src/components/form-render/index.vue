@@ -74,6 +74,7 @@ import {
   buildDefaultFormJson,
 } from "@/utils/util";
 import i18n, { changeLocale } from "@/utils/i18n";
+import { CGTryCatch } from "@/utils/util"
 export default {
   name: "VFormRender",
   componentName: "VFormRender",
@@ -387,7 +388,7 @@ export default {
           "formModel",
           "subFormName",
           "subFormRowIndex",
-          this.formConfig.onFormDataChange
+          CGTryCatch(this.formConfig.onFormDataChange)
         );
         customFunc.call(
           this,
@@ -403,14 +404,15 @@ export default {
 
     handleOnCreated() {
       if (!!this.formConfig && !!this.formConfig.onFormCreated) {
-        let customFunc = new Function(this.formConfig.onFormCreated);
+        let customFunc = new Function(CGTryCatch(this.formConfig.onFormCreated));
+        console.log(customFunc)
         customFunc.call(this);
       }
     },
 
     handleOnMounted() {
       if (!!this.formConfig && !!this.formConfig.onFormMounted) {
-        let customFunc = new Function(this.formConfig.onFormMounted);
+        let customFunc = new Function(CGTryCatch(this.formConfig.onFormMounted));
         customFunc.call(this);
       }
     },

@@ -8,6 +8,9 @@ export function isNotNull(value) {
   return (value !== null) && (value !== undefined);
 }
 
+export function CGTryCatch(code) {
+  return `try{${code}}catch(error){console.error(error)}`
+}
 export function isEmptyStr(str) {
   //return (str === undefined) || (!str) || (!/[^\s]/.test(str));
   return (str === undefined) || (!str && (str !== 0) && (str !== '0')) || (!/[^\s]/.test(str));

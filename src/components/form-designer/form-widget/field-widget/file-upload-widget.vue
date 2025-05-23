@@ -50,7 +50,12 @@
             :title="file.name"
             @click="handlePreview(file)"
           >
-            {{ file.name }}<svg-icon v-if="file.status === 'success'" class="el-icon--right" icon-class="el-check" />
+            {{ file.name
+            }}<svg-icon
+              v-if="file.status === 'success'"
+              class="el-icon--right"
+              icon-class="el-check"
+            />
           </span>
           <!-- <a :href="file.url" download="" target="_blank">
             <span class="el-icon-download file-action" :title="$t('render.hint.downloadFile')">
@@ -74,7 +79,7 @@
 import FormItemWrapper from "./form-item-wrapper";
 import emitter from "@/utils/emitter";
 import i18n, { translate } from "@/utils/i18n";
-import { deepClone, evalFn } from "@/utils/util";
+import { deepClone, evalFn, CGTryCatch } from "@/utils/util";
 import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
 import SvgIcon from "@/components/svg-icon/index";
 
@@ -245,7 +250,7 @@ export default {
 
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
-        let bfFunc = new Function("file", this.field.options.onBeforeUpload);
+        let bfFunc = new Function("file", CGTryCatch(this.field.options.onBeforeUpload));
         let result = bfFunc.call(this, file);
         if (typeof result === "boolean") {
           return result;
@@ -293,7 +298,7 @@ export default {
             "result",
             "file",
             "fileList",
-            this.field.options.onUploadSuccess
+            CGTryCatch(this.field.options.onUploadSuccess)
           );
           customResult = mountFunc.call(this, res, file, fileList);
         }
@@ -350,7 +355,7 @@ export default {
           let customFn = new Function(
             "file",
             "fileList",
-            this.field.options.onFileRemove
+            CGTryCatch(this.field.options.onFileRemove)
           );
           customFn.call(this, foundFile, this.fileList);
         }
@@ -363,7 +368,7 @@ export default {
           "error",
           "file",
           "fileList",
-          this.field.options.onUploadError
+          CGTryCatch(this.field.options.onUploadError)
         );
         customFn.call(this, err, file, fileList);
       } else {
@@ -381,10 +386,10 @@ export default {
         options: this.field.options,
       });
     },
-    handleOnChange(file,fileList) {
-      console.log(JSON.parse(JSON.stringify(fileList)))
+    handleOnChange(file, fileList) {
+      console.log(JSON.parse(JSON.stringify(fileList)));
       this.field.options.totalFileList = fileList?.length || 0;
-    },  
+    },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
       if (cookieToken)

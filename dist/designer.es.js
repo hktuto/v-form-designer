@@ -1565,6 +1565,9 @@ function isNull(value2) {
 function isNotNull(value2) {
   return value2 !== null && value2 !== void 0;
 }
+function CGTryCatch(code) {
+  return `try{${code}}catch(error){console.error(error)}`;
+}
 function isEmptyStr(str) {
   return str === void 0 || !str && str !== 0 && str !== "0" || !/[^\s]/.test(str);
 }
@@ -5011,17 +5014,17 @@ var fieldMixin = {
         isReady = true;
       }, 500);
       if (!!this.field.options.onCreated) {
-        let customFunc = new Function(this.field.options.onCreated);
+        let customFunc = new Function(CGTryCatch(this.field.options.onCreated));
         customFunc.call(this);
       }
       if (!!this.field.options.onCreatedPlus) {
-        let customPlusFunc = new Function(this.field.options.onCreatedPlus);
+        let customPlusFunc = new Function(CGTryCatch(this.field.options.onCreatedPlus));
         customPlusFunc.call(this);
       }
     },
     handleOnMounted() {
       if (!!this.field.options.onMounted) {
-        let mountFunc = new Function(this.field.options.onMounted);
+        let mountFunc = new Function(CGTryCatch(this.field.options.onMounted));
         mountFunc.call(this);
       }
     },
@@ -5109,7 +5112,7 @@ var fieldMixin = {
       }
       if (!!this.field.options.onValidate) {
         let customFn = (rule2, value2, callback2) => {
-          let tmpFunc = new Function("rule", "value", "callback", this.field.options.onValidate);
+          let tmpFunc = new Function("rule", "value", "callback", CGTryCatch(this.field.options.onValidate));
           return tmpFunc.call(this, rule2, value2, callback2);
         };
         this.rules.push({
@@ -5185,19 +5188,19 @@ var fieldMixin = {
     handleFocusCustomEvent(event) {
       this.oldFieldValue = deepClone(this.fieldModel);
       if (!!this.field.options.onFocus) {
-        let customFn = new Function("event", this.field.options.onFocus);
+        let customFn = new Function("event", CGTryCatch(this.field.options.onFocus));
         customFn.call(this, event);
       }
     },
     handleEnterEvent(event) {
       if (!!this.field.options.onEnter) {
-        let customFn = new Function("event", this.field.options.onEnter);
+        let customFn = new Function("event", CGTryCatch(this.field.options.onEnter));
         customFn.call(this, event);
       }
     },
     handleBlurCustomEvent(event) {
       if (!!this.field.options.onBlur) {
-        let customFn = new Function("event", this.field.options.onBlur);
+        let customFn = new Function("event", CGTryCatch(this.field.options.onBlur));
         customFn.call(this, event);
       }
     },
@@ -5205,7 +5208,7 @@ var fieldMixin = {
       this.syncUpdateFormModel(value2);
       this.dispatch("VFormRender", "fieldValidation", [this.getPropName()]);
       if (!!this.field.options.onInput) {
-        let customFn = new Function("value", this.field.options.onInput);
+        let customFn = new Function("value", CGTryCatch(this.field.options.onInput));
         customFn.call(this, value2);
       }
     },
@@ -5214,7 +5217,7 @@ var fieldMixin = {
         return;
       }
       if (!!this.field.options.onAppendButtonClick) {
-        let customFn = new Function(this.field.options.onAppendButtonClick);
+        let customFn = new Function(CGTryCatch(this.field.options.onAppendButtonClick));
         customFn.call(this);
       } else {
         this.dispatch("VFormRender", "appendButtonClick", [this]);
@@ -5222,21 +5225,21 @@ var fieldMixin = {
     },
     handleOnChange(val, oldVal) {
       if (!!this.field.options.onChange) {
-        let changeFn = new Function("value", "oldValue", this.field.options.onChange);
+        let changeFn = new Function("value", "oldValue", CGTryCatch(this.field.options.onChange));
         changeFn.call(this, val, oldVal);
       }
       if (!!this.field.options.onChangePlus) {
-        let changePlusFn = new Function("value", "oldValue", this.field.options.onChangePlus);
+        let changePlusFn = new Function("value", "oldValue", CGTryCatch(this.field.options.onChangePlus));
         changePlusFn.call(this, val, oldVal);
       }
     },
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {
       if (!!this.field.options.onChange) {
-        let changeFn = new Function("value", "oldValue", "subFormData", "rowId", this.field.options.onChange);
+        let changeFn = new Function("value", "oldValue", "subFormData", "rowId", CGTryCatch(this.field.options.onChange));
         changeFn.call(this, val, oldVal, subFormData, rowId);
       }
       if (!!this.field.options.onChangePlus) {
-        let changePlusFn = new Function("value", "oldValue", this.field.options.onChangePlus);
+        let changePlusFn = new Function("value", "oldValue", CGTryCatch(this.field.options.onChangePlus));
         changePlusFn.call(this, val, oldVal, subFormData, rowId);
       }
     },
@@ -5245,7 +5248,7 @@ var fieldMixin = {
         return;
       }
       if (!!this.field.options.onClick) {
-        let changeFn = new Function(this.field.options.onClick);
+        let changeFn = new Function(CGTryCatch(this.field.options.onClick));
         changeFn.call(this);
       } else {
         this.dispatch("VFormRender", "buttonClick", [this]);
@@ -5253,36 +5256,36 @@ var fieldMixin = {
     },
     remoteQuery(keyword) {
       if (!!this.field.options.onRemoteQuery) {
-        let remoteFn = new Function("keyword", this.field.options.onRemoteQuery);
+        let remoteFn = new Function("keyword", CGTryCatch(this.field.options.onRemoteQuery));
         remoteFn.call(this, keyword);
       }
     },
     querySearchAsync(queryString, cb2) {
       if (!!this.field.options.onQuerySearchAsync) {
-        new Function("queryString", "cb", this.field.options.onQuerySearchAsync);
+        new Function("queryString", "cb", CGTryCatch(this.field.options.onQuerySearchAsync));
       }
     },
     onShortcutsFn() {
       if (!!this.field.options.onShortcuts) {
-        let fn2 = new Function("", this.field.options.onShortcuts);
+        let fn2 = new Function("", CGTryCatch(this.field.options.onShortcuts));
         return fn2.call(this);
       }
     },
     disabledDateFn(dateTime) {
       if (!!this.field.options.onDisabledDate) {
-        let fn2 = new Function("dateTime", this.field.options.onDisabledDate);
+        let fn2 = new Function("dateTime", CGTryCatch(this.field.options.onDisabledDate));
         return fn2.call(this, dateTime);
       }
     },
     disabledHourFn() {
       if (!!this.field.options.onDisabledHour) {
-        let remoteFn = new Function(this.field.options.onDisabledHour);
+        let remoteFn = new Function(CGTryCatch(this.field.options.onDisabledHour));
         remoteFn.call(this);
       }
     },
     disabledMinuteFn() {
       if (!!this.field.options.onDisabledMinute) {
-        let remoteFn = new Function(this.field.options.onDisabledMinute);
+        let remoteFn = new Function(CGTryCatch(this.field.options.onDisabledMinute));
         remoteFn.call(this);
       }
     },
@@ -5922,7 +5925,7 @@ const _sfc_main$3C = {
   methods: {
     getLazy(node, resolve) {
       if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
+        let remoteFn = new Function("node", "resolve", CGTryCatch(this.field.options.onLazyLoad));
         remoteFn.call(this, node, resolve);
       }
     }
@@ -5967,7 +5970,7 @@ function _sfc_render$3C(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3C, [["render", _sfc_render$3C], ["__scopeId", "data-v-142d17ca"]]);
+var cascaderWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3C, [["render", _sfc_render$3C], ["__scopeId", "data-v-889455b2"]]);
 var __glob_0_1$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": cascaderWidget
@@ -6632,7 +6635,7 @@ const _sfc_main$3w = {
     },
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
-        let bfFunc = new Function("file", this.field.options.onBeforeUpload);
+        let bfFunc = new Function("file", CGTryCatch(this.field.options.onBeforeUpload));
         let result = bfFunc.call(this, file);
         if (typeof result === "boolean") {
           return result;
@@ -6664,7 +6667,7 @@ const _sfc_main$3w = {
       if (file.status === "success") {
         let customResult = null;
         if (!!this.field.options.onUploadSuccess) {
-          let mountFunc = new Function("result", "file", "fileList", this.field.options.onUploadSuccess);
+          let mountFunc = new Function("result", "file", "fileList", CGTryCatch(this.field.options.onUploadSuccess));
           customResult = mountFunc.call(this, res, file, fileList);
         }
         this.updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, res);
@@ -6702,14 +6705,14 @@ const _sfc_main$3w = {
         this.updateFieldModelAndEmitDataChangeForRemove(foundIdx, this.fileList);
         this.uploadBtnHidden = this.fileList.length >= this.field.options.limit;
         if (!!this.field.options.onFileRemove) {
-          let customFn = new Function("file", "fileList", this.field.options.onFileRemove);
+          let customFn = new Function("file", "fileList", CGTryCatch(this.field.options.onFileRemove));
           customFn.call(this, foundFile, this.fileList);
         }
       }
     },
     handleUploadError(err, file, fileList) {
       if (!!this.field.options.onUploadError) {
-        let customFn = new Function("error", "file", "fileList", this.field.options.onUploadError);
+        let customFn = new Function("error", "file", "fileList", CGTryCatch(this.field.options.onUploadError));
         customFn.call(this, err, file, fileList);
       } else {
         this.$message({
@@ -6829,7 +6832,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-0cb48d9c"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-0adbfd56"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -7265,7 +7268,7 @@ const _sfc_main$3s = {
     },
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
-        let bfFunc = new Function("file", this.field.options.onBeforeUpload);
+        let bfFunc = new Function("file", CGTryCatch(this.field.options.onBeforeUpload));
         let result = bfFunc.call(this, file);
         if (typeof result === "boolean") {
           return result;
@@ -7297,7 +7300,7 @@ const _sfc_main$3s = {
       if (file.status === "success") {
         let customResult = null;
         if (!!this.field.options.onUploadSuccess) {
-          let customFn = new Function("result", "file", "fileList", this.field.options.onUploadSuccess);
+          let customFn = new Function("result", "file", "fileList", CGTryCatch(this.field.options.onUploadSuccess));
           customResult = customFn.call(this, res, file, fileList);
         }
         this.updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, res);
@@ -7329,13 +7332,13 @@ const _sfc_main$3s = {
       let fileList = deepClone(this.fileList);
       this.uploadBtnHidden = fileList.length >= this.field.options.limit;
       if (!!this.field.options.onFileRemove) {
-        let customFn = new Function("file", "fileList", this.field.options.onFileRemove);
+        let customFn = new Function("file", "fileList", CGTryCatch(this.field.options.onFileRemove));
         customFn.call(this, file, fileList);
       }
     },
     handleUploadError(err, file, fileList) {
       if (!!this.field.options.onUploadError) {
-        let customFn = new Function("error", "file", "fileList", this.field.options.onUploadError);
+        let customFn = new Function("error", "file", "fileList", CGTryCatch(this.field.options.onUploadError));
         customFn.call(this, err, file, fileList);
       } else {
         this.$message({
@@ -7465,7 +7468,7 @@ function _sfc_render$3s(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3s, [["render", _sfc_render$3s], ["__scopeId", "data-v-56753bb9"]]);
+var pictureUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3s, [["render", _sfc_render$3s], ["__scopeId", "data-v-c05ea1ca"]]);
 var __glob_0_12$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": pictureUploadWidget
@@ -32114,25 +32117,25 @@ const _sfc_main$3c = {
     },
     handleSubFormRowChange(subFormData) {
       if (!!this.widget.options.onSubFormRowChange) {
-        let customFunc = new Function("subFormData", this.widget.options.onSubFormRowChange);
+        let customFunc = new Function("subFormData", CGTryCatch(this.widget.options.onSubFormRowChange));
         customFunc.call(this, subFormData);
       }
     },
     handleSubFormRowAdd(subFormData, newRowId) {
       if (!!this.widget.options.onSubFormRowAdd) {
-        let customFunc = new Function("subFormData", "newRowId", this.widget.options.onSubFormRowAdd);
+        let customFunc = new Function("subFormData", "newRowId", CGTryCatch(this.widget.options.onSubFormRowAdd));
         customFunc.call(this, subFormData, newRowId);
       }
     },
     handleSubFormRowInsert(subFormData, newRowId) {
       if (!!this.widget.options.onSubFormRowInsert) {
-        let customFunc = new Function("subFormData", "newRowId", this.widget.options.onSubFormRowInsert);
+        let customFunc = new Function("subFormData", "newRowId", CGTryCatch(this.widget.options.onSubFormRowInsert));
         customFunc.call(this, subFormData, newRowId);
       }
     },
     handleSubFormRowDelete(subFormData, deletedDataRow) {
       if (!!this.widget.options.onSubFormRowDelete) {
-        let customFunc = new Function("subFormData", "deletedDataRow", this.widget.options.onSubFormRowDelete);
+        let customFunc = new Function("subFormData", "deletedDataRow", CGTryCatch(this.widget.options.onSubFormRowDelete));
         customFunc.call(this, subFormData, deletedDataRow);
       }
     }
@@ -32318,7 +32321,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-2ea92fd9"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-24d5b3ed"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -32891,19 +32894,20 @@ const _sfc_main$38 = {
         handleDhList(fieldName2, this.formConfig.dhList, this.getWidgetRef);
       }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
-        let customFunc = new Function("fieldName", "newValue", "oldValue", "formModel", "subFormName", "subFormRowIndex", this.formConfig.onFormDataChange);
+        let customFunc = new Function("fieldName", "newValue", "oldValue", "formModel", "subFormName", "subFormRowIndex", CGTryCatch(this.formConfig.onFormDataChange));
         customFunc.call(this, fieldName2, newValue, oldValue, this.formDataModel, subFormName, subFormRowIndex);
       }
     },
     handleOnCreated() {
       if (!!this.formConfig && !!this.formConfig.onFormCreated) {
-        let customFunc = new Function(this.formConfig.onFormCreated);
+        let customFunc = new Function(CGTryCatch(this.formConfig.onFormCreated));
+        console.log(customFunc);
         customFunc.call(this);
       }
     },
     handleOnMounted() {
       if (!!this.formConfig && !!this.formConfig.onFormMounted) {
-        let customFunc = new Function(this.formConfig.onFormMounted);
+        let customFunc = new Function(CGTryCatch(this.formConfig.onFormMounted));
         customFunc.call(this);
       }
     },
@@ -33294,7 +33298,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-3dea8afa"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-60955c5a"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -78549,13 +78553,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1747733085073__");
+    var svgDom = document.getElementById("__svg__icons__dom__1747993866532__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1747733085073__";
+      svgDom.id = "__svg__icons__dom__1747993866532__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
@@ -80538,7 +80542,7 @@ const _sfc_main$7 = {
   methods: {
     handleCloseCustomEvent() {
       if (!!this.field.options.onClose) {
-        let changeFn = new Function(this.field.options.onClose);
+        let changeFn = new Function(CGTryCatch(this.field.options.onClose));
         changeFn.call(this);
       }
     }

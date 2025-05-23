@@ -149,7 +149,7 @@
 <script>
 import emitter from "@/utils/emitter";
 import i18n from "@/utils/i18n";
-import { deepClone, generateId } from "@/utils/util";
+import { deepClone, generateId, CGTryCatch } from "@/utils/util";
 import refMixin from "../refMixin";
 import ContainerItemWrapper from "./container-item-wrapper";
 import containerItemMixin from "./containerItemMixin";
@@ -410,7 +410,7 @@ export default {
       if (!!this.widget.options.onSubFormRowChange) {
         let customFunc = new Function(
           "subFormData",
-          this.widget.options.onSubFormRowChange
+          CGTryCatch(this.widget.options.onSubFormRowChange)
         );
         customFunc.call(this, subFormData);
       }
@@ -421,7 +421,7 @@ export default {
         let customFunc = new Function(
           "subFormData",
           "newRowId",
-          this.widget.options.onSubFormRowAdd
+          CGTryCatch(this.widget.options.onSubFormRowAdd)
         );
         customFunc.call(this, subFormData, newRowId);
       }
@@ -432,7 +432,7 @@ export default {
         let customFunc = new Function(
           "subFormData",
           "newRowId",
-          this.widget.options.onSubFormRowInsert
+          CGTryCatch(this.widget.options.onSubFormRowInsert)
         );
         customFunc.call(this, subFormData, newRowId);
       }
@@ -443,7 +443,7 @@ export default {
         let customFunc = new Function(
           "subFormData",
           "deletedDataRow",
-          this.widget.options.onSubFormRowDelete
+          CGTryCatch(this.widget.options.onSubFormRowDelete)
         );
         customFunc.call(this, subFormData, deletedDataRow);
       }
