@@ -403,10 +403,12 @@ export default {
       });
     },
     handleOnChange(file, fileList) {
-      console.log(JSON.parse(JSON.stringify(fileList)));
-      this.field.options.totalFileList = fileList?.length || 0;
+      console.log(file, JSON.parse(JSON.stringify(fileList)));
+      if(!!file) this.field.options.totalFileList = fileList?.length || 0;
     },
     handleOnRemove() {
+      console.log('eerror');
+      
       this.field.options.totalFileList =
         this.field.options.totalFileList > 0
           ? this.field.options.totalFileList - 1
