@@ -74,7 +74,7 @@ import {
   buildDefaultFormJson,
 } from "@/utils/util";
 import i18n, { changeLocale } from "@/utils/i18n";
-import { CGTryCatch } from "@/utils/util"
+import { CGTryCatch } from "@/utils/util";
 export default {
   name: "VFormRender",
   componentName: "VFormRender",
@@ -404,15 +404,19 @@ export default {
 
     handleOnCreated() {
       if (!!this.formConfig && !!this.formConfig.onFormCreated) {
-        let customFunc = new Function(CGTryCatch(this.formConfig.onFormCreated));
-        console.log(customFunc)
+        let customFunc = new Function(
+          CGTryCatch(this.formConfig.onFormCreated)
+        );
+        console.log(customFunc);
         customFunc.call(this);
       }
     },
 
     handleOnMounted() {
       if (!!this.formConfig && !!this.formConfig.onFormMounted) {
-        let customFunc = new Function(CGTryCatch(this.formConfig.onFormMounted));
+        let customFunc = new Function(
+          CGTryCatch(this.formConfig.onFormMounted)
+        );
         customFunc.call(this);
       }
     },
@@ -587,8 +591,9 @@ export default {
           for (let key in this.widgetRefList) {
             const fieldRef = this.widgetRefList[key];
             if (fieldRef.field?.type === "file-upload") {
+              if (!fieldRef.field.options.totalFileList) continue;
               let uploadData = this.formDataModel[key];
-              console.log(fieldRef.field.options.totalFileList);
+              console.log(fieldRef.field.options.totalFileList, {uploadData});
               if (!uploadData) {
                 if (fieldRef.field.options.totalFileList > 0) {
                   isUploadSuccess = false;

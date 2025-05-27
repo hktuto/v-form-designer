@@ -32,6 +32,7 @@
       :on-success="handleFileUpload"
       :on-error="handleUploadError"
       :on-change="handleOnChange"
+      :on-remove="handleOnChange"
     >
       <template #tip>
         <div class="el-upload__tip" v-if="!!field.options.uploadTip">
@@ -50,11 +51,20 @@
             :title="file.name"
             @click="handlePreview(file)"
           >
-            {{ file.name
-            }}<svg-icon
-              v-if="file.status === 'success'"
+            {{ file.name }}
+            <svg-icon v-if="file.status === 'success'"
+              style="color: var(--app-primary-color, var(--el-color-success))"
               class="el-icon--right"
-              icon-class="el-check"
+              icon-class="el-circle-check"
+            />
+            <svg-icon v-else-if="file.status === 'fail'"
+              style="color: var(--app-danger-color, var(--el-color-danger))"
+              class="el-icon--right"
+              icon-class="el-fail"
+            />
+            <svg-icon v-else-if="file.status === 'uploading'"
+              class="el-icon--right file-action loading"
+              icon-class="el-loading"
             />
           </span>
           <!-- <a :href="file.url" download="" target="_blank">
@@ -67,8 +77,9 @@
             :title="$t('render.hint.removeFile')"
             v-if="!field.options.disabled"
             @click="removeUploadFile(file.name, file.url, file.uid)"
-            ><svg-icon icon-class="el-delete"
-          /></span>
+          >
+            <svg-icon icon-class="el-delete" />
+          </span>
         </div>
       </template>
     </el-upload>
@@ -250,7 +261,10 @@ export default {
 
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
-        let bfFunc = new Function("file", CGTryCatch(this.field.options.onBeforeUpload));
+        let bfFunc = new Function(
+          "file",
+          CGTryCatch(this.field.options.onBeforeUpload)
+        );
         let result = bfFunc.call(this, file);
         if (typeof result === "boolean") {
           return result;
