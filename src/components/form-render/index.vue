@@ -591,23 +591,13 @@ export default {
           for (let key in this.widgetRefList) {
             const fieldRef = this.widgetRefList[key];
             if (fieldRef.field?.type === "file-upload") {
-              if (!fieldRef.field.options.totalFileList) continue;
               let uploadData = this.formDataModel[key];
-              console.log(fieldRef.field.options.totalFileList, { uploadData });
               if (!uploadData) {
-                if (fieldRef.field.options.totalFileList > 0) {
-                  isUploadSuccess = false;
-                  break;
-                } else continue;
+                continue;
               }
-              const successLen = uploadData.reduce((prev, item) => {
-                if (item.status === "success" || item.id) prev++;
-                return prev;
-              }, 0);
-              if (fieldRef.field.options.totalFileList > successLen) {
-                isUploadSuccess = false;
-                break;
-              }
+              uploadData.forEach((item) => {
+                if ((item.status && item.status === "uploading") && !item.id) isUploadSuccess = false;
+              });
             }
           }
           if (isUploadSuccess) callback(this.formDataModel);

@@ -31,8 +31,6 @@
       :before-upload="beforeFileUpload"
       :on-success="handleFileUpload"
       :on-error="handleUploadError"
-      :on-change="handleOnChange"
-      :on-remove="handleOnRemove"
     >
       <template #tip>
         <div class="el-upload__tip" v-if="!!field.options.uploadTip">
@@ -401,18 +399,6 @@ export default {
         file,
         options: this.field.options,
       });
-    },
-    handleOnChange(file, fileList) {
-      console.log(file, JSON.parse(JSON.stringify(fileList)));
-      if(!!file) this.field.options.totalFileList = fileList?.length || 0;
-    },
-    handleOnRemove() {
-      console.log('eerror');
-      
-      this.field.options.totalFileList =
-        this.field.options.totalFileList > 0
-          ? this.field.options.totalFileList - 1
-          : 0;
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");

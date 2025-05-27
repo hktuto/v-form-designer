@@ -6729,15 +6729,6 @@ const _sfc_main$3w = {
         options: this.field.options
       });
     },
-    handleOnChange(file, fileList) {
-      console.log(file, JSON.parse(JSON.stringify(fileList)));
-      if (!!file)
-        this.field.options.totalFileList = (fileList == null ? void 0 : fileList.length) || 0;
-    },
-    handleOnRemove() {
-      console.log("eerror");
-      this.field.options.totalFileList = this.field.options.totalFileList > 0 ? this.field.options.totalFileList - 1 : 0;
-    },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
       if (cookieToken)
@@ -6797,9 +6788,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
         "on-exceed": $options.handleFileExceed,
         "before-upload": $options.beforeFileUpload,
         "on-success": $options.handleFileUpload,
-        "on-error": $options.handleUploadError,
-        "on-change": $options.handleOnChange,
-        "on-remove": $options.handleOnRemove
+        "on-error": $options.handleUploadError
       }, {
         tip: withCtx(() => [
           !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$M, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
@@ -6843,12 +6832,12 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
           ])
         ]),
         _: 1
-      }, 8, ["disabled", "style", "action", "name", "headers", "data", "with-credentials", "multiple", "file-list", "show-file-list", "class", "limit", "on-exceed", "before-upload", "on-success", "on-error", "on-change", "on-remove"])
+      }, 8, ["disabled", "style", "action", "name", "headers", "data", "with-credentials", "multiple", "file-list", "show-file-list", "class", "limit", "on-exceed", "before-upload", "on-success", "on-error"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-8d51456a"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-56348aa2"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -33061,26 +33050,14 @@ const _sfc_main$38 = {
           for (let key in this.widgetRefList) {
             const fieldRef = this.widgetRefList[key];
             if (((_a2 = fieldRef.field) == null ? void 0 : _a2.type) === "file-upload") {
-              if (!fieldRef.field.options.totalFileList)
-                continue;
               let uploadData = this.formDataModel[key];
-              console.log(fieldRef.field.options.totalFileList, { uploadData });
               if (!uploadData) {
-                if (fieldRef.field.options.totalFileList > 0) {
+                continue;
+              }
+              uploadData.forEach((item) => {
+                if (item.status && item.status === "uploading" && !item.id)
                   isUploadSuccess = false;
-                  break;
-                } else
-                  continue;
-              }
-              const successLen = uploadData.reduce((prev, item) => {
-                if (item.status === "success" || item.id)
-                  prev++;
-                return prev;
-              }, 0);
-              if (fieldRef.field.options.totalFileList > successLen) {
-                isUploadSuccess = false;
-                break;
-              }
+              });
             }
           }
           if (isUploadSuccess)
@@ -33316,7 +33293,7 @@ function _sfc_render$38(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["label-position", "size", "class", "label-width", "model"]);
 }
-var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-0f437ea2"]]);
+var VFormRender = /* @__PURE__ */ _export_sfc$2(_sfc_main$38, [["render", _sfc_render$38], ["__scopeId", "data-v-543cfd9a"]]);
 var ace$2 = { exports: {} };
 (function(module, exports) {
   (function() {
@@ -78571,13 +78548,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1748323977182__");
+    var svgDom = document.getElementById("__svg__icons__dom__1748324698543__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1748323977182__";
+      svgDom.id = "__svg__icons__dom__1748324698543__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
