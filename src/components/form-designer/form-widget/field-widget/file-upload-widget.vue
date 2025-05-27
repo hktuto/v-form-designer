@@ -31,6 +31,8 @@
       :before-upload="beforeFileUpload"
       :on-success="handleFileUpload"
       :on-error="handleUploadError"
+      :on-change="handleOnChange"
+      :on-remove="handleOnRemove"
     >
       <template #tip>
         <div class="el-upload__tip" v-if="!!field.options.uploadTip">
@@ -345,6 +347,7 @@ export default {
     },
 
     removeUploadFile(fileName, fileUrl, fileUid) {
+      
       let foundIdx = -1;
       let foundFile = null;
       this.fileList.forEach((file, idx) => {
@@ -374,6 +377,12 @@ export default {
           customFn.call(this, foundFile, this.fileList);
         }
       }
+      setTimeout(() => {
+        this.field.options.totalFileList =
+          this.field.options.totalFileList > 0
+            ? this.field.options.totalFileList - 1
+            : 0;
+      }, 10);
     },
 
     handleUploadError(err, file, fileList) {
@@ -399,6 +408,9 @@ export default {
         file,
         options: this.field.options,
       });
+    },
+    handleOnChange(file, fileList) {
+      if (!!file) this.field.options.totalFileList = fileList?.length || 0;
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
