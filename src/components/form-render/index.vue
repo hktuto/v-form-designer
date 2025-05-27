@@ -593,7 +593,7 @@ export default {
             if (fieldRef.field?.type === "file-upload") {
               if (!fieldRef.field.options.totalFileList) continue;
               let uploadData = this.formDataModel[key];
-              console.log(fieldRef.field.options.totalFileList, {uploadData});
+              console.log(fieldRef.field.options.totalFileList, { uploadData });
               if (!uploadData) {
                 if (fieldRef.field.options.totalFileList > 0) {
                   isUploadSuccess = false;
@@ -601,7 +601,7 @@ export default {
                 } else continue;
               }
               const successLen = uploadData.reduce((prev, item) => {
-                if (item.status === "success") prev++;
+                if (item.status === "success" || item.id) prev++;
                 return prev;
               }, 0);
               if (fieldRef.field.options.totalFileList > successLen) {

@@ -32,7 +32,7 @@
       :on-success="handleFileUpload"
       :on-error="handleUploadError"
       :on-change="handleOnChange"
-      :on-remove="handleOnChange"
+      :on-remove="handleOnRemove"
     >
       <template #tip>
         <div class="el-upload__tip" v-if="!!field.options.uploadTip">
@@ -40,9 +40,8 @@
         </div>
       </template>
       <template #default>
-        <svg-icon icon-class="el-plus" /><i
-          class="el-icon-plus avatar-uploader-icon"
-        ></i>
+        <svg-icon icon-class="el-plus" />
+        <i class="el-icon-plus avatar-uploader-icon"> </i>
       </template>
       <template #file="{ file }">
         <div class="upload-file-list">
@@ -52,17 +51,20 @@
             @click="handlePreview(file)"
           >
             {{ file.name }}
-            <svg-icon v-if="file.status === 'success'"
+            <svg-icon
+              v-if="file.status === 'success'"
               style="color: var(--app-primary-color, var(--el-color-success))"
               class="el-icon--right"
               icon-class="el-circle-check"
             />
-            <svg-icon v-else-if="file.status === 'fail'"
+            <svg-icon
+              v-else-if="file.status === 'fail'"
               style="color: var(--app-danger-color, var(--el-color-danger))"
               class="el-icon--right"
               icon-class="el-fail"
             />
-            <svg-icon v-else-if="file.status === 'uploading'"
+            <svg-icon
+              v-else-if="file.status === 'uploading'"
               class="el-icon--right file-action loading"
               icon-class="el-loading"
             />
@@ -73,9 +75,9 @@
             </span>
           </a> -->
           <span
+            v-if="!field.options.disabled && file.status !== 'uploading'"
             class="file-action"
             :title="$t('render.hint.removeFile')"
-            v-if="!field.options.disabled"
             @click="removeUploadFile(file.name, file.url, file.uid)"
           >
             <svg-icon icon-class="el-delete" />
@@ -403,6 +405,12 @@ export default {
     handleOnChange(file, fileList) {
       console.log(JSON.parse(JSON.stringify(fileList)));
       this.field.options.totalFileList = fileList?.length || 0;
+    },
+    handleOnRemove() {
+      this.field.options.totalFileList =
+        this.field.options.totalFileList > 0
+          ? this.field.options.totalFileList - 1
+          : 0;
     },
     handleUploadHeaders() {
       const cookieToken = localStorage.getItem("token");
