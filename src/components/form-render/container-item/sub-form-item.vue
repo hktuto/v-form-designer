@@ -149,7 +149,7 @@
 <script>
 import emitter from "@/utils/emitter";
 import i18n from "@/utils/i18n";
-import { deepClone, generateId, CGTryCatch } from "@/utils/util";
+import { deepClone, generateId } from "@/utils/util";
 import refMixin from "../refMixin";
 import ContainerItemWrapper from "./container-item-wrapper";
 import containerItemMixin from "./containerItemMixin";
@@ -408,44 +408,60 @@ export default {
 
     handleSubFormRowChange(subFormData) {
       if (!!this.widget.options.onSubFormRowChange) {
-        let customFunc = new Function(
-          "subFormData",
-          CGTryCatch(this.widget.options.onSubFormRowChange)
-        );
-        customFunc.call(this, subFormData);
+        try {
+          let customFunc = new Function(
+            "subFormData",
+            this.widget.options.onSubFormRowChange
+          );
+          customFunc.call(this, subFormData);
+        } catch (error) {
+          console.error(error);
+        }
       }
     },
 
     handleSubFormRowAdd(subFormData, newRowId) {
       if (!!this.widget.options.onSubFormRowAdd) {
-        let customFunc = new Function(
-          "subFormData",
-          "newRowId",
-          CGTryCatch(this.widget.options.onSubFormRowAdd)
-        );
-        customFunc.call(this, subFormData, newRowId);
+        try {
+          let customFunc = new Function(
+            "subFormData",
+            "newRowId",
+            this.widget.options.onSubFormRowAdd
+          );
+          customFunc.call(this, subFormData, newRowId);
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
     handleSubFormRowInsert(subFormData, newRowId) {
       if (!!this.widget.options.onSubFormRowInsert) {
-        let customFunc = new Function(
-          "subFormData",
-          "newRowId",
-          CGTryCatch(this.widget.options.onSubFormRowInsert)
-        );
-        customFunc.call(this, subFormData, newRowId);
+        try {
+          let customFunc = new Function(
+            "subFormData",
+            "newRowId",
+            this.widget.options.onSubFormRowInsert
+          );
+          customFunc.call(this, subFormData, newRowId);
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
     handleSubFormRowDelete(subFormData, deletedDataRow) {
       if (!!this.widget.options.onSubFormRowDelete) {
-        let customFunc = new Function(
-          "subFormData",
-          "deletedDataRow",
-          CGTryCatch(this.widget.options.onSubFormRowDelete)
-        );
-        customFunc.call(this, subFormData, deletedDataRow);
+        try {
+          let customFunc = new Function(
+            "subFormData",
+            "deletedDataRow",
+            this.widget.options.onSubFormRowDelete
+          );
+          customFunc.call(this, subFormData, deletedDataRow);
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
   },

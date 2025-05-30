@@ -14,7 +14,6 @@
   import emitter from '@/utils/emitter'
   import i18n from "@/utils/i18n"
   import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin"
-  import { CGTryCatch } from "@/utils/util"
   export default {
     name: "alert-widget",
     componentName: 'FieldWidget',  //必须固定为FieldWidget，用于接收父级组件的broadcast事件
@@ -58,11 +57,14 @@
     methods: {
       handleCloseCustomEvent() {
         if (!!this.field.options.onClose) {
-          let changeFn = new Function(CGTryCatch(this.field.options.onClose))
-          changeFn.call(this)
+          try {
+            let changeFn = new Function(this.field.options.onClose)
+            changeFn.call(this)
+          } catch (error) {
+            console.error(error)
+          }
         }
       }
-
     }
   }
 </script>

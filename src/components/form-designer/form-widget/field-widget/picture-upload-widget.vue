@@ -78,7 +78,7 @@
 import FormItemWrapper from "./form-item-wrapper";
 import emitter from "@/utils/emitter";
 import i18n, { translate } from "@/utils/i18n";
-import { deepClone, evalFn,CGTryCatch } from "@/utils/util";
+import { deepClone, evalFn } from "@/utils/util";
 import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
 import SvgIcon from "@/components/svg-icon/index";
 
@@ -227,13 +227,16 @@ export default {
 
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
-        let bfFunc = new Function("file", CGTryCatch(this.field.options.onBeforeUpload));
-        let result = bfFunc.call(this, file);
-        if (typeof result === "boolean") {
-          return result;
-        } else {
-          return true;
+        try {
+          let bfFunc = new Function("file", this.field.options.onBeforeUpload)
+          let result = bfFunc.call(this, file)
+          if (typeof result === "boolean") {
+            return result
+          }
+        } catch (error) {
+          console.error(error)
         }
+        return true
       }
 
       return true;
@@ -263,13 +266,17 @@ export default {
       if (file.status === "success") {
         let customResult = null;
         if (!!this.field.options.onUploadSuccess) {
-          let customFn = new Function(
-            "result",
-            "file",
-            "fileList",
-            CGTryCatch(this.field.options.onUploadSuccess)
-          );
-          customResult = customFn.call(this, res, file, fileList);
+          try {
+            let customFn = new Function(
+              "result",
+              "file",
+              "fileList",
+              this.field.options.onUploadSuccess
+            )
+            customResult = customFn.call(this, res, file, fileList)
+          } catch (error) {
+            console.error(error)
+          }
         }
 
         this.updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, res);
@@ -305,33 +312,41 @@ export default {
     },
 
     handlePictureRemove(file) {
-      this.handleBeforeRemove(this.fileList); // 由于自定义了 #file slot，需要手动调用 handleBeforeRemove，并移除 @before-remove 和 @remove
-      this.fileList.splice(this.fileList.indexOf(file), 1); // 删除所点击的文件
-      this.updateFieldModelAndEmitDataChangeForRemove(file);
-      let fileList = deepClone(this.fileList); // 进行深拷贝，避免用户自定义函数对 fileList 进行修改时，影响组件内的数据
-      this.uploadBtnHidden = fileList.length >= this.field.options.limit;
+      this.handleBeforeRemove(this.fileList)
+      this.fileList.splice(this.fileList.indexOf(file), 1)
+      this.updateFieldModelAndEmitDataChangeForRemove(file)
+      let fileList = deepClone(this.fileList)
+      this.uploadBtnHidden = fileList.length >= this.field.options.limit
 
       if (!!this.field.options.onFileRemove) {
-        let customFn = new Function("file", "fileList", CGTryCatch(this.field.options.onFileRemove));
-        customFn.call(this, file, fileList);
+        try {
+          let customFn = new Function("file", "fileList", this.field.options.onFileRemove)
+          customFn.call(this, file, fileList)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
     handleUploadError(err, file, fileList) {
       if (!!this.field.options.onUploadError) {
-        let customFn = new Function(
-          "error",
-          "file",
-          "fileList",
-          CGTryCatch(this.field.options.onUploadError)
-        );
-        customFn.call(this, err, file, fileList);
+        try {
+          let customFn = new Function(
+            "error",
+            "file",
+            "fileList",
+            this.field.options.onUploadError
+          )
+          customFn.call(this, err, file, fileList)
+        } catch (error) {
+          console.error(error)
+        }
       } else {
         this.$message({
           message: this.$t("render.hint.uploadError") + err,
           duration: 3000,
           type: "error",
-        });
+        })
       }
     },
 

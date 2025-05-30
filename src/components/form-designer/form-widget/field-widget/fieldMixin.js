@@ -1,4 +1,4 @@
-import { deepClone, CGTryCatch } from "@/utils/util"
+import { deepClone } from "@/utils/util"
 import FormValidators from '@/utils/validators'
 import eventBus from "@/utils/event-bus"
 import { translate } from "@/utils/i18n"
@@ -142,23 +142,31 @@ export default {
         isReady = true
       }, 500)
       if (!!this.field.options.onCreated) {
-        let customFunc = new Function(CGTryCatch(this.field.options.onCreated))
-        customFunc.call(this)
+        try {
+          let customFunc = new Function(this.field.options.onCreated)
+          customFunc.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       }
       if (!!this.field.options.onCreatedPlus) {
-        let customPlusFunc = new Function(CGTryCatch(this.field.options.onCreatedPlus))
-        customPlusFunc.call(this)
+        try {
+          let customPlusFunc = new Function(this.field.options.onCreatedPlus)
+          customPlusFunc.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
     handleOnMounted() {
       if (!!this.field.options.onMounted) {
-        // try {
-        let mountFunc = new Function(CGTryCatch(this.field.options.onMounted))
-        mountFunc.call(this)
-        // } catch (error) {
-        //   console.error(error);
-        // }
+        try {
+          let mountFunc = new Function(this.field.options.onMounted)
+          mountFunc.call(this)
+        } catch (error) {
+          console.error(error);
+        }
       }
     },
 
@@ -267,7 +275,7 @@ export default {
 
       if (!!this.field.options.onValidate) {
         let customFn = (rule, value, callback) => {
-          let tmpFunc = new Function('rule', 'value', 'callback', CGTryCatch(this.field.options.onValidate))
+          let tmpFunc = new Function('rule', 'value', 'callback', this.field.options.onValidate)
           return tmpFunc.call(this, rule, value, callback)
         }
         this.rules.push({
@@ -372,20 +380,32 @@ export default {
       this.oldFieldValue = deepClone(this.fieldModel)  //保存修改change之前的值
 
       if (!!this.field.options.onFocus) {
-        let customFn = new Function('event', CGTryCatch(this.field.options.onFocus))
-        customFn.call(this, event)
+        try {
+          let customFn = new Function('event', this.field.options.onFocus)
+          customFn.call(this, event)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     handleEnterEvent(event) {
       if (!!this.field.options.onEnter) {
-        let customFn = new Function('event', CGTryCatch(this.field.options.onEnter))
-        customFn.call(this, event)
+        try {
+          let customFn = new Function('event', this.field.options.onEnter)
+          customFn.call(this, event)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     handleBlurCustomEvent(event) {
       if (!!this.field.options.onBlur) {
-        let customFn = new Function('event', CGTryCatch(this.field.options.onBlur))
-        customFn.call(this, event)
+        try {
+          let customFn = new Function('event', this.field.options.onBlur)
+          customFn.call(this, event)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
@@ -396,8 +416,12 @@ export default {
       this.dispatch('VFormRender', 'fieldValidation', [this.getPropName()])
 
       if (!!this.field.options.onInput) {
-        let customFn = new Function('value', CGTryCatch(this.field.options.onInput))
-        customFn.call(this, value)
+        try {
+          let customFn = new Function('value', this.field.options.onInput)
+          customFn.call(this, value)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
@@ -407,8 +431,12 @@ export default {
       }
 
       if (!!this.field.options.onAppendButtonClick) {
-        let customFn = new Function(CGTryCatch(this.field.options.onAppendButtonClick))
-        customFn.call(this)
+        try {
+          let customFn = new Function(this.field.options.onAppendButtonClick)
+          customFn.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       } else {
         /* 必须调用mixins中的dispatch方法逐级向父组件发送消息！！ */
         this.dispatch('VFormRender', 'appendButtonClick', [this])
@@ -417,23 +445,39 @@ export default {
 
     handleOnChange(val, oldVal) {  //自定义onChange事件
       if (!!this.field.options.onChange) {
-        let changeFn = new Function('value', 'oldValue', CGTryCatch(this.field.options.onChange))
-        changeFn.call(this, val, oldVal)
+        try {
+          let changeFn = new Function('value', 'oldValue', this.field.options.onChange)
+          changeFn.call(this, val, oldVal)
+        } catch (error) {
+          console.error(error)
+        }
       }
       if (!!this.field.options.onChangePlus) {
-        let changePlusFn = new Function('value', 'oldValue', CGTryCatch(this.field.options.onChangePlus))
-        changePlusFn.call(this, val, oldVal)
+        try {
+          let changePlusFn = new Function('value', 'oldValue', this.field.options.onChangePlus)
+          changePlusFn.call(this, val, oldVal)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
     handleOnChangeForSubForm(val, oldVal, subFormData, rowId) {  //子表单自定义onChange事件
       if (!!this.field.options.onChange) {
-        let changeFn = new Function('value', 'oldValue', 'subFormData', 'rowId', CGTryCatch(this.field.options.onChange))
-        changeFn.call(this, val, oldVal, subFormData, rowId)
+        try {
+          let changeFn = new Function('value', 'oldValue', 'subFormData', 'rowId', this.field.options.onChange)
+          changeFn.call(this, val, oldVal, subFormData, rowId)
+        } catch (error) {
+          console.error(error)
+        }
       }
       if (!!this.field.options.onChangePlus) {
-        let changePlusFn = new Function('value', 'oldValue', CGTryCatch(this.field.options.onChangePlus))
-        changePlusFn.call(this, val, oldVal, subFormData, rowId)
+        try {
+          let changePlusFn = new Function('value', 'oldValue', this.field.options.onChangePlus)
+          changePlusFn.call(this, val, oldVal, subFormData, rowId)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 
@@ -443,8 +487,12 @@ export default {
       }
 
       if (!!this.field.options.onClick) {
-        let changeFn = new Function(CGTryCatch(this.field.options.onClick))
-        changeFn.call(this)
+        try {
+          let changeFn = new Function(this.field.options.onClick)
+          changeFn.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       } else {
         this.dispatch('VFormRender', 'buttonClick', [this]);
       }
@@ -452,37 +500,62 @@ export default {
 
     remoteQuery(keyword) {
       if (!!this.field.options.onRemoteQuery) {
-        let remoteFn = new Function('keyword', CGTryCatch(this.field.options.onRemoteQuery))
-        remoteFn.call(this, keyword)
+        try {
+          let remoteFn = new Function('keyword', this.field.options.onRemoteQuery)
+          remoteFn.call(this, keyword)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     querySearchAsync(queryString, cb) {
       if (!!this.field.options.onQuerySearchAsync) {
-        let remoteFn = new Function('queryString', 'cb', CGTryCatch(this.field.options.onQuerySearchAsync))
+        try {
+          let remoteFn = new Function('queryString', 'cb', this.field.options.onQuerySearchAsync)
+          remoteFn.call(this, queryString, cb)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     onShortcutsFn() {
       if (!!this.field.options.onShortcuts) {
-        let fn = new Function('', CGTryCatch(this.field.options.onShortcuts))
-        return fn.call(this)
+        try {
+          let fn = new Function('', this.field.options.onShortcuts)
+          return fn.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     disabledDateFn(dateTime) {
       if (!!this.field.options.onDisabledDate) {
-        let fn = new Function('dateTime', CGTryCatch(this.field.options.onDisabledDate))
-        return fn.call(this, dateTime)
+        try {
+          let fn = new Function('dateTime', this.field.options.onDisabledDate)
+          return fn.call(this, dateTime)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     disabledHourFn() {
       if (!!this.field.options.onDisabledHour) {
-        let remoteFn = new Function(CGTryCatch(this.field.options.onDisabledHour))
-        remoteFn.call(this)
+        try {
+          let fn = new Function(this.field.options.onDisabledHour)
+          return fn.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
     disabledMinuteFn() {
       if (!!this.field.options.onDisabledMinute) {
-        let remoteFn = new Function(CGTryCatch(this.field.options.onDisabledMinute))
-        remoteFn.call(this)
+        try {
+          let fn = new Function(this.field.options.onDisabledMinute)
+          return fn.call(this)
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
 

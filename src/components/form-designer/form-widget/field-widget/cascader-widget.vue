@@ -41,7 +41,6 @@ import FormItemWrapper from "./form-item-wrapper";
 import emitter from "@/utils/emitter";
 import i18n, { translate } from "@/utils/i18n";
 import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
-import { CGTryCatch } from "@/utils/util"
 export default {
   name: "cascader-widget",
   componentName: "FieldWidget", //必须固定为FieldWidget，用于接收父级组件的broadcast事件
@@ -128,8 +127,12 @@ export default {
   methods: {
     getLazy(node, resolve) {
       if (!!this.field.options.onLazyLoad) {
-        let remoteFn = new Function("node", "resolve", CGTryCatch(this.field.options.onLazyLoad));
-        remoteFn.call(this, node, resolve);
+        try {
+          let remoteFn = new Function("node", "resolve", this.field.options.onLazyLoad);
+          remoteFn.call(this, node, resolve);
+        } catch (error) {
+          console.error(error)
+        }
       }
     },
   },

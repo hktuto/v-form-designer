@@ -74,7 +74,6 @@ import {
   buildDefaultFormJson,
 } from "@/utils/util";
 import i18n, { changeLocale } from "@/utils/i18n";
-import { CGTryCatch } from "@/utils/util";
 export default {
   name: "VFormRender",
   componentName: "VFormRender",
@@ -381,43 +380,50 @@ export default {
         handleDhList(fieldName, this.formConfig.dhList, this.getWidgetRef);
       }
       if (!!this.formConfig && !!this.formConfig.onFormDataChange) {
-        let customFunc = new Function(
-          "fieldName",
-          "newValue",
-          "oldValue",
-          "formModel",
-          "subFormName",
-          "subFormRowIndex",
-          CGTryCatch(this.formConfig.onFormDataChange)
-        );
-        customFunc.call(
-          this,
-          fieldName,
-          newValue,
-          oldValue,
-          this.formDataModel,
-          subFormName,
-          subFormRowIndex
-        );
+        try {
+          let customFunc = new Function(
+            "fieldName",
+            "newValue",
+            "oldValue",
+            "formModel",
+            "subFormName",
+            "subFormRowIndex",
+            this.formConfig.onFormDataChange
+          );
+          customFunc.call(
+            this,
+            fieldName,
+            newValue,
+            oldValue,
+            this.formDataModel,
+            subFormName,
+            subFormRowIndex
+          );
+        } catch (error) {
+          console.error(error);
+        }
       }
     },
 
     handleOnCreated() {
       if (!!this.formConfig && !!this.formConfig.onFormCreated) {
-        let customFunc = new Function(
-          CGTryCatch(this.formConfig.onFormCreated)
-        );
-        console.log(customFunc);
-        customFunc.call(this);
+        try {
+          let customFunc = new Function(this.formConfig.onFormCreated);
+          customFunc.call(this);
+        } catch (error) {
+          console.error(error);
+        }
       }
     },
 
     handleOnMounted() {
       if (!!this.formConfig && !!this.formConfig.onFormMounted) {
-        let customFunc = new Function(
-          CGTryCatch(this.formConfig.onFormMounted)
-        );
-        customFunc.call(this);
+        try {
+          let customFunc = new Function(this.formConfig.onFormMounted);
+          customFunc.call(this);
+        } catch (error) {
+          console.error(error);
+        }
       }
     },
 

@@ -92,7 +92,7 @@
 import FormItemWrapper from "./form-item-wrapper";
 import emitter from "@/utils/emitter";
 import i18n, { translate } from "@/utils/i18n";
-import { deepClone, evalFn, CGTryCatch } from "@/utils/util";
+import { deepClone, evalFn } from "@/utils/util";
 import fieldMixin from "@/components/form-designer/form-widget/field-widget/fieldMixin";
 import SvgIcon from "@/components/svg-icon/index";
 
@@ -263,16 +263,16 @@ export default {
 
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
-        let bfFunc = new Function(
-          "file",
-          CGTryCatch(this.field.options.onBeforeUpload)
-        );
-        let result = bfFunc.call(this, file);
-        if (typeof result === "boolean") {
-          return result;
-        } else {
-          return true;
+        try {
+          let bfFunc = new Function("file", this.field.options.onBeforeUpload)
+          let result = bfFunc.call(this, file)
+          if (typeof result === "boolean") {
+            return result
+          }
+        } catch (error) {
+          console.error(error)
         }
+        return true
       }
 
       return true;
@@ -308,34 +308,34 @@ export default {
 
     handleFileUpload(res, file, fileList) {
       if (file.status === "success") {
-        let customResult = null;
+        let customResult = null
         if (!!this.field.options.onUploadSuccess) {
-          let mountFunc = new Function(
-            "result",
-            "file",
-            "fileList",
-            CGTryCatch(this.field.options.onUploadSuccess)
-          );
-          customResult = mountFunc.call(this, res, file, fileList);
+          try {
+            let mountFunc = new Function(
+              "result",
+              "file",
+              "fileList",
+              this.field.options.onUploadSuccess
+            )
+            customResult = mountFunc.call(this, res, file, fileList)
+          } catch (error) {
+            console.error(error)
+          }
         }
 
-        this.updateFieldModelAndEmitDataChangeForUpload(
-          fileList,
-          customResult,
-          res
-        );
+        this.updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, res)
         if (!!customResult && !!customResult.name) {
-          file.name = customResult.name;
+          file.name = customResult.name
         } else {
-          file.name = file.name || res.name || res.fileName || res.filename;
+          file.name = file.name || res.name || res.fileName || res.filename
         }
         if (!!customResult && !!customResult.url) {
-          file.url = customResult.url;
+          file.url = customResult.url
         } else {
-          file.url = file.url || res.url;
+          file.url = file.url || res.url
         }
-        this.fileList = deepClone(fileList);
-        this.uploadBtnHidden = fileList.length >= this.field.options.limit;
+        this.fileList = deepClone(fileList)
+        this.uploadBtnHidden = fileList.length >= this.field.options.limit
       }
     },
 
@@ -347,59 +347,63 @@ export default {
     },
 
     removeUploadFile(fileName, fileUrl, fileUid) {
-      
-      let foundIdx = -1;
-      let foundFile = null;
+      let foundIdx = -1
+      let foundFile = null
       this.fileList.forEach((file, idx) => {
         if (
           file.name === fileName &&
           (file.url === fileUrl || (!!fileUid && file.uid === fileUid))
         ) {
-          foundIdx = idx;
-          foundFile = file;
+          foundIdx = idx
+          foundFile = file
         }
-      });
+      })
 
       if (foundIdx >= 0) {
-        this.fileList.splice(foundIdx, 1);
-        this.updateFieldModelAndEmitDataChangeForRemove(
-          foundIdx,
-          this.fileList
-        );
-        this.uploadBtnHidden = this.fileList.length >= this.field.options.limit;
+        this.fileList.splice(foundIdx, 1)
+        this.updateFieldModelAndEmitDataChangeForRemove(foundIdx, this.fileList)
+        this.uploadBtnHidden = this.fileList.length >= this.field.options.limit
 
         if (!!this.field.options.onFileRemove) {
-          let customFn = new Function(
-            "file",
-            "fileList",
-            CGTryCatch(this.field.options.onFileRemove)
-          );
-          customFn.call(this, foundFile, this.fileList);
+          try {
+            let customFn = new Function(
+              "file",
+              "fileList",
+              this.field.options.onFileRemove
+            )
+            customFn.call(this, foundFile, this.fileList)
+          } catch (error) {
+            console.error(error)
+          }
         }
       }
       setTimeout(() => {
         this.field.options.totalFileList =
           this.field.options.totalFileList > 0
             ? this.field.options.totalFileList - 1
-            : 0;
-      }, 10);
+            : 0
+      }, 10)
     },
 
     handleUploadError(err, file, fileList) {
       if (!!this.field.options.onUploadError) {
-        let customFn = new Function(
-          "error",
-          "file",
-          "fileList",
-          CGTryCatch(this.field.options.onUploadError)
-        );
-        customFn.call(this, err, file, fileList);
+        try {
+          let customFn = new Function(
+            "error",
+            "file",
+            "fileList",
+            this.field.options.onUploadError
+          )
+          customFn.call(this, err, file, fileList)
+        } catch (error) {
+          console.error(error)
+        }
       } else {
         this.$message({
           message: this.$t("render.hint.uploadError") + err,
           duration: 3000,
           type: "error",
-        });
+        })
       }
     },
     handlePreview(file) {
