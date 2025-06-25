@@ -11,7 +11,6 @@
     :sub-form-col-index="subFormColIndex"
     :sub-form-row-id="subFormRowId"
   >
-    <!-- el-upload增加:name="field.options.name"后，会导致又拍云上传失败！故删除之！！ -->
     <el-upload
       ref="fieldEditor"
       :disabled="field.options.disabled"
@@ -40,8 +39,19 @@
         </div>
       </template>
       <template #default>
-        <svg-icon icon-class="el-plus" />
-        <i class="el-icon-plus avatar-uploader-icon"> </i>
+        <el-dropdown @command="handleChannelSelect">
+          <span class="el-dropdown-link" @click.stop> + File... </span>
+          <template #dropdown>
+            <el-dropdown-menu>
+              <el-dropdown-item command="local">从本地上传</el-dropdown-item>
+              <el-dropdown-item command="external"
+                >从其他网站获取</el-dropdown-item
+              >
+            </el-dropdown-menu>
+          </template>
+        </el-dropdown>
+        <!-- <svg-icon icon-class="el-plus" />
+        <i class="el-icon-plus avatar-uploader-icon"> </i> -->
       </template>
       <template #file="{ file }">
         <div class="upload-file-list">
@@ -85,6 +95,17 @@
         </div>
       </template>
     </el-upload>
+
+    <!-- 外部文件对话框 -->
+    <el-dialog v-model="showExternalDialog" title="从其他网站获取文件">
+      <slot name="uploadFromDocpal"></slot>
+      <template #footer>
+        <el-button @click="showExternalDialog = false">取消</el-button>
+        <el-button type="primary" @click="handleExternalFileConfirm">
+          确定
+        </el-button>
+      </template>
+    </el-dialog>
   </form-item-wrapper>
 </template>
 
@@ -151,6 +172,9 @@ export default {
       styleVariables: {
         "--select-file-action": selectFileText,
       },
+      uploadChannel: "local", // 'local' or 'external'
+      showExternalDialog: false,
+      externalFileUrl: "",
     };
   },
   computed: {
@@ -264,15 +288,15 @@ export default {
     handleOnBeforeUpload(file) {
       if (!!this.field.options.onBeforeUpload) {
         try {
-          let bfFunc = new Function("file", this.field.options.onBeforeUpload)
-          let result = bfFunc.call(this, file)
+          let bfFunc = new Function("file", this.field.options.onBeforeUpload);
+          let result = bfFunc.call(this, file);
           if (typeof result === "boolean") {
-            return result
+            return result;
           }
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
-        return true
+        return true;
       }
 
       return true;
@@ -308,7 +332,7 @@ export default {
 
     handleFileUpload(res, file, fileList) {
       if (file.status === "success") {
-        let customResult = null
+        let customResult = null;
         if (!!this.field.options.onUploadSuccess) {
           try {
             let mountFunc = new Function(
@@ -316,26 +340,30 @@ export default {
               "file",
               "fileList",
               this.field.options.onUploadSuccess
-            )
-            customResult = mountFunc.call(this, res, file, fileList)
+            );
+            customResult = mountFunc.call(this, res, file, fileList);
           } catch (error) {
-            console.error(error)
+            console.error(error);
           }
         }
 
-        this.updateFieldModelAndEmitDataChangeForUpload(fileList, customResult, res)
+        this.updateFieldModelAndEmitDataChangeForUpload(
+          fileList,
+          customResult,
+          res
+        );
         if (!!customResult && !!customResult.name) {
-          file.name = customResult.name
+          file.name = customResult.name;
         } else {
-          file.name = file.name || res.name || res.fileName || res.filename
+          file.name = file.name || res.name || res.fileName || res.filename;
         }
         if (!!customResult && !!customResult.url) {
-          file.url = customResult.url
+          file.url = customResult.url;
         } else {
-          file.url = file.url || res.url
+          file.url = file.url || res.url;
         }
-        this.fileList = deepClone(fileList)
-        this.uploadBtnHidden = fileList.length >= this.field.options.limit
+        this.fileList = deepClone(fileList);
+        this.uploadBtnHidden = fileList.length >= this.field.options.limit;
       }
     },
 
@@ -347,22 +375,25 @@ export default {
     },
 
     removeUploadFile(fileName, fileUrl, fileUid) {
-      let foundIdx = -1
-      let foundFile = null
+      let foundIdx = -1;
+      let foundFile = null;
       this.fileList.forEach((file, idx) => {
         if (
           file.name === fileName &&
           (file.url === fileUrl || (!!fileUid && file.uid === fileUid))
         ) {
-          foundIdx = idx
-          foundFile = file
+          foundIdx = idx;
+          foundFile = file;
         }
-      })
+      });
 
       if (foundIdx >= 0) {
-        this.fileList.splice(foundIdx, 1)
-        this.updateFieldModelAndEmitDataChangeForRemove(foundIdx, this.fileList)
-        this.uploadBtnHidden = this.fileList.length >= this.field.options.limit
+        this.fileList.splice(foundIdx, 1);
+        this.updateFieldModelAndEmitDataChangeForRemove(
+          foundIdx,
+          this.fileList
+        );
+        this.uploadBtnHidden = this.fileList.length >= this.field.options.limit;
 
         if (!!this.field.options.onFileRemove) {
           try {
@@ -370,10 +401,10 @@ export default {
               "file",
               "fileList",
               this.field.options.onFileRemove
-            )
-            customFn.call(this, foundFile, this.fileList)
+            );
+            customFn.call(this, foundFile, this.fileList);
           } catch (error) {
-            console.error(error)
+            console.error(error);
           }
         }
       }
@@ -381,8 +412,8 @@ export default {
         this.field.options.totalFileList =
           this.field.options.totalFileList > 0
             ? this.field.options.totalFileList - 1
-            : 0
-      }, 10)
+            : 0;
+      }, 10);
     },
 
     handleUploadError(err, file, fileList) {
@@ -393,17 +424,17 @@ export default {
             "file",
             "fileList",
             this.field.options.onUploadError
-          )
-          customFn.call(this, err, file, fileList)
+          );
+          customFn.call(this, err, file, fileList);
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
       } else {
         this.$message({
           message: this.$t("render.hint.uploadError") + err,
           duration: 3000,
           type: "error",
-        })
+        });
       }
     },
     handlePreview(file) {
@@ -431,6 +462,45 @@ export default {
         }
       }
       return null;
+    },
+    handleChannelSelect(channel) {
+      if (channel === "local") {
+        this.uploadChannel = "local";
+        // 触发 el-upload 选择文件
+        this.$refs.fieldEditor &&
+          this.$refs.fieldEditor.$el.querySelector("input").click();
+      } else if (channel === "external") {
+        this.uploadChannel = "external";
+        this.showExternalDialog = true;
+      }
+    },
+    async handleExternalFileConfirm() {
+      // 新增：尝试调用插槽组件的 getData 方法
+      let externalFileList = null;
+      if (this.$refs.uploadFromDocpal && typeof this.$refs.uploadFromDocpal.getData === 'function') {
+        externalFileList = await this.$refs.uploadFromDocpal.getData();
+        console.log('uploadFromDocpal.getData():', this.$refs, {data});
+      }
+      // 原有逻辑
+      if (externalFileList) {
+        // 伪造 file 对象，加入 fileList
+        externalFileList.forEach(file => {
+          this.fileList.push({
+            name: file.name,
+            id: file.id,
+            status: "success",
+          });
+        });
+        this.showExternalDialog = false;
+        console.log('this.fileList:', this.fileList);
+        
+        // 同步到 fieldModel
+        this.updateFieldModelAndEmitDataChangeForUpload(
+          this.fileList,
+          null,
+          null
+        );
+      }
     },
   },
 };

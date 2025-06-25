@@ -3474,10 +3474,10 @@ var mergeConfig$2 = function mergeConfig2(config1, config2) {
   });
   return config;
 };
-var data = {
+var data$1 = {
   "version": "0.24.0"
 };
-var VERSION = data.version;
+var VERSION = data$1.version;
 var validators$1 = {};
 ["object", "boolean", "number", "function", "string", "symbol"].forEach(function(type, i10) {
   validators$1[type] = function validator2(thing) {
@@ -3734,7 +3734,7 @@ axios$1.Axios = Axios;
 axios$1.Cancel = Cancel_1;
 axios$1.CancelToken = CancelToken_1;
 axios$1.isCancel = isCancel$1;
-axios$1.VERSION = data.version;
+axios$1.VERSION = data$1.version;
 axios$1.all = function all(promises) {
   return Promise.all(promises);
 };
@@ -6631,7 +6631,10 @@ const _sfc_main$3w = {
       uploadBtnHidden: false,
       styleVariables: {
         "--select-file-action": selectFileText
-      }
+      },
+      uploadChannel: "local",
+      showExternalDialog: false,
+      externalFileUrl: ""
     };
   },
   computed: {
@@ -6844,6 +6847,34 @@ const _sfc_main$3w = {
         }
       }
       return null;
+    },
+    handleChannelSelect(channel) {
+      if (channel === "local") {
+        this.uploadChannel = "local";
+        this.$refs.fieldEditor && this.$refs.fieldEditor.$el.querySelector("input").click();
+      } else if (channel === "external") {
+        this.uploadChannel = "external";
+        this.showExternalDialog = true;
+      }
+    },
+    async handleExternalFileConfirm() {
+      let externalFileList = null;
+      if (this.$refs.uploadFromDocpal && typeof this.$refs.uploadFromDocpal.getData === "function") {
+        externalFileList = await this.$refs.uploadFromDocpal.getData();
+        console.log("uploadFromDocpal.getData():", this.$refs, { data });
+      }
+      if (externalFileList) {
+        externalFileList.forEach((file) => {
+          this.fileList.push({
+            name: file.name,
+            id: file.id,
+            status: "success"
+          });
+        });
+        this.showExternalDialog = false;
+        console.log("this.fileList:", this.fileList);
+        this.updateFieldModelAndEmitDataChangeForUpload(this.fileList, null, null);
+      }
     }
   }
 };
@@ -6855,8 +6886,13 @@ const _hoisted_2$p = { class: "upload-file-list" };
 const _hoisted_3$k = ["title", "onClick"];
 const _hoisted_4$c = ["title", "onClick"];
 function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
+  const _component_el_dropdown_item = resolveComponent("el-dropdown-item");
+  const _component_el_dropdown_menu = resolveComponent("el-dropdown-menu");
+  const _component_el_dropdown = resolveComponent("el-dropdown");
   const _component_svg_icon = resolveComponent("svg-icon");
   const _component_el_upload = resolveComponent("el-upload");
+  const _component_el_button = resolveComponent("el-button");
+  const _component_el_dialog = resolveComponent("el-dialog");
   const _component_form_item_wrapper = resolveComponent("form-item-wrapper");
   return openBlock(), createBlock(_component_form_item_wrapper, {
     designer: $props.designer,
@@ -6896,8 +6932,35 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
           !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$M, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
-          createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
-          _cache[0] || (_cache[0] = createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1))
+          createVNode(_component_el_dropdown, { onCommand: $options.handleChannelSelect }, {
+            dropdown: withCtx(() => [
+              createVNode(_component_el_dropdown_menu, null, {
+                default: withCtx(() => [
+                  createVNode(_component_el_dropdown_item, { command: "local" }, {
+                    default: withCtx(() => _cache[3] || (_cache[3] = [
+                      createTextVNode("\u4ECE\u672C\u5730\u4E0A\u4F20")
+                    ])),
+                    _: 1
+                  }),
+                  createVNode(_component_el_dropdown_item, { command: "external" }, {
+                    default: withCtx(() => _cache[4] || (_cache[4] = [
+                      createTextVNode("\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6")
+                    ])),
+                    _: 1
+                  })
+                ]),
+                _: 1
+              })
+            ]),
+            default: withCtx(() => [
+              createElementVNode("span", {
+                class: "el-dropdown-link",
+                onClick: _cache[0] || (_cache[0] = withModifiers(() => {
+                }, ["stop"]))
+              }, " + File... ")
+            ]),
+            _: 1
+          }, 8, ["onCommand"])
         ]),
         file: withCtx(({ file }) => [
           createElementVNode("div", _hoisted_2$p, [
@@ -6934,12 +6997,41 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
           ])
         ]),
         _: 1
-      }, 8, ["disabled", "style", "action", "name", "headers", "data", "with-credentials", "multiple", "file-list", "show-file-list", "class", "limit", "on-exceed", "before-upload", "on-success", "on-error", "on-change", "on-remove"])
+      }, 8, ["disabled", "style", "action", "name", "headers", "data", "with-credentials", "multiple", "file-list", "show-file-list", "class", "limit", "on-exceed", "before-upload", "on-success", "on-error", "on-change", "on-remove"]),
+      createVNode(_component_el_dialog, {
+        modelValue: $data.showExternalDialog,
+        "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.showExternalDialog = $event),
+        title: "\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6\u6587\u4EF6"
+      }, {
+        footer: withCtx(() => [
+          createVNode(_component_el_button, {
+            onClick: _cache[1] || (_cache[1] = ($event) => $data.showExternalDialog = false)
+          }, {
+            default: withCtx(() => _cache[5] || (_cache[5] = [
+              createTextVNode("\u53D6\u6D88")
+            ])),
+            _: 1
+          }),
+          createVNode(_component_el_button, {
+            type: "primary",
+            onClick: $options.handleExternalFileConfirm
+          }, {
+            default: withCtx(() => _cache[6] || (_cache[6] = [
+              createTextVNode(" \u786E\u5B9A ")
+            ])),
+            _: 1
+          }, 8, ["onClick"])
+        ]),
+        default: withCtx(() => [
+          renderSlot(_ctx.$slots, "uploadFromDocpal", {}, void 0, true)
+        ]),
+        _: 3
+      }, 8, ["modelValue"])
     ]),
-    _: 1
+    _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-440f3a68"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-7a9ae3c0"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -78704,13 +78796,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1748583512944__");
+    var svgDom = document.getElementById("__svg__icons__dom__1750842547092__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1748583512944__";
+      svgDom.id = "__svg__icons__dom__1750842547092__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
