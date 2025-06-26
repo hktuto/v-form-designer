@@ -5119,7 +5119,8 @@ const _sfc_main$K = {
       },
       uploadChannel: "local",
       showExternalDialog: false,
-      externalFileUrl: ""
+      externalFileUrl: "",
+      isDocpal: false
     };
   },
   computed: {
@@ -5144,6 +5145,10 @@ const _sfc_main$K = {
     this.handleOnCreated();
   },
   mounted() {
+    const data2 = localStorage.getItem("docpal-user");
+    if (data2) {
+      this.isDocpal = true;
+    }
     this.handleOnMounted();
     window.addEventListener("uploadFromDocpalFinish", this.handleUploadFromDocpalFinish);
   },
@@ -5430,20 +5435,23 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
           !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$m, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
-          createVNode(_component_el_dropdown, { onCommand: $options.handleChannelSelect }, {
+          $data.isDocpal ? (openBlock(), createBlock(_component_el_dropdown, {
+            key: 0,
+            onCommand: $options.handleChannelSelect
+          }, {
             dropdown: withCtx(() => [
               createVNode(_component_el_dropdown_menu, null, {
                 default: withCtx(() => [
                   createVNode(_component_el_dropdown_item, { command: "local" }, {
-                    default: withCtx(() => _cache[2] || (_cache[2] = [
-                      createTextVNode("\u4ECE\u672C\u5730\u4E0A\u4F20")
-                    ])),
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(_ctx.$t("render.hint.fromComputer")), 1)
+                    ]),
                     _: 1
                   }),
                   createVNode(_component_el_dropdown_item, { command: "external" }, {
-                    default: withCtx(() => _cache[3] || (_cache[3] = [
-                      createTextVNode("\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6")
-                    ])),
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(_ctx.$t("render.hint.fromDocpal")), 1)
+                    ]),
                     _: 1
                   })
                 ]),
@@ -5455,10 +5463,13 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
                 class: "el-dropdown-link",
                 onClick: _cache[0] || (_cache[0] = withModifiers(() => {
                 }, ["stop"]))
-              }, " + File... ")
+              }, " + " + toDisplayString(_ctx.$t("render.hint.selectFile")) + "... ", 1)
             ]),
             _: 1
-          }, 8, ["onCommand"])
+          }, 8, ["onCommand"])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+            createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
+            _cache[2] || (_cache[2] = createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1))
+          ], 64))
         ]),
         file: withCtx(({ file }) => [
           createElementVNode("div", _hoisted_2$e, [
@@ -5499,7 +5510,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         modelValue: $data.showExternalDialog,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.showExternalDialog = $event),
-        title: "\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6\u6587\u4EF6",
+        title: _ctx.$t("render.hint.fromDocpal"),
         "append-to-body": ""
       }, {
         default: withCtx(() => [
@@ -5508,12 +5519,12 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
           }, void 0, true)
         ]),
         _: 3
-      }, 8, ["modelValue"])
+      }, 8, ["modelValue", "title"])
     ]),
     _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-31c1d2ae"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-07000623"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -32249,13 +32260,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1750909788697__");
+    var svgDom = document.getElementById("__svg__icons__dom__1750921039199__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1750909788697__";
+      svgDom.id = "__svg__icons__dom__1750921039199__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

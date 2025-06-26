@@ -39,19 +39,23 @@
         </div>
       </template>
       <template #default>
-        <el-dropdown @command="handleChannelSelect">
-          <span class="el-dropdown-link" @click.stop> + File... </span>
+        <el-dropdown v-if="isDocpal" @command="handleChannelSelect">
+          <span class="el-dropdown-link" @click.stop>
+            + {{ $t("render.hint.selectFile") }}...
+          </span>
           <template #dropdown>
             <el-dropdown-menu>
-              <el-dropdown-item command="local">从本地上传</el-dropdown-item>
-              <el-dropdown-item command="external"
-                >从其他网站获取</el-dropdown-item
-              >
+              <el-dropdown-item command="local">{{$t('render.hint.fromComputer')}}</el-dropdown-item>
+              <el-dropdown-item command="external">
+                {{$t('render.hint.fromDocpal')}}
+              </el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
-        <!-- <svg-icon icon-class="el-plus" />
-        <i class="el-icon-plus avatar-uploader-icon"> </i> -->
+        <template v-else>
+          <svg-icon icon-class="el-plus" />
+          <i class="el-icon-plus avatar-uploader-icon"> </i>
+        </template>
       </template>
       <template #file="{ file }">
         <div class="upload-file-list">
@@ -99,7 +103,7 @@
     <!-- 外部文件对话框 -->
     <el-dialog
       v-model="showExternalDialog"
-      title="从其他网站获取文件"
+      :title="$t('render.hint.fromDocpal')"
       append-to-body
     >
       <slot name="uploadFromDocpal" v-bind:options="field.options"></slot>
@@ -179,6 +183,7 @@ export default {
       uploadChannel: "local", // 'local' or 'external'
       showExternalDialog: false,
       externalFileUrl: "",
+      isDocpal: false,
     };
   },
   computed: {
@@ -213,6 +218,10 @@ export default {
   },
 
   mounted() {
+    const data = localStorage.getItem("docpal-user");
+    if (data) {
+      this.isDocpal = true;
+    }
     this.handleOnMounted();
     window.addEventListener(
       "uploadFromDocpalFinish",

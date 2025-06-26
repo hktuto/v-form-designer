@@ -1,0 +1,262 @@
+{
+  "widgetList": [
+    {
+      "key": 103625,
+      "type": "select",
+      "icon": "select-field",
+      "formItemFlag": true,
+      "options": {
+        "name": "type",
+        "label": "uploadFromDocpal.type",
+        "labelAlign": "",
+        "defaultValue": "browse",
+        "placeholder": "",
+        "columnWidth": "200px",
+        "size": "",
+        "labelWidth": null,
+        "labelHidden": false,
+        "disabled": false,
+        "hidden": false,
+        "clearable": true,
+        "filterable": true,
+        "allowCreate": false,
+        "popperClass": "",
+        "remote": false,
+        "automaticDropdown": false,
+        "multiple": false,
+        "multipleLimit": 0,
+        "optionItems": [
+          {
+            "value": "browse",
+            "label": "Browse"
+          },
+          {
+            "value": "search",
+            "label": "Search"
+          }
+        ],
+        "required": false,
+        "requiredHint": "",
+        "validation": "",
+        "validationHint": "",
+        "customClass": "",
+        "labelIconClass": null,
+        "labelIconPosition": "rear",
+        "labelTooltip": null,
+        "onCreated": "",
+        "onMounted": "",
+        "onRemoteQuery": "",
+        "onChange": "console.log(value, oldValue)",
+        "changeSettings": [],
+        "onChangeSetting": true,
+        "onFocus": "",
+        "onBlur": "",
+        "onValidate": ""
+      },
+      "id": "select92494"
+    },
+    {
+      "key": 109482,
+      "type": "cascader",
+      "icon": "cascader-field",
+      "formItemFlag": true,
+      "options": {
+        "name": "homeId",
+        "label": "uploadFromDocpal.root",
+        "labelAlign": "",
+        "defaultValue": "",
+        "placeholder": "All",
+        "size": "",
+        "lazy": true,
+        "labelWidth": null,
+        "labelHidden": false,
+        "columnWidth": "200px",
+        "disabled": false,
+        "hidden": false,
+        "clearable": true,
+        "filterable": true,
+        "multiple": false,
+        "checkStrictly": true,
+        "showAllLevels": true,
+        "optionItems": [],
+        "required": false,
+        "requiredHint": "",
+        "customRule": "",
+        "customRuleHint": "",
+        "customClass": [],
+        "labelIconClass": null,
+        "labelIconPosition": "rear",
+        "labelTooltip": null,
+        "onCreated": "",
+        "onMounted": "",
+        "onChange": "",
+        "onFocus": "",
+        "onBlur": "",
+        "onValidate": "",
+        "onLazyLoad": "const { level, value, childrenData } = node\nif(!!childrenData) {\n  resolve(childrenData)\n  return\n}\nconst idOrPath = level == 0 ? \"/\" : value\n$api.post('/nuxeo/document/children/thumbnail', {idOrPath, pageSize: 100000}).then(res => {\n  const nodes = res.data.data.entryList.reduce((prev, item) => { \n    if(item.isFolder) prev.push({\n      value: item.id,\n      label: item.name\n    })\n    return prev\n  },[])\n  // 通过调用resolve将子节点数据返回，通知组件数据加载完成\n  resolve(nodes)\n}).catch(err => {\n  resolve([])\n})"
+      },
+      "id": "cascader76990"
+    },
+    {
+      "key": 78516,
+      "type": "input",
+      "icon": "text-field",
+      "formItemFlag": true,
+      "options": {
+        "name": "keyword",
+        "label": "searchGroup.keyword",
+        "labelAlign": "",
+        "type": "text",
+        "defaultValue": "",
+        "placeholder": "",
+        "columnWidth": "200px",
+        "size": "",
+        "labelWidth": null,
+        "labelHidden": false,
+        "readonly": false,
+        "disabled": false,
+        "hidden": true,
+        "clearable": true,
+        "showPassword": false,
+        "required": false,
+        "requiredHint": "",
+        "validation": "",
+        "validationHint": "",
+        "customClass": "",
+        "labelIconClass": null,
+        "labelIconPosition": "rear",
+        "labelTooltip": null,
+        "minLength": null,
+        "maxLength": null,
+        "showWordLimit": false,
+        "prefixIcon": "",
+        "suffixIcon": "",
+        "appendButton": false,
+        "appendButtonText": "",
+        "prependText": "",
+        "appendButtonDisabled": false,
+        "buttonIcon": "custom-search",
+        "onCreated": "",
+        "onMounted": "",
+        "onInput": "",
+        "onChange": "",
+        "changeSettings": [],
+        "onChangeSetting": true,
+        "onFocus": "",
+        "onBlur": "",
+        "onEnter": "",
+        "onValidate": "",
+        "onAppendButtonClick": ""
+      },
+      "id": "input38692"
+    },
+    {
+      "key": 83439,
+      "type": "select",
+      "icon": "select-field",
+      "formItemFlag": true,
+      "options": {
+        "name": "documentType",
+        "label": "docType_documentType",
+        "labelAlign": "",
+        "defaultValue": "",
+        "placeholder": "",
+        "columnWidth": "200px",
+        "size": "",
+        "labelWidth": null,
+        "labelHidden": false,
+        "disabled": false,
+        "hidden": true,
+        "clearable": true,
+        "filterable": true,
+        "allowCreate": false,
+        "remote": false,
+        "automaticDropdown": false,
+        "multiple": false,
+        "multipleLimit": 0,
+        "optionItems": [],
+        "required": false,
+        "requiredHint": "",
+        "validation": "",
+        "validationHint": "",
+        "customClass": [],
+        "labelIconClass": null,
+        "labelIconPosition": "rear",
+        "labelTooltip": null,
+        "onCreated": "",
+        "onMounted": "this.globalOptionData.fileList = []\nthis.globalOptionData.folderList = []\n$api.get('/docpal/types/active', {}).then(res => {\n  res = res.data.data\n  res.forEach((item) => {\n    const _item = {\n       value: item.name,\n      label: $t(item.name)\n    }\n    if(item.isFolder) {\n      this.globalOptionData.folderList.push(_item)\n    } else {\n      this.globalOptionData.fileList.push(_item)\n    }\n  })\n  this.loadOptions([...this.globalOptionData.folderList,...this.globalOptionData.fileList])\n}).catch(err => {\n  console.log(\"error\", err)\n})",
+        "onRemoteQuery": "",
+        "onChange": "",
+        "onFocus": "",
+        "onBlur": "",
+        "onValidate": ""
+      },
+      "id": "select68154"
+    }
+  ],
+  "formConfig": {
+    "modelName": "formData",
+    "refName": "vForm",
+    "rulesName": "rules",
+    "labelWidth": 80,
+    "labelPosition": "top",
+    "size": "",
+    "labelAlign": "label-left-align",
+    "cssCode": "",
+    "customClass": [],
+    "functions": "",
+    "layoutType": "PC",
+    "jsonVersion": 3,
+    "isCreateDynamicCode": true,
+    "onFormCreated": "",
+    "onFormMounted": "",
+    "onFormDataChange": "console.log(fieldName, newValue, oldValue,)",
+    "dhList": [
+      {
+        "id": 11027,
+        "fieldConditionList": [
+          {
+            "fieldName": "type",
+            "condition": "===",
+            "value": "browse"
+          }
+        ],
+        "hiddenList": [
+          {
+            "id": 83147,
+            "fieldName": "keyword",
+            "required": false
+          },
+          {
+            "id": 71493,
+            "fieldName": "documentType",
+            "required": false
+          }
+        ],
+        "disabledList": []
+      },
+      {
+        "id": 55380,
+        "fieldConditionList": [
+          {
+            "fieldName": "type",
+            "condition": "===",
+            "value": "search"
+          }
+        ],
+        "hiddenList": [
+          {
+            "id": 96454,
+            "fieldName": "homeId",
+            "required": false
+          }
+        ],
+        "disabledList": []
+      }
+    ],
+    "saveRemoteOptions": "never",
+    "labelFormUniqueName": true,
+    "onFormValidate": "",
+    "dataSources": []
+  }
+}

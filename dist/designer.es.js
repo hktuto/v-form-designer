@@ -839,6 +839,7 @@ const advancedFields = [
       uploadURL: "/api/docpal/workflow/upload/file",
       uploadName: "file",
       uploadTip: "",
+      uploadConfig: {},
       withCredentials: false,
       multipleSelect: false,
       showFileList: true,
@@ -6634,7 +6635,8 @@ const _sfc_main$3w = {
       },
       uploadChannel: "local",
       showExternalDialog: false,
-      externalFileUrl: ""
+      externalFileUrl: "",
+      isDocpal: false
     };
   },
   computed: {
@@ -6659,6 +6661,10 @@ const _sfc_main$3w = {
     this.handleOnCreated();
   },
   mounted() {
+    const data2 = localStorage.getItem("docpal-user");
+    if (data2) {
+      this.isDocpal = true;
+    }
     this.handleOnMounted();
     window.addEventListener("uploadFromDocpalFinish", this.handleUploadFromDocpalFinish);
   },
@@ -6945,20 +6951,23 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
           !!$props.field.options.uploadTip ? (openBlock(), createElementBlock("div", _hoisted_1$M, toDisplayString(_ctx.$t($props.field.options.uploadTip)), 1)) : createCommentVNode("", true)
         ]),
         default: withCtx(() => [
-          createVNode(_component_el_dropdown, { onCommand: $options.handleChannelSelect }, {
+          $data.isDocpal ? (openBlock(), createBlock(_component_el_dropdown, {
+            key: 0,
+            onCommand: $options.handleChannelSelect
+          }, {
             dropdown: withCtx(() => [
               createVNode(_component_el_dropdown_menu, null, {
                 default: withCtx(() => [
                   createVNode(_component_el_dropdown_item, { command: "local" }, {
-                    default: withCtx(() => _cache[2] || (_cache[2] = [
-                      createTextVNode("\u4ECE\u672C\u5730\u4E0A\u4F20")
-                    ])),
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(_ctx.$t("render.hint.fromComputer")), 1)
+                    ]),
                     _: 1
                   }),
                   createVNode(_component_el_dropdown_item, { command: "external" }, {
-                    default: withCtx(() => _cache[3] || (_cache[3] = [
-                      createTextVNode("\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6")
-                    ])),
+                    default: withCtx(() => [
+                      createTextVNode(toDisplayString(_ctx.$t("render.hint.fromDocpal")), 1)
+                    ]),
                     _: 1
                   })
                 ]),
@@ -6970,10 +6979,13 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
                 class: "el-dropdown-link",
                 onClick: _cache[0] || (_cache[0] = withModifiers(() => {
                 }, ["stop"]))
-              }, " + File... ")
+              }, " + " + toDisplayString(_ctx.$t("render.hint.selectFile")) + "... ", 1)
             ]),
             _: 1
-          }, 8, ["onCommand"])
+          }, 8, ["onCommand"])) : (openBlock(), createElementBlock(Fragment, { key: 1 }, [
+            createVNode(_component_svg_icon, { "icon-class": "el-plus" }),
+            _cache[2] || (_cache[2] = createElementVNode("i", { class: "el-icon-plus avatar-uploader-icon" }, null, -1))
+          ], 64))
         ]),
         file: withCtx(({ file }) => [
           createElementVNode("div", _hoisted_2$p, [
@@ -7014,7 +7026,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         modelValue: $data.showExternalDialog,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.showExternalDialog = $event),
-        title: "\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6\u6587\u4EF6",
+        title: _ctx.$t("render.hint.fromDocpal"),
         "append-to-body": ""
       }, {
         default: withCtx(() => [
@@ -7023,12 +7035,12 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
           }, void 0, true)
         ]),
         _: 3
-      }, 8, ["modelValue"])
+      }, 8, ["modelValue", "title"])
     ]),
     _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-31c1d2ae"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-07000623"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -63137,6 +63149,306 @@ var __glob_0_60 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   __proto__: null,
   "default": uploadTipEditor
 }, Symbol.toStringTag, { value: "Module" }));
+const widgetList = [
+  {
+    key: 103625,
+    type: "select",
+    icon: "select-field",
+    formItemFlag: true,
+    options: {
+      name: "type",
+      label: "uploadFromDocpal.type",
+      labelAlign: "",
+      defaultValue: "browse",
+      placeholder: "",
+      columnWidth: "200px",
+      size: "",
+      labelWidth: null,
+      labelHidden: false,
+      disabled: false,
+      hidden: false,
+      clearable: true,
+      filterable: true,
+      allowCreate: false,
+      popperClass: "",
+      remote: false,
+      automaticDropdown: false,
+      multiple: false,
+      multipleLimit: 0,
+      optionItems: [
+        {
+          value: "browse",
+          label: "Browse"
+        },
+        {
+          value: "search",
+          label: "Search"
+        }
+      ],
+      required: false,
+      requiredHint: "",
+      validation: "",
+      validationHint: "",
+      customClass: "",
+      labelIconClass: null,
+      labelIconPosition: "rear",
+      labelTooltip: null,
+      onCreated: "",
+      onMounted: "",
+      onRemoteQuery: "",
+      onChange: "console.log(value, oldValue)",
+      changeSettings: [],
+      onChangeSetting: true,
+      onFocus: "",
+      onBlur: "",
+      onValidate: ""
+    },
+    id: "select92494"
+  },
+  {
+    key: 109482,
+    type: "cascader",
+    icon: "cascader-field",
+    formItemFlag: true,
+    options: {
+      name: "homeId",
+      label: "uploadFromDocpal.root",
+      labelAlign: "",
+      defaultValue: "",
+      placeholder: "All",
+      size: "",
+      lazy: true,
+      labelWidth: null,
+      labelHidden: false,
+      columnWidth: "200px",
+      disabled: false,
+      hidden: false,
+      clearable: true,
+      filterable: true,
+      multiple: false,
+      checkStrictly: true,
+      showAllLevels: true,
+      optionItems: [],
+      required: false,
+      requiredHint: "",
+      customRule: "",
+      customRuleHint: "",
+      customClass: [],
+      labelIconClass: null,
+      labelIconPosition: "rear",
+      labelTooltip: null,
+      onCreated: "",
+      onMounted: "",
+      onChange: "",
+      onFocus: "",
+      onBlur: "",
+      onValidate: "",
+      onLazyLoad: `const { level, value, childrenData } = node
+if(!!childrenData) {
+  resolve(childrenData)
+  return
+}
+const idOrPath = level == 0 ? "/" : value
+$api.post('/nuxeo/document/children/thumbnail', {idOrPath, pageSize: 100000}).then(res => {
+  const nodes = res.data.data.entryList.reduce((prev, item) => { 
+    if(item.isFolder) prev.push({
+      value: item.id,
+      label: item.name
+    })
+    return prev
+  },[])
+  // \u901A\u8FC7\u8C03\u7528resolve\u5C06\u5B50\u8282\u70B9\u6570\u636E\u8FD4\u56DE\uFF0C\u901A\u77E5\u7EC4\u4EF6\u6570\u636E\u52A0\u8F7D\u5B8C\u6210
+  resolve(nodes)
+}).catch(err => {
+  resolve([])
+})`
+    },
+    id: "cascader76990"
+  },
+  {
+    key: 78516,
+    type: "input",
+    icon: "text-field",
+    formItemFlag: true,
+    options: {
+      name: "keyword",
+      label: "searchGroup.keyword",
+      labelAlign: "",
+      type: "text",
+      defaultValue: "",
+      placeholder: "",
+      columnWidth: "200px",
+      size: "",
+      labelWidth: null,
+      labelHidden: false,
+      readonly: false,
+      disabled: false,
+      hidden: true,
+      clearable: true,
+      showPassword: false,
+      required: false,
+      requiredHint: "",
+      validation: "",
+      validationHint: "",
+      customClass: "",
+      labelIconClass: null,
+      labelIconPosition: "rear",
+      labelTooltip: null,
+      minLength: null,
+      maxLength: null,
+      showWordLimit: false,
+      prefixIcon: "",
+      suffixIcon: "",
+      appendButton: false,
+      appendButtonText: "",
+      prependText: "",
+      appendButtonDisabled: false,
+      buttonIcon: "custom-search",
+      onCreated: "",
+      onMounted: "",
+      onInput: "",
+      onChange: "",
+      changeSettings: [],
+      onChangeSetting: true,
+      onFocus: "",
+      onBlur: "",
+      onEnter: "",
+      onValidate: "",
+      onAppendButtonClick: ""
+    },
+    id: "input38692"
+  },
+  {
+    key: 83439,
+    type: "select",
+    icon: "select-field",
+    formItemFlag: true,
+    options: {
+      name: "documentType",
+      label: "docType_documentType",
+      labelAlign: "",
+      defaultValue: "",
+      placeholder: "",
+      columnWidth: "200px",
+      size: "",
+      labelWidth: null,
+      labelHidden: false,
+      disabled: false,
+      hidden: true,
+      clearable: true,
+      filterable: true,
+      allowCreate: false,
+      remote: false,
+      automaticDropdown: false,
+      multiple: false,
+      multipleLimit: 0,
+      optionItems: [],
+      required: false,
+      requiredHint: "",
+      validation: "",
+      validationHint: "",
+      customClass: [],
+      labelIconClass: null,
+      labelIconPosition: "rear",
+      labelTooltip: null,
+      onCreated: "",
+      onMounted: `this.globalOptionData.fileList = []
+this.globalOptionData.folderList = []
+$api.get('/docpal/types/active', {}).then(res => {
+  res = res.data.data
+  res.forEach((item) => {
+    const _item = {
+       value: item.name,
+      label: $t(item.name)
+    }
+    if(item.isFolder) {
+      this.globalOptionData.folderList.push(_item)
+    } else {
+      this.globalOptionData.fileList.push(_item)
+    }
+  })
+  this.loadOptions([...this.globalOptionData.folderList,...this.globalOptionData.fileList])
+}).catch(err => {
+  console.log("error", err)
+})`,
+      onRemoteQuery: "",
+      onChange: "",
+      onFocus: "",
+      onBlur: "",
+      onValidate: ""
+    },
+    id: "select68154"
+  }
+];
+const formConfig = {
+  modelName: "formData",
+  refName: "vForm",
+  rulesName: "rules",
+  labelWidth: 80,
+  labelPosition: "top",
+  size: "",
+  labelAlign: "label-left-align",
+  cssCode: "",
+  customClass: [],
+  functions: "",
+  layoutType: "PC",
+  jsonVersion: 3,
+  isCreateDynamicCode: true,
+  onFormCreated: "",
+  onFormMounted: "",
+  onFormDataChange: "console.log(fieldName, newValue, oldValue,)",
+  dhList: [
+    {
+      id: 11027,
+      fieldConditionList: [
+        {
+          fieldName: "type",
+          condition: "===",
+          value: "browse"
+        }
+      ],
+      hiddenList: [
+        {
+          id: 83147,
+          fieldName: "keyword",
+          required: false
+        },
+        {
+          id: 71493,
+          fieldName: "documentType",
+          required: false
+        }
+      ],
+      disabledList: []
+    },
+    {
+      id: 55380,
+      fieldConditionList: [
+        {
+          fieldName: "type",
+          condition: "===",
+          value: "search"
+        }
+      ],
+      hiddenList: [
+        {
+          id: 96454,
+          fieldName: "homeId",
+          required: false
+        }
+      ],
+      disabledList: []
+    }
+  ],
+  saveRemoteOptions: "never",
+  labelFormUniqueName: true,
+  onFormValidate: "",
+  dataSources: []
+};
+var uploadJson = {
+  widgetList,
+  formConfig
+};
 const _sfc_main$27 = {
   name: "uploadURL-editor",
   mixins: [i18n$1],
@@ -63145,25 +63457,53 @@ const _sfc_main$27 = {
     selectedWidget: Object,
     optionModel: Object
   },
+  components: {
+    VFormRender
+  },
   data() {
     return {
       urls: [
         "/api/docpal/workflow/upload/file",
         "/api/docpal/workflow/files/upload"
-      ]
+      ],
+      isVisible: false,
+      formJson: uploadJson,
+      isDocpal: false
     };
+  },
+  mounted() {
+    const data2 = localStorage.getItem("docpal-user");
+    if (data2) {
+      this.isDocpal = true;
+    }
   },
   methods: {
     handleChange(value2) {
       this.optionModel.uploadName = value2 === "/api/docpal/workflow/upload/file" ? "file" : "files";
+    },
+    handleOpen() {
+      this.isVisible = true;
+      this.$nextTick(() => {
+        this.$refs.formRef.setFormData(this.optionModel.uploadConfig);
+      });
+    },
+    async handleSubmit() {
+      const data2 = await this.$refs.formRef.getFormData();
+      this.optionModel.uploadConfig = data2;
+      this.isVisible = false;
+      console.log(this.optionModel);
+      console.log(data2);
     }
   }
 };
 function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_el_divider = resolveComponent("el-divider");
   const _component_el_form_item = resolveComponent("el-form-item");
+  const _component_el_button = resolveComponent("el-button");
   const _component_el_option = resolveComponent("el-option");
   const _component_el_select = resolveComponent("el-select");
+  const _component_VFormRender = resolveComponent("VFormRender");
+  const _component_el_dialog = resolveComponent("el-dialog");
   return openBlock(), createElementBlock("div", null, [
     createVNode(_component_el_form_item, { "label-width": "0" }, {
       default: withCtx(() => [
@@ -63176,6 +63516,16 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 1
     }),
+    $data.isDocpal ? (openBlock(), createBlock(_component_el_button, {
+      key: 0,
+      type: "text",
+      onClick: $options.handleOpen
+    }, {
+      default: withCtx(() => [
+        createTextVNode(toDisplayString(_ctx.$t("render.hint.uploadFormDocpalSetting")), 1)
+      ]),
+      _: 1
+    }, 8, ["onClick"])) : createCommentVNode("", true),
     createVNode(_component_el_form_item, {
       label: _ctx.$t("designer.setting.uploadURL")
     }, {
@@ -63202,7 +63552,40 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
         }, 8, ["modelValue", "onChange"])
       ]),
       _: 1
-    }, 8, ["label"])
+    }, 8, ["label"]),
+    createVNode(_component_el_dialog, {
+      modelValue: $data.isVisible,
+      "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.isVisible = $event),
+      title: _ctx.$t("render.hint.uploadFormDocpalSetting")
+    }, {
+      footer: withCtx(() => [
+        createVNode(_component_el_button, {
+          onClick: _cache[1] || (_cache[1] = ($event) => $data.isVisible = false)
+        }, {
+          default: withCtx(() => [
+            createTextVNode(toDisplayString(_ctx.$t("render.hint.cancel")), 1)
+          ]),
+          _: 1
+        }),
+        createVNode(_component_el_button, {
+          type: "primary",
+          onClick: $options.handleSubmit
+        }, {
+          default: withCtx(() => [
+            createTextVNode(toDisplayString(_ctx.$t("render.hint.confirm")), 1)
+          ]),
+          _: 1
+        }, 8, ["onClick"])
+      ]),
+      default: withCtx(() => [
+        createVNode(_component_VFormRender, {
+          ref: "formRef",
+          "form-json": $data.formJson,
+          "form-data": $props.optionModel.uploadConfig
+        }, null, 8, ["form-json", "form-data"])
+      ]),
+      _: 1
+    }, 8, ["modelValue", "title"])
   ]);
 }
 var uploadURLEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$27, [["render", _sfc_render$27]]);
@@ -78793,13 +79176,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1750909769258__");
+    var svgDom = document.getElementById("__svg__icons__dom__1750921005041__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1750909769258__";
+      svgDom.id = "__svg__icons__dom__1750921005041__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

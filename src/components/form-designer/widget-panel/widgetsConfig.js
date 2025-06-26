@@ -901,6 +901,7 @@ export const advancedFields = [
       uploadURL: '/api/docpal/workflow/upload/file',
       uploadName: 'file',
       uploadTip: '',
+      uploadConfig: {},
       withCredentials: false,
       multipleSelect: false,
       showFileList: true,
