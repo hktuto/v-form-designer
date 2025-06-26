@@ -97,14 +97,18 @@
     </el-upload>
 
     <!-- 外部文件对话框 -->
-    <el-dialog v-model="showExternalDialog" title="从其他网站获取文件" append-to-body>
+    <el-dialog
+      v-model="showExternalDialog"
+      title="从其他网站获取文件"
+      append-to-body
+    >
       <slot name="uploadFromDocpal" v-bind:options="field.options"></slot>
-      <template #footer>
+      <!-- <template #footer>
         <el-button @click="showExternalDialog = false">取消</el-button>
         <el-button type="primary" @click="handleExternalFileConfirm">
           确定
         </el-button>
-      </template>
+      </template> -->
     </el-dialog>
   </form-item-wrapper>
 </template>
@@ -210,8 +214,17 @@ export default {
 
   mounted() {
     this.handleOnMounted();
+    window.addEventListener(
+      "uploadFromDocpalFinish",
+      this.handleUploadFromDocpalFinish
+    );
   },
-
+  unmounted() {
+    window.removeEventListener(
+      "uploadFromDocpalFinish",
+      this.handleUploadFromDocpalFinish
+    );
+  },
   beforeUnmount() {
     this.unregisterFromRefList();
   },
@@ -474,19 +487,15 @@ export default {
         this.showExternalDialog = true;
       }
     },
-    async handleExternalFileConfirm() {
+    async handleUploadFromDocpalFinish(e) {
       // 新增：尝试调用插槽组件的 getData 方法
-      console.log(this.$refs);
-      
-      let externalFileList = null;
-      if (this.$refs.uploadFromDocpal && typeof this.$refs.uploadFromDocpal.getData === 'function') {
-        externalFileList = await this.$refs.uploadFromDocpal.getData();
-        console.log('uploadFromDocpal.getData():', this.$refs, {data});
-      }
+      const externalFileList = e.detail.data;
+      const name = e.detail.name;
+      if (name !== this.field.options.name) return;
       // 原有逻辑
       if (externalFileList) {
         // 伪造 file 对象，加入 fileList
-        externalFileList.forEach(file => {
+        externalFileList.forEach((file) => {
           this.fileList.push({
             name: file.name,
             id: file.id,
@@ -494,8 +503,6 @@ export default {
           });
         });
         this.showExternalDialog = false;
-        console.log('this.fileList:', this.fileList);
-        
         // 同步到 fieldModel
         this.updateFieldModelAndEmitDataChangeForUpload(
           this.fileList,
@@ -503,6 +510,18 @@ export default {
           null
         );
       }
+    },
+    handleExternalFileConfirm() {
+      const uploadFromDocpal = new CustomEvent("uploadFromDocpalFinish", {
+        detail: {
+          data: [
+            { id: 111, name: "dsgfds" },
+            { id: 222, name: "safsaf" },
+          ],
+          name: "test111",
+        },
+      });
+      window.dispatchEvent(uploadFromDocpal);
     },
   },
 };
