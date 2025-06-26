@@ -97,8 +97,8 @@
     </el-upload>
 
     <!-- 外部文件对话框 -->
-    <el-dialog v-model="showExternalDialog" title="从其他网站获取文件">
-      <slot name="uploadFromDocpal"></slot>
+    <el-dialog v-model="showExternalDialog" title="从其他网站获取文件" append-to-body>
+      <slot name="uploadFromDocpal" v-bind:options="field.options"></slot>
       <template #footer>
         <el-button @click="showExternalDialog = false">取消</el-button>
         <el-button type="primary" @click="handleExternalFileConfirm">
@@ -476,6 +476,8 @@ export default {
     },
     async handleExternalFileConfirm() {
       // 新增：尝试调用插槽组件的 getData 方法
+      console.log(this.$refs);
+      
       let externalFileList = null;
       if (this.$refs.uploadFromDocpal && typeof this.$refs.uploadFromDocpal.getData === 'function') {
         externalFileList = await this.$refs.uploadFromDocpal.getData();

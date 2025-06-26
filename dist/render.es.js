@@ -5343,6 +5343,7 @@ const _sfc_main$K = {
       }
     },
     async handleExternalFileConfirm() {
+      console.log(this.$refs);
       let externalFileList = null;
       if (this.$refs.uploadFromDocpal && typeof this.$refs.uploadFromDocpal.getData === "function") {
         externalFileList = await this.$refs.uploadFromDocpal.getData();
@@ -5486,7 +5487,8 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
       createVNode(_component_el_dialog, {
         modelValue: $data.showExternalDialog,
         "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.showExternalDialog = $event),
-        title: "\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6\u6587\u4EF6"
+        title: "\u4ECE\u5176\u4ED6\u7F51\u7AD9\u83B7\u53D6\u6587\u4EF6",
+        "append-to-body": ""
       }, {
         footer: withCtx(() => [
           createVNode(_component_el_button, {
@@ -5508,7 +5510,9 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
           }, 8, ["onClick"])
         ]),
         default: withCtx(() => [
-          renderSlot(_ctx.$slots, "uploadFromDocpal", {}, void 0, true)
+          renderSlot(_ctx.$slots, "uploadFromDocpal", {
+            options: $props.field.options
+          }, void 0, true)
         ]),
         _: 3
       }, 8, ["modelValue"])
@@ -5516,7 +5520,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-7a9ae3c0"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-c3a41f26"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -32252,13 +32256,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1750842566916__");
+    var svgDom = document.getElementById("__svg__icons__dom__1750903307134__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1750842566916__";
+      svgDom.id = "__svg__icons__dom__1750903307134__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
