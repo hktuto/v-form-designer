@@ -63340,7 +63340,7 @@ $api.post('/nuxeo/document/children/thumbnail', {idOrPath, pageSize: 100000}).th
       allowCreate: false,
       remote: false,
       automaticDropdown: false,
-      multiple: false,
+      multiple: true,
       multipleLimit: 0,
       optionItems: [],
       required: false,
@@ -63516,8 +63516,7 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
       ]),
       _: 1
     }),
-    $data.isDocpal ? (openBlock(), createBlock(_component_el_button, {
-      key: 0,
+    createVNode(_component_el_button, {
       type: "text",
       onClick: $options.handleOpen
     }, {
@@ -63525,7 +63524,7 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
         createTextVNode(toDisplayString(_ctx.$t("render.hint.uploadFormDocpalSetting")), 1)
       ]),
       _: 1
-    }, 8, ["onClick"])) : createCommentVNode("", true),
+    }, 8, ["onClick"]),
     createVNode(_component_el_form_item, {
       label: _ctx.$t("designer.setting.uploadURL")
     }, {
@@ -63560,6 +63559,7 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
     }, {
       footer: withCtx(() => [
         createVNode(_component_el_button, {
+          size: "default",
           onClick: _cache[1] || (_cache[1] = ($event) => $data.isVisible = false)
         }, {
           default: withCtx(() => [
@@ -63568,11 +63568,12 @@ function _sfc_render$27(_ctx, _cache, $props, $setup, $data, $options) {
           _: 1
         }),
         createVNode(_component_el_button, {
+          size: "default",
           type: "primary",
           onClick: $options.handleSubmit
         }, {
           default: withCtx(() => [
-            createTextVNode(toDisplayString(_ctx.$t("render.hint.confirm")), 1)
+            createTextVNode(toDisplayString(_ctx.$t("designer.hint.confirm")), 1)
           ]),
           _: 1
         }, 8, ["onClick"])
@@ -79176,13 +79177,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1750921005041__");
+    var svgDom = document.getElementById("__svg__icons__dom__1751004574681__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1750921005041__";
+      svgDom.id = "__svg__icons__dom__1751004574681__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

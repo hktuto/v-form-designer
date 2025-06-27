@@ -5,7 +5,7 @@
         $t("designer.setting.uploadSetting")
       }}</el-divider>
     </el-form-item>
-    <el-button v-if="isDocpal" type="text" @click="handleOpen">{{
+    <el-button type="text" @click="handleOpen">{{
       $t("render.hint.uploadFormDocpalSetting")
     }}</el-button>
     <el-form-item :label="$t('designer.setting.uploadURL')">
@@ -33,11 +33,11 @@
       <VFormRender ref="formRef" :form-json="formJson" :form-data="optionModel.uploadConfig">
       </VFormRender>
       <template #footer>
-        <el-button @click="isVisible = false">{{
+        <el-button size="default" @click="isVisible = false">{{
           $t("render.hint.cancel")
         }}</el-button>
-        <el-button type="primary" @click="handleSubmit">{{
-          $t("render.hint.confirm")
+        <el-button size="default" type="primary" @click="handleSubmit">{{
+          $t("designer.hint.confirm")
         }}</el-button>
       </template>
     </el-dialog>

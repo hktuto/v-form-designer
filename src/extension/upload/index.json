@@ -172,7 +172,7 @@
         "allowCreate": false,
         "remote": false,
         "automaticDropdown": false,
-        "multiple": false,
+        "multiple": true,
         "multipleLimit": 0,
         "optionItems": [],
         "required": false,
