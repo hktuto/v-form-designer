@@ -281,6 +281,8 @@ export default {
       switchWidth: 'Width of Switch(px)',
       activeText: 'Active Text',
       inactiveText: 'Inactive Text',
+      activeValue: 'Active Value',
+      inactiveValue: 'Inactive Value',
       activeColor: 'Active Color',
       inactiveColor: 'Inactive Color',
       maxStars: 'Stars Max Number',

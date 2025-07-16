@@ -21,6 +21,16 @@
           >
             <svg-icon icon-class="el-plus" />
           </el-button>
+          <el-button
+            :disabled="addDisabled"
+            round
+            type="primary"
+            size="small"
+            class="action-button"
+            @click="testPaste"
+            :title="$t('render.hint.subFormAddActionHint')"
+            >test
+          </el-button>
         </div>
         <template
           v-for="subWidget in widget.widgetList"
@@ -319,7 +329,13 @@ export default {
         this.handleSubFormRowChange(oldSubFormData);
       }
     },
-
+    testPaste() {
+      console.log("testPast");
+      // 读取图片等复杂数据
+      navigator.clipboard.readText().then(text => console.log(text));
+      console.log(this.fieldSchemaData);
+      
+    },
     addSubFormRow() {
       let newSubFormDataRow = {};
       this.widget.widgetList.forEach((subFormItem) => {
@@ -430,7 +446,7 @@ export default {
           );
           customFunc.call(this, subFormData, newRowId);
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
       }
     },
@@ -445,7 +461,7 @@ export default {
           );
           customFunc.call(this, subFormData, newRowId);
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
       }
     },
@@ -460,7 +476,7 @@ export default {
           );
           customFunc.call(this, subFormData, deletedDataRow);
         } catch (error) {
-          console.error(error)
+          console.error(error);
         }
       }
     },

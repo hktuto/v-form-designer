@@ -3,8 +3,9 @@
                      :parent-widget="parentWidget" :parent-list="parentList" :index-of-parent-list="indexOfParentList"
                      :sub-form-row-index="subFormRowIndex" :sub-form-col-index="subFormColIndex" :sub-form-row-id="subFormRowId">
     <el-switch ref="fieldEditor" v-model="fieldModel"
-               :disabled="field.options.disabled"
-               :active-text="field.options.activeText" :inactive-text="field.options.inactiveText"
+               :disabled="field.options.disabled" 
+               :active-value="field.options.activeValue" :inactive-value="field.options.inactiveValue"
+               :active-text="$t(field.options.activeText)" :inactive-text="$t(field.options.inactiveText)"
                :active-color="field.options.activeColor" :inactive-color="field.options.inactiveColor"
                :width="field.options.switchWidth"
                @change="handleChangeEvent">

@@ -2159,6 +2159,8 @@ var enLocale = {
       switchWidth: "Width of Switch(px)",
       activeText: "Active Text",
       inactiveText: "Inactive Text",
+      activeValue: "Active Value",
+      inactiveValue: "Inactive Value",
       activeColor: "Active Color",
       inactiveColor: "Inactive Color",
       maxStars: "Stars Max Number",
@@ -31471,18 +31473,20 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.fieldModel,
         "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $data.fieldModel = $event),
         disabled: $props.field.options.disabled,
-        "active-text": $props.field.options.activeText,
-        "inactive-text": $props.field.options.inactiveText,
+        "active-value": $props.field.options.activeValue,
+        "inactive-value": $props.field.options.inactiveValue,
+        "active-text": _ctx.$t($props.field.options.activeText),
+        "inactive-text": _ctx.$t($props.field.options.inactiveText),
         "active-color": $props.field.options.activeColor,
         "inactive-color": $props.field.options.inactiveColor,
         width: $props.field.options.switchWidth,
         onChange: _ctx.handleChangeEvent
-      }, null, 8, ["modelValue", "disabled", "active-text", "inactive-text", "active-color", "inactive-color", "width", "onChange"])
+      }, null, 8, ["modelValue", "disabled", "active-value", "inactive-value", "active-text", "inactive-text", "active-color", "inactive-color", "width", "onChange"])
     ]),
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-3529e848"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-1d6e800e"]]);
 var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
@@ -32296,6 +32300,11 @@ const _sfc_main$3c = {
         this.handleSubFormRowChange(oldSubFormData);
       }
     },
+    testPaste() {
+      console.log("testPast");
+      navigator.clipboard.readText().then((text) => console.log(text));
+      console.log(this.fieldSchemaData);
+    },
     addSubFormRow() {
       let newSubFormDataRow = {};
       this.widget.widgetList.forEach((subFormItem2) => {
@@ -32429,6 +32438,20 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
                   createVNode(_component_svg_icon, { "icon-class": "el-plus" })
                 ]),
                 _: 1
+              }, 8, ["disabled", "onClick", "title"]),
+              createVNode(_component_el_button, {
+                disabled: $options.addDisabled,
+                round: "",
+                type: "primary",
+                size: "small",
+                class: "action-button",
+                onClick: $options.testPaste,
+                title: _ctx.$t("render.hint.subFormAddActionHint")
+              }, {
+                default: withCtx(() => _cache[0] || (_cache[0] = [
+                  createTextVNode("test ")
+                ])),
+                _: 1
               }, 8, ["disabled", "onClick", "title"])
             ])) : createCommentVNode("", true),
             (openBlock(true), createElementBlock(Fragment, null, renderList($props.widget.widgetList, (subWidget) => {
@@ -32560,7 +32583,7 @@ function _sfc_render$3c(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-7be3d178"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$3c, [["render", _sfc_render$3c], ["__scopeId", "data-v-5365409b"]]);
 var __glob_0_3$2 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -79177,13 +79200,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1751004574681__");
+    var svgDom = document.getElementById("__svg__icons__dom__1752648297672__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1751004574681__";
+      svgDom.id = "__svg__icons__dom__1752648297672__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
