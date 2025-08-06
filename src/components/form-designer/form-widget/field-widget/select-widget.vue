@@ -46,7 +46,7 @@
       <el-option
         v-for="item in field.options.optionItems"
         :key="item.value"
-        :label="$t(item.label)"
+        :label="item.label ? $t(item.label) : ''"
         :value="item.value"
         :disabled="item.disabled"
       >

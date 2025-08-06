@@ -31127,7 +31127,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
           (openBlock(true), createElementBlock(Fragment, null, renderList($props.field.options.optionItems, (item) => {
             return openBlock(), createBlock(_component_el_option, {
               key: item.value,
-              label: _ctx.$t(item.label),
+              label: item.label ? _ctx.$t(item.label) : "",
               value: item.value,
               disabled: item.disabled
             }, null, 8, ["label", "value", "disabled"]);
@@ -31139,7 +31139,7 @@ function _sfc_render$3m(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-2fcc7663"]]);
+var SelectWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3m, [["render", _sfc_render$3m], ["__scopeId", "data-v-2f4623d6"]]);
 var __glob_0_17$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": SelectWidget
@@ -31475,8 +31475,8 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
         disabled: $props.field.options.disabled,
         "active-value": $props.field.options.activeValue,
         "inactive-value": $props.field.options.inactiveValue,
-        "active-text": _ctx.$t($props.field.options.activeText),
-        "inactive-text": _ctx.$t($props.field.options.inactiveText),
+        "active-text": $props.field.options.activeText ? _ctx.$t($props.field.options.activeText) : "",
+        "inactive-text": $props.field.options.inactiveText ? _ctx.$t($props.field.options.inactiveText) : "",
         "active-color": $props.field.options.activeColor,
         "inactive-color": $props.field.options.inactiveColor,
         width: $props.field.options.switchWidth,
@@ -31486,7 +31486,7 @@ function _sfc_render$3i(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-1d6e800e"]]);
+var switchWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3i, [["render", _sfc_render$3i], ["__scopeId", "data-v-1a5206c8"]]);
 var __glob_0_22$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": switchWidget
@@ -68640,19 +68640,39 @@ const _sfc_main$F = {
     designer: Object,
     selectedWidget: Object,
     optionModel: Object
+  },
+  data() {
+    return {
+      activeTextList: ["actions.inactive", "actions.activate"]
+    };
   }
 };
 function _sfc_render$F(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_input = resolveComponent("el-input");
+  const _component_el_option = resolveComponent("el-option");
+  const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
     label: _ctx.$t("designer.setting.activeText")
   }, {
     default: withCtx(() => [
-      createVNode(_component_el_input, {
+      createVNode(_component_el_select, {
         modelValue: $props.optionModel.activeText,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.activeText = $event)
-      }, null, 8, ["modelValue"])
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.activeText = $event),
+        filterable: "",
+        "allow-create": "",
+        "default-first-option": ""
+      }, {
+        default: withCtx(() => [
+          (openBlock(true), createElementBlock(Fragment, null, renderList($data.activeTextList, (item, idx) => {
+            return openBlock(), createBlock(_component_el_option, {
+              key: idx,
+              label: item,
+              value: item
+            }, null, 8, ["label", "value"]);
+          }), 128))
+        ]),
+        _: 1
+      }, 8, ["modelValue"])
     ]),
     _: 1
   }, 8, ["label"]);
@@ -68698,19 +68718,39 @@ const _sfc_main$D = {
     designer: Object,
     selectedWidget: Object,
     optionModel: Object
+  },
+  data() {
+    return {
+      inactiveTextList: ["actions.inactive", "actions.activate"]
+    };
   }
 };
 function _sfc_render$D(_ctx, _cache, $props, $setup, $data, $options) {
-  const _component_el_input = resolveComponent("el-input");
+  const _component_el_option = resolveComponent("el-option");
+  const _component_el_select = resolveComponent("el-select");
   const _component_el_form_item = resolveComponent("el-form-item");
   return openBlock(), createBlock(_component_el_form_item, {
     label: _ctx.$t("designer.setting.inactiveText")
   }, {
     default: withCtx(() => [
-      createVNode(_component_el_input, {
+      createVNode(_component_el_select, {
         modelValue: $props.optionModel.inactiveText,
-        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.inactiveText = $event)
-      }, null, 8, ["modelValue"])
+        "onUpdate:modelValue": _cache[0] || (_cache[0] = ($event) => $props.optionModel.inactiveText = $event),
+        filterable: "",
+        "allow-create": "",
+        "default-first-option": ""
+      }, {
+        default: withCtx(() => [
+          (openBlock(true), createElementBlock(Fragment, null, renderList($data.inactiveTextList, (item, idx) => {
+            return openBlock(), createBlock(_component_el_option, {
+              key: idx,
+              label: item,
+              value: item
+            }, null, 8, ["label", "value"]);
+          }), 128))
+        ]),
+        _: 1
+      }, 8, ["modelValue"])
     ]),
     _: 1
   }, 8, ["label"]);
@@ -79200,13 +79240,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1752648297672__");
+    var svgDom = document.getElementById("__svg__icons__dom__1754451317347__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1752648297672__";
+      svgDom.id = "__svg__icons__dom__1754451317347__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
