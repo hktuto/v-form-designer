@@ -15,7 +15,7 @@
 import i18n from "@/utils/i18n";
 
 export default {
-  name: "date-type-editor",
+  name: "daterange2-type-editor",
   mixins: [i18n],
   props: {
     designer: Object,

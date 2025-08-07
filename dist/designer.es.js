@@ -67481,7 +67481,7 @@ var __glob_0_120 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePr
   "default": dateValueFormatEditor
 }, Symbol.toStringTag, { value: "Module" }));
 const _sfc_main$17 = {
-  name: "date-type-editor",
+  name: "daterange2-type-editor",
   mixins: [i18n$1],
   props: {
     designer: Object,
@@ -79240,13 +79240,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1754451317347__");
+    var svgDom = document.getElementById("__svg__icons__dom__1754538002352__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1754451317347__";
+      svgDom.id = "__svg__icons__dom__1754538002352__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
