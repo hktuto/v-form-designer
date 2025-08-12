@@ -98,7 +98,7 @@ export default {
 
 <style lang="scss" scope>
 .demo-tabs {
-  height: 97vh;
+  height: 99vh;
   overflow: hidden;
   display: grid;
   grid-template-rows: min-content 1fr;

@@ -69,41 +69,36 @@
     </div>
 
     <div class="v-form-container">
-      <widget-panel
-        class="v-form-panel"
-        :designer="designer"
-        style="--el-aside-width: 285px"
-      />
+      <widget-panel class="v-form-panel vform-auto-tabs" :designer="designer" />
 
       <div class="center-layout-container">
         <el-header class="toolbar-header">
-          <toolbar-panel :designer="designer" :global-dsv="globalDsv" ref="toolbarRef">
+          <toolbar-panel
+            :designer="designer"
+            :global-dsv="globalDsv"
+            ref="toolbarRef"
+          >
             <template v-for="(idx, slotName) in $slots" #[slotName]>
               <slot :name="slotName"></slot>
             </template>
           </toolbar-panel>
         </el-header>
-        <el-main class="form-widget-main">
-          <el-scrollbar class="container-scroll-bar" :style="{ height: scrollerHeight }">
-            <v-form-widget
-              :designer="designer"
-              :form-config="designer.formConfig"
-              :global-dsv="globalDsv"
-              ref="formRef"
-            >
-            </v-form-widget>
-          </el-scrollbar>
-        </el-main>
-      </div>
-      <el-aside>
-        <setting-panel
+        <v-form-widget
           :designer="designer"
-          :selected-widget="designer.selectedWidget"
           :form-config="designer.formConfig"
           :global-dsv="globalDsv"
-          @edit-event-handler="testEEH"
-        />
-      </el-aside>
+          ref="formRef"
+        >
+        </v-form-widget>
+      </div>
+      <setting-panel
+        class="vform-auto-tabs"
+        :designer="designer"
+        :selected-widget="designer.selectedWidget"
+        :form-config="designer.formConfig"
+        :global-dsv="globalDsv"
+        @edit-event-handler="testEEH"
+      />
     </div>
   </div>
 </template>
@@ -115,7 +110,6 @@ import SettingPanel from "./setting-panel/index";
 import VFormWidget from "./form-widget/index";
 import { createDesigner } from "@/components/form-designer/designer";
 import {
-  addWindowResizeHandler,
   deepClone,
   getQueryParam,
   getAllContainerWidgets,
@@ -198,8 +192,6 @@ export default {
       chatUrl: "https://www.vform666.com/pages/chat-group/",
       subScribeUrl: "https://www.vform666.com/pages/pro/",
 
-      scrollerHeight: 0,
-
       designer: createDesigner(this),
 
       fieldList: [],
@@ -219,13 +211,6 @@ export default {
   },
   mounted() {
     this.initLocale();
-
-    this.scrollerHeight = window.innerHeight - 56 - 36 + "px";
-    addWindowResizeHandler(() => {
-      this.$nextTick(() => {
-        this.scrollerHeight = window.innerHeight - 56 - 36 + "px";
-      });
-    });
 
     this.loadCase();
     this.loadFieldListFromServer();
@@ -286,7 +271,9 @@ export default {
           this.$message.success(this.$t("designer.hint.sampleLoadedSuccess"));
         })
         .catch((error) => {
-          this.$message.error(this.$t("designer.hint.sampleLoadedFail") + ":" + error);
+          this.$message.error(
+            this.$t("designer.hint.sampleLoadedFail") + ":" + error
+          );
         });
     },
 
@@ -531,22 +518,8 @@ div.external-link {
   }
   .v-form-container {
     display: grid;
-    grid-template-columns: min-content 1fr min-content;
-    overflow: auto;
-    .v-form-panel {
-      padding: 10px;
-      height: 100%;
-      overflow: hidden;
-      box-sizing: border-box;
-      width: var(--el-aside-width, 300px);
-      flex-shrink: 0;
-      :deep(.el-tabs__header) {
-        overflow: hidden;
-      }
-      :deep(.el-tabs__content) {
-        overflow: auto;
-      }
-    }
+    grid-template-columns: 240px 1fr 300px;
+    overflow: hidden;
     .center-layout-container {
       display: grid;
       grid-template-rows: min-content 1fr;
@@ -555,16 +528,19 @@ div.external-link {
       border-right: 2px dotted #ebeef5;
       height: 100%;
       overflow: hidden;
-      .form-widget-container {
-        position: relative;
-        height: unset;
+      .form-widget-main {
         overflow: hidden;
-        overflow-y: hidden;
-        :deep(.el-form) {
-          overflow: auto;
-        }
+        position: relative;
       }
     }
+  }
+}
+.vform-auto-tabs {
+  height: 100%;
+  overflow: hidden;
+  padding: 0.5rem;
+  :deep(.el-tabs__content) {
+    overflow: auto;
   }
 }
 </style>

@@ -4216,7 +4216,7 @@ function _sfc_render$3H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3H, [["render", _sfc_render$3H], ["__scopeId", "data-v-b96310c6"]]);
+var WidgetPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$3H, [["render", _sfc_render$3H], ["__scopeId", "data-v-8d9555fa"]]);
 var emitter = {
   data() {
     return {
@@ -6398,7 +6398,7 @@ function _sfc_render$3z(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var DateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3z, [["render", _sfc_render$3z], ["__scopeId", "data-v-70c0efa1"]]);
+var DateRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3z, [["render", _sfc_render$3z], ["__scopeId", "data-v-3b60cd2c"]]);
 var __glob_0_4$3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": DateRangeWidget
@@ -31689,7 +31689,7 @@ function _sfc_render$3g(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-37df7776"]]);
+var timeRangeWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3g, [["render", _sfc_render$3g], ["__scopeId", "data-v-58af2308"]]);
 var __glob_0_24$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": timeRangeWidget
@@ -72137,7 +72137,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label-position", "class", "size"])
   ]);
 }
-var VFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-25cb6e1f"]]);
+var VFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-533591a5"]]);
 function createDesigner(vueInstance) {
   let defaultFormConfig = deepClone(getDefaultFormConfig());
   return {
@@ -72976,7 +72976,6 @@ const _sfc_main$l = {
       gitUrl: "https://github.com/vform666/variant-form3-vite",
       chatUrl: "https://www.vform666.com/pages/chat-group/",
       subScribeUrl: "https://www.vform666.com/pages/pro/",
-      scrollerHeight: 0,
       designer: createDesigner(this),
       fieldList: []
     };
@@ -72995,12 +72994,6 @@ const _sfc_main$l = {
   },
   mounted() {
     this.initLocale();
-    this.scrollerHeight = window.innerHeight - 56 - 36 + "px";
-    addWindowResizeHandler(() => {
-      this.$nextTick(() => {
-        this.scrollerHeight = window.innerHeight - 56 - 36 + "px";
-      });
-    });
     this.loadCase();
     this.loadFieldListFromServer();
   },
@@ -73172,10 +73165,7 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
   const _component_toolbar_panel = resolveComponent("toolbar-panel");
   const _component_el_header = resolveComponent("el-header");
   const _component_v_form_widget = resolveComponent("v-form-widget");
-  const _component_el_scrollbar = resolveComponent("el-scrollbar");
-  const _component_el_main = resolveComponent("el-main");
   const _component_setting_panel = resolveComponent("setting-panel");
-  const _component_el_aside = resolveComponent("el-aside");
   return openBlock(), createElementBlock("div", _hoisted_1$c, [
     createElementVNode("div", _hoisted_2$a, [
       createElementVNode("div", _hoisted_3$9, [
@@ -73257,9 +73247,8 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
     ]),
     createElementVNode("div", _hoisted_7, [
       createVNode(_component_widget_panel, {
-        class: "v-form-panel",
-        designer: $data.designer,
-        style: { "--el-aside-width": "285px" }
+        class: "v-form-panel vform-auto-tabs",
+        designer: $data.designer
       }, null, 8, ["designer"]),
       createElementVNode("div", _hoisted_8, [
         createVNode(_component_el_header, { class: "toolbar-header" }, {
@@ -73281,42 +73270,25 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
           ]),
           _: 3
         }),
-        createVNode(_component_el_main, { class: "form-widget-main" }, {
-          default: withCtx(() => [
-            createVNode(_component_el_scrollbar, {
-              class: "container-scroll-bar",
-              style: normalizeStyle({ height: $data.scrollerHeight })
-            }, {
-              default: withCtx(() => [
-                createVNode(_component_v_form_widget, {
-                  designer: $data.designer,
-                  "form-config": $data.designer.formConfig,
-                  "global-dsv": $props.globalDsv,
-                  ref: "formRef"
-                }, null, 8, ["designer", "form-config", "global-dsv"])
-              ]),
-              _: 1
-            }, 8, ["style"])
-          ]),
-          _: 1
-        })
+        createVNode(_component_v_form_widget, {
+          designer: $data.designer,
+          "form-config": $data.designer.formConfig,
+          "global-dsv": $props.globalDsv,
+          ref: "formRef"
+        }, null, 8, ["designer", "form-config", "global-dsv"])
       ]),
-      createVNode(_component_el_aside, null, {
-        default: withCtx(() => [
-          createVNode(_component_setting_panel, {
-            designer: $data.designer,
-            "selected-widget": $data.designer.selectedWidget,
-            "form-config": $data.designer.formConfig,
-            "global-dsv": $props.globalDsv,
-            onEditEventHandler: $options.testEEH
-          }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
-        ]),
-        _: 1
-      })
+      createVNode(_component_setting_panel, {
+        class: "vform-auto-tabs",
+        designer: $data.designer,
+        "selected-widget": $data.designer.selectedWidget,
+        "form-config": $data.designer.formConfig,
+        "global-dsv": $props.globalDsv,
+        onEditEventHandler: $options.testEEH
+      }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-28e81e74"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-325bbdba"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -79240,13 +79212,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1754538002352__");
+    var svgDom = document.getElementById("__svg__icons__dom__1754979185365__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1754538002352__";
+      svgDom.id = "__svg__icons__dom__1754979185365__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

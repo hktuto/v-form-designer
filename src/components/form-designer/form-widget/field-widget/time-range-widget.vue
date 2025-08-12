@@ -107,7 +107,7 @@
     width: 100%;
 
     :deep(.el-range-editor) {
-      width: 100% !important;
+      width: calc(100% - 20px) !important;
     }
   }
 

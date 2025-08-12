@@ -458,12 +458,15 @@ div.panel-container {
     padding-bottom: 6px;
 
     ul {
-      padding-left: 10px; /* 重置IE11默认样式 */
+      padding: 0;
       margin: 0; /* 重置IE11默认样式 */
       margin-block-start: 0;
       margin-block-end: 0.25em;
-      padding-inline-start: 10px;
-
+      padding-inline-start: 0;
+      margin-right: 0.5rem;
+      display: grid;
+      grid-template-columns: min-content min-content;
+      gap: 0.5rem;
       &:after {
         content: "";
         display: block;
@@ -475,9 +478,7 @@ div.panel-container {
         display: inline-block;
         height: 32px;
         line-height: 32px;
-        width: 98px;
-        float: left;
-        margin: 2px 6px 6px 0;
+        width: 80px;
         cursor: move;
         white-space: nowrap;
         text-overflow: ellipsis;
