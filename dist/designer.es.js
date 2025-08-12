@@ -72137,7 +72137,7 @@ function _sfc_render$m(_ctx, _cache, $props, $setup, $data, $options) {
     }, 8, ["label-position", "class", "size"])
   ]);
 }
-var VFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-533591a5"]]);
+var VFormWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$m, [["render", _sfc_render$m], ["__scopeId", "data-v-154dd339"]]);
 function createDesigner(vueInstance) {
   let defaultFormConfig = deepClone(getDefaultFormConfig());
   return {
@@ -79212,13 +79212,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1754979185365__");
+    var svgDom = document.getElementById("__svg__icons__dom__1754988155366__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1754979185365__";
+      svgDom.id = "__svg__icons__dom__1754988155366__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -232,7 +232,7 @@ export default {
 .form-widget-container {
   padding: 10px;
   background: #f1f2f3;
-
+  position: relative;
   overflow: hidden;
   .widget-form {
     overflow: hidden;
