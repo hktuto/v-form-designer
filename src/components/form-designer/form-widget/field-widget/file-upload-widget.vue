@@ -461,12 +461,10 @@ export default {
     },
     handlePreview(file) {
       if(!file || !this.field.options) return;
-      this.$emit("filePreview", { file, options: this.field.options });
+      console.log("filePreview", file, this.field.options);
+      this.emit$("filePreview", { file, options: this.field.options });
       
-      this.dispatch("VFormRender", "filePreview", {
-        file,
-        options: this.field.options,
-      });
+      this.dispatch("VFormRender", "filePreview", [file, this.field.options]);
     },
     handleOnChange(file, fileList) {
       if (!!file) this.field.options.totalFileList = fileList?.length || 0;
