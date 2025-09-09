@@ -6836,11 +6836,9 @@ const _sfc_main$3w = {
     handlePreview(file) {
       if (!file || !this.field.options)
         return;
+      console.log("filePreview", file, this.field.options);
       this.emit$("filePreview", { file, options: this.field.options });
-      this.dispatch("VFormRender", "filePreview", {
-        file,
-        options: this.field.options
-      });
+      this.dispatch("VFormRender", "filePreview", [file, this.field.options]);
     },
     handleOnChange(file, fileList) {
       if (!!file)
@@ -7044,7 +7042,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-575e210b"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-0ceee95d"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -79200,13 +79198,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1757427927765__");
+    var svgDom = document.getElementById("__svg__icons__dom__1757429488778__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1757427927765__";
+      svgDom.id = "__svg__icons__dom__1757429488778__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
