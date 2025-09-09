@@ -21,16 +21,6 @@
           >
             <svg-icon icon-class="el-plus" />
           </el-button>
-          <el-button
-            :disabled="addDisabled"
-            round
-            type="primary"
-            size="small"
-            class="action-button"
-            @click="testPaste"
-            :title="$t('render.hint.subFormAddActionHint')"
-            >test
-          </el-button>
         </div>
         <template
           v-for="subWidget in widget.widgetList"

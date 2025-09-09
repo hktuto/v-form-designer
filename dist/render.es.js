@@ -5318,6 +5318,8 @@ const _sfc_main$K = {
       }
     },
     handlePreview(file) {
+      if (!file || !this.field.options)
+        return;
       this.emit$("filePreview", { file, options: this.field.options });
       this.dispatch("VFormRender", "filePreview", {
         file,
@@ -5526,7 +5528,7 @@ function _sfc_render$K(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-07000623"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$K, [["render", _sfc_render$K], ["__scopeId", "data-v-575e210b"]]);
 var __glob_0_7 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -30922,20 +30924,6 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
                   createVNode(_component_svg_icon, { "icon-class": "el-plus" })
                 ]),
                 _: 1
-              }, 8, ["disabled", "onClick", "title"]),
-              createVNode(_component_el_button, {
-                disabled: $options.addDisabled,
-                round: "",
-                type: "primary",
-                size: "small",
-                class: "action-button",
-                onClick: $options.testPaste,
-                title: _ctx.$t("render.hint.subFormAddActionHint")
-              }, {
-                default: withCtx(() => _cache[0] || (_cache[0] = [
-                  createTextVNode("test ")
-                ])),
-                _: 1
               }, 8, ["disabled", "onClick", "title"])
             ])) : createCommentVNode("", true),
             (openBlock(true), createElementBlock(Fragment, null, renderList($props.widget.widgetList, (subWidget) => {
@@ -31067,7 +31055,7 @@ function _sfc_render$q(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["widget"]);
 }
-var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-5365409b"]]);
+var subFormItem = /* @__PURE__ */ _export_sfc$2(_sfc_main$q, [["render", _sfc_render$q], ["__scopeId", "data-v-16089732"]]);
 var __glob_0_3 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": subFormItem
@@ -32283,13 +32271,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1754988176277__");
+    var svgDom = document.getElementById("__svg__icons__dom__1757427931886__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1754988176277__";
+      svgDom.id = "__svg__icons__dom__1757427931886__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

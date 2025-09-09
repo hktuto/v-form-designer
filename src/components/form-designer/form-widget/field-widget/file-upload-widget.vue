@@ -460,6 +460,7 @@ export default {
       }
     },
     handlePreview(file) {
+      if(!file || !this.field.options) return;
       this.emit$("filePreview", { file, options: this.field.options });
       this.dispatch("VFormRender", "filePreview", {
         file,
