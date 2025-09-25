@@ -29,6 +29,7 @@ export default {
       tab: '标签页',
       section: '区块',
       'sub-form': '子表单',
+      'sub-object': '对象容器',
       'grid-col': '栅格列',
       'table-cell': '单元格',
       'tab-pane': '选项卡页',

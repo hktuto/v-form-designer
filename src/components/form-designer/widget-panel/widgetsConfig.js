@@ -59,6 +59,20 @@ export const containers = [
     }
   },
   {
+    type: 'sub-object',
+    category: 'container',
+    icon: 'sub-object',
+    widgetList: [],
+    options: {
+      name: '',
+      label: '',
+      labelAlign: 'label-center-align',
+      hidden: false,
+      disabled: false,
+      customClass: '',  //自定义css类名
+    }
+  },
+  {
     type: 'grid-col',
     category: 'container',
     icon: 'grid-col',

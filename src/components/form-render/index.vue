@@ -302,6 +302,24 @@ export default {
             let initialValue = this.formData[subFormName];
             this.formDataModel[subFormName] = deepClone(initialValue);
           }
+        } else if (wItem.type === "sub-object") {
+          // 对象容器：将内部字段聚集成一个对象
+          let objectName = wItem.options.name;
+          if (!this.formData.hasOwnProperty(objectName)) {
+            let objectData = {};
+            wItem.widgetList.forEach((childItem) => {
+              if (!!childItem.formItemFlag) {
+                objectData[childItem.options.name] = childItem.options.defaultValue;
+                // 不再为对象容器内的字段创建扁平化的数据
+                // this.formDataModel[childItem.options.name] = childItem.options.defaultValue;
+              }
+            });
+            this.formDataModel[objectName] = objectData;
+          } else {
+            console.log('in else',this.formData, objectName);
+            let initialValue = this.formData[objectName];
+            this.formDataModel[objectName] = deepClone(initialValue);
+          }
         } else if (wItem.type === "grid-col" || wItem.type === "table-cell") {
           if (!!wItem.widgetList && wItem.widgetList.length > 0) {
             wItem.widgetList.forEach((childItem) => {
@@ -355,7 +373,9 @@ export default {
       this.off$("fieldValidation"); //移除原有事件监听
       this.on$("fieldValidation", (fieldName) => {
         // console.log(this.$refs.renderForm)
-        this.$refs.renderForm.validateField(fieldName);
+        if (this.$refs.renderForm) {
+          this.$refs.renderForm.validateField(fieldName);
+        }
       });
     },
     addFilePreviewEventHandler() {
@@ -376,6 +396,9 @@ export default {
       subFormName,
       subFormRowIndex
     ) {
+      // 处理对象容器的数据更新
+      this.updateObjectContainerData(fieldName, newValue);
+      
       if (!!this.formConfig && !!this.formConfig.dhList) {
         handleDhList(fieldName, this.formConfig.dhList, this.getWidgetRef);
       }
@@ -403,6 +426,85 @@ export default {
           console.error(error);
         }
       }
+    },
+
+    /**
+     * 更新对象容器的数据
+     * @param fieldName 字段名称
+     * @param newValue 新值
+     */
+    updateObjectContainerData(fieldName, newValue) {
+      // 查找字段所属的对象容器
+      let objectContainer = this.findObjectContainerByField(fieldName);
+      if (!!objectContainer) {
+        let objectName = objectContainer.options.name;
+        if (!this.formDataModel[objectName]) {
+          this.formDataModel[objectName] = {};
+        }
+        this.formDataModel[objectName][fieldName] = newValue;
+      }
+    },
+
+    /**
+     * 根据字段名称查找所属的对象容器
+     * @param fieldName 字段名称
+     * @returns {Object|null} 对象容器组件或null
+     */
+    findObjectContainerByField(fieldName) {
+      let result = null;
+      
+      const searchInWidgetList = (widgetList) => {
+        for (let widget of widgetList) {
+          if (widget.type === 'sub-object' && widget.widgetList) {
+            // 检查对象容器内是否包含该字段
+            for (let childWidget of widget.widgetList) {
+              if (childWidget.options && childWidget.options.name === fieldName) {
+                return widget;
+              }
+            }
+          }
+          
+          // 递归搜索子容器
+          if (widget.widgetList) {
+            result = searchInWidgetList(widget.widgetList);
+            if (result) return result;
+          }
+          
+          if (widget.cols) {
+            for (let col of widget.cols) {
+              if (col.widgetList) {
+                result = searchInWidgetList(col.widgetList);
+                if (result) return result;
+              }
+            }
+          }
+          
+          if (widget.rows) {
+            for (let row of widget.rows) {
+              if (row.cols) {
+                for (let col of row.cols) {
+                  if (col.widgetList) {
+                    result = searchInWidgetList(col.widgetList);
+                    if (result) return result;
+                  }
+                }
+              }
+            }
+          }
+          
+          if (widget.tabs) {
+            for (let tab of widget.tabs) {
+              if (tab.widgetList) {
+                result = searchInWidgetList(tab.widgetList);
+                if (result) return result;
+              }
+            }
+          }
+        }
+        return null;
+      };
+      
+      return searchInWidgetList(this.formJsonObj.widgetList);
     },
 
     handleOnCreated() {
@@ -584,6 +686,12 @@ export default {
         return this.formDataModel;
       }
 
+      // 检查表单是否已经挂载
+      if (!this.$refs.renderForm) {
+        console.warn('Form not yet mounted, returning formDataModel without validation');
+        return Promise.resolve(this.formDataModel);
+      }
+
       let callback = function nullFunc() {};
       let promise = new window.Promise(function (resolve, reject) {
         callback = function (formData, error) {
@@ -591,7 +699,7 @@ export default {
         };
       });
 
-      this.$refs["renderForm"].validate((valid) => {
+      this.$refs.renderForm.validate((valid) => {
         if (valid) {
           let isUploadSuccess = true;
           for (let key in this.widgetRefList) {
@@ -628,17 +736,118 @@ export default {
 
     setFormData(formData) {
       // 清空規則，防止因爲多次打開表單時，但是校驗依舊存在的問題
-      this.clearValidate();
-      //设置表单数据
-      Object.keys(this.formDataModel).forEach((propName) => {
-        if (!!formData && formData.hasOwnProperty(propName)) {
-          this.formDataModel[propName] = deepClone(formData[propName]);
-        }
-      });
+      // 只有在表单已经挂载后才调用clearValidate
+      if (this.$refs.renderForm) {
+        this.clearValidate();
+      }
+      
+      // 处理传入的表单数据
+      if (!!formData) {
+        // 先处理对象容器的数据设置
+        Object.keys(formData).forEach((propName) => {
+          if (formData.hasOwnProperty(propName)) {
+            // 处理对象容器的数据设置
+            this.setObjectContainerFieldData(propName, formData[propName]);
+          }
+        });
+        
+        // 然后更新formDataModel
+        Object.keys(this.formDataModel).forEach((propName) => {
+          if (formData.hasOwnProperty(propName)) {
+            this.formDataModel[propName] = deepClone(formData[propName]);
+          }
+        });
+      }
+      
       // 通知SubForm组件：表单数据更新事件！！
       this.broadcast("ContainerItem", "setFormData", this.formDataModel);
       // 通知FieldWidget组件：表单数据更新事件！！
       this.broadcast("FieldWidget", "setFormData", this.formDataModel);
+    },
+
+    /**
+     * 设置对象容器内部字段的数据
+     * @param objectName 对象容器名称
+     * @param objectData 对象数据
+     */
+    setObjectContainerFieldData(objectName, objectData) {
+      if (typeof objectData === 'object' && objectData !== null && !Array.isArray(objectData)) {
+        // 查找对象容器
+        let objectContainer = this.findObjectContainerByName(objectName);
+        if (!!objectContainer && objectContainer.widgetList) {
+          // 设置对象容器内字段的值
+          // 注意：不再为对象容器内的字段创建扁平化数据，只保留对象包装的数据
+          // 这样可以确保 getFormData() 只返回对象包装的数据
+          
+          // 通知字段组件更新值
+          objectContainer.widgetList.forEach((childWidget) => {
+            if (childWidget.formItemFlag && childWidget.options && childWidget.options.name) {
+              let fieldName = childWidget.options.name;
+              if (objectData.hasOwnProperty(fieldName)) {
+                let fieldRef = this.getWidgetRef(fieldName);
+                if (!!fieldRef && !!fieldRef.setValue) {
+                  fieldRef.setValue(objectData[fieldName]);
+                }
+              }
+            }
+          });
+        }
+      }
+    },
+
+    /**
+     * 根据对象容器名称查找对象容器, set data 时使用
+     * @param objectName 对象容器名称
+     * @returns {Object|null} 对象容器组件或null
+     */
+    findObjectContainerByName(objectName) {
+      const searchInWidgetList = (widgetList) => {
+        for (let widget of widgetList) {
+          if (widget.type === 'sub-object' && widget.options && widget.options.name === objectName) {
+            return widget;
+          }
+          
+          // 递归搜索子容器
+          if (widget.widgetList) {
+            let result = searchInWidgetList(widget.widgetList);
+            if (result) return result;
+          }
+          
+          if (widget.cols) {
+            for (let col of widget.cols) {
+              if (col.widgetList) {
+                let result = searchInWidgetList(col.widgetList);
+                if (result) return result;
+              }
+            }
+          }
+          
+          if (widget.rows) {
+            for (let row of widget.rows) {
+              if (row.cols) {
+                for (let col of row.cols) {
+                  if (col.widgetList) {
+                    let result = searchInWidgetList(col.widgetList);
+                    if (result) return result;
+                  }
+                }
+              }
+            }
+          }
+          
+          if (widget.tabs) {
+            for (let tab of widget.tabs) {
+              if (tab.widgetList) {
+                let result = searchInWidgetList(tab.widgetList);
+                if (result) return result;
+              }
+            }
+          }
+        }
+        return null;
+      };
+      
+      return searchInWidgetList(this.formJsonObj.widgetList);
     },
 
     getFieldValue(fieldName) {
@@ -658,7 +867,18 @@ export default {
           }
         });
 
-        return result;
+        if (result.length > 0) {
+          return result;
+        }
+        
+        // 如果是对象容器内的字段
+        let objectContainer = this.findObjectContainerByField(fieldName);
+        if (!!objectContainer) {
+          let objectName = objectContainer.options.name;
+          if (this.formDataModel[objectName] && this.formDataModel[objectName][fieldName] !== undefined) {
+            return this.formDataModel[objectName][fieldName];
+          }
+        }
       }
     },
 
@@ -666,6 +886,8 @@ export default {
       //单个更新字段值
       let fieldRef = this.getWidgetRef(fieldName);
       if (!!fieldRef && !!fieldRef.setValue) {
+        console.log('setFieldValue',fieldName, fieldValue);
+        
         fieldRef.setValue(fieldValue);
       }
 
@@ -677,6 +899,16 @@ export default {
             sw.setValue(fieldValue);
           }
         });
+        
+        // 如果是对象容器内的字段
+        let objectContainer = this.findObjectContainerByField(fieldName);
+        if (!!objectContainer) {
+          let objectName = objectContainer.options.name;
+          if (!this.formDataModel[objectName]) {
+            this.formDataModel[objectName] = {};
+          }
+          this.formDataModel[objectName][fieldName] = fieldValue;
+        }
       }
     },
 
@@ -695,6 +927,8 @@ export default {
         if (!!foundW) {
           if (!!foundW.widget && foundW.widget.type === "sub-form") {
             foundW.disableSubForm();
+          } else if (!!foundW.widget && foundW.widget.type === "sub-object") {
+            foundW.disableSubObject();
           } else {
             //!!foundW.setDisabled && foundW.setDisabled(true)
             if (!!foundW.setDisabled) {
@@ -712,6 +946,8 @@ export default {
         if (!!foundW) {
           if (!!foundW.widget && foundW.widget.type === "sub-form") {
             foundW.enableSubForm();
+          } else if (!!foundW.widget && foundW.widget.type === "sub-object") {
+            foundW.enableSubObject();
           } else {
             //!!foundW.setDisabled && foundW.setDisabled(false)
             if (!!foundW.setDisabled) {
@@ -746,7 +982,9 @@ export default {
     },
 
     clearValidate(props) {
-      this.$refs.renderForm.clearValidate(props);
+      if (this.$refs.renderForm) {
+        this.$refs.renderForm.clearValidate(props);
+      }
     },
 
     /**
@@ -754,7 +992,13 @@ export default {
      * @param callback 回调函数
      */
     validateForm(callback) {
-      this.$refs["renderForm"].validate((valid) => {
+      if (!this.$refs.renderForm) {
+        console.warn('Form not yet mounted, cannot validate');
+        callback(false);
+        return;
+      }
+      
+      this.$refs.renderForm.validate((valid) => {
         callback(valid);
       });
     },

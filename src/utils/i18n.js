@@ -39,7 +39,6 @@ export const changeLocale = function (langName) {
 }
 
 export const translate = function (key) {
-  if (window.$t) console.log(i18n.$st(key), window.$t(key), key);
   if (window.$t && window.$t(key) !== key) {
     return window.$t(key)
   }
