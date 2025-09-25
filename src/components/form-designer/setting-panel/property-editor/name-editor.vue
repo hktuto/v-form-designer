@@ -6,7 +6,8 @@
           <svg-icon icon-class="el-info" /></el-tooltip>
       </span>
     </template>
-    <template v-if="!!selectedWidget.category || noFieldList">
+  
+    <template v-if="!!selectedWidget.category && selectedWidget.type !== 'sub-form' || noFieldList">
       <el-input type="text" v-model="optionModel.name" :readonly="widgetNameReadonly" @change="updateWidgetNameAndRef"></el-input>
     </template>
     <template v-else>
