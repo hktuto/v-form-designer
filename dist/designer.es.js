@@ -4738,25 +4738,35 @@ function getObjStr(obj, apiMethod = "post") {
   else
     return str;
 }
-function setOnChange(widgetRef, isHandleOnCreated = false) {
-  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode && isHandleOnCreated)
-    return;
-  const changeCode = generateChangeCode(widgetRef.changeSettings);
-  widgetRef.onChangePlus = changeCode;
+function generateSingleChangeCode(setting) {
+  const paramsStr = getParamsStr(setting);
+  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
+  const optionApiStr = `
+  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
+  const widgetName = setting.parentWidgetName ? `'${setting.fieldName}@row' + rowId` : `'${setting.fieldName}'`;
+  const codeString = `async function ${funName}() {
+  ${getFieldParamsInitStr(setting, optionApiStr)}
+  try {
+    const widgetRef = _this.getWidgetRef(${widgetName}) 
+    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
+    if(isReady) {
+      if(options.length === 1) {
+        if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+        else widgetRef.setValue(options[0].value)
+      }
+      else widgetRef.setValue(null)
+    }
+  }
+  catch(e) {
+    
+  }
 }
-function generateChangeCode(changeFieldList) {
-  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
-  const mf2 = getMasterTableRecordCode();
-  const code = _changeFieldList.reduce((prev, item) => {
-    const funCode = getFunctionCode(item);
-    prev += funCode;
-    return prev;
-  }, "const _this = this\nif(value === oldValue) return\nconst isReady = _this.getIsReady()  \n" + mf2);
-  return code;
+${funName}()
+`;
+  return codeString;
 }
-function getMasterTableRecordCode() {
-  return `
-async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+function generateMsterTableColumnCode() {
+  const codeString = `async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
   try {
     const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
     return data.reduce((prev, item) => {
@@ -4774,72 +4784,42 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
   }
 }
 `;
-}
-function getFunctionCode(setting) {
-  const paramsStr = getParamsStr(setting);
-  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
-  const optionApiStr = `
-  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
-  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
-  return `
-async function ${funName}() {${fieldParamsInitStr}
-  try {
-    const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
-    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
-    if(isReady) {
-      if(options.length === 1) {
-        if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-        else widgetRef.setValue(options[0].value)
-      }
-      else widgetRef.setValue(null)
-    }
-  }
-  catch(e) {
-    
-  }
-}
-${funName}()
-`;
+  return codeString;
 }
 function getFieldParamsInitStr(setting, optionApiStr) {
   const params = setting.params;
   const fieldCodeList = [];
   const paramsList = [];
-  Object.keys(params).forEach((key) => {
-    if (params[key] instanceof Array) {
-      if (params[key].length === 0) {
-        return;
-      }
-      params[key].forEach((item) => {
-        if (item.value) {
-          const fieldCode = generateFieldCode(item.value);
-          if (!!fieldCode)
-            fieldCodeList.push(fieldCode);
-          const paramName = getParamName(item.value);
-          if (!!paramName)
-            paramsList.push(paramName);
-        }
-      });
-    } else if (params[key]) {
-      const fieldCode = generateFieldCode(params[key]);
-      if (!!fieldCode)
-        fieldCodeList.push(fieldCode);
-      const paramName = getParamName(params[key]);
-      if (!!paramName)
-        paramsList.push(paramName);
-    }
-  });
+  const nameCode = generateFieldCode(params.name, params);
+  if (!!nameCode)
+    fieldCodeList.push(nameCode);
+  const paramName = getParamName(params.name);
+  if (!!paramName)
+    paramsList.push(paramName);
+  if (params.where && params.where.length > 0) {
+    params.where.forEach((item) => {
+      const whereCode = generateFieldCode(item.value, item);
+      if (!!whereCode)
+        fieldCodeList.push(whereCode);
+      const paramName2 = getParamName(item.value);
+      if (!!paramName2)
+        paramsList.push(paramName2);
+    });
+  }
   return fieldCodeList.join("") + generateFieldExistCode();
-  function generateFieldCode(paramName) {
-    if (!paramName.startsWith("widgetValue_"))
+  function generateFieldCode(paramName2, param) {
+    if (!paramName2.startsWith("widgetValue_"))
       return "";
-    const widgetName = paramName.replace(/widgetValue_/, "");
-    const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
-    return `
+    let widgetName = paramName2.replace(/widgetValue_/, "");
+    if (param.parentWidgetName)
+      widgetName = `'${widgetName}@row' + rowId`;
+    const widgetNameNoSpace = paramName2.replace(/widgetValue_/, "").replace(/ /g, "");
+    const codeString = `
   let widgetValue_${widgetNameNoSpace} = ''
-  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')
+  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef(${widgetName})
   if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
-`;
+    `;
+    return codeString;
   }
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)];
@@ -4858,16 +4838,18 @@ function getFieldParamsInitStr(setting, optionApiStr) {
  ${optionApiStr}
 `;
   }
-  function getParamName(paramName) {
-    if (paramName.startsWith("widgetValue_"))
-      return paramName.replace(/ /g, "");
-    else if (paramName === "currentValue")
+  function getParamName(paramName2) {
+    if (paramName2.startsWith("widgetValue_"))
+      return paramName2.replace(/ /g, "");
+    else if (paramName2 === "currentValue")
       return "value";
     return "";
   }
 }
 function getParamsStr(setting) {
   const params = JSON.parse(JSON.stringify(setting.params));
+  delete params.parentWidgetName;
+  delete params.selectedWidgetName;
   const apiMethod = setting.method || "post";
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
@@ -4902,6 +4884,27 @@ function getParamsStr(setting) {
     });
     return str;
   }
+}
+function setOnChange(widgetRef, isHandleOnCreated = false) {
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode && isHandleOnCreated)
+    return;
+  const changeCode = generateChangeCode(widgetRef.changeSettings);
+  widgetRef.onChangePlus = changeCode;
+}
+function generateChangeCode(changeFieldList) {
+  const codeString = `const _this = this
+if(value === oldValue) return
+const isReady = _this.getIsReady()  
+  
+`;
+  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
+  const mf2 = generateMsterTableColumnCode();
+  const code = _changeFieldList.reduce((prev, item) => {
+    const funCode = generateSingleChangeCode(item);
+    prev += funCode;
+    return prev;
+  }, codeString + mf2);
+  return code;
 }
 let isReady = false;
 var fieldMixin = {
@@ -5740,7 +5743,7 @@ const _sfc_main$3D = {
   methods: {
     selectField(field) {
       if (!!this.designer) {
-        this.designer.setSelected(field);
+        this.designer.setSelected(field, this.parentWidget);
         this.designer.emitEvent("field-selected", this.parentWidget);
       }
     },
@@ -5923,7 +5926,7 @@ function _sfc_render$3D(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3D, [["render", _sfc_render$3D], ["__scopeId", "data-v-c6406230"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$3D, [["render", _sfc_render$3D], ["__scopeId", "data-v-62869794"]]);
 var __glob_0_8$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
@@ -61960,7 +61963,7 @@ function _sfc_render$2v(_ctx, _cache, $props, $setup, $data, $options) {
       ])
     ]),
     default: withCtx(() => [
-      !!$props.selectedWidget.category || $options.noFieldList ? (openBlock(), createBlock(_component_el_input, {
+      !!$props.selectedWidget.category && $props.selectedWidget.type !== "sub-form" || $options.noFieldList ? (openBlock(), createBlock(_component_el_input, {
         key: 0,
         type: "text",
         modelValue: $props.optionModel.name,
@@ -64589,13 +64592,17 @@ const _sfc_main$1O = {
   mixins: [i18n$1, eventMixin],
   props: {
     designer: Object,
+    parentWidget: Object,
     selectedWidget: Object,
     optionModel: Object
   },
   data() {
-    return {
-      eventParams: ["value", "oldValue", "subFormData", "rowId"]
-    };
+    return {};
+  },
+  computed: {
+    eventParams() {
+      return !!this.parentWidget && this.parentWidget.type === "sub-form" ? ["value", "oldValue", "subFormData", "rowId"] : ["value", "oldValue"];
+    }
   }
 };
 function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
@@ -64605,7 +64612,7 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
     label: withCtx(() => [
       _cache[1] || (_cache[1] = createElementVNode("div", null, "onChange", -1)),
       createElementVNode("div", {
-        class: normalizeClass({ "redPoint": $props.optionModel.onChange })
+        class: normalizeClass({ redPoint: $props.optionModel.onChange })
       }, null, 2)
     ]),
     default: withCtx(() => [
@@ -64614,7 +64621,7 @@ function _sfc_render$1O(_ctx, _cache, $props, $setup, $data, $options) {
         icon: "el-icon-edit",
         plain: "",
         round: "",
-        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.editEventHandler("onChange", $data.eventParams))
+        onClick: _cache[0] || (_cache[0] = ($event) => _ctx.editEventHandler("onChange", $options.eventParams))
       }, {
         default: withCtx(() => [
           createTextVNode(toDisplayString(_ctx.$t("designer.setting.addEventHandler")), 1)
@@ -64688,6 +64695,19 @@ const _sfc_main$1N = {
       }
       this.$emit("delete");
     },
+    paramDecorator(obj, value2) {
+      delete obj.parentWidgetName;
+      delete obj.selectedWidgetName;
+      if (!value2)
+        return;
+      console.log(value2, "value");
+      const widgetName = value2.replace("widgetValue_", "");
+      const selectedFieldItem = this.widgetList.find((item) => item.name === widgetName);
+      if (selectedFieldItem && selectedFieldItem.parentWidgetName) {
+        obj.parentWidgetName = selectedFieldItem.parentWidgetName;
+        obj.selectedWidgetName = selectedFieldItem.selectedWidgetName;
+      }
+    },
     handleApiChange(value2, init = false) {
       if (!this.selectApiList[value2]) {
         this.selectApi = {
@@ -64753,6 +64773,10 @@ const _sfc_main$1N = {
       }
     },
     async handleParamChange(value2, apiSetting) {
+      console.log(value2, "value");
+      if (typeof value2 === "string")
+        this.paramDecorator(this.form.params, value2);
+      console.log(this.form.params, "this.form.params");
       if (!apiSetting.changeKey)
         return;
       switch (apiSetting.changeKey) {
@@ -64783,6 +64807,7 @@ const _sfc_main$1N = {
       deep: true,
       immediate: true,
       handler(val, oldVal) {
+        this.paramDecorator(this.form, val);
         this.$nextTick(() => {
           if (!!val) {
             this.$emit("setWidgetDisabled", val, true);
@@ -64832,7 +64857,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
             placeholder: _ctx.$t("render.hint.selectPlaceholder")
           }, {
             default: withCtx(() => [
-              (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (item, index2) => {
+              (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (item) => {
                 return openBlock(), createBlock(_component_el_option, {
                   key: item.name,
                   label: item.name,
@@ -64908,7 +64933,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                     placeholder: _ctx.$t("render.hint.selectPlaceholder")
                   }, {
                     default: withCtx(() => [
-                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.labelKeyList, (item, index2) => {
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.labelKeyList, (item) => {
                         return openBlock(), createBlock(_component_el_option, {
                           key: item,
                           label: item,
@@ -64942,7 +64967,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                     placeholder: _ctx.$t("render.hint.selectPlaceholder")
                   }, {
                     default: withCtx(() => [
-                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.valueKeyList, (item, index2) => {
+                      (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.valueKeyList, (item) => {
                         return openBlock(), createBlock(_component_el_option, {
                           key: item,
                           label: item,
@@ -64968,9 +64993,9 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
         _: 1
       }),
       (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.paramSettings, (item, index2) => {
-        return openBlock(), createElementBlock("div", { key: _ctx.key }, [
+        return openBlock(), createElementBlock("div", { key: index2 }, [
           createElementVNode("h4", _hoisted_1$w, [
-            createTextVNode(toDisplayString(item.key) + " ", 1),
+            createTextVNode(toDisplayString(item.key) + "fdd ", 1),
             item.type !== "string" ? (openBlock(), createBlock(_component_el_button, {
               key: 0,
               size: "small",
@@ -65003,14 +65028,14 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                   label: "[Change value]",
                   value: "currentValue"
                 }),
-                (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem, oIndex) => {
+                (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem) => {
                   return openBlock(), createBlock(_component_el_option, {
                     key: `widgetValue_${oItem.name}`,
                     label: `[${oItem.name} value]`,
                     value: `widgetValue_${oItem.name}`
                   }, null, 8, ["label", "value"]);
                 }), 128)),
-                (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2, index3) => {
+                (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2) => {
                   return openBlock(), createBlock(_component_el_option, {
                     key: item2,
                     label: item2.label,
@@ -65023,7 +65048,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
           ], 64)) : (openBlock(true), createElementBlock(Fragment, { key: 1 }, renderList($props.form.params[item.key], (param, paramIndex) => {
             return openBlock(), createBlock(_component_el_row, {
               gutter: 20,
-              key: index2
+              key: paramIndex
             }, {
               default: withCtx(() => [
                 createVNode(_component_el_col, { span: 6 }, {
@@ -65046,7 +65071,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                       placeholder: _ctx.$t("dataField.apiField")
                     }, {
                       default: withCtx(() => [
-                        (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi[`${[item.key]}KeyList`], (oItem, oIndex) => {
+                        (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi[`${[item.key]}KeyList`], (oItem) => {
                           return openBlock(), createBlock(_component_el_option, {
                             key: oItem,
                             label: oItem,
@@ -65068,14 +65093,15 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                       clearable: "",
                       filterable: "",
                       "allow-create": "",
-                      placeholder: _ctx.$t("dataField.apiFieldValue")
+                      placeholder: _ctx.$t("dataField.apiFieldValue"),
+                      onChange: (value2) => $options.paramDecorator($props.form.params[item.key][paramIndex], value2)
                     }, {
                       default: withCtx(() => [
                         createVNode(_component_el_option, {
                           label: "[Change value]",
                           value: "currentValue"
                         }),
-                        (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem, oIndex) => {
+                        (openBlock(true), createElementBlock(Fragment, null, renderList($props.widgetList, (oItem) => {
                           return openBlock(), createBlock(_component_el_option, {
                             key: `widgetValue_${oItem.name}`,
                             label: `[${oItem.name} value]`,
@@ -65084,7 +65110,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                         }), 128))
                       ]),
                       _: 2
-                    }, 1032, ["modelValue", "onUpdate:modelValue", "placeholder"])
+                    }, 1032, ["modelValue", "onUpdate:modelValue", "placeholder", "onChange"])
                   ]),
                   _: 2
                 }, 1024),
@@ -65108,7 +65134,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-16365a58"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-650700e6"]]);
 var dialog_vue_vue_type_style_index_0_scoped_true_lang = "";
 const initApi = {
   fieldName: "",
@@ -65120,6 +65146,10 @@ const initApi = {
 };
 const _sfc_main$1M = {
   components: { SvgIcon, ChangeSettingForm },
+  props: {
+    parentWidget: Object,
+    selectedWidget: Object
+  },
   data() {
     return {
       changeFieldList: [],
@@ -65133,6 +65163,15 @@ const _sfc_main$1M = {
   methods: {
     getWidgetList() {
       this.widgetList = this.getFieldWidgets();
+      if (!!this.parentWidget && this.parentWidget.type === "sub-form") {
+        this.parentWidget.widgetList.forEach((subFormItem2) => {
+          const gItem = this.widgetList.find((item) => item.name === subFormItem2.options.name);
+          if (gItem) {
+            gItem.parentWidgetName = this.parentWidget.options.name;
+            gItem.selectedWidgetName = this.selectedWidget.options.name;
+          }
+        });
+      }
     },
     setWidgetDisabled(widgetName, disabled = false) {
       const disabledWidget = this.widgetList.find((item) => item.name === widgetName);
@@ -65244,7 +65283,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var ChangeSettingDialog = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-52d1dd85"]]);
+var ChangeSettingDialog = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-d8951fd2"]]);
 var onChangeSettingEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1L = {
   name: "onChangeSetting-editor",
@@ -65252,13 +65291,17 @@ const _sfc_main$1L = {
   mixins: [i18n$1, eventMixin],
   props: {
     designer: Object,
+    parentWidget: Object,
     selectedWidget: Object,
     optionModel: Object
   },
   data() {
-    return {
-      eventParams: ["value", "oldValue", "subFormData", "rowId"]
-    };
+    return {};
+  },
+  computed: {
+    eventParams() {
+      return !!this.parentWidget && this.parentWidget.type === "sub-form" ? ["value", "oldValue", "subFormData", "rowId"] : ["value", "oldValue"];
+    }
   },
   methods: {
     handleClick() {
@@ -65289,17 +65332,21 @@ function _sfc_render$1L(_ctx, _cache, $props, $setup, $data, $options) {
       icon: "el-icon-edit",
       plain: "",
       text: "",
-      onClick: _cache[0] || (_cache[0] = ($event) => _ctx.editEventHandler("onChangePlus", $data.eventParams))
+      onClick: _cache[0] || (_cache[0] = ($event) => _ctx.editEventHandler("onChangePlus", $options.eventParams))
     }, {
       default: withCtx(() => [
         createTextVNode(toDisplayString(_ctx.$t("designer.setting.onChangeSettingEdit")), 1)
       ]),
       _: 1
     })) : createCommentVNode("", true),
-    createVNode(_component_ChangeSettingDialog, { ref: "settingRef" }, null, 512)
+    createVNode(_component_ChangeSettingDialog, {
+      ref: "settingRef",
+      "parent-widget": $props.parentWidget,
+      "selected-widget": $props.selectedWidget
+    }, null, 8, ["parent-widget", "selected-widget"])
   ]);
 }
-var onChangeSettingEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1L, [["render", _sfc_render$1L], ["__scopeId", "data-v-79f3fb0f"]]);
+var onChangeSettingEditor = /* @__PURE__ */ _export_sfc$2(_sfc_main$1L, [["render", _sfc_render$1L], ["__scopeId", "data-v-554ff466"]]);
 var __glob_0_83 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": onChangeSettingEditor
@@ -70204,6 +70251,7 @@ const _sfc_main$u = {
   props: {
     designer: Object,
     selectedWidget: Object,
+    parentWidget: Object,
     formConfig: Object,
     globalDsv: {
       type: Object,
@@ -70449,8 +70497,9 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
                             key: 0,
                             designer: $props.designer,
                             "selected-widget": $props.selectedWidget,
+                            "parent-widget": $props.parentWidget,
                             "option-model": $options.optionModel
-                          }, null, 8, ["designer", "selected-widget", "option-model"])) : createCommentVNode("", true)
+                          }, null, 8, ["designer", "selected-widget", "parent-widget", "option-model"])) : createCommentVNode("", true)
                         ], 64);
                       }), 256))
                     ]),
@@ -70636,7 +70685,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-634d51ac"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-7b53510b"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -72132,6 +72181,8 @@ function createDesigner(vueInstance) {
     selectedId: null,
     selectedWidget: null,
     selectedWidgetName: null,
+    parentWidget: null,
+    parentWidgetName: null,
     vueInstance,
     formWidget: null,
     cssClassList: [],
@@ -72153,6 +72204,8 @@ function createDesigner(vueInstance) {
       this.widgetList = [];
       this.selectedId = null;
       this.selectedWidgetName = null;
+      this.parentWidget = null;
+      this.parentWidgetName = null;
       this.selectedWidget = {};
       overwriteObj(this.formConfig, defaultFormConfig);
       if (!!skipHistoryChange)
@@ -72196,7 +72249,7 @@ function createDesigner(vueInstance) {
       }
       return modifiedFlag;
     },
-    setSelected(selected) {
+    setSelected(selected, parentWidget = null) {
       if (!selected) {
         this.clearSelected();
         return;
@@ -72205,6 +72258,10 @@ function createDesigner(vueInstance) {
       if (!!selected.id) {
         this.selectedId = selected.id;
         this.selectedWidgetName = selected.options.name;
+      }
+      this.parentWidget = parentWidget;
+      if (!!parentWidget) {
+        this.parentWidgetName = parentWidget.options.name;
       }
     },
     updateSelectedWidgetNameAndLabel(selectedWidget, newName, newLabel) {
@@ -72217,6 +72274,8 @@ function createDesigner(vueInstance) {
       this.selectedId = null;
       this.selectedWidgetName = null;
       this.selectedWidget = {};
+      this.parentWidget = null;
+      this.parentWidgetName = null;
     },
     checkWidgetMove(evt) {
       if (!!evt.draggedContext && !!evt.draggedContext.element) {
@@ -73267,14 +73326,15 @@ function _sfc_render$l(_ctx, _cache, $props, $setup, $data, $options) {
         class: "vform-auto-tabs",
         designer: $data.designer,
         "selected-widget": $data.designer.selectedWidget,
+        "parent-widget": $data.designer.parentWidget,
         "form-config": $data.designer.formConfig,
         "global-dsv": $props.globalDsv,
         onEditEventHandler: $options.testEEH
-      }, null, 8, ["designer", "selected-widget", "form-config", "global-dsv", "onEditEventHandler"])
+      }, null, 8, ["designer", "selected-widget", "parent-widget", "form-config", "global-dsv", "onEditEventHandler"])
     ])
   ]);
 }
-var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-325bbdba"]]);
+var VFormDesigner = /* @__PURE__ */ _export_sfc$2(_sfc_main$l, [["render", _sfc_render$l], ["__scopeId", "data-v-b9c4b28c"]]);
 var vuedraggable_umd = { exports: {} };
 /**!
  * Sortable 1.14.0
@@ -79198,13 +79258,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1757429488778__");
+    var svgDom = document.getElementById("__svg__icons__dom__1758877672222__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1757429488778__";
+      svgDom.id = "__svg__icons__dom__1758877672222__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

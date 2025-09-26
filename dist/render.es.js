@@ -3222,25 +3222,35 @@ function getObjStr(obj, apiMethod = "post") {
   else
     return str;
 }
-function setOnChange(widgetRef, isHandleOnCreated = false) {
-  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode && isHandleOnCreated)
-    return;
-  const changeCode = generateChangeCode(widgetRef.changeSettings);
-  widgetRef.onChangePlus = changeCode;
+function generateSingleChangeCode(setting) {
+  const paramsStr = getParamsStr(setting);
+  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
+  const optionApiStr = `
+  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
+  const widgetName = setting.parentWidgetName ? `'${setting.fieldName}@row' + rowId` : `'${setting.fieldName}'`;
+  const codeString = `async function ${funName}() {
+  ${getFieldParamsInitStr(setting, optionApiStr)}
+  try {
+    const widgetRef = _this.getWidgetRef(${widgetName}) 
+    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
+    if(isReady) {
+      if(options.length === 1) {
+        if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
+        else widgetRef.setValue(options[0].value)
+      }
+      else widgetRef.setValue(null)
+    }
+  }
+  catch(e) {
+    
+  }
 }
-function generateChangeCode(changeFieldList) {
-  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
-  const mf2 = getMasterTableRecordCode();
-  const code = _changeFieldList.reduce((prev, item) => {
-    const funCode = getFunctionCode(item);
-    prev += funCode;
-    return prev;
-  }, "const _this = this\nif(value === oldValue) return\nconst isReady = _this.getIsReady()  \n" + mf2);
-  return code;
+${funName}()
+`;
+  return codeString;
 }
-function getMasterTableRecordCode() {
-  return `
-async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+function generateMsterTableColumnCode() {
+  const codeString = `async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
   try {
     const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
     return data.reduce((prev, item) => {
@@ -3258,72 +3268,42 @@ async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
   }
 }
 `;
-}
-function getFunctionCode(setting) {
-  const paramsStr = getParamsStr(setting);
-  const funName = `init_${setting.fieldName}`.replace(/ /g, "");
-  const optionApiStr = `
-  options = await get_${setting.api}(${paramsStr},'${setting.labelKey}','${setting.valueKey}')`;
-  const fieldParamsInitStr = getFieldParamsInitStr(setting, optionApiStr);
-  return `
-async function ${funName}() {${fieldParamsInitStr}
-  try {
-    const widgetRef = _this.getWidgetRef('${setting.fieldName}') 
-    if(widgetRef.loadOptions) widgetRef.loadOptions(options)
-    if(isReady) {
-      if(options.length === 1) {
-        if(widgetRef.field.options.multiple) widgetRef.setValue([options[0].value])
-        else widgetRef.setValue(options[0].value)
-      }
-      else widgetRef.setValue(null)
-    }
-  }
-  catch(e) {
-    
-  }
-}
-${funName}()
-`;
+  return codeString;
 }
 function getFieldParamsInitStr(setting, optionApiStr) {
   const params = setting.params;
   const fieldCodeList = [];
   const paramsList = [];
-  Object.keys(params).forEach((key) => {
-    if (params[key] instanceof Array) {
-      if (params[key].length === 0) {
-        return;
-      }
-      params[key].forEach((item) => {
-        if (item.value) {
-          const fieldCode = generateFieldCode(item.value);
-          if (!!fieldCode)
-            fieldCodeList.push(fieldCode);
-          const paramName = getParamName(item.value);
-          if (!!paramName)
-            paramsList.push(paramName);
-        }
-      });
-    } else if (params[key]) {
-      const fieldCode = generateFieldCode(params[key]);
-      if (!!fieldCode)
-        fieldCodeList.push(fieldCode);
-      const paramName = getParamName(params[key]);
-      if (!!paramName)
-        paramsList.push(paramName);
-    }
-  });
+  const nameCode = generateFieldCode(params.name, params);
+  if (!!nameCode)
+    fieldCodeList.push(nameCode);
+  const paramName = getParamName(params.name);
+  if (!!paramName)
+    paramsList.push(paramName);
+  if (params.where && params.where.length > 0) {
+    params.where.forEach((item) => {
+      const whereCode = generateFieldCode(item.value, item);
+      if (!!whereCode)
+        fieldCodeList.push(whereCode);
+      const paramName2 = getParamName(item.value);
+      if (!!paramName2)
+        paramsList.push(paramName2);
+    });
+  }
   return fieldCodeList.join("") + generateFieldExistCode();
-  function generateFieldCode(paramName) {
-    if (!paramName.startsWith("widgetValue_"))
+  function generateFieldCode(paramName2, param) {
+    if (!paramName2.startsWith("widgetValue_"))
       return "";
-    const widgetName = paramName.replace(/widgetValue_/, "");
-    const widgetNameNoSpace = paramName.replace(/widgetValue_/, "").replace(/ /g, "");
-    return `
+    let widgetName = paramName2.replace(/widgetValue_/, "");
+    if (param.parentWidgetName)
+      widgetName = `'${widgetName}@row' + rowId`;
+    const widgetNameNoSpace = paramName2.replace(/widgetValue_/, "").replace(/ /g, "");
+    const codeString = `
   let widgetValue_${widgetNameNoSpace} = ''
-  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef('${widgetName}')
+  const widgetRef_${widgetNameNoSpace} = _this.getWidgetRef(${widgetName})
   if(!!widgetRef_${widgetNameNoSpace}) widgetValue_${widgetNameNoSpace} = widgetRef_${widgetNameNoSpace}.getValue()
-`;
+    `;
+    return codeString;
   }
   function generateFieldExistCode() {
     const pList = [...new Set(paramsList)];
@@ -3342,16 +3322,18 @@ function getFieldParamsInitStr(setting, optionApiStr) {
  ${optionApiStr}
 `;
   }
-  function getParamName(paramName) {
-    if (paramName.startsWith("widgetValue_"))
-      return paramName.replace(/ /g, "");
-    else if (paramName === "currentValue")
+  function getParamName(paramName2) {
+    if (paramName2.startsWith("widgetValue_"))
+      return paramName2.replace(/ /g, "");
+    else if (paramName2 === "currentValue")
       return "value";
     return "";
   }
 }
 function getParamsStr(setting) {
   const params = JSON.parse(JSON.stringify(setting.params));
+  delete params.parentWidgetName;
+  delete params.selectedWidgetName;
   const apiMethod = setting.method || "post";
   Object.keys(params).forEach((key) => {
     if (params[key] instanceof Array) {
@@ -3386,6 +3368,27 @@ function getParamsStr(setting) {
     });
     return str;
   }
+}
+function setOnChange(widgetRef, isHandleOnCreated = false) {
+  if (!widgetRef.changeSettings || widgetRef.changeSettings.length === 0 || !widgetRef.isCreateDynamicCode && isHandleOnCreated)
+    return;
+  const changeCode = generateChangeCode(widgetRef.changeSettings);
+  widgetRef.onChangePlus = changeCode;
+}
+function generateChangeCode(changeFieldList) {
+  const codeString = `const _this = this
+if(value === oldValue) return
+const isReady = _this.getIsReady()  
+  
+`;
+  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
+  const mf2 = generateMsterTableColumnCode();
+  const code = _changeFieldList.reduce((prev, item) => {
+    const funCode = generateSingleChangeCode(item);
+    prev += funCode;
+    return prev;
+  }, codeString + mf2);
+  return code;
 }
 let isReady = false;
 var fieldMixin = {
@@ -4224,7 +4227,7 @@ const _sfc_main$R = {
   methods: {
     selectField(field) {
       if (!!this.designer) {
-        this.designer.setSelected(field);
+        this.designer.setSelected(field, this.parentWidget);
         this.designer.emitEvent("field-selected", this.parentWidget);
       }
     },
@@ -4407,7 +4410,7 @@ function _sfc_render$R(_ctx, _cache, $props, $setup, $data, $options) {
     ], 64)) : createCommentVNode("", true)
   ], 2);
 }
-var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R], ["__scopeId", "data-v-c6406230"]]);
+var FormItemWrapper = /* @__PURE__ */ _export_sfc$2(_sfc_main$R, [["render", _sfc_render$R], ["__scopeId", "data-v-62869794"]]);
 var __glob_0_8 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": FormItemWrapper
@@ -32269,13 +32272,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1757429493536__");
+    var svgDom = document.getElementById("__svg__icons__dom__1758877694679__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1757429493536__";
+      svgDom.id = "__svg__icons__dom__1758877694679__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
