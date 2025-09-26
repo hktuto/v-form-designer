@@ -198,7 +198,7 @@ export default {
   methods: {
     selectField(field) {
       if (!!this.designer) {
-        this.designer.setSelected(field);
+        this.designer.setSelected(field, this.parentWidget);
         this.designer.emitEvent("field-selected", this.parentWidget); //发送选中组件的父组件对象
       }
     },

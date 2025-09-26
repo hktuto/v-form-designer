@@ -59,6 +59,7 @@
                   :is="getPropEditor(propName, editorName)"
                   :designer="designer"
                   :selected-widget="selectedWidget"
+                  :parent-widget="parentWidget"
                   :option-model="optionModel"
                 ></component>
               </template>
@@ -227,6 +228,7 @@ export default {
   props: {
     designer: Object,
     selectedWidget: Object,
+    parentWidget: Object,
     formConfig: Object,
     globalDsv: {
       type: Object,

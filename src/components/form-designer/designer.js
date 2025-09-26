@@ -21,6 +21,8 @@ export function createDesigner(vueInstance) {
     selectedId: null,
     selectedWidget: null,
     selectedWidgetName: null,  //选中组件名称（唯一）
+    parentWidget: null, //选中组件的父组件
+    parentWidgetName: null, //选中组件的父组件名称
     vueInstance: vueInstance,
 
     formWidget: null,  //表单设计容器
@@ -54,6 +56,8 @@ export function createDesigner(vueInstance) {
       this.widgetList = []
       this.selectedId = null
       this.selectedWidgetName = null
+      this.parentWidget = null
+      this.parentWidgetName = null
       this.selectedWidget = {}  //this.selectedWidget = null
       overwriteObj(this.formConfig, defaultFormConfig) //
 
@@ -109,7 +113,7 @@ export function createDesigner(vueInstance) {
       return modifiedFlag
     },
 
-    setSelected(selected) {
+    setSelected(selected, parentWidget = null) {
       if (!selected) {
         this.clearSelected()
         return
@@ -119,6 +123,11 @@ export function createDesigner(vueInstance) {
       if (!!selected.id) {
         this.selectedId = selected.id
         this.selectedWidgetName = selected.options.name
+      }
+      
+      this.parentWidget = parentWidget
+      if (!!parentWidget) {
+        this.parentWidgetName = parentWidget.options.name
       }
     },
 
@@ -133,6 +142,8 @@ export function createDesigner(vueInstance) {
       this.selectedId = null
       this.selectedWidgetName = null
       this.selectedWidget = {}  //this.selectedWidget = null
+      this.parentWidget = null
+      this.parentWidgetName = null
     },
 
     checkWidgetMove(evt) { /* Only field widget can be dragged into sub-form */

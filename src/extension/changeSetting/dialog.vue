@@ -13,6 +13,10 @@ const initApi = {
 };
 export default {
   components: { SvgIcon, ChangeSettingForm },
+  props: {
+    parentWidget: Object,
+    selectedWidget: Object,
+  },
   data() {
     return {
       changeFieldList: [],
@@ -27,6 +31,15 @@ export default {
   methods: {
     getWidgetList() {
       this.widgetList = this.getFieldWidgets();
+      if(!!this.parentWidget && this.parentWidget.type === 'sub-form') {
+        this.parentWidget.widgetList.forEach(subFormItem => {
+          const gItem = this.widgetList.find((item) => item.name === subFormItem.options.name);
+          if(gItem) {
+            gItem.parentWidgetName = this.parentWidget.options.name;
+            gItem.selectedWidgetName = this.selectedWidget.options.name;
+          }
+        });
+      }
     },
     setWidgetDisabled(widgetName, disabled = false) {
       const disabledWidget = this.widgetList.find(
@@ -87,6 +100,7 @@ export default {
         :key="index"
         :form="item"
         :widgetList="widgetList"
+        
         @setWidgetDisabled="setWidgetDisabled"
         @delete="handleDelete(index)"
       ></ChangeSettingForm>

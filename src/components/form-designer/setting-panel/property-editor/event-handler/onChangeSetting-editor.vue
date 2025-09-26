@@ -4,13 +4,31 @@
       <div>onChangeSetting</div>
       <div :class="{ redPoint: optionModel.onChangeSetting }"></div>
     </template> -->
-    <el-button type="primary" icon="el-icon-edit" plain round @click="handleClick">
+    <el-button
+      type="primary"
+      icon="el-icon-edit"
+      plain
+      round
+      @click="handleClick"
+    >
       {{ $t("designer.setting.onChangeSetting") }}</el-button
     >
-    <el-button v-if="optionModel.onChangePlus" type="primary" icon="el-icon-edit" plain text @click="editEventHandler('onChangePlus', eventParams)">
+
+    <el-button
+      v-if="optionModel.onChangePlus"
+      type="primary"
+      icon="el-icon-edit"
+      plain
+      text
+      @click="editEventHandler('onChangePlus', eventParams)"
+    >
       {{ $t("designer.setting.onChangeSettingEdit") }}</el-button
     >
-    <ChangeSettingDialog ref="settingRef"></ChangeSettingDialog>
+    <ChangeSettingDialog
+      ref="settingRef"
+      :parent-widget="parentWidget"
+      :selected-widget="selectedWidget"
+    ></ChangeSettingDialog>
   </div>
 </template>
 
@@ -24,13 +42,19 @@ export default {
   mixins: [i18n, eventMixin],
   props: {
     designer: Object,
+    parentWidget: Object,
     selectedWidget: Object,
     optionModel: Object,
   },
   data() {
-    return {
-      eventParams: ['value', 'oldValue', 'subFormData', 'rowId'],
-    };
+    return {};
+  },
+  computed: {
+    eventParams() {
+      return !!this.parentWidget && this.parentWidget.type === "sub-form"
+        ? ["value", "oldValue", "subFormData", "rowId"]
+        : ["value", "oldValue"];
+    },
   },
   methods: {
     handleClick() {
@@ -41,7 +65,7 @@ export default {
 </script>
 
 <style scoped>
-.el-button+.el-button {
+.el-button + .el-button {
   margin-left: unset;
 }
 </style>

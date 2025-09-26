@@ -95,6 +95,7 @@
         class="vform-auto-tabs"
         :designer="designer"
         :selected-widget="designer.selectedWidget"
+        :parent-widget="designer.parentWidget"
         :form-config="designer.formConfig"
         :global-dsv="globalDsv"
         @edit-event-handler="testEEH"
