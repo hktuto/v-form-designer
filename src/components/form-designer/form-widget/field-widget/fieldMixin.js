@@ -473,7 +473,7 @@ export default {
       }
       if (!!this.field.options.onChangePlus) {
         try {
-          let changePlusFn = new Function('value', 'oldValue', this.field.options.onChangePlus)
+          let changePlusFn = new Function('value', 'oldValue', 'subFormData', 'rowId', this.field.options.onChangePlus)
           changePlusFn.call(this, val, oldVal, subFormData, rowId)
         } catch (error) {
           console.error(error)

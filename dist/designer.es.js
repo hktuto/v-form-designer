@@ -5287,7 +5287,7 @@ var fieldMixin = {
       }
       if (!!this.field.options.onChangePlus) {
         try {
-          let changePlusFn = new Function("value", "oldValue", this.field.options.onChangePlus);
+          let changePlusFn = new Function("value", "oldValue", "subFormData", "rowId", this.field.options.onChangePlus);
           changePlusFn.call(this, val, oldVal, subFormData, rowId);
         } catch (error) {
           console.error(error);
@@ -79258,13 +79258,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1758877672222__");
+    var svgDom = document.getElementById("__svg__icons__dom__1759024139376__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1758877672222__";
+      svgDom.id = "__svg__icons__dom__1759024139376__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
