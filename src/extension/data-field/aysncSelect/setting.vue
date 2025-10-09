@@ -84,9 +84,9 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-divider content-position="left">{{
-        $t("dataField.params")
-      }}</el-divider>
+      <el-divider v-if="selectType.paramSettings && selectType.paramSettings.length > 0" content-position="left">
+        {{ $t("dataField.params") }}
+      </el-divider>
       <div v-for="(item, index) in selectType.paramSettings" :key="key">
         <h4 class="params-header">
           {{ item.key }}
@@ -174,7 +174,11 @@
     </el-form>
     <template #footer>
       <div class="dialog-footer">
-        <el-checkbox v-model="form.isCreateDynamicCode" :label="$t('designer.setting.isCreateDynamicCode')" size="large" />
+        <el-checkbox
+          v-model="form.isCreateDynamicCode"
+          :label="$t('designer.setting.isCreateDynamicCode')"
+          size="large"
+        />
         <div>
           <el-button size="default" @click="dialogVisible = false"
             >{{ $t("designer.hint.cancel") }}
