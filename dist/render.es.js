@@ -3088,6 +3088,7 @@ const FormValidators = {
 };
 const GROUP_API = "/nuxeo/identity/groups";
 const USER_API = "/nuxeo/identity/member";
+const CONTACT_API = "/docpal/contactGroup/list";
 const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
 const MASTER_TABLE_API = "/docpal/master/tables?type=all";
 const selectApis = {
@@ -3144,6 +3145,14 @@ const selectApis = {
   group: {
     api: GROUP_API,
     method: "post",
+    valueKeyList: ["id", "name"],
+    labelKeyList: ["id", "name"],
+    valueKey: "id",
+    labelKey: "name"
+  },
+  contact: {
+    api: CONTACT_API,
+    method: "get",
     valueKeyList: ["id", "name"],
     labelKeyList: ["id", "name"],
     valueKey: "id",
@@ -32272,13 +32281,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1759024175215__");
+    var svgDom = document.getElementById("__svg__icons__dom__1759976103336__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1759024175215__";
+      svgDom.id = "__svg__icons__dom__1759976103336__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

@@ -1,5 +1,6 @@
 const GROUP_API = '/nuxeo/identity/groups'
 const USER_API = '/nuxeo/identity/member'
+const CONTACT_API = '/docpal/contactGroup/list'
 const MASTER_TABLE_COLUMN_API = '/docpal/master/tables/record/page/nonPermission'
 const MASTER_TABLE_API = '/docpal/master/tables?type=all'
 export const selectApis = {
@@ -63,6 +64,14 @@ export const selectApis = {
   group: {
     api: GROUP_API,
     method: 'post',
+    valueKeyList: ['id', 'name'],
+    labelKeyList: ['id', 'name'],
+    valueKey: 'id',
+    labelKey: 'name',
+  },
+  contact: {
+    api: CONTACT_API,
+    method: 'get',
     valueKeyList: ['id', 'name'],
     labelKeyList: ['id', 'name'],
     valueKey: 'id',
