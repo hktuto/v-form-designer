@@ -151,12 +151,7 @@ export default {
           );
           break;
         case "caseInfo":
-          // this.selectApi.whereKeyList = ["test1", "test2"];
-          const caseInfo = apiSetting.options.find(
-            (item) => item.name === value
-          );
-          if (!caseInfo) return;
-          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(value);
           const list = caseInfoDetail.fields.map((item) => ({
             label: item.name,
             value: item.id,

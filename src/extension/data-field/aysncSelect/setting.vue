@@ -276,6 +276,8 @@ export default {
       });
     },
     async handleParamChange(value, apiSetting) {
+      console.log(value, "value");
+      console.log(apiSetting, "apiSetting");
       if (!apiSetting.changeKey) return;
       switch (apiSetting.changeKey) {
         case "masterTable":
@@ -296,12 +298,8 @@ export default {
           break;
 
         case "caseInfo":
-          // this.selectApi.whereKeyList = ["test1", "test2"];
-          const caseInfo = apiSetting.options.find(
-            (item) => item.name === value
-          );
-          if (!caseInfo) return;
-          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(value);
+          console.log(caseInfoDetail, "caseInfoDetail");
           const list = caseInfoDetail.fields.map((item) => ({
             label: item.name,
             value: item.id,

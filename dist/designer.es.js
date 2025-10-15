@@ -64871,10 +64871,7 @@ const _sfc_main$1N = {
           this.selectApi.whereKeyList = tableDetail.fields.map((item) => item.columnName);
           break;
         case "caseInfo":
-          const caseInfo = apiSetting.options.find((item) => item.name === value2);
-          if (!caseInfo)
-            return;
-          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(value2);
           const list = caseInfoDetail.fields.map((item) => ({
             label: item.name,
             value: item.id
@@ -65228,7 +65225,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-cdb6f7c0"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-d670dad8"]]);
 var dialog_vue_vue_type_style_index_0_scoped_true_lang = "";
 const initApi = {
   fieldName: "",
@@ -65613,6 +65610,8 @@ const _sfc_main$1I = {
       });
     },
     async handleParamChange(value2, apiSetting) {
+      console.log(value2, "value");
+      console.log(apiSetting, "apiSetting");
       if (!apiSetting.changeKey)
         return;
       switch (apiSetting.changeKey) {
@@ -65624,10 +65623,8 @@ const _sfc_main$1I = {
           this.selectType.whereKeyList = tableDetail.fields.map((item) => item.columnName);
           break;
         case "caseInfo":
-          const caseInfo = apiSetting.options.find((item) => item.name === value2);
-          if (!caseInfo)
-            return;
-          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(value2);
+          console.log(caseInfoDetail, "caseInfoDetail");
           const list = caseInfoDetail.fields.map((item) => ({
             label: item.name,
             value: item.id
@@ -65972,7 +65969,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-1f20f318"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-adeeff10"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -79378,13 +79375,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1760507611938__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760510395695__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1760507611938__";
+      svgDom.id = "__svg__icons__dom__1760510395695__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
