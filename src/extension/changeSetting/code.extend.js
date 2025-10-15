@@ -1,3 +1,4 @@
+import { apiList } from "./apiList"
 export function generateSingleChangeCode(setting) {
   const paramsStr = getParamsStr(setting)
   const funName = `init_${setting.fieldName}`.replace(/ /g, '')
@@ -24,10 +25,11 @@ ${funName}()
 `
   return codeString
 }
-export function generateMsterTableColumnCode() {
-  const codeString = `async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+export function generateOptionsCode(apiKey) {
+  const api = apiList[apiKey]
+  const codeString = `async function get_${apiKey}(params,labelKey='name', valueKey='id') {
   try {
-    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
+    const data = await $api.${api.method}('${api.api}', params).then(res => res.data.data)
     return data.reduce((prev, item) => {
       if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
       const resultItem = {

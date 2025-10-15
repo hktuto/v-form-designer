@@ -3089,12 +3089,14 @@ const FormValidators = {
 const GROUP_API = "/nuxeo/identity/groups";
 const USER_API = "/nuxeo/identity/member";
 const CONTACT_API = "/docpal/contactGroup/list";
-const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
-const MASTER_TABLE_API = "/docpal/master/tables?type=all";
+const MASTER_TABLE_COLUMN_API$1 = "/docpal/master/tables/record/page/nonPermission";
+const MASTER_TABLE_API$1 = "/docpal/master/tables?type=all";
+const CASE_API$1 = "/docpal/case/types?deployed=true";
+const CASE_INFO_API$1 = "/docpal/case/types/records/list";
 const selectApis = {
   masterTableColumn: {
     method: "post",
-    api: MASTER_TABLE_COLUMN_API,
+    api: MASTER_TABLE_COLUMN_API$1,
     filterKey: "masterTableColumn",
     paramSettings: [
       {
@@ -3102,7 +3104,7 @@ const selectApis = {
         type: "string",
         changeKey: "masterTable",
         apiSetting: {
-          api: MASTER_TABLE_API,
+          api: MASTER_TABLE_API$1,
           method: "get",
           labelKey: "name",
           valueKey: "name"
@@ -3116,8 +3118,32 @@ const selectApis = {
     valueKey: "id",
     labelKey: "name"
   },
+  caseInfo: {
+    method: "get",
+    api: CASE_INFO_API$1,
+    filterKey: "caseInfo",
+    paramSettings: [
+      {
+        key: "caseTypeId",
+        type: "string",
+        changeKey: "caseInfo",
+        apiSetting: {
+          api: CASE_API$1,
+          method: "get",
+          labelKey: "name",
+          valueKey: "id"
+        }
+      },
+      {
+        key: "where",
+        type: "object"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name"
+  },
   masterTable: {
-    api: MASTER_TABLE_API,
+    api: MASTER_TABLE_API$1,
     method: "get",
     valueKeyList: ["name", "id"],
     labelKeyList: ["name", "id"],
@@ -3231,6 +3257,62 @@ function getObjStr(obj, apiMethod = "post") {
   else
     return str;
 }
+const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
+const MASTER_TABLE_API = "/docpal/master/tables?type=all";
+const CASE_API = "/docpal/case/types?deployed=true";
+const CASE_INFO_API = "/docpal/case/types/records/list";
+const apiList = {
+  masterTableColumn: {
+    method: "post",
+    api: MASTER_TABLE_COLUMN_API,
+    paramSettings: [
+      {
+        key: "name",
+        type: "string",
+        changeKey: "masterTable",
+        apiSetting: {
+          api: MASTER_TABLE_API,
+          method: "get",
+          labelKey: "name",
+          valueKey: "name"
+        }
+      },
+      {
+        key: "where",
+        type: "multi-select"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name",
+    labelKeyList: ["name", "id"],
+    valueKeyList: ["id", "name"]
+  },
+  caseInfo: {
+    method: "get",
+    api: CASE_INFO_API,
+    paramSettings: [
+      {
+        key: "caseTypeId",
+        type: "string",
+        changeKey: "caseInfo",
+        apiSetting: {
+          api: CASE_API,
+          method: "get",
+          labelKey: "name",
+          valueKey: "id"
+        }
+      },
+      {
+        key: "where",
+        type: "multi-select"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name",
+    labelKeyList: ["name", "id"],
+    valueKeyList: ["id", "name"]
+  }
+};
 function generateSingleChangeCode(setting) {
   const paramsStr = getParamsStr(setting);
   const funName = `init_${setting.fieldName}`.replace(/ /g, "");
@@ -3258,10 +3340,11 @@ ${funName}()
 `;
   return codeString;
 }
-function generateMsterTableColumnCode() {
-  const codeString = `async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+function generateOptionsCode(apiKey) {
+  const api = apiList[apiKey];
+  const codeString = `async function get_${apiKey}(params,labelKey='name', valueKey='id') {
   try {
-    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
+    const data = await $api.${api.method}('${api.api}', params).then(res => res.data.data)
     return data.reduce((prev, item) => {
       if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
       const resultItem = {
@@ -3384,19 +3467,27 @@ function setOnChange(widgetRef, isHandleOnCreated = false) {
   const changeCode = generateChangeCode(widgetRef.changeSettings);
   widgetRef.onChangePlus = changeCode;
 }
-function generateChangeCode(changeFieldList) {
-  const codeString = `const _this = this
+function generateChangeCode(settings) {
+  console.log(settings, "settings");
+  let codeString = `const _this = this
 if(value === oldValue) return
 const isReady = _this.getIsReady()  
   
 `;
-  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
-  const mf2 = generateMsterTableColumnCode();
-  const code = _changeFieldList.reduce((prev, item) => {
+  const _settings = JSON.parse(JSON.stringify(settings));
+  const m_fun = generateOptionsCode("masterTableColumn");
+  const c_fun = generateOptionsCode("caseInfo");
+  const m_exist = _settings.find((item) => item.api === "masterTableColumn");
+  const c_exist = _settings.find((item) => item.api === "caseInfo");
+  if (m_exist)
+    codeString += m_fun;
+  if (c_exist)
+    codeString += c_fun;
+  const code = _settings.reduce((prev, item) => {
     const funCode = generateSingleChangeCode(item);
     prev += funCode;
     return prev;
-  }, codeString + mf2);
+  }, codeString);
   return code;
 }
 let isReady = false;
@@ -32281,13 +32372,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1759976103336__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760507034656__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1759976103336__";
+      svgDom.id = "__svg__icons__dom__1760507034656__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

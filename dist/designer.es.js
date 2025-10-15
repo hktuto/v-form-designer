@@ -4607,6 +4607,8 @@ const USER_API = "/nuxeo/identity/member";
 const CONTACT_API = "/docpal/contactGroup/list";
 const MASTER_TABLE_COLUMN_API$1 = "/docpal/master/tables/record/page/nonPermission";
 const MASTER_TABLE_API$1 = "/docpal/master/tables?type=all";
+const CASE_API$1 = "/docpal/case/types?deployed=true";
+const CASE_INFO_API$1 = "/docpal/case/types/records/list";
 const selectApis = {
   masterTableColumn: {
     method: "post",
@@ -4622,6 +4624,30 @@ const selectApis = {
           method: "get",
           labelKey: "name",
           valueKey: "name"
+        }
+      },
+      {
+        key: "where",
+        type: "object"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name"
+  },
+  caseInfo: {
+    method: "get",
+    api: CASE_INFO_API$1,
+    filterKey: "caseInfo",
+    paramSettings: [
+      {
+        key: "caseTypeId",
+        type: "string",
+        changeKey: "caseInfo",
+        apiSetting: {
+          api: CASE_API$1,
+          method: "get",
+          labelKey: "name",
+          valueKey: "id"
         }
       },
       {
@@ -4747,6 +4773,62 @@ function getObjStr(obj, apiMethod = "post") {
   else
     return str;
 }
+const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
+const MASTER_TABLE_API = "/docpal/master/tables?type=all";
+const CASE_API = "/docpal/case/types?deployed=true";
+const CASE_INFO_API = "/docpal/case/types/records/list";
+const apiList = {
+  masterTableColumn: {
+    method: "post",
+    api: MASTER_TABLE_COLUMN_API,
+    paramSettings: [
+      {
+        key: "name",
+        type: "string",
+        changeKey: "masterTable",
+        apiSetting: {
+          api: MASTER_TABLE_API,
+          method: "get",
+          labelKey: "name",
+          valueKey: "name"
+        }
+      },
+      {
+        key: "where",
+        type: "multi-select"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name",
+    labelKeyList: ["name", "id"],
+    valueKeyList: ["id", "name"]
+  },
+  caseInfo: {
+    method: "get",
+    api: CASE_INFO_API,
+    paramSettings: [
+      {
+        key: "caseTypeId",
+        type: "string",
+        changeKey: "caseInfo",
+        apiSetting: {
+          api: CASE_API,
+          method: "get",
+          labelKey: "name",
+          valueKey: "id"
+        }
+      },
+      {
+        key: "where",
+        type: "multi-select"
+      }
+    ],
+    valueKey: "id",
+    labelKey: "name",
+    labelKeyList: ["name", "id"],
+    valueKeyList: ["id", "name"]
+  }
+};
 function generateSingleChangeCode(setting) {
   const paramsStr = getParamsStr(setting);
   const funName = `init_${setting.fieldName}`.replace(/ /g, "");
@@ -4774,10 +4856,11 @@ ${funName}()
 `;
   return codeString;
 }
-function generateMsterTableColumnCode() {
-  const codeString = `async function get_masterTableColumn(params,labelKey='name', valueKey='id') {
+function generateOptionsCode(apiKey) {
+  const api = apiList[apiKey];
+  const codeString = `async function get_${apiKey}(params,labelKey='name', valueKey='id') {
   try {
-    const data = await $api.post('/docpal/master/tables/record/page/nonPermission', params).then(res => res.data.data)
+    const data = await $api.${api.method}('${api.api}', params).then(res => res.data.data)
     return data.reduce((prev, item) => {
       if(!item[valueKey] || !item[labelKey] || prev.find(p => p.value === item[valueKey])) return prev 
       const resultItem = {
@@ -4900,19 +4983,27 @@ function setOnChange(widgetRef, isHandleOnCreated = false) {
   const changeCode = generateChangeCode(widgetRef.changeSettings);
   widgetRef.onChangePlus = changeCode;
 }
-function generateChangeCode(changeFieldList) {
-  const codeString = `const _this = this
+function generateChangeCode(settings) {
+  console.log(settings, "settings");
+  let codeString = `const _this = this
 if(value === oldValue) return
 const isReady = _this.getIsReady()  
   
 `;
-  const _changeFieldList = JSON.parse(JSON.stringify(changeFieldList));
-  const mf2 = generateMsterTableColumnCode();
-  const code = _changeFieldList.reduce((prev, item) => {
+  const _settings = JSON.parse(JSON.stringify(settings));
+  const m_fun = generateOptionsCode("masterTableColumn");
+  const c_fun = generateOptionsCode("caseInfo");
+  const m_exist = _settings.find((item) => item.api === "masterTableColumn");
+  const c_exist = _settings.find((item) => item.api === "caseInfo");
+  if (m_exist)
+    codeString += m_fun;
+  if (c_exist)
+    codeString += c_fun;
+  const code = _settings.reduce((prev, item) => {
     const funCode = generateSingleChangeCode(item);
     prev += funCode;
     return prev;
-  }, codeString + mf2);
+  }, codeString);
   return code;
 }
 let isReady = false;
@@ -64646,35 +64737,6 @@ var __glob_0_82 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.definePro
   __proto__: null,
   "default": onChangeEditor
 }, Symbol.toStringTag, { value: "Module" }));
-const MASTER_TABLE_COLUMN_API = "/docpal/master/tables/record/page/nonPermission";
-const MASTER_TABLE_API = "/docpal/master/tables?type=all";
-const apiList = {
-  masterTableColumn: {
-    method: "post",
-    api: MASTER_TABLE_COLUMN_API,
-    paramSettings: [
-      {
-        key: "name",
-        type: "string",
-        changeKey: "masterTable",
-        apiSetting: {
-          api: MASTER_TABLE_API,
-          method: "get",
-          labelKey: "name",
-          valueKey: "name"
-        }
-      },
-      {
-        key: "where",
-        type: "multi-select"
-      }
-    ],
-    valueKey: "id",
-    labelKey: "name",
-    labelKeyList: ["name", "id"],
-    valueKeyList: ["id", "name"]
-  }
-};
 var index_vue_vue_type_style_index_0_scoped_true_lang$3 = "";
 const _sfc_main$1N = {
   components: { SvgIcon },
@@ -64771,9 +64833,19 @@ const _sfc_main$1N = {
         return [];
       }
     },
-    async GetMasterTablesDetailApi(id2) {
+    async GetMasterTablesFieldsApi(id2) {
       try {
         const res = await $api.get(`/docpal/master/tables/${id2}`).then((res2) => res2.data.data);
+        return res;
+      } catch (error) {
+        return {
+          fields: []
+        };
+      }
+    },
+    async GetCaseInfoFieldsApi(caseTypeId) {
+      try {
+        const res = await $api.get(`/docpal/case/types/${caseTypeId}/caseInfo`).then((res2) => res2.data.data);
         return res;
       } catch (error) {
         return {
@@ -64793,10 +64865,23 @@ const _sfc_main$1N = {
           const tableItem2 = apiSetting.options.find((item) => item.name === value2);
           if (!tableItem2)
             return;
-          const tableDetail = await this.GetMasterTablesDetailApi(tableItem2.id);
+          const tableDetail = await this.GetMasterTablesFieldsApi(tableItem2.id);
           this.selectApi.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectApi.valueKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectApi.whereKeyList = tableDetail.fields.map((item) => item.columnName);
+          break;
+        case "caseInfo":
+          const caseInfo = apiSetting.options.find((item) => item.name === value2);
+          if (!caseInfo)
+            return;
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const list = caseInfoDetail.fields.map((item) => ({
+            label: item.name,
+            value: item.id
+          }));
+          this.selectApi.labelKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.valueKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.whereKeyList = JSON.parse(JSON.stringify(list));
           break;
       }
     }
@@ -64945,8 +65030,8 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                       (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.labelKeyList, (item) => {
                         return openBlock(), createBlock(_component_el_option, {
                           key: item,
-                          label: item,
-                          value: item
+                          label: item.label ? item.label : item,
+                          value: item.value ? item.value : item
                         }, null, 8, ["label", "value"]);
                       }), 128))
                     ]),
@@ -64979,8 +65064,8 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                       (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.valueKeyList, (item) => {
                         return openBlock(), createBlock(_component_el_option, {
                           key: item,
-                          label: item,
-                          value: item
+                          label: item.label ? item.label : item,
+                          value: item.value ? item.value : item
                         }, null, 8, ["label", "value"]);
                       }), 128))
                     ]),
@@ -65004,7 +65089,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
       (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi.paramSettings, (item, index2) => {
         return openBlock(), createElementBlock("div", { key: index2 }, [
           createElementVNode("h4", _hoisted_1$w, [
-            createTextVNode(toDisplayString(item.key) + "fdd ", 1),
+            createTextVNode(toDisplayString(item.key) + " ", 1),
             item.type !== "string" ? (openBlock(), createBlock(_component_el_button, {
               key: 0,
               size: "small",
@@ -65083,8 +65168,8 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
                         (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectApi[`${[item.key]}KeyList`], (oItem) => {
                           return openBlock(), createBlock(_component_el_option, {
                             key: oItem,
-                            label: oItem,
-                            value: oItem
+                            label: oItem.label ? oItem.label : oItem,
+                            value: oItem.value ? oItem.value : oItem
                           }, null, 8, ["label", "value"]);
                         }), 128))
                       ]),
@@ -65143,7 +65228,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-650700e6"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-cdb6f7c0"]]);
 var dialog_vue_vue_type_style_index_0_scoped_true_lang = "";
 const initApi = {
   fieldName: "",
@@ -65691,11 +65776,11 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
                         placeholder: _ctx.$t("render.hint.selectPlaceholder")
                       }, {
                         default: withCtx(() => [
-                          (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.labelKeyList, (item, index2) => {
+                          (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.labelKeyList, (item) => {
                             return openBlock(), createBlock(_component_el_option, {
                               key: item,
-                              label: item,
-                              value: item
+                              label: item.label ? item.label : item,
+                              value: item.value ? item.value : item
                             }, null, 8, ["label", "value"]);
                           }), 128))
                         ]),
@@ -65725,11 +65810,11 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
                         placeholder: _ctx.$t("render.hint.selectPlaceholder")
                       }, {
                         default: withCtx(() => [
-                          (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.valueKeyList, (item, index2) => {
+                          (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.valueKeyList, (item) => {
                             return openBlock(), createBlock(_component_el_option, {
                               key: item,
-                              label: item,
-                              value: item
+                              label: item.label ? item.label : item,
+                              value: item.value ? item.value : item
                             }, null, 8, ["label", "value"]);
                           }), 128))
                         ]),
@@ -65744,12 +65829,15 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
             ]),
             _: 1
           }),
-          createVNode(_component_el_divider, { "content-position": "left" }, {
+          $data.selectType.paramSettings && $data.selectType.paramSettings.length > 0 ? (openBlock(), createBlock(_component_el_divider, {
+            key: 0,
+            "content-position": "left"
+          }, {
             default: withCtx(() => [
               createTextVNode(toDisplayString(_ctx.$t("dataField.params")), 1)
             ]),
             _: 1
-          }),
+          })) : createCommentVNode("", true),
           (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType.paramSettings, (item, index2) => {
             return openBlock(), createElementBlock("div", { key: _ctx.key }, [
               createElementVNode("h4", _hoisted_1$t, [
@@ -65782,11 +65870,11 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
                   onChange: (value2) => $options.handleParamChange(value2, item)
                 }, {
                   default: withCtx(() => [
-                    (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2, index3) => {
+                    (openBlock(true), createElementBlock(Fragment, null, renderList(item.options, (item2) => {
                       return openBlock(), createBlock(_component_el_option, {
                         key: item2,
-                        label: item2.label,
-                        value: item2.value
+                        label: item2.label ? item2.label : item2,
+                        value: item2.value ? item2.value : item2
                       }, null, 8, ["label", "value"]);
                     }), 128))
                   ]),
@@ -65818,11 +65906,11 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
                           placeholder: _ctx.$t("dataField.apiField")
                         }, {
                           default: withCtx(() => [
-                            (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType[`${[item.key]}KeyList`], (oItem, oIndex) => {
+                            (openBlock(true), createElementBlock(Fragment, null, renderList($data.selectType[`${[item.key]}KeyList`], (oItem) => {
                               return openBlock(), createBlock(_component_el_option, {
                                 key: oItem,
-                                label: oItem,
-                                value: oItem
+                                label: oItem.label ? oItem.label : oItem,
+                                value: oItem.value ? oItem.value : oItem
                               }, null, 8, ["label", "value"]);
                             }), 128))
                           ]),
@@ -65861,7 +65949,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-1148fdd4"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-2ca29f42"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -79267,13 +79355,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1759976083488__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760506998223__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1759976083488__";
+      svgDom.id = "__svg__icons__dom__1760506998223__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

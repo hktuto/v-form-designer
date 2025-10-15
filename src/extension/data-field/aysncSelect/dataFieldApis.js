@@ -3,6 +3,8 @@ const USER_API = '/nuxeo/identity/member'
 const CONTACT_API = '/docpal/contactGroup/list'
 const MASTER_TABLE_COLUMN_API = '/docpal/master/tables/record/page/nonPermission'
 const MASTER_TABLE_API = '/docpal/master/tables?type=all'
+const CASE_API = '/docpal/case/types?deployed=true'
+const CASE_INFO_API = '/docpal/case/types/records/list'
 export const selectApis = {
   masterTableColumn: {
     method: 'post',
@@ -18,6 +20,30 @@ export const selectApis = {
           method: 'get',
           labelKey: 'name',
           valueKey: 'name',
+        }
+      },
+      {
+        key: 'where',
+        type: 'object'
+      },
+    ],
+    valueKey: 'id',
+    labelKey: 'name',
+  },
+  caseInfo: {
+    method: 'get',
+    api: CASE_INFO_API,
+    filterKey: 'caseInfo',
+    paramSettings: [
+      {
+        key: 'caseTypeId',
+        type: 'string',
+        changeKey: 'caseInfo',
+        apiSetting: {
+          api: CASE_API,
+          method: 'get',
+          labelKey: 'name',
+          valueKey: 'id',
         }
       },
       {

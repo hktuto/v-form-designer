@@ -55,10 +55,10 @@
               :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
-                v-for="(item, index) in selectType.labelKeyList"
+                v-for="(item) in selectType.labelKeyList"
                 :key="item"
-                :label="item"
-                :value="item"
+                :label="item.label ? item.label : item"
+                :value="item.value ? item.value : item"
               />
             </el-select>
           </el-form-item>
@@ -75,10 +75,10 @@
               :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
-                v-for="(item, index) in selectType.valueKeyList"
+                v-for="(item) in selectType.valueKeyList"
                 :key="item"
-                :label="item"
-                :value="item"
+                :label="item.label ? item.label : item"
+                :value="item.value ? item.value : item"
               />
             </el-select>
           </el-form-item>
@@ -117,10 +117,10 @@
             @change="(value) => handleParamChange(value, item)"
           >
             <el-option
-              v-for="(item, index) in item.options"
+              v-for="(item) in item.options"
               :key="item"
-              :label="item.label"
-              :value="item.value"
+              :label="item.label ? item.label : item"
+              :value="item.value ? item.value : item"
             />
           </el-select>
         </template>
@@ -148,10 +148,10 @@
                 :placeholder="$t('dataField.apiField')"
               >
                 <el-option
-                  v-for="(oItem, oIndex) in selectType[`${[item.key]}KeyList`]"
+                  v-for="(oItem) in selectType[`${[item.key]}KeyList`]"
                   :key="oItem"
-                  :label="oItem"
-                  :value="oItem"
+                  :label="oItem.label ? oItem.label : oItem"
+                  :value="oItem.value ? oItem.value : oItem"
                 />
               </el-select>
             </el-col>

@@ -24,7 +24,7 @@ export default {
   },
   mounted() {},
   methods: {
-    handleDelete() { 
+    handleDelete() {
       if (!!this.form.fieldName) {
         this.$emit("setWidgetDisabled", this.form.fieldName, false);
       }
@@ -33,9 +33,9 @@ export default {
     paramDecorator(obj, value) {
       delete obj.parentWidgetName;
       delete obj.selectedWidgetName;
-      if(!value) return;
+      if (!value) return;
       console.log(value, "value");
-      const widgetName = value.replace('widgetValue_', '');
+      const widgetName = value.replace("widgetValue_", "");
       const selectedFieldItem = this.widgetList.find(
         (item) => item.name === widgetName
       );
@@ -102,7 +102,7 @@ export default {
         return [];
       }
     },
-    async GetMasterTablesDetailApi(id) {
+    async GetMasterTablesFieldsApi(id) {
       try {
         const res = await $api
           .get(`/docpal/master/tables/${id}`)
@@ -114,9 +114,22 @@ export default {
         };
       }
     },
+    async GetCaseInfoFieldsApi(caseTypeId) {
+      try {
+        const res = await $api
+          .get(`/docpal/case/types/${caseTypeId}/caseInfo`)
+          .then((res) => res.data.data);
+        return res;
+      } catch (error) {
+        return {
+          fields: [],
+        };
+      }
+    },
     async handleParamChange(value, apiSetting) {
       console.log(value, "value");
-      if(typeof value === 'string') this.paramDecorator(this.form.params, value);
+      if (typeof value === "string")
+        this.paramDecorator(this.form.params, value);
       console.log(this.form.params, "this.form.params");
       if (!apiSetting.changeKey) return;
       switch (apiSetting.changeKey) {
@@ -126,7 +139,7 @@ export default {
             (item) => item.name === value
           );
           if (!tableItem) return;
-          const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
+          const tableDetail = await this.GetMasterTablesFieldsApi(tableItem.id);
           this.selectApi.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
@@ -136,6 +149,21 @@ export default {
           this.selectApi.whereKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
+          break;
+        case "caseInfo":
+          // this.selectApi.whereKeyList = ["test1", "test2"];
+          const caseInfo = apiSetting.options.find(
+            (item) => item.name === value
+          );
+          if (!caseInfo) return;
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const list = caseInfoDetail.fields.map((item) => ({
+            label: item.name,
+            value: item.id,
+          }));
+          this.selectApi.labelKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.valueKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.whereKeyList = JSON.parse(JSON.stringify(list));
           break;
         default:
           break;
@@ -158,7 +186,7 @@ export default {
       immediate: true,
       handler(val, oldVal) {
         this.paramDecorator(this.form, val);
-        
+
         this.$nextTick(() => {
           if (!!val) {
             this.$emit("setWidgetDisabled", val, true);
@@ -253,8 +281,8 @@ export default {
             <el-option
               v-for="item in selectApi.labelKeyList"
               :key="item"
-              :label="item"
-              :value="item"
+              :label="item.label ? item.label : item"
+              :value="item.value ? item.value : item"
             />
           </el-select>
         </el-form-item>
@@ -273,8 +301,8 @@ export default {
             <el-option
               v-for="item in selectApi.valueKeyList"
               :key="item"
-              :label="item"
-              :value="item"
+              :label="item.label ? item.label : item"
+              :value="item.value ? item.value : item"
             />
           </el-select>
         </el-form-item>
@@ -285,7 +313,7 @@ export default {
     }}</el-divider>
     <div v-for="(item, index) in selectApi.paramSettings" :key="index">
       <h4 class="params-header">
-        {{ item.key }}fdd
+        {{ item.key }}
         <el-button
           size="small"
           v-if="item.type !== 'string'"
@@ -353,8 +381,8 @@ export default {
               <el-option
                 v-for="oItem in selectApi[`${[item.key]}KeyList`]"
                 :key="oItem"
-                :label="oItem"
-                :value="oItem"
+                :label="oItem.label ? oItem.label : oItem"
+                :value="oItem.value ? oItem.value : oItem"
               />
             </el-select>
           </el-col>
@@ -366,7 +394,10 @@ export default {
               filterable
               allow-create
               :placeholder="$t('dataField.apiFieldValue')"
-              @change="(value) => paramDecorator(form.params[item.key][paramIndex], value)"
+              @change="
+                (value) =>
+                  paramDecorator(form.params[item.key][paramIndex], value)
+              "
             >
               <!-- field change value -->
               <el-option label="[Change value]" value="currentValue" />
