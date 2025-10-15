@@ -30,7 +30,7 @@ export const apiList = {
     valueKeyList: ['id', 'name'],
   },
   caseInfo: {
-    method: 'get',
+    method: 'post',
     api: CASE_INFO_API,
     paramSettings: [
       {

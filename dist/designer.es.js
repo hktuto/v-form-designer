@@ -4635,7 +4635,7 @@ const selectApis = {
     labelKey: "name"
   },
   caseInfo: {
-    method: "get",
+    method: "post",
     api: CASE_INFO_API$1,
     filterKey: "caseInfo",
     paramSettings: [
@@ -4804,7 +4804,7 @@ const apiList = {
     valueKeyList: ["id", "name"]
   },
   caseInfo: {
-    method: "get",
+    method: "post",
     api: CASE_INFO_API,
     paramSettings: [
       {
@@ -79367,13 +79367,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1760511769083__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760512778347__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1760511769083__";
+      svgDom.id = "__svg__icons__dom__1760512778347__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

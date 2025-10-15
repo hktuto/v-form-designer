@@ -31,7 +31,7 @@ export const selectApis = {
     labelKey: 'name',
   },
   caseInfo: {
-    method: 'get',
+    method: 'post',
     api: CASE_INFO_API,
     filterKey: 'caseInfo',
     paramSettings: [
