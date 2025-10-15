@@ -55,7 +55,7 @@
               :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
-                v-for="(item) in selectType.labelKeyList"
+                v-for="item in selectType.labelKeyList"
                 :key="item"
                 :label="item.label ? item.label : item"
                 :value="item.value ? item.value : item"
@@ -75,7 +75,7 @@
               :placeholder="$t('render.hint.selectPlaceholder')"
             >
               <el-option
-                v-for="(item) in selectType.valueKeyList"
+                v-for="item in selectType.valueKeyList"
                 :key="item"
                 :label="item.label ? item.label : item"
                 :value="item.value ? item.value : item"
@@ -84,7 +84,10 @@
           </el-form-item>
         </el-col>
       </el-row>
-      <el-divider v-if="selectType.paramSettings && selectType.paramSettings.length > 0" content-position="left">
+      <el-divider
+        v-if="selectType.paramSettings && selectType.paramSettings.length > 0"
+        content-position="left"
+      >
         {{ $t("dataField.params") }}
       </el-divider>
       <div v-for="(item, index) in selectType.paramSettings" :key="key">
@@ -117,7 +120,7 @@
             @change="(value) => handleParamChange(value, item)"
           >
             <el-option
-              v-for="(item) in item.options"
+              v-for="item in item.options"
               :key="item"
               :label="item.label ? item.label : item"
               :value="item.value ? item.value : item"
@@ -148,7 +151,7 @@
                 :placeholder="$t('dataField.apiField')"
               >
                 <el-option
-                  v-for="(oItem) in selectType[`${[item.key]}KeyList`]"
+                  v-for="oItem in selectType[`${[item.key]}KeyList`]"
                   :key="oItem"
                   :label="oItem.label ? oItem.label : oItem"
                   :value="oItem.value ? oItem.value : oItem"
@@ -292,6 +295,21 @@ export default {
           );
           break;
 
+        case "caseInfo":
+          // this.selectApi.whereKeyList = ["test1", "test2"];
+          const caseInfo = apiSetting.options.find(
+            (item) => item.name === value
+          );
+          if (!caseInfo) return;
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const list = caseInfoDetail.fields.map((item) => ({
+            label: item.name,
+            value: item.id,
+          }));
+          this.selectApi.labelKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.valueKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.whereKeyList = JSON.parse(JSON.stringify(list));
+          break;
         default:
           break;
       }
@@ -328,6 +346,18 @@ export default {
       try {
         const res = await $api
           .get(`/docpal/master/tables/${id}`)
+          .then((res) => res.data.data);
+        return res;
+      } catch (error) {
+        return {
+          fields: [],
+        };
+      }
+    },
+    async GetCaseInfoFieldsApi(caseTypeId) {
+      try {
+        const res = await $api
+          .get(`/docpal/case/types/${caseTypeId}/caseInfo`)
           .then((res) => res.data.data);
         return res;
       } catch (error) {

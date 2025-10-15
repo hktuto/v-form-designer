@@ -65623,6 +65623,19 @@ const _sfc_main$1I = {
           this.selectType.valueKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.whereKeyList = tableDetail.fields.map((item) => item.columnName);
           break;
+        case "caseInfo":
+          const caseInfo = apiSetting.options.find((item) => item.name === value2);
+          if (!caseInfo)
+            return;
+          const caseInfoDetail = await this.GetCaseInfoFieldsApi(caseInfo.id);
+          const list = caseInfoDetail.fields.map((item) => ({
+            label: item.name,
+            value: item.id
+          }));
+          this.selectApi.labelKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.valueKeyList = JSON.parse(JSON.stringify(list));
+          this.selectApi.whereKeyList = JSON.parse(JSON.stringify(list));
+          break;
       }
     },
     handleSubmit() {
@@ -65650,6 +65663,16 @@ const _sfc_main$1I = {
     async GetMasterTablesDetailApi(id2) {
       try {
         const res = await $api.get(`/docpal/master/tables/${id2}`).then((res2) => res2.data.data);
+        return res;
+      } catch (error) {
+        return {
+          fields: []
+        };
+      }
+    },
+    async GetCaseInfoFieldsApi(caseTypeId) {
+      try {
+        const res = await $api.get(`/docpal/case/types/${caseTypeId}/caseInfo`).then((res2) => res2.data.data);
         return res;
       } catch (error) {
         return {
@@ -65949,7 +65972,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-2ca29f42"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-1f20f318"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -79355,13 +79378,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1760506998223__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760507611938__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1760506998223__";
+      svgDom.id = "__svg__icons__dom__1760507611938__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }
