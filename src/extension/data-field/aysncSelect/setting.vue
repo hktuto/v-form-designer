@@ -281,11 +281,7 @@ export default {
       if (!apiSetting.changeKey) return;
       switch (apiSetting.changeKey) {
         case "masterTable":
-          // this.selectType.whereKeyList = ["test1", "test2"];
-          const tableItem = apiSetting.options.find(
-            (item) => item.name === value
-          );
-          const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
+          const tableDetail = await this.GetMasterTablesDetailApi(value);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
@@ -300,13 +296,13 @@ export default {
         case "caseInfo":
           const caseInfoDetail = await this.GetCaseInfoFieldsApi(value);
           console.log(caseInfoDetail, "caseInfoDetail");
-          const list = caseInfoDetail.fields.map((item) => ({
+          const list = caseInfoDetail.map((item) => ({
             label: item.name,
             value: item.id,
           }));
-          this.selectApi.labelKeyList = JSON.parse(JSON.stringify(list));
-          this.selectApi.valueKeyList = JSON.parse(JSON.stringify(list));
-          this.selectApi.whereKeyList = JSON.parse(JSON.stringify(list));
+          this.selectType.labelKeyList = JSON.parse(JSON.stringify(list));
+          this.selectType.valueKeyList = JSON.parse(JSON.stringify(list));
+          this.selectType.whereKeyList = JSON.parse(JSON.stringify(list));
           break;
         default:
           break;
@@ -359,9 +355,7 @@ export default {
           .then((res) => res.data.data);
         return res;
       } catch (error) {
-        return {
-          fields: [],
-        };
+        return [];
       }
     },
   },

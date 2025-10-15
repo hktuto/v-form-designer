@@ -121,9 +121,7 @@ export default {
           .then((res) => res.data.data);
         return res;
       } catch (error) {
-        return {
-          fields: [],
-        };
+        return [];
       }
     },
     async handleParamChange(value, apiSetting) {
@@ -134,12 +132,7 @@ export default {
       if (!apiSetting.changeKey) return;
       switch (apiSetting.changeKey) {
         case "masterTable":
-          // this.selectApi.whereKeyList = ["test1", "test2"];
-          const tableItem = apiSetting.options.find(
-            (item) => item.name === value
-          );
-          if (!tableItem) return;
-          const tableDetail = await this.GetMasterTablesFieldsApi(tableItem.id);
+          const tableDetail = await this.GetMasterTablesFieldsApi(value);
           this.selectApi.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
@@ -152,7 +145,7 @@ export default {
           break;
         case "caseInfo":
           const caseInfoDetail = await this.GetCaseInfoFieldsApi(value);
-          const list = caseInfoDetail.fields.map((item) => ({
+          const list = caseInfoDetail.map((item) => ({
             label: item.name,
             value: item.id,
           }));
