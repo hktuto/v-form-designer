@@ -328,13 +328,6 @@ export default {
           :placeholder="$t('render.hint.selectPlaceholder')"
           @change="(value) => handleParamChange(value, item)"
         >
-          <el-option label="[Change value]" value="currentValue" />
-          <el-option
-            v-for="oItem in widgetList"
-            :key="`widgetValue_${oItem.name}`"
-            :label="`[${oItem.name} value]`"
-            :value="`widgetValue_${oItem.name}`"
-          />
           <el-option
             v-for="item in item.options"
             :key="item"
