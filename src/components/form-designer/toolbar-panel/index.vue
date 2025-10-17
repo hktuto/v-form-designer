@@ -140,7 +140,7 @@
         center
         :destroy-on-close="true"
         :append-to-body="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         width="75%"
         :fullscreen="layoutType === 'H5' || layoutType === 'Pad'"
       >
@@ -205,7 +205,7 @@
         :title="$t('designer.toolbar.importJson')"
         v-model="showImportJsonDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         :append-to-body="true"
         center
         :close-on-click-modal="false"
@@ -245,7 +245,7 @@
         :title="$t('designer.toolbar.exportJson')"
         v-model="showExportJsonDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         center
         append-to-body
         :close-on-click-modal="false"
@@ -283,7 +283,7 @@
         :title="$t('designer.toolbar.exportCode')"
         v-model="showExportCodeDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         center
         append-to-body
         width="65%"
@@ -354,7 +354,7 @@
         :title="$t('designer.hint.exportFormData')"
         v-model="showFormDataDialogFlag"
         :show-close="true"
-        class="nested-drag-dialog dialog-title-light-bg"
+        class="nested-drag-dialog dialog-title-light-bg big"
         center
         :close-on-click-modal="false"
         :close-on-press-escape="false"
@@ -400,7 +400,7 @@
         append-to-body
         v-if="showExportSFCDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         center
         width="65%"
         :close-on-click-modal="false"

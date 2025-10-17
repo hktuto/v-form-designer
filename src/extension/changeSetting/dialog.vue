@@ -87,6 +87,7 @@ export default {
     v-model="dialogVisible"
     :title="$t('designer.setting.onChangeSetting')"
     :before-close="handleClose"
+    class="big"
   >
     <el-form
       ref="formRef"

@@ -6,6 +6,7 @@
     <el-dialog
       v-if="dialogVisible"
       v-model="dialogVisible"
+      class="big"
       :title="$t('designer.setting.dynamicConfig')"
       :before-close="handleClose"
     >

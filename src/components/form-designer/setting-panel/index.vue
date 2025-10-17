@@ -160,7 +160,7 @@
         "
         v-model="showWidgetEventDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         append-to-body
         :close-on-click-modal="false"
         :close-on-press-escape="false"

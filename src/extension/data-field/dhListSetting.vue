@@ -4,6 +4,7 @@
     v-model="dialogVisible"
     :title="$t('dataField.setting')"
     :before-close="handleClose"
+    class="big"
   >
     <el-button size="small" type="info" icon="el-icon-plus" circle @click="handleAdd" />
 

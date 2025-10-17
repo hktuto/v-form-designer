@@ -200,7 +200,7 @@
         :title="$t('designer.setting.editFormEventHandler')"
         v-model="showFormEventDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         append-to-body
         :close-on-click-modal="false"
         :close-on-press-escape="false"
@@ -240,7 +240,7 @@
         :title="$t('designer.setting.formCss')"
         v-model="showEditFormCssDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         append-to-body
         :close-on-click-modal="false"
         :close-on-press-escape="false"
@@ -273,7 +273,7 @@
         :title="$t('designer.setting.globalFunctions')"
         v-model="showEditFunctionsDialogFlag"
         :show-close="true"
-        class="drag-dialog small-padding-dialog"
+        class="drag-dialog small-padding-dialog big"
         append-to-body
         :close-on-click-modal="false"
         :close-on-press-escape="false"

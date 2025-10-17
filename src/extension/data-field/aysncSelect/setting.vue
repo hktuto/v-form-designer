@@ -4,6 +4,7 @@
     v-model="dialogVisible"
     :title="$t('dataField.setting')"
     :before-close="handleClose"
+    class="big"
   >
     <el-form
       ref="formRef"

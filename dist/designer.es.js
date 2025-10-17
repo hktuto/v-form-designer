@@ -7132,7 +7132,8 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showExternalDialog,
         "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.showExternalDialog = $event),
         title: _ctx.$t("render.hint.fromDocpal"),
-        "append-to-body": ""
+        "append-to-body": "",
+        class: "big"
       }, {
         default: withCtx(() => [
           renderSlot(_ctx.$slots, "uploadFromDocpal", {
@@ -7145,7 +7146,7 @@ function _sfc_render$3w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 3
   }, 8, ["designer", "field", "rules", "design-state", "parent-widget", "parent-list", "index-of-parent-list", "sub-form-row-index", "sub-form-col-index", "sub-form-row-id"]);
 }
-var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-0ceee95d"]]);
+var fileUploadWidget = /* @__PURE__ */ _export_sfc$2(_sfc_main$3w, [["render", _sfc_render$3w], ["__scopeId", "data-v-7bbc5789"]]);
 var __glob_0_7$1 = /* @__PURE__ */ Object.freeze(/* @__PURE__ */ Object.defineProperty({
   __proto__: null,
   "default": fileUploadWidget
@@ -60022,7 +60023,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         center: "",
         "destroy-on-close": true,
         "append-to-body": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         width: "75%",
         fullscreen: $options.layoutType === "H5" || $options.layoutType === "Pad"
       }, {
@@ -60111,7 +60112,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showImportJsonDialogFlag,
         "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.showImportJsonDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         "append-to-body": true,
         center: "",
         "close-on-click-modal": false,
@@ -60164,7 +60165,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showExportJsonDialogFlag,
         "onUpdate:modelValue": _cache[11] || (_cache[11] = ($event) => $data.showExportJsonDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         center: "",
         "append-to-body": "",
         "close-on-click-modal": false,
@@ -60219,7 +60220,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showExportCodeDialogFlag,
         "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.showExportCodeDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         center: "",
         "append-to-body": "",
         width: "65%",
@@ -60326,7 +60327,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showFormDataDialogFlag,
         "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => $data.showFormDataDialogFlag = $event),
         "show-close": true,
-        class: "nested-drag-dialog dialog-title-light-bg",
+        class: "nested-drag-dialog dialog-title-light-bg big",
         center: "",
         "close-on-click-modal": false,
         "close-on-press-escape": false,
@@ -60385,7 +60386,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
         "onUpdate:modelValue": _cache[24] || (_cache[24] = ($event) => $data.showExportSFCDialogFlag = $event),
         "append-to-body": "",
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         center: "",
         width: "65%",
         "close-on-click-modal": false,
@@ -60487,7 +60488,7 @@ function _sfc_render$36(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-1cc864f1"]]);
+var ToolbarPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$36, [["render", _sfc_render$36], ["__scopeId", "data-v-b8cfc81e"]]);
 const _sfc_main$35 = {
   name: "allowCreate-editor",
   mixins: [i18n$1],
@@ -61121,6 +61122,7 @@ function _sfc_render$2S(_ctx, _cache, $props, $setup, $data, $options) {
       key: 0,
       modelValue: $data.dialogVisible,
       "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.dialogVisible = $event),
+      class: "big",
       title: _ctx.$t("designer.setting.dynamicConfig"),
       "before-close": _ctx.handleClose
     }, {
@@ -62409,7 +62411,7 @@ function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showImportDialogFlag,
         "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.showImportDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         "append-to-body": "",
         "close-on-click-modal": false,
         "close-on-press-escape": false,
@@ -62506,7 +62508,7 @@ function _sfc_render$2u(_ctx, _cache, $props, $setup, $data, $options) {
     ]) : createCommentVNode("", true)
   ]);
 }
-var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2u, [["render", _sfc_render$2u], ["__scopeId", "data-v-3a3653f2"]]);
+var OptionItemsSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$2u, [["render", _sfc_render$2u], ["__scopeId", "data-v-7f976f27"]]);
 const _sfc_main$2t = {
   name: "optionItems-editor",
   mixins: [i18n$1],
@@ -65293,7 +65295,8 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     modelValue: $data.dialogVisible,
     "onUpdate:modelValue": _cache[2] || (_cache[2] = ($event) => $data.dialogVisible = $event),
     title: _ctx.$t("designer.setting.onChangeSetting"),
-    "before-close": _ctx.handleClose
+    "before-close": _ctx.handleClose,
+    class: "big"
   }, {
     footer: withCtx(() => [
       createElementVNode("div", _hoisted_1$v, [
@@ -65361,7 +65364,7 @@ function _sfc_render$1M(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var ChangeSettingDialog = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-d8951fd2"]]);
+var ChangeSettingDialog = /* @__PURE__ */ _export_sfc$2(_sfc_main$1M, [["render", _sfc_render$1M], ["__scopeId", "data-v-a2779dfe"]]);
 var onChangeSettingEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1L = {
   name: "onChangeSetting-editor",
@@ -65686,7 +65689,8 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     modelValue: $data.dialogVisible,
     "onUpdate:modelValue": _cache[5] || (_cache[5] = ($event) => $data.dialogVisible = $event),
     title: _ctx.$t("dataField.setting"),
-    "before-close": _ctx.handleClose
+    "before-close": _ctx.handleClose,
+    class: "big"
   }, {
     footer: withCtx(() => [
       createElementVNode("div", _hoisted_2$h, [
@@ -65956,7 +65960,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-50a45e71"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-72164caf"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -66034,7 +66038,8 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     modelValue: $data.dialogVisible,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.dialogVisible = $event),
     title: _ctx.$t("dataField.setting"),
-    "before-close": _ctx.handleClose
+    "before-close": _ctx.handleClose,
+    class: "big"
   }, {
     footer: withCtx(() => [
       createElementVNode("div", _hoisted_1$s, [
@@ -66143,7 +66148,7 @@ function _sfc_render$1H(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var UgSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H], ["__scopeId", "data-v-ef64b208"]]);
+var UgSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1H, [["render", _sfc_render$1H], ["__scopeId", "data-v-4b631a48"]]);
 var onCreatedSettingEditor_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1G = {
   name: "onCreatedSetting-editor",
@@ -69271,7 +69276,8 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     modelValue: $data.dialogVisible,
     "onUpdate:modelValue": _cache[1] || (_cache[1] = ($event) => $data.dialogVisible = $event),
     title: _ctx.$t("dataField.setting"),
-    "before-close": _ctx.handleClose
+    "before-close": _ctx.handleClose,
+    class: "big"
   }, {
     footer: withCtx(() => [
       createElementVNode("div", _hoisted_1$m, [
@@ -69493,7 +69499,7 @@ function _sfc_render$w(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-6c2cd0be"]]);
+var DhListSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$w, [["render", _sfc_render$w], ["__scopeId", "data-v-58c79bbd"]]);
 var formSetting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$v = {
   name: "form-setting",
@@ -70032,7 +70038,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showFormEventDialogFlag,
         "onUpdate:modelValue": _cache[16] || (_cache[16] = ($event) => $data.showFormEventDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         "append-to-body": "",
         "close-on-click-modal": false,
         "close-on-press-escape": false,
@@ -70089,7 +70095,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showEditFormCssDialogFlag,
         "onUpdate:modelValue": _cache[19] || (_cache[19] = ($event) => $data.showEditFormCssDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         "append-to-body": "",
         "close-on-click-modal": false,
         "close-on-press-escape": false,
@@ -70135,7 +70141,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
         modelValue: $data.showEditFunctionsDialogFlag,
         "onUpdate:modelValue": _cache[22] || (_cache[22] = ($event) => $data.showEditFunctionsDialogFlag = $event),
         "show-close": true,
-        class: "drag-dialog small-padding-dialog",
+        class: "drag-dialog small-padding-dialog big",
         "append-to-body": "",
         "close-on-click-modal": false,
         "close-on-press-escape": false,
@@ -70179,7 +70185,7 @@ function _sfc_render$v(_ctx, _cache, $props, $setup, $data, $options) {
     createVNode(_component_DhListSetting, { ref: "DhListSettingRef" }, null, 512)
   ]);
 }
-var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-fdc16894"]]);
+var FormSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$v, [["render", _sfc_render$v], ["__scopeId", "data-v-1bbf0dd4"]]);
 const COMMON_PROPERTIES$1 = {
   "name": "name-editor",
   "label": "label-editor",
@@ -70719,7 +70725,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
           modelValue: $data.showWidgetEventDialogFlag,
           "onUpdate:modelValue": _cache[8] || (_cache[8] = ($event) => $data.showWidgetEventDialogFlag = $event),
           "show-close": true,
-          class: "drag-dialog small-padding-dialog",
+          class: "drag-dialog small-padding-dialog big",
           "append-to-body": "",
           "close-on-click-modal": false,
           "close-on-press-escape": false,
@@ -70789,7 +70795,7 @@ function _sfc_render$u(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue"]);
 }
-var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-7b53510b"]]);
+var SettingPanel = /* @__PURE__ */ _export_sfc$2(_sfc_main$u, [["render", _sfc_render$u], ["__scopeId", "data-v-2d492d2b"]]);
 var containerMixin = {
   inject: ["getFormConfig", "getGlobalDsv"],
   computed: {
@@ -79362,13 +79368,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1760663036400__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760683073046__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1760663036400__";
+      svgDom.id = "__svg__icons__dom__1760683073046__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

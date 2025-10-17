@@ -105,6 +105,7 @@
       v-model="showExternalDialog"
       :title="$t('render.hint.fromDocpal')"
       append-to-body
+      class="big"
     >
       <slot name="uploadFromDocpal" v-bind:options="field.options"></slot>
       <!-- <template #footer>
