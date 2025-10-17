@@ -64860,7 +64860,10 @@ const _sfc_main$1N = {
         return;
       switch (apiSetting.changeKey) {
         case "masterTable":
-          const tableDetail = await this.GetMasterTablesFieldsApi(value2);
+          const tableItem2 = apiSetting.options.find((item) => item.name === value2);
+          if (!tableItem2)
+            return;
+          const tableDetail = await this.GetMasterTablesFieldsApi(tableItem2.id);
           this.selectApi.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectApi.valueKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectApi.whereKeyList = tableDetail.fields.map((item) => item.columnName);
@@ -65209,7 +65212,7 @@ function _sfc_render$1N(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   });
 }
-var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-26b63fd7"]]);
+var ChangeSettingForm = /* @__PURE__ */ _export_sfc$2(_sfc_main$1N, [["render", _sfc_render$1N], ["__scopeId", "data-v-2cf89262"]]);
 var dialog_vue_vue_type_style_index_0_scoped_true_lang = "";
 const initApi = {
   fieldName: "",
@@ -65600,7 +65603,10 @@ const _sfc_main$1I = {
         return;
       switch (apiSetting.changeKey) {
         case "masterTable":
-          const tableDetail = await this.GetMasterTablesDetailApi(value2);
+          const tableItem2 = apiSetting.options.find((item) => item.name === value2);
+          if (!tableItem2)
+            return;
+          const tableDetail = await this.GetMasterTablesDetailApi(tableItem2.id);
           this.selectType.labelKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.valueKeyList = tableDetail.fields.map((item) => item.columnName);
           this.selectType.whereKeyList = tableDetail.fields.map((item) => item.columnName);
@@ -65950,7 +65956,7 @@ function _sfc_render$1I(_ctx, _cache, $props, $setup, $data, $options) {
     _: 1
   }, 8, ["modelValue", "title", "before-close"])) : createCommentVNode("", true);
 }
-var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-fe2d6abe"]]);
+var AsyncSelectSetting = /* @__PURE__ */ _export_sfc$2(_sfc_main$1I, [["render", _sfc_render$1I], ["__scopeId", "data-v-50a45e71"]]);
 var setting_vue_vue_type_style_index_0_scoped_true_lang = "";
 const _sfc_main$1H = {
   components: { SvgIcon },
@@ -79356,13 +79362,13 @@ function registerIcon(app) {
 if (typeof window !== "undefined") {
   let loadSvg = function() {
     var body = document.body;
-    var svgDom = document.getElementById("__svg__icons__dom__1760514135158__");
+    var svgDom = document.getElementById("__svg__icons__dom__1760663036400__");
     if (!svgDom) {
       svgDom = document.createElementNS("http://www.w3.org/2000/svg", "svg");
       svgDom.style.position = "absolute";
       svgDom.style.width = "0";
       svgDom.style.height = "0";
-      svgDom.id = "__svg__icons__dom__1760514135158__";
+      svgDom.id = "__svg__icons__dom__1760663036400__";
       svgDom.setAttribute("xmlns", "http://www.w3.org/2000/svg");
       svgDom.setAttribute("xmlns:link", "http://www.w3.org/1999/xlink");
     }

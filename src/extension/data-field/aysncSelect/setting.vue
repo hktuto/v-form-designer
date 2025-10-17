@@ -281,7 +281,12 @@ export default {
       if (!apiSetting.changeKey) return;
       switch (apiSetting.changeKey) {
         case "masterTable":
-          const tableDetail = await this.GetMasterTablesDetailApi(value);
+          // getField 使用id，nonPermission使用name
+          const tableItem = apiSetting.options.find(
+            (item) => item.name === value
+          );
+          if (!tableItem) return;
+          const tableDetail = await this.GetMasterTablesDetailApi(tableItem.id);
           this.selectType.labelKeyList = tableDetail.fields.map(
             (item) => item.columnName
           );
